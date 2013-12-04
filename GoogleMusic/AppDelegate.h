@@ -11,18 +11,17 @@
 
 #import "CustomWebView.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, CustomWebViewDelegate> {
+@interface AppDelegate : NSObject <NSApplicationDelegate, CustomWebViewDelegate>
+{
 	CFMachPortRef eventTap;
     CFRunLoopSourceRef eventPortSource;
 }
 
 @property (assign) IBOutlet NSWindow *window;
-
 @property (nonatomic, retain) IBOutlet CustomWebView *webView;
 
 - (void) playPause;
 - (void) forwardAction;
 - (void) backAction;
-- (BOOL) applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication;
 
 @end

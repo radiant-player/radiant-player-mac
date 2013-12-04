@@ -12,6 +12,13 @@
 @synthesize webView;
 @synthesize window;
 
+// Terminate on window close
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication
+{ return YES; }
+
+/**
+ * Application finished launching, we will register the event tap callback.
+ */
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	// Add an event tap to intercept the system defined media key events
@@ -42,13 +49,22 @@
     [[webView mainFrame] loadRequest:request];
 }
 
--(void)eventTapThread;
+#pragma mark - Event tap methods
+
+/**
+ * eventTapThread is the selector that adds the callback thread into the loop.
+ */
+- (void)eventTapThread;
 {
     CFRunLoopRef tapThreadRL = CFRunLoopGetCurrent();
     CFRunLoopAddSource( tapThreadRL, eventPortSource, kCFRunLoopCommonModes );
     CFRunLoopRun();
 }
 
+/**
+ * event_tap_callback is the event callback that recognizes the keys we want
+ *   and launches the assigned commands.
+ */
 static CGEventRef event_tap_callback(CGEventTapProxy proxy,
                                      CGEventType type,
                                      CGEventRef event,
@@ -77,21 +93,21 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     
     switch( keyCode )
     {
-		case NX_KEYTYPE_PLAY:
+		case NX_KEYTYPE_PLAY:   // F8
 			if( keyState == 0 ) {
                     [self performSelectorOnMainThread:@selector(playPause)
                                        withObject:nil waitUntilDone:NO];
             }
             return NULL;
             
-		case NX_KEYTYPE_FAST:
+		case NX_KEYTYPE_FAST:   // F9
 			if( keyState == 0 ) {
                     [self performSelectorOnMainThread:@selector(forwardAction)
                                            withObject:nil waitUntilDone:NO];
             }
             return NULL;
             
-		case NX_KEYTYPE_REWIND:
+		case NX_KEYTYPE_REWIND:   // F7
 			if( keyState == 0 ) {
                     [self performSelectorOnMainThread:@selector(backAction)
                                            withObject:nil waitUntilDone:NO];
@@ -101,26 +117,36 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     return event;
 }
 
-- (void) playPause {
+#pragma mark - Play Actions
+
+/**
+ * playPause toggles the playing status for the app
+ */
+- (void)playPause
+{
     CGEventRef keyDownEvent = CGEventCreateKeyboardEvent(nil, (CGKeyCode)49, true);
     [window sendEvent:[NSEvent eventWithCGEvent:keyDownEvent]];
     CFRelease(keyDownEvent);
 }
 
-- (void) forwardAction {
+/**
+ * forwardAction skips track forward
+ */
+- (void)forwardAction
+{
     CGEventRef keyDownEvent = CGEventCreateKeyboardEvent(nil, (CGKeyCode)124, true);
     [window sendEvent:[NSEvent eventWithCGEvent:keyDownEvent]];
     CFRelease(keyDownEvent);
 }
 
-- (void) backAction {
+/**
+ * backAction skips track backwards
+ */
+- (void)backAction
+{
     CGEventRef keyDownEvent = CGEventCreateKeyboardEvent(nil, (CGKeyCode)123, true);
     [window sendEvent:[NSEvent eventWithCGEvent:keyDownEvent]];
     CFRelease(keyDownEvent);
-}
-
-- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
-    return YES;
 }
 
 @end
