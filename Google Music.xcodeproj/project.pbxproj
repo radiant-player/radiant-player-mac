@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A67E2211853AD2B00EA5F38 /* PepperFlashPlayer.plugin in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1A67E21D1853AD2300EA5F38 /* PepperFlashPlayer.plugin */; };
 		1A68DAD81803B588004CBA25 /* CustomWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A68DAD71803B588004CBA25 /* CustomWebView.m */; };
 		1A7B684017453E40001E509E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7B683F17453E40001E509E /* Cocoa.framework */; };
 		1A7B684A17453E40001E509E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A7B684817453E40001E509E /* InfoPlist.strings */; };
@@ -18,7 +19,21 @@
 		1A7B68811745ABBD001E509E /* Google MusicIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1A7B68801745ABBD001E509E /* Google MusicIcon.icns */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1A67E21B1853ACF500EA5F38 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1A67E2211853AD2B00EA5F38 /* PepperFlashPlayer.plugin in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1A67E21D1853AD2300EA5F38 /* PepperFlashPlayer.plugin */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = PepperFlashPlayer.plugin; path = GoogleMusic/PepperFlashPlayer.plugin; sourceTree = "<group>"; };
 		1A68DAD61803B588004CBA25 /* CustomWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomWebView.h; sourceTree = "<group>"; };
 		1A68DAD71803B588004CBA25 /* CustomWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomWebView.m; sourceTree = "<group>"; };
 		1A7B683C17453E40001E509E /* Google Music.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Google Music.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -34,7 +49,6 @@
 		1A7B685117453E40001E509E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1A7B685217453E40001E509E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1A7B685517453E40001E509E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		1A7B685D17453E40001E509E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		1A7B687317453E4C001E509E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		1A7B68801745ABBD001E509E /* Google MusicIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "Google MusicIcon.icns"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -56,7 +70,6 @@
 			isa = PBXGroup;
 			children = (
 				1A7B68801745ABBD001E509E /* Google MusicIcon.icns */,
-				1A7B687317453E4C001E509E /* WebKit.framework */,
 				1A7B684517453E40001E509E /* GoogleMusic */,
 				1A7B683E17453E40001E509E /* Frameworks */,
 				1A7B683D17453E40001E509E /* Products */,
@@ -74,8 +87,9 @@
 		1A7B683E17453E40001E509E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1A67E21D1853AD2300EA5F38 /* PepperFlashPlayer.plugin */,
+				1A7B687317453E4C001E509E /* WebKit.framework */,
 				1A7B683F17453E40001E509E /* Cocoa.framework */,
-				1A7B685D17453E40001E509E /* SenTestingKit.framework */,
 				1A7B684117453E40001E509E /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -126,6 +140,7 @@
 				1A7B683817453E40001E509E /* Sources */,
 				1A7B683917453E40001E509E /* Frameworks */,
 				1A7B683A17453E40001E509E /* Resources */,
+				1A67E21B1853ACF500EA5F38 /* CopyFiles */,
 			);
 			buildRules = (
 			);
