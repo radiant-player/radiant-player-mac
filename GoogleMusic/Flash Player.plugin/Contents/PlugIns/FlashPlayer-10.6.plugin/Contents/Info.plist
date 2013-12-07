@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BuildMachineOSBuild</key>
+	<string>10K549</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en_US</string>
+	<key>CFBundleExecutable</key>
+	<string>FlashPlayer-10.6</string>
+	<key>CFBundleGetInfoString</key>
+	<string>Adobe Flash Player   11.9 r900 Copyright (c) 1996 Adobe Systems Incorporated. All rights reserved</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.macromedia.FlashPlayer-10.6.plugin</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>FlashPlayer-10.6</string>
+	<key>CFBundlePackageType</key>
+	<string>BRPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>11.9.900.152</string>
+	<key>CFBundleSignature</key>
+	<string>MOSS</string>
+	<key>CFBundleVersion</key>
+	<string>11.9.900.152</string>
+	<key>DTCompiler</key>
+	<string>4.2</string>
+	<key>DTPlatformBuild</key>
+	<string>10M2518</string>
+	<key>DTPlatformVersion</key>
+	<string>PG</string>
+	<key>DTSDKBuild</key>
+	<string>10M2518</string>
+	<key>DTSDKName</key>
+	<string>macosx10.6</string>
+	<key>DTXcode</key>
+	<string>0400</string>
+	<key>DTXcodeBuild</key>
+	<string>10M2518</string>
+	<key>LSHasLocalizedDisplayName</key>
+	<false/>
+	<key>WebPluginDescription</key>
+	<string>Shockwave Flash 11.9 r900</string>
+	<key>WebPluginMIMETypes</key>
+	<dict>
+		<key>application/futuresplash</key>
+		<dict>
+			<key>WebPluginExtensions</key>
+			<array>
+				<string>spl</string>
+			</array>
+			<key>WebPluginTypeDescription</key>
+			<string>FutureSplash Player</string>
+		</dict>
+		<key>application/x-shockwave-flash</key>
+		<dict>
+			<key>WebPluginExtensions</key>
+			<array>
+				<string>swf</string>
+			</array>
+			<key>WebPluginTypeDescription</key>
+			<string>Shockwave Flash</string>
+		</dict>
+	</dict>
+	<key>WebPluginName</key>
+	<string>Shockwave Flash</string>
+</dict>
+</plist>

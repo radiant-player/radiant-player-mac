@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A67E2211853AD2B00EA5F38 /* PepperFlashPlayer.plugin in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1A67E21D1853AD2300EA5F38 /* PepperFlashPlayer.plugin */; };
+		1A519DE81853B1A00069FF17 /* Flash Player.plugin in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1A519DE61853B1990069FF17 /* Flash Player.plugin */; };
 		1A68DAD81803B588004CBA25 /* CustomWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A68DAD71803B588004CBA25 /* CustomWebView.m */; };
 		1A7B684017453E40001E509E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7B683F17453E40001E509E /* Cocoa.framework */; };
 		1A7B684A17453E40001E509E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A7B684817453E40001E509E /* InfoPlist.strings */; };
@@ -26,14 +26,14 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				1A67E2211853AD2B00EA5F38 /* PepperFlashPlayer.plugin in CopyFiles */,
+				1A519DE81853B1A00069FF17 /* Flash Player.plugin in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1A67E21D1853AD2300EA5F38 /* PepperFlashPlayer.plugin */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = PepperFlashPlayer.plugin; path = GoogleMusic/PepperFlashPlayer.plugin; sourceTree = "<group>"; };
+		1A519DE61853B1990069FF17 /* Flash Player.plugin */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Flash Player.plugin"; path = "GoogleMusic/Flash Player.plugin"; sourceTree = "<group>"; };
 		1A68DAD61803B588004CBA25 /* CustomWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomWebView.h; sourceTree = "<group>"; };
 		1A68DAD71803B588004CBA25 /* CustomWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomWebView.m; sourceTree = "<group>"; };
 		1A7B683C17453E40001E509E /* Google Music.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Google Music.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,7 +87,7 @@
 		1A7B683E17453E40001E509E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1A67E21D1853AD2300EA5F38 /* PepperFlashPlayer.plugin */,
+				1A519DE61853B1990069FF17 /* Flash Player.plugin */,
 				1A7B687317453E4C001E509E /* WebKit.framework */,
 				1A7B683F17453E40001E509E /* Cocoa.framework */,
 				1A7B684117453E40001E509E /* Other Frameworks */,
