@@ -3,6 +3,7 @@
 //  GoogleMusic
 //
 //  Created by James Fator on 5/16/13.
+//  Modified by Sajid Anwar, 2014.
 //
 
 #import "AppDelegate.h"
@@ -46,10 +47,12 @@
     
     // Load the main page
     [webView setAppDelegate:self];
-    [[webView preferences] setPlugInsEnabled:YES];
     NSURL *url = [NSURL URLWithString:@"https://play.google.com/music"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [[webView mainFrame] loadRequest:request];    
+    [[webView mainFrame] loadRequest:request];
+    
+    WebPreferences *preferences = [webView preferences];
+    [preferences setPlugInsEnabled:YES];
 }
 
 #pragma mark - Event tap methods
@@ -161,36 +164,34 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     [[sender windowScriptObject] setValue:self forKey:@"googleMusicApp"];
 }
 
-- (void)notifySong:(NSString *)title withArtist:(NSString *)artist andAlbum:(NSString *)album
+- (void)notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art
 {
-    NSLog(artist);
-    
     NSUserNotification *notif = [[NSUserNotification alloc] init];
     notif.title = title;
     notif.informativeText = [NSString stringWithFormat:@"%@ — %@", artist, album];
+    
+    // Try to load the album art if possible.
+    if (art) {
+        NSURL *url = [NSURL URLWithString:art];
+        NSImage *image = [[NSImage alloc] initWithContentsOfURL:url];
+        
+        notif.contentImage = image;
+    }
     
     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notif];
 }
 
 + (NSString *) webScriptNameForSelector:(SEL)sel
 {
-    if (sel == @selector(notifySong:withArtist:andAlbum:))
-        return @"notifySongWithArtistAndAlbum";
+    if (sel == @selector(notifySong:withArtist:album:art:))
+        return @"notifySong";
     
     return nil;
 }
 
 + (BOOL) isSelectorExcludedFromWebScript:(SEL)sel
 {
-    if (sel == @selector(notifySong:withArtist:andAlbum:))
-        return NO;
-    
-    return YES;
-}
-
-+ (BOOL) isKeyExcludedFromWebScript:(const char *)property
-{
-    if (strcmp(property, "notifySong:withArtist:andAlbum:"))
+    if (sel == @selector(notifySong:withArtist:album:art:))
         return NO;
     
     return YES;

@@ -3,6 +3,7 @@
 //  GoogleMusic
 //
 //  Created by James Fator on 5/16/13.
+//  Modified by Sajid Anwar, 2014.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -24,10 +25,9 @@
 - (void) forwardAction;
 - (void) backAction;
 
-- (void) notifySong:(NSString *)title withArtist:(NSString *)artist andAlbum:(NSString *)album;
+- (void) notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art;
 
 + (NSString *) webScriptNameForSelector:(SEL)sel;
 + (BOOL) isSelectorExcludedFromWebScript:(SEL)sel;
-+ (BOOL) isKeyExcludedFromWebScript:(const char *)property;
 
 @end
