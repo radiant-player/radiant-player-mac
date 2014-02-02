@@ -160,10 +160,8 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"main" ofType:@"js"];
-    NSString *js = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
-    
-    [sender stringByEvaluatingJavaScriptFromString:js];
+    [self evaluateJavaScriptFile:@"main"];
+    [self evaluateJavaScriptFile:@"keyboard"];
     [[sender windowScriptObject] setValue:self forKey:@"googleMusicApp"];
 }
 
@@ -183,6 +181,16 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     
     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notif];
 }
+    
+#pragma mark - Web
+    
+- (void) evaluateJavaScriptFile:(NSString *)name
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"js"];
+    NSString *js = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
+    
+    [webView stringByEvaluatingJavaScriptFromString:js];
+}
 
 + (NSString *) webScriptNameForSelector:(SEL)sel
 {
@@ -199,8 +207,6 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     
     return YES;
 }
-
-#pragma mark - Web UI
 
 - (void)webView:(WebView *)sender runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WebFrame *)frame {
     NSLog(@"%@", message);

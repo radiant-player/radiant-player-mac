@@ -8,8 +8,52 @@
  */
 
 // This check ensures that, even though this script is run multiple times, our code is only attached once.
-if (typeof window.macosx === 'undefined') {
-    window.macosx = true;
+if (typeof window.MusicAPI === 'undefined') {
+    window.MusicAPI = {};
+
+    /* Create a volume API. */
+    window.MusicAPI.Volume = {
+
+        // A reference to the volume slider element.
+        slider: document.querySelector('#vslider'),
+
+        // Get the current volume level.
+        getVolume: function() {
+            return parseInt(window.MusicAPI.Volume.slider.getAttribute('aria-valuenow'));
+        },
+
+        // Set the volume level (0 - 100).
+        setVolume: function(vol) {
+            var current = window.MusicAPI.Volume.getVolume();
+
+            if (vol > current) {
+                window.MusicAPI.Volume.increaseVolume(vol - current);
+            }
+            else if (vol < current) {
+                window.MusicAPI.Volume.decreaseVolume(current - vol);
+            }
+        },
+
+        // Increase the volume by an amount (default of 1).
+        increaseVolume: function(amount) {
+            if (typeof amount === 'undefined') 
+                amount = 1;
+
+            for (var i = 0; i < amount; i++) {
+                window.Keyboard.sendKey(window.MusicAPI.Volume.slider, window.Keyboard.KEY_UP);
+            }
+        },
+
+        // Decrease the volume by an amount (default of 1).
+        decreaseVolume: function(amount) {
+            if (typeof amount === 'undefined') 
+                amount = 1;
+
+            for (var i = 0; i < amount; i++) {
+                window.Keyboard.sendKey(window.MusicAPI.Volume.slider, window.Keyboard.KEY_DOWN);
+            }
+        }
+    };
 
     var lastTitle = "";
     var lastArtist = "";
