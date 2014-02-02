@@ -26,11 +26,11 @@
 {
 	// Add an event tap to intercept the system defined media key events
     eventTap = CGEventTapCreate(kCGSessionEventTap,
-                                  kCGHeadInsertEventTap,
-                                  kCGEventTapOptionDefault,
-                                  CGEventMaskBit(NX_SYSDEFINED),
-                                  event_tap_callback,
-                                  (__bridge void *)(self));
+                                kCGHeadInsertEventTap,
+                                kCGEventTapOptionDefault,
+                                CGEventMaskBit(NX_SYSDEFINED),
+                                event_tap_callback,
+                                (__bridge void *)(self));
 	if (!eventTap) {
 		fprintf(stderr, "failed to create event tap\n");
 		exit(1);
@@ -45,8 +45,9 @@
     // Let's do this in a separate thread so that a slow app doesn't lag the event tap
     [NSThread detachNewThreadSelector:@selector(eventTapThread) toTarget:self withObject:nil];
     
-    // Load the main page
     [webView setAppDelegate:self];
+    
+    // Load the main page
     NSURL *url = [NSURL URLWithString:@"https://play.google.com/music"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [[webView mainFrame] loadRequest:request];
@@ -101,22 +102,24 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     {
 		case NX_KEYTYPE_PLAY:   // F8
 			if( keyState == 0 ) {
-                    [self performSelectorOnMainThread:@selector(playPause)
+                [self performSelectorOnMainThread:@selector(playPause)
                                        withObject:nil waitUntilDone:NO];
             }
             return NULL;
             
 		case NX_KEYTYPE_FAST:   // F9
+        case NX_KEYTYPE_NEXT:
 			if( keyState == 0 ) {
-                    [self performSelectorOnMainThread:@selector(forwardAction)
-                                           withObject:nil waitUntilDone:NO];
+                [self performSelectorOnMainThread:@selector(forwardAction)
+                                       withObject:nil waitUntilDone:NO];
             }
             return NULL;
             
 		case NX_KEYTYPE_REWIND:   // F7
+        case NX_KEYTYPE_PREVIOUS:
 			if( keyState == 0 ) {
-                    [self performSelectorOnMainThread:@selector(backAction)
-                                           withObject:nil waitUntilDone:NO];
+                [self performSelectorOnMainThread:@selector(backAction)
+                                       withObject:nil waitUntilDone:NO];
             }
             return NULL;
     }
