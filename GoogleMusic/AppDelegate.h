@@ -11,7 +11,7 @@
 
 #import "CustomWebView.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, CustomWebViewDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate, CustomWebViewDelegate, NSUserNotificationCenterDelegate>
 {
 	CFMachPortRef eventTap;
     CFRunLoopSourceRef eventPortSource;
@@ -23,5 +23,11 @@
 - (void) playPause;
 - (void) forwardAction;
 - (void) backAction;
+
+- (void) notifySong:(NSString *)title withArtist:(NSString *)artist andAlbum:(NSString *)album;
+
++ (NSString *) webScriptNameForSelector:(SEL)sel;
++ (BOOL) isSelectorExcludedFromWebScript:(SEL)sel;
++ (BOOL) isKeyExcludedFromWebScript:(const char *)property;
 
 @end

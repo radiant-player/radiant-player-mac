@@ -17,6 +17,8 @@
 		1A7B685617453E40001E509E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A7B685417453E40001E509E /* MainMenu.xib */; };
 		1A7B687417453E4C001E509E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7B687317453E4C001E509E /* WebKit.framework */; };
 		1A7B68811745ABBD001E509E /* Google MusicIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1A7B68801745ABBD001E509E /* Google MusicIcon.icns */; };
+		D3B34834189E088E00B7B22B /* main.js in Sources */ = {isa = PBXBuildFile; fileRef = D3B34833189E088E00B7B22B /* main.js */; };
+		D3B34835189E188B00B7B22B /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = D3B34833189E088E00B7B22B /* main.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,6 +53,7 @@
 		1A7B685517453E40001E509E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		1A7B687317453E4C001E509E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		1A7B68801745ABBD001E509E /* Google MusicIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "Google MusicIcon.icns"; sourceTree = "<group>"; };
+		D3B34833189E088E00B7B22B /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +129,7 @@
 				1A7B684B17453E40001E509E /* main.m */,
 				1A7B684D17453E40001E509E /* Google Music-Prefix.pch */,
 				1A7B684E17453E40001E509E /* Credits.rtf */,
+				D3B34833189E088E00B7B22B /* main.js */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -182,6 +186,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3B34835189E188B00B7B22B /* main.js in Resources */,
 				1A7B684A17453E40001E509E /* InfoPlist.strings in Resources */,
 				1A7B685017453E40001E509E /* Credits.rtf in Resources */,
 				1A7B685617453E40001E509E /* MainMenu.xib in Resources */,
@@ -199,6 +204,7 @@
 				1A68DAD81803B588004CBA25 /* CustomWebView.m in Sources */,
 				1A7B684C17453E40001E509E /* main.m in Sources */,
 				1A7B685317453E40001E509E /* AppDelegate.m in Sources */,
+				D3B34834189E088E00B7B22B /* main.js in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

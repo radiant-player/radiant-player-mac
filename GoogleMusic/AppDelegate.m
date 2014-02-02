@@ -14,7 +14,9 @@
 
 // Terminate on window close
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication
-{ return YES; }
+{
+    return YES;
+}
 
 /**
  * Application finished launching, we will register the event tap callback.
@@ -32,6 +34,7 @@
 		fprintf(stderr, "failed to create event tap\n");
 		exit(1);
 	}
+    
 	//Create a run loop source.
 	eventPortSource = CFMachPortCreateRunLoopSource( kCFAllocatorDefault, eventTap, 0 );
     
@@ -46,7 +49,7 @@
     [[webView preferences] setPlugInsEnabled:YES];
     NSURL *url = [NSURL URLWithString:@"https://play.google.com/music"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [[webView mainFrame] loadRequest:request];
+    [[webView mainFrame] loadRequest:request];    
 }
 
 #pragma mark - Event tap methods
@@ -147,6 +150,56 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     CGEventRef keyDownEvent = CGEventCreateKeyboardEvent(nil, (CGKeyCode)123, true);
     [window sendEvent:[NSEvent eventWithCGEvent:keyDownEvent]];
     CFRelease(keyDownEvent);
+}
+
+- (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"main" ofType:@"js"];
+    NSString *js = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
+    
+    [sender stringByEvaluatingJavaScriptFromString:js];
+    [[sender windowScriptObject] setValue:self forKey:@"googleMusicApp"];
+}
+
+- (void)notifySong:(NSString *)title withArtist:(NSString *)artist andAlbum:(NSString *)album
+{
+    NSLog(artist);
+    
+    NSUserNotification *notif = [[NSUserNotification alloc] init];
+    notif.title = title;
+    notif.informativeText = [NSString stringWithFormat:@"%@ — %@", artist, album];
+    
+    [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notif];
+}
+
++ (NSString *) webScriptNameForSelector:(SEL)sel
+{
+    if (sel == @selector(notifySong:withArtist:andAlbum:))
+        return @"notifySongWithArtistAndAlbum";
+    
+    return nil;
+}
+
++ (BOOL) isSelectorExcludedFromWebScript:(SEL)sel
+{
+    if (sel == @selector(notifySong:withArtist:andAlbum:))
+        return NO;
+    
+    return YES;
+}
+
++ (BOOL) isKeyExcludedFromWebScript:(const char *)property
+{
+    if (strcmp(property, "notifySong:withArtist:andAlbum:"))
+        return NO;
+    
+    return YES;
+}
+
+#pragma mark - Web UI
+
+- (void)webView:(WebView *)sender runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WebFrame *)frame {
+    NSLog(@"%@", message);
 }
 
 @end
