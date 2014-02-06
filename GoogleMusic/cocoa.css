@@ -276,13 +276,33 @@ div.simple-dialog-bg {
 
 .simple-dialog {
     top: 60px !important;
-    background-color: rgba(240,240,240,0.96);
+    background-color: rgba(240,240,240,0.98);
     border-radius: 0 0 5px 5px;
     border-top-width: 0;
 }
 
 .simple-dialog-title, .simple-dialog-content {
     background-color: transparent;
+}
+
+.simple-dialog {
+    -webkit-animation-duration: 0.8s;
+    -webkit-animation-name: slidedown;
+    -webkit-animation-timing-function:ease-out;
+    overflow: hidden;
+    top: 60px !important;
+    border-radius: 0 0 5px 5px;
+    border-top-width: 0;
+}
+
+@-webkit-keyframes slidedown {
+   from {
+      max-height: 0%; 
+   }
+
+   to {
+      max-height: 100%;
+   }
 }
 
 .butter-bar-container {
