@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleShortVersionString</key>
-	<string>11.9.900.152</string>
+	<string>12.0.0.44</string>
 	<key>CFBundleVersion</key>
-	<string>11.9.900.152</string>
+	<string>12.0.0.44</string>
 	<key>ProjectName</key>
 	<string>FlashPlayer</string>
 </dict>

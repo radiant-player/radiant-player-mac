@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>FlashPlayer-10.6</string>
 	<key>CFBundleGetInfoString</key>
-	<string>Adobe Flash Player   11.9 r900 Copyright (c) 1996 Adobe Systems Incorporated. All rights reserved</string>
+	<string>Adobe Flash Player   12.0 r0 Copyright (c) 1996 Adobe Systems Incorporated. All rights reserved</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.macromedia.FlashPlayer-10.6.plugin</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -19,11 +19,11 @@
 	<key>CFBundlePackageType</key>
 	<string>BRPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>11.9.900.152</string>
+	<string>12.0.0.44</string>
 	<key>CFBundleSignature</key>
 	<string>MOSS</string>
 	<key>CFBundleVersion</key>
-	<string>11.9.900.152</string>
+	<string>12.0.0.44</string>
 	<key>DTCompiler</key>
 	<string>4.2</string>
 	<key>DTPlatformBuild</key>
@@ -41,7 +41,7 @@
 	<key>LSHasLocalizedDisplayName</key>
 	<false/>
 	<key>WebPluginDescription</key>
-	<string>Shockwave Flash 11.9 r900</string>
+	<string>Shockwave Flash 12.0 r0</string>
 	<key>WebPluginMIMETypes</key>
 	<dict>
 		<key>application/futuresplash</key>
