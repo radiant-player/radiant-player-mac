@@ -28,6 +28,7 @@
 - (void) notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art;
 
 - (void) evaluateJavaScriptFile:(NSString *)name;
+- (void) applyCSSFile:(NSString *)name;
 + (NSString *) webScriptNameForSelector:(SEL)sel;
 + (BOOL) isSelectorExcludedFromWebScript:(SEL)sel;
 

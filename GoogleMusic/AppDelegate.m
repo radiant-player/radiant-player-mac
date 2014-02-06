@@ -24,6 +24,11 @@
  */
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    [window setBackgroundColor:[NSColor colorWithCalibratedRed:0.88f
+                                                         green:0.88f
+                                                          blue:0.88f
+                                                         alpha:1.0f]];
+    
 	// Add an event tap to intercept the system defined media key events
     eventTap = CGEventTapCreate(kCGSessionEventTap,
                                 kCGHeadInsertEventTap,
@@ -162,6 +167,8 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 {
     [self evaluateJavaScriptFile:@"main"];
     [self evaluateJavaScriptFile:@"keyboard"];
+    [self evaluateJavaScriptFile:@"styles"];
+    [self applyCSSFile:@"cocoa"];
     [[sender windowScriptObject] setValue:self forKey:@"googleMusicApp"];
 }
 
@@ -190,6 +197,19 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     NSString *js = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
     
     [webView stringByEvaluatingJavaScriptFromString:js];
+}
+
+- (void) applyCSSFile:(NSString *)name
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"css"];
+    NSString *css = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
+    css = [css stringByReplacingOccurrencesOfString:@"\n" withString:@"\\n"];
+    css = [css stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
+    
+    NSString *bootstrap = @"Styles.applyStyle(\"%@\", \"%@\");";
+    NSString *final = [NSString stringWithFormat:bootstrap, name, css];
+    
+    [webView stringByEvaluatingJavaScriptFromString:final];
 }
 
 + (NSString *) webScriptNameForSelector:(SEL)sel
