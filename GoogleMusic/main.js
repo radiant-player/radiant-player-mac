@@ -55,6 +55,89 @@ if (typeof window.MusicAPI === 'undefined') {
         }
     };
 
+    /* Create a playback API. */
+    window.MusicAPI.Playback = {
+
+        // References to the media playback elements.
+        _eplayPause:  document.querySelector('button[data-id="play-pause"]'),
+        _eforward:    document.querySelector('button[data-id="forward"]'),
+        _erewind:     document.querySelector('button[data-id="rewind"]'),
+        _eshuffle:    document.querySelector('button[data-id="shuffle"]'),
+        _erepeat:     document.querySelector('button[data-id="repeat"]'),
+
+        // Repeat modes.
+        LIST_REPEAT:    'LIST_REPEAT',
+        SINGLE_REPEAT:  'SINGLE_REPEAT',
+        NO_REPEAT:      'NO_REPEAT',
+
+        // Shuffle modes.
+        ALL_SHUFFLE:    'ALL_SHUFFLE',
+        NO_SHUFFLE:     'NO_SHUFFLE',
+
+        // Playback functions.
+        playPause:      function() { MusicAPI.Playback._eplayPause.click(); },
+        forward:        function() { MusicAPI.Playback._eforward.click(); },
+        rewind:         function() { MusicAPI.Playback._erewind.click(); },
+
+        getShuffle:     function() { return MusicAPI.Playback._eshuffle.value; }, 
+        toggleShuffle:  function() { MusicAPI.Playback._eshuffle.click(); },
+
+        getRepeat:      function() {
+            return MusicAPI.Playback._erepeat.value;
+        },
+
+        changeRepeat:   function(mode) { 
+            if (!mode) {
+                // Toggle between repeat modes once.
+                MusicAPI.Playback._erepeat.click(); 
+            }
+            else {
+                // Toggle between repeat modes until the desired mode is activated.
+                while (MusicAPI.Playback.getRepeat() !== mode) {
+                    MusicAPI.Playback._erepeat.click();
+                }
+            }
+        },
+
+        // Taken from the Google Music page.
+        toggleVisualization: function() {
+            SJBpost('toggleVisualization');
+        }
+
+    };
+
+    /* Create a rating API. */
+    window.MusicAPI.Rating = {
+
+        // Get current rating.
+        getRating: function() {
+            var el = document.querySelector('.player-rating-container li.selected');
+
+            if (el) {
+                return el.value;
+            }
+            else {
+                return 0;
+            }
+        },
+
+        // Thumbs up.
+        toggleThumbsUp: function() {
+            var el = document.querySelector('.player-rating-container li[data-rating="5"]');
+
+            if (el)
+                el.click();
+        },
+
+        // Thumbs down.
+        toggleThumbsDown: function() {
+            var el = document.querySelector('.player-rating-container li[data-rating="1"]');
+
+            if (el)
+                el.click();
+        }
+    };
+
     var lastTitle = "";
     var lastArtist = "";
     var lastAlbum = "";

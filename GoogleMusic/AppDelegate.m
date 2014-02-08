@@ -107,7 +107,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     {
 		case NX_KEYTYPE_PLAY:   // F8
 			if( keyState == 0 ) {
-                [self performSelectorOnMainThread:@selector(playPause)
+                [self performSelectorOnMainThread:@selector(playPause:)
                                        withObject:nil waitUntilDone:NO];
             }
             return NULL;
@@ -115,7 +115,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 		case NX_KEYTYPE_FAST:   // F9
         case NX_KEYTYPE_NEXT:
 			if( keyState == 0 ) {
-                [self performSelectorOnMainThread:@selector(forwardAction)
+                [self performSelectorOnMainThread:@selector(forwardAction:)
                                        withObject:nil waitUntilDone:NO];
             }
             return NULL;
@@ -123,7 +123,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 		case NX_KEYTYPE_REWIND:   // F7
         case NX_KEYTYPE_PREVIOUS:
 			if( keyState == 0 ) {
-                [self performSelectorOnMainThread:@selector(backAction)
+                [self performSelectorOnMainThread:@selector(backAction:)
                                        withObject:nil waitUntilDone:NO];
             }
             return NULL;
@@ -136,31 +136,105 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 /**
  * playPause toggles the playing status for the app
  */
-- (void)playPause
+- (IBAction) playPause:(id)sender
 {
-    CGEventRef keyDownEvent = CGEventCreateKeyboardEvent(nil, (CGKeyCode)49, true);
-    [window sendEvent:[NSEvent eventWithCGEvent:keyDownEvent]];
-    CFRelease(keyDownEvent);
+    [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Playback.playPause()"];
 }
 
 /**
  * forwardAction skips track forward
  */
-- (void)forwardAction
+- (IBAction) forwardAction:(id)sender
 {
-    CGEventRef keyDownEvent = CGEventCreateKeyboardEvent(nil, (CGKeyCode)124, true);
-    [window sendEvent:[NSEvent eventWithCGEvent:keyDownEvent]];
-    CFRelease(keyDownEvent);
+    [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Playback.forward()"];
 }
 
 /**
  * backAction skips track backwards
  */
-- (void)backAction
+- (IBAction) backAction:(id)sender
 {
-    CGEventRef keyDownEvent = CGEventCreateKeyboardEvent(nil, (CGKeyCode)123, true);
-    [window sendEvent:[NSEvent eventWithCGEvent:keyDownEvent]];
-    CFRelease(keyDownEvent);
+    [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Playback.rewind()"];
+}
+
+/**
+ * Increases volume of Google Music by 10.
+ */
+- (IBAction) volumeUp:(id)sender
+{
+    [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Volume.increaseVolume(10)"];
+}
+
+/**
+ * Decreases volume of Google Music by 10.
+ */
+- (IBAction) volumeDown:(id)sender
+{
+    [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Volume.decreaseVolume(10)"];
+}
+
+/**
+ * Toggle the song's thumbs up rating.
+ */
+- (IBAction) toggleThumbsUp:(id)sender
+{
+    [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Rating.toggleThumbsUp()"];
+}
+
+/**
+ * Toggle the song's thumbs down rating.
+ */
+- (IBAction) toggleThumbsDown:(id)sender
+{
+    [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Rating.toggleThumbsDown()"];
+}
+
+/**
+ * Cycle between the repeat modes.
+ */
+- (IBAction) toggleRepeatMode:(id)sender
+{
+    [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Playback.changeRepeat()"];
+}
+
+/**
+ * Set to NO_REPEAT.
+ */
+- (IBAction) repeatNone:(id)sender
+{
+    [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Playback.changeRepeat(MusicAPI.Playback.NO_REPEAT)"];
+}
+
+/**
+ * Set to SINGLE_REPEAT.
+ */
+- (IBAction) repeatSingle:(id)sender
+{
+    [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Playback.changeRepeat(MusicAPI.Playback.SINGLE_REPEAT)"];
+}
+
+/**
+ * Set to LIST_REPEAT.
+ */
+- (IBAction) repeatList:(id)sender
+{
+    [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Playback.changeRepeat(MusicAPI.Playback.LIST_REPEAT)"];
+}
+
+/**
+ * Toggle the shuffle mode.
+ */
+- (IBAction) toggleShuffle:(id)sender
+{
+    [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Playback.toggleShuffle()"];
+}
+
+/**
+ * Toggle the player's visualization.
+ */
+- (IBAction) toggleVisualization:(id)sender
+{
+    [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Playback.toggleVisualization()"];
 }
 
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame

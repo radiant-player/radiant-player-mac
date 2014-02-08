@@ -21,9 +21,23 @@
 @property (assign) IBOutlet NSWindow *window;
 @property (nonatomic, retain) IBOutlet CustomWebView *webView;
 
-- (void) playPause;
-- (void) forwardAction;
-- (void) backAction;
+- (IBAction) playPause:(id)sender;
+- (IBAction) forwardAction:(id)sender;
+- (IBAction) backAction:(id)sender;
+
+- (IBAction) volumeUp:(id)sender;
+- (IBAction) volumeDown:(id)sender;
+
+- (IBAction) toggleThumbsUp:(id)sender;
+- (IBAction) toggleThumbsDown:(id)sender;
+
+- (IBAction) toggleRepeatMode:(id)sender;
+- (IBAction) repeatNone:(id)sender;
+- (IBAction) repeatSingle:(id)sender;
+- (IBAction) repeatList:(id)sender;
+
+- (IBAction) toggleShuffle:(id)sender;
+- (IBAction) toggleVisualization:(id)sender;
 
 - (void) notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art;
 

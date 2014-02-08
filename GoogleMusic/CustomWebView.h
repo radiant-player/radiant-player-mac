@@ -10,9 +10,6 @@
 
 @protocol CustomWebViewDelegate
 
-- (void)backAction;
-- (void)forwardAction;
-
 @end
 
 @interface CustomWebView : WebView
