@@ -83,8 +83,12 @@
     margin-top: 0px;
 }
 
-.song-row [data-col="rating"][data-rating] {
+.song-row [data-col="rating"][data-rating="5"] {
     background-position: -1934px -1417px;
+}
+
+.song-row [data-col="rating"][data-rating="1"], .song-row [data-col="rating"][data-rating="2"] {
+    background-position: -1412px -580px;
 }
 
 .song-row .hover-button[data-id=play] {
