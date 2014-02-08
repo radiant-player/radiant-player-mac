@@ -15,6 +15,7 @@
         <customObject id="-3" userLabel="Application"/>
         <customObject id="494" customClass="AppDelegate">
             <connections>
+                <outlet property="prefsWindow" destination="KYm-BZ-OUe" id="GdJ-qA-fD3"/>
                 <outlet property="webView" destination="536" id="554"/>
                 <outlet property="window" destination="371" id="532"/>
             </connections>
@@ -33,7 +34,11 @@
                             <menuItem isSeparatorItem="YES" id="236">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Preferences…" keyEquivalent="," id="129"/>
+                            <menuItem title="Preferences…" keyEquivalent="," id="129">
+                                <connections>
+                                    <action selector="makeKeyAndOrderFront:" target="KYm-BZ-OUe" id="hzZ-Zf-bsV"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="143">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
@@ -270,5 +275,67 @@
             </view>
         </window>
         <customObject id="420" customClass="NSFontManager"/>
+        <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="KYm-BZ-OUe">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="131" y="159" width="451" height="245"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <view key="contentView" id="A4h-wh-oJP">
+                <rect key="frame" x="0.0" y="0.0" width="451" height="245"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i6u-of-Dgg">
+                        <rect key="frame" x="18" y="214" width="415" height="25"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Display notification when song changes" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="Spf-1e-oic">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <binding destination="Vyy-aQ-Qdc" name="value" keyPath="values.displayNotification" id="GQd-8q-eWY"/>
+                        </connections>
+                    </button>
+                    <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cGh-pc-u1Z">
+                        <rect key="frame" x="18" y="194" width="415" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Include album art in notification" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="K9z-bw-QVF">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <binding destination="Vyy-aQ-Qdc" name="enabled" keyPath="values.displayNotification" id="Fj9-KM-g0I"/>
+                            <binding destination="Vyy-aQ-Qdc" name="value" keyPath="values.displayNotificationAlbumArt" id="xnB-Vz-nqE"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="cGh-pc-u1Z" secondAttribute="trailing" constant="20" id="0sT-Mf-pWt"/>
+                    <constraint firstItem="cGh-pc-u1Z" firstAttribute="top" secondItem="i6u-of-Dgg" secondAttribute="bottom" constant="6" id="6la-8d-Bxn"/>
+                    <constraint firstItem="cGh-pc-u1Z" firstAttribute="leading" secondItem="A4h-wh-oJP" secondAttribute="leading" constant="20" id="87Z-mN-IgR"/>
+                    <constraint firstItem="i6u-of-Dgg" firstAttribute="top" secondItem="A4h-wh-oJP" secondAttribute="top" constant="8" id="N8O-JY-HUy"/>
+                    <constraint firstAttribute="trailing" secondItem="i6u-of-Dgg" secondAttribute="trailing" constant="20" id="SD2-5S-xGZ"/>
+                    <constraint firstItem="i6u-of-Dgg" firstAttribute="leading" secondItem="A4h-wh-oJP" secondAttribute="leading" constant="20" id="k4c-9Q-krq"/>
+                </constraints>
+            </view>
+            <toolbar key="toolbar" implicitIdentifier="184687F5-413F-4C37-8A79-2513D262352A" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="regular" id="BNA-HH-aBT">
+                <allowedToolbarItems>
+                    <toolbarItem implicitItemIdentifier="FD7B5260-F983-4ED6-9BB1-116CB8FFE21E" label="General" paletteLabel="General" tag="-1" image="NSPreferencesGeneral" id="12u-JP-LVE"/>
+                    <toolbarItem implicitItemIdentifier="61E7E9A9-2D64-4625-9133-50F4585EADB5" label="Appearance" paletteLabel="Appearance" tag="-1" image="NSColorPanel" id="XsJ-Vp-4dB"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="I1l-xt-26x"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="GvV-10-MDg"/>
+                </allowedToolbarItems>
+                <defaultToolbarItems>
+                    <toolbarItem reference="GvV-10-MDg"/>
+                    <toolbarItem reference="12u-JP-LVE"/>
+                    <toolbarItem reference="XsJ-Vp-4dB"/>
+                    <toolbarItem reference="GvV-10-MDg"/>
+                </defaultToolbarItems>
+            </toolbar>
+        </window>
+        <userDefaultsController representsSharedInstance="YES" id="Vyy-aQ-Qdc"/>
     </objects>
+    <resources>
+        <image name="NSColorPanel" width="32" height="32"/>
+        <image name="NSPreferencesGeneral" width="32" height="32"/>
+    </resources>
 </document>

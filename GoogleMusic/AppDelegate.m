@@ -12,6 +12,7 @@
 
 @synthesize webView;
 @synthesize window;
+@synthesize defaults;
 
 // Terminate on window close
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication
@@ -28,6 +29,9 @@
                                                          green:0.88f
                                                           blue:0.88f
                                                          alpha:1.0f]];
+    
+    // Load the user preferences.
+    defaults = [[NSUserDefaultsController sharedUserDefaultsController] defaults];
     
 	// Add an event tap to intercept the system defined media key events
     eventTap = CGEventTapCreate(kCGSessionEventTap,
@@ -248,21 +252,25 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 - (void)notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art
 {
-    NSUserNotification *notif = [[NSUserNotification alloc] init];
-    notif.title = title;
-    notif.informativeText = [NSString stringWithFormat:@"%@ — %@", artist, album];
-    
-    // Try to load the album art if possible.
-    if (art) {
-        NSURL *url = [NSURL URLWithString:art];
-        NSImage *image = [[NSImage alloc] initWithContentsOfURL:url];
+    if ([defaults boolForKey:@"displayNotification"])
+    {
+        NSUserNotification *notif = [[NSUserNotification alloc] init];
+        notif.title = title;
+        notif.informativeText = [NSString stringWithFormat:@"%@ — %@", artist, album];
         
-        notif.contentImage = image;
+        // Try to load the album art if possible.
+        if ([defaults boolForKey:@"displayNotificationAlbumArt"] && art)
+         {
+            NSURL *url = [NSURL URLWithString:art];
+            NSImage *image = [[NSImage alloc] initWithContentsOfURL:url];
+            
+            notif.contentImage = image;
+        }
+        
+        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notif];
     }
-    
-    [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notif];
 }
-    
+
 #pragma mark - Web
     
 - (void) evaluateJavaScriptFile:(NSString *)name
