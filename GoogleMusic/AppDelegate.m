@@ -267,7 +267,8 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     
 - (void) evaluateJavaScriptFile:(NSString *)name
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"js"];
+    NSString *file = [NSString stringWithFormat:@"js/%@", name];
+    NSString *path = [[NSBundle mainBundle] pathForResource:file ofType:@"js"];
     NSString *js = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
     
     [webView stringByEvaluatingJavaScriptFromString:js];
@@ -275,7 +276,8 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 - (void) applyCSSFile:(NSString *)name
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"css"];
+    NSString *file = [NSString stringWithFormat:@"css/%@", name];
+    NSString *path = [[NSBundle mainBundle] pathForResource:file ofType:@"css"];
     NSString *css = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
     css = [css stringByReplacingOccurrencesOfString:@"\n" withString:@"\\n"];
     css = [css stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
