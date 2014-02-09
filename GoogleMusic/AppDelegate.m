@@ -246,8 +246,13 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     [self evaluateJavaScriptFile:@"main"];
     [self evaluateJavaScriptFile:@"keyboard"];
     [self evaluateJavaScriptFile:@"styles"];
-    [self applyCSSFile:@"cocoa"];
     [[sender windowScriptObject] setValue:self forKey:@"googleMusicApp"];
+    
+    // Apply styles only if the user prefers.
+    if ([defaults boolForKey:@"styles.enabled"])
+    {
+        [self applyCSSFile:@"cocoa"];
+    }
 }
 
 - (void)notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art
