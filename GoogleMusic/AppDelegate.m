@@ -252,14 +252,14 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 - (void)notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art
 {
-    if ([defaults boolForKey:@"displayNotification"])
+    if ([defaults boolForKey:@"notifications.enabled"])
     {
         NSUserNotification *notif = [[NSUserNotification alloc] init];
         notif.title = title;
         notif.informativeText = [NSString stringWithFormat:@"%@ — %@", artist, album];
         
         // Try to load the album art if possible.
-        if ([defaults boolForKey:@"displayNotificationAlbumArt"] && art)
+        if ([defaults boolForKey:@"notifications.showAlbumArt"] && art)
          {
             NSURL *url = [NSURL URLWithString:art];
             NSImage *image = [[NSImage alloc] initWithContentsOfURL:url];
@@ -267,6 +267,10 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
             notif.contentImage = image;
         }
         
+        // Remove the previous notifications in order to make this notification appear immediately.
+        [[NSUserNotificationCenter defaultUserNotificationCenter] removeAllDeliveredNotifications];
+        
+        // Deliver the notification.
         [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notif];
     }
 }

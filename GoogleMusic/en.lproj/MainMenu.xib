@@ -292,7 +292,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <binding destination="Vyy-aQ-Qdc" name="value" keyPath="values.displayNotification" id="GQd-8q-eWY"/>
+                            <binding destination="Vyy-aQ-Qdc" name="value" keyPath="values.notifications.enabled" id="7h8-FG-Nv0"/>
                         </connections>
                     </button>
                     <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cGh-pc-u1Z">
@@ -303,8 +303,8 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <binding destination="Vyy-aQ-Qdc" name="enabled" keyPath="values.displayNotification" id="Fj9-KM-g0I"/>
-                            <binding destination="Vyy-aQ-Qdc" name="value" keyPath="values.displayNotificationAlbumArt" id="xnB-Vz-nqE"/>
+                            <binding destination="Vyy-aQ-Qdc" name="enabled" keyPath="values.notifications.enabled" id="hFd-y0-8RE"/>
+                            <binding destination="Vyy-aQ-Qdc" name="value" keyPath="values.notifications.showAlbumArt" id="lrz-hi-WYz"/>
                         </connections>
                     </button>
                 </subviews>
