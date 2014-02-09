@@ -25,11 +25,6 @@
  */
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    [window setBackgroundColor:[NSColor colorWithCalibratedRed:0.88f
-                                                         green:0.88f
-                                                          blue:0.88f
-                                                         alpha:1.0f]];
-    
     // Load the user preferences.
     defaults = [[NSUserDefaultsController sharedUserDefaultsController] defaults];
     
@@ -251,6 +246,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     // Apply styles only if the user prefers.
     if ([defaults boolForKey:@"styles.enabled"])
     {
+        [window setBackgroundColor:[NSColor colorWithCalibratedRed:0.88f green:0.88f blue:0.88f alpha:1.0f]];
         [self applyCSSFile:@"cocoa"];
     }
 }
