@@ -110,14 +110,28 @@
 }
 
 .music-banner {
-    display: none;
+    background: #DBDFE7;
+    padding-left: 10px;
+    padding-top: 8px;
+}
+
+.music-banner:before {
+    content: "COLLECTIONS";  
+    font-size: 12px;
+    line-height: 16px;
+    overflow: hidden; font-weight: bold;
+    color: #66717F;
+    text-shadow: 0px 1px 0px #FCFAFF;
+}
+
+.music-banner div {
+    display: none;   
 }
 
 #nav {
-    top: 0;
+    top: 24px;
     background-color: #DBDFE7;
     border-right: 1px solid #999999;
-    border-top: 1px solid #CCCCCC;
     width: auto;
     margin: 0;
 }
