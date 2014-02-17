@@ -6,6 +6,10 @@
     margin: 0;
 }
 
+.g-doc {
+    height: calc(100% - 60px) !important;
+}
+
 .song-table {
     padding: 0;
 }
@@ -227,11 +231,7 @@
     opacity: 1 !important;
 }
 
-.gb_oa {
-    /*-webkit-filter: grayscale(100%) brightness(50%) invert(0%);*/
-}
-
-.gb_nb {
+#oneGoogleWrapper > div:first-child > div {
     background: linear-gradient(0deg, #b5b5b5, #d5d5d5 50%, #e5e5e5);
     border-bottom: 1px solid #606060;
     height: 59px;
@@ -257,7 +257,7 @@
 .gbqfi.gb_g {
     width: 24px;
     height: 24px;
-    background-position: -470px -210px;
+    background-position: -211px -246px;
     -webkit-filter: invert(66%);
 }
 
