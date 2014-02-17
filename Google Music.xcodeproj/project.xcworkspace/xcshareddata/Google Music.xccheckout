@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>71D461B8-464A-4BD6-A892-122B784CEEB7</string>
+	<string>5E53D237-0C43-4132-8D9F-6877F80FE4CF</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Google Music</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>6D748F8C-E744-4144-9943-AD62CF942E84</key>
-		<string>https://github.com/kbhomes/GoogleMusicMac.git</string>
+		<key>6066030F-34DB-462E-B183-48F29A0E6CF2</key>
+		<string>https://github.com/kbhomes/google-music-mac.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Google Music.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>6D748F8C-E744-4144-9943-AD62CF942E84</key>
+		<key>6066030F-34DB-462E-B183-48F29A0E6CF2</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/kbhomes/GoogleMusicMac.git</string>
+	<string>https://github.com/kbhomes/google-music-mac.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>6D748F8C-E744-4144-9943-AD62CF942E84</string>
+	<string>6066030F-34DB-462E-B183-48F29A0E6CF2</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>6D748F8C-E744-4144-9943-AD62CF942E84</string>
+			<string>6066030F-34DB-462E-B183-48F29A0E6CF2</string>
 			<key>IDESourceControlWCCName</key>
 			<string>GoogleMusicMac</string>
 		</dict>
