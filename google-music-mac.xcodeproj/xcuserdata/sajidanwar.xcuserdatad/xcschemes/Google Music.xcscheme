@@ -17,7 +17,7 @@
                BlueprintIdentifier = "1A7B683B17453E40001E509E"
                BuildableName = "Google Music.app"
                BlueprintName = "Google Music"
-               ReferencedContainer = "container:Google Music.xcodeproj">
+               ReferencedContainer = "container:google-music-mac.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
             BlueprintIdentifier = "1A7B683B17453E40001E509E"
             BuildableName = "Google Music.app"
             BlueprintName = "Google Music"
-            ReferencedContainer = "container:Google Music.xcodeproj">
+            ReferencedContainer = "container:google-music-mac.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -54,7 +54,7 @@
             BlueprintIdentifier = "1A7B683B17453E40001E509E"
             BuildableName = "Google Music.app"
             BlueprintName = "Google Music"
-            ReferencedContainer = "container:Google Music.xcodeproj">
+            ReferencedContainer = "container:google-music-mac.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -72,7 +72,7 @@
             BlueprintIdentifier = "1A7B683B17453E40001E509E"
             BuildableName = "Google Music.app"
             BlueprintName = "Google Music"
-            ReferencedContainer = "container:Google Music.xcodeproj">
+            ReferencedContainer = "container:google-music-mac.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
