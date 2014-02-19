@@ -1,3 +1,15 @@
+/*
+ * js/styles.js
+ *
+ * This script is part of the JavaScript interface used to interact with
+ * the Google Music page, allowing custom styles to be applied.
+ *
+ * Created by Sajid Anwar.
+ *
+ * Subject to terms and conditions in LICENSE.md.
+ *
+ */
+
 if (typeof window.Styles === 'undefined') {
     window.Styles = {
         appliedStyles: {},

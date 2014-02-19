@@ -1,10 +1,11 @@
-//
-//  AppDelegate.h
-//  GoogleMusic
-//
-//  Created by James Fator on 5/16/13.
-//  Modified by Sajid Anwar, 2014.
-//
+/*
+ * AppDelegate.h
+ *
+ * Originally created by James Fator. Modified by Sajid Anwar.
+ *
+ * Subject to terms and conditions in LICENSE.md.
+ *
+ */
 
 #import <Cocoa/Cocoa.h>
 #import <IOKit/hidsystem/ev_keymap.h>

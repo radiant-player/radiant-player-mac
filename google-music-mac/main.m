@@ -1,9 +1,11 @@
-//
-//  main.m
-//  GoogleMusic
-//
-//  Created by James Fator on 5/16/13.
-//
+/*
+ * main.m
+ *
+ * Originally created by James Fator.
+ *
+ * Subject to terms and conditions in LICENSE.md.
+ *
+ */
 
 #import <Cocoa/Cocoa.h>
 

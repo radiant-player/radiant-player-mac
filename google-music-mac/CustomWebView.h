@@ -1,10 +1,11 @@
-//
-//  CustomWebView.h
-//  Google Music
-//
-//  Created by James Fator on 10/7/13.
-//  Copyright (c) 2013 James Fator. All rights reserved.
-//
+/*
+* CustomWebView.h
+*
+* Originally created by James Fator. Modified by Sajid Anwar.
+*
+* Subject to terms and conditions in LICENSE.md.
+*
+*/
 
 #import <WebKit/WebKit.h>
 

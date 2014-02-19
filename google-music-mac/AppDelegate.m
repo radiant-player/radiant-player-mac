@@ -1,10 +1,11 @@
-//
-//  AppDelegate.m
-//  GoogleMusic
-//
-//  Created by James Fator on 5/16/13.
-//  Modified by Sajid Anwar, 2014.
-//
+/*
+ * AppDelegate.m
+ *
+ * Originally created by James Fator. Modified by Sajid Anwar.
+ *
+ * Subject to terms and conditions in LICENSE.md.
+ *
+ */
 
 #import "AppDelegate.h"
 

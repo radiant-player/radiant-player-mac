@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A519DE81853B1A00069FF17 /* Flash Player.plugin in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1A519DE61853B1990069FF17 /* Flash Player.plugin */; };
+		1A519DE81853B1A00069FF17 /* Flash Player.plugin in Copy Files */ = {isa = PBXBuildFile; fileRef = 1A519DE61853B1990069FF17 /* Flash Player.plugin */; };
 		1A68DAD81803B588004CBA25 /* CustomWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A68DAD71803B588004CBA25 /* CustomWebView.m */; };
 		1A7B684017453E40001E509E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7B683F17453E40001E509E /* Cocoa.framework */; };
 		1A7B684A17453E40001E509E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A7B684817453E40001E509E /* InfoPlist.strings */; };
@@ -22,20 +22,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		1A67E21B1853ACF500EA5F38 /* CopyFiles */ = {
+		1A67E21B1853ACF500EA5F38 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				1A519DE81853B1A00069FF17 /* Flash Player.plugin in CopyFiles */,
+				1A519DE81853B1A00069FF17 /* Flash Player.plugin in Copy Files */,
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1A519DE61853B1990069FF17 /* Flash Player.plugin */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Flash Player.plugin"; path = "GoogleMusic/Flash Player.plugin"; sourceTree = "<group>"; };
+		1A519DE61853B1990069FF17 /* Flash Player.plugin */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Flash Player.plugin"; path = "google-music-mac/Flash Player.plugin"; sourceTree = "<group>"; };
 		1A68DAD61803B588004CBA25 /* CustomWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomWebView.h; sourceTree = "<group>"; };
 		1A68DAD71803B588004CBA25 /* CustomWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomWebView.m; sourceTree = "<group>"; };
 		1A7B683C17453E40001E509E /* Google Music.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Google Music.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,7 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				1A7B68801745ABBD001E509E /* icon.icns */,
-				1A7B684517453E40001E509E /* GoogleMusic */,
+				1A7B684517453E40001E509E /* google-music-mac */,
 				1A7B683E17453E40001E509E /* Frameworks */,
 				1A7B683D17453E40001E509E /* Products */,
 			);
@@ -109,7 +110,7 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		1A7B684517453E40001E509E /* GoogleMusic */ = {
+		1A7B684517453E40001E509E /* google-music-mac */ = {
 			isa = PBXGroup;
 			children = (
 				D326EA6218B2D7E500BEC02F /* css */,
@@ -121,7 +122,7 @@
 				1A68DAD71803B588004CBA25 /* CustomWebView.m */,
 				1A7B684617453E40001E509E /* Supporting Files */,
 			);
-			path = GoogleMusic;
+			path = "google-music-mac";
 			sourceTree = "<group>";
 		};
 		1A7B684617453E40001E509E /* Supporting Files */ = {
@@ -146,7 +147,7 @@
 				1A7B683817453E40001E509E /* Sources */,
 				1A7B683917453E40001E509E /* Frameworks */,
 				1A7B683A17453E40001E509E /* Resources */,
-				1A67E21B1853ACF500EA5F38 /* CopyFiles */,
+				1A67E21B1853ACF500EA5F38 /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -164,7 +165,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
-				ORGANIZATIONNAME = "James Fator";
+				ORGANIZATIONNAME = "Sajid Anwar";
 			};
 			buildConfigurationList = 1A7B683717453E40001E509E /* Build configuration list for PBXProject "google-music-mac" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -303,8 +304,8 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = GoogleMusic/prefix.pch;
-				INFOPLIST_FILE = GoogleMusic/info.plist;
+				GCC_PREFIX_HEADER = "google-music-mac/prefix.pch";
+				INFOPLIST_FILE = "google-music-mac/info.plist";
 				PRODUCT_NAME = "Google Music";
 				WRAPPER_EXTENSION = app;
 			};
@@ -316,8 +317,8 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = GoogleMusic/prefix.pch;
-				INFOPLIST_FILE = GoogleMusic/info.plist;
+				GCC_PREFIX_HEADER = "google-music-mac/prefix.pch";
+				INFOPLIST_FILE = "google-music-mac/info.plist";
 				PRODUCT_NAME = "Google Music";
 				WRAPPER_EXTENSION = app;
 			};

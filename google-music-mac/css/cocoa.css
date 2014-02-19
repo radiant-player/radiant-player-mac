@@ -1,3 +1,14 @@
+/*
+ * css/cocoa.css
+ *
+ * Custom stylesheet that emulates the appearance of a native Mac OS X application.
+ *
+ * Created by Sajid Anwar.
+ *
+ * Subject to terms and conditions in LICENSE.md.
+ *
+ */
+
 #main, .song-row td {
     background-color: white;
 }

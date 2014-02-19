@@ -1,10 +1,13 @@
 /*
- * Created by Sajid Anwar, 2014.
+ * js/main.js
  *
- * This script is part of the JavaScript interface used by GoogleMusicMac to interact with
+ * This script is part of the JavaScript interface used to interact with
  * the Google Music page, in order to provide notifications functionality.
  *
- * https://github.com/kbhomes/GoogleMusicMac
+ * Created by Sajid Anwar.
+ *
+ * Subject to terms and conditions in LICENSE.md.
+ *
  */
 
 // This check ensures that, even though this script is run multiple times, our code is only attached once.
