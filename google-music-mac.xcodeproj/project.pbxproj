@@ -151,6 +151,7 @@
 				1A7B683917453E40001E509E /* Frameworks */,
 				1A7B683A17453E40001E509E /* Resources */,
 				1A67E21B1853ACF500EA5F38 /* Copy Files */,
+				D3981F6318B5D5D900EA4D7A /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -203,6 +204,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D3981F6318B5D5D900EA4D7A /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd ${BUILT_PRODUCTS_DIR}\nzip -u -r -1 \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.zip\" \"${PRODUCT_NAME}.app/\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1A7B683817453E40001E509E /* Sources */ = {
