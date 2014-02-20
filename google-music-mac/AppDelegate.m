@@ -22,12 +22,24 @@
 }
 
 /**
+ * Set defaults.
+ */
++ (void)initialize
+{
+    // Register default preferences.
+    NSString *prefsPath = [[NSBundle mainBundle] pathForResource:@"Preferences" ofType:@"plist"];
+    NSDictionary *prefs = [NSDictionary dictionaryWithContentsOfFile:prefsPath];
+    
+    [[NSUserDefaults standardUserDefaults] registerDefaults:prefs];
+}
+
+/**
  * Application finished launching, we will register the event tap callback.
  */
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Load the user preferences.
-    defaults = [[NSUserDefaultsController sharedUserDefaultsController] defaults];
+    defaults = [NSUserDefaults standardUserDefaults];
     
 	// Add an event tap to intercept the system defined media key events
     eventTap = CGEventTapCreate(kCGSessionEventTap,

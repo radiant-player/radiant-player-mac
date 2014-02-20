@@ -17,6 +17,7 @@
 		1A7B685617453E40001E509E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A7B685417453E40001E509E /* MainMenu.xib */; };
 		1A7B687417453E4C001E509E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7B687317453E4C001E509E /* WebKit.framework */; };
 		1A7B68811745ABBD001E509E /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1A7B68801745ABBD001E509E /* icon.icns */; };
+		D302E13418B561E100CCD18E /* Preferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = D302E13318B561E100CCD18E /* Preferences.plist */; };
 		D326EA6418B2D7E500BEC02F /* css in Resources */ = {isa = PBXBuildFile; fileRef = D326EA6218B2D7E500BEC02F /* css */; };
 		D326EA6518B2D7E500BEC02F /* js in Resources */ = {isa = PBXBuildFile; fileRef = D326EA6318B2D7E500BEC02F /* js */; };
 /* End PBXBuildFile section */
@@ -54,6 +55,7 @@
 		1A7B685517453E40001E509E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		1A7B687317453E4C001E509E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		1A7B68801745ABBD001E509E /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+		D302E13318B561E100CCD18E /* Preferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Preferences.plist; sourceTree = "<group>"; };
 		D326EA6218B2D7E500BEC02F /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
 		D326EA6318B2D7E500BEC02F /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +135,7 @@
 				1A7B684B17453E40001E509E /* main.m */,
 				1A7B684D17453E40001E509E /* prefix.pch */,
 				1A7B684E17453E40001E509E /* Credits.rtf */,
+				D302E13318B561E100CCD18E /* Preferences.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			files = (
 				D326EA6418B2D7E500BEC02F /* css in Resources */,
 				D326EA6518B2D7E500BEC02F /* js in Resources */,
+				D302E13418B561E100CCD18E /* Preferences.plist in Resources */,
 				1A7B684A17453E40001E509E /* InfoPlist.strings in Resources */,
 				1A7B685017453E40001E509E /* Credits.rtf in Resources */,
 				1A7B685617453E40001E509E /* MainMenu.xib in Resources */,
