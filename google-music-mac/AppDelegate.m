@@ -15,9 +15,14 @@
 @synthesize window;
 @synthesize defaults;
 
-// Terminate on window close
-- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication
-{
+/**
+ * Closing the application, hides the player window but keeps music playing in the background.
+ */
+
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag {
+    
+    [window makeKeyAndOrderFront:self];
+    
     return YES;
 }
 
@@ -70,7 +75,7 @@
     [[webView mainFrame] loadRequest:request];
     
     WebPreferences *preferences = [webView preferences];
-    [preferences setPlugInsEnabled:YES];
+    [preferences setPlugInsEnabled:NO];
 }
 
 #pragma mark - Event tap methods
