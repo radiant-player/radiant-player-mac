@@ -24,6 +24,9 @@
 
 @property (assign) NSUserDefaults *defaults;
 
+- (IBAction) webBrowserBack:(id)sender;
+- (IBAction) webBrowserForward:(id)sender;
+
 - (IBAction) playPause:(id)sender;
 - (IBAction) forwardAction:(id)sender;
 - (IBAction) backAction:(id)sender;

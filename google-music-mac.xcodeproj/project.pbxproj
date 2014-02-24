@@ -19,6 +19,7 @@
 		D302E13418B561E100CCD18E /* Preferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = D302E13318B561E100CCD18E /* Preferences.plist */; };
 		D326EA6418B2D7E500BEC02F /* css in Resources */ = {isa = PBXBuildFile; fileRef = D326EA6218B2D7E500BEC02F /* css */; };
 		D326EA6518B2D7E500BEC02F /* js in Resources */ = {isa = PBXBuildFile; fileRef = D326EA6318B2D7E500BEC02F /* js */; };
+		D39960E218BAD75C0021A28C /* navigation.js in Sources */ = {isa = PBXBuildFile; fileRef = D39960E118BAD75C0021A28C /* navigation.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		D302E13318B561E100CCD18E /* Preferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Preferences.plist; sourceTree = "<group>"; };
 		D326EA6218B2D7E500BEC02F /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
 		D326EA6318B2D7E500BEC02F /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
+		D39960E118BAD75C0021A28C /* navigation.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = navigation.js; path = "google-music-mac/js/navigation.js"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		1A7B683317453E40001E509E = {
 			isa = PBXGroup;
 			children = (
+				D39960E118BAD75C0021A28C /* navigation.js */,
 				1A7B68801745ABBD001E509E /* icon.icns */,
 				1A7B684517453E40001E509E /* google-music-mac */,
 				1A7B683E17453E40001E509E /* Frameworks */,
@@ -209,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D39960E218BAD75C0021A28C /* navigation.js in Sources */,
 				1A68DAD81803B588004CBA25 /* CustomWebView.m in Sources */,
 				1A7B684C17453E40001E509E /* main.m in Sources */,
 				1A7B685317453E40001E509E /* AppDelegate.m in Sources */,

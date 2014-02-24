@@ -143,6 +143,18 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     return event;
 }
 
+#pragma mark - Web Browser Actions
+
+- (void) webBrowserBack:(id)sender
+{
+    [webView goBack];
+}
+
+- (void) webBrowserForward:(id)sender
+{
+    [webView goForward];
+}
+
 #pragma mark - Play Actions
 
 /**
@@ -254,6 +266,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     [self evaluateJavaScriptFile:@"main"];
     [self evaluateJavaScriptFile:@"keyboard"];
     [self evaluateJavaScriptFile:@"styles"];
+    [self evaluateJavaScriptFile:@"navigation"];
     [[sender windowScriptObject] setValue:self forKey:@"googleMusicApp"];
     
     // Apply styles only if the user prefers.

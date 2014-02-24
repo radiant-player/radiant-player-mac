@@ -212,6 +212,19 @@
                                     <action selector="toggleVisualization:" target="494" id="d1p-eJ-8rE"/>
                                 </connections>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="wOi-9h-iyD"/>
+                            <menuItem title="Go Back" keyEquivalent="" id="Mas-re-Dv3">
+                                <connections>
+                                    <action selector="webBrowserBack:" target="494" id="U3u-bH-IkG"/>
+                                    <binding destination="494" name="enabled" keyPath="self.webView.canGoBack" id="PBT-5y-8z1"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Go Forward" keyEquivalent="" id="h8M-FE-ECf">
+                                <connections>
+                                    <action selector="webBrowserForward:" target="494" id="9mb-ll-qGE"/>
+                                    <binding destination="494" name="enabled" keyPath="self.webView.canGoForward" id="Oed-xO-0Qu"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>
