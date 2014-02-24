@@ -71,6 +71,11 @@
     
     WebPreferences *preferences = [webView preferences];
     [preferences setPlugInsEnabled:YES];
+    
+    // Load the dummy WebView (for opening links in the default browser).
+    dummyWebViewDelegate = [[DummyWebViewPolicyDelegate alloc] init];
+    dummyWebView = [[WebView alloc] init];
+    [dummyWebView setPolicyDelegate:dummyWebViewDelegate];
 }
 
 #pragma mark - Event tap methods
@@ -325,6 +330,15 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     NSString *final = [NSString stringWithFormat:bootstrap, name, css];
     
     [webView stringByEvaluatingJavaScriptFromString:final];
+}
+
+/*
+ * Some links expect a new WebView (a tab or a window), but instead we'll try to 
+ * pass the URL to a dummy WebView, which will open it in the default browser.
+ */
+- (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request
+{
+    return dummyWebView;
 }
 
 + (NSString *) webScriptNameForSelector:(SEL)sel

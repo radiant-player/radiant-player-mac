@@ -11,12 +11,16 @@
 #import <IOKit/hidsystem/ev_keymap.h>
 #import <WebKit/WebKit.h>
 
+#import "DummyWebViewPolicyDelegate.h"
 #import "CustomWebView.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, CustomWebViewDelegate, NSUserNotificationCenterDelegate>
 {
 	CFMachPortRef eventTap;
     CFRunLoopSourceRef eventPortSource;
+    
+    WebView *dummyWebView;
+    DummyWebViewPolicyDelegate *dummyWebViewDelegate;
 }
 
 @property (assign) IBOutlet NSWindow *window;

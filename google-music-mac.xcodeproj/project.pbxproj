@@ -20,6 +20,7 @@
 		D326EA6418B2D7E500BEC02F /* css in Resources */ = {isa = PBXBuildFile; fileRef = D326EA6218B2D7E500BEC02F /* css */; };
 		D326EA6518B2D7E500BEC02F /* js in Resources */ = {isa = PBXBuildFile; fileRef = D326EA6318B2D7E500BEC02F /* js */; };
 		D39960E218BAD75C0021A28C /* navigation.js in Sources */ = {isa = PBXBuildFile; fileRef = D39960E118BAD75C0021A28C /* navigation.js */; };
+		D3B1668318BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,8 @@
 		D326EA6218B2D7E500BEC02F /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
 		D326EA6318B2D7E500BEC02F /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
 		D39960E118BAD75C0021A28C /* navigation.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = navigation.js; path = "google-music-mac/js/navigation.js"; sourceTree = "<group>"; };
+		D3B1668118BB0E43003FCE6B /* DummyWebViewPolicyDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyWebViewPolicyDelegate.h; sourceTree = "<group>"; };
+		D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyWebViewPolicyDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +111,8 @@
 				1A7B685417453E40001E509E /* MainMenu.xib */,
 				1A68DAD61803B588004CBA25 /* CustomWebView.h */,
 				1A68DAD71803B588004CBA25 /* CustomWebView.m */,
+				D3B1668118BB0E43003FCE6B /* DummyWebViewPolicyDelegate.h */,
+				D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */,
 				1A7B684617453E40001E509E /* Supporting Files */,
 			);
 			path = "google-music-mac";
@@ -213,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D39960E218BAD75C0021A28C /* navigation.js in Sources */,
+				D3B1668318BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m in Sources */,
 				1A68DAD81803B588004CBA25 /* CustomWebView.m in Sources */,
 				1A7B684C17453E40001E509E /* main.m in Sources */,
 				1A7B685317453E40001E509E /* AppDelegate.m in Sources */,
