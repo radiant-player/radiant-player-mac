@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5051" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1080" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="3338"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5051"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="5051"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -259,7 +259,7 @@
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="942" height="702"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
             <view key="contentView" id="372">
                 <rect key="frame" x="0.0" y="0.0" width="942" height="702"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -294,16 +294,16 @@
         <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="KYm-BZ-OUe">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="131" y="159" width="331" height="189"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <rect key="contentRect" x="131" y="159" width="333" height="252"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
             <value key="minSize" type="size" width="331" height="200"/>
             <value key="maxSize" type="size" width="331" height="200"/>
             <view key="contentView" id="A4h-wh-oJP">
-                <rect key="frame" x="0.0" y="0.0" width="331" height="189"/>
+                <rect key="frame" x="0.0" y="0.0" width="333" height="252"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i6u-of-Dgg">
-                        <rect key="frame" x="30" y="124" width="283" height="25"/>
+                    <button verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="i6u-of-Dgg">
+                        <rect key="frame" x="30" y="184" width="285" height="25"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Display notification when song changes" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="Spf-1e-oic">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -313,8 +313,8 @@
                             <binding destination="Vyy-aQ-Qdc" name="value" keyPath="values.notifications.enabled" id="7h8-FG-Nv0"/>
                         </connections>
                     </button>
-                    <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cGh-pc-u1Z">
-                        <rect key="frame" x="30" y="104" width="283" height="18"/>
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="cGh-pc-u1Z">
+                        <rect key="frame" x="30" y="164" width="285" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Include album art in notification" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="K9z-bw-QVF">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -325,8 +325,8 @@
                             <binding destination="Vyy-aQ-Qdc" name="value" keyPath="values.notifications.showAlbumArt" id="lrz-hi-WYz"/>
                         </connections>
                     </button>
-                    <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tMN-7U-eVG">
-                        <rect key="frame" x="30" y="50" width="283" height="18"/>
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="tMN-7U-eVG">
+                        <rect key="frame" x="30" y="110" width="285" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Emulate native application appearance" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="71p-YX-6pu">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -336,9 +336,12 @@
                             <binding destination="Vyy-aQ-Qdc" name="value" keyPath="values.styles.enabled" id="Nys-WU-gZ4"/>
                         </connections>
                     </button>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gPF-dT-6NX">
-                        <rect key="frame" x="49" y="14" width="251" height="35"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gPF-dT-6NX">
+                        <rect key="frame" x="49" y="74" width="253" height="35"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="MfE-fY-Ltr"/>
+                        </constraints>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Changing this preference will require a restart of the application" id="9mE-Qw-KZF">
                             <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
@@ -346,7 +349,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ezN-fJ-6NM">
-                        <rect key="frame" x="18" y="155" width="295" height="17"/>
+                        <rect key="frame" x="18" y="215" width="297" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Notifications" id="Xpz-UL-Slc">
                             <font key="font" metaFont="system"/>
@@ -355,14 +358,14 @@
                         </textFieldCell>
                     </textField>
                     <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="58G-IJ-21O">
-                        <rect key="frame" x="20" y="153" width="291" height="5"/>
+                        <rect key="frame" x="20" y="213" width="293" height="5"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <font key="titleFont" metaFont="system"/>
                     </box>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xuw-Xk-if9">
-                        <rect key="frame" x="18" y="74" width="295" height="17"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xuw-Xk-if9">
+                        <rect key="frame" x="18" y="134" width="297" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Appearance" id="rAV-jS-Bq2">
                             <font key="font" metaFont="system"/>
@@ -370,39 +373,71 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <box autoresizesSubviews="NO" verticalHuggingPriority="750" misplaced="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="4aF-oH-NRa">
-                        <rect key="frame" x="20" y="72" width="291" height="5"/>
+                    <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="4aF-oH-NRa">
+                        <rect key="frame" x="20" y="132" width="293" height="5"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <font key="titleFont" metaFont="system"/>
                     </box>
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="Mw4-og-lV9">
+                        <rect key="frame" x="30" y="52" width="285" height="25"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="PYm-g2-VwU"/>
+                        </constraints>
+                        <buttonCell key="cell" type="check" title="Display song title in Menu" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="Hpg-Mo-y58">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <binding destination="Vyy-aQ-Qdc" name="value" keyPath="values.menuitem.enabled" id="7eL-tP-hdH"/>
+                        </connections>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ai3-GG-lZf">
+                        <rect key="frame" x="49" y="20" width="253" height="35"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="2VG-eP-IlX"/>
+                        </constraints>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Changing this preference will require a restart of the application" id="DTt-BJ-aTy">
+                            <font key="font" metaFont="smallSystem"/>
+                            <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="4aF-oH-NRa" firstAttribute="top" secondItem="cGh-pc-u1Z" secondAttribute="bottom" constant="31" id="0Fv-tL-smc"/>
                     <constraint firstAttribute="trailing" secondItem="cGh-pc-u1Z" secondAttribute="trailing" constant="20" id="0sT-Mf-pWt"/>
                     <constraint firstItem="Xuw-Xk-if9" firstAttribute="leading" secondItem="A4h-wh-oJP" secondAttribute="leading" constant="20" id="1AS-cf-JBf"/>
                     <constraint firstAttribute="trailing" secondItem="Xuw-Xk-if9" secondAttribute="trailing" constant="20" id="1PS-JP-yWW"/>
                     <constraint firstItem="tMN-7U-eVG" firstAttribute="leading" secondItem="A4h-wh-oJP" secondAttribute="leading" constant="32" id="2VN-0k-Yex"/>
+                    <constraint firstItem="ezN-fJ-6NM" firstAttribute="leading" secondItem="4aF-oH-NRa" secondAttribute="leading" id="4J4-Pe-LLG"/>
                     <constraint firstItem="Xuw-Xk-if9" firstAttribute="top" secondItem="cGh-pc-u1Z" secondAttribute="bottom" constant="15" id="4Ww-wo-24b"/>
                     <constraint firstItem="cGh-pc-u1Z" firstAttribute="top" secondItem="i6u-of-Dgg" secondAttribute="bottom" constant="6" id="6la-8d-Bxn"/>
+                    <constraint firstItem="i6u-of-Dgg" firstAttribute="top" secondItem="58G-IJ-21O" secondAttribute="bottom" constant="8" symbolic="YES" id="6uh-9d-cGR"/>
+                    <constraint firstItem="gPF-dT-6NX" firstAttribute="top" secondItem="tMN-7U-eVG" secondAttribute="bottom" constant="3" id="80h-Ic-W4O"/>
                     <constraint firstItem="cGh-pc-u1Z" firstAttribute="leading" secondItem="A4h-wh-oJP" secondAttribute="leading" constant="32" id="87Z-mN-IgR"/>
+                    <constraint firstItem="ezN-fJ-6NM" firstAttribute="trailing" secondItem="i6u-of-Dgg" secondAttribute="trailing" id="8jG-bA-g9R"/>
+                    <constraint firstItem="4aF-oH-NRa" firstAttribute="bottom" secondItem="Xuw-Xk-if9" secondAttribute="bottom" id="9I8-c0-ZwQ"/>
                     <constraint firstAttribute="trailing" secondItem="tMN-7U-eVG" secondAttribute="trailing" constant="20" id="9o6-BN-QyI"/>
-                    <constraint firstAttribute="trailing" secondItem="4aF-oH-NRa" secondAttribute="trailing" constant="20" id="Lfg-D7-RWQ"/>
-                    <constraint firstItem="i6u-of-Dgg" firstAttribute="top" secondItem="A4h-wh-oJP" secondAttribute="top" constant="42" id="N8O-JY-HUy"/>
-                    <constraint firstAttribute="trailing" secondItem="58G-IJ-21O" secondAttribute="trailing" constant="20" id="NIN-Rv-fAf"/>
-                    <constraint firstItem="gPF-dT-6NX" firstAttribute="top" secondItem="tMN-7U-eVG" secondAttribute="bottom" constant="4" id="OkX-6j-bTF"/>
-                    <constraint firstItem="58G-IJ-21O" firstAttribute="leading" secondItem="A4h-wh-oJP" secondAttribute="leading" constant="20" id="PCw-lp-F8l"/>
+                    <constraint firstItem="i6u-of-Dgg" firstAttribute="top" secondItem="ezN-fJ-6NM" secondAttribute="bottom" constant="8" symbolic="YES" id="AOZ-8N-doo"/>
+                    <constraint firstItem="ezN-fJ-6NM" firstAttribute="leading" secondItem="58G-IJ-21O" secondAttribute="leading" id="GdD-ZL-T4G"/>
+                    <constraint firstAttribute="bottom" secondItem="ai3-GG-lZf" secondAttribute="bottom" constant="20" symbolic="YES" id="HIr-Qm-oP0"/>
+                    <constraint firstItem="i6u-of-Dgg" firstAttribute="top" secondItem="A4h-wh-oJP" secondAttribute="top" constant="45" id="N8O-JY-HUy"/>
+                    <constraint firstItem="gPF-dT-6NX" firstAttribute="leading" secondItem="A4h-wh-oJP" secondAttribute="leading" constant="51" id="Oho-Ha-lKS"/>
+                    <constraint firstItem="4aF-oH-NRa" firstAttribute="leading" secondItem="Xuw-Xk-if9" secondAttribute="leading" id="OtJ-Dn-Fxt"/>
                     <constraint firstAttribute="trailing" secondItem="i6u-of-Dgg" secondAttribute="trailing" constant="20" id="SD2-5S-xGZ"/>
-                    <constraint firstItem="4aF-oH-NRa" firstAttribute="leading" secondItem="A4h-wh-oJP" secondAttribute="leading" constant="20" id="cCQ-4M-3EV"/>
-                    <constraint firstItem="gPF-dT-6NX" firstAttribute="leading" secondItem="A4h-wh-oJP" secondAttribute="leading" constant="51" id="etK-oA-ey4"/>
-                    <constraint firstAttribute="trailing" secondItem="gPF-dT-6NX" secondAttribute="trailing" constant="33" id="hJl-Jx-Pez"/>
-                    <constraint firstAttribute="trailing" secondItem="ezN-fJ-6NM" secondAttribute="trailing" constant="20" id="iC8-et-B3C"/>
+                    <constraint firstAttribute="bottom" secondItem="4aF-oH-NRa" secondAttribute="bottom" constant="134" id="Sb0-0f-e0c"/>
+                    <constraint firstItem="4aF-oH-NRa" firstAttribute="trailing" secondItem="Xuw-Xk-if9" secondAttribute="trailing" id="TeF-V1-Y0n"/>
+                    <constraint firstItem="Mw4-og-lV9" firstAttribute="top" secondItem="tMN-7U-eVG" secondAttribute="bottom" constant="37" id="Tvk-Fa-Z9j"/>
+                    <constraint firstItem="58G-IJ-21O" firstAttribute="trailing" secondItem="Mw4-og-lV9" secondAttribute="trailing" id="VV5-Cj-prd"/>
+                    <constraint firstItem="ezN-fJ-6NM" firstAttribute="trailing" secondItem="58G-IJ-21O" secondAttribute="trailing" id="Yt1-fh-bYN"/>
+                    <constraint firstItem="58G-IJ-21O" firstAttribute="top" secondItem="A4h-wh-oJP" secondAttribute="top" constant="36" id="jEY-LK-Zfn"/>
                     <constraint firstItem="i6u-of-Dgg" firstAttribute="leading" secondItem="A4h-wh-oJP" secondAttribute="leading" constant="32" id="k4c-9Q-krq"/>
-                    <constraint firstItem="58G-IJ-21O" firstAttribute="top" secondItem="A4h-wh-oJP" secondAttribute="top" constant="33" id="kTh-5p-MtR"/>
-                    <constraint firstItem="ezN-fJ-6NM" firstAttribute="leading" secondItem="A4h-wh-oJP" secondAttribute="leading" constant="20" id="lGq-fa-9Ul"/>
-                    <constraint firstItem="ezN-fJ-6NM" firstAttribute="top" secondItem="A4h-wh-oJP" secondAttribute="top" constant="17" id="tGC-8L-otd"/>
-                    <constraint firstItem="tMN-7U-eVG" firstAttribute="top" secondItem="4aF-oH-NRa" secondAttribute="bottom" constant="8" id="wsD-Oy-gp2"/>
+                    <constraint firstItem="ai3-GG-lZf" firstAttribute="leading" secondItem="gPF-dT-6NX" secondAttribute="leading" id="pAS-im-huv"/>
+                    <constraint firstItem="tMN-7U-eVG" firstAttribute="top" secondItem="4aF-oH-NRa" secondAttribute="bottom" constant="8" symbolic="YES" id="prn-17-eld"/>
+                    <constraint firstItem="Mw4-og-lV9" firstAttribute="leading" secondItem="i6u-of-Dgg" secondAttribute="leading" id="sne-9D-YMv"/>
                 </constraints>
             </view>
         </window>

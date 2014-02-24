@@ -90,18 +90,17 @@
     [dummyWebView setPolicyDelegate:dummyWebViewDelegate];
     
     // Prepare Status Menu
-    NSMenu *menu = [[NSMenu alloc] init];
-    [menu addItem:[[NSMenuItem alloc] initWithTitle:@"Thumbs Up" action:@selector(toggleThumbsUp:) keyEquivalent:@""]];
-    [menu addItem:[[NSMenuItem alloc] initWithTitle:@"Thumbs Down" action:@selector(toggleThumbsDown:) keyEquivalent:@""]];
-    
-    statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-    statusItem.title = @"(not playing)";
-    statusItem.image = [NSImage imageNamed:@"menubar-icon"];
-    [statusItem setMenu:menu];
-    statusItem.highlightMode = YES;
-}
-
-- (void)awakeFromNib {
+    if ([defaults boolForKey:@"menuitem.enabled"]) {
+        NSMenu *menu = [[NSMenu alloc] init];
+        [menu addItem:[[NSMenuItem alloc] initWithTitle:@"Thumbs Up" action:@selector(toggleThumbsUp:) keyEquivalent:@""]];
+        [menu addItem:[[NSMenuItem alloc] initWithTitle:@"Thumbs Down" action:@selector(toggleThumbsDown:) keyEquivalent:@""]];
+        
+        statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+        statusItem.title = @"(not playing)";
+        statusItem.image = [NSImage imageNamed:@"menubar-icon"];
+        [statusItem setMenu:menu];
+        statusItem.highlightMode = YES;
+    }
 }
 
 #pragma mark - Event tap methods
@@ -235,7 +234,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 {
     [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Rating.toggleThumbsUp()"];
     
-    if ([[statusItem.menu itemAtIndex:0] state] == NSOffState) {
+    if ([defaults boolForKey:@"menuitem.enabled"] && [[statusItem.menu itemAtIndex:0] state] == NSOffState) {
         [[statusItem.menu itemAtIndex:0] setState:NSOnState];
     } else {
         [[statusItem.menu itemAtIndex:0] setState:NSOffState];
@@ -341,9 +340,12 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notif];
     }
     
-    statusItem.title = title;
-    [[statusItem.menu itemAtIndex:0] setState:NSOffState];
-    [[statusItem.menu itemAtIndex:1] setState:NSOffState];
+    if ([defaults boolForKey:@"menuitem.enabled"])
+    {
+        statusItem.title = title;
+        [[statusItem.menu itemAtIndex:0] setState:NSOffState];
+        [[statusItem.menu itemAtIndex:1] setState:NSOffState];
+    }
 }
 
 #pragma mark - Web
