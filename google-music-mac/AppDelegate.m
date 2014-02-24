@@ -274,6 +274,9 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     [self evaluateJavaScriptFile:@"navigation"];
     [[sender windowScriptObject] setValue:self forKey:@"googleMusicApp"];
     
+    // Always apply the navigation styles.
+    [self applyCSSFile:@"navigation"];
+    
     // Apply styles only if the user prefers.
     if ([defaults boolForKey:@"styles.enabled"])
     {
