@@ -286,6 +286,9 @@
                     <constraint firstItem="536" firstAttribute="top" secondItem="372" secondAttribute="top" id="656"/>
                 </constraints>
             </view>
+            <connections>
+                <outlet property="delegate" destination="494" id="etb-Kh-VC3"/>
+            </connections>
         </window>
         <customObject id="420" customClass="NSFontManager"/>
         <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="KYm-BZ-OUe">
