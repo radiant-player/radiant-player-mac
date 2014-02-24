@@ -25,6 +25,7 @@
 
 @property (assign) IBOutlet NSWindow *window;
 @property (nonatomic, retain) IBOutlet CustomWebView *webView;
+@property (nonatomic, retain) NSStatusItem *statusItem;
 
 @property (assign) NSUserDefaults *defaults;
 
