@@ -90,7 +90,8 @@
     [dummyWebView setPolicyDelegate:dummyWebViewDelegate];
     
     // Prepare Status Menu
-    if ([defaults boolForKey:@"menuitem.enabled"]) {
+    if ([defaults boolForKey:@"menuitem.enabled"])
+    {
         NSMenu *menu = [[NSMenu alloc] init];
         [menu addItem:[[NSMenuItem alloc] initWithTitle:@"Thumbs Up" action:@selector(toggleThumbsUp:) keyEquivalent:@""]];
         [menu addItem:[[NSMenuItem alloc] initWithTitle:@"Thumbs Down" action:@selector(toggleThumbsDown:) keyEquivalent:@""]];
@@ -234,9 +235,12 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 {
     [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Rating.toggleThumbsUp()"];
     
-    if ([defaults boolForKey:@"menuitem.enabled"] && [[statusItem.menu itemAtIndex:0] state] == NSOffState) {
+    if ([defaults boolForKey:@"menuitem.enabled"] && [[statusItem.menu itemAtIndex:0] state] == NSOffState)
+    {
         [[statusItem.menu itemAtIndex:0] setState:NSOnState];
-    } else {
+    }
+    else
+    {
         [[statusItem.menu itemAtIndex:0] setState:NSOffState];
     }
 }
