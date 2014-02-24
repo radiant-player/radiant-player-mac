@@ -22,6 +22,7 @@
 		D39960E218BAD75C0021A28C /* navigation.js in Sources */ = {isa = PBXBuildFile; fileRef = D39960E118BAD75C0021A28C /* navigation.js */; };
 		D3B1668318BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */; };
 		D3B1668518BB4ACA003FCE6B /* navigation.css in Resources */ = {isa = PBXBuildFile; fileRef = D3B1668418BB4ACA003FCE6B /* navigation.css */; };
+		F842607518BBBF6B008CDAFB /* menubar-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F842607418BBBF6B008CDAFB /* menubar-icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		D3B1668118BB0E43003FCE6B /* DummyWebViewPolicyDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyWebViewPolicyDelegate.h; sourceTree = "<group>"; };
 		D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyWebViewPolicyDelegate.m; sourceTree = "<group>"; };
 		D3B1668418BB4ACA003FCE6B /* navigation.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = navigation.css; path = "google-music-mac/css/navigation.css"; sourceTree = "<group>"; };
+		F842607418BBBF6B008CDAFB /* menubar-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menubar-icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				D3B1668418BB4ACA003FCE6B /* navigation.css */,
 				D39960E118BAD75C0021A28C /* navigation.js */,
 				1A7B68801745ABBD001E509E /* icon.icns */,
+				F842607418BBBF6B008CDAFB /* menubar-icon.png */,
 				1A7B684517453E40001E509E /* google-music-mac */,
 				1A7B683E17453E40001E509E /* Frameworks */,
 				1A7B683D17453E40001E509E /* Products */,
@@ -193,6 +196,7 @@
 				1A7B685017453E40001E509E /* Credits.rtf in Resources */,
 				D3B1668518BB4ACA003FCE6B /* navigation.css in Resources */,
 				1A7B685617453E40001E509E /* MainMenu.xib in Resources */,
+				F842607518BBBF6B008CDAFB /* menubar-icon.png in Resources */,
 				1A7B68811745ABBD001E509E /* icon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
