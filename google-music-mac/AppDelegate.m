@@ -15,10 +15,21 @@
 @synthesize window;
 @synthesize defaults;
 
-// Terminate on window close
-- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication
-{
+/**
+ * Closing the application, hides the player window but keeps music playing in the background.
+ */
+
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag {
+    
+    [window makeKeyAndOrderFront:self];
+    
     return YES;
+}
+
+- (BOOL)windowShouldClose:(NSNotification *)notification
+{
+    [window orderOut:self];
+    return NO;
 }
 
 /**
