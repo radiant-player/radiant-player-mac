@@ -15,6 +15,8 @@
         <customObject id="-3" userLabel="Application"/>
         <customObject id="494" customClass="AppDelegate">
             <connections>
+                <outlet property="popover" destination="BxZ-SF-PN1" id="uWj-eW-hdK"/>
+                <outlet property="popoverDelegate" destination="vhZ-72-AYY" id="JYQ-nV-xkQ"/>
                 <outlet property="prefsWindow" destination="KYm-BZ-OUe" id="GdJ-qA-fD3"/>
                 <outlet property="webView" destination="536" id="554"/>
                 <outlet property="window" destination="371" id="532"/>
@@ -391,5 +393,126 @@
             </view>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="Vyy-aQ-Qdc"/>
+        <viewController id="6m9-Th-uPg" userLabel="Popover View Controller">
+            <connections>
+                <outlet property="view" destination="iEh-sC-smM" id="0cz-nQ-Qda"/>
+            </connections>
+        </viewController>
+        <popover id="BxZ-SF-PN1">
+            <connections>
+                <outlet property="contentViewController" destination="6m9-Th-uPg" id="1ex-OU-PQa"/>
+            </connections>
+        </popover>
+        <customView id="iEh-sC-smM" userLabel="Popover View">
+            <rect key="frame" x="0.0" y="0.0" width="361" height="213"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="toQ-SL-7WT">
+                    <rect key="frame" x="20" y="143" width="50" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="IwP-Wb-3wp"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QTZ-Jw-ZpH">
+                    <rect key="frame" x="76" y="176" width="267" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Title" id="0Tp-am-ga6">
+                        <font key="font" metaFont="systemBold"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ngI-Gb-8Jw">
+                    <rect key="frame" x="76" y="160" width="267" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Artist" id="fHI-wa-NfF">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yJg-I1-edx">
+                    <rect key="frame" x="76" y="143" width="267" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Album" id="rV5-qT-OvQ">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ftM-je-Ymy">
+                    <rect key="frame" x="162" y="46" width="48" height="48"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="square" title="=" bezelStyle="shadowlessSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="OjS-8z-EPJ">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="playPause:" target="494" id="mxx-1f-URL"/>
+                    </connections>
+                </button>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VkG-Lf-5uN">
+                    <rect key="frame" x="220" y="46" width="48" height="48"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="square" title=">" bezelStyle="shadowlessSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="V3F-Ft-Oge">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="forwardAction:" target="494" id="eRO-HX-njM"/>
+                    </connections>
+                </button>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AmR-41-4AD">
+                    <rect key="frame" x="104" y="46" width="48" height="48"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="square" title="&lt;" bezelStyle="shadowlessSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="Wym-gl-ajS">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="backAction:" target="494" id="s6P-wr-rlo"/>
+                    </connections>
+                </button>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DvI-Lo-u1q">
+                    <rect key="frame" x="46" y="47" width="48" height="47"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="square" title="R" bezelStyle="shadowlessSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="fza-Ue-axW">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="toggleRepeatMode:" target="494" id="Kl8-wt-uOK"/>
+                    </connections>
+                </button>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Xb-8Y-y5L">
+                    <rect key="frame" x="278" y="46" width="48" height="48"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="square" title="S" bezelStyle="shadowlessSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="azn-PR-cB2">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="toggleShuffle:" target="494" id="44f-UJ-dD3"/>
+                    </connections>
+                </button>
+                <progressIndicator fixedFrame="YES" maxValue="100" indeterminate="YES" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="7nK-ST-4f0">
+                    <rect key="frame" x="0.0" y="-1" width="361" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </progressIndicator>
+            </subviews>
+        </customView>
+        <customObject id="vhZ-72-AYY" userLabel="Popover Delegate" customClass="PopoverDelegate">
+            <connections>
+                <outlet property="albumLabel" destination="yJg-I1-edx" id="TPa-H6-zdV"/>
+                <outlet property="appDelegate" destination="494" id="tun-Ab-XAj"/>
+                <outlet property="artView" destination="toQ-SL-7WT" id="ZPg-AW-jiO"/>
+                <outlet property="artistLabel" destination="ngI-Gb-8Jw" id="TWf-5B-bUo"/>
+                <outlet property="backButton" destination="AmR-41-4AD" id="1m4-Lf-NlO"/>
+                <outlet property="forwardButton" destination="VkG-Lf-5uN" id="pRm-NM-rfe"/>
+                <outlet property="playPauseButton" destination="ftM-je-Ymy" id="Xi3-U3-ewc"/>
+                <outlet property="repeatButton" destination="DvI-Lo-u1q" id="xDw-Gh-EXt"/>
+                <outlet property="shuffleButton" destination="0Xb-8Y-y5L" id="zxu-qb-yUd"/>
+                <outlet property="titleLabel" destination="QTZ-Jw-ZpH" id="wvi-BJ-aw7"/>
+            </connections>
+        </customObject>
     </objects>
 </document>

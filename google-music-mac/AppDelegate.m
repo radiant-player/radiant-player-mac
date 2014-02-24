@@ -13,6 +13,10 @@
 
 @synthesize webView;
 @synthesize window;
+@synthesize statusItem;
+@synthesize statusView;
+@synthesize popover;
+@synthesize popoverDelegate;
 @synthesize defaults;
 
 // Terminate on window close
@@ -71,14 +75,32 @@
     
     WebPreferences *preferences = [webView preferences];
     [preferences setPlugInsEnabled:YES];
+    
+    // Initialize the system status bar menu.
+    [self initializeStatusBar];
 }
+
+- (void)initializeStatusBar
+{
+    statusView = [[CustomStatusView alloc] initWithFrame:NSMakeRect(0, 0,
+                                                                    NSSquareStatusItemLength,
+                                                                    NSSquareStatusItemLength)];
+    statusView.popover = popover;
+    
+    NSStatusBar *bar = [NSStatusBar systemStatusBar];
+    statusItem = [bar statusItemWithLength:NSSquareStatusItemLength];
+    [statusItem setTitle:@"Music"];
+    [statusItem setHighlightMode:YES];
+    [statusItem setView:statusView];
+}
+
 
 #pragma mark - Event tap methods
 
 /**
  * eventTapThread is the selector that adds the callback thread into the loop.
  */
-- (void)eventTapThread;
+- (void)eventTapThread
 {
     CFRunLoopRef tapThreadRL = CFRunLoopGetCurrent();
     CFRunLoopAddSource( tapThreadRL, eventPortSource, kCFRunLoopCommonModes );
@@ -266,6 +288,8 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 - (void)notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art
 {
+    [popoverDelegate updateSong:title artist:artist album:album art:art];
+    
     if ([defaults boolForKey:@"notifications.enabled"])
     {
         NSUserNotification *notif = [[NSUserNotification alloc] init];
