@@ -7,6 +7,8 @@
  *
  */
 
+#include "PlaybackConstants.h"
+
 // Repeat modes.
 NSString *const MUSIC_LIST_REPEAT = @"LIST_REPEAT";
 NSString *const MUSIC_SINGLE_REPEAT = @"SINGLE_REPEAT";

@@ -183,5 +183,43 @@ if (typeof window.MusicAPI === 'undefined') {
         });
     });
 
+    var shuffleObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(m) {
+            var target = m.target;
+            var id = target.dataset.id;
+
+            if (id == 'shuffle') {
+                window.googleMusicApp.shuffleChanged(target.value);
+            }
+        });
+    });
+
+    var repeatObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(m) {
+            var target = m.target;
+            var id = target.dataset.id;
+
+            if (id == 'repeat') {
+                window.googleMusicApp.repeatChanged(target.value);
+            }
+        });
+    });
+
+    var playbackObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(m) {
+            var target = m.target;
+            var id = target.dataset.id;
+
+            if (id == 'play-pause') {
+                var playing = target.classList.contains('playing');
+                window.googleMusicApp.playbackChanged(playing ? 1 : 0);
+            }
+        });
+    });
+    
+
     addObserver.observe(document.querySelector('#playerSongInfo'), { childList: true, subtree: true });
+    shuffleObserver.observe(document.querySelector('#player button[data-id="shuffle"]'), { attributes: true });
+    repeatObserver.observe(document.querySelector('#player button[data-id="repeat"]'), { attributes: true });
+    playbackObserver.observe(document.querySelector('#player button[data-id="play-pause"]'), { attributes: true });
 }

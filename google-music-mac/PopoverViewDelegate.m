@@ -27,9 +27,9 @@
 - (void)awakeFromNib
 {
     [repeatButton    setImage:[self imageFromName:@"repeat_none"]];
-    [backButton      setImage:[self imageFromName:@"back"]];
+    [backButton      setImage:[self imageFromName:@"previous"]];
     [playPauseButton setImage:[self imageFromName:@"play"]];
-    [forwardButton   setImage:[self imageFromName:@"forward"]];
+    [forwardButton   setImage:[self imageFromName:@"next"]];
     [shuffleButton   setImage:[self imageFromName:@"shuffle_off"]];
 }
 
@@ -53,30 +53,31 @@
         [artView setImage:image];
     }
 }
-
-- (void)repeatAction:(NSObject *)sender
-{
     
+- (void)playbackChanged:(NSInteger)mode
+{
+    if (mode == MUSIC_PLAYING)
+        [playPauseButton setImage:[self imageFromName:@"pause"]];
+    else
+        [playPauseButton setImage:[self imageFromName:@"play"]];
 }
 
-- (void)backAction:(NSObject *)sender
+- (void)repeatChanged:(NSString *)mode
 {
-    
+    if ([MUSIC_NO_REPEAT isEqualToString:mode])
+        [repeatButton setImage:[self imageFromName:@"repeat_none"]];
+    else if ([MUSIC_LIST_REPEAT isEqualToString:mode])
+        [repeatButton setImage:[self imageFromName:@"repeat_list"]];
+    else if ([MUSIC_SINGLE_REPEAT isEqualToString:mode])
+        [repeatButton setImage:[self imageFromName:@"repeat_single"]];
 }
 
-- (void)playPauseAction:(NSObject *)sender
+- (void)shuffleChanged:(NSString *)mode
 {
-    
-}
-
-- (void)forwardAction:(NSObject *)sender
-{
-    
-}
-
-- (void)shuffleAction:(NSObject *)sender
-{
-    
+    if ([MUSIC_ALL_SHUFFLE isEqualToString:mode])
+        [shuffleButton setImage:[self imageFromName:@"shuffle_on"]];
+    else
+        [shuffleButton setImage:[self imageFromName:@"shuffle_off"]];
 }
 
 @end

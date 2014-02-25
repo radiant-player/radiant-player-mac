@@ -10,6 +10,7 @@
 #import <Foundation/Foundation.h>
 
 #import "AppDelegate.h"
+#import "PlaybackConstants.h"
 
 @class AppDelegate;
 
@@ -31,11 +32,9 @@
 - (NSImage *) imageFromName:(NSString *)name;
 
 - (void) updateSong:(NSString *)title artist:(NSString *)artist album:(NSString *)album art:(NSString *)art;
-
-- (IBAction) repeatAction:(NSObject *)sender;
-- (IBAction) backAction:(NSObject *)sender;
-- (IBAction) playPauseAction:(NSObject *)sender;
-- (IBAction) forwardAction:(NSObject *)sender;
-- (IBAction) shuffleAction:(NSObject *)sender;
+    
+- (void) shuffleChanged:(NSString *)mode;
+- (void) repeatChanged:(NSString *)mode;
+- (void) playbackChanged:(NSInteger)mode;
 
 @end

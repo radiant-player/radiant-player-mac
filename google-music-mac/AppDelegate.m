@@ -361,17 +361,17 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 - (void)playbackChanged:(NSInteger)mode
 {
-    NSLog(@"Playback changed: %ld", (long)mode);
+    [popoverDelegate playbackChanged:mode];
 }
 
 - (void)repeatChanged:(NSString *)mode
 {
-    NSLog(@"Repeat changed: %@", mode);
+    [popoverDelegate repeatChanged:mode];
 }
 
 - (void)shuffleChanged:(NSString *)mode
 {
-    NSLog(@"Shuffle changed: %@", mode);
+    [popoverDelegate shuffleChanged:mode];
 }
 
 #pragma mark - Web

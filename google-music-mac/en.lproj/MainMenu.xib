@@ -419,17 +419,17 @@
                 <outlet property="contentViewController" destination="6m9-Th-uPg" id="1ex-OU-PQa"/>
             </connections>
         </popover>
-        <customView id="iEh-sC-smM" userLabel="Popover View" customClass="CustomPopoverView">
-            <rect key="frame" x="0.0" y="0.0" width="361" height="130"/>
+        <customView id="iEh-sC-smM" userLabel="Popover View">
+            <rect key="frame" x="0.0" y="0.0" width="424" height="148"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="toQ-SL-7WT">
-                    <rect key="frame" x="20" y="60" width="50" height="50"/>
+                    <rect key="frame" x="20" y="78" width="50" height="50"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="IwP-Wb-3wp"/>
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QTZ-Jw-ZpH">
-                    <rect key="frame" x="76" y="93" width="267" height="17"/>
+                    <rect key="frame" x="76" y="111" width="267" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="No song currently playing" placeholderString="" id="0Tp-am-ga6">
                         <font key="font" metaFont="systemBold"/>
@@ -438,7 +438,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ngI-Gb-8Jw">
-                    <rect key="frame" x="76" y="77" width="267" height="17"/>
+                    <rect key="frame" x="76" y="95" width="267" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="fHI-wa-NfF">
                         <font key="font" metaFont="system"/>
@@ -447,7 +447,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yJg-I1-edx">
-                    <rect key="frame" x="76" y="60" width="267" height="17"/>
+                    <rect key="frame" x="76" y="78" width="267" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="rV5-qT-OvQ">
                         <font key="font" metaFont="system"/>
@@ -456,9 +456,9 @@
                     </textFieldCell>
                 </textField>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ftM-je-Ymy">
-                    <rect key="frame" x="156" y="-1" width="48" height="48"/>
+                    <rect key="frame" x="196" y="20" width="32" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="square" title="=" bezelStyle="shadowlessSquare" image="play" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="OjS-8z-EPJ">
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="play" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="OjS-8z-EPJ">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -467,9 +467,9 @@
                     </connections>
                 </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VkG-Lf-5uN">
-                    <rect key="frame" x="214" y="-1" width="48" height="48"/>
+                    <rect key="frame" x="254" y="20" width="32" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="V3F-Ft-Oge">
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="next" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="V3F-Ft-Oge">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -478,9 +478,9 @@
                     </connections>
                 </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AmR-41-4AD">
-                    <rect key="frame" x="98" y="-1" width="48" height="48"/>
+                    <rect key="frame" x="138" y="20" width="32" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="Wym-gl-ajS">
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="previous" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="Wym-gl-ajS">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -489,9 +489,9 @@
                     </connections>
                 </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DvI-Lo-u1q">
-                    <rect key="frame" x="40" y="0.0" width="48" height="47"/>
+                    <rect key="frame" x="80" y="20" width="32" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="fza-Ue-axW">
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="repeat_none" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="fza-Ue-axW">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -500,15 +500,31 @@
                     </connections>
                 </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Xb-8Y-y5L">
-                    <rect key="frame" x="272" y="-1" width="48" height="48"/>
+                    <rect key="frame" x="312" y="20" width="32" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="azn-PR-cB2">
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="shuffle_off" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="azn-PR-cB2">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
                         <action selector="toggleShuffle:" target="494" id="44f-UJ-dD3"/>
                     </connections>
+                </button>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EGc-cr-jAa">
+                    <rect key="frame" x="380" y="104" width="24" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="thumbsup" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="Qhu-Gx-PLF">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Nx-UI-e4n">
+                    <rect key="frame" x="380" y="75" width="24" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="thumbsdown" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="t1y-WE-XLX">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
                 </button>
             </subviews>
         </customView>
@@ -528,6 +544,12 @@
         </customObject>
     </objects>
     <resources>
-        <image name="play" width="32" height="32"/>
+        <image name="next" width="512" height="512"/>
+        <image name="play" width="512" height="512"/>
+        <image name="previous" width="512" height="512"/>
+        <image name="repeat_none" width="30" height="30"/>
+        <image name="shuffle_off" width="512" height="512"/>
+        <image name="thumbsdown" width="512" height="512"/>
+        <image name="thumbsup" width="512" height="512"/>
     </resources>
 </document>
