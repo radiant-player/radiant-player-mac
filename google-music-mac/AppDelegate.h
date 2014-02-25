@@ -49,6 +49,8 @@
 - (IBAction) toggleShuffle:(id)sender;
 - (IBAction) toggleVisualization:(id)sender;
 
+- (void) moveWindowWithDeltaX:(CGFloat)deltaX andDeltaY:(CGFloat)deltaY;
+
 - (void) notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art;
 
 - (void) evaluateJavaScriptFile:(NSString *)name;

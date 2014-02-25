@@ -19,9 +19,7 @@
 		D302E13418B561E100CCD18E /* Preferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = D302E13318B561E100CCD18E /* Preferences.plist */; };
 		D326EA6418B2D7E500BEC02F /* css in Resources */ = {isa = PBXBuildFile; fileRef = D326EA6218B2D7E500BEC02F /* css */; };
 		D326EA6518B2D7E500BEC02F /* js in Resources */ = {isa = PBXBuildFile; fileRef = D326EA6318B2D7E500BEC02F /* js */; };
-		D39960E218BAD75C0021A28C /* navigation.js in Sources */ = {isa = PBXBuildFile; fileRef = D39960E118BAD75C0021A28C /* navigation.js */; };
 		D3B1668318BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */; };
-		D3B1668518BB4ACA003FCE6B /* navigation.css in Resources */ = {isa = PBXBuildFile; fileRef = D3B1668418BB4ACA003FCE6B /* navigation.css */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,10 +43,8 @@
 		D302E13318B561E100CCD18E /* Preferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Preferences.plist; sourceTree = "<group>"; };
 		D326EA6218B2D7E500BEC02F /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
 		D326EA6318B2D7E500BEC02F /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
-		D39960E118BAD75C0021A28C /* navigation.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = navigation.js; path = "google-music-mac/js/navigation.js"; sourceTree = "<group>"; };
 		D3B1668118BB0E43003FCE6B /* DummyWebViewPolicyDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyWebViewPolicyDelegate.h; sourceTree = "<group>"; };
 		D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyWebViewPolicyDelegate.m; sourceTree = "<group>"; };
-		D3B1668418BB4ACA003FCE6B /* navigation.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = navigation.css; path = "google-music-mac/css/navigation.css"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +63,6 @@
 		1A7B683317453E40001E509E = {
 			isa = PBXGroup;
 			children = (
-				D3B1668418BB4ACA003FCE6B /* navigation.css */,
-				D39960E118BAD75C0021A28C /* navigation.js */,
 				1A7B68801745ABBD001E509E /* icon.icns */,
 				1A7B684517453E40001E509E /* google-music-mac */,
 				1A7B683E17453E40001E509E /* Frameworks */,
@@ -191,7 +185,6 @@
 				D302E13418B561E100CCD18E /* Preferences.plist in Resources */,
 				1A7B684A17453E40001E509E /* InfoPlist.strings in Resources */,
 				1A7B685017453E40001E509E /* Credits.rtf in Resources */,
-				D3B1668518BB4ACA003FCE6B /* navigation.css in Resources */,
 				1A7B685617453E40001E509E /* MainMenu.xib in Resources */,
 				1A7B68811745ABBD001E509E /* icon.icns in Resources */,
 			);
@@ -221,7 +214,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D39960E218BAD75C0021A28C /* navigation.js in Sources */,
 				D3B1668318BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m in Sources */,
 				1A68DAD81803B588004CBA25 /* CustomWebView.m in Sources */,
 				1A7B684C17453E40001E509E /* main.m in Sources */,

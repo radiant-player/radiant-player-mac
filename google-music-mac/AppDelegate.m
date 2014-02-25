@@ -171,6 +171,16 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     [webView goForward];
 }
 
+- (void)moveWindowWithDeltaX:(CGFloat)deltaX andDeltaY:(CGFloat)deltaY
+{
+    // Position starts at the bottom left, so the y-value is reversed.
+    NSPoint position = window.frame.origin;
+    position.x += deltaX;
+    position.y -= deltaY;
+    
+    [window setFrameOrigin:position];
+}
+
 #pragma mark - Play Actions
 
 /**
@@ -288,11 +298,12 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     // Always apply the navigation styles.
     [self applyCSSFile:@"navigation"];
     
-    // Apply styles only if the user prefers.
+    // Apply certain styles and JS only if the user prefers.
     if ([defaults boolForKey:@"styles.enabled"])
     {
         [window setBackgroundColor:[NSColor colorWithCalibratedRed:0.88f green:0.88f blue:0.88f alpha:1.0f]];
         [self applyCSSFile:@"cocoa"];
+        [self evaluateJavaScriptFile:@"appbar"];
     }
 }
 
@@ -360,12 +371,16 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     if (sel == @selector(notifySong:withArtist:album:art:))
         return @"notifySong";
     
+    if (sel == @selector(moveWindowWithDeltaX:andDeltaY:))
+        return @"moveWindow";
+    
     return nil;
 }
 
 + (BOOL) isSelectorExcludedFromWebScript:(SEL)sel
 {
-    if (sel == @selector(notifySong:withArtist:album:art:))
+    if (sel == @selector(notifySong:withArtist:album:art:) ||
+        sel == @selector(moveWindowWithDeltaX:andDeltaY:))
         return NO;
     
     return YES;
