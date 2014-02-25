@@ -145,6 +145,27 @@ if (typeof window.MusicAPI === 'undefined') {
     var lastArtist = "";
     var lastAlbum = "";
 
+    /* Convert a time string like "01:24" to seconds. From https://github.com/cgravolet/scroblr/blob/master/src/js/scroblr-injection.js */
+    function calculateDuration(timestring) {
+        var i, j, max, pow, seconds, timeSegments;
+        if (!timestring) {
+            return 0;
+        }
+        seconds = 0;
+        for (i = 0, max = arguments.length; i < max; i += 1) {
+            if (arguments[i].toString()) {
+                timeSegments = arguments[i].split(":");
+                for (j = timeSegments.length - 1, pow = 0;
+                     j >= 0 && j >= (timeSegments.length - 3);
+                     j -= 1, pow += 1) {
+                    seconds += parseFloat(timeSegments[j].replace("-", "")) *
+                    Math.pow(60, pow);
+                }
+            }
+        }
+        return seconds;
+    }
+    
     var addObserver = new MutationObserver(function(mutations) {
         mutations.forEach(function(m) {
             for (var i = 0; i < m.addedNodes.length; i++) {
@@ -158,6 +179,7 @@ if (typeof window.MusicAPI === 'undefined') {
                     var artist = document.querySelector('#player-artist');
                     var album = document.querySelector('.player-album');
                     var art = document.querySelector('#playingAlbumArt');
+                    var duration = calculateDuration(document.querySelector('#time_container_duration').textContent || '');
 
                     title = (title) ? title.innerText : 'Unknown';
                     artist = (artist) ? artist.innerText : 'Unknown';
@@ -172,7 +194,7 @@ if (typeof window.MusicAPI === 'undefined') {
                     // Make sure that this is the first of the notifications for the
                     // insertion of the song information elements.
                     if (lastTitle != title || lastArtist != artist || lastAlbum != album) {
-                        window.googleMusicApp.notifySong(title, artist, album, art); 
+                        window.googleMusicApp.notifySong(title, artist, album, art, duration);
 
                         lastTitle = title;
                         lastArtist = artist;

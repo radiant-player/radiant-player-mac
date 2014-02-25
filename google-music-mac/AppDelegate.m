@@ -23,6 +23,8 @@
 @synthesize prevTitle;
 @synthesize prevArtist;
 @synthesize prevAlbum;
+@synthesize prevDuration;
+@synthesize prevTimestamp;
 
 /**
  * Closing the application, hides the player window but keeps music playing in the background.
@@ -221,18 +223,19 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     }
 }
 
-- (void)scrobbleSong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album
+- (void)scrobbleSong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album duration:(NSTimeInterval)duration
 {
     // Send to now playing
-    [[LastFm sharedInstance] sendNowPlayingTrack:title byArtist:artist onAlbum:album withDuration:0 successHandler:^(NSDictionary *result) {
+    [[LastFm sharedInstance] sendNowPlayingTrack:title byArtist:artist onAlbum:album withDuration:duration successHandler:^(NSDictionary *result) {
         return;
     } failureHandler:^(NSError *error) {
         return;
     }];
 
     // Scrobble previous track
-    if ([prevTitle length]) {
-        [[LastFm sharedInstance] sendScrobbledTrack:prevTitle byArtist:prevArtist onAlbum:prevAlbum withDuration:0 atTimestamp: [[NSDate date] timeIntervalSince1970] successHandler:^(NSDictionary *result) {
+    NSTimeInterval curTimestamp = [[NSDate date] timeIntervalSince1970];
+    if ([prevTitle length] && curTimestamp - prevTimestamp >= prevDuration / 2) {
+        [[LastFm sharedInstance] sendScrobbledTrack:prevTitle byArtist:prevArtist onAlbum:prevAlbum withDuration:prevDuration atTimestamp: [[NSDate date] timeIntervalSince1970] successHandler:^(NSDictionary *result) {
             return;
         } failureHandler:^(NSError *error) {
             return;
@@ -242,6 +245,8 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     prevTitle = title;
     prevArtist = artist;
     prevAlbum = album;
+    prevDuration = duration;
+    prevTimestamp = curTimestamp;
 }
 
 #pragma mark - Web Browser Actions
@@ -392,11 +397,11 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     }
 }
 
-- (void)notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art
+- (void)notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art duration:(NSTimeInterval)duration
 {
     if ([defaults boolForKey:@"lastfm.enabled"])
     {
-        [self scrobbleSong:title withArtist:artist album:album];
+        [self scrobbleSong:title withArtist:artist album:album duration:duration];
     }
 
     if ([defaults boolForKey:@"notifications.enabled"])
@@ -458,7 +463,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 + (NSString *) webScriptNameForSelector:(SEL)sel
 {
-    if (sel == @selector(notifySong:withArtist:album:art:))
+    if (sel == @selector(notifySong:withArtist:album:art:duration:))
         return @"notifySong";
     
     if (sel == @selector(moveWindowWithDeltaX:andDeltaY:))
@@ -469,7 +474,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 + (BOOL) isSelectorExcludedFromWebScript:(SEL)sel
 {
-    if (sel == @selector(notifySong:withArtist:album:art:) ||
+    if (sel == @selector(notifySong:withArtist:album:art:duration:) ||
         sel == @selector(moveWindowWithDeltaX:andDeltaY:))
         return NO;
     

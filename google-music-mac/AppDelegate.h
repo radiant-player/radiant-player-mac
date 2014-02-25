@@ -35,9 +35,12 @@
 @property (copy, nonatomic) NSString *prevTitle;
 @property (copy, nonatomic) NSString *prevArtist;
 @property (copy, nonatomic) NSString *prevAlbum;
+@property NSTimeInterval prevDuration;
+@property NSTimeInterval prevTimestamp;
 
 - (void) syncLastFm;
 - (IBAction)authorizeScrobble:(NSButton *)sender;
+- (void)scrobbleSong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album duration:(NSTimeInterval)duration;
 
 - (IBAction) webBrowserBack:(id)sender;
 - (IBAction) webBrowserForward:(id)sender;
@@ -62,7 +65,7 @@
 
 - (void) moveWindowWithDeltaX:(CGFloat)deltaX andDeltaY:(CGFloat)deltaY;
 
-- (void) notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art;
+- (void) notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art duration:(NSTimeInterval)duration;
 
 - (void) evaluateJavaScriptFile:(NSString *)name;
 - (void) applyCSSFile:(NSString *)name;
