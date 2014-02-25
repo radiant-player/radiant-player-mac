@@ -8,12 +8,21 @@
  */
 
 #import "AppDelegate.h"
+#import <LastFm/LastFm.h>
 
 @implementation AppDelegate
 
 @synthesize webView;
 @synthesize window;
 @synthesize defaults;
+
+@synthesize usernameField;
+@synthesize passwordField;
+@synthesize authorizeButton;
+
+@synthesize prevTitle;
+@synthesize prevArtist;
+@synthesize prevAlbum;
 
 /**
  * Closing the application, hides the player window but keeps music playing in the background.
@@ -51,6 +60,9 @@
 {
     // Load the user preferences.
     defaults = [NSUserDefaults standardUserDefaults];
+    
+    // Initialize LastFm instance
+    [self syncLastFm];
     
 	// Add an event tap to intercept the system defined media key events
     eventTap = CGEventTapCreate(kCGSessionEventTap,
@@ -157,6 +169,79 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
             return NULL;
     }
     return event;
+}
+
+#pragma mark - Last.FM Actions
+
+- (void) syncLastFm
+{
+    NSString *session = [defaults objectForKey:@"lastfm.session"];
+    NSString *username = [defaults objectForKey:@"lastfm.username"];
+    [LastFm sharedInstance].apiKey = [defaults objectForKey:@"lastfm.apiKey"];
+    [LastFm sharedInstance].apiSecret = [defaults objectForKey:@"lastfm.apiSecret"];
+    [LastFm sharedInstance].username = username;
+    [LastFm sharedInstance].session = session;
+    
+    if ([username length] != 0) {
+        [usernameField setStringValue:username];
+    }
+    
+    if ([session length] != 0) {
+        [authorizeButton setTitle:@"Deauthorize"];
+    } else {
+        [authorizeButton setTitle:@"Authorize"];
+    }
+}
+
+- (IBAction)authorizeScrobble:(NSButton *)sender
+{
+    NSString *session = [defaults objectForKey:@"lastfm.session"];
+    if ([session length]) {
+        // Deauthorize.
+        [defaults removeObjectForKey:@"lastfm.session"];
+        [defaults removeObjectForKey:@"lastfm.username"];
+        [defaults synchronize];
+        [usernameField setStringValue:nil];
+        [passwordField setStringValue:nil];
+        [self syncLastFm];
+    } else {
+        // Attempt to obtain session key.
+        [authorizeButton setTitle:@"Authorizing..."];
+        [authorizeButton setEnabled:false];
+        [[LastFm sharedInstance] getSessionForUser:[usernameField stringValue] password:[passwordField stringValue] successHandler:^(NSDictionary *result) {
+            [defaults setObject:result[@"key"] forKey:@"lastfm.session"];
+            [defaults setObject:result[@"name"] forKey:@"lastfm.username"];
+            [defaults synchronize];
+            [self syncLastFm];
+            [authorizeButton setEnabled:true];
+        } failureHandler:^(NSError *error) {
+            [authorizeButton setTitle:@"Login Failed. Try Again!"];
+            [authorizeButton setEnabled:true];
+        }];
+    }
+}
+
+- (void)scrobbleSong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album
+{
+    // Send to now playing
+    [[LastFm sharedInstance] sendNowPlayingTrack:title byArtist:artist onAlbum:album withDuration:0 successHandler:^(NSDictionary *result) {
+        return;
+    } failureHandler:^(NSError *error) {
+        return;
+    }];
+
+    // Scrobble previous track
+    if ([prevTitle length]) {
+        [[LastFm sharedInstance] sendScrobbledTrack:prevTitle byArtist:prevArtist onAlbum:prevAlbum withDuration:0 atTimestamp: [[NSDate date] timeIntervalSince1970] successHandler:^(NSDictionary *result) {
+            return;
+        } failureHandler:^(NSError *error) {
+            return;
+        }];
+    }
+
+    prevTitle = title;
+    prevArtist = artist;
+    prevAlbum = album;
 }
 
 #pragma mark - Web Browser Actions
@@ -309,6 +394,11 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 - (void)notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art
 {
+    if ([defaults boolForKey:@"lastfm.enabled"])
+    {
+        [self scrobbleSong:title withArtist:artist album:album];
+    }
+
     if ([defaults boolForKey:@"notifications.enabled"])
     {
         NSUserNotification *notif = [[NSUserNotification alloc] init];

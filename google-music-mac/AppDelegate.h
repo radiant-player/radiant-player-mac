@@ -28,6 +28,17 @@
 
 @property (assign) NSUserDefaults *defaults;
 
+@property (strong) IBOutlet NSTextField *usernameField;
+@property (strong) IBOutlet NSSecureTextField *passwordField;
+@property (strong) IBOutlet NSButton *authorizeButton;
+
+@property (copy, nonatomic) NSString *prevTitle;
+@property (copy, nonatomic) NSString *prevArtist;
+@property (copy, nonatomic) NSString *prevAlbum;
+
+- (void) syncLastFm;
+- (IBAction)authorizeScrobble:(NSButton *)sender;
+
 - (IBAction) webBrowserBack:(id)sender;
 - (IBAction) webBrowserForward:(id)sender;
 
