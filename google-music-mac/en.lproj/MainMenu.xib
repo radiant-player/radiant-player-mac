@@ -214,6 +214,19 @@
                                     <action selector="toggleVisualization:" target="494" id="d1p-eJ-8rE"/>
                                 </connections>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="wOi-9h-iyD"/>
+                            <menuItem title="Go Back" keyEquivalent="" id="Mas-re-Dv3">
+                                <connections>
+                                    <action selector="webBrowserBack:" target="494" id="U3u-bH-IkG"/>
+                                    <binding destination="494" name="enabled" keyPath="self.webView.canGoBack" id="PBT-5y-8z1"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Go Forward" keyEquivalent="" id="h8M-FE-ECf">
+                                <connections>
+                                    <action selector="webBrowserForward:" target="494" id="9mb-ll-qGE"/>
+                                    <binding destination="494" name="enabled" keyPath="self.webView.canGoForward" id="Oed-xO-0Qu"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>
@@ -275,6 +288,9 @@
                     <constraint firstItem="536" firstAttribute="top" secondItem="372" secondAttribute="top" id="656"/>
                 </constraints>
             </view>
+            <connections>
+                <outlet property="delegate" destination="494" id="etb-Kh-VC3"/>
+            </connections>
         </window>
         <customObject id="420" customClass="NSFontManager"/>
         <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="KYm-BZ-OUe">
@@ -398,51 +414,51 @@
                 <outlet property="view" destination="iEh-sC-smM" id="0cz-nQ-Qda"/>
             </connections>
         </viewController>
-        <popover id="BxZ-SF-PN1">
+        <popover behavior="t" id="BxZ-SF-PN1">
             <connections>
                 <outlet property="contentViewController" destination="6m9-Th-uPg" id="1ex-OU-PQa"/>
             </connections>
         </popover>
-        <customView id="iEh-sC-smM" userLabel="Popover View">
-            <rect key="frame" x="0.0" y="0.0" width="361" height="213"/>
+        <customView id="iEh-sC-smM" userLabel="Popover View" customClass="CustomPopoverView">
+            <rect key="frame" x="0.0" y="0.0" width="361" height="130"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="toQ-SL-7WT">
-                    <rect key="frame" x="20" y="143" width="50" height="50"/>
+                    <rect key="frame" x="20" y="60" width="50" height="50"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="IwP-Wb-3wp"/>
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QTZ-Jw-ZpH">
-                    <rect key="frame" x="76" y="176" width="267" height="17"/>
+                    <rect key="frame" x="76" y="93" width="267" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Title" id="0Tp-am-ga6">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="No song currently playing" placeholderString="" id="0Tp-am-ga6">
                         <font key="font" metaFont="systemBold"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ngI-Gb-8Jw">
-                    <rect key="frame" x="76" y="160" width="267" height="17"/>
+                    <rect key="frame" x="76" y="77" width="267" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Artist" id="fHI-wa-NfF">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="fHI-wa-NfF">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yJg-I1-edx">
-                    <rect key="frame" x="76" y="143" width="267" height="17"/>
+                    <rect key="frame" x="76" y="60" width="267" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Album" id="rV5-qT-OvQ">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="rV5-qT-OvQ">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ftM-je-Ymy">
-                    <rect key="frame" x="162" y="46" width="48" height="48"/>
+                    <rect key="frame" x="156" y="-1" width="48" height="48"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="square" title="=" bezelStyle="shadowlessSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="OjS-8z-EPJ">
+                    <buttonCell key="cell" type="square" title="=" bezelStyle="shadowlessSquare" image="play" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="OjS-8z-EPJ">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -451,9 +467,9 @@
                     </connections>
                 </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VkG-Lf-5uN">
-                    <rect key="frame" x="220" y="46" width="48" height="48"/>
+                    <rect key="frame" x="214" y="-1" width="48" height="48"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="square" title=">" bezelStyle="shadowlessSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="V3F-Ft-Oge">
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="V3F-Ft-Oge">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -462,9 +478,9 @@
                     </connections>
                 </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AmR-41-4AD">
-                    <rect key="frame" x="104" y="46" width="48" height="48"/>
+                    <rect key="frame" x="98" y="-1" width="48" height="48"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="square" title="&lt;" bezelStyle="shadowlessSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="Wym-gl-ajS">
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="Wym-gl-ajS">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -473,9 +489,9 @@
                     </connections>
                 </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DvI-Lo-u1q">
-                    <rect key="frame" x="46" y="47" width="48" height="47"/>
+                    <rect key="frame" x="40" y="0.0" width="48" height="47"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="square" title="R" bezelStyle="shadowlessSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="fza-Ue-axW">
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="fza-Ue-axW">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -484,9 +500,9 @@
                     </connections>
                 </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Xb-8Y-y5L">
-                    <rect key="frame" x="278" y="46" width="48" height="48"/>
+                    <rect key="frame" x="272" y="-1" width="48" height="48"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="square" title="S" bezelStyle="shadowlessSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="azn-PR-cB2">
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="azn-PR-cB2">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -494,13 +510,9 @@
                         <action selector="toggleShuffle:" target="494" id="44f-UJ-dD3"/>
                     </connections>
                 </button>
-                <progressIndicator fixedFrame="YES" maxValue="100" indeterminate="YES" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="7nK-ST-4f0">
-                    <rect key="frame" x="0.0" y="-1" width="361" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                </progressIndicator>
             </subviews>
         </customView>
-        <customObject id="vhZ-72-AYY" userLabel="Popover Delegate" customClass="PopoverDelegate">
+        <customObject id="vhZ-72-AYY" userLabel="Popover Delegate" customClass="PopoverViewDelegate">
             <connections>
                 <outlet property="albumLabel" destination="yJg-I1-edx" id="TPa-H6-zdV"/>
                 <outlet property="appDelegate" destination="494" id="tun-Ab-XAj"/>
@@ -515,4 +527,7 @@
             </connections>
         </customObject>
     </objects>
+    <resources>
+        <image name="play" width="32" height="32"/>
+    </resources>
 </document>

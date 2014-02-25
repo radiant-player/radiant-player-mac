@@ -1,14 +1,15 @@
-//
-//  CustomStatusView.h
-//  google-music-mac
-//
-//  Created by Sajid Anwar on 23/02/2014.
-//  Copyright (c) 2014 Sajid Anwar. All rights reserved.
-//
+/*
+ * CustomStatusView.h
+ *
+ * Created by Sajid Anwar.
+ *
+ * Subject to terms and conditions in LICENSE.md.
+ *
+ */
 
 #import <Cocoa/Cocoa.h>
 
-@interface CustomStatusView : NSView 
+@interface CustomStatusView : NSView<NSPopoverDelegate>
 
 @property (retain) id globalMonitor;
 @property (retain) NSPopover *popover;

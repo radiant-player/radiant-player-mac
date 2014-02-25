@@ -19,10 +19,21 @@
 @synthesize popoverDelegate;
 @synthesize defaults;
 
-// Terminate on window close
-- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication
-{
+/**
+ * Closing the application, hides the player window but keeps music playing in the background.
+ */
+
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag {
+    
+    [window makeKeyAndOrderFront:self];
+    
     return YES;
+}
+
+- (BOOL)windowShouldClose:(NSNotification *)notification
+{
+    [window orderOut:self];
+    return NO;
 }
 
 /**
@@ -78,6 +89,11 @@
     
     // Initialize the system status bar menu.
     [self initializeStatusBar];
+
+    // Load the dummy WebView (for opening links in the default browser).
+    dummyWebViewDelegate = [[DummyWebViewPolicyDelegate alloc] init];
+    dummyWebView = [[WebView alloc] init];
+    [dummyWebView setPolicyDelegate:dummyWebViewDelegate];
 }
 
 - (void)initializeStatusBar
@@ -86,6 +102,7 @@
                                                                     NSSquareStatusItemLength,
                                                                     NSSquareStatusItemLength)];
     statusView.popover = popover;
+    [popover setDelegate:statusView];
     
     NSStatusBar *bar = [NSStatusBar systemStatusBar];
     statusItem = [bar statusItemWithLength:NSSquareStatusItemLength];
@@ -163,6 +180,18 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
             return NULL;
     }
     return event;
+}
+
+#pragma mark - Web Browser Actions
+
+- (void) webBrowserBack:(id)sender
+{
+    [webView goBack];
+}
+
+- (void) webBrowserForward:(id)sender
+{
+    [webView goForward];
 }
 
 #pragma mark - Play Actions
@@ -276,7 +305,11 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     [self evaluateJavaScriptFile:@"main"];
     [self evaluateJavaScriptFile:@"keyboard"];
     [self evaluateJavaScriptFile:@"styles"];
+    [self evaluateJavaScriptFile:@"navigation"];
     [[sender windowScriptObject] setValue:self forKey:@"googleMusicApp"];
+    
+    // Always apply the navigation styles.
+    [self applyCSSFile:@"navigation"];
     
     // Apply styles only if the user prefers.
     if ([defaults boolForKey:@"styles.enabled"])
@@ -313,6 +346,23 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     }
 }
 
+#pragma mark - Playback Notifications
+
+- (void)playbackChanged:(NSInteger)mode
+{
+    NSLog(@"Playback changed: %ld", (long)mode);
+}
+
+- (void)repeatChanged:(NSString *)mode
+{
+    NSLog(@"Repeat changed: %@", mode);
+}
+
+- (void)shuffleChanged:(NSString *)mode
+{
+    NSLog(@"Shuffle changed: %@", mode);
+}
+
 #pragma mark - Web
     
 - (void) evaluateJavaScriptFile:(NSString *)name
@@ -338,17 +388,38 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     [webView stringByEvaluatingJavaScriptFromString:final];
 }
 
+/*
+ * Some links expect a new WebView (a tab or a window), but instead we'll try to 
+ * pass the URL to a dummy WebView, which will open it in the default browser.
+ */
+- (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request
+{
+    return dummyWebView;
+}
+
 + (NSString *) webScriptNameForSelector:(SEL)sel
 {
     if (sel == @selector(notifySong:withArtist:album:art:))
         return @"notifySong";
+    
+    if (sel == @selector(playbackChanged:))
+        return @"playbackChanged";
+    
+    if (sel == @selector(repeatChanged:))
+        return @"repeatChanged";
+    
+    if (sel == @selector(shuffleChanged:))
+        return @"shuffleChanged";
     
     return nil;
 }
 
 + (BOOL) isSelectorExcludedFromWebScript:(SEL)sel
 {
-    if (sel == @selector(notifySong:withArtist:album:art:))
+    if (sel == @selector(notifySong:withArtist:album:art:) ||
+        sel == @selector(playbackChanged:) ||
+        sel == @selector(repeatChanged:) ||
+        sel == @selector(shuffleChanged:))
         return NO;
     
     return YES;

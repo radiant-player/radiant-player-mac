@@ -1,10 +1,11 @@
-//
-//  PopoverDelegate.h
-//  google-music-mac
-//
-//  Created by Sajid Anwar on 23/02/2014.
-//  Copyright (c) 2014 Sajid Anwar. All rights reserved.
-//
+/*
+ * PopoverViewDelegate.h
+ *
+ * Created by Sajid Anwar.
+ *
+ * Subject to terms and conditions in LICENSE.md.
+ *
+ */
 
 #import <Foundation/Foundation.h>
 
@@ -12,7 +13,7 @@
 
 @class AppDelegate;
 
-@interface PopoverDelegate : NSObject
+@interface PopoverViewDelegate : NSObject
 
 @property (assign) IBOutlet AppDelegate *appDelegate;
 
@@ -26,6 +27,8 @@
 @property (assign) IBOutlet NSButton *playPauseButton;
 @property (assign) IBOutlet NSButton *forwardButton;
 @property (assign) IBOutlet NSButton *shuffleButton;
+
+- (NSImage *) imageFromName:(NSString *)name;
 
 - (void) updateSong:(NSString *)title artist:(NSString *)artist album:(NSString *)album art:(NSString *)art;
 

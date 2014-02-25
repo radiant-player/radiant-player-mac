@@ -1,14 +1,15 @@
-//
-//  PopoverDelegate.m
-//  google-music-mac
-//
-//  Created by Sajid Anwar on 23/02/2014.
-//  Copyright (c) 2014 Sajid Anwar. All rights reserved.
-//
+/*
+ * PopoverViewDelegate.m
+ *
+ * Created by Sajid Anwar.
+ *
+ * Subject to terms and conditions in LICENSE.md.
+ *
+ */
 
-#import "PopoverDelegate.h"
+#import "PopoverViewDelegate.h"
 
-@implementation PopoverDelegate
+@implementation PopoverViewDelegate
 
 @synthesize appDelegate;
 
@@ -22,6 +23,23 @@
 @synthesize playPauseButton;
 @synthesize forwardButton;
 @synthesize shuffleButton;
+
+- (void)awakeFromNib
+{
+    [repeatButton    setImage:[self imageFromName:@"repeat_none"]];
+    [backButton      setImage:[self imageFromName:@"back"]];
+    [playPauseButton setImage:[self imageFromName:@"play"]];
+    [forwardButton   setImage:[self imageFromName:@"forward"]];
+    [shuffleButton   setImage:[self imageFromName:@"shuffle_off"]];
+}
+
+- (NSImage *)imageFromName:(NSString *)name
+{
+    NSString *file = [NSString stringWithFormat:@"images/%@", name];
+    NSString *path = [[NSBundle mainBundle] pathForResource:file ofType:@"png"];
+    
+    return [[NSImage alloc] initWithContentsOfFile:path];
+}
 
 - (void)updateSong:(NSString *)title artist:(NSString *)artist album:(NSString *)album art:(NSString *)art
 {

@@ -12,15 +12,21 @@
 #import <WebKit/WebKit.h>
 
 #import "CustomStatusView.h"
+#import "DummyWebViewPolicyDelegate.h"
 #import "CustomWebView.h"
-#import "PopoverDelegate.h"
+#import "PopoverViewDelegate.h"
 
-@class PopoverDelegate;
+
+
+@class PopoverViewDelegate;
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, CustomWebViewDelegate, NSUserNotificationCenterDelegate>
 {
 	CFMachPortRef eventTap;
     CFRunLoopSourceRef eventPortSource;
+    
+    WebView *dummyWebView;
+    DummyWebViewPolicyDelegate *dummyWebViewDelegate;
 }
 
 @property (assign) IBOutlet NSWindow *window;
@@ -28,11 +34,13 @@
 @property (nonatomic, retain) NSStatusItem *statusItem;
 @property (nonatomic, retain) CustomStatusView *statusView;
 @property (nonatomic, retain) IBOutlet NSPopover *popover;
-@property (assign) IBOutlet PopoverDelegate *popoverDelegate;
+@property (assign) IBOutlet PopoverViewDelegate *popoverDelegate;
 
 @property (assign) NSUserDefaults *defaults;
 
 - (void) initializeStatusBar;
+- (IBAction) webBrowserBack:(id)sender;
+- (IBAction) webBrowserForward:(id)sender;
 
 - (IBAction) playPause:(id)sender;
 - (IBAction) forwardAction:(id)sender;
@@ -53,6 +61,11 @@
 - (IBAction) toggleVisualization:(id)sender;
 
 - (void) notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art;
+
+// Refer to PlaybackConstants.m
+- (void) shuffleChanged:(NSString *)mode;
+- (void) repeatChanged:(NSString *)mode;
+- (void) playbackChanged:(NSInteger)mode;
 
 - (void) evaluateJavaScriptFile:(NSString *)name;
 - (void) applyCSSFile:(NSString *)name;

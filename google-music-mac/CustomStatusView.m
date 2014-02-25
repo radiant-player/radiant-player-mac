@@ -1,10 +1,11 @@
-//
-//  CustomStatusView.m
-//  google-music-mac
-//
-//  Created by Sajid Anwar on 23/02/2014.
-//  Copyright (c) 2014 Sajid Anwar. All rights reserved.
-//
+/*
+ * CustomStatusView.m
+ *
+ * Created by Sajid Anwar.
+ *
+ * Subject to terms and conditions in LICENSE.md.
+ *
+ */
 
 #import "CustomStatusView.h"
 
@@ -48,9 +49,6 @@
 
 - (void)showPopover
 {
-    self.active = YES;
-    [self setNeedsDisplay:YES];
-    
     [popover showRelativeToRect:[self frame] ofView:self preferredEdge:NSMinYEdge];
     
     if (self.globalMonitor == nil)
@@ -69,6 +67,18 @@
     [self setNeedsDisplay:YES];
     
     [popover close];
+}
+
+- (void)popoverWillShow:(NSNotification *)notification
+{
+    self.active = YES;
+    [self setNeedsDisplay:YES];
+}
+
+- (void)popoverWillClose:(NSNotification *)notification
+{
+    self.active = NO;
+    [self setNeedsDisplay:YES];
 }
 
 @end
