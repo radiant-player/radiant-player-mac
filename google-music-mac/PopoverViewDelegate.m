@@ -13,6 +13,8 @@
 
 @synthesize appDelegate;
 
+@synthesize noSongLabel;
+
 @synthesize artView;
 @synthesize titleLabel;
 @synthesize artistLabel;
@@ -43,6 +45,13 @@
 
 - (void)updateSong:(NSString *)title artist:(NSString *)artist album:(NSString *)album art:(NSString *)art
 {
+    if (![noSongLabel isHidden])
+    {
+        [noSongLabel setHidden:YES];
+        [thumbsupButton setHidden:NO];
+        [thumbsdownButton setHidden:NO];
+    }
+    
     [titleLabel setStringValue:title];
     [artistLabel setStringValue:artist];
     [albumLabel setStringValue:album];

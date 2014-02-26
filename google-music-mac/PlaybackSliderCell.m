@@ -57,7 +57,7 @@
     NSRect curTimeRect = NSMakeRect(curPoint.x, curPoint.y, curTime.size.width + 6, curTime.size.height + 2);
     NSRectFill(curTimeRect);
     
-    curPoint.x += 3;
+    curPoint.x += 4;
     curPoint.y += 1;
     [curTime drawAtPoint:curPoint];
     
@@ -71,7 +71,7 @@
     NSRect totalTimeRect = NSMakeRect(totalPoint.x - totalTime.size.width - 6, totalPoint.y, totalTime.size.width + 6, totalTime.size.height + 2);
     NSRectFill(totalTimeRect);
     
-    totalPoint.x = totalPoint.x - totalTime.size.width - 3;
+    totalPoint.x = totalPoint.x - totalTime.size.width - 4;
     totalPoint.y += 1;
     [totalTime drawAtPoint:totalPoint];
 }

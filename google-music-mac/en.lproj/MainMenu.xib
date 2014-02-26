@@ -431,7 +431,7 @@
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QTZ-Jw-ZpH">
                     <rect key="frame" x="76" y="121" width="267" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="No song currently playing" placeholderString="" id="0Tp-am-ga6">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" placeholderString="" id="0Tp-am-ga6">
                         <font key="font" metaFont="systemBold"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -510,7 +510,7 @@
                         <action selector="toggleShuffle:" target="494" id="44f-UJ-dD3"/>
                     </connections>
                 </button>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EGc-cr-jAa">
+                <button hidden="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EGc-cr-jAa">
                     <rect key="frame" x="380" y="114" width="24" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="thumbsup_outline" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="Qhu-Gx-PLF">
@@ -521,7 +521,7 @@
                         <action selector="toggleThumbsUp:" target="494" id="H4x-dt-QYH"/>
                     </connections>
                 </button>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Nx-UI-e4n">
+                <button hidden="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Nx-UI-e4n">
                     <rect key="frame" x="380" y="85" width="24" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="thumbsdown_outline" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="t1y-WE-XLX">
@@ -533,10 +533,19 @@
                     </connections>
                 </button>
                 <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8u2-Nn-ZZf">
-                    <rect key="frame" x="-2" y="-2" width="428" height="21"/>
+                    <rect key="frame" x="-2" y="-4" width="428" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="yOD-fm-imH" customClass="PlaybackSliderCell"/>
+                    <sliderCell key="cell" enabled="NO" state="on" alignment="left" tickMarkPosition="above" sliderType="linear" id="yOD-fm-imH" customClass="PlaybackSliderCell"/>
                 </slider>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="37s-Je-fFn">
+                    <rect key="frame" x="18" y="96" width="388" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="No song currently playing" id="xHL-lO-Uva">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
         </customView>
         <customObject id="vhZ-72-AYY" userLabel="Popover Delegate" customClass="PopoverViewDelegate">
@@ -547,6 +556,7 @@
                 <outlet property="artistLabel" destination="ngI-Gb-8Jw" id="TWf-5B-bUo"/>
                 <outlet property="backButton" destination="AmR-41-4AD" id="1m4-Lf-NlO"/>
                 <outlet property="forwardButton" destination="VkG-Lf-5uN" id="pRm-NM-rfe"/>
+                <outlet property="noSongLabel" destination="37s-Je-fFn" id="2cQ-Pr-VlE"/>
                 <outlet property="playPauseButton" destination="ftM-je-Ymy" id="Xi3-U3-ewc"/>
                 <outlet property="playbackSlider" destination="8u2-Nn-ZZf" id="ww6-rb-TBx"/>
                 <outlet property="repeatButton" destination="DvI-Lo-u1q" id="xDw-Gh-EXt"/>

@@ -18,6 +18,8 @@
 
 @property (assign) IBOutlet AppDelegate *appDelegate;
 
+@property (assign) IBOutlet NSTextField *noSongLabel;
+
 @property (assign) IBOutlet NSImageView *artView;
 @property (assign) IBOutlet NSTextField *titleLabel;
 @property (assign) IBOutlet NSTextField *artistLabel;
