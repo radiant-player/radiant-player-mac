@@ -12,6 +12,7 @@
 @implementation CustomStatusView
 
 @synthesize popover;
+@synthesize popup;
 @synthesize active;
 
 - (id)initWithFrame:(NSRect)frame
@@ -57,7 +58,7 @@
 
 - (void)showPopover
 {
-    [popover showRelativeToRect:[self frame] ofView:self preferredEdge:NSMinYEdge];
+    [popup showRelativeToRect:[self frame] ofView:self preferredEdge:NSMinYEdge];
     
     if (self.globalMonitor == nil)
     {
@@ -74,7 +75,19 @@
     self.active = NO;
     [self setNeedsDisplay:YES];
     
-    [popover close];
+    [popup close];
+}
+
+- (void)popupWillShow
+{
+    self.active = YES;
+    [self setNeedsDisplay:YES];
+}
+
+- (void)popupWillClose
+{
+    self.active = NO;
+    [self setNeedsDisplay:YES];
 }
 
 - (void)popoverWillShow:(NSNotification *)notification

@@ -16,6 +16,7 @@
 @synthesize statusItem;
 @synthesize statusView;
 @synthesize popover;
+@synthesize popup;
 @synthesize popoverDelegate;
 @synthesize defaults;
 
@@ -102,7 +103,9 @@
                                                                     NSSquareStatusItemLength,
                                                                     NSSquareStatusItemLength)];
     statusView.popover = popover;
+    statusView.popup = popup;
     [popover setDelegate:statusView];
+    [popup setDelegate:statusView];
     
     NSStatusBar *bar = [NSStatusBar systemStatusBar];
     statusItem = [bar statusItemWithLength:NSSquareStatusItemLength];
@@ -335,6 +338,9 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     
     if ([defaults boolForKey:@"notifications.enabled"])
     {
+        if ([popup isVisible])
+            return;
+        
         NSUserNotification *notif = [[NSUserNotification alloc] init];
         notif.title = title;
         notif.informativeText = [NSString stringWithFormat:@"%@ — %@", artist, album];
