@@ -8,6 +8,7 @@
  */
 
 #import <Cocoa/Cocoa.h>
+#import "AppDelegate.h"
 
 @interface CustomStatusView : NSView<NSPopoverDelegate>
 

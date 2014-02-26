@@ -26,16 +26,24 @@
 - (void)drawRect:(NSRect)rect
 {
 	[super drawRect:rect];
+    
+    rect = NSInsetRect(rect, 2, 0);
 	
     // Draw the status bar item (highlight or not).
     if (self.active) {
         [[NSColor selectedMenuItemColor] set];
+        NSRectFill(rect);
+        
+        NSImage *icon = [AppDelegate imageFromName:@"menuicon_white"];
+        [icon drawInRect:NSInsetRect(rect, 2, 2) fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
     }
     else {
         [[NSColor clearColor] set];
+        NSRectFill(rect);
+        
+        NSImage *icon = [AppDelegate imageFromName:@"menuicon"];
+        [icon drawInRect:NSInsetRect(rect, 2, 2) fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
     }
-    
-    NSRectFill(rect);
 }
 
 - (void)mouseDown:(NSEvent *)theEvent {
