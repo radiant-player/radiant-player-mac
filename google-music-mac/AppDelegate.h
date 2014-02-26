@@ -14,10 +14,10 @@
 #import "CustomStatusView.h"
 #import "DummyWebViewPolicyDelegate.h"
 #import "CustomWebView.h"
-#import "PopoverViewDelegate.h"
+#import "PopupViewDelegate.h"
 #import "PopupPanel.h"
 
-@class PopoverViewDelegate;
+@class PopupViewDelegate;
 @class CustomStatusView;
 @class PopupPanel;
 
@@ -34,9 +34,8 @@
 @property (nonatomic, retain) IBOutlet CustomWebView *webView;
 @property (nonatomic, retain) NSStatusItem *statusItem;
 @property (nonatomic, retain) CustomStatusView *statusView;
-@property (nonatomic, retain) IBOutlet NSPopover *popover;
 @property (nonatomic, retain) IBOutlet PopupPanel *popup;
-@property (assign) IBOutlet PopoverViewDelegate *popoverDelegate;
+@property (assign) IBOutlet PopupViewDelegate *popoverDelegate;
 
 @property (assign) NSUserDefaults *defaults;
 

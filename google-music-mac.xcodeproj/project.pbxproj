@@ -26,7 +26,7 @@
 		D3DB8FF518BD2AEC00ABE93B /* PlaybackConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DB8FF418BD2AEC00ABE93B /* PlaybackConstants.m */; };
 		D3DB8FF818BD6A6400ABE93B /* PlaybackSliderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DB8FF718BD6A6400ABE93B /* PlaybackSliderCell.m */; };
 		D3FAC6D418BA81EC00D9F461 /* CustomStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FAC6D318BA81EC00D9F461 /* CustomStatusView.m */; };
-		D3FAC6D718BA942500D9F461 /* PopoverViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FAC6D618BA942500D9F461 /* PopoverViewDelegate.m */; };
+		D3FAC6D718BA942500D9F461 /* PopupViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FAC6D618BA942500D9F461 /* PopupViewDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,8 +63,8 @@
 		D3DB8FF718BD6A6400ABE93B /* PlaybackSliderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaybackSliderCell.m; sourceTree = "<group>"; };
 		D3FAC6D218BA81EC00D9F461 /* CustomStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomStatusView.h; sourceTree = "<group>"; };
 		D3FAC6D318BA81EC00D9F461 /* CustomStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomStatusView.m; sourceTree = "<group>"; };
-		D3FAC6D518BA942500D9F461 /* PopoverViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewDelegate.h; sourceTree = "<group>"; };
-		D3FAC6D618BA942500D9F461 /* PopoverViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewDelegate.m; sourceTree = "<group>"; };
+		D3FAC6D518BA942500D9F461 /* PopupViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupViewDelegate.h; sourceTree = "<group>"; };
+		D3FAC6D618BA942500D9F461 /* PopupViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupViewDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,8 +131,8 @@
 				D3FAC6D318BA81EC00D9F461 /* CustomStatusView.m */,
 				1A68DAD61803B588004CBA25 /* CustomWebView.h */,
 				1A68DAD71803B588004CBA25 /* CustomWebView.m */,
-				D3FAC6D518BA942500D9F461 /* PopoverViewDelegate.h */,
-				D3FAC6D618BA942500D9F461 /* PopoverViewDelegate.m */,
+				D3FAC6D518BA942500D9F461 /* PopupViewDelegate.h */,
+				D3FAC6D618BA942500D9F461 /* PopupViewDelegate.m */,
 				D3B1668118BB0E43003FCE6B /* DummyWebViewPolicyDelegate.h */,
 				D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */,
 				D3DB8FF118BD27B700ABE93B /* PlaybackConstants.h */,
@@ -254,7 +254,7 @@
 				D3DB8FF518BD2AEC00ABE93B /* PlaybackConstants.m in Sources */,
 				1A7B685317453E40001E509E /* AppDelegate.m in Sources */,
 				D3DB8FF818BD6A6400ABE93B /* PlaybackSliderCell.m in Sources */,
-				D3FAC6D718BA942500D9F461 /* PopoverViewDelegate.m in Sources */,
+				D3FAC6D718BA942500D9F461 /* PopupViewDelegate.m in Sources */,
 				D32CCEFA18BE039E00BDD484 /* PopupPanel.m in Sources */,
 				D3FAC6D418BA81EC00D9F461 /* CustomStatusView.m in Sources */,
 				D32CCEFD18BE9BF800BDD484 /* PopupView.m in Sources */,

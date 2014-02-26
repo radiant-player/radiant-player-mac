@@ -1,5 +1,5 @@
 /*
- * PopoverViewDelegate.h
+ * PopupViewDelegate.h
  *
  * Created by Sajid Anwar.
  *
@@ -14,7 +14,7 @@
 
 @class AppDelegate;
 
-@interface PopoverViewDelegate : NSObject
+@interface PopupViewDelegate : NSObject
 
 @property (assign) IBOutlet AppDelegate *appDelegate;
 

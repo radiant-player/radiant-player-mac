@@ -409,7 +409,7 @@
             </view>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="Vyy-aQ-Qdc"/>
-        <customObject id="vhZ-72-AYY" userLabel="Popover Delegate" customClass="PopoverViewDelegate">
+        <customObject id="vhZ-72-AYY" userLabel="Popup Delegate" customClass="PopupViewDelegate">
             <connections>
                 <outlet property="albumLabel" destination="yJg-I1-edx" id="TPa-H6-zdV"/>
                 <outlet property="appDelegate" destination="494" id="tun-Ab-XAj"/>

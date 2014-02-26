@@ -1,5 +1,5 @@
 /*
- * PopoverViewDelegate.m
+ * PopupViewDelegate.m
  *
  * Created by Sajid Anwar.
  *
@@ -7,9 +7,9 @@
  *
  */
 
-#import "PopoverViewDelegate.h"
+#import "PopupViewDelegate.h"
 
-@implementation PopoverViewDelegate
+@implementation PopupViewDelegate
 
 @synthesize appDelegate;
 

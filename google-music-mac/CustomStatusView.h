@@ -11,14 +11,13 @@
 #import "AppDelegate.h"
 #import "PopupPanel.h"
 
-@interface CustomStatusView : NSView<NSPopoverDelegate, PopupDelegate>
+@interface CustomStatusView : NSView<PopupDelegate>
 
 @property (retain) id globalMonitor;
-@property (retain) NSPopover *popover;
 @property (retain) PopupPanel *popup;
 @property (assign) BOOL active;
 
-- (void)showPopover;
-- (void)hidePopover;
+- (void)showPopup;
+- (void)hidePopup;
 
 @end

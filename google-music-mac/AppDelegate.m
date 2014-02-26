@@ -15,7 +15,6 @@
 @synthesize window;
 @synthesize statusItem;
 @synthesize statusView;
-@synthesize popover;
 @synthesize popup;
 @synthesize popoverDelegate;
 @synthesize defaults;
@@ -102,9 +101,7 @@
     statusView = [[CustomStatusView alloc] initWithFrame:NSMakeRect(0, 0,
                                                                     NSSquareStatusItemLength,
                                                                     NSSquareStatusItemLength)];
-    statusView.popover = popover;
     statusView.popup = popup;
-    [popover setDelegate:statusView];
     [popup setDelegate:statusView];
     
     NSStatusBar *bar = [NSStatusBar systemStatusBar];

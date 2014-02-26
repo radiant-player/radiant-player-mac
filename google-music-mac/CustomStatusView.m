@@ -11,7 +11,6 @@
 
 @implementation CustomStatusView
 
-@synthesize popover;
 @synthesize popup;
 @synthesize active;
 
@@ -49,14 +48,14 @@
 
 - (void)mouseDown:(NSEvent *)theEvent {
     if (self.active) {
-        [self hidePopover];
+        [self hidePopup];
     }
     else {
-        [self showPopover];
+        [self showPopup];
     }
 }
 
-- (void)showPopover
+- (void)showPopup
 {
     [popup showRelativeToRect:[self frame] ofView:self preferredEdge:NSMinYEdge];
     
@@ -65,12 +64,12 @@
         self.globalMonitor =
             [NSEvent addGlobalMonitorForEventsMatchingMask:NSLeftMouseUp|NSRightMouseUp
                      handler:^(NSEvent *ev) {
-                         [self hidePopover];
+                         [self hidePopup];
                      }];
     }
 }
 
-- (void)hidePopover
+- (void)hidePopup
 {
     self.active = NO;
     [self setNeedsDisplay:YES];
@@ -85,18 +84,6 @@
 }
 
 - (void)popupWillClose
-{
-    self.active = NO;
-    [self setNeedsDisplay:YES];
-}
-
-- (void)popoverWillShow:(NSNotification *)notification
-{
-    self.active = YES;
-    [self setNeedsDisplay:YES];
-}
-
-- (void)popoverWillClose:(NSNotification *)notification
 {
     self.active = NO;
     [self setNeedsDisplay:YES];
