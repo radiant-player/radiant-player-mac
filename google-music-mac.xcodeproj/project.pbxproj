@@ -22,6 +22,7 @@
 		D3B1668318BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */; };
 		D3DB8FF018BD253A00ABE93B /* images in Resources */ = {isa = PBXBuildFile; fileRef = D3DB8FEF18BD253A00ABE93B /* images */; };
 		D3DB8FF518BD2AEC00ABE93B /* PlaybackConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DB8FF418BD2AEC00ABE93B /* PlaybackConstants.m */; };
+		D3DB8FF818BD6A6400ABE93B /* PlaybackSliderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DB8FF718BD6A6400ABE93B /* PlaybackSliderCell.m */; };
 		D3FAC6D418BA81EC00D9F461 /* CustomStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FAC6D318BA81EC00D9F461 /* CustomStatusView.m */; };
 		D3FAC6D718BA942500D9F461 /* PopoverViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FAC6D618BA942500D9F461 /* PopoverViewDelegate.m */; };
 /* End PBXBuildFile section */
@@ -52,6 +53,8 @@
 		D3DB8FEF18BD253A00ABE93B /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		D3DB8FF118BD27B700ABE93B /* PlaybackConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaybackConstants.h; sourceTree = "<group>"; };
 		D3DB8FF418BD2AEC00ABE93B /* PlaybackConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaybackConstants.m; sourceTree = "<group>"; };
+		D3DB8FF618BD6A6400ABE93B /* PlaybackSliderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaybackSliderCell.h; sourceTree = "<group>"; };
+		D3DB8FF718BD6A6400ABE93B /* PlaybackSliderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaybackSliderCell.m; sourceTree = "<group>"; };
 		D3FAC6D218BA81EC00D9F461 /* CustomStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomStatusView.h; sourceTree = "<group>"; };
 		D3FAC6D318BA81EC00D9F461 /* CustomStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomStatusView.m; sourceTree = "<group>"; };
 		D3FAC6D518BA942500D9F461 /* PopoverViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewDelegate.h; sourceTree = "<group>"; };
@@ -128,6 +131,8 @@
 				D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */,
 				D3DB8FF118BD27B700ABE93B /* PlaybackConstants.h */,
 				D3DB8FF418BD2AEC00ABE93B /* PlaybackConstants.m */,
+				D3DB8FF618BD6A6400ABE93B /* PlaybackSliderCell.h */,
+				D3DB8FF718BD6A6400ABE93B /* PlaybackSliderCell.m */,
 				1A7B684617453E40001E509E /* Supporting Files */,
 			);
 			path = "google-music-mac";
@@ -238,6 +243,7 @@
 				1A7B684C17453E40001E509E /* main.m in Sources */,
 				D3DB8FF518BD2AEC00ABE93B /* PlaybackConstants.m in Sources */,
 				1A7B685317453E40001E509E /* AppDelegate.m in Sources */,
+				D3DB8FF818BD6A6400ABE93B /* PlaybackSliderCell.m in Sources */,
 				D3FAC6D718BA942500D9F461 /* PopoverViewDelegate.m in Sources */,
 				D3FAC6D418BA81EC00D9F461 /* CustomStatusView.m in Sources */,
 			);

@@ -32,11 +32,14 @@
 @property (assign) IBOutlet NSButton *thumbsupButton;
 @property (assign) IBOutlet NSButton *thumbsdownButton;
 
+@property (assign) IBOutlet NSSlider *playbackSlider;
+
 - (void) updateSong:(NSString *)title artist:(NSString *)artist album:(NSString *)album art:(NSString *)art;
     
 - (void) shuffleChanged:(NSString *)mode;
 - (void) repeatChanged:(NSString *)mode;
 - (void) playbackChanged:(NSInteger)mode;
+- (void) playbackTimeChanged:(NSInteger)currentTime totalTime:(NSInteger)totalTime;
 - (void) ratingChanged:(NSInteger)rating;
 
 @end

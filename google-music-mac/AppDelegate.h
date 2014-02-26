@@ -68,6 +68,7 @@
 - (void) shuffleChanged:(NSString *)mode;
 - (void) repeatChanged:(NSString *)mode;
 - (void) playbackChanged:(NSInteger)mode;
+- (void) playbackTimeChanged:(NSInteger)currentTime totalTime:(NSInteger)totalTime;
 - (void) ratingChanged:(NSInteger)rating;
 
 - (void) evaluateJavaScriptFile:(NSString *)name;

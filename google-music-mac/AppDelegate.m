@@ -363,6 +363,11 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     [popoverDelegate playbackChanged:mode];
 }
 
+- (void)playbackTimeChanged:(NSInteger)currentTime totalTime:(NSInteger)totalTime
+{
+    [popoverDelegate playbackTimeChanged:currentTime totalTime:totalTime];
+}
+
 - (void)repeatChanged:(NSString *)mode
 {
     [popoverDelegate repeatChanged:mode];
@@ -375,7 +380,6 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     
 - (void)ratingChanged:(NSInteger)rating
 {
-    NSLog(@"rating %ld", (long)rating);
     [popoverDelegate ratingChanged:rating];
 }
 
@@ -421,6 +425,9 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     if (sel == @selector(playbackChanged:))
         return @"playbackChanged";
     
+    if (sel == @selector(playbackTimeChanged:totalTime:))
+        return @"playbackTimeChanged";
+    
     if (sel == @selector(repeatChanged:))
         return @"repeatChanged";
     
@@ -440,6 +447,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 {
     if (sel == @selector(notifySong:withArtist:album:art:) ||
         sel == @selector(playbackChanged:) ||
+        sel == @selector(playbackTimeChanged:totalTime:) ||
         sel == @selector(repeatChanged:) ||
         sel == @selector(shuffleChanged:) ||
         sel == @selector(ratingChanged:) ||

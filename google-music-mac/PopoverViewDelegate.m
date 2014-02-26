@@ -27,6 +27,8 @@
 @synthesize thumbsdownButton;
 @synthesize thumbsupButton;
 
+@synthesize playbackSlider;
+
 - (void)awakeFromNib
 {
     [repeatButton    setImage:[AppDelegate imageFromName:@"repeat_none"]];
@@ -58,6 +60,12 @@
         [playPauseButton setImage:[AppDelegate imageFromName:@"pause"]];
     else
         [playPauseButton setImage:[AppDelegate imageFromName:@"play"]];
+}
+
+- (void)playbackTimeChanged:(NSInteger)currentTime totalTime:(NSInteger)totalTime
+{
+    [playbackSlider setMaxValue:totalTime];
+    [playbackSlider setIntegerValue:currentTime];
 }
 
 - (void)repeatChanged:(NSString *)mode
