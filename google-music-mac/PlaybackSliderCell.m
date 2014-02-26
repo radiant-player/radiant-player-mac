@@ -15,6 +15,9 @@
 {
     [NSGraphicsContext restoreGraphicsState];
     
+    aRect.origin.y += 1;
+    aRect.size.height -= 2;
+    
     NSRect knobRect = [self knobRectFlipped:true];
     
     NSRect left = aRect;
@@ -40,11 +43,12 @@
     [path fill];
     
     /* Draw the current and total times. */
-    NSRect aRect = [self trackRect];
-    NSFont *font = [NSFont fontWithName:@"Helvetica" size:9.0];
+    NSRect aRect = NSInsetRect([self trackRect], 2, 0);
+    NSFont *font = [NSFont boldSystemFontOfSize:9.0];
     NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
         [NSColor whiteColor], NSForegroundColorAttributeName,
-        font, NSFontAttributeName, nil
+        font, NSFontAttributeName,
+        nil
     ];
     
     NSPoint curPoint = NSMakePoint(aRect.origin.x, aRect.origin.y + 3);
@@ -54,11 +58,12 @@
                                                                   attributes:attributes];
     
     [[NSColor orangeColor] set];
-    NSRect curTimeRect = NSMakeRect(curPoint.x, curPoint.y, curTime.size.width + 6, curTime.size.height + 2);
-    NSRectFill(curTimeRect);
+    NSBezierPath *curTimePath = [NSBezierPath bezierPathWithRoundedRect:NSMakeRect(curPoint.x, curPoint.y, curTime.size.width + 6, curTime.size.height + 2)
+                                                                xRadius:3
+                                                                yRadius:3];
+    [curTimePath fill];
     
-    curPoint.x += 4;
-    curPoint.y += 1;
+    curPoint.x += 3;
     [curTime drawAtPoint:curPoint];
     
     NSPoint totalPoint = NSMakePoint(aRect.size.width, aRect.origin.y + 3);
@@ -68,11 +73,12 @@
                                                                     attributes:attributes];
     
     [[NSColor grayColor] set];
-    NSRect totalTimeRect = NSMakeRect(totalPoint.x - totalTime.size.width - 6, totalPoint.y, totalTime.size.width + 6, totalTime.size.height + 2);
-    NSRectFill(totalTimeRect);
+    NSBezierPath *totalTimePath = [NSBezierPath bezierPathWithRoundedRect:NSMakeRect(totalPoint.x - totalTime.size.width - 6, totalPoint.y, totalTime.size.width + 6, totalTime.size.height + 2)
+                                                                  xRadius:3
+                                                                  yRadius:3];
+    [totalTimePath fill];
     
-    totalPoint.x = totalPoint.x - totalTime.size.width - 4;
-    totalPoint.y += 1;
+    totalPoint.x = totalPoint.x - totalTime.size.width - 3;
     [totalTime drawAtPoint:totalPoint];
 }
 
