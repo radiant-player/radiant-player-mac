@@ -23,22 +23,20 @@
 @synthesize playPauseButton;
 @synthesize forwardButton;
 @synthesize shuffleButton;
+    
+@synthesize thumbsdownButton;
+@synthesize thumbsupButton;
 
 - (void)awakeFromNib
 {
-    [repeatButton    setImage:[self imageFromName:@"repeat_none"]];
-    [backButton      setImage:[self imageFromName:@"previous"]];
-    [playPauseButton setImage:[self imageFromName:@"play"]];
-    [forwardButton   setImage:[self imageFromName:@"next"]];
-    [shuffleButton   setImage:[self imageFromName:@"shuffle_off"]];
-}
-
-- (NSImage *)imageFromName:(NSString *)name
-{
-    NSString *file = [NSString stringWithFormat:@"images/%@", name];
-    NSString *path = [[NSBundle mainBundle] pathForResource:file ofType:@"png"];
+    [repeatButton    setImage:[AppDelegate imageFromName:@"repeat_none"]];
+    [backButton      setImage:[AppDelegate imageFromName:@"previous"]];
+    [playPauseButton setImage:[AppDelegate imageFromName:@"play"]];
+    [forwardButton   setImage:[AppDelegate imageFromName:@"next"]];
+    [shuffleButton   setImage:[AppDelegate imageFromName:@"shuffle_off"]];
     
-    return [[NSImage alloc] initWithContentsOfFile:path];
+    [thumbsupButton   setImage:[AppDelegate imageFromName:@"thumbsup_outline"]];
+    [thumbsdownButton   setImage:[AppDelegate imageFromName:@"thumbsdown_outline"]];
 }
 
 - (void)updateSong:(NSString *)title artist:(NSString *)artist album:(NSString *)album art:(NSString *)art
@@ -57,27 +55,46 @@
 - (void)playbackChanged:(NSInteger)mode
 {
     if (mode == MUSIC_PLAYING)
-        [playPauseButton setImage:[self imageFromName:@"pause"]];
+        [playPauseButton setImage:[AppDelegate imageFromName:@"pause"]];
     else
-        [playPauseButton setImage:[self imageFromName:@"play"]];
+        [playPauseButton setImage:[AppDelegate imageFromName:@"play"]];
 }
 
 - (void)repeatChanged:(NSString *)mode
 {
     if ([MUSIC_NO_REPEAT isEqualToString:mode])
-        [repeatButton setImage:[self imageFromName:@"repeat_none"]];
+        [repeatButton setImage:[AppDelegate imageFromName:@"repeat_none"]];
     else if ([MUSIC_LIST_REPEAT isEqualToString:mode])
-        [repeatButton setImage:[self imageFromName:@"repeat_list"]];
+        [repeatButton setImage:[AppDelegate imageFromName:@"repeat_list"]];
     else if ([MUSIC_SINGLE_REPEAT isEqualToString:mode])
-        [repeatButton setImage:[self imageFromName:@"repeat_single"]];
+        [repeatButton setImage:[AppDelegate imageFromName:@"repeat_single"]];
 }
 
 - (void)shuffleChanged:(NSString *)mode
 {
     if ([MUSIC_ALL_SHUFFLE isEqualToString:mode])
-        [shuffleButton setImage:[self imageFromName:@"shuffle_on"]];
+        [shuffleButton setImage:[AppDelegate imageFromName:@"shuffle_on"]];
     else
-        [shuffleButton setImage:[self imageFromName:@"shuffle_off"]];
+        [shuffleButton setImage:[AppDelegate imageFromName:@"shuffle_off"]];
+}
+    
+- (void)ratingChanged:(NSInteger)rating
+{
+    if (rating == MUSIC_RATING_THUMBSUP)
+    {
+        [thumbsupButton setImage:[AppDelegate imageFromName:@"thumbsup_on"]];
+        [thumbsdownButton setImage:[AppDelegate imageFromName:@"thumbsdown_outline"]];
+    }
+    else if (rating == MUSIC_RATING_THUMBSDOWN)
+    {
+        [thumbsupButton setImage:[AppDelegate imageFromName:@"thumbsup_outline"]];
+        [thumbsdownButton setImage:[AppDelegate imageFromName:@"thumbsdown_on"]];
+    }
+    else
+    {
+        [thumbsupButton setImage:[AppDelegate imageFromName:@"thumbsup_outline"]];
+        [thumbsdownButton setImage:[AppDelegate imageFromName:@"thumbsdown_outline"]];
+    }
 }
 
 @end

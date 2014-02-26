@@ -513,18 +513,24 @@
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EGc-cr-jAa">
                     <rect key="frame" x="380" y="104" width="24" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="thumbsup" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="Qhu-Gx-PLF">
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="thumbsup_outline" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="Qhu-Gx-PLF">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="toggleThumbsUp:" target="494" id="H4x-dt-QYH"/>
+                    </connections>
                 </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Nx-UI-e4n">
                     <rect key="frame" x="380" y="75" width="24" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="thumbsdown" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="t1y-WE-XLX">
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="thumbsdown_outline" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="t1y-WE-XLX">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="toggleThumbsDown:" target="494" id="0Sc-pX-Cjj"/>
+                    </connections>
                 </button>
             </subviews>
         </customView>
@@ -539,6 +545,8 @@
                 <outlet property="playPauseButton" destination="ftM-je-Ymy" id="Xi3-U3-ewc"/>
                 <outlet property="repeatButton" destination="DvI-Lo-u1q" id="xDw-Gh-EXt"/>
                 <outlet property="shuffleButton" destination="0Xb-8Y-y5L" id="zxu-qb-yUd"/>
+                <outlet property="thumbsdownButton" destination="3Nx-UI-e4n" id="Snn-b8-pC4"/>
+                <outlet property="thumbsupButton" destination="EGc-cr-jAa" id="xfp-sj-yxk"/>
                 <outlet property="titleLabel" destination="QTZ-Jw-ZpH" id="wvi-BJ-aw7"/>
             </connections>
         </customObject>
@@ -549,7 +557,7 @@
         <image name="previous" width="512" height="512"/>
         <image name="repeat_none" width="30" height="30"/>
         <image name="shuffle_off" width="512" height="512"/>
-        <image name="thumbsdown" width="512" height="512"/>
-        <image name="thumbsup" width="512" height="512"/>
+        <image name="thumbsdown_outline" width="512" height="512"/>
+        <image name="thumbsup_outline" width="512" height="512"/>
     </resources>
 </document>

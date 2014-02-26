@@ -19,3 +19,8 @@ extern NSString *const MUSIC_NO_SHUFFLE;
 // Playback modes.
 extern NSInteger const MUSIC_PAUSED;
 extern NSInteger const MUSIC_PLAYING;
+
+// Rating modes.
+extern NSInteger const MUSIC_RATING_THUMBSUP;
+extern NSInteger const MUSIC_RATING_THUMBSDOWN;
+extern NSInteger const MUSIC_RATING_NONE;

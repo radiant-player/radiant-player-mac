@@ -106,7 +106,6 @@
     
     NSStatusBar *bar = [NSStatusBar systemStatusBar];
     statusItem = [bar statusItemWithLength:NSSquareStatusItemLength];
-    [statusItem setTitle:@"Music"];
     [statusItem setHighlightMode:YES];
     [statusItem setView:statusView];
 }
@@ -373,6 +372,12 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 {
     [popoverDelegate shuffleChanged:mode];
 }
+    
+- (void)ratingChanged:(NSInteger)rating
+{
+    NSLog(@"rating %ld", (long)rating);
+    [popoverDelegate ratingChanged:rating];
+}
 
 #pragma mark - Web
     
@@ -422,6 +427,9 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     if (sel == @selector(shuffleChanged:))
         return @"shuffleChanged";
     
+    if (sel == @selector(ratingChanged:))
+        return @"ratingChanged";
+    
     if (sel == @selector(moveWindowWithDeltaX:andDeltaY:))
         return @"moveWindow";
     
@@ -434,6 +442,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         sel == @selector(playbackChanged:) ||
         sel == @selector(repeatChanged:) ||
         sel == @selector(shuffleChanged:) ||
+        sel == @selector(ratingChanged:) ||
         sel == @selector(moveWindowWithDeltaX:andDeltaY:))
         return NO;
     
@@ -442,6 +451,16 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 - (void)webView:(WebView *)sender runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WebFrame *)frame {
     NSLog(@"%@", message);
+}
+    
+    
+    
++ (NSImage *)imageFromName:(NSString *)name
+{
+    NSString *file = [NSString stringWithFormat:@"images/%@", name];
+    NSString *path = [[NSBundle mainBundle] pathForResource:file ofType:@"png"];
+    
+    return [[NSImage alloc] initWithContentsOfFile:path];
 }
 
 @end

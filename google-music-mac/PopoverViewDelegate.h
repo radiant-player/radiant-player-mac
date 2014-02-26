@@ -28,13 +28,15 @@
 @property (assign) IBOutlet NSButton *playPauseButton;
 @property (assign) IBOutlet NSButton *forwardButton;
 @property (assign) IBOutlet NSButton *shuffleButton;
-
-- (NSImage *) imageFromName:(NSString *)name;
+    
+@property (assign) IBOutlet NSButton *thumbsupButton;
+@property (assign) IBOutlet NSButton *thumbsdownButton;
 
 - (void) updateSong:(NSString *)title artist:(NSString *)artist album:(NSString *)album art:(NSString *)art;
     
 - (void) shuffleChanged:(NSString *)mode;
 - (void) repeatChanged:(NSString *)mode;
 - (void) playbackChanged:(NSInteger)mode;
+- (void) ratingChanged:(NSInteger)rating;
 
 @end

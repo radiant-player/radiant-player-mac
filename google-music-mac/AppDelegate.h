@@ -16,9 +16,8 @@
 #import "CustomWebView.h"
 #import "PopoverViewDelegate.h"
 
-
-
 @class PopoverViewDelegate;
+@class CustomStatusView;
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, CustomWebViewDelegate, NSUserNotificationCenterDelegate>
 {
@@ -69,10 +68,13 @@
 - (void) shuffleChanged:(NSString *)mode;
 - (void) repeatChanged:(NSString *)mode;
 - (void) playbackChanged:(NSInteger)mode;
+- (void) ratingChanged:(NSInteger)rating;
 
 - (void) evaluateJavaScriptFile:(NSString *)name;
 - (void) applyCSSFile:(NSString *)name;
 + (NSString *) webScriptNameForSelector:(SEL)sel;
 + (BOOL) isSelectorExcludedFromWebScript:(SEL)sel;
-
+    
++ (NSImage *)imageFromName:(NSString *)name;
+    
 @end

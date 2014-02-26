@@ -21,3 +21,8 @@ NSString *const MUSIC_NO_SHUFFLE = @"NO_SHUFFLE";
 // Playback modes.
 NSInteger const MUSIC_PAUSED = 0;
 NSInteger const MUSIC_PLAYING = 1;
+
+// Rating modes.
+NSInteger const MUSIC_RATING_THUMBSUP = 5;
+NSInteger const MUSIC_RATING_THUMBSDOWN = 1;
+NSInteger const MUSIC_RATING_NONE = 1;
