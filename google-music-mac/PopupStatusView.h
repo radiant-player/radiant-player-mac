@@ -1,5 +1,5 @@
 /*
- * CustomStatusView.h
+ * PopupStatusView.h
  *
  * Created by Sajid Anwar.
  *
@@ -11,7 +11,7 @@
 #import "AppDelegate.h"
 #import "PopupPanel.h"
 
-@interface CustomStatusView : NSView<PopupDelegate>
+@interface PopupStatusView : NSView<PopupDelegate>
 
 @property (retain) id globalMonitor;
 @property (retain) PopupPanel *popup;

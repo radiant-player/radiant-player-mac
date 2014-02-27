@@ -11,14 +11,14 @@
 #import <IOKit/hidsystem/ev_keymap.h>
 #import <WebKit/WebKit.h>
 
-#import "CustomStatusView.h"
+#import "PopupStatusView.h"
 #import "DummyWebViewPolicyDelegate.h"
 #import "CustomWebView.h"
 #import "PopupViewDelegate.h"
 #import "PopupPanel.h"
 
 @class PopupViewDelegate;
-@class CustomStatusView;
+@class PopupStatusView;
 @class PopupPanel;
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, CustomWebViewDelegate, NSUserNotificationCenterDelegate>
@@ -33,7 +33,7 @@
 @property (assign) IBOutlet NSWindow *window;
 @property (nonatomic, retain) IBOutlet CustomWebView *webView;
 @property (nonatomic, retain) NSStatusItem *statusItem;
-@property (nonatomic, retain) CustomStatusView *statusView;
+@property (nonatomic, retain) PopupStatusView *statusView;
 @property (nonatomic, retain) IBOutlet PopupPanel *popup;
 @property (assign) IBOutlet PopupViewDelegate *popoverDelegate;
 

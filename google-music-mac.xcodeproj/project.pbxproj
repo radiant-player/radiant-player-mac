@@ -25,7 +25,7 @@
 		D3DB8FF018BD253A00ABE93B /* images in Resources */ = {isa = PBXBuildFile; fileRef = D3DB8FEF18BD253A00ABE93B /* images */; };
 		D3DB8FF518BD2AEC00ABE93B /* PlaybackConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DB8FF418BD2AEC00ABE93B /* PlaybackConstants.m */; };
 		D3DB8FF818BD6A6400ABE93B /* PlaybackSliderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DB8FF718BD6A6400ABE93B /* PlaybackSliderCell.m */; };
-		D3FAC6D418BA81EC00D9F461 /* CustomStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FAC6D318BA81EC00D9F461 /* CustomStatusView.m */; };
+		D3FAC6D418BA81EC00D9F461 /* PopupStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FAC6D318BA81EC00D9F461 /* PopupStatusView.m */; };
 		D3FAC6D718BA942500D9F461 /* PopupViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FAC6D618BA942500D9F461 /* PopupViewDelegate.m */; };
 /* End PBXBuildFile section */
 
@@ -61,8 +61,8 @@
 		D3DB8FF418BD2AEC00ABE93B /* PlaybackConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaybackConstants.m; sourceTree = "<group>"; };
 		D3DB8FF618BD6A6400ABE93B /* PlaybackSliderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaybackSliderCell.h; sourceTree = "<group>"; };
 		D3DB8FF718BD6A6400ABE93B /* PlaybackSliderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaybackSliderCell.m; sourceTree = "<group>"; };
-		D3FAC6D218BA81EC00D9F461 /* CustomStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomStatusView.h; sourceTree = "<group>"; };
-		D3FAC6D318BA81EC00D9F461 /* CustomStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomStatusView.m; sourceTree = "<group>"; };
+		D3FAC6D218BA81EC00D9F461 /* PopupStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupStatusView.h; sourceTree = "<group>"; };
+		D3FAC6D318BA81EC00D9F461 /* PopupStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupStatusView.m; sourceTree = "<group>"; };
 		D3FAC6D518BA942500D9F461 /* PopupViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupViewDelegate.h; sourceTree = "<group>"; };
 		D3FAC6D618BA942500D9F461 /* PopupViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupViewDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,28 +121,16 @@
 		1A7B684517453E40001E509E /* google-music-mac */ = {
 			isa = PBXGroup;
 			children = (
+				D32CCEFE18BED65B00BDD484 /* Popup */,
+				D32CCEFF18BED6C200BDD484 /* WebView */,
 				D3DB8FEF18BD253A00ABE93B /* images */,
 				D326EA6218B2D7E500BEC02F /* css */,
 				D326EA6318B2D7E500BEC02F /* js */,
 				1A7B685117453E40001E509E /* AppDelegate.h */,
 				1A7B685217453E40001E509E /* AppDelegate.m */,
 				1A7B685417453E40001E509E /* MainMenu.xib */,
-				D3FAC6D218BA81EC00D9F461 /* CustomStatusView.h */,
-				D3FAC6D318BA81EC00D9F461 /* CustomStatusView.m */,
-				1A68DAD61803B588004CBA25 /* CustomWebView.h */,
-				1A68DAD71803B588004CBA25 /* CustomWebView.m */,
-				D3FAC6D518BA942500D9F461 /* PopupViewDelegate.h */,
-				D3FAC6D618BA942500D9F461 /* PopupViewDelegate.m */,
-				D3B1668118BB0E43003FCE6B /* DummyWebViewPolicyDelegate.h */,
-				D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */,
 				D3DB8FF118BD27B700ABE93B /* PlaybackConstants.h */,
 				D3DB8FF418BD2AEC00ABE93B /* PlaybackConstants.m */,
-				D3DB8FF618BD6A6400ABE93B /* PlaybackSliderCell.h */,
-				D3DB8FF718BD6A6400ABE93B /* PlaybackSliderCell.m */,
-				D32CCEF818BE039E00BDD484 /* PopupPanel.h */,
-				D32CCEF918BE039E00BDD484 /* PopupPanel.m */,
-				D32CCEFB18BE9BF800BDD484 /* PopupView.h */,
-				D32CCEFC18BE9BF800BDD484 /* PopupView.m */,
 				1A7B684617453E40001E509E /* Supporting Files */,
 			);
 			path = "google-music-mac";
@@ -159,6 +147,34 @@
 				D302E13318B561E100CCD18E /* Preferences.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D32CCEFE18BED65B00BDD484 /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				D3DB8FF618BD6A6400ABE93B /* PlaybackSliderCell.h */,
+				D3DB8FF718BD6A6400ABE93B /* PlaybackSliderCell.m */,
+				D3FAC6D218BA81EC00D9F461 /* PopupStatusView.h */,
+				D3FAC6D318BA81EC00D9F461 /* PopupStatusView.m */,
+				D3FAC6D518BA942500D9F461 /* PopupViewDelegate.h */,
+				D3FAC6D618BA942500D9F461 /* PopupViewDelegate.m */,
+				D32CCEF818BE039E00BDD484 /* PopupPanel.h */,
+				D32CCEF918BE039E00BDD484 /* PopupPanel.m */,
+				D32CCEFB18BE9BF800BDD484 /* PopupView.h */,
+				D32CCEFC18BE9BF800BDD484 /* PopupView.m */,
+			);
+			name = Popup;
+			sourceTree = "<group>";
+		};
+		D32CCEFF18BED6C200BDD484 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				1A68DAD61803B588004CBA25 /* CustomWebView.h */,
+				1A68DAD71803B588004CBA25 /* CustomWebView.m */,
+				D3B1668118BB0E43003FCE6B /* DummyWebViewPolicyDelegate.h */,
+				D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */,
+			);
+			name = WebView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,7 +272,7 @@
 				D3DB8FF818BD6A6400ABE93B /* PlaybackSliderCell.m in Sources */,
 				D3FAC6D718BA942500D9F461 /* PopupViewDelegate.m in Sources */,
 				D32CCEFA18BE039E00BDD484 /* PopupPanel.m in Sources */,
-				D3FAC6D418BA81EC00D9F461 /* CustomStatusView.m in Sources */,
+				D3FAC6D418BA81EC00D9F461 /* PopupStatusView.m in Sources */,
 				D32CCEFD18BE9BF800BDD484 /* PopupView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

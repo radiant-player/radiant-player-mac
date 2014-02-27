@@ -98,7 +98,7 @@
 
 - (void)initializeStatusBar
 {
-    statusView = [[CustomStatusView alloc] initWithFrame:NSMakeRect(0, 0,
+    statusView = [[PopupStatusView alloc] initWithFrame:NSMakeRect(0, 0,
                                                                     NSSquareStatusItemLength,
                                                                     NSSquareStatusItemLength)];
     statusView.popup = popup;

@@ -1,5 +1,5 @@
 /*
- * CustomStatusView.m
+ * PopupStatusView.m
  *
  * Created by Sajid Anwar.
  *
@@ -7,9 +7,9 @@
  *
  */
 
-#import "CustomStatusView.h"
+#import "PopupStatusView.h"
 
-@implementation CustomStatusView
+@implementation PopupStatusView
 
 @synthesize popup;
 @synthesize active;
