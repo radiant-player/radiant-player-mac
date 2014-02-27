@@ -17,9 +17,9 @@
 
 @end
 
-@interface PopupPanel : NSPanel
+@interface PopupPanel : NSPanel<NSWindowDelegate>
 
-@property (assign) id<PopupDelegate> delegate;
+@property (assign) id<PopupDelegate> popupDelegate;
 @property (assign) IBOutlet PopupView *popupView;
 
 - (void)showRelativeToRect:(NSRect)rect ofView:(NSView *)view preferredEdge:(NSRectEdge)edge;

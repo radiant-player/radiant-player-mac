@@ -16,7 +16,7 @@
 @synthesize statusItem;
 @synthesize statusView;
 @synthesize popup;
-@synthesize popoverDelegate;
+@synthesize popupDelegate;
 @synthesize defaults;
 
 /**
@@ -102,7 +102,7 @@
                                                                     NSSquareStatusItemLength,
                                                                     NSSquareStatusItemLength)];
     statusView.popup = popup;
-    [popup setDelegate:statusView];
+    [popup setPopupDelegate:statusView];
     
     NSStatusBar *bar = [NSStatusBar systemStatusBar];
     statusItem = [bar statusItemWithLength:NSSquareStatusItemLength];
@@ -331,7 +331,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 - (void)notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art
 {
-    [popoverDelegate updateSong:title artist:artist album:album art:art];
+    [popupDelegate updateSong:title artist:artist album:album art:art];
     
     if ([defaults boolForKey:@"notifications.enabled"])
     {
@@ -363,27 +363,27 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 - (void)playbackChanged:(NSInteger)mode
 {
-    [popoverDelegate playbackChanged:mode];
+    [popupDelegate playbackChanged:mode];
 }
 
 - (void)playbackTimeChanged:(NSInteger)currentTime totalTime:(NSInteger)totalTime
 {
-    [popoverDelegate playbackTimeChanged:currentTime totalTime:totalTime];
+    [popupDelegate playbackTimeChanged:currentTime totalTime:totalTime];
 }
 
 - (void)repeatChanged:(NSString *)mode
 {
-    [popoverDelegate repeatChanged:mode];
+    [popupDelegate repeatChanged:mode];
 }
 
 - (void)shuffleChanged:(NSString *)mode
 {
-    [popoverDelegate shuffleChanged:mode];
+    [popupDelegate shuffleChanged:mode];
 }
     
 - (void)ratingChanged:(NSInteger)rating
 {
-    [popoverDelegate ratingChanged:rating];
+    [popupDelegate ratingChanged:rating];
 }
 
 #pragma mark - Web

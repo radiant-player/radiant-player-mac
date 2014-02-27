@@ -11,7 +11,7 @@
 
 @implementation PopupPanel
 
-@synthesize delegate;
+@synthesize popupDelegate;
 @synthesize popupView;
 
 -(void)awakeFromNib
@@ -20,12 +20,24 @@
     [self setOpaque:NO];
     [self setLevel:NSPopUpMenuWindowLevel];
     [self setHidesOnDeactivate:NO];
+    [self setDelegate:self];
 }
+
+- (BOOL)canBecomeKeyWindow
+{
+    return YES;
+}
+
+- (void)windowDidResignKey:(NSNotification *)notification
+{
+    [self close];
+}
+
 
 - (void)showRelativeToRect:(NSRect)rect ofView:(NSView *)view preferredEdge:(NSRectEdge)edge
 {
-    if (delegate)
-        [delegate popupWillShow];
+    if (popupDelegate)
+        [popupDelegate popupWillShow];
     
     NSRect statusRect = [view.window convertRectToScreen:view.bounds];
     NSRect screenRect = [[[NSScreen screens] objectAtIndex:0] frame];
@@ -57,8 +69,8 @@
 
 - (void)close
 {
-    if (delegate)
-        [delegate popupWillClose];
+    if (popupDelegate)
+        [popupDelegate popupWillClose];
     
     [NSAnimationContext beginGrouping];
     [[NSAnimationContext currentContext] setDuration:.15];
