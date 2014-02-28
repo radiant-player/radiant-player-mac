@@ -18,9 +18,9 @@ Requirements
 ------------
 
 * Mac OS X 10.8 or later
-* [Adobe Flash Player for Mac OS X][1]
+* [Adobe Flash Player for Mac OS X][5]
 
-[1]: http://get.adobe.com/flashplayer/
+[5]: http://get.adobe.com/flashplayer/
 
 License
 -------
