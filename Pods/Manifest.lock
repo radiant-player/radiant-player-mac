@@ -1,0 +1,13 @@
+PODS:
+  - KissXML (5.0)
+  - LastFm (1.15.0):
+    - KissXML (~> 5.0)
+
+DEPENDENCIES:
+  - LastFm
+
+SPEC CHECKSUMS:
+  KissXML: 4c66b6f39ef49c23e6bb8d335b94136f12b1b615
+  LastFm: f474e3d5a6119cda5a338d028420ad69a908deab
+
+COCOAPODS: 0.29.0
