@@ -214,6 +214,15 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 #pragma mark - Play Actions
 
 /**
+ * setPlaybackTime changes the time of the song to the number of milliseconds
+ */
+- (IBAction) setPlaybackTime:(NSInteger)milliseconds
+{
+    NSString *js = [NSString stringWithFormat:@"MusicAPI.Playback.setPlaybackTime(%ld)", (long)milliseconds];
+    [webView stringByEvaluatingJavaScriptFromString:js];
+}
+
+/**
  * playPause toggles the playing status for the app
  */
 - (IBAction) playPause:(id)sender
@@ -319,8 +328,9 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
 {
-    [self evaluateJavaScriptFile:@"main"];
     [self evaluateJavaScriptFile:@"keyboard"];
+    [self evaluateJavaScriptFile:@"mouse"];
+    [self evaluateJavaScriptFile:@"main"];
     [self evaluateJavaScriptFile:@"styles"];
     [self evaluateJavaScriptFile:@"navigation"];
     [[sender windowScriptObject] setValue:self forKey:@"googleMusicApp"];

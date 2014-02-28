@@ -21,6 +21,7 @@
 		D326EA6518B2D7E500BEC02F /* js in Resources */ = {isa = PBXBuildFile; fileRef = D326EA6318B2D7E500BEC02F /* js */; };
 		D32CCEFA18BE039E00BDD484 /* PopupPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = D32CCEF918BE039E00BDD484 /* PopupPanel.m */; };
 		D32CCEFD18BE9BF800BDD484 /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = D32CCEFC18BE9BF800BDD484 /* PopupView.m */; };
+		D3446A9218C023B500A0C36A /* mouse.js in Sources */ = {isa = PBXBuildFile; fileRef = D3446A9118C023B500A0C36A /* mouse.js */; };
 		D3B1668318BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */; };
 		D3DB8FF018BD253A00ABE93B /* images in Resources */ = {isa = PBXBuildFile; fileRef = D3DB8FEF18BD253A00ABE93B /* images */; };
 		D3DB8FF518BD2AEC00ABE93B /* PlaybackConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DB8FF418BD2AEC00ABE93B /* PlaybackConstants.m */; };
@@ -54,6 +55,7 @@
 		D32CCEF918BE039E00BDD484 /* PopupPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupPanel.m; sourceTree = "<group>"; };
 		D32CCEFB18BE9BF800BDD484 /* PopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupView.h; sourceTree = "<group>"; };
 		D32CCEFC18BE9BF800BDD484 /* PopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupView.m; sourceTree = "<group>"; };
+		D3446A9118C023B500A0C36A /* mouse.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = mouse.js; path = "google-music-mac/js/mouse.js"; sourceTree = "<group>"; };
 		D3B1668118BB0E43003FCE6B /* DummyWebViewPolicyDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyWebViewPolicyDelegate.h; sourceTree = "<group>"; };
 		D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyWebViewPolicyDelegate.m; sourceTree = "<group>"; };
 		D3DB8FEF18BD253A00ABE93B /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 		1A7B683317453E40001E509E = {
 			isa = PBXGroup;
 			children = (
+				D3446A9118C023B500A0C36A /* mouse.js */,
 				1A7B68801745ABBD001E509E /* icon.icns */,
 				1A7B684517453E40001E509E /* google-music-mac */,
 				1A7B683E17453E40001E509E /* Frameworks */,
@@ -271,6 +274,7 @@
 				1A7B685317453E40001E509E /* AppDelegate.m in Sources */,
 				D3DB8FF818BD6A6400ABE93B /* PlaybackSliderCell.m in Sources */,
 				D3FAC6D718BA942500D9F461 /* PopupViewDelegate.m in Sources */,
+				D3446A9218C023B500A0C36A /* mouse.js in Sources */,
 				D32CCEFA18BE039E00BDD484 /* PopupPanel.m in Sources */,
 				D3FAC6D418BA81EC00D9F461 /* PopupStatusView.m in Sources */,
 				D32CCEFD18BE9BF800BDD484 /* PopupView.m in Sources */,

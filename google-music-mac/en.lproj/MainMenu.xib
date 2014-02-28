@@ -596,7 +596,10 @@
                     <slider focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8u2-Nn-ZZf">
                         <rect key="frame" x="18" y="10" width="388" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <sliderCell key="cell" enabled="NO" refusesFirstResponder="YES" state="on" focusRingType="none" alignment="left" tickMarkPosition="above" sliderType="linear" id="yOD-fm-imH" customClass="PlaybackSliderCell"/>
+                        <sliderCell key="cell" refusesFirstResponder="YES" state="on" focusRingType="none" alignment="left" tickMarkPosition="above" sliderType="linear" id="yOD-fm-imH" customClass="PlaybackSliderCell"/>
+                        <connections>
+                            <action selector="setPlaybackTime:" target="vhZ-72-AYY" id="844-7Z-MTH"/>
+                        </connections>
                     </slider>
                 </subviews>
             </view>

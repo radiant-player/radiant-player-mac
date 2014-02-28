@@ -11,4 +11,6 @@
 
 @interface PlaybackSliderCell : NSSliderCell
 
+@property (assign) BOOL changing;
+
 @end

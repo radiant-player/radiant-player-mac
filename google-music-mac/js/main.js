@@ -76,6 +76,20 @@ if (typeof window.MusicAPI === 'undefined') {
         // Shuffle modes.
         ALL_SHUFFLE:    'ALL_SHUFFLE',
         NO_SHUFFLE:     'NO_SHUFFLE',
+        
+        // Time functions.
+        getPlaybackTime: function() {
+            return parseInt(slider.getAttribute('aria-valuenow'));
+        },
+        
+        setPlaybackTime: function(milliseconds) {
+            var percent = milliseconds / parseFloat(slider.getAttribute('aria-valuemax'));
+            var lower = slider.offsetLeft + 6;
+            var upper = slider.offsetLeft + slider.clientWidth - 6;
+            var x = lower + percent*(upper - lower);
+            
+            window.Mouse.clickAtLocation(slider, x, 0)
+        },
 
         // Playback functions.
         playPause:      function() { MusicAPI.Playback._eplayPause.click(); },

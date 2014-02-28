@@ -11,6 +11,42 @@
 
 @implementation PlaybackSliderCell
 
+@synthesize changing;
+
+/* Don't allow changing of the slider when it is being dragged */
+- (void)stopTracking:(NSPoint)lastPoint at:(NSPoint)stopPoint inView:(NSView *)controlView mouseIsUp:(BOOL)flag
+{
+    [self setChanging:NO];
+    [super stopTracking:lastPoint at:stopPoint inView:controlView mouseIsUp:flag];
+}
+
+- (BOOL)continueTracking:(NSPoint)lastPoint at:(NSPoint)currentPoint inView:(NSView *)controlView
+{
+    return [super continueTracking:lastPoint at:currentPoint inView:controlView];
+}
+
+- (BOOL)startTrackingAt:(NSPoint)startPoint inView:(NSView *)controlView
+{
+    [self setChanging:YES];
+    return [super startTrackingAt:startPoint inView:controlView];
+}
+
+- (void)setDoubleValue:(double)aDouble
+{
+    if ([self changing])
+        return;
+    
+    [super setDoubleValue:aDouble];
+}
+
+- (void)setIntegerValue:(NSInteger)anInteger
+{
+    if ([self changing])
+        return;
+    
+    [super setIntegerValue:anInteger];
+}
+
 - (void)drawBarInside:(NSRect)aRect flipped:(BOOL)flipped
 {
     [NSGraphicsContext restoreGraphicsState];

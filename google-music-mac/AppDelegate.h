@@ -44,6 +44,8 @@
 - (IBAction) webBrowserBack:(id)sender;
 - (IBAction) webBrowserForward:(id)sender;
 
+- (IBAction) setPlaybackTime:(NSInteger)milliseconds;
+
 - (IBAction) playPause:(id)sender;
 - (IBAction) forwardAction:(id)sender;
 - (IBAction) backAction:(id)sender;

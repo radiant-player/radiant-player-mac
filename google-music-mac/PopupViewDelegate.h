@@ -44,4 +44,6 @@
 - (void) playbackTimeChanged:(NSInteger)currentTime totalTime:(NSInteger)totalTime;
 - (void) ratingChanged:(NSInteger)rating;
 
+- (IBAction) setPlaybackTime:(id)sender;
+
 @end
