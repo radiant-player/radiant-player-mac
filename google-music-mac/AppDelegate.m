@@ -87,8 +87,16 @@
     WebPreferences *preferences = [webView preferences];
     [preferences setPlugInsEnabled:YES];
     
-    // Initialize the system status bar menu.
-    [self initializeStatusBar];
+    if ([defaults boolForKey:@"menupopup.enabled"])
+    {
+        // Initialize the system status bar menu.
+        [self initializeStatusBar];
+    }
+    else
+    {
+        popup = nil;
+        popupDelegate = nil;
+    }
 
     // Load the dummy WebView (for opening links in the default browser).
     dummyWebViewDelegate = [[DummyWebViewPolicyDelegate alloc] init];
@@ -331,12 +339,14 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 - (void)notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art
 {
-    [popupDelegate updateSong:title artist:artist album:album art:art];
-    
     if ([defaults boolForKey:@"notifications.enabled"])
     {
-        if ([popup isVisible])
-            return;
+        if (popup != nil && popupDelegate != nil) {
+            [popupDelegate updateSong:title artist:artist album:album art:art];
+            
+            if ([popup isVisible])
+                return;
+        }
         
         NSUserNotification *notif = [[NSUserNotification alloc] init];
         notif.title = title;
