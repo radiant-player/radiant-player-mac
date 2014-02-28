@@ -480,6 +480,17 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     return YES;
 }
 
+- (void)webView:(WebView *)sender runOpenPanelForFileButtonWithResultListener:(id<WebOpenPanelResultListener>)resultListener
+{
+    NSOpenPanel *panel = [NSOpenPanel openPanel];
+    [panel setCanChooseFiles:YES];
+    [panel setCanChooseDirectories:NO];
+    
+    if ([panel runModal] == NSOKButton) {
+        [resultListener chooseFilename:[[panel URL] relativePath]];
+    }
+}
+
 - (void)webView:(WebView *)sender runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WebFrame *)frame {
     NSLog(@"%@", message);
 }
