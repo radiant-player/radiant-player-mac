@@ -13,6 +13,10 @@
 
 @synthesize webView;
 @synthesize window;
+@synthesize statusItem;
+@synthesize statusView;
+@synthesize popup;
+@synthesize popupDelegate;
 @synthesize defaults;
 
 /**
@@ -83,18 +87,44 @@
     WebPreferences *preferences = [webView preferences];
     [preferences setPlugInsEnabled:YES];
     
+    if ([defaults boolForKey:@"menupopup.enabled"])
+    {
+        // Initialize the system status bar menu.
+        [self initializeStatusBar];
+    }
+    else
+    {
+        popup = nil;
+        popupDelegate = nil;
+    }
+
     // Load the dummy WebView (for opening links in the default browser).
     dummyWebViewDelegate = [[DummyWebViewPolicyDelegate alloc] init];
     dummyWebView = [[WebView alloc] init];
     [dummyWebView setPolicyDelegate:dummyWebViewDelegate];
 }
 
+- (void)initializeStatusBar
+{
+    statusView = [[PopupStatusView alloc] initWithFrame:NSMakeRect(0, 0,
+                                                                    NSSquareStatusItemLength,
+                                                                    NSSquareStatusItemLength)];
+    statusView.popup = popup;
+    [popup setPopupDelegate:statusView];
+    
+    NSStatusBar *bar = [NSStatusBar systemStatusBar];
+    statusItem = [bar statusItemWithLength:NSSquareStatusItemLength];
+    [statusItem setHighlightMode:YES];
+    [statusItem setView:statusView];
+}
+
+
 #pragma mark - Event tap methods
 
 /**
  * eventTapThread is the selector that adds the callback thread into the loop.
  */
-- (void)eventTapThread;
+- (void)eventTapThread
 {
     CFRunLoopRef tapThreadRL = CFRunLoopGetCurrent();
     CFRunLoopAddSource( tapThreadRL, eventPortSource, kCFRunLoopCommonModes );
@@ -182,6 +212,15 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 }
 
 #pragma mark - Play Actions
+
+/**
+ * setPlaybackTime changes the time of the song to the number of milliseconds
+ */
+- (IBAction) setPlaybackTime:(NSInteger)milliseconds
+{
+    NSString *js = [NSString stringWithFormat:@"MusicAPI.Playback.setPlaybackTime(%ld)", (long)milliseconds];
+    [webView stringByEvaluatingJavaScriptFromString:js];
+}
 
 /**
  * playPause toggles the playing status for the app
@@ -289,8 +328,9 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
 {
-    [self evaluateJavaScriptFile:@"main"];
     [self evaluateJavaScriptFile:@"keyboard"];
+    [self evaluateJavaScriptFile:@"mouse"];
+    [self evaluateJavaScriptFile:@"main"];
     [self evaluateJavaScriptFile:@"styles"];
     [self evaluateJavaScriptFile:@"navigation"];
     [[sender windowScriptObject] setValue:self forKey:@"googleMusicApp"];
@@ -311,6 +351,13 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 {
     if ([defaults boolForKey:@"notifications.enabled"])
     {
+        if (popup != nil && popupDelegate != nil) {
+            [popupDelegate updateSong:title artist:artist album:album art:art];
+            
+            if ([popup isVisible])
+                return;
+        }
+        
         NSUserNotification *notif = [[NSUserNotification alloc] init];
         notif.title = title;
         notif.informativeText = [NSString stringWithFormat:@"%@ — %@", artist, album];
@@ -330,6 +377,33 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         // Deliver the notification.
         [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notif];
     }
+}
+
+#pragma mark - Playback Notifications
+
+- (void)playbackChanged:(NSInteger)mode
+{
+    [popupDelegate playbackChanged:mode];
+}
+
+- (void)playbackTimeChanged:(NSInteger)currentTime totalTime:(NSInteger)totalTime
+{
+    [popupDelegate playbackTimeChanged:currentTime totalTime:totalTime];
+}
+
+- (void)repeatChanged:(NSString *)mode
+{
+    [popupDelegate repeatChanged:mode];
+}
+
+- (void)shuffleChanged:(NSString *)mode
+{
+    [popupDelegate shuffleChanged:mode];
+}
+    
+- (void)ratingChanged:(NSInteger)rating
+{
+    [popupDelegate ratingChanged:rating];
 }
 
 #pragma mark - Web
@@ -371,6 +445,21 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     if (sel == @selector(notifySong:withArtist:album:art:))
         return @"notifySong";
     
+    if (sel == @selector(playbackChanged:))
+        return @"playbackChanged";
+    
+    if (sel == @selector(playbackTimeChanged:totalTime:))
+        return @"playbackTimeChanged";
+    
+    if (sel == @selector(repeatChanged:))
+        return @"repeatChanged";
+    
+    if (sel == @selector(shuffleChanged:))
+        return @"shuffleChanged";
+    
+    if (sel == @selector(ratingChanged:))
+        return @"ratingChanged";
+    
     if (sel == @selector(moveWindowWithDeltaX:andDeltaY:))
         return @"moveWindow";
     
@@ -380,6 +469,11 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 + (BOOL) isSelectorExcludedFromWebScript:(SEL)sel
 {
     if (sel == @selector(notifySong:withArtist:album:art:) ||
+        sel == @selector(playbackChanged:) ||
+        sel == @selector(playbackTimeChanged:totalTime:) ||
+        sel == @selector(repeatChanged:) ||
+        sel == @selector(shuffleChanged:) ||
+        sel == @selector(ratingChanged:) ||
         sel == @selector(moveWindowWithDeltaX:andDeltaY:))
         return NO;
     
@@ -388,6 +482,16 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 - (void)webView:(WebView *)sender runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WebFrame *)frame {
     NSLog(@"%@", message);
+}
+    
+    
+    
++ (NSImage *)imageFromName:(NSString *)name
+{
+    NSString *file = [NSString stringWithFormat:@"images/%@", name];
+    NSString *path = [[NSBundle mainBundle] pathForResource:file ofType:@"png"];
+    
+    return [[NSImage alloc] initWithContentsOfFile:path];
 }
 
 @end

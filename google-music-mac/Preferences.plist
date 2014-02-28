@@ -6,6 +6,8 @@
 	<true/>
 	<key>notifications.enabled</key>
 	<true/>
+	<key>menupopup.enabled</key>
+	<true/>
 	<key>notifications.showAlbumArt</key>
 	<false/>
 </dict>

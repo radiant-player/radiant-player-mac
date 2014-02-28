@@ -11,8 +11,15 @@
 #import <IOKit/hidsystem/ev_keymap.h>
 #import <WebKit/WebKit.h>
 
+#import "PopupStatusView.h"
 #import "DummyWebViewPolicyDelegate.h"
 #import "CustomWebView.h"
+#import "PopupViewDelegate.h"
+#import "PopupPanel.h"
+
+@class PopupViewDelegate;
+@class PopupStatusView;
+@class PopupPanel;
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, CustomWebViewDelegate, NSUserNotificationCenterDelegate>
 {
@@ -25,11 +32,19 @@
 
 @property (assign) IBOutlet NSWindow *window;
 @property (nonatomic, retain) IBOutlet CustomWebView *webView;
+@property (nonatomic, retain) NSStatusItem *statusItem;
+@property (nonatomic, retain) PopupStatusView *statusView;
+@property (nonatomic, retain) IBOutlet PopupPanel *popup;
+@property (assign) IBOutlet PopupViewDelegate *popupDelegate;
 
 @property (assign) NSUserDefaults *defaults;
 
+- (void) initializeStatusBar;
+    
 - (IBAction) webBrowserBack:(id)sender;
 - (IBAction) webBrowserForward:(id)sender;
+
+- (IBAction) setPlaybackTime:(NSInteger)milliseconds;
 
 - (IBAction) playPause:(id)sender;
 - (IBAction) forwardAction:(id)sender;
@@ -53,9 +68,18 @@
 
 - (void) notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art;
 
+// Refer to PlaybackConstants.m
+- (void) shuffleChanged:(NSString *)mode;
+- (void) repeatChanged:(NSString *)mode;
+- (void) playbackChanged:(NSInteger)mode;
+- (void) playbackTimeChanged:(NSInteger)currentTime totalTime:(NSInteger)totalTime;
+- (void) ratingChanged:(NSInteger)rating;
+
 - (void) evaluateJavaScriptFile:(NSString *)name;
 - (void) applyCSSFile:(NSString *)name;
 + (NSString *) webScriptNameForSelector:(SEL)sel;
 + (BOOL) isSelectorExcludedFromWebScript:(SEL)sel;
-
+    
++ (NSImage *)imageFromName:(NSString *)name;
+    
 @end
