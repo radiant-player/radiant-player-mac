@@ -15,14 +15,19 @@
         <customObject id="-3" userLabel="Application"/>
         <customObject id="494" customClass="AppDelegate">
             <connections>
-                <outlet property="authorizeButton" destination="eGg-3k-00l" id="Vzd-SD-Eo3"/>
-                <outlet property="passwordField" destination="Ohv-sY-iZZ" id="lFa-Cu-eOO"/>
                 <outlet property="popup" destination="sr1-Je-yff" id="X7b-8t-XL5"/>
                 <outlet property="popupDelegate" destination="vhZ-72-AYY" id="CHe-5t-K17"/>
+                <outlet property="prefsDelegate" destination="0G2-p5-nY6" id="kvO-17-ZKk"/>
                 <outlet property="prefsWindow" destination="KYm-BZ-OUe" id="GdJ-qA-fD3"/>
-                <outlet property="usernameField" destination="jYn-X0-nvg" id="dnz-Az-aWm"/>
                 <outlet property="webView" destination="536" id="554"/>
                 <outlet property="window" destination="371" id="532"/>
+            </connections>
+        </customObject>
+        <customObject id="0G2-p5-nY6" customClass="PreferencesDelegate">
+            <connections>
+                <outlet property="lastFMAuthorizeButton" destination="eGg-3k-00l" id="hnA-k1-3fd"/>
+                <outlet property="lastFMPasswordField" destination="Ohv-sY-iZZ" id="GOc-tV-prN"/>
+                <outlet property="lastFMUsernameField" destination="jYn-X0-nvg" id="zTc-pF-S0J"/>
             </connections>
         </customObject>
         <menu title="AMainMenu" systemMenu="main" id="29">
@@ -483,7 +488,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="authorizeScrobble:" target="494" id="j8J-YC-0ry"/>
+                            <action selector="lastFMAuthorizeScrobble:" target="0G2-p5-nY6" id="xwk-Ar-Fxz"/>
                         </connections>
                     </button>
                 </subviews>

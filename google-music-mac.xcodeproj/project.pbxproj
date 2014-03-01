@@ -23,7 +23,9 @@
 		D32CCEFA18BE039E00BDD484 /* PopupPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = D32CCEF918BE039E00BDD484 /* PopupPanel.m */; };
 		D32CCEFD18BE9BF800BDD484 /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = D32CCEFC18BE9BF800BDD484 /* PopupView.m */; };
 		D3446A9218C023B500A0C36A /* mouse.js in Sources */ = {isa = PBXBuildFile; fileRef = D3446A9118C023B500A0C36A /* mouse.js */; };
+		D34DC2BC18C295A700C27596 /* LastFMService.m in Sources */ = {isa = PBXBuildFile; fileRef = D34DC2BB18C295A700C27596 /* LastFMService.m */; };
 		D3B1668318BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */; };
+		D3B8ED2418C28F3A00C6CD78 /* PreferencesDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B8ED2318C28F3A00C6CD78 /* PreferencesDelegate.m */; };
 		D3DB8FF018BD253A00ABE93B /* images in Resources */ = {isa = PBXBuildFile; fileRef = D3DB8FEF18BD253A00ABE93B /* images */; };
 		D3DB8FF518BD2AEC00ABE93B /* PlaybackConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DB8FF418BD2AEC00ABE93B /* PlaybackConstants.m */; };
 		D3DB8FF818BD6A6400ABE93B /* PlaybackSliderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DB8FF718BD6A6400ABE93B /* PlaybackSliderCell.m */; };
@@ -59,8 +61,12 @@
 		D32CCEFB18BE9BF800BDD484 /* PopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupView.h; sourceTree = "<group>"; };
 		D32CCEFC18BE9BF800BDD484 /* PopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupView.m; sourceTree = "<group>"; };
 		D3446A9118C023B500A0C36A /* mouse.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = mouse.js; path = "google-music-mac/js/mouse.js"; sourceTree = "<group>"; };
+		D34DC2BA18C295A700C27596 /* LastFMService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastFMService.h; sourceTree = "<group>"; };
+		D34DC2BB18C295A700C27596 /* LastFMService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastFMService.m; sourceTree = "<group>"; };
 		D3B1668118BB0E43003FCE6B /* DummyWebViewPolicyDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyWebViewPolicyDelegate.h; sourceTree = "<group>"; };
 		D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyWebViewPolicyDelegate.m; sourceTree = "<group>"; };
+		D3B8ED2218C28F3A00C6CD78 /* PreferencesDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesDelegate.h; sourceTree = "<group>"; };
+		D3B8ED2318C28F3A00C6CD78 /* PreferencesDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesDelegate.m; sourceTree = "<group>"; };
 		D3DB8FEF18BD253A00ABE93B /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		D3DB8FF118BD27B700ABE93B /* PlaybackConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaybackConstants.h; sourceTree = "<group>"; };
 		D3DB8FF418BD2AEC00ABE93B /* PlaybackConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaybackConstants.m; sourceTree = "<group>"; };
@@ -140,6 +146,10 @@
 				1A7B685417453E40001E509E /* MainMenu.xib */,
 				D3DB8FF118BD27B700ABE93B /* PlaybackConstants.h */,
 				D3DB8FF418BD2AEC00ABE93B /* PlaybackConstants.m */,
+				D3B8ED2218C28F3A00C6CD78 /* PreferencesDelegate.h */,
+				D3B8ED2318C28F3A00C6CD78 /* PreferencesDelegate.m */,
+				D34DC2BA18C295A700C27596 /* LastFMService.h */,
+				D34DC2BB18C295A700C27596 /* LastFMService.m */,
 				1A7B684617453E40001E509E /* Supporting Files */,
 			);
 			path = "google-music-mac";
@@ -305,6 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D34DC2BC18C295A700C27596 /* LastFMService.m in Sources */,
 				D3B1668318BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m in Sources */,
 				1A68DAD81803B588004CBA25 /* CustomWebView.m in Sources */,
 				1A7B684C17453E40001E509E /* main.m in Sources */,
@@ -314,6 +325,7 @@
 				D3FAC6D718BA942500D9F461 /* PopupViewDelegate.m in Sources */,
 				D3446A9218C023B500A0C36A /* mouse.js in Sources */,
 				D32CCEFA18BE039E00BDD484 /* PopupPanel.m in Sources */,
+				D3B8ED2418C28F3A00C6CD78 /* PreferencesDelegate.m in Sources */,
 				D3FAC6D418BA81EC00D9F461 /* PopupStatusView.m in Sources */,
 				D32CCEFD18BE9BF800BDD484 /* PopupView.m in Sources */,
 			);

@@ -16,6 +16,7 @@
 #import "CustomWebView.h"
 #import "PopupViewDelegate.h"
 #import "PopupPanel.h"
+#import "PreferencesDelegate.h"
 
 @class PopupViewDelegate;
 @class PopupStatusView;
@@ -37,21 +38,14 @@
 @property (nonatomic, retain) IBOutlet PopupPanel *popup;
 @property (assign) IBOutlet PopupViewDelegate *popupDelegate;
 
+@property (assign) IBOutlet PreferencesDelegate *prefsDelegate;
 @property (assign) NSUserDefaults *defaults;
 
-@property (strong) IBOutlet NSTextField *usernameField;
-@property (strong) IBOutlet NSSecureTextField *passwordField;
-@property (strong) IBOutlet NSButton *authorizeButton;
-
-@property (copy, nonatomic) NSString *prevTitle;
-@property (copy, nonatomic) NSString *prevArtist;
-@property (copy, nonatomic) NSString *prevAlbum;
-@property NSTimeInterval prevDuration;
-@property NSTimeInterval prevTimestamp;
-
-- (void) syncLastFm;
-- (IBAction)authorizeScrobble:(NSButton *)sender;
-- (void)scrobbleSong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album duration:(NSTimeInterval)duration;
+@property (copy, nonatomic) NSString *currentTitle;
+@property (copy, nonatomic) NSString *currentArtist;
+@property (copy, nonatomic) NSString *currentAlbum;
+@property (assign) NSTimeInterval currentDuration;
+@property (assign) NSTimeInterval currentTimestamp;
 
 - (void) initializeStatusBar;
     

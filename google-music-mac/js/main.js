@@ -158,27 +158,6 @@ if (typeof window.MusicAPI === 'undefined') {
     var lastTitle = "";
     var lastArtist = "";
     var lastAlbum = "";
-
-    /* Convert a time string like "01:24" to seconds. From https://github.com/cgravolet/scroblr/blob/master/src/js/scroblr-injection.js */
-    function calculateDuration(timestring) {
-        var i, j, max, pow, seconds, timeSegments;
-        if (!timestring) {
-            return 0;
-        }
-        seconds = 0;
-        for (i = 0, max = arguments.length; i < max; i += 1) {
-            if (arguments[i].toString()) {
-                timeSegments = arguments[i].split(":");
-                for (j = timeSegments.length - 1, pow = 0;
-                     j >= 0 && j >= (timeSegments.length - 3);
-                     j -= 1, pow += 1) {
-                    seconds += parseFloat(timeSegments[j].replace("-", "")) *
-                    Math.pow(60, pow);
-                }
-            }
-        }
-        return seconds;
-    }
     
     var addObserver = new MutationObserver(function(mutations) {
         mutations.forEach(function(m) {
@@ -193,7 +172,7 @@ if (typeof window.MusicAPI === 'undefined') {
                     var artist = document.querySelector('#player-artist');
                     var album = document.querySelector('.player-album');
                     var art = document.querySelector('#playingAlbumArt');
-                    var duration = calculateDuration(document.querySelector('#time_container_duration').textContent || '');
+                    var duration = parseInt(document.querySelector('#player #slider').getAttribute('aria-valuemax')) / 1000;
 
                     title = (title) ? title.innerText : 'Unknown';
                     artist = (artist) ? artist.innerText : 'Unknown';

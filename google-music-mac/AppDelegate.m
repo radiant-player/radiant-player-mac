@@ -8,7 +8,7 @@
  */
 
 #import "AppDelegate.h"
-#import <LastFm/LastFm.h>
+#import "LastFMService.h"
 
 @implementation AppDelegate
 
@@ -19,16 +19,13 @@
 @synthesize popup;
 @synthesize popupDelegate;
 @synthesize defaults;
+@synthesize prefsDelegate;
 
-@synthesize usernameField;
-@synthesize passwordField;
-@synthesize authorizeButton;
-
-@synthesize prevTitle;
-@synthesize prevArtist;
-@synthesize prevAlbum;
-@synthesize prevDuration;
-@synthesize prevTimestamp;
+@synthesize currentTitle;
+@synthesize currentArtist;
+@synthesize currentAlbum;
+@synthesize currentDuration;
+@synthesize currentTimestamp;
 
 /**
  * Closing the application, hides the player window but keeps music playing in the background.
@@ -68,7 +65,7 @@
     defaults = [NSUserDefaults standardUserDefaults];
     
     // Initialize LastFm instance
-    [self syncLastFm];
+    [prefsDelegate lastFMSync];
     
 	// Add an event tap to intercept the system defined media key events
     eventTap = CGEventTapCreate(kCGSessionEventTap,
@@ -201,82 +198,6 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
             return NULL;
     }
     return event;
-}
-
-#pragma mark - Last.FM Actions
-
-- (void) syncLastFm
-{
-    NSString *session = [defaults objectForKey:@"lastfm.session"];
-    NSString *username = [defaults objectForKey:@"lastfm.username"];
-    [LastFm sharedInstance].apiKey = [defaults objectForKey:@"lastfm.apiKey"];
-    [LastFm sharedInstance].apiSecret = [defaults objectForKey:@"lastfm.apiSecret"];
-    [LastFm sharedInstance].username = username;
-    [LastFm sharedInstance].session = session;
-    
-    if ([username length] != 0) {
-        [usernameField setStringValue:username];
-    }
-    
-    if ([session length] != 0) {
-        [authorizeButton setTitle:@"Deauthorize"];
-    } else {
-        [authorizeButton setTitle:@"Authorize"];
-    }
-}
-
-- (IBAction)authorizeScrobble:(NSButton *)sender
-{
-    NSString *session = [defaults objectForKey:@"lastfm.session"];
-    if ([session length]) {
-        // Deauthorize.
-        [defaults removeObjectForKey:@"lastfm.session"];
-        [defaults removeObjectForKey:@"lastfm.username"];
-        [defaults synchronize];
-        [usernameField setStringValue:nil];
-        [passwordField setStringValue:nil];
-        [self syncLastFm];
-    } else {
-        // Attempt to obtain session key.
-        [authorizeButton setTitle:@"Authorizing..."];
-        [authorizeButton setEnabled:false];
-        [[LastFm sharedInstance] getSessionForUser:[usernameField stringValue] password:[passwordField stringValue] successHandler:^(NSDictionary *result) {
-            [defaults setObject:result[@"key"] forKey:@"lastfm.session"];
-            [defaults setObject:result[@"name"] forKey:@"lastfm.username"];
-            [defaults synchronize];
-            [self syncLastFm];
-            [authorizeButton setEnabled:true];
-        } failureHandler:^(NSError *error) {
-            [authorizeButton setTitle:@"Login Failed. Try Again!"];
-            [authorizeButton setEnabled:true];
-        }];
-    }
-}
-
-- (void)scrobbleSong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album duration:(NSTimeInterval)duration
-{
-    // Send to now playing
-    [[LastFm sharedInstance] sendNowPlayingTrack:title byArtist:artist onAlbum:album withDuration:duration successHandler:^(NSDictionary *result) {
-        return;
-    } failureHandler:^(NSError *error) {
-        return;
-    }];
-
-    // Scrobble previous track
-    NSTimeInterval curTimestamp = [[NSDate date] timeIntervalSince1970];
-    if ([prevTitle length] && curTimestamp - prevTimestamp >= prevDuration / 2) {
-        [[LastFm sharedInstance] sendScrobbledTrack:prevTitle byArtist:prevArtist onAlbum:prevAlbum withDuration:prevDuration atTimestamp: [[NSDate date] timeIntervalSince1970] successHandler:^(NSDictionary *result) {
-            return;
-        } failureHandler:^(NSError *error) {
-            return;
-        }];
-    }
-
-    prevTitle = title;
-    prevArtist = artist;
-    prevAlbum = album;
-    prevDuration = duration;
-    prevTimestamp = curTimestamp;
 }
 
 #pragma mark - Web Browser Actions
@@ -439,10 +360,20 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 - (void)notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art duration:(NSTimeInterval)duration
 {
+    NSTimeInterval timestamp = [[NSDate date] timeIntervalSince1970];
+    
     if ([defaults boolForKey:@"lastfm.enabled"])
     {
-        [self scrobbleSong:title withArtist:artist album:album duration:duration];
+        [LastFMService scrobbleSong:currentTitle withArtist:currentArtist album:currentAlbum duration:currentDuration timestamp:currentTimestamp];
+        [LastFMService sendNowPlaying:title withArtist:artist album:album duration:duration timestamp:timestamp];
     }
+    
+    // Update our current data.
+    currentTitle = title;
+    currentArtist = artist;
+    currentAlbum = album;
+    currentDuration = duration;
+    currentTimestamp = timestamp;
 
     if ([defaults boolForKey:@"notifications.enabled"])
     {
