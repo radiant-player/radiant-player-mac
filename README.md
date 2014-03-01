@@ -14,6 +14,13 @@ No affiliation with Google.
 [3]: http://jamesfator.com/
 [4]: https://github.com/JamesFator/GoogleMusicMac
 
+Requirements
+------------
+
+* Mac OS X 10.8 or later
+* [Adobe Flash Player for Mac OS X][5]
+
+[5]: http://get.adobe.com/flashplayer/
 
 License
 -------

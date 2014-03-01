@@ -76,6 +76,20 @@ if (typeof window.MusicAPI === 'undefined') {
         // Shuffle modes.
         ALL_SHUFFLE:    'ALL_SHUFFLE',
         NO_SHUFFLE:     'NO_SHUFFLE',
+        
+        // Time functions.
+        getPlaybackTime: function() {
+            return parseInt(slider.getAttribute('aria-valuenow'));
+        },
+        
+        setPlaybackTime: function(milliseconds) {
+            var percent = milliseconds / parseFloat(slider.getAttribute('aria-valuemax'));
+            var lower = slider.offsetLeft + 6;
+            var upper = slider.offsetLeft + slider.clientWidth - 6;
+            var x = lower + percent*(upper - lower);
+            
+            window.Mouse.clickAtLocation(slider, x, 0)
+        },
 
         // Playback functions.
         playPause:      function() { MusicAPI.Playback._eplayPause.click(); },
@@ -205,5 +219,69 @@ if (typeof window.MusicAPI === 'undefined') {
         });
     });
 
+    var shuffleObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(m) {
+            var target = m.target;
+            var id = target.dataset.id;
+
+            if (id == 'shuffle') {
+                window.googleMusicApp.shuffleChanged(target.value);
+            }
+        });
+    });
+
+    var repeatObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(m) {
+            var target = m.target;
+            var id = target.dataset.id;
+
+            if (id == 'repeat') {
+                window.googleMusicApp.repeatChanged(target.value);
+            }
+        });
+    });
+
+    var playbackObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(m) {
+            var target = m.target;
+            var id = target.dataset.id;
+
+            if (id == 'play-pause') {
+                var playing = target.classList.contains('playing');
+                window.googleMusicApp.playbackChanged(playing ? 1 : 0);
+            }
+        });
+    });
+
+    var playbackTimeObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(m) {
+            var target = m.target;
+            var id = target.id;
+
+            if (id == 'slider') {
+                var currentTime = parseInt(target.getAttribute('aria-valuenow'));
+                var totalTime = parseInt(target.getAttribute('aria-valuemax'));
+                window.googleMusicApp.playbackTimeChanged(currentTime, totalTime);
+            }
+        });
+    });
+
+    var ratingObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(m) {
+            var target = m.target;
+
+            if (target.classList.contains('selected'))
+            {
+                window.googleMusicApp.ratingChanged(target.dataset.rating);
+            }
+        });
+    });
+    
+
     addObserver.observe(document.querySelector('#playerSongInfo'), { childList: true, subtree: true });
+    shuffleObserver.observe(document.querySelector('#player button[data-id="shuffle"]'), { attributes: true });
+    repeatObserver.observe(document.querySelector('#player button[data-id="repeat"]'), { attributes: true });
+    playbackObserver.observe(document.querySelector('#player button[data-id="play-pause"]'), { attributes: true });
+    playbackTimeObserver.observe(document.querySelector('#player #slider'), { attributes: true });
+    ratingObserver.observe(document.querySelector('#player .player-rating-container'), { attributes: true, subtree: true });
 }
