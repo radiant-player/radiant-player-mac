@@ -16,13 +16,16 @@
 		1A7B685617453E40001E509E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A7B685417453E40001E509E /* MainMenu.xib */; };
 		1A7B687417453E4C001E509E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7B687317453E4C001E509E /* WebKit.framework */; };
 		1A7B68811745ABBD001E509E /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1A7B68801745ABBD001E509E /* icon.icns */; };
+		38D0C36DAD0F40F5A7254224 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BABD1B4DDCC34CB291C66033 /* libPods.a */; };
 		D302E13418B561E100CCD18E /* Preferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = D302E13318B561E100CCD18E /* Preferences.plist */; };
 		D326EA6418B2D7E500BEC02F /* css in Resources */ = {isa = PBXBuildFile; fileRef = D326EA6218B2D7E500BEC02F /* css */; };
 		D326EA6518B2D7E500BEC02F /* js in Resources */ = {isa = PBXBuildFile; fileRef = D326EA6318B2D7E500BEC02F /* js */; };
 		D32CCEFA18BE039E00BDD484 /* PopupPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = D32CCEF918BE039E00BDD484 /* PopupPanel.m */; };
 		D32CCEFD18BE9BF800BDD484 /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = D32CCEFC18BE9BF800BDD484 /* PopupView.m */; };
 		D3446A9218C023B500A0C36A /* mouse.js in Sources */ = {isa = PBXBuildFile; fileRef = D3446A9118C023B500A0C36A /* mouse.js */; };
+		D34DC2BC18C295A700C27596 /* LastFMService.m in Sources */ = {isa = PBXBuildFile; fileRef = D34DC2BB18C295A700C27596 /* LastFMService.m */; };
 		D3B1668318BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */; };
+		D3B8ED2418C28F3A00C6CD78 /* PreferencesDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B8ED2318C28F3A00C6CD78 /* PreferencesDelegate.m */; };
 		D3DB8FF018BD253A00ABE93B /* images in Resources */ = {isa = PBXBuildFile; fileRef = D3DB8FEF18BD253A00ABE93B /* images */; };
 		D3DB8FF518BD2AEC00ABE93B /* PlaybackConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DB8FF418BD2AEC00ABE93B /* PlaybackConstants.m */; };
 		D3DB8FF818BD6A6400ABE93B /* PlaybackSliderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DB8FF718BD6A6400ABE93B /* PlaybackSliderCell.m */; };
@@ -48,6 +51,8 @@
 		1A7B685517453E40001E509E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		1A7B687317453E4C001E509E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		1A7B68801745ABBD001E509E /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+		A32790DC482A48E18B516D0B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		BABD1B4DDCC34CB291C66033 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D302E13318B561E100CCD18E /* Preferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Preferences.plist; sourceTree = "<group>"; };
 		D326EA6218B2D7E500BEC02F /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
 		D326EA6318B2D7E500BEC02F /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
@@ -56,8 +61,12 @@
 		D32CCEFB18BE9BF800BDD484 /* PopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupView.h; sourceTree = "<group>"; };
 		D32CCEFC18BE9BF800BDD484 /* PopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupView.m; sourceTree = "<group>"; };
 		D3446A9118C023B500A0C36A /* mouse.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = mouse.js; path = "google-music-mac/js/mouse.js"; sourceTree = "<group>"; };
+		D34DC2BA18C295A700C27596 /* LastFMService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastFMService.h; sourceTree = "<group>"; };
+		D34DC2BB18C295A700C27596 /* LastFMService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastFMService.m; sourceTree = "<group>"; };
 		D3B1668118BB0E43003FCE6B /* DummyWebViewPolicyDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyWebViewPolicyDelegate.h; sourceTree = "<group>"; };
 		D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyWebViewPolicyDelegate.m; sourceTree = "<group>"; };
+		D3B8ED2218C28F3A00C6CD78 /* PreferencesDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesDelegate.h; sourceTree = "<group>"; };
+		D3B8ED2318C28F3A00C6CD78 /* PreferencesDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesDelegate.m; sourceTree = "<group>"; };
 		D3DB8FEF18BD253A00ABE93B /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		D3DB8FF118BD27B700ABE93B /* PlaybackConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaybackConstants.h; sourceTree = "<group>"; };
 		D3DB8FF418BD2AEC00ABE93B /* PlaybackConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaybackConstants.m; sourceTree = "<group>"; };
@@ -76,6 +85,7 @@
 			files = (
 				1A7B687417453E4C001E509E /* WebKit.framework in Frameworks */,
 				1A7B684017453E40001E509E /* Cocoa.framework in Frameworks */,
+				38D0C36DAD0F40F5A7254224 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +100,7 @@
 				1A7B684517453E40001E509E /* google-music-mac */,
 				1A7B683E17453E40001E509E /* Frameworks */,
 				1A7B683D17453E40001E509E /* Products */,
+				A32790DC482A48E18B516D0B /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +118,7 @@
 				1A7B687317453E4C001E509E /* WebKit.framework */,
 				1A7B683F17453E40001E509E /* Cocoa.framework */,
 				1A7B684117453E40001E509E /* Other Frameworks */,
+				BABD1B4DDCC34CB291C66033 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -134,6 +146,10 @@
 				1A7B685417453E40001E509E /* MainMenu.xib */,
 				D3DB8FF118BD27B700ABE93B /* PlaybackConstants.h */,
 				D3DB8FF418BD2AEC00ABE93B /* PlaybackConstants.m */,
+				D3B8ED2218C28F3A00C6CD78 /* PreferencesDelegate.h */,
+				D3B8ED2318C28F3A00C6CD78 /* PreferencesDelegate.m */,
+				D34DC2BA18C295A700C27596 /* LastFMService.h */,
+				D34DC2BB18C295A700C27596 /* LastFMService.m */,
 				1A7B684617453E40001E509E /* Supporting Files */,
 			);
 			path = "google-music-mac";
@@ -187,10 +203,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1A7B686D17453E40001E509E /* Build configuration list for PBXNativeTarget "Google Music" */;
 			buildPhases = (
+				7A2071DB33B24D5B85C39505 /* Check Pods Manifest.lock */,
 				1A7B683817453E40001E509E /* Sources */,
 				1A7B683917453E40001E509E /* Frameworks */,
 				1A7B683A17453E40001E509E /* Resources */,
 				D3981F6318B5D5D900EA4D7A /* Run Script */,
+				D0B126C78BE34593B5FE493C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -246,6 +264,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		7A2071DB33B24D5B85C39505 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D0B126C78BE34593B5FE493C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D3981F6318B5D5D900EA4D7A /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -267,6 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D34DC2BC18C295A700C27596 /* LastFMService.m in Sources */,
 				D3B1668318BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m in Sources */,
 				1A68DAD81803B588004CBA25 /* CustomWebView.m in Sources */,
 				1A7B684C17453E40001E509E /* main.m in Sources */,
@@ -276,6 +325,7 @@
 				D3FAC6D718BA942500D9F461 /* PopupViewDelegate.m in Sources */,
 				D3446A9218C023B500A0C36A /* mouse.js in Sources */,
 				D32CCEFA18BE039E00BDD484 /* PopupPanel.m in Sources */,
+				D3B8ED2418C28F3A00C6CD78 /* PreferencesDelegate.m in Sources */,
 				D3FAC6D418BA81EC00D9F461 /* PopupStatusView.m in Sources */,
 				D32CCEFD18BE9BF800BDD484 /* PopupView.m in Sources */,
 			);
@@ -370,6 +420,7 @@
 		};
 		1A7B686E17453E40001E509E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A32790DC482A48E18B516D0B /* Pods.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -383,6 +434,7 @@
 		};
 		1A7B686F17453E40001E509E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A32790DC482A48E18B516D0B /* Pods.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";

@@ -8,6 +8,7 @@
  */
 
 #import "AppDelegate.h"
+#import "LastFMService.h"
 
 @implementation AppDelegate
 
@@ -18,6 +19,13 @@
 @synthesize popup;
 @synthesize popupDelegate;
 @synthesize defaults;
+@synthesize prefsDelegate;
+
+@synthesize currentTitle;
+@synthesize currentArtist;
+@synthesize currentAlbum;
+@synthesize currentDuration;
+@synthesize currentTimestamp;
 
 /**
  * Closing the application, hides the player window but keeps music playing in the background.
@@ -55,6 +63,9 @@
 {
     // Load the user preferences.
     defaults = [NSUserDefaults standardUserDefaults];
+    
+    // Initialize LastFm instance
+    [prefsDelegate lastFMSync];
     
 	// Add an event tap to intercept the system defined media key events
     eventTap = CGEventTapCreate(kCGSessionEventTap,
@@ -347,8 +358,23 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     }
 }
 
-- (void)notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art
+- (void)notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art duration:(NSTimeInterval)duration
 {
+    NSTimeInterval timestamp = [[NSDate date] timeIntervalSince1970];
+    
+    if ([defaults boolForKey:@"lastfm.enabled"])
+    {
+        [LastFMService scrobbleSong:currentTitle withArtist:currentArtist album:currentAlbum duration:currentDuration timestamp:currentTimestamp];
+        [LastFMService sendNowPlaying:title withArtist:artist album:album duration:duration timestamp:timestamp];
+    }
+    
+    // Update our current data.
+    currentTitle = title;
+    currentArtist = artist;
+    currentAlbum = album;
+    currentDuration = duration;
+    currentTimestamp = timestamp;
+
     if ([defaults boolForKey:@"notifications.enabled"])
     {
         if (popup != nil && popupDelegate != nil) {
@@ -442,7 +468,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 + (NSString *) webScriptNameForSelector:(SEL)sel
 {
-    if (sel == @selector(notifySong:withArtist:album:art:))
+    if (sel == @selector(notifySong:withArtist:album:art:duration:))
         return @"notifySong";
     
     if (sel == @selector(playbackChanged:))
@@ -468,7 +494,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 + (BOOL) isSelectorExcludedFromWebScript:(SEL)sel
 {
-    if (sel == @selector(notifySong:withArtist:album:art:) ||
+    if (sel == @selector(notifySong:withArtist:album:art:duration:) ||
         sel == @selector(playbackChanged:) ||
         sel == @selector(playbackTimeChanged:totalTime:) ||
         sel == @selector(repeatChanged:) ||

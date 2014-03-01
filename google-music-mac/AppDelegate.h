@@ -16,6 +16,7 @@
 #import "CustomWebView.h"
 #import "PopupViewDelegate.h"
 #import "PopupPanel.h"
+#import "PreferencesDelegate.h"
 
 @class PopupViewDelegate;
 @class PopupStatusView;
@@ -37,7 +38,14 @@
 @property (nonatomic, retain) IBOutlet PopupPanel *popup;
 @property (assign) IBOutlet PopupViewDelegate *popupDelegate;
 
+@property (assign) IBOutlet PreferencesDelegate *prefsDelegate;
 @property (assign) NSUserDefaults *defaults;
+
+@property (copy, nonatomic) NSString *currentTitle;
+@property (copy, nonatomic) NSString *currentArtist;
+@property (copy, nonatomic) NSString *currentAlbum;
+@property (assign) NSTimeInterval currentDuration;
+@property (assign) NSTimeInterval currentTimestamp;
 
 - (void) initializeStatusBar;
     
@@ -66,7 +74,14 @@
 
 - (void) moveWindowWithDeltaX:(CGFloat)deltaX andDeltaY:(CGFloat)deltaY;
 
-- (void) notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art;
+- (void) notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art duration:(NSTimeInterval)duration;
+
+// Refer to PlaybackConstants.m
+- (void) shuffleChanged:(NSString *)mode;
+- (void) repeatChanged:(NSString *)mode;
+- (void) playbackChanged:(NSInteger)mode;
+- (void) playbackTimeChanged:(NSInteger)currentTime totalTime:(NSInteger)totalTime;
+- (void) ratingChanged:(NSInteger)rating;
 
 // Refer to PlaybackConstants.m
 - (void) shuffleChanged:(NSString *)mode;

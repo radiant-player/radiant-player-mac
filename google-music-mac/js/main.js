@@ -158,7 +158,7 @@ if (typeof window.MusicAPI === 'undefined') {
     var lastTitle = "";
     var lastArtist = "";
     var lastAlbum = "";
-
+    
     var addObserver = new MutationObserver(function(mutations) {
         mutations.forEach(function(m) {
             for (var i = 0; i < m.addedNodes.length; i++) {
@@ -172,6 +172,7 @@ if (typeof window.MusicAPI === 'undefined') {
                     var artist = document.querySelector('#player-artist');
                     var album = document.querySelector('.player-album');
                     var art = document.querySelector('#playingAlbumArt');
+                    var duration = parseInt(document.querySelector('#player #slider').getAttribute('aria-valuemax')) / 1000;
 
                     title = (title) ? title.innerText : 'Unknown';
                     artist = (artist) ? artist.innerText : 'Unknown';
@@ -186,7 +187,7 @@ if (typeof window.MusicAPI === 'undefined') {
                     // Make sure that this is the first of the notifications for the
                     // insertion of the song information elements.
                     if (lastTitle != title || lastArtist != artist || lastAlbum != album) {
-                        window.googleMusicApp.notifySong(title, artist, album, art); 
+                        window.googleMusicApp.notifySong(title, artist, album, art, duration);
 
                         lastTitle = title;
                         lastArtist = artist;
