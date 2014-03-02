@@ -22,6 +22,16 @@ Requirements
 
 [5]: http://get.adobe.com/flashplayer/
 
+Development
+-----------
+
+This project uses [CocoaPods][6] to handle its dependencies, though it may be cloned 
+and developed without having CocoaPods installed. Just be sure to open 
+`google-music-mac.xcworkspace` instead of `google-music-mac.xcodeproj` in order to 
+correctly pull in the dependencies into Xcode.
+
+[6]: http://cocoapods.org/
+
 License
 -------
 
