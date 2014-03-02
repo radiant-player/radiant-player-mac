@@ -11,5 +11,10 @@
 
 int main(int argc, char *argv[])
 {
+    // Register default preferences.
+    NSString *prefsPath = [[NSBundle mainBundle] pathForResource:@"Preferences" ofType:@"plist"];
+    NSDictionary *prefs = [NSDictionary dictionaryWithContentsOfFile:prefsPath];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:prefs];
+    
     return NSApplicationMain(argc, (const char **)argv);
 }

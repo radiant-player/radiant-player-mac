@@ -8,7 +8,7 @@
  */
 
 #import "AppDelegate.h"
-#import "LastFMService.h"
+#import "LastFmService.h"
 
 @implementation AppDelegate
 
@@ -19,7 +19,7 @@
 @synthesize popup;
 @synthesize popupDelegate;
 @synthesize defaults;
-@synthesize prefsDelegate;
+@synthesize prefsController;
 
 @synthesize currentTitle;
 @synthesize currentArtist;
@@ -45,27 +45,12 @@
 }
 
 /**
- * Set defaults.
- */
-+ (void)initialize
-{
-    // Register default preferences.
-    NSString *prefsPath = [[NSBundle mainBundle] pathForResource:@"Preferences" ofType:@"plist"];
-    NSDictionary *prefs = [NSDictionary dictionaryWithContentsOfFile:prefsPath];
-    
-    [[NSUserDefaults standardUserDefaults] registerDefaults:prefs];
-}
-
-/**
  * Application finished launching, we will register the event tap callback.
  */
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Load the user preferences.
     defaults = [NSUserDefaults standardUserDefaults];
-    
-    // Initialize LastFm instance
-    [prefsDelegate lastFMSync];
     
 	// Add an event tap to intercept the system defined media key events
     eventTap = CGEventTapCreate(kCGSessionEventTap,
@@ -98,7 +83,7 @@
     WebPreferences *preferences = [webView preferences];
     [preferences setPlugInsEnabled:YES];
     
-    if ([defaults boolForKey:@"menupopup.enabled"])
+    if ([defaults boolForKey:@"miniplayer.enabled"])
     {
         // Initialize the system status bar menu.
         [self initializeStatusBar];
@@ -364,8 +349,8 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     
     if ([defaults boolForKey:@"lastfm.enabled"])
     {
-        [LastFMService scrobbleSong:currentTitle withArtist:currentArtist album:currentAlbum duration:currentDuration timestamp:currentTimestamp];
-        [LastFMService sendNowPlaying:title withArtist:artist album:album duration:duration timestamp:timestamp];
+        [LastFmService scrobbleSong:currentTitle withArtist:currentArtist album:currentAlbum duration:currentDuration timestamp:currentTimestamp];
+        [LastFmService sendNowPlaying:title withArtist:artist album:album duration:duration timestamp:timestamp];
     }
     
     // Update our current data.
@@ -519,16 +504,6 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 - (void)webView:(WebView *)sender runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WebFrame *)frame {
     NSLog(@"%@", message);
-}
-    
-    
-    
-+ (NSImage *)imageFromName:(NSString *)name
-{
-    NSString *file = [NSString stringWithFormat:@"images/%@", name];
-    NSString *path = [[NSBundle mainBundle] pathForResource:file ofType:@"png"];
-    
-    return [[NSImage alloc] initWithContentsOfFile:path];
 }
 
 @end

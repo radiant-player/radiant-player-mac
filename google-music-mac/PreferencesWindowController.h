@@ -1,0 +1,21 @@
+/*
+ * PreferencesWindowController.h
+ *
+ * Created by Sajid Anwar.
+ *
+ * Subject to terms and conditions in LICENSE.md.
+ *
+ */
+
+#import <MASPreferences/MASPreferencesWindowController.h>
+#import "GeneralPreferencesViewController.h"
+#import "LastFmPreferencesViewController.h"
+
+@interface PreferencesWindowController : MASPreferencesWindowController
+
+@property (assign) IBOutlet GeneralPreferencesViewController *generalController;
+@property (assign) IBOutlet LastFmPreferencesViewController *lastFmController;
+
+- (void)loadControllers;
+
+@end

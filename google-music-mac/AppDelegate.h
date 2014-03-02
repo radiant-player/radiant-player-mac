@@ -16,7 +16,7 @@
 #import "CustomWebView.h"
 #import "PopupViewDelegate.h"
 #import "PopupPanel.h"
-#import "PreferencesDelegate.h"
+#import "PreferencesWindowController.h"
 
 @class PopupViewDelegate;
 @class PopupStatusView;
@@ -38,7 +38,7 @@
 @property (nonatomic, retain) IBOutlet PopupPanel *popup;
 @property (assign) IBOutlet PopupViewDelegate *popupDelegate;
 
-@property (assign) IBOutlet PreferencesDelegate *prefsDelegate;
+@property (assign) IBOutlet PreferencesWindowController *prefsController;
 @property (assign) NSUserDefaults *defaults;
 
 @property (copy, nonatomic) NSString *currentTitle;
@@ -83,18 +83,9 @@
 - (void) playbackTimeChanged:(NSInteger)currentTime totalTime:(NSInteger)totalTime;
 - (void) ratingChanged:(NSInteger)rating;
 
-// Refer to PlaybackConstants.m
-- (void) shuffleChanged:(NSString *)mode;
-- (void) repeatChanged:(NSString *)mode;
-- (void) playbackChanged:(NSInteger)mode;
-- (void) playbackTimeChanged:(NSInteger)currentTime totalTime:(NSInteger)totalTime;
-- (void) ratingChanged:(NSInteger)rating;
-
 - (void) evaluateJavaScriptFile:(NSString *)name;
 - (void) applyCSSFile:(NSString *)name;
 + (NSString *) webScriptNameForSelector:(SEL)sel;
 + (BOOL) isSelectorExcludedFromWebScript:(SEL)sel;
-    
-+ (NSImage *)imageFromName:(NSString *)name;
     
 @end

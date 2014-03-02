@@ -34,14 +34,14 @@
         [[NSColor selectedMenuItemColor] set];
         NSRectFill(rect);
         
-        NSImage *icon = [AppDelegate imageFromName:@"menuicon_white"];
+        NSImage *icon = [Utilities imageFromName:@"menuicon_white"];
         [icon drawInRect:NSInsetRect(rect, 2, 2) fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
     }
     else {
         [[NSColor clearColor] set];
         NSRectFill(rect);
         
-        NSImage *icon = [AppDelegate imageFromName:@"menuicon"];
+        NSImage *icon = [Utilities imageFromName:@"menuicon"];
         [icon drawInRect:NSInsetRect(rect, 2, 2) fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
     }
 }

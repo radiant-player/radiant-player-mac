@@ -1,5 +1,5 @@
 /*
- * LastFMService.h
+ * LastFmService.h
  *
  * Created by Sajid Anwar and Anant Narayanan.
  *
@@ -10,10 +10,9 @@
 #import <Foundation/Foundation.h>
 #import <LastFm/LastFm.h>
 
-@interface LastFMService : NSObject
+@interface LastFmService : NSObject
 
 + (void)scrobbleSong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album duration:(NSTimeInterval)duration timestamp:(NSTimeInterval)timestamp;
 + (void)sendNowPlaying:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album duration:(NSTimeInterval)duration timestamp:(NSTimeInterval)timestamp;
-
 
 @end

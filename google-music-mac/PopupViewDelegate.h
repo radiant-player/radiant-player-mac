@@ -10,6 +10,7 @@
 #import <Foundation/Foundation.h>
 
 #import "AppDelegate.h"
+#import "Utilities.h"
 #import "PlaybackConstants.h"
 
 @class AppDelegate;

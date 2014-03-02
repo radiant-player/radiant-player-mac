@@ -12,7 +12,7 @@
 	<true/>
 	<key>notifications.enabled</key>
 	<true/>
-	<key>menupopup.enabled</key>
+	<key>miniplayer.enabled</key>
 	<true/>
 	<key>notifications.showAlbumArt</key>
 	<false/>

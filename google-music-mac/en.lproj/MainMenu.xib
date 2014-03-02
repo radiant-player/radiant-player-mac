@@ -17,19 +17,13 @@
             <connections>
                 <outlet property="popup" destination="sr1-Je-yff" id="X7b-8t-XL5"/>
                 <outlet property="popupDelegate" destination="vhZ-72-AYY" id="CHe-5t-K17"/>
-                <outlet property="prefsDelegate" destination="0G2-p5-nY6" id="kvO-17-ZKk"/>
+                <outlet property="prefsController" destination="Lzb-Be-DHP" id="G8R-fX-IHV"/>
                 <outlet property="prefsWindow" destination="KYm-BZ-OUe" id="GdJ-qA-fD3"/>
                 <outlet property="webView" destination="536" id="554"/>
                 <outlet property="window" destination="371" id="532"/>
             </connections>
         </customObject>
-        <customObject id="0G2-p5-nY6" customClass="PreferencesDelegate">
-            <connections>
-                <outlet property="lastFMAuthorizeButton" destination="eGg-3k-00l" id="hnA-k1-3fd"/>
-                <outlet property="lastFMPasswordField" destination="Ohv-sY-iZZ" id="GOc-tV-prN"/>
-                <outlet property="lastFMUsernameField" destination="jYn-X0-nvg" id="zTc-pF-S0J"/>
-            </connections>
-        </customObject>
+        <customObject id="Lzb-Be-DHP" customClass="PreferencesWindowController"/>
         <menu title="AMainMenu" systemMenu="main" id="29">
             <items>
                 <menuItem title="Google Music" id="56">
@@ -46,7 +40,7 @@
                             </menuItem>
                             <menuItem title="Preferences…" keyEquivalent="," id="129">
                                 <connections>
-                                    <action selector="makeKeyAndOrderFront:" target="KYm-BZ-OUe" id="hzZ-Zf-bsV"/>
+                                    <action selector="showWindow:" target="Lzb-Be-DHP" id="2EI-60-rOG"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="143">
@@ -429,7 +423,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <binding destination="Vyy-aQ-Qdc" name="value" keyPath="values.menupopup.enabled" id="hoy-xc-yT1"/>
+                            <binding destination="Vyy-aQ-Qdc" name="value" keyPath="values.menuplayer.enabled" id="sBy-cu-tYP"/>
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4KC-EZ-3u9">
@@ -487,9 +481,6 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
-                        <connections>
-                            <action selector="lastFMAuthorizeScrobble:" target="0G2-p5-nY6" id="xwk-Ar-Fxz"/>
-                        </connections>
                     </button>
                 </subviews>
                 <constraints>
