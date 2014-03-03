@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1080" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
@@ -15,6 +15,7 @@
         <customObject id="-3" userLabel="Application"/>
         <customObject id="494" customClass="AppDelegate">
             <connections>
+                <outlet property="dockMenu" destination="2vi-UN-Prz" id="CPi-Gq-UVI"/>
                 <outlet property="popup" destination="sr1-Je-yff" id="X7b-8t-XL5"/>
                 <outlet property="popupDelegate" destination="vhZ-72-AYY" id="CHe-5t-K17"/>
                 <outlet property="prefsController" destination="Lzb-Be-DHP" id="G8R-fX-IHV"/>
@@ -262,7 +263,7 @@
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="942" height="702"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
             <view key="contentView" id="372">
                 <rect key="frame" x="0.0" y="0.0" width="942" height="702"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -318,7 +319,7 @@
             <windowCollectionBehavior key="collectionBehavior" moveToActiveSpace="YES" ignoresCycle="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="139" y="81" width="356" height="152"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
             <view key="contentView" id="4yq-G3-W3B" customClass="PopupView">
                 <rect key="frame" x="0.0" y="0.0" width="356" height="152"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -463,6 +464,28 @@
                 <outlet property="popupView" destination="4yq-G3-W3B" id="VcF-fy-kbk"/>
             </connections>
         </window>
+        <menu title="Dock Menu" id="2vi-UN-Prz">
+            <items>
+                <menuItem title="Play/Pause" id="qOT-H3-KUA">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="playPause:" target="494" id="AdR-8g-WIL"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Next Song" id="sZw-jw-aXJ">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="forwardAction:" target="494" id="VrL-dr-Czf"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Previous Song" id="Sk7-Mn-GGA">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="backAction:" target="494" id="h4T-Ih-JO1"/>
+                    </connections>
+                </menuItem>
+            </items>
+        </menu>
     </objects>
     <resources>
         <image name="next" width="512" height="512"/>

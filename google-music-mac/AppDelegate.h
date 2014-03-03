@@ -37,6 +37,7 @@
 @property (nonatomic, retain) PopupStatusView *statusView;
 @property (nonatomic, retain) IBOutlet PopupPanel *popup;
 @property (assign) IBOutlet PopupViewDelegate *popupDelegate;
+@property (assign) IBOutlet NSMenu *dockMenu;
 
 @property (assign) IBOutlet PreferencesWindowController *prefsController;
 @property (assign) NSUserDefaults *defaults;
@@ -75,6 +76,8 @@
 - (void) moveWindowWithDeltaX:(CGFloat)deltaX andDeltaY:(CGFloat)deltaY;
 
 - (void) notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art duration:(NSTimeInterval)duration;
+
+- (NSMenu *) applicationDockMenu:(NSApplication *)sender;
 
 // Refer to PlaybackConstants.m
 - (void) shuffleChanged:(NSString *)mode;
