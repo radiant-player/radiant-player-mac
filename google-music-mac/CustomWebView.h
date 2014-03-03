@@ -8,8 +8,7 @@
  */
 
 #import <WebKit/WebKit.h>
-
-#define SWIPE_MINIMUM_LENGTH 0.3
+#import "SwipeView.h"
 
 @protocol CustomWebViewDelegate
 
@@ -21,5 +20,6 @@
 }
 
 @property (nonatomic, strong) id<CustomWebViewDelegate> appDelegate;
+@property (retain) SwipeView *swipeView;
 
 @end
