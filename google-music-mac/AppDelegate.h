@@ -37,7 +37,6 @@
 @property (nonatomic, retain) PopupStatusView *statusView;
 @property (nonatomic, retain) IBOutlet PopupPanel *popup;
 @property (assign) IBOutlet PopupViewDelegate *popupDelegate;
-@property (assign) IBOutlet NSMenu *dockMenu;
 
 @property (assign) IBOutlet PreferencesWindowController *prefsController;
 @property (assign) NSUserDefaults *defaults;

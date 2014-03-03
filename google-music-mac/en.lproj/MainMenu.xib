@@ -9,13 +9,13 @@
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
             <connections>
                 <outlet property="delegate" destination="494" id="495"/>
+                <outlet property="dockMenu" destination="376" id="ovO-tl-RD1"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application"/>
         <customObject id="494" customClass="AppDelegate">
             <connections>
-                <outlet property="dockMenu" destination="2vi-UN-Prz" id="CPi-Gq-UVI"/>
                 <outlet property="popup" destination="sr1-Je-yff" id="X7b-8t-XL5"/>
                 <outlet property="popupDelegate" destination="vhZ-72-AYY" id="CHe-5t-K17"/>
                 <outlet property="prefsController" destination="Lzb-Be-DHP" id="G8R-fX-IHV"/>
@@ -464,28 +464,6 @@
                 <outlet property="popupView" destination="4yq-G3-W3B" id="VcF-fy-kbk"/>
             </connections>
         </window>
-        <menu title="Dock Menu" id="2vi-UN-Prz">
-            <items>
-                <menuItem title="Play/Pause" id="qOT-H3-KUA">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="playPause:" target="494" id="AdR-8g-WIL"/>
-                    </connections>
-                </menuItem>
-                <menuItem title="Next Song" id="sZw-jw-aXJ">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="forwardAction:" target="494" id="VrL-dr-Czf"/>
-                    </connections>
-                </menuItem>
-                <menuItem title="Previous Song" id="Sk7-Mn-GGA">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="backAction:" target="494" id="h4T-Ih-JO1"/>
-                    </connections>
-                </menuItem>
-            </items>
-        </menu>
     </objects>
     <resources>
         <image name="next" width="512" height="512"/>

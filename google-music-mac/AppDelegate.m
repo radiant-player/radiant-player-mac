@@ -20,7 +20,6 @@
 @synthesize popupDelegate;
 @synthesize defaults;
 @synthesize prefsController;
-@synthesize dockMenu;
 
 @synthesize currentTitle;
 @synthesize currentArtist;
@@ -113,11 +112,6 @@
     statusItem = [bar statusItemWithLength:NSSquareStatusItemLength];
     [statusItem setHighlightMode:YES];
     [statusItem setView:statusView];
-}
-
-- (NSMenu *)applicationDockMenu:(NSApplication *)sender
-{
-    return dockMenu;
 }
 
 #pragma mark - Event tap methods
