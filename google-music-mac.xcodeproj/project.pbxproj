@@ -21,6 +21,7 @@
 		D3091F6318C32961007C8DCD /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D3091F6218C32961007C8DCD /* Utilities.m */; };
 		D3091F6618C3D7C4007C8DCD /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3091F6518C3D7C4007C8DCD /* SwipeView.m */; };
 		D3091F6918C40FBD007C8DCD /* SwipeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D3091F6818C40FBD007C8DCD /* SwipeAnimation.m */; };
+		D323406A18C523BC008C165B /* AboutWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D323406918C523BC008C165B /* AboutWindow.m */; };
 		D326EA6418B2D7E500BEC02F /* css in Resources */ = {isa = PBXBuildFile; fileRef = D326EA6218B2D7E500BEC02F /* css */; };
 		D326EA6518B2D7E500BEC02F /* js in Resources */ = {isa = PBXBuildFile; fileRef = D326EA6318B2D7E500BEC02F /* js */; };
 		D32CCEFA18BE039E00BDD484 /* PopupPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = D32CCEF918BE039E00BDD484 /* PopupPanel.m */; };
@@ -65,6 +66,8 @@
 		D3091F6518C3D7C4007C8DCD /* SwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeView.m; sourceTree = "<group>"; };
 		D3091F6718C40FBD007C8DCD /* SwipeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeAnimation.h; sourceTree = "<group>"; };
 		D3091F6818C40FBD007C8DCD /* SwipeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeAnimation.m; sourceTree = "<group>"; };
+		D323406818C523BC008C165B /* AboutWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWindow.h; sourceTree = "<group>"; };
+		D323406918C523BC008C165B /* AboutWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWindow.m; sourceTree = "<group>"; };
 		D326EA6218B2D7E500BEC02F /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
 		D326EA6318B2D7E500BEC02F /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
 		D32CCEF818BE039E00BDD484 /* PopupPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupPanel.h; sourceTree = "<group>"; };
@@ -156,6 +159,8 @@
 				D3DB8FEF18BD253A00ABE93B /* images */,
 				D326EA6218B2D7E500BEC02F /* css */,
 				D326EA6318B2D7E500BEC02F /* js */,
+				D323406818C523BC008C165B /* AboutWindow.h */,
+				D323406918C523BC008C165B /* AboutWindow.m */,
 				1A7B685117453E40001E509E /* AppDelegate.h */,
 				1A7B685217453E40001E509E /* AppDelegate.m */,
 				1A7B685417453E40001E509E /* MainMenu.xib */,
@@ -360,6 +365,7 @@
 				D3FAC6D718BA942500D9F461 /* PopupViewDelegate.m in Sources */,
 				D3091F6618C3D7C4007C8DCD /* SwipeView.m in Sources */,
 				D3091F6918C40FBD007C8DCD /* SwipeAnimation.m in Sources */,
+				D323406A18C523BC008C165B /* AboutWindow.m in Sources */,
 				D32CCEFA18BE039E00BDD484 /* PopupPanel.m in Sources */,
 				D3B71C2818C2D5240041358B /* PreferencesWindowController.m in Sources */,
 				D35788BD18C2F820006AF859 /* GeneralPreferencesViewController.m in Sources */,

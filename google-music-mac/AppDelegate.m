@@ -83,21 +83,66 @@
     WebPreferences *preferences = [webView preferences];
     [preferences setPlugInsEnabled:YES];
     
-    if ([defaults boolForKey:@"miniplayer.enabled"])
-    {
+    if ([defaults boolForKey:@"miniplayer.enabled"]) {
         // Initialize the system status bar menu.
         [self initializeStatusBar];
     }
-    else
-    {
+    else {
         popup = nil;
         popupDelegate = nil;
+    }
+    
+    if ([defaults boolForKey:@"updates.check"]) {
+        // Run the version check after 5 seconds.
+        [self performSelector:@selector(checkVersion) withObject:nil afterDelay:10.0];
     }
 
     // Load the dummy WebView (for opening links in the default browser).
     dummyWebViewDelegate = [[DummyWebViewPolicyDelegate alloc] init];
     dummyWebView = [[WebView alloc] init];
     [dummyWebView setPolicyDelegate:dummyWebViewDelegate];
+}
+
+
+
+- (void)checkVersion
+{
+    NSString *appName = [Utilities applicationName];
+    NSString *appVersion = [Utilities applicationVersion];
+    NSString *latestVersion = [Utilities latestVersionFromGithub];
+    
+    if (latestVersion != nil && [Utilities isVersionUpToDateWithApplication:appVersion latest:latestVersion] == NO) {
+        // Application is out of date.
+        NSString *messageFormat = @"You are running version %@ of %@, but the latest version is %@. Do you want to be taken to the download page?";
+        NSString *message = [NSString stringWithFormat:messageFormat, appVersion, appName, latestVersion];
+        
+        NSAlert *updateAlert = [[NSAlert alloc] init];
+        [updateAlert setIcon:[NSApp applicationIconImage]];
+        [updateAlert setMessageText:@"Update Available"];
+        [updateAlert setInformativeText:message];
+        [updateAlert addButtonWithTitle:@"OK"];
+        [updateAlert addButtonWithTitle:@"Cancel"];
+        [updateAlert addButtonWithTitle:@"Don't check for updates"];
+        
+        NSButton *dontButton = [[updateAlert buttons] objectAtIndex:2];
+        [dontButton setButtonType:NSSwitchButton];
+        [dontButton setState:NSOffState];
+        [dontButton setAction:nil];
+        [dontButton setTarget:nil];
+        
+        NSModalResponse response = [updateAlert runModal];
+        
+        // If the user hit OK, open the homepage in the default browser.
+        if (response == NSAlertFirstButtonReturn) {
+            [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[Utilities applicationHomepage]]];
+        }
+        
+        // If the user selected "dont check for updates", set that preference.
+        if ([dontButton state] == NSOnState) {
+            [defaults setBool:NO forKey:@"updates.check"];
+            [defaults synchronize];
+        }
+    }
 }
 
 - (void)initializeStatusBar

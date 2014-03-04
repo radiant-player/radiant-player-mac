@@ -31,7 +31,7 @@
                             <menuItem title="About Google Music" id="58">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <action selector="orderFrontStandardAboutPanel:" target="-2" id="142"/>
+                                    <action selector="showAboutWindow" target="z9v-11-gZ0" id="ZvS-zC-G38"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="236">
@@ -40,6 +40,12 @@
                             <menuItem title="Preferences…" keyEquivalent="," id="129">
                                 <connections>
                                     <action selector="showWindow:" target="Lzb-Be-DHP" id="2EI-60-rOG"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Check For Updates..." id="oZe-sz-7x4">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="showAboutWindow:" target="z9v-11-gZ0" id="6tC-xQ-RSX"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="143">
@@ -313,6 +319,101 @@
                 <outlet property="titleLabel" destination="QTZ-Jw-ZpH" id="wvi-BJ-aw7"/>
             </connections>
         </customObject>
+        <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="z9v-11-gZ0" userLabel="Window - About" customClass="AboutWindow">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="131" y="159" width="297" height="325"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <value key="minSize" type="size" width="297" height="325"/>
+            <value key="maxSize" type="size" width="297" height="325"/>
+            <view key="contentView" id="bh6-VI-WVo">
+                <rect key="frame" x="0.0" y="0.0" width="297" height="325"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <imageView translatesAutoresizingMaskIntoConstraints="NO" id="dk7-NF-7k2">
+                        <rect key="frame" x="117" y="242" width="63" height="63"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="63" id="HMQ-6n-6GH"/>
+                            <constraint firstAttribute="width" constant="63" id="cgq-EN-6qn"/>
+                        </constraints>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="icon" id="mIf-d1-Pin"/>
+                    </imageView>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cCP-QG-XrQ">
+                        <rect key="frame" x="18" y="208" width="261" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="37Y-9a-N8U"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Google Music" id="mpX-QB-95R">
+                            <font key="font" metaFont="systemBold" size="15"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gdx-kP-y02">
+                        <rect key="frame" x="18" y="183" width="261" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Version" id="7La-kZ-anP">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hT2-GI-LHp">
+                        <rect key="frame" x="18" y="65" width="261" height="102"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="102" id="mRT-gf-gAo"/>
+                        </constraints>
+                        <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" state="on" alignment="center" allowsEditingTextAttributes="YES" id="21V-0I-QZg">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uNo-xx-ERJ">
+                        <rect key="frame" x="42" y="20" width="213" height="37"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="center" title="You are running the latest version." allowsEditingTextAttributes="YES" id="v3V-LD-NPN">
+                            <font key="font" metaFont="cellTitle"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="rxR-yd-L1n">
+                        <rect key="frame" x="20" y="41" width="16" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </progressIndicator>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="cCP-QG-XrQ" secondAttribute="trailing" constant="20" symbolic="YES" id="3Gm-Ma-aLV"/>
+                    <constraint firstItem="hT2-GI-LHp" firstAttribute="centerX" secondItem="uNo-xx-ERJ" secondAttribute="centerX" id="4MC-gY-zwa"/>
+                    <constraint firstItem="hT2-GI-LHp" firstAttribute="top" secondItem="Gdx-kP-y02" secondAttribute="bottom" constant="16" id="8C0-49-M29"/>
+                    <constraint firstItem="hT2-GI-LHp" firstAttribute="leading" secondItem="rxR-yd-L1n" secondAttribute="leading" id="BFC-gn-RRD"/>
+                    <constraint firstItem="Gdx-kP-y02" firstAttribute="trailing" secondItem="hT2-GI-LHp" secondAttribute="trailing" id="DAv-Pf-mEZ"/>
+                    <constraint firstItem="Gdx-kP-y02" firstAttribute="leading" secondItem="cCP-QG-XrQ" secondAttribute="leading" id="FP8-RH-1A7"/>
+                    <constraint firstItem="cCP-QG-XrQ" firstAttribute="leading" secondItem="bh6-VI-WVo" secondAttribute="leading" constant="20" symbolic="YES" id="IQz-4I-VTJ"/>
+                    <constraint firstAttribute="bottom" secondItem="rxR-yd-L1n" secondAttribute="bottom" constant="41" id="Kni-iY-Thd"/>
+                    <constraint firstItem="cCP-QG-XrQ" firstAttribute="top" secondItem="dk7-NF-7k2" secondAttribute="bottom" constant="16" id="S2e-gR-v0X"/>
+                    <constraint firstItem="rxR-yd-L1n" firstAttribute="top" secondItem="hT2-GI-LHp" secondAttribute="bottom" constant="8" symbolic="YES" id="UhE-mD-eLi"/>
+                    <constraint firstItem="uNo-xx-ERJ" firstAttribute="top" secondItem="hT2-GI-LHp" secondAttribute="bottom" constant="8" symbolic="YES" id="W3v-l2-B5c"/>
+                    <constraint firstAttribute="bottom" secondItem="uNo-xx-ERJ" secondAttribute="bottom" constant="20" symbolic="YES" id="W9v-xB-6xn"/>
+                    <constraint firstItem="Gdx-kP-y02" firstAttribute="leading" secondItem="hT2-GI-LHp" secondAttribute="leading" id="bPE-Ou-7HY"/>
+                    <constraint firstItem="dk7-NF-7k2" firstAttribute="top" secondItem="bh6-VI-WVo" secondAttribute="top" constant="20" symbolic="YES" id="k0U-Cy-afn"/>
+                    <constraint firstItem="dk7-NF-7k2" firstAttribute="centerX" secondItem="cCP-QG-XrQ" secondAttribute="centerX" id="lBv-Bg-acs"/>
+                    <constraint firstItem="uNo-xx-ERJ" firstAttribute="leading" secondItem="rxR-yd-L1n" secondAttribute="trailing" constant="8" symbolic="YES" id="nHA-NI-Cvv"/>
+                    <constraint firstItem="cCP-QG-XrQ" firstAttribute="trailing" secondItem="Gdx-kP-y02" secondAttribute="trailing" id="voe-Ks-7Wm"/>
+                    <constraint firstItem="Gdx-kP-y02" firstAttribute="top" secondItem="cCP-QG-XrQ" secondAttribute="bottom" constant="8" symbolic="YES" id="zTe-T9-VX6"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="checkLabel" destination="uNo-xx-ERJ" id="Cvc-vy-rb2"/>
+                <outlet property="checkProgress" destination="rxR-yd-L1n" id="B5t-BK-iAL"/>
+                <outlet property="creditsField" destination="hT2-GI-LHp" id="t10-n5-pmx"/>
+                <outlet property="versionLabel" destination="Gdx-kP-y02" id="30k-ad-QUb"/>
+            </connections>
+        </window>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="none" id="sr1-Je-yff" customClass="PopupPanel">
             <windowStyleMask key="styleMask" utility="YES" nonactivatingPanel="YES"/>
             <windowCollectionBehavior key="collectionBehavior" moveToActiveSpace="YES" ignoresCycle="YES"/>
@@ -465,6 +566,7 @@
         </window>
     </objects>
     <resources>
+        <image name="icon" width="512" height="512"/>
         <image name="next" width="512" height="512"/>
         <image name="play" width="512" height="512"/>
         <image name="previous" width="512" height="512"/>

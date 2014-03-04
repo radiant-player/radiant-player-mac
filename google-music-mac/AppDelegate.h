@@ -47,6 +47,7 @@
 @property (assign) NSTimeInterval currentDuration;
 @property (assign) NSTimeInterval currentTimestamp;
 
+- (void) checkVersion;
 - (void) initializeStatusBar;
     
 - (IBAction) webBrowserBack:(id)sender;

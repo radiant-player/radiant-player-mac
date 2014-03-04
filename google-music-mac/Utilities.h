@@ -13,4 +13,12 @@
 
 + (NSImage *)imageFromName:(NSString *)name;
 
++ (NSString *)latestVersionFromGithub;
++ (NSString *)applicationVersion;
++ (BOOL)isVersionUpToDateWithApplication:(NSString *)appVersion latest:(NSString *)latest;
++ (BOOL)isApplicationUpToDate;
+
++ (NSString *)applicationHomepage;
++ (NSString *)applicationName;
+
 @end

@@ -14,6 +14,8 @@
 	<true/>
 	<key>miniplayer.enabled</key>
 	<true/>
+	<key>updates.check</key>
+	<true/>
 	<key>notifications.showAlbumArt</key>
 	<false/>
 </dict>
