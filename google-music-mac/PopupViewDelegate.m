@@ -16,6 +16,7 @@
 @synthesize noSongLabel;
 
 @synthesize artView;
+@synthesize artProgress;
 @synthesize titleLabel;
 @synthesize artistLabel;
 @synthesize albumLabel;
@@ -57,12 +58,20 @@
     [albumLabel setStringValue:album];
     
     if (art != nil) {
-        NSURL *url = [NSURL URLWithString:art];
-        NSImage *image = [[NSImage alloc] initWithContentsOfURL:url];
-        [artView setImage:image];
+        [artView setImage:nil];
+        [artProgress startAnimation:self];
+        [self performSelectorInBackground:@selector(downloadAlbumArt:) withObject:art];
     }
 }
-    
+
+- (void)downloadAlbumArt:(NSString *)art
+{
+    NSURL *url = [NSURL URLWithString:art];
+    NSImage *image = [[NSImage alloc] initWithContentsOfURL:url];
+    [artView setImage:image];
+    [artProgress stopAnimation:self];
+}
+
 - (void)playbackChanged:(NSInteger)mode
 {
     if (mode == MUSIC_PLAYING)

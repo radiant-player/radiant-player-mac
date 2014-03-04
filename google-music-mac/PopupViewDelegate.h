@@ -22,6 +22,7 @@
 @property (assign) IBOutlet NSTextField *noSongLabel;
 
 @property (assign) IBOutlet NSImageView *artView;
+@property (assign) IBOutlet NSProgressIndicator *artProgress;
 @property (assign) IBOutlet NSTextField *titleLabel;
 @property (assign) IBOutlet NSTextField *artistLabel;
 @property (assign) IBOutlet NSTextField *albumLabel;
@@ -38,6 +39,7 @@
 @property (assign) IBOutlet NSSlider *playbackSlider;
 
 - (void) updateSong:(NSString *)title artist:(NSString *)artist album:(NSString *)album art:(NSString *)art;
+- (void) downloadAlbumArt:(NSString *)art;
     
 - (void) shuffleChanged:(NSString *)mode;
 - (void) repeatChanged:(NSString *)mode;
