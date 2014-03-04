@@ -76,8 +76,6 @@
 
 - (void) notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art duration:(NSTimeInterval)duration;
 
-- (NSMenu *) applicationDockMenu:(NSApplication *)sender;
-
 // Refer to PlaybackConstants.m
 - (void) shuffleChanged:(NSString *)mode;
 - (void) repeatChanged:(NSString *)mode;
