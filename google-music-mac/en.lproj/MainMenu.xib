@@ -9,6 +9,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
             <connections>
                 <outlet property="delegate" destination="494" id="495"/>
+                <outlet property="dockMenu" destination="376" id="ovO-tl-RD1"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>

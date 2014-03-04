@@ -159,7 +159,6 @@
     [statusItem setView:statusView];
 }
 
-
 #pragma mark - Event tap methods
 
 /**
