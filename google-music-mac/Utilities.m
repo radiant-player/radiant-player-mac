@@ -59,7 +59,6 @@
 
 + (NSString *)applicationVersion
 {
-    return @"1.0.1";
     return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
 }
 
