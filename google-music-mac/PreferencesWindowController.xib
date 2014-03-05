@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="generalController" destination="l7y-90-Hoh" id="wYy-dT-tD6"/>
                 <outlet property="lastFmController" destination="ekN-Jf-CMK" id="A4x-OK-cHf"/>
+                <outlet property="navigationController" destination="dsY-YC-V1K" id="Vir-j4-gTb"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
@@ -246,7 +247,58 @@
                 </button>
             </subviews>
         </customView>
+        <viewController id="dsY-YC-V1K" customClass="NavigationPreferencesViewController">
+            <connections>
+                <outlet property="view" destination="Vkx-Or-RjQ" id="br5-WD-8hS"/>
+            </connections>
+        </viewController>
         <userDefaultsController representsSharedInstance="YES" id="qKJ-ks-0kW"/>
+        <customView id="Vkx-Or-RjQ" userLabel="Navigation Preferences">
+            <rect key="frame" x="0.0" y="0.0" width="478" height="117"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="rDq-Nn-Fr7">
+                    <rect key="frame" x="18" y="80" width="104" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Back/Forward:" id="mg0-Oo-WdO">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button id="EDO-24-zbN">
+                    <rect key="frame" x="126" y="79" width="334" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Add back and forward buttons to application bar" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="MWt-RZ-95e">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="qKJ-ks-0kW" name="value" keyPath="values.navigation.buttons.enabled" id="ULc-BB-Qyv"/>
+                    </connections>
+                </button>
+                <button id="RM0-yC-8Bq">
+                    <rect key="frame" x="126" y="18" width="334" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Enable swipe gestures to go back and forward" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="wNl-8H-oix">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="qKJ-ks-0kW" name="value" keyPath="values.navigation.swipe.enabled" id="b3a-sP-1Hy"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" id="z68-o1-jqs">
+                    <rect key="frame" x="144" y="48" width="316" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Changing this preference will require a restart of the application to take effect" id="Qso-vW-SGy">
+                        <font key="font" size="11" name="LucidaGrande"/>
+                        <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+        </customView>
     </objects>
     <resources>
         <image name="lastfm" width="900" height="269"/>

@@ -13,6 +13,7 @@
 
 @synthesize generalController;
 @synthesize lastFmController;
+@synthesize navigationController;
 
 - (id)init
 {
@@ -30,6 +31,7 @@
 - (void)loadControllers
 {
     [self addViewController:generalController];
+    [self addViewController:navigationController];
     [self addViewController:lastFmController];
     [self selectControllerAtIndex:0];
 }

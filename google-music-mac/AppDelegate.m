@@ -372,11 +372,14 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     [self evaluateJavaScriptFile:@"mouse"];
     [self evaluateJavaScriptFile:@"main"];
     [self evaluateJavaScriptFile:@"styles"];
-    [self evaluateJavaScriptFile:@"navigation"];
     [[sender windowScriptObject] setValue:self forKey:@"googleMusicApp"];
     
-    // Always apply the navigation styles.
-    [self applyCSSFile:@"navigation"];
+    // Apply the navigation styles.
+    if ([defaults boolForKey:@"navigation.buttons.enabled"])
+    {
+        [self applyCSSFile:@"navigation"];
+        [self evaluateJavaScriptFile:@"navigation"];
+    }
     
     // Apply certain styles and JS only if the user prefers.
     if ([defaults boolForKey:@"styles.enabled"])
@@ -462,6 +465,14 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 }
 
 #pragma mark - Web
+
+- (id)preferenceForKey:(NSString *)key
+{
+    if (key != nil)
+        return [defaults valueForKey:key];
+    else
+        return nil;
+}
     
 - (void) evaluateJavaScriptFile:(NSString *)name
 {
@@ -518,6 +529,9 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     if (sel == @selector(moveWindowWithDeltaX:andDeltaY:))
         return @"moveWindow";
     
+    if (sel == @selector(preferenceForKey:))
+        return @"preferenceForKey";
+    
     return nil;
 }
 
@@ -529,11 +543,13 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         sel == @selector(repeatChanged:) ||
         sel == @selector(shuffleChanged:) ||
         sel == @selector(ratingChanged:) ||
-        sel == @selector(moveWindowWithDeltaX:andDeltaY:))
+        sel == @selector(moveWindowWithDeltaX:andDeltaY:) ||
+        sel == @selector(preferenceForKey:))
         return NO;
     
     return YES;
 }
+
 
 - (void)webView:(WebView *)sender runOpenPanelForFileButtonWithResultListener:(id<WebOpenPanelResultListener>)resultListener
 {

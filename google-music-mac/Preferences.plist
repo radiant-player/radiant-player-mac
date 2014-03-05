@@ -16,7 +16,11 @@
 	<true/>
 	<key>updates.check</key>
 	<true/>
+	<key>navigation.swipe.enabled</key>
+	<true/>
 	<key>notifications.showAlbumArt</key>
 	<false/>
+	<key>navigation.buttons.enabled</key>
+	<true/>
 </dict>
 </plist>

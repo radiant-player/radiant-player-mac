@@ -84,6 +84,8 @@
 - (void) playbackTimeChanged:(NSInteger)currentTime totalTime:(NSInteger)totalTime;
 - (void) ratingChanged:(NSInteger)rating;
 
+- (id) preferenceForKey:(NSString *)key;
+
 - (void) evaluateJavaScriptFile:(NSString *)name;
 - (void) applyCSSFile:(NSString *)name;
 + (NSString *) webScriptNameForSelector:(SEL)sel;

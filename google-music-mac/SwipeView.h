@@ -11,8 +11,8 @@
 #import <WebKit/WebKit.h>
 #import "SwipeAnimation.h"
 
-#define SWIPE_MINIMUM_LENGTH 0.6
-#define SWIPE_MINIMUM_THRESHOLD 0.35
+#define SWIPE_MINIMUM_LENGTH 0.55
+#define SWIPE_MINIMUM_THRESHOLD 0.25
 #define SWIPE_INDICATOR_WIDTH 50
 #define SWIPE_INDICATOR_SCALE_Y 1.1
 

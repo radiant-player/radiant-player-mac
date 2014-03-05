@@ -37,7 +37,8 @@
         CGFloat progress = MIN(amount / (SWIPE_MINIMUM_LENGTH - SWIPE_MINIMUM_THRESHOLD), 1.0);
         NSRect frame = NSMakeRect(SWIPE_INDICATOR_WIDTH*progress - SWIPE_INDICATOR_WIDTH, NSMidY(self.frame) - 50, SWIPE_INDICATOR_WIDTH, 100);
         
-        [[NSColor colorWithCalibratedRed:0.0f green:0.0f blue:0.0f alpha:progress*0.5] setFill];
+        CGFloat alpha = (progress >= 1.0) ? 0.8 : (progress * 0.5);
+        [[NSColor colorWithCalibratedRed:0.0f green:0.0f blue:0.0f alpha:alpha] setFill];
         NSPoint center = NSMakePoint(NSMinX(frame), NSMidY(frame));
         
         NSAffineTransform *transform = [NSAffineTransform transform];
@@ -78,7 +79,8 @@
         CGFloat progress = MIN(amount / (SWIPE_MINIMUM_LENGTH - SWIPE_MINIMUM_THRESHOLD), 1.0);
         NSRect frame = NSMakeRect(NSMaxX(self.frame) + SWIPE_INDICATOR_WIDTH - SWIPE_INDICATOR_WIDTH*progress, NSMidY(self.frame) - 50, SWIPE_INDICATOR_WIDTH, 100);
         
-        [[NSColor colorWithCalibratedRed:0.0f green:0.0f blue:0.0f alpha:progress*0.5] setFill];
+        CGFloat alpha = (progress >= 1.0) ? 0.8 : (progress * 0.5);
+        [[NSColor colorWithCalibratedRed:0.0f green:0.0f blue:0.0f alpha:alpha] setFill];
         NSPoint center = NSMakePoint(NSMinX(frame), NSMidY(frame));
         
         NSAffineTransform *transform = [NSAffineTransform transform];
@@ -117,6 +119,9 @@
 
 // Three fingers gesture, Lion (if enabled) and Leopard
 - (void)swipeWithEvent:(NSEvent *)event {
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"navigation.swipe.enabled"] == NO)
+        return;
+    
     CGFloat x = [event deltaX];
     
     if (x != 0) {
@@ -136,6 +141,9 @@
 
 - (void)beginGestureWithEvent:(NSEvent *)event
 {
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"navigation.swipe.enabled"] == NO)
+        return;
+    
     if (![self recognizeTwoFingerGestures])
         return;
     

@@ -26,6 +26,7 @@
 		D326EA6518B2D7E500BEC02F /* js in Resources */ = {isa = PBXBuildFile; fileRef = D326EA6318B2D7E500BEC02F /* js */; };
 		D32CCEFA18BE039E00BDD484 /* PopupPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = D32CCEF918BE039E00BDD484 /* PopupPanel.m */; };
 		D32CCEFD18BE9BF800BDD484 /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = D32CCEFC18BE9BF800BDD484 /* PopupView.m */; };
+		D343CDF518C69DF4002F9DB3 /* NavigationPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D343CDF418C69DF4002F9DB3 /* NavigationPreferencesViewController.m */; };
 		D34DC2BC18C295A700C27596 /* LastFmService.m in Sources */ = {isa = PBXBuildFile; fileRef = D34DC2BB18C295A700C27596 /* LastFmService.m */; };
 		D35788BD18C2F820006AF859 /* GeneralPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35788BC18C2F820006AF859 /* GeneralPreferencesViewController.m */; };
 		D3B1668318BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */; };
@@ -74,6 +75,8 @@
 		D32CCEF918BE039E00BDD484 /* PopupPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupPanel.m; sourceTree = "<group>"; };
 		D32CCEFB18BE9BF800BDD484 /* PopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupView.h; sourceTree = "<group>"; };
 		D32CCEFC18BE9BF800BDD484 /* PopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupView.m; sourceTree = "<group>"; };
+		D343CDF318C69DF4002F9DB3 /* NavigationPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationPreferencesViewController.h; sourceTree = "<group>"; };
+		D343CDF418C69DF4002F9DB3 /* NavigationPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationPreferencesViewController.m; sourceTree = "<group>"; };
 		D34DC2BA18C295A700C27596 /* LastFmService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastFmService.h; sourceTree = "<group>"; };
 		D34DC2BB18C295A700C27596 /* LastFmService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastFmService.m; sourceTree = "<group>"; };
 		D35788BB18C2F820006AF859 /* GeneralPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralPreferencesViewController.h; sourceTree = "<group>"; };
@@ -230,6 +233,8 @@
 				D3B71C2D18C2D5770041358B /* LastFmPreferencesViewController.m */,
 				D35788BB18C2F820006AF859 /* GeneralPreferencesViewController.h */,
 				D35788BC18C2F820006AF859 /* GeneralPreferencesViewController.m */,
+				D343CDF318C69DF4002F9DB3 /* NavigationPreferencesViewController.h */,
+				D343CDF418C69DF4002F9DB3 /* NavigationPreferencesViewController.m */,
 			);
 			name = Preferences;
 			sourceTree = "<group>";
@@ -370,6 +375,7 @@
 				D3B71C2818C2D5240041358B /* PreferencesWindowController.m in Sources */,
 				D35788BD18C2F820006AF859 /* GeneralPreferencesViewController.m in Sources */,
 				D3FAC6D418BA81EC00D9F461 /* PopupStatusView.m in Sources */,
+				D343CDF518C69DF4002F9DB3 /* NavigationPreferencesViewController.m in Sources */,
 				D3091F6318C32961007C8DCD /* Utilities.m in Sources */,
 				D32CCEFD18BE9BF800BDD484 /* PopupView.m in Sources */,
 			);
