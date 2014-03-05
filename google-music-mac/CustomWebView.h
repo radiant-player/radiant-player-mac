@@ -21,4 +21,6 @@
 @property (nonatomic, strong) id<CustomWebViewDelegate> appDelegate;
 @property (retain) SwipeIndicatorView *swipeView;
 
+- (IBAction)selectAll:(id)sender;
+
 @end
