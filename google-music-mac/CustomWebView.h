@@ -8,18 +8,17 @@
  */
 
 #import <WebKit/WebKit.h>
-#import "SwipeView.h"
+#import "SwipeIndicatorView.h"
 
 @protocol CustomWebViewDelegate
 
 @end
 
 @interface CustomWebView : WebView {
-    CGFloat _swipeAmount;
     NSMutableDictionary *_touches;
 }
 
 @property (nonatomic, strong) id<CustomWebViewDelegate> appDelegate;
-@property (retain) SwipeView *swipeView;
+@property (retain) SwipeIndicatorView *swipeView;
 
 @end

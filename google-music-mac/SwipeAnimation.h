@@ -8,16 +8,16 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#import "SwipeView.h"
+#import "SwipeIndicatorView.h"
 
-@class SwipeView;
+@class SwipeIndicatorView;
 
 @interface SwipeAnimation : NSAnimation {
     CGFloat _originalAmount;
 }
 
-@property (retain) SwipeView *swipeView;
+@property (retain) SwipeIndicatorView *swipeView;
 
-- initWithSwipeView:(SwipeView *)view;
+- initWithSwipeView:(SwipeIndicatorView *)view;
 
 @end

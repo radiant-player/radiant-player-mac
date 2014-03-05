@@ -19,7 +19,7 @@
 		38D0C36DAD0F40F5A7254224 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BABD1B4DDCC34CB291C66033 /* libPods.a */; };
 		D302E13418B561E100CCD18E /* Preferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = D302E13318B561E100CCD18E /* Preferences.plist */; };
 		D3091F6318C32961007C8DCD /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D3091F6218C32961007C8DCD /* Utilities.m */; };
-		D3091F6618C3D7C4007C8DCD /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3091F6518C3D7C4007C8DCD /* SwipeView.m */; };
+		D3091F6618C3D7C4007C8DCD /* SwipeIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3091F6518C3D7C4007C8DCD /* SwipeIndicatorView.m */; };
 		D3091F6918C40FBD007C8DCD /* SwipeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D3091F6818C40FBD007C8DCD /* SwipeAnimation.m */; };
 		D323406A18C523BC008C165B /* AboutWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D323406918C523BC008C165B /* AboutWindow.m */; };
 		D326EA6418B2D7E500BEC02F /* css in Resources */ = {isa = PBXBuildFile; fileRef = D326EA6218B2D7E500BEC02F /* css */; };
@@ -63,8 +63,8 @@
 		D302E13318B561E100CCD18E /* Preferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Preferences.plist; sourceTree = "<group>"; };
 		D3091F6118C32961007C8DCD /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		D3091F6218C32961007C8DCD /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
-		D3091F6418C3D7C4007C8DCD /* SwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeView.h; sourceTree = "<group>"; };
-		D3091F6518C3D7C4007C8DCD /* SwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeView.m; sourceTree = "<group>"; };
+		D3091F6418C3D7C4007C8DCD /* SwipeIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeIndicatorView.h; sourceTree = "<group>"; };
+		D3091F6518C3D7C4007C8DCD /* SwipeIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeIndicatorView.m; sourceTree = "<group>"; };
 		D3091F6718C40FBD007C8DCD /* SwipeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeAnimation.h; sourceTree = "<group>"; };
 		D3091F6818C40FBD007C8DCD /* SwipeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeAnimation.m; sourceTree = "<group>"; };
 		D323406818C523BC008C165B /* AboutWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWindow.h; sourceTree = "<group>"; };
@@ -215,8 +215,8 @@
 				1A68DAD71803B588004CBA25 /* CustomWebView.m */,
 				D3B1668118BB0E43003FCE6B /* DummyWebViewPolicyDelegate.h */,
 				D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */,
-				D3091F6418C3D7C4007C8DCD /* SwipeView.h */,
-				D3091F6518C3D7C4007C8DCD /* SwipeView.m */,
+				D3091F6418C3D7C4007C8DCD /* SwipeIndicatorView.h */,
+				D3091F6518C3D7C4007C8DCD /* SwipeIndicatorView.m */,
 				D3091F6718C40FBD007C8DCD /* SwipeAnimation.h */,
 				D3091F6818C40FBD007C8DCD /* SwipeAnimation.m */,
 			);
@@ -368,7 +368,7 @@
 				1A7B685317453E40001E509E /* AppDelegate.m in Sources */,
 				D3DB8FF818BD6A6400ABE93B /* PlaybackSliderCell.m in Sources */,
 				D3FAC6D718BA942500D9F461 /* PopupViewDelegate.m in Sources */,
-				D3091F6618C3D7C4007C8DCD /* SwipeView.m in Sources */,
+				D3091F6618C3D7C4007C8DCD /* SwipeIndicatorView.m in Sources */,
 				D3091F6918C40FBD007C8DCD /* SwipeAnimation.m in Sources */,
 				D323406A18C523BC008C165B /* AboutWindow.m in Sources */,
 				D32CCEFA18BE039E00BDD484 /* PopupPanel.m in Sources */,

@@ -1,5 +1,5 @@
 /*
- * SwipeView.m
+ * SwipeIndicatorView.m
  *
  * Created by Sajid Anwar. 
  *
@@ -10,21 +10,12 @@
  *
  */
 
-#import "SwipeView.h"
+#import "SwipeIndicatorView.h"
 
-@implementation SwipeView
+@implementation SwipeIndicatorView
 
 @synthesize webView;
 @synthesize swipeAmount;
-
-- (id)initWithFrame:(NSRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self setAcceptsTouchEvents:YES];
-    }
-    return self;
-}
 
 - (NSView *)hitTest:(NSPoint)aPoint
 {
@@ -109,146 +100,15 @@
     }
 }
 
-// Three fingers gesture, Lion (if enabled) and Leopard
-- (void)swipeWithEvent:(NSEvent *)event {
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"navigation.swipe.enabled"] == NO)
-        return;
-    
-    CGFloat x = [event deltaX];
-    
-    if (x != 0) {
-		if (x > 0)
-            [self.webView goBack];
-        else
-            [self.webView goForward];
-	}
-}
-
-
--(BOOL) recognizeTwoFingerGestures
+- (void)startAnimation
 {
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    return [defaults boolForKey:@"AppleEnableSwipeNavigateWithScrolls"];
-}
-
-- (void)beginGestureWithEvent:(NSEvent *)event
-{
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"navigation.swipe.enabled"] == NO)
-        return;
-    
-    if (![self recognizeTwoFingerGestures])
-        return;
-    
-    swipeAmount = 0;
-    
-    if (_animation != nil) {
-        [_animation stopAnimation];
-    }
-    
-    NSSet *touches = [event touchesMatchingPhase:NSTouchPhaseAny inView:nil];
-    
-    _touches = [[NSMutableDictionary alloc] init];
-    
-    for (NSTouch *touch in touches) {
-        [_touches setObject:touch forKey:touch.identity];
-    }
-}
-
-- (void)endGestureWithEvent:(NSEvent *)event
-{
-    if (!_touches)
-        return;
-    
     _animation = [[SwipeAnimation alloc] initWithSwipeView:self];
     [_animation startAnimation];
-    
-    NSSet *touches = [event touchesMatchingPhase:NSTouchPhaseAny inView:nil];
-    
-    // release twoFingersTouches early
-    NSMutableDictionary *beginTouches = [_touches copy];
-    _touches = nil;
-    
-    NSMutableArray *magnitudes = [[NSMutableArray alloc] init];
-    
-    for (NSTouch *touch in touches)
-    {
-        NSTouch *beginTouch = [beginTouches objectForKey:touch.identity];
-        
-        if (!beginTouch) continue;
-        
-        float magnitude = touch.normalizedPosition.x - beginTouch.normalizedPosition.x;
-        [magnitudes addObject:[NSNumber numberWithFloat:magnitude]];
-    }
-    
-    // Need at least two points
-    if ([magnitudes count] < 2) return;
-    
-    CGFloat sum = 0;
-    
-    for (NSNumber *magnitude in magnitudes)
-        sum += [magnitude floatValue];
-    
-    // Handle natural direction in Lion
-    BOOL naturalDirectionEnabled = [[[NSUserDefaults standardUserDefaults] valueForKey:@"com.apple.swipescrolldirection"] boolValue];
-    
-    if (naturalDirectionEnabled)
-        sum *= -1;
-    
-    // See if absolute sum is long enough to be considered a complete gesture
-    CGFloat absoluteSum = fabsf(sum);
-    
-    if (absoluteSum < SWIPE_MINIMUM_LENGTH)
-        return;
-    
-    // Handle the actual swipe
-    if (sum > 0)
-    {
-        [self.webView goForward];
-    } else
-    {
-        [self.webView goBack];
-    }
 }
 
-- (void)touchesMovedWithEvent:(NSEvent *)event
+- (void)stopAnimation
 {
-    if (!_touches)
-        return;
-    
-    NSSet *touches = [event touchesMatchingPhase:NSTouchPhaseAny inView:nil];
-    NSMutableArray *magnitudes = [[NSMutableArray alloc] init];
-    
-    for (NSTouch *touch in touches)
-    {
-        NSTouch *beginTouch = [_touches objectForKey:touch.identity];
-        
-        if (!beginTouch)
-            continue;
-        
-        float magnitude = touch.normalizedPosition.x - beginTouch.normalizedPosition.x;
-        
-        [magnitudes addObject:[NSNumber numberWithFloat:magnitude]];
-    }
-    
-    // Need at least two points
-    if ([magnitudes count] < 2) {
-        return;
-    }
-    
-    CGFloat sum = 0;
-
-    for (NSNumber *magnitude in magnitudes)
-        sum += [magnitude floatValue];
-    
-    // Handle natural direction in Lion
-    BOOL naturalDirectionEnabled = [[[NSUserDefaults standardUserDefaults] valueForKey:@"com.apple.swipescrolldirection"] boolValue];
-    
-    if (naturalDirectionEnabled)
-        sum *= -1;
-    
-    swipeAmount = sum;
-    [self setNeedsDisplay:YES];
+    [_animation stopAnimation];
 }
-
 
 @end

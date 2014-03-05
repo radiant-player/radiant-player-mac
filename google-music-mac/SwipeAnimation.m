@@ -13,7 +13,7 @@
 
 @synthesize swipeView;
 
-- (id)initWithSwipeView:(SwipeView *)view
+- (id)initWithSwipeView:(SwipeIndicatorView *)view
 {
     self = [self initWithDuration:1.0 animationCurve:NSAnimationEaseOut];
     

@@ -1,5 +1,5 @@
 /*
- * SwipeView.h
+ * SwipeIndicatorView.h
  *
  * Created by Sajid Anwar.
  *
@@ -18,7 +18,7 @@
 
 @class SwipeAnimation;
 
-@interface SwipeView : NSView<NSAnimationDelegate> {
+@interface SwipeIndicatorView : NSView<NSAnimationDelegate> {
     NSMutableDictionary *_touches;
     CGFloat _swipeAmount;
     SwipeAnimation *_animation;
@@ -26,5 +26,8 @@
 
 @property (retain) WebView *webView;
 @property (assign) CGFloat swipeAmount;
+
+- (void)startAnimation;
+- (void)stopAnimation;
 
 @end
