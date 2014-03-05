@@ -26,6 +26,11 @@
     return self;
 }
 
+- (NSView *)hitTest:(NSPoint)aPoint
+{
+    return nil;
+}
+
 - (void)drawRect:(NSRect)dirtyRect
 {
     CGFloat amount = swipeAmount;
