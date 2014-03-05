@@ -98,14 +98,6 @@
     margin-top: 0px;
 }
 
-.song-row [data-col="rating"][data-rating="5"] {
-    background-position: -3834px -21px;
-}
-
-.song-row [data-col="rating"][data-rating="1"], .song-row [data-col="rating"][data-rating="2"] {
-    background-position: -1164px -2125px;
-}
-
 .song-row .hover-button[data-id=play] {
     height: 26px !important;
     width: 26px !important;
