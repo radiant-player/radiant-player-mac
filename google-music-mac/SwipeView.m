@@ -35,24 +35,17 @@
         amount -= SWIPE_MINIMUM_THRESHOLD;
         
         CGFloat progress = MIN(amount / (SWIPE_MINIMUM_LENGTH - SWIPE_MINIMUM_THRESHOLD), 1.0);
-        NSRect frame = NSMakeRect(SWIPE_INDICATOR_WIDTH*progress - SWIPE_INDICATOR_WIDTH, NSMidY(self.frame) - 50, SWIPE_INDICATOR_WIDTH, 100);
+        NSRect frame = NSMakeRect(SWIPE_INDICATOR_WIDTH*progress - SWIPE_INDICATOR_WIDTH, NSMidY(self.frame) - SWIPE_INDICATOR_WIDTH, SWIPE_INDICATOR_WIDTH, 2*SWIPE_INDICATOR_WIDTH);
         
         CGFloat alpha = (progress >= 1.0) ? 0.8 : (progress * 0.5);
         [[NSColor colorWithCalibratedRed:0.0f green:0.0f blue:0.0f alpha:alpha] setFill];
         NSPoint center = NSMakePoint(NSMinX(frame), NSMidY(frame));
         
-        NSAffineTransform *transform = [NSAffineTransform transform];
-        [transform scaleXBy:1.0 yBy:SWIPE_INDICATOR_SCALE_Y];
-        [transform translateXBy:0 yBy:-1*0.5*(SWIPE_INDICATOR_SCALE_Y - 1)*NSMidY(frame)];
-        
         NSBezierPath *path = [NSBezierPath bezierPath];
         [path appendBezierPathWithArcWithCenter:center radius:SWIPE_INDICATOR_WIDTH startAngle:-90 endAngle:90];
-        [path transformUsingAffineTransform:transform];
         [path fill];
         
         // Adapted from SwipableWebView.
-        frame.origin.x -= 3;
-        frame.origin.y += 15;
         NSBezierPath* arrowPath = [NSBezierPath bezierPath];
         [arrowPath moveToPoint: NSMakePoint(NSMinX(frame) + 24.07, NSMaxY(frame) - 37.93)];
         [arrowPath curveToPoint: NSMakePoint(NSMinX(frame) + 24.07, NSMaxY(frame) - 42.17) controlPoint1: NSMakePoint(NSMinX(frame) + 25.24, NSMaxY(frame) - 39.1) controlPoint2: NSMakePoint(NSMinX(frame) + 25.24, NSMaxY(frame) - 41)];
@@ -77,24 +70,18 @@
         amount -= SWIPE_MINIMUM_THRESHOLD;
         
         CGFloat progress = MIN(amount / (SWIPE_MINIMUM_LENGTH - SWIPE_MINIMUM_THRESHOLD), 1.0);
-        NSRect frame = NSMakeRect(NSMaxX(self.frame) + SWIPE_INDICATOR_WIDTH - SWIPE_INDICATOR_WIDTH*progress, NSMidY(self.frame) - 50, SWIPE_INDICATOR_WIDTH, 100);
+        NSRect frame = NSMakeRect(NSMaxX(self.frame) + SWIPE_INDICATOR_WIDTH - SWIPE_INDICATOR_WIDTH*progress, NSMidY(self.frame) - SWIPE_INDICATOR_WIDTH, SWIPE_INDICATOR_WIDTH, 2*SWIPE_INDICATOR_WIDTH);
         
         CGFloat alpha = (progress >= 1.0) ? 0.8 : (progress * 0.5);
         [[NSColor colorWithCalibratedRed:0.0f green:0.0f blue:0.0f alpha:alpha] setFill];
         NSPoint center = NSMakePoint(NSMinX(frame), NSMidY(frame));
         
-        NSAffineTransform *transform = [NSAffineTransform transform];
-        [transform scaleXBy:1.0 yBy:SWIPE_INDICATOR_SCALE_Y];
-        [transform translateXBy:0 yBy:-1*0.5*(SWIPE_INDICATOR_SCALE_Y - 1)*NSMidY(frame)];
-        
         NSBezierPath *path = [NSBezierPath bezierPath];
         [path appendBezierPathWithArcWithCenter:center radius:SWIPE_INDICATOR_WIDTH startAngle:90 endAngle:-90];
-        [path transformUsingAffineTransform:transform];
         [path fill];
         
         // Adapted from SwipableWebView.
-        frame.origin.x -= SWIPE_INDICATOR_WIDTH - 3;
-        frame.origin.y += 15;
+        frame.origin.x -= SWIPE_INDICATOR_WIDTH;
         NSBezierPath* arrowPath = [NSBezierPath bezierPath];
         [arrowPath moveToPoint: NSMakePoint(NSMinX(frame) + 24.93, NSMaxY(frame) - 37.93)];
         [arrowPath curveToPoint: NSMakePoint(NSMinX(frame) + 24.93, NSMaxY(frame) - 42.17) controlPoint1: NSMakePoint(NSMinX(frame) + 23.76, NSMaxY(frame) - 39.1) controlPoint2: NSMakePoint(NSMinX(frame) + 23.76, NSMaxY(frame) - 41)];

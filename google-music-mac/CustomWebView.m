@@ -21,7 +21,9 @@
 {
     swipeView = [[SwipeView alloc] initWithFrame:self.frame];
     [swipeView setWebView:self];
+    [swipeView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
     [self setWantsLayer:YES];
+    [self setAutoresizesSubviews:YES];
     [self addSubview:swipeView];
 }
 
