@@ -127,7 +127,6 @@
 - (void)setPlaybackTime:(id)sender
 {
     NSInteger value = [playbackSlider integerValue];
-    NSLog(@"value: %ld", (long)value);
     [appDelegate setPlaybackTime:value];
 }
 
