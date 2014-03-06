@@ -10,6 +10,7 @@
 #import <Foundation/Foundation.h>
 
 #import "AppDelegate.h"
+#import "PopupPanel.h"
 #import "Utilities.h"
 #import "PlaybackConstants.h"
 
@@ -18,6 +19,7 @@
 @interface PopupViewDelegate : NSObject
 
 @property (assign) IBOutlet AppDelegate *appDelegate;
+@property (assign) IBOutlet PopupPanel *popup;
 
 @property (assign) IBOutlet NSTextField *noSongLabel;
 
@@ -48,5 +50,7 @@
 - (void) ratingChanged:(NSInteger)rating;
 
 - (IBAction) setPlaybackTime:(id)sender;
+
+- (IBAction) hidePopupAndShowWindow:(id)sender;
 
 @end

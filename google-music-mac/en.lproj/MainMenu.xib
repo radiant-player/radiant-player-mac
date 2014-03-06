@@ -319,6 +319,7 @@
                 <outlet property="noSongLabel" destination="37s-Je-fFn" id="2cQ-Pr-VlE"/>
                 <outlet property="playPauseButton" destination="ftM-je-Ymy" id="Xi3-U3-ewc"/>
                 <outlet property="playbackSlider" destination="8u2-Nn-ZZf" id="ww6-rb-TBx"/>
+                <outlet property="popup" destination="sr1-Je-yff" id="rGd-1u-1st"/>
                 <outlet property="repeatButton" destination="DvI-Lo-u1q" id="xDw-Gh-EXt"/>
                 <outlet property="shuffleButton" destination="0Xb-8Y-y5L" id="zxu-qb-yUd"/>
                 <outlet property="thumbsdownButton" destination="3Nx-UI-e4n" id="Snn-b8-pC4"/>
@@ -523,7 +524,7 @@
                         </connections>
                     </button>
                     <button hidden="YES" focusRingType="none" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EGc-cr-jAa">
-                        <rect key="frame" x="312" y="108" width="24" height="24"/>
+                        <rect key="frame" x="308" y="105" width="24" height="24"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="thumbsup_outline" imagePosition="only" alignment="center" refusesFirstResponder="YES" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="Qhu-Gx-PLF">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -534,7 +535,7 @@
                         </connections>
                     </button>
                     <button hidden="YES" focusRingType="none" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Nx-UI-e4n">
-                        <rect key="frame" x="312" y="79" width="24" height="24"/>
+                        <rect key="frame" x="308" y="79" width="24" height="24"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="thumbsdown_outline" imagePosition="only" alignment="center" refusesFirstResponder="YES" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="t1y-WE-XLX">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -561,6 +562,17 @@
                             <action selector="setPlaybackTime:" target="vhZ-72-AYY" id="844-7Z-MTH"/>
                         </connections>
                     </slider>
+                    <button focusRingType="none" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v8E-fH-1nK">
+                        <rect key="frame" x="337" y="127" width="15" height="15"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSEnterFullScreenTemplate" imagePosition="only" alignment="center" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="ThM-hI-vAN">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="hidePopupAndShowWindow:" target="vhZ-72-AYY" id="3xi-mX-Ted"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="37s-Je-fFn" firstAttribute="top" secondItem="4yq-G3-W3B" secondAttribute="top" constant="36" id="2US-yg-BP3"/>
@@ -577,6 +589,7 @@
         </window>
     </objects>
     <resources>
+        <image name="NSEnterFullScreenTemplate" width="16" height="15"/>
         <image name="icon" width="512" height="512"/>
         <image name="next" width="512" height="512"/>
         <image name="play" width="512" height="512"/>

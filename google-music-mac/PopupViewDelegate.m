@@ -12,6 +12,7 @@
 @implementation PopupViewDelegate
 
 @synthesize appDelegate;
+@synthesize popup;
 
 @synthesize noSongLabel;
 
@@ -128,6 +129,13 @@
     NSInteger value = [playbackSlider integerValue];
     NSLog(@"value: %ld", (long)value);
     [appDelegate setPlaybackTime:value];
+}
+
+- (void)hidePopupAndShowWindow:(id)sender
+{
+    [NSApp activateIgnoringOtherApps:YES];
+    [[appDelegate window] makeKeyAndOrderFront:self];
+    [popup close];
 }
 
 @end
