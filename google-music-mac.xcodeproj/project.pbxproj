@@ -16,8 +16,8 @@
 		1A7B685617453E40001E509E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A7B685417453E40001E509E /* MainMenu.xib */; };
 		1A7B687417453E4C001E509E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7B687317453E4C001E509E /* WebKit.framework */; };
 		1A7B68811745ABBD001E509E /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1A7B68801745ABBD001E509E /* icon.icns */; };
-		2B8FC1B818C935B5006D04FF /* GoogleMusicScriptCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8FC1B718C935B5006D04FF /* GoogleMusicScriptCommand.m */; };
-		2B8FC1BA18C9381B006D04FF /* google-music-mac.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 2B8FC1B918C9381B006D04FF /* google-music-mac.sdef */; };
+		2B8FC1C018C9CB0E006D04FF /* google-music-mac.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 2B8FC1BF18C9CB0E006D04FF /* google-music-mac.sdef */; };
+		2B8FC1C318C9CB16006D04FF /* GoogleMusicScriptCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8FC1C218C9CB16006D04FF /* GoogleMusicScriptCommand.m */; };
 		38D0C36DAD0F40F5A7254224 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BABD1B4DDCC34CB291C66033 /* libPods.a */; };
 		D302E13418B561E100CCD18E /* Preferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = D302E13318B561E100CCD18E /* Preferences.plist */; };
 		D3091F6318C32961007C8DCD /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D3091F6218C32961007C8DCD /* Utilities.m */; };
@@ -60,9 +60,9 @@
 		1A7B685517453E40001E509E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		1A7B687317453E4C001E509E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		1A7B68801745ABBD001E509E /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
-		2B8FC1B618C935B5006D04FF /* GoogleMusicScriptCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleMusicScriptCommand.h; sourceTree = "<group>"; };
-		2B8FC1B718C935B5006D04FF /* GoogleMusicScriptCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleMusicScriptCommand.m; sourceTree = "<group>"; };
-		2B8FC1B918C9381B006D04FF /* google-music-mac.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "google-music-mac.sdef"; sourceTree = "<group>"; };
+		2B8FC1BF18C9CB0E006D04FF /* google-music-mac.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "google-music-mac.sdef"; path = "AppleScript/google-music-mac.sdef"; sourceTree = "<group>"; };
+		2B8FC1C118C9CB16006D04FF /* GoogleMusicScriptCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoogleMusicScriptCommand.h; path = AppleScript/GoogleMusicScriptCommand.h; sourceTree = "<group>"; };
+		2B8FC1C218C9CB16006D04FF /* GoogleMusicScriptCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoogleMusicScriptCommand.m; path = AppleScript/GoogleMusicScriptCommand.m; sourceTree = "<group>"; };
 		A32790DC482A48E18B516D0B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		BABD1B4DDCC34CB291C66033 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D302E13318B561E100CCD18E /* Preferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Preferences.plist; sourceTree = "<group>"; };
@@ -161,6 +161,9 @@
 		1A7B684517453E40001E509E /* google-music-mac */ = {
 			isa = PBXGroup;
 			children = (
+				2B8FC1C118C9CB16006D04FF /* GoogleMusicScriptCommand.h */,
+				2B8FC1C218C9CB16006D04FF /* GoogleMusicScriptCommand.m */,
+				2B8FC1BB18C9C01E006D04FF /* AppleScript */,
 				D3B71C2318C2C3510041358B /* Preferences */,
 				D32CCEFE18BED65B00BDD484 /* Popup */,
 				D32CCEFF18BED6C200BDD484 /* WebView */,
@@ -179,8 +182,6 @@
 				D3091F6118C32961007C8DCD /* Utilities.h */,
 				D3091F6218C32961007C8DCD /* Utilities.m */,
 				1A7B684617453E40001E509E /* Supporting Files */,
-				2B8FC1B618C935B5006D04FF /* GoogleMusicScriptCommand.h */,
-				2B8FC1B718C935B5006D04FF /* GoogleMusicScriptCommand.m */,
 			);
 			path = "google-music-mac";
 			sourceTree = "<group>";
@@ -188,15 +189,22 @@
 		1A7B684617453E40001E509E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2B8FC1BF18C9CB0E006D04FF /* google-music-mac.sdef */,
 				1A7B684717453E40001E509E /* info.plist */,
 				1A7B684817453E40001E509E /* InfoPlist.strings */,
 				1A7B684B17453E40001E509E /* main.m */,
 				1A7B684D17453E40001E509E /* prefix.pch */,
 				1A7B684E17453E40001E509E /* Credits.rtf */,
 				D302E13318B561E100CCD18E /* Preferences.plist */,
-				2B8FC1B918C9381B006D04FF /* google-music-mac.sdef */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2B8FC1BB18C9C01E006D04FF /* AppleScript */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = AppleScript;
 			sourceTree = "<group>";
 		};
 		D32CCEFE18BED65B00BDD484 /* Popup */ = {
@@ -303,7 +311,7 @@
 			files = (
 				D326EA6418B2D7E500BEC02F /* css in Resources */,
 				D326EA6518B2D7E500BEC02F /* js in Resources */,
-				2B8FC1BA18C9381B006D04FF /* google-music-mac.sdef in Resources */,
+				2B8FC1C018C9CB0E006D04FF /* google-music-mac.sdef in Resources */,
 				D302E13418B561E100CCD18E /* Preferences.plist in Resources */,
 				1A7B684A17453E40001E509E /* InfoPlist.strings in Resources */,
 				D3DB8FF018BD253A00ABE93B /* images in Resources */,
@@ -371,6 +379,7 @@
 				D34DC2BC18C295A700C27596 /* LastFmService.m in Sources */,
 				D3B1668318BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m in Sources */,
 				1A68DAD81803B588004CBA25 /* CustomWebView.m in Sources */,
+				2B8FC1C318C9CB16006D04FF /* GoogleMusicScriptCommand.m in Sources */,
 				D3B71C2F18C2D5770041358B /* LastFmPreferencesViewController.m in Sources */,
 				1A7B684C17453E40001E509E /* main.m in Sources */,
 				D3DB8FF518BD2AEC00ABE93B /* PlaybackConstants.m in Sources */,
@@ -387,7 +396,6 @@
 				D343CDF518C69DF4002F9DB3 /* NavigationPreferencesViewController.m in Sources */,
 				D3091F6318C32961007C8DCD /* Utilities.m in Sources */,
 				D32CCEFD18BE9BF800BDD484 /* PopupView.m in Sources */,
-				2B8FC1B818C935B5006D04FF /* GoogleMusicScriptCommand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

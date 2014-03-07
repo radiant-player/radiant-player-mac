@@ -35,7 +35,21 @@
     if ([o_command isEqualToString:@"next track"]){
         [delegate forwardAction:self];
     }
-    
+    if ([o_command isEqualToString:@"toggle thumbs up"]){
+        [delegate toggleThumbsUp:self];
+    }
+    if ([o_command isEqualToString:@"toggle thumbs down"]){
+        [delegate toggleThumbsDown:self];
+    }
+    if ([o_command isEqualToString:@"toggle shuffle"]){
+        [delegate toggleShuffle:self];
+    }
+    if ([o_command isEqualToString:@"toggle repeatmode"]){
+        [delegate toggleRepeatMode:self];
+    }
+    if ([o_command isEqualToString:@"toggle visualization"]){
+        [delegate toggleVisualization:self];
+    }
     
     return nil;
 }
