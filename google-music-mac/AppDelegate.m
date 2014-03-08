@@ -10,10 +10,6 @@
 #import "AppDelegate.h"
 #import "LastFmService.h"
 
-#ifndef GMUSIC_USE_PRIVATE_APIS
-#define GMUSIC_USE_PRIVATE_APIS 1
-#endif
-
 @implementation AppDelegate
 
 @synthesize webView;
@@ -424,27 +420,30 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         
         NSUserNotification *notif = [[NSUserNotification alloc] init];
         notif.title = title;
-        notif.subtitle = [NSString stringWithFormat:@"%@ — %@", artist, album];
+        
+        if ([defaults boolForKey:@"notifications.itunes-style"]) {
+            notif.subtitle = [NSString stringWithFormat:@"%@ — %@", artist, album];
+            [notif setValue:@YES forKey:@"_showsButtons"];
+        }
+        else {
+            notif.informativeText = [NSString stringWithFormat:@"%@ — %@", artist, album];
+        }
         
         // Try to load the album art if possible.
         if ([defaults boolForKey:@"notifications.showAlbumArt"] && art)
-         {
+        {
             NSURL *url = [NSURL URLWithString:art];
             NSImage *image = [[NSImage alloc] initWithContentsOfURL:url];
             
-#if GMUSIC_USE_PRIVATE_APIS
-            [notif setValue:image forKey:@"_identityImage"];
-#else
-            notif.contentImage = image;
-#endif
+            if ([defaults boolForKey:@"notifications.itunes-style"]) {
+                [notif setValue:image forKey:@"_identityImage"];
+            }
+            else {
+                notif.contentImage = image;
+            }
         }
         
-
-        notif.actionButtonTitle = NSLocalizedString(@"Skip", @"Notification action button title");
-#if GMUSIC_USE_PRIVATE_APIS
-        [notif setValue:@YES forKey:@"_showsButtons"];
-#endif
-
+        notif.actionButtonTitle = @"Skip";
         [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
 
         // Remove the previous notifications in order to make this notification appear immediately.
