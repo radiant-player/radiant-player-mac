@@ -16,13 +16,22 @@ if (typeof window.GMNavigation === 'undefined') {
     
     var logoContainer = document.querySelector('#oneGoogleWrapper > div:first-child > div:first-child > div:nth-child(2) > div:first-child');
     
-    // Remove the children of the container.
-    while (logoContainer.firstChild) {
-        logoContainer.removeChild(logoContainer.firstChild);
+    if (window.googleMusicApp.preferenceForKey("navigation.buttons.keep-logo"))
+    {
+        // Keep the Google Play logo.
+        logoContainer.parentNode.style.cssText = '';
+        logoContainer.parentNode.style.width = '310px';
     }
-    
-    // Remove the width constraints of the parent element.
-    logoContainer.parentNode.style.cssText = '';
+    else
+    {
+        // Remove the children of the container.
+        while (logoContainer.firstChild) {
+            logoContainer.removeChild(logoContainer.firstChild);
+        }
+        
+        // Remove the width constraints of the parent element.
+        logoContainer.parentNode.style.cssText = '';
+    }
     
     // Change the styles of the sibling elements of the logo.
     document.querySelector('#oneGoogleWrapper > div:first-child > div:first-child > div:nth-child(1)').style.webkitFlexGrow = 0;

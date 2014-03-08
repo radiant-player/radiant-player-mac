@@ -374,30 +374,6 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Playback.toggleVisualization()"];
 }
 
-- (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
-{
-    [self evaluateJavaScriptFile:@"keyboard"];
-    [self evaluateJavaScriptFile:@"mouse"];
-    [self evaluateJavaScriptFile:@"main"];
-    [self evaluateJavaScriptFile:@"styles"];
-    [[sender windowScriptObject] setValue:self forKey:@"googleMusicApp"];
-    
-    // Apply the navigation styles.
-    if ([defaults boolForKey:@"navigation.buttons.enabled"])
-    {
-        [self applyCSSFile:@"navigation"];
-        [self evaluateJavaScriptFile:@"navigation"];
-    }
-    
-    // Apply certain styles and JS only if the user prefers.
-    if ([defaults boolForKey:@"styles.enabled"])
-    {
-        [window setBackgroundColor:[NSColor colorWithCalibratedRed:0.88f green:0.88f blue:0.88f alpha:1.0f]];
-        [self applyCSSFile:@"cocoa"];
-        [self evaluateJavaScriptFile:@"appbar"];
-    }
-}
-
 - (void)notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art duration:(NSTimeInterval)duration
 {
     NSTimeInterval timestamp = [[NSDate date] timeIntervalSince1970];
@@ -488,6 +464,35 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 }
 
 #pragma mark - Web
+
+- (void)webView:(WebView *)webView didClearWindowObject:(WebScriptObject *)windowObject forFrame:(WebFrame *)frame
+{
+    [windowObject setValue:self forKey:@"googleMusicApp"];
+}
+
+- (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
+{
+    [self evaluateJavaScriptFile:@"keyboard"];
+    [self evaluateJavaScriptFile:@"mouse"];
+    [self evaluateJavaScriptFile:@"main"];
+    [self evaluateJavaScriptFile:@"styles"];
+    
+    // Apply the navigation styles.
+    if ([defaults boolForKey:@"navigation.buttons.enabled"])
+    {
+        NSLog(@"Preference for 'navigation.buttons.keep-logo': %@", [self preferenceForKey:@"navigation.buttons.keep-logo"] ? @"YES" : @"NO");
+        [self applyCSSFile:@"navigation"];
+        [self evaluateJavaScriptFile:@"navigation"];
+    }
+    
+    // Apply certain styles and JS only if the user prefers.
+    if ([defaults boolForKey:@"styles.enabled"])
+    {
+        [window setBackgroundColor:[NSColor colorWithCalibratedRed:0.88f green:0.88f blue:0.88f alpha:1.0f]];
+        [self applyCSSFile:@"cocoa"];
+        [self evaluateJavaScriptFile:@"appbar"];
+    }
+}
 
 - (id)preferenceForKey:(NSString *)key
 {
