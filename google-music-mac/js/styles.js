@@ -73,10 +73,10 @@ if (typeof window.Styles === 'undefined') {
         var thumbsDownPosition = thumbsDownBackX + 'px ' + thumbsDownBackY + 'px';
      
         window.Styles.applyStyle('thumbsUpDown',
-            '.song-row [data-col="rating"][data-rating="5"] { background-position: ' + thumbsUpPosition + ' !important; } ' +
+            '.song-row [data-col="rating"][data-rating="5"]:not(.stars) { background-position: ' + thumbsUpPosition + ' !important; } ' +
 
-            '.song-row [data-col="rating"][data-rating="1"], ' +
-            '.song-row [data-col="rating"][data-rating="2"] { background-position: ' + thumbsDownPosition + ' !important; } '
+            '.song-row [data-col="rating"][data-rating="1"]:not(.stars), ' +
+            '.song-row [data-col="rating"][data-rating="2"]:not(.stars) { background-position: ' + thumbsDownPosition + ' !important; } '
         );
     })();
 }

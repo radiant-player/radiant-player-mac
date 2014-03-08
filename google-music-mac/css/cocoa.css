@@ -94,6 +94,10 @@
     margin-top: 8px;
 }
 
+.song-row .rating-container.stars {
+    height: auto !important;
+}
+
 .song-row .rating-container.thumbs [data-rating] {
     margin-top: 0px;
 }
