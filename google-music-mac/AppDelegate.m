@@ -480,7 +480,6 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     // Apply the navigation styles.
     if ([defaults boolForKey:@"navigation.buttons.enabled"])
     {
-        NSLog(@"Preference for 'navigation.buttons.keep-logo': %@", [self preferenceForKey:@"navigation.buttons.keep-logo"] ? @"YES" : @"NO");
         [self applyCSSFile:@"navigation"];
         [self evaluateJavaScriptFile:@"navigation"];
     }

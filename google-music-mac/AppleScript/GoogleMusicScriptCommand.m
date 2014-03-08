@@ -1,10 +1,11 @@
-//
-//  GoogleMusicScriptCommand.m
-//  google-music-mac
-//
-//  Created by Walter Da Col on 3/7/14.
-//  Copyright (c) 2014 Sajid Anwar. All rights reserved.
-//
+/*
+ * GoogleMusicScriptCommand.m
+ *
+ * Originally created by Walter Da Col.
+ *
+ * Subject to terms and conditions in LICENSE.md.
+ *
+ */
 
 #import "GoogleMusicScriptCommand.h"
 #import "AppDelegate.h"
@@ -12,45 +13,47 @@
 @implementation GoogleMusicScriptCommand
 
 /**
- Called when supported applescript are executed
+ Called when supported AppleScript are executed
  
  @see google-music-mac.sdef for all commands
  @return nothing for now
  */
-- (id)performDefaultImplementation {
-    // Retrive command
-    NSString *o_command = [[self commandDescription] commandName];
+- (id)performDefaultImplementation
+{
+    // Retrieve command
+    NSString *command = [[self commandDescription] commandName];
     
-    // Retrive command param
-    //NSString *o_parameter = [self directParameter];
+    // Retrieve command param
+    //NSString *parameter = [self directParameter];
     
     AppDelegate *delegate = (AppDelegate *)[[NSApplication sharedApplication] delegate];
     
-    if ([o_command isEqualToString:@"playpause"]){
+    if ([command isEqualToString:@"playpause"]){
         [delegate playPause:self];
     }
-    if ([o_command isEqualToString:@"back track"]){
+    else if ([command isEqualToString:@"back track"]){
         [delegate backAction:self];
     }
-    if ([o_command isEqualToString:@"next track"]){
+    else if ([command isEqualToString:@"next track"]){
         [delegate forwardAction:self];
     }
-    if ([o_command isEqualToString:@"toggle thumbs up"]){
+    else if ([command isEqualToString:@"toggle thumbs up"]){
         [delegate toggleThumbsUp:self];
     }
-    if ([o_command isEqualToString:@"toggle thumbs down"]){
+    else if ([command isEqualToString:@"toggle thumbs down"]){
         [delegate toggleThumbsDown:self];
     }
-    if ([o_command isEqualToString:@"toggle shuffle"]){
+    else if ([command isEqualToString:@"toggle shuffle"]){
         [delegate toggleShuffle:self];
     }
-    if ([o_command isEqualToString:@"toggle repeatmode"]){
+    else if ([command isEqualToString:@"toggle repeatmode"]){
         [delegate toggleRepeatMode:self];
     }
-    if ([o_command isEqualToString:@"toggle visualization"]){
+    else if ([command isEqualToString:@"toggle visualization"]){
         [delegate toggleVisualization:self];
     }
     
     return nil;
 }
+
 @end

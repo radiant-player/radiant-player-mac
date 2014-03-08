@@ -1,10 +1,11 @@
-//
-//  GoogleMusicScriptCommand.h
-//  google-music-mac
-//
-//  Created by Walter Da Col on 3/7/14.
-//  Copyright (c) 2014 Sajid Anwar. All rights reserved.
-//
+/*
+ * GoogleMusicScriptCommand.h
+ *
+ * Originally created by Walter Da Col.
+ *
+ * Subject to terms and conditions in LICENSE.md.
+ *
+ */
 
 #import <Cocoa/Cocoa.h>
 
