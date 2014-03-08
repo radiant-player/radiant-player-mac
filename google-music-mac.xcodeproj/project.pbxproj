@@ -60,9 +60,9 @@
 		1A7B685517453E40001E509E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		1A7B687317453E4C001E509E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		1A7B68801745ABBD001E509E /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
-		2B8FC1BF18C9CB0E006D04FF /* google-music-mac.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "google-music-mac.sdef"; path = "AppleScript/google-music-mac.sdef"; sourceTree = "<group>"; };
-		2B8FC1C118C9CB16006D04FF /* GoogleMusicScriptCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoogleMusicScriptCommand.h; path = AppleScript/GoogleMusicScriptCommand.h; sourceTree = "<group>"; };
-		2B8FC1C218C9CB16006D04FF /* GoogleMusicScriptCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoogleMusicScriptCommand.m; path = AppleScript/GoogleMusicScriptCommand.m; sourceTree = "<group>"; };
+		2B8FC1BF18C9CB0E006D04FF /* google-music-mac.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "google-music-mac.sdef"; sourceTree = "<group>"; };
+		2B8FC1C118C9CB16006D04FF /* GoogleMusicScriptCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleMusicScriptCommand.h; sourceTree = "<group>"; };
+		2B8FC1C218C9CB16006D04FF /* GoogleMusicScriptCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleMusicScriptCommand.m; sourceTree = "<group>"; };
 		A32790DC482A48E18B516D0B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		BABD1B4DDCC34CB291C66033 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D302E13318B561E100CCD18E /* Preferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Preferences.plist; sourceTree = "<group>"; };
@@ -161,8 +161,6 @@
 		1A7B684517453E40001E509E /* google-music-mac */ = {
 			isa = PBXGroup;
 			children = (
-				2B8FC1C118C9CB16006D04FF /* GoogleMusicScriptCommand.h */,
-				2B8FC1C218C9CB16006D04FF /* GoogleMusicScriptCommand.m */,
 				2B8FC1BB18C9C01E006D04FF /* AppleScript */,
 				D3B71C2318C2C3510041358B /* Preferences */,
 				D32CCEFE18BED65B00BDD484 /* Popup */,
@@ -189,7 +187,6 @@
 		1A7B684617453E40001E509E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2B8FC1BF18C9CB0E006D04FF /* google-music-mac.sdef */,
 				1A7B684717453E40001E509E /* info.plist */,
 				1A7B684817453E40001E509E /* InfoPlist.strings */,
 				1A7B684B17453E40001E509E /* main.m */,
@@ -203,8 +200,11 @@
 		2B8FC1BB18C9C01E006D04FF /* AppleScript */ = {
 			isa = PBXGroup;
 			children = (
+				2B8FC1BF18C9CB0E006D04FF /* google-music-mac.sdef */,
+				2B8FC1C118C9CB16006D04FF /* GoogleMusicScriptCommand.h */,
+				2B8FC1C218C9CB16006D04FF /* GoogleMusicScriptCommand.m */,
 			);
-			name = AppleScript;
+			path = AppleScript;
 			sourceTree = "<group>";
 		};
 		D32CCEFE18BED65B00BDD484 /* Popup */ = {
@@ -221,7 +221,7 @@
 				D32CCEFB18BE9BF800BDD484 /* PopupView.h */,
 				D32CCEFC18BE9BF800BDD484 /* PopupView.m */,
 			);
-			name = Popup;
+			path = Popup;
 			sourceTree = "<group>";
 		};
 		D32CCEFF18BED6C200BDD484 /* WebView */ = {
@@ -236,7 +236,7 @@
 				D3091F6718C40FBD007C8DCD /* SwipeAnimation.h */,
 				D3091F6818C40FBD007C8DCD /* SwipeAnimation.m */,
 			);
-			name = WebView;
+			path = WebView;
 			sourceTree = "<group>";
 		};
 		D3B71C2318C2C3510041358B /* Preferences */ = {
@@ -252,7 +252,7 @@
 				D343CDF318C69DF4002F9DB3 /* NavigationPreferencesViewController.h */,
 				D343CDF418C69DF4002F9DB3 /* NavigationPreferencesViewController.m */,
 			);
-			name = Preferences;
+			path = Preferences;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
