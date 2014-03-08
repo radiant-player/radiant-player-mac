@@ -72,7 +72,7 @@ if (typeof window.GMAppBar === 'undefined') {
 
             window._lastX = evt.screenX;
             window._lastY = evt.screenY;
-            window.googleMusicApp.moveWindow(deltaX, deltaY);
+            window.GoogleMusicApp.moveWindow(deltaX, deltaY);
         }
     });
 }

@@ -412,7 +412,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         }
         
         // Try to load the album art if possible.
-        if ([defaults boolForKey:@"notifications.showAlbumArt"] && art)
+        if ([defaults boolForKey:@"notifications.show-album-art"] && art)
         {
             NSURL *url = [NSURL URLWithString:art];
             NSImage *image = [[NSImage alloc] initWithContentsOfURL:url];
@@ -467,7 +467,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 - (void)webView:(WebView *)webView didClearWindowObject:(WebScriptObject *)windowObject forFrame:(WebFrame *)frame
 {
-    [windowObject setValue:self forKey:@"googleMusicApp"];
+    [windowObject setValue:self forKey:@"GoogleMusicApp"];
 }
 
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame

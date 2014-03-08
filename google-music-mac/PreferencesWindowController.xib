@@ -163,8 +163,8 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
+                        <binding destination="qKJ-ks-0kW" name="value" keyPath="values.notifications.show-album-art" id="pcF-iN-k6E"/>
                         <binding destination="qKJ-ks-0kW" name="enabled" keyPath="values.notifications.enabled" id="ufp-Fr-JHh"/>
-                        <binding destination="qKJ-ks-0kW" name="value" keyPath="values.notifications.showAlbumArt" id="iih-IH-Bat"/>
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="wI0-wb-A0h">

@@ -34,8 +34,8 @@
     NSString *session = [defaults objectForKey:@"lastfm.session"];
     NSString *username = [defaults objectForKey:@"lastfm.username"];
     
-    [LastFm sharedInstance].apiKey = [defaults objectForKey:@"lastfm.apiKey"];
-    [LastFm sharedInstance].apiSecret = [defaults objectForKey:@"lastfm.apiSecret"];
+    [LastFm sharedInstance].apiKey = [defaults objectForKey:@"lastfm.api-key"];
+    [LastFm sharedInstance].apiSecret = [defaults objectForKey:@"lastfm.api-secret"];
     [LastFm sharedInstance].username = username;
     [LastFm sharedInstance].session = session;
     

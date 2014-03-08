@@ -187,7 +187,7 @@ if (typeof window.MusicAPI === 'undefined') {
                     // Make sure that this is the first of the notifications for the
                     // insertion of the song information elements.
                     if (lastTitle != title || lastArtist != artist || lastAlbum != album) {
-                        window.googleMusicApp.notifySong(title, artist, album, art, duration);
+                        window.GoogleMusicApp.notifySong(title, artist, album, art, duration);
 
                         lastTitle = title;
                         lastArtist = artist;
@@ -204,7 +204,7 @@ if (typeof window.MusicAPI === 'undefined') {
             var id = target.dataset.id;
 
             if (id == 'shuffle') {
-                window.googleMusicApp.shuffleChanged(target.value);
+                window.GoogleMusicApp.shuffleChanged(target.value);
             }
         });
     });
@@ -215,7 +215,7 @@ if (typeof window.MusicAPI === 'undefined') {
             var id = target.dataset.id;
 
             if (id == 'repeat') {
-                window.googleMusicApp.repeatChanged(target.value);
+                window.GoogleMusicApp.repeatChanged(target.value);
             }
         });
     });
@@ -227,7 +227,7 @@ if (typeof window.MusicAPI === 'undefined') {
 
             if (id == 'play-pause') {
                 var playing = target.classList.contains('playing');
-                window.googleMusicApp.playbackChanged(playing ? 1 : 0);
+                window.GoogleMusicApp.playbackChanged(playing ? 1 : 0);
             }
         });
     });
@@ -240,7 +240,7 @@ if (typeof window.MusicAPI === 'undefined') {
             if (id == 'slider') {
                 var currentTime = parseInt(target.getAttribute('aria-valuenow'));
                 var totalTime = parseInt(target.getAttribute('aria-valuemax'));
-                window.googleMusicApp.playbackTimeChanged(currentTime, totalTime);
+                window.GoogleMusicApp.playbackTimeChanged(currentTime, totalTime);
             }
         });
     });
@@ -251,7 +251,7 @@ if (typeof window.MusicAPI === 'undefined') {
 
             if (target.classList.contains('selected'))
             {
-                window.googleMusicApp.ratingChanged(target.dataset.rating);
+                window.GoogleMusicApp.ratingChanged(target.dataset.rating);
             }
         });
     });

@@ -16,7 +16,7 @@ if (typeof window.GMNavigation === 'undefined') {
     
     var logoContainer = document.querySelector('#oneGoogleWrapper > div:first-child > div:first-child > div:nth-child(2) > div:first-child');
     
-    if (window.googleMusicApp.preferenceForKey("navigation.buttons.keep-logo"))
+    if (window.GoogleMusicApp.preferenceForKey("navigation.buttons.keep-logo"))
     {
         // Keep the Google Play logo.
         logoContainer.parentNode.style.cssText = '';

@@ -2,9 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>lastfm.apiSecret</key>
+	<key>lastfm.api-secret</key>
 	<string>6f20820f5654df8536c683e0f59747ce</string>
-	<key>lastfm.apiKey</key>
+	<key>lastfm.api-key</key>
 	<string>e32edb47e1b013eab0cede6f1fac7288</string>
 	<key>lastfm.enabled</key>
 	<false/>
@@ -12,16 +12,18 @@
 	<true/>
 	<key>miniplayer.hide-dock-icon</key>
 	<false/>
+	<key>navigation.buttons.enabled</key>
+	<true/>
+	<key>navigation.buttons.keep-logo</key>
+	<false/>
 	<key>navigation.swipe.enabled</key>
 	<true/>
 	<key>notifications.enabled</key>
 	<true/>
-	<key>notifications.showAlbumArt</key>
-	<false/>
 	<key>notifications.itunes-style</key>
 	<false/>
-	<key>navigation.buttons.enabled</key>
-	<true/>
+	<key>notifications.show-album-art</key>
+	<false/>
 	<key>styles.enabled</key>
 	<true/>
 	<key>updates.check</key>
