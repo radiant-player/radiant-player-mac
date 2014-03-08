@@ -32,5 +32,9 @@
 	<string>Google Music for Mac</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>NSAppleScriptEnabled</key>
+	<true/>
+	<key>OSAScriptingDefinition</key>
+	<string>google-music-mac.sdef</string>
 </dict>
 </plist>
