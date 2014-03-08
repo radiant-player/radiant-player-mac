@@ -132,11 +132,11 @@
             </connections>
         </viewController>
         <customView id="vbX-VO-Vnk" userLabel="General Preferences">
-            <rect key="frame" x="0.0" y="0.0" width="478" height="256"/>
+            <rect key="frame" x="0.0" y="0.0" width="478" height="315"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="kP2-c6-sUP">
-                    <rect key="frame" x="18" y="219" width="105" height="17"/>
+                    <rect key="frame" x="18" y="278" width="105" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Notifications:" id="BLl-CP-SxA">
                         <font key="font" metaFont="system"/>
@@ -145,7 +145,7 @@
                     </textFieldCell>
                 </textField>
                 <button id="Dew-bn-PGn">
-                    <rect key="frame" x="127" y="217" width="333" height="18"/>
+                    <rect key="frame" x="127" y="276" width="333" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Display notification when song changes" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Qb9-rA-qYZ">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -156,7 +156,7 @@
                     </connections>
                 </button>
                 <button id="XVx-UD-G6n">
-                    <rect key="frame" x="127" y="191" width="333" height="18"/>
+                    <rect key="frame" x="127" y="249" width="333" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Include album art in notification" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Y8s-G0-q23">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -168,7 +168,7 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="wI0-wb-A0h">
-                    <rect key="frame" x="18" y="130" width="105" height="17"/>
+                    <rect key="frame" x="18" y="189" width="105" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Menu Player:" id="OVp-Sx-lNi">
                         <font key="font" metaFont="system"/>
@@ -177,7 +177,7 @@
                     </textFieldCell>
                 </textField>
                 <button id="QzZ-lJ-ZC6">
-                    <rect key="frame" x="127" y="129" width="333" height="18"/>
+                    <rect key="frame" x="127" y="188" width="333" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Show mini player in menu bar" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="KVZ-cW-hgC">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -208,9 +208,18 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" id="Ewn-Vn-Jf4">
-                    <rect key="frame" x="146" y="100" width="314" height="29"/>
+                    <rect key="frame" x="146" y="159" width="314" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Changing this preference will require a restart of the application to take effect" id="7lz-27-vG3">
+                        <font key="font" size="11" name="LucidaGrande"/>
+                        <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" id="V71-OH-XBr">
+                    <rect key="frame" x="146" y="105" width="314" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Changing this preference will require a restart of the application to take effect" id="pkS-R3-Khr">
                         <font key="font" size="11" name="LucidaGrande"/>
                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -246,15 +255,27 @@
                     </connections>
                 </button>
                 <button id="q91-pT-YTA">
-                    <rect key="frame" x="127" y="163" width="333" height="18"/>
+                    <rect key="frame" x="127" y="222" width="333" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Use iTunes style notifications" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="nox-ZI-U8i">
+                    <buttonCell key="cell" type="check" title="Use iTunes style notifications" bezelStyle="regularSquare" imagePosition="left" inset="2" id="nox-ZI-U8i">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
                         <binding destination="qKJ-ks-0kW" name="enabled" keyPath="values.notifications.enabled" id="J31-qg-YiA"/>
                         <binding destination="qKJ-ks-0kW" name="value" keyPath="values.notifications.itunes-style" id="M1C-0o-Uih"/>
+                    </connections>
+                </button>
+                <button id="JnW-st-Alq">
+                    <rect key="frame" x="127" y="135" width="333" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Hide the dock icon when the mini player is active" bezelStyle="regularSquare" imagePosition="left" inset="2" id="x2Z-xf-GDv">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="qKJ-ks-0kW" name="enabled" keyPath="values.miniplayer.enabled" id="ve1-22-UwH"/>
+                        <binding destination="qKJ-ks-0kW" name="value" keyPath="values.miniplayer.hide-dock-icon" id="QD4-Nv-BSl"/>
                     </connections>
                 </button>
             </subviews>
@@ -266,11 +287,11 @@
         </viewController>
         <userDefaultsController representsSharedInstance="YES" id="qKJ-ks-0kW"/>
         <customView id="Vkx-Or-RjQ" userLabel="Navigation Preferences">
-            <rect key="frame" x="0.0" y="0.0" width="478" height="117"/>
+            <rect key="frame" x="0.0" y="0.0" width="478" height="113"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="rDq-Nn-Fr7">
-                    <rect key="frame" x="18" y="80" width="104" height="17"/>
+                    <rect key="frame" x="18" y="76" width="104" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Back/Forward:" id="mg0-Oo-WdO">
                         <font key="font" metaFont="system"/>
@@ -279,7 +300,7 @@
                     </textFieldCell>
                 </textField>
                 <button id="EDO-24-zbN">
-                    <rect key="frame" x="126" y="79" width="334" height="18"/>
+                    <rect key="frame" x="126" y="75" width="334" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Add back and forward buttons to application bar" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="MWt-RZ-95e">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -301,7 +322,7 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" id="z68-o1-jqs">
-                    <rect key="frame" x="144" y="48" width="316" height="29"/>
+                    <rect key="frame" x="144" y="44" width="316" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Changing this preference will require a restart of the application to take effect" id="Qso-vW-SGy">
                         <font key="font" size="11" name="LucidaGrande"/>

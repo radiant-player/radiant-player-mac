@@ -8,21 +8,23 @@
 	<string>e32edb47e1b013eab0cede6f1fac7288</string>
 	<key>lastfm.enabled</key>
 	<false/>
-	<key>styles.enabled</key>
-	<true/>
-	<key>notifications.enabled</key>
-	<true/>
 	<key>miniplayer.enabled</key>
 	<true/>
-	<key>updates.check</key>
-	<true/>
+	<key>miniplayer.hide-dock-icon</key>
+	<false/>
 	<key>navigation.swipe.enabled</key>
+	<true/>
+	<key>notifications.enabled</key>
 	<true/>
 	<key>notifications.showAlbumArt</key>
 	<false/>
 	<key>notifications.itunes-style</key>
 	<false/>
 	<key>navigation.buttons.enabled</key>
+	<true/>
+	<key>styles.enabled</key>
+	<true/>
+	<key>updates.check</key>
 	<true/>
 </dict>
 </plist>

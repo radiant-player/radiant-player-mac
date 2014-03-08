@@ -52,6 +52,12 @@
     // Load the user preferences.
     defaults = [NSUserDefaults standardUserDefaults];
     
+    // Check if we should be a dock icon or not.
+    if (([defaults boolForKey:@"miniplayer.enabled"] && [defaults boolForKey:@"miniplayer.hide-dock-icon"]))
+    {
+        [NSApp setActivationPolicy:NSApplicationActivationPolicyAccessory];
+    }
+    
     [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
 
 	// Add an event tap to intercept the system defined media key events
