@@ -20,6 +20,8 @@
 	<true/>
 	<key>notifications.showAlbumArt</key>
 	<false/>
+	<key>notifications.itunes-style</key>
+	<false/>
 	<key>navigation.buttons.enabled</key>
 	<true/>
 </dict>

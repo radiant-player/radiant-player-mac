@@ -52,6 +52,8 @@
     // Load the user preferences.
     defaults = [NSUserDefaults standardUserDefaults];
     
+    [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
+
 	// Add an event tap to intercept the system defined media key events
     eventTap = CGEventTapCreate(kCGSessionEventTap,
                                 kCGHeadInsertEventTap,
@@ -418,22 +420,37 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         
         NSUserNotification *notif = [[NSUserNotification alloc] init];
         notif.title = title;
-        notif.informativeText = [NSString stringWithFormat:@"%@ — %@", artist, album];
+        
+        if ([defaults boolForKey:@"notifications.itunes-style"]) {
+            notif.subtitle = [NSString stringWithFormat:@"%@ — %@", artist, album];
+            [notif setValue:@YES forKey:@"_showsButtons"];
+        }
+        else {
+            notif.informativeText = [NSString stringWithFormat:@"%@ — %@", artist, album];
+        }
         
         // Try to load the album art if possible.
         if ([defaults boolForKey:@"notifications.showAlbumArt"] && art)
-         {
+        {
             NSURL *url = [NSURL URLWithString:art];
             NSImage *image = [[NSImage alloc] initWithContentsOfURL:url];
             
-            notif.contentImage = image;
+            if ([defaults boolForKey:@"notifications.itunes-style"]) {
+                [notif setValue:image forKey:@"_identityImage"];
+            }
+            else {
+                notif.contentImage = image;
+            }
         }
         
+        notif.actionButtonTitle = @"Skip";
+        [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
+
         // Remove the previous notifications in order to make this notification appear immediately.
         [[NSUserNotificationCenter defaultUserNotificationCenter] removeAllDeliveredNotifications];
         
         // Deliver the notification.
-        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notif];
+        [[NSUserNotificationCenter defaultUserNotificationCenter] scheduleNotification:notif];
     }
 }
 
@@ -564,6 +581,15 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 - (void)webView:(WebView *)sender runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WebFrame *)frame {
     NSLog(@"%@", message);
+}
+
+#pragma mark - NSUserNotificationCenterDelegate
+
+- (void)userNotificationCenter:(NSUserNotificationCenter *)center didActivateNotification:(NSUserNotification *)notification
+{
+    if (notification.activationType == NSUserNotificationActivationTypeActionButtonClicked) {
+        [self forwardAction:center];
+    }
 }
 
 @end

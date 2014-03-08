@@ -132,11 +132,11 @@
             </connections>
         </viewController>
         <customView id="vbX-VO-Vnk" userLabel="General Preferences">
-            <rect key="frame" x="0.0" y="0.0" width="478" height="226"/>
+            <rect key="frame" x="0.0" y="0.0" width="478" height="256"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="kP2-c6-sUP">
-                    <rect key="frame" x="18" y="189" width="105" height="17"/>
+                    <rect key="frame" x="18" y="219" width="105" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Notifications:" id="BLl-CP-SxA">
                         <font key="font" metaFont="system"/>
@@ -145,7 +145,7 @@
                     </textFieldCell>
                 </textField>
                 <button id="Dew-bn-PGn">
-                    <rect key="frame" x="127" y="187" width="333" height="18"/>
+                    <rect key="frame" x="127" y="217" width="333" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Display notification when song changes" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Qb9-rA-qYZ">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -156,7 +156,7 @@
                     </connections>
                 </button>
                 <button id="XVx-UD-G6n">
-                    <rect key="frame" x="127" y="161" width="333" height="18"/>
+                    <rect key="frame" x="127" y="191" width="333" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Include album art in notification" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Y8s-G0-q23">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -243,6 +243,18 @@
                     </buttonCell>
                     <connections>
                         <binding destination="qKJ-ks-0kW" name="value" keyPath="values.updates.check" id="zMM-cv-RaO"/>
+                    </connections>
+                </button>
+                <button id="q91-pT-YTA">
+                    <rect key="frame" x="127" y="163" width="333" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Use iTunes style notifications" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="nox-ZI-U8i">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="qKJ-ks-0kW" name="enabled" keyPath="values.notifications.enabled" id="J31-qg-YiA"/>
+                        <binding destination="qKJ-ks-0kW" name="value" keyPath="values.notifications.itunes-style" id="M1C-0o-Uih"/>
                     </connections>
                 </button>
             </subviews>
