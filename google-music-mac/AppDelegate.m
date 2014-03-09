@@ -64,7 +64,7 @@
     eventTap = CGEventTapCreate(kCGSessionEventTap,
                                 kCGHeadInsertEventTap,
                                 kCGEventTapOptionDefault,
-                                CGEventMaskBit(NX_SYSDEFINED),
+                                kCGEventMaskForAllEvents,
                                 event_tap_callback,
                                 (__bridge void *)(self));
 	if (!eventTap) {
@@ -195,11 +195,12 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         return event;
     }
     
-    if (!(type == NX_SYSDEFINED) || (type == NX_KEYDOWN))
+    if ((type != NX_SYSDEFINED) && (type != NX_KEYDOWN))
         return event;
     
     NSEvent* keyEvent = [NSEvent eventWithCGEvent: event];
-    if (keyEvent.type != NSSystemDefined || keyEvent.subtype != 8) return event;
+    if (keyEvent.type != NSSystemDefined || keyEvent.subtype != 8)
+        return event;
     
     int keyCode = (([keyEvent data1] & 0xFFFF0000) >> 16);
     int keyFlags = ([keyEvent data1] & 0x0000FFFF);
