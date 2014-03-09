@@ -5,7 +5,7 @@
 
 Turn Google Music into a separate, beautiful application compatible with your Mac's media keys and including support for notifications.
 
-Maintained by [Sajid Anwar][2]. Originally created by [James Fator][3] at [JamesFator/GoogleMusicMac][4]. 
+Developed by [Sajid Anwar][2]. Originally created by [James Fator][3] at [JamesFator/GoogleMusicMac][4]. 
 
 No affiliation with Google.
 
