@@ -601,6 +601,10 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     if (notification.activationType == NSUserNotificationActivationTypeActionButtonClicked) {
         [self forwardAction:center];
     }
+    else if (notification.activationType == NSUserNotificationActivationTypeContentsClicked) {
+        [NSApp activateIgnoringOtherApps:YES];
+        [window makeKeyAndOrderFront:self];
+    }
 }
 
 @end
