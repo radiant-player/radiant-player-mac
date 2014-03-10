@@ -34,13 +34,13 @@
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag {
     
     [window makeKeyAndOrderFront:self];
-    
     return YES;
 }
 
 - (BOOL)windowShouldClose:(NSNotification *)notification
 {
     [window orderOut:self];
+    [NSApp hide:self];
     return NO;
 }
 
@@ -397,6 +397,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         if (popup != nil && popupDelegate != nil) {
             [popupDelegate updateSong:title artist:artist album:album art:art];
             
+            // Don't show the notification if the popup is visible.
             if ([popup isVisible])
                 return;
         }
