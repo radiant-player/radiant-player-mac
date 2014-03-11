@@ -1,7 +1,7 @@
 /*
- * css/cocoa.css
+ * css/dark.css
  *
- * Custom stylesheet that emulates the appearance of a native Mac OS X application.
+ * Custom stylesheet that emulates the appearance of a dark Mac OS X application, like Spotify.
  *
  * Created by Sajid Anwar.
  *
@@ -9,13 +9,14 @@
  *
  */
 
-#main, .song-row td {
-    background-color: white;
+#main {
+    background-color: #373737;
+    color: #bbb;
 }
 
 #loading-progress {
-    background: #e5e5e5;
-    background: linear-gradient(0deg, #B0B0B0, #e5e5e5);
+    background: #C4C4C4;
+    background: linear-gradient(0deg, #A0A0A0, #C4C4C4);
 }
 
 #loading-progress-content {
@@ -35,6 +36,10 @@
     height: 3px;
 }
 
+a, .simple-dialog a {
+    color: #999;
+}
+
 .g-content {
     margin: 0;
 }
@@ -43,8 +48,24 @@
     height: calc(100% - 60px) !important;
 }
 
+#headerBar .tab-text {
+    color: #bbb;
+}
+
 .card {
-    background-color: #f8f8f8;
+    background-color: #555;
+}
+
+.card .title {
+    color: #ddd;
+}
+
+.card .sub-title {
+    color: #999;
+}
+
+.cluster .header .title, .settings-cluster .header .title, .section-header {
+    color: #bbb;
 }
 
 .song-table {
@@ -52,16 +73,16 @@
 }
 
 .song-table .header-row th {
-    background: linear-gradient(0deg, #f1f1f1, #d8d8d8);
-    border-bottom: 1px solid #CCCCCC;
+    background: linear-gradient(0deg, #888888, #c8c8c8);
+    border-bottom: 1px solid #000;
     height: 26px;
     text-transform: none;
-    border-right: 1px solid #BABABA;
-    border-left: 1px solid #EAEAEA;
+    border-right: 1px solid #464646;
+    border-left: 0px solid #555;
 }
 
 .song-row:nth-child(odd) td {
-    background-color: #F4F7FB !important;
+    background-color: #373737 !important;
 }
 
 .song-row img {
@@ -73,6 +94,9 @@
 .song-row .song-indicator {
     width: 32px !important;
     height: 26px !important;
+
+    -webkit-filter: brightness(0%) invert(100%);
+    background-color: transparent;
 }
 
 .song-row .song-indicator[data-playback-status="loading"] {
@@ -90,21 +114,16 @@
     line-height: 26px;
     border: none;
     font-size: 12px;
-    color: black;
-    border-right: 1px solid #EAEAEA;
+    color: white;
+    font-weight: 300;
+    border-right: 1px solid #464646;
     cursor: default;
-    background-color: white !important
+    background-color: #313131 !important;
 }
 
 .song-row.selected-song-row td {
     color: white !important;
-    background-color: #6396E1 !important;
     background-color: #ff8200 !important;
-}
-
-.song-row.selected-song-row .song-indicator {
-    -webkit-filter: brightness(0%) invert(100%);
-    background-color: transparent;
 }
 
 .song-row .hover-button[data-id=play] {
@@ -141,33 +160,35 @@
     -webkit-filter: brightness(20%) invert(100%);
 }
 
+.song-row.currently-playing td[data-col="title"] {
+    color: white !important;
+}
+
 .music-banner {
     display: none;
 }
 
 #nav {
     top: 0;
-    background-color: #DBDFE7;
-    border-right: 1px solid #999999;
-    border-top: 1px solid #CCCCCC;
+    background-color: #474747;
+    border-right: 1px solid #292929;
     width: auto;
     margin: 0;
 }
 
 #nav_collections .nav-item-container, .nav-item-container {
     font-size: 13px !important;
-    font-weight: 400 !important;
-    color: #333 !important;
+    font-weight: 300 !important;
+    color: #ddd !important;
     height: 26px !important;
     line-height: 26px !important;
     cursor: default !important;
 }
 
 #nav_collections .nav-item-container.selected, .nav-item-container.selected, .nav-item-container.selected:focus, .nav-item-container.selected:hover {
-    background: linear-gradient(0deg, #6482a4, #96b5d8) !important;
     background: linear-gradient(0deg, #ff7d00, #ff9d20) !important;
     color: white !important;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .nav-item-container:hover {
@@ -177,8 +198,8 @@
 .nav-section-header {
     padding-left: 10px;
     font-weight: bold;
-    color: #66717F;
-    text-shadow: 0px 1px 0px #FCFAFF;
+    color: #888;
+    text-shadow: 0px -1px 0px #222;
 }
 
 .nav-section-divider {
@@ -195,10 +216,11 @@
 }
 
 .nav-bar .header-tab-title.selected {
-    border: 1px solid #aaa;
+    border: 1px solid #555;
     border-radius: 20px;
-    background-image: linear-gradient(0deg, #f8f8f8, #e0e0e0);
-    box-shadow: inset 0px 1px 1px #bbb;
+    background-image: linear-gradient(0deg, #444, #666);
+    box-shadow: inset 0px 1px 1px #888;
+    color: #eee;
 }
 
 .nav-bar .header-tab-title {
@@ -206,6 +228,8 @@
     line-height: 29px;
     margin-top: 8px;
     cursor: default;
+    color: #aaa;
+    font-weight: 500;
 }
 
 .nav-bar .header-tab-title:hover {
@@ -217,17 +241,20 @@
 }
 
 .nav-bar {
-    background-image: linear-gradient(0deg, #f8f8f8, #ffffff);
+    background-image: linear-gradient(0deg, #232323, #404040);
 }
 
+#headerBar {
+    border-bottom: 1px solid #444;
+}
 
 .fade-out:after {
     background: none !important;
 }
 
 #player, .player-middle {
-    background: linear-gradient(0deg, #b5b5b5, #efefef);
-    border-top: 1px solid #a0a0a0;
+    background: linear-gradient(0deg, #464646, #606060);
+    border-top: 1px solid #292929;
 }
 
 .player-middle {
@@ -237,6 +264,26 @@
 
 #player .flat-button, #player .flat-button:hover, #player .flat-button:active {
     background-color: transparent !important;
+}
+
+#player [data-id="play-pause"], #player [data-id="forward"], #player [data-id="rewind"] {
+    -webkit-filter: brightness(20%) invert(90%);
+}
+
+#player .flat-button[data-id="repeat"][value="NO_REPEAT"] {
+    -webkit-filter: invert(100%);
+}
+
+#player .flat-button[data-id="shuffle"][value="NO_SHUFFLE"] {
+    -webkit-filter: invert(100%);
+}
+
+#player .flat-button[data-id="queue"] {
+    -webkit-filter: invert(100%);
+}
+
+#player .flat-button.selected[data-id="queue"] {
+    -webkit-filter: none;
 }
 
 .now-playing-menu-wrapper {
@@ -251,6 +298,35 @@
     background-color: transparent;
 }
 
+#player .rating-container.thumbs li {
+    -webkit-filter: invert(100%);
+}
+
+#player .rating-container.thumbs li.selected {
+    -webkit-filter: none;
+}
+
+#playerSongTitle {
+    color: #ddd;
+}
+
+#player-artist, .player-album, .player-dash {
+    color: #aaa;
+}
+
+#player.active:hover .playing-progress-background {
+    background: #888 !important;
+}
+
+#top_divider_line, .playing-progress-background {
+    background: #888 !important;
+}
+
+#time_container_duration {
+    color: #ccc !important;
+    background-color: #555 !important;
+}
+
 #volume:hover, #volume.simulated-hover {
     background: none !important;
 }
@@ -259,8 +335,16 @@
     opacity: 1 !important;
 }
 
+#volume .goog-slider-thumb {
+    -webkit-filter: invert(100%);
+}
+
+#volume_high, #volume_low {
+    -webkit-filter: invert(100%);
+}
+
 #oneGoogleWrapper > div:first-child > div {
-    background: linear-gradient(0deg, #b5b5b5, #d5d5d5 50%, #e5e5e5);
+    background: linear-gradient(0deg, #808080, #B2B2B2 50%, #C4C4C4);
     border-bottom: 1px solid #606060;
     height: 59px;
 }
@@ -331,6 +415,15 @@ div.simple-dialog-bg {
     background-color: transparent;
 }
 
+.simple-dialog-title {
+    color: #444 !important;
+}
+
+.button:not(.primary) {
+    background: #ddd !important;
+    color: #666 !important;
+}
+
 .butter-bar-container {
     top: 0;
 }
@@ -340,10 +433,12 @@ div.simple-dialog-bg {
 }
 
 ::-webkit-scrollbar-thumb {
+    background-color: rgba(255,255,255,.2) !important;
     border-width: 1px !important;
     border-radius: 6px !important;
 }
 
 ::-webkit-scrollbar-track {
+    background: #222 !important;
     border-width: 0 !important;
 }

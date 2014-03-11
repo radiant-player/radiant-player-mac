@@ -12,6 +12,7 @@
 @implementation PreferencesWindowController
 
 @synthesize generalController;
+@synthesize appearanceController;
 @synthesize lastFmController;
 @synthesize navigationController;
 
@@ -31,6 +32,7 @@
 - (void)loadControllers
 {
     [self addViewController:generalController];
+    [self addViewController:appearanceController];
     [self addViewController:navigationController];
     [self addViewController:lastFmController];
     [self selectControllerAtIndex:0];

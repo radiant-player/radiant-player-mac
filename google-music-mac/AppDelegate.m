@@ -114,8 +114,6 @@
     [dummyWebView setPolicyDelegate:dummyWebViewDelegate];
 }
 
-
-
 - (void)checkVersion
 {
     NSString *appName = [Utilities applicationName];
@@ -154,6 +152,14 @@
             [defaults synchronize];
         }
     }
+}
+
+- (NSMutableDictionary *)styles
+{
+    if (_styles == nil)
+        _styles = [ApplicationStyle styles];
+    
+    return _styles;
 }
 
 - (void)initializeStatusBar
@@ -490,10 +496,15 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     }
     
     // Apply certain styles and JS only if the user prefers.
-    if ([defaults boolForKey:@"styles.enabled"])
+    // Apply certain styles and JS only if the user prefers.
+    BOOL stylesEnabled = [defaults boolForKey:@"styles.enabled"];
+    NSString *styleName = [defaults stringForKey:@"styles.name"];
+    ApplicationStyle *style = [_styles objectForKey:styleName];
+    
+    if (stylesEnabled && style)
     {
-        [window setBackgroundColor:[NSColor colorWithCalibratedRed:0.88f green:0.88f blue:0.88f alpha:1.0f]];
-        [self applyCSSFile:@"cocoa"];
+        [style applyToWebView:webView];
+        [window setBackgroundColor:[style windowColor]];
         [self evaluateJavaScriptFile:@"appbar"];
     }
 }

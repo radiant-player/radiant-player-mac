@@ -23,6 +23,8 @@
 		D3091F6318C32961007C8DCD /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D3091F6218C32961007C8DCD /* Utilities.m */; };
 		D3091F6618C3D7C4007C8DCD /* SwipeIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3091F6518C3D7C4007C8DCD /* SwipeIndicatorView.m */; };
 		D3091F6918C40FBD007C8DCD /* SwipeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D3091F6818C40FBD007C8DCD /* SwipeAnimation.m */; };
+		D318341718CFBC7400E8F9B1 /* AppearancePreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D318341618CFBC7400E8F9B1 /* AppearancePreferencesViewController.m */; };
+		D318341B18CFC7C500E8F9B1 /* ApplicationStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D318341A18CFC7C500E8F9B1 /* ApplicationStyle.m */; };
 		D323406A18C523BC008C165B /* AboutWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D323406918C523BC008C165B /* AboutWindow.m */; };
 		D326EA6418B2D7E500BEC02F /* css in Resources */ = {isa = PBXBuildFile; fileRef = D326EA6218B2D7E500BEC02F /* css */; };
 		D326EA6518B2D7E500BEC02F /* js in Resources */ = {isa = PBXBuildFile; fileRef = D326EA6318B2D7E500BEC02F /* js */; };
@@ -72,6 +74,10 @@
 		D3091F6518C3D7C4007C8DCD /* SwipeIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeIndicatorView.m; sourceTree = "<group>"; };
 		D3091F6718C40FBD007C8DCD /* SwipeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeAnimation.h; sourceTree = "<group>"; };
 		D3091F6818C40FBD007C8DCD /* SwipeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeAnimation.m; sourceTree = "<group>"; };
+		D318341518CFBC7400E8F9B1 /* AppearancePreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppearancePreferencesViewController.h; sourceTree = "<group>"; };
+		D318341618CFBC7400E8F9B1 /* AppearancePreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppearancePreferencesViewController.m; sourceTree = "<group>"; };
+		D318341918CFC7C500E8F9B1 /* ApplicationStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationStyle.h; sourceTree = "<group>"; };
+		D318341A18CFC7C500E8F9B1 /* ApplicationStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationStyle.m; sourceTree = "<group>"; };
 		D323406818C523BC008C165B /* AboutWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWindow.h; sourceTree = "<group>"; };
 		D323406918C523BC008C165B /* AboutWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWindow.m; sourceTree = "<group>"; };
 		D326EA6218B2D7E500BEC02F /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
@@ -164,6 +170,7 @@
 				2B8FC1BB18C9C01E006D04FF /* AppleScript */,
 				D3B71C2318C2C3510041358B /* Preferences */,
 				D32CCEFE18BED65B00BDD484 /* Popup */,
+				D318341818CFC73500E8F9B1 /* Styles */,
 				D32CCEFF18BED6C200BDD484 /* WebView */,
 				D3DB8FEF18BD253A00ABE93B /* images */,
 				D326EA6218B2D7E500BEC02F /* css */,
@@ -207,6 +214,15 @@
 			path = AppleScript;
 			sourceTree = "<group>";
 		};
+		D318341818CFC73500E8F9B1 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				D318341918CFC7C500E8F9B1 /* ApplicationStyle.h */,
+				D318341A18CFC7C500E8F9B1 /* ApplicationStyle.m */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
 		D32CCEFE18BED65B00BDD484 /* Popup */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +261,8 @@
 				D3B71C2618C2D5240041358B /* PreferencesWindowController.h */,
 				D3B71C2718C2D5240041358B /* PreferencesWindowController.m */,
 				D3B71C3718C2F0F20041358B /* PreferencesWindowController.xib */,
+				D318341518CFBC7400E8F9B1 /* AppearancePreferencesViewController.h */,
+				D318341618CFBC7400E8F9B1 /* AppearancePreferencesViewController.m */,
 				D3B71C2C18C2D5770041358B /* LastFmPreferencesViewController.h */,
 				D3B71C2D18C2D5770041358B /* LastFmPreferencesViewController.m */,
 				D35788BB18C2F820006AF859 /* GeneralPreferencesViewController.h */,
@@ -379,6 +397,7 @@
 				D34DC2BC18C295A700C27596 /* LastFmService.m in Sources */,
 				D3B1668318BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m in Sources */,
 				1A68DAD81803B588004CBA25 /* CustomWebView.m in Sources */,
+				D318341B18CFC7C500E8F9B1 /* ApplicationStyle.m in Sources */,
 				2B8FC1C318C9CB16006D04FF /* GoogleMusicScriptCommand.m in Sources */,
 				D3B71C2F18C2D5770041358B /* LastFmPreferencesViewController.m in Sources */,
 				1A7B684C17453E40001E509E /* main.m in Sources */,
@@ -391,6 +410,7 @@
 				D323406A18C523BC008C165B /* AboutWindow.m in Sources */,
 				D32CCEFA18BE039E00BDD484 /* PopupPanel.m in Sources */,
 				D3B71C2818C2D5240041358B /* PreferencesWindowController.m in Sources */,
+				D318341718CFBC7400E8F9B1 /* AppearancePreferencesViewController.m in Sources */,
 				D35788BD18C2F820006AF859 /* GeneralPreferencesViewController.m in Sources */,
 				D3FAC6D418BA81EC00D9F461 /* PopupStatusView.m in Sources */,
 				D343CDF518C69DF4002F9DB3 /* NavigationPreferencesViewController.m in Sources */,

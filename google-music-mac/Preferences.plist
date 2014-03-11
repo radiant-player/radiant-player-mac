@@ -6,6 +6,8 @@
 	<string>6f20820f5654df8536c683e0f59747ce</string>
 	<key>lastfm.api-key</key>
 	<string>e32edb47e1b013eab0cede6f1fac7288</string>
+	<key>styles.name</key>
+	<string>Cocoa</string>
 	<key>lastfm.enabled</key>
 	<false/>
 	<key>miniplayer.enabled</key>

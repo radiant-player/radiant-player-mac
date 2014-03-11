@@ -17,6 +17,7 @@
 #import "PopupViewDelegate.h"
 #import "PopupPanel.h"
 #import "PreferencesWindowController.h"
+#import "ApplicationStyle.h"
 
 @class PopupViewDelegate;
 @class PopupStatusView;
@@ -26,6 +27,8 @@
 {
 	CFMachPortRef eventTap;
     CFRunLoopSourceRef eventPortSource;
+    
+    NSMutableDictionary *_styles;
     
     WebView *dummyWebView;
     DummyWebViewPolicyDelegate *dummyWebViewDelegate;
@@ -49,6 +52,7 @@
 
 - (void) checkVersion;
 - (void) initializeStatusBar;
+- (NSMutableDictionary *) styles;
     
 - (IBAction) webBrowserBack:(id)sender;
 - (IBAction) webBrowserForward:(id)sender;
