@@ -23,36 +23,45 @@
 {
     NSURL *url = [NSURL URLWithString:@"https://api.github.com/repos/kbhomes/google-music-mac/releases"];
     NSData *data = [NSData dataWithContentsOfURL:url];
-    id parsed = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     
-    if ([parsed isKindOfClass:[NSArray class]])
+    if (data)
     {
-        NSArray *releases = (NSArray *)parsed;
+        id parsed = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         
-        if ([releases count] > 0)
+        if ([parsed isKindOfClass:[NSArray class]])
         {
-            NSDictionary *latest = [releases firstObject];
-            NSString *version = [latest objectForKey:@"name"];
+            NSArray *releases = (NSArray *)parsed;
             
-            if ([version length] > 0)
+            if ([releases count] > 0)
             {
-                return [version substringFromIndex:1];
+                NSDictionary *latest = [releases firstObject];
+                NSString *version = [latest objectForKey:@"name"];
+                
+                if ([version length] > 0)
+                {
+                    return [version substringFromIndex:1];
+                }
+                else
+                {
+                    NSLog(@"Unable to read version number of latest release from Github");
+                    return nil;
+                }
             }
             else
             {
-                NSLog(@"Unable to read version number of latest release from Github");
+                NSLog(@"Unable to find any releases from Github");
                 return nil;
             }
         }
         else
         {
-            NSLog(@"Unable to find any releases from Github");
+            NSLog(@"Unable to process returned JSON from Github");
             return nil;
         }
     }
     else
     {
-        NSLog(@"Unable to process returned JSON from Github");
+        NSLog(@"Unable to obtain response from Github");
         return nil;
     }
 }
