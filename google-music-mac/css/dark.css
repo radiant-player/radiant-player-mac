@@ -73,7 +73,7 @@ a, .simple-dialog a {
 }
 
 .song-table .header-row th {
-    background: linear-gradient(0deg, #888888, #c8c8c8);
+    background: linear-gradient(0deg, #666, #a8a8a8);
     border-bottom: 1px solid #000;
     height: 26px;
     text-transform: none;
@@ -126,6 +126,10 @@ a, .simple-dialog a {
     background-color: #ff8200 !important;
 }
 
+.song-row.selected-song-row td[data-col="rating"] {
+    background-color: #007dff !important;
+}
+
 .song-row .hover-button[data-id=play] {
     height: 26px !important;
     width: 26px !important;
@@ -139,6 +143,19 @@ a, .simple-dialog a {
 
 .song-row .explicit {
     margin-top: 8px;
+}
+
+.song-row [data-col="rating"] {
+    -webkit-filter: invert(100%);
+    border-right: none;
+}
+
+.song-row:not(.selected-song-row) [data-col="rating"] {
+    background-color: #CECECE !important;
+}
+
+.song-row:nth-child(odd):not(.selected-song-row) [data-col="rating"] {
+    background-color: #C8C8C8 !important;
 }
 
 .song-row .rating-container.stars {
@@ -315,11 +332,11 @@ a, .simple-dialog a {
 }
 
 #player.active:hover .playing-progress-background {
-    background: #888 !important;
+    background: #666 !important;
 }
 
 #top_divider_line, .playing-progress-background {
-    background: #888 !important;
+    background: #555 !important;
 }
 
 #time_container_duration {

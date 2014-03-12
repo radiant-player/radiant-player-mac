@@ -487,6 +487,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     [self evaluateJavaScriptFile:@"mouse"];
     [self evaluateJavaScriptFile:@"main"];
     [self evaluateJavaScriptFile:@"styles"];
+    [self evaluateJavaScriptFile:@"appbar"];
     
     // Apply the navigation styles.
     if ([defaults boolForKey:@"navigation.buttons.enabled"])
@@ -496,7 +497,6 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     }
     
     // Apply certain styles and JS only if the user prefers.
-    // Apply certain styles and JS only if the user prefers.
     BOOL stylesEnabled = [defaults boolForKey:@"styles.enabled"];
     NSString *styleName = [defaults stringForKey:@"styles.name"];
     ApplicationStyle *style = [_styles objectForKey:styleName];
@@ -505,7 +505,6 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     {
         [style applyToWebView:webView];
         [window setBackgroundColor:[style windowColor]];
-        [self evaluateJavaScriptFile:@"appbar"];
     }
 }
 
