@@ -19,6 +19,8 @@
     [self setBackgroundColor:[NSColor clearColor]];
     [self setOpaque:NO];
     [self setLevel:NSPopUpMenuWindowLevel];
+    [self setCollectionBehavior:NSWindowCollectionBehaviorCanJoinAllSpaces | NSWindowCollectionBehaviorTransient];
+    [self setFloatingPanel:YES];
     [self setHidesOnDeactivate:NO];
     [self setDelegate:self];
 }
