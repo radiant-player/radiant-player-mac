@@ -400,17 +400,18 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     currentAlbum = album;
     currentDuration = duration;
     currentTimestamp = timestamp;
+    
+    if (popup != nil && popupDelegate != nil)
+    {
+        [popupDelegate updateSong:title artist:artist album:album art:art];
+        
+        // Don't show the notification if the popup is visible.
+        if ([popup isVisible])
+            return;
+    }
 
     if ([defaults boolForKey:@"notifications.enabled"])
     {
-        if (popup != nil && popupDelegate != nil) {
-            [popupDelegate updateSong:title artist:artist album:album art:art];
-            
-            // Don't show the notification if the popup is visible.
-            if ([popup isVisible])
-                return;
-        }
-        
         NSUserNotification *notif = [[NSUserNotification alloc] init];
         notif.title = title;
         
