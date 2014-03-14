@@ -50,7 +50,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Change the title bar color.
-    [window setBackgroundColor:[NSColor colorWithRed:0.945 green:0.945 blue:0.945 alpha:1]];
+    [window setBackgroundColor:[NSColor colorWithSRGBRed:0.945 green:0.945 blue:0.945 alpha:1]];
     
     // Load the user preferences.
     defaults = [NSUserDefaults standardUserDefaults];

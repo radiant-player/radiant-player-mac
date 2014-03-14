@@ -56,7 +56,7 @@
     [cocoa setName:@"Cocoa"];
     [cocoa setAuthor:@"Sajid Anwar"];
     [cocoa setDescription:@"An application style to match Mac OS X."];
-    [cocoa setWindowColor:[NSColor colorWithRed:0.898f green:0.898f blue:0.898f alpha:1.0f]];
+    [cocoa setWindowColor:[NSColor colorWithSRGBRed:0.898f green:0.898f blue:0.898f alpha:1.0f]];
     [cocoa setCss:[ApplicationStyle cssNamed:@"cocoa"]];
     [cocoa setJs:nil];
     
@@ -65,7 +65,7 @@
     [dark setName:@"Dark"];
     [dark setAuthor:@"Sajid Anwar"];
     [dark setDescription:@"A dark style similar to Spotify."];
-    [dark setWindowColor:[NSColor colorWithRed:0.768f green:0.768f blue:0.768f alpha:1.0f]];
+    [dark setWindowColor:[NSColor colorWithSRGBRed:0.768f green:0.768f blue:0.768f alpha:1.0f]];
     [dark setCss:[ApplicationStyle cssNamed:@"dark"]];
     [dark setJs:nil];
     
