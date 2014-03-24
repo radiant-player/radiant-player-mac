@@ -41,9 +41,15 @@
     
     if ([session length] != 0) {
         [authorizeButton setTitle:@"Deauthorize"];
+        [authorizeButton setEnabled:YES];
+        [usernameField setEnabled:NO];
+        [passwordField setEnabled:NO];
     }
     else {
         [authorizeButton setTitle:@"Authorize"];
+        [authorizeButton setEnabled:YES];
+        [usernameField setEnabled:YES];
+        [passwordField setEnabled:YES];
     }
 }
 
@@ -65,7 +71,7 @@
     else {
         // Attempt to obtain session key.
         [authorizeButton setTitle:@"Authorizing..."];
-        [authorizeButton setEnabled:false];
+        [authorizeButton setEnabled:NO];
         
         NSString *username = [usernameField stringValue];
         NSString *password = [passwordField stringValue];
@@ -77,16 +83,16 @@
                 [defaults synchronize];
                 
                 [self sync];
-                [authorizeButton setEnabled:true];
             }
             failureHandler:^(NSError *error) {
                 NSAlert *alert = [[NSAlert alloc] init];
                 [alert setMessageText:@"Unable to login to Last.fm."];
                 [alert setIcon:nil];
-                [alert beginSheetModalForWindow:self.view.window completionHandler:nil];
+                [alert beginSheetModalForWindow:self.view.window modalDelegate:nil didEndSelector:nil contextInfo:nil];
                 
                 [authorizeButton setTitle:@"Authorize"];
-                [authorizeButton setEnabled:true];
+                [authorizeButton setEnabled:YES];
+                [passwordField setStringValue:@""];
             }];
     }
 }
