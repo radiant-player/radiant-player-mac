@@ -69,9 +69,19 @@
     [NSAnimationContext endGrouping];
 }
 
+- (BOOL)isActive
+{
+    return [self isKeyWindow];
+}
+
 - (void)close
 {
-    if (popupDelegate)
+    [self closeAndNotify:YES];
+}
+
+- (void)closeAndNotify:(BOOL)notify
+{
+    if (notify && popupDelegate != nil)
         [popupDelegate popupWillClose];
     
     [NSAnimationContext beginGrouping];

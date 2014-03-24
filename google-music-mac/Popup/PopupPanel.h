@@ -23,5 +23,8 @@
 @property (assign) IBOutlet PopupView *popupView;
 
 - (void)showRelativeToRect:(NSRect)rect ofView:(NSView *)view preferredEdge:(NSRectEdge)edge;
+- (BOOL)isActive;
+
+- (void)closeAndNotify:(BOOL)notify;
 
 @end

@@ -12,13 +12,15 @@
 @implementation PopupStatusView
 
 @synthesize popup;
+@synthesize menu = _menu;
+@synthesize statusItem;
 @synthesize active;
 
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.active = NO;
+        [self setActive:NO];
     }
     return self;
 }
@@ -55,6 +57,13 @@
     }
 }
 
+- (void)rightMouseDown:(NSEvent *)theEvent
+{
+    if (statusItem != nil && _menu != nil) {
+        [statusItem popUpStatusItemMenu:_menu];
+    }
+}
+
 - (void)showPopup
 {
     [popup showRelativeToRect:[self frame] ofView:self preferredEdge:NSMinYEdge];
@@ -64,14 +73,15 @@
         self.globalMonitor =
             [NSEvent addGlobalMonitorForEventsMatchingMask:NSLeftMouseUp|NSRightMouseUp
                      handler:^(NSEvent *ev) {
-                         [self hidePopup];
+                         if ([popup isActive])
+                             [self hidePopup];
                      }];
     }
 }
 
 - (void)hidePopup
 {
-    self.active = NO;
+    [self setActive:NO];
     [self setNeedsDisplay:YES];
     
     [popup close];
@@ -79,13 +89,42 @@
 
 - (void)popupWillShow
 {
-    self.active = YES;
+    [self setActive:YES];
     [self setNeedsDisplay:YES];
 }
 
 - (void)popupWillClose
 {
-    self.active = NO;
+    [self setActive:NO];
+    [self setNeedsDisplay:YES];
+}
+
+- (NSMenu *)menu
+{
+    return _menu;
+}
+
+- (void)setMenu:(NSMenu *)menu
+{
+    _menu = menu;
+    [_menu setDelegate:self];
+}
+
+- (void)menuWillOpen:(NSMenu *)menu
+{
+    // Hide the popup if it is visible.
+    if ([popup isActive])
+        [popup closeAndNotify:NO];
+    
+    // Highlight the status item when the menu opens.
+    [self setActive:YES];
+    [self setNeedsDisplay:YES];
+}
+
+- (void)menuDidClose:(NSMenu *)menu
+{
+    // Unhighlight the status item when the menu closes.
+    [self setActive:NO];
     [self setNeedsDisplay:YES];
 }
 

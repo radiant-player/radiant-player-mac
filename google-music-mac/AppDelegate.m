@@ -17,6 +17,7 @@
 @synthesize statusItem;
 @synthesize statusView;
 @synthesize popup;
+@synthesize popupMenu;
 @synthesize popupDelegate;
 @synthesize defaults;
 @synthesize prefsController;
@@ -164,16 +165,17 @@
 
 - (void)initializeStatusBar
 {
-    statusView = [[PopupStatusView alloc] initWithFrame:NSMakeRect(0, 0,
-                                                                    NSSquareStatusItemLength,
-                                                                    NSSquareStatusItemLength)];
-    statusView.popup = popup;
+    statusView = [[PopupStatusView alloc] initWithFrame:NSMakeRect(0, 0, NSSquareStatusItemLength, NSSquareStatusItemLength)];
+    [statusView setPopup:popup];
+    [statusView setMenu:popupMenu];
     [popup setPopupDelegate:statusView];
     
     NSStatusBar *bar = [NSStatusBar systemStatusBar];
     statusItem = [bar statusItemWithLength:NSSquareStatusItemLength];
     [statusItem setHighlightMode:YES];
     [statusItem setView:statusView];
+    
+    [statusView setStatusItem:statusItem];
 }
 
 #pragma mark - Event tap methods

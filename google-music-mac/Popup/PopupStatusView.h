@@ -11,11 +11,16 @@
 #import "AppDelegate.h"
 #import "PopupPanel.h"
 
-@interface PopupStatusView : NSView<PopupDelegate>
+@interface PopupStatusView : NSView<PopupDelegate, NSMenuDelegate>
+{
+    NSMenu *_menu;
+}
 
 @property (retain) id globalMonitor;
 @property (retain) PopupPanel *popup;
-@property (assign) BOOL active;
+@property (retain) NSMenu *menu;
+@property (retain) NSStatusItem *statusItem;
+@property (nonatomic) BOOL active;
 
 - (void)showPopup;
 - (void)hidePopup;
