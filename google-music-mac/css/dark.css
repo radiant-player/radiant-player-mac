@@ -126,9 +126,11 @@ a, .simple-dialog a {
     background-color: #ff8200 !important;
 }
 
-/*.song-row.selected-song-row td[data-col="rating"] {
+.song-row.selected-song-row td[data-col="rating"][data-rating="1"], 
+.song-row.selected-song-row td[data-col="rating"][data-rating="2"],
+.song-row.selected-song-row td[data-col="rating"][data-rating="5"]  {
     background-color: #007dff !important;
-}*/
+}
 
 .song-row .hover-button[data-id=play] {
     height: 26px !important;
@@ -145,18 +147,27 @@ a, .simple-dialog a {
     margin-top: 8px;
 }
 
-.song-row [data-col="rating"] {
-    /*-webkit-filter: invert(100%);*/
+.song-row td[data-col="rating"] {
     border-right: none;
 }
 
-/*.song-row:not(.selected-song-row) [data-col="rating"] {
+.song-row td[data-col="rating"][data-rating="1"],
+.song-row td[data-col="rating"][data-rating="2"],
+.song-row td[data-col="rating"][data-rating="5"] {
+    -webkit-filter: invert(100%);
+}
+
+.song-row:not(.selected-song-row) td[data-col="rating"][data-rating="1"],
+.song-row:not(.selected-song-row) td[data-col="rating"][data-rating="2"],
+.song-row:not(.selected-song-row) td[data-col="rating"][data-rating="5"] {
     background-color: #CECECE !important;
 }
 
-.song-row:nth-child(odd):not(.selected-song-row) [data-col="rating"] {
+.song-row:nth-child(odd):not(.selected-song-row) td[data-col="rating"][data-rating="1"],
+.song-row:nth-child(odd):not(.selected-song-row) td[data-col="rating"][data-rating="2"],
+.song-row:nth-child(odd):not(.selected-song-row) td[data-col="rating"][data-rating="5"] {
     background-color: #C8C8C8 !important;
-}*/
+}
 
 .song-row .rating-container.stars {
     height: auto !important;
