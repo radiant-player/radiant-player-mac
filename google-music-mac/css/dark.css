@@ -96,7 +96,7 @@ a, .simple-dialog a {
     height: 26px !important;
 
     -webkit-filter: brightness(0%) invert(100%);
-    background-color: transparent;
+    background-color: transparent !important;
 }
 
 .song-row .song-indicator[data-playback-status="loading"] {
@@ -126,9 +126,9 @@ a, .simple-dialog a {
     background-color: #ff8200 !important;
 }
 
-.song-row.selected-song-row td[data-col="rating"] {
+/*.song-row.selected-song-row td[data-col="rating"] {
     background-color: #007dff !important;
-}
+}*/
 
 .song-row .hover-button[data-id=play] {
     height: 26px !important;
@@ -146,17 +146,17 @@ a, .simple-dialog a {
 }
 
 .song-row [data-col="rating"] {
-    -webkit-filter: invert(100%);
+    /*-webkit-filter: invert(100%);*/
     border-right: none;
 }
 
-.song-row:not(.selected-song-row) [data-col="rating"] {
+/*.song-row:not(.selected-song-row) [data-col="rating"] {
     background-color: #CECECE !important;
 }
 
 .song-row:nth-child(odd):not(.selected-song-row) [data-col="rating"] {
     background-color: #C8C8C8 !important;
-}
+}*/
 
 .song-row .rating-container.stars {
     height: auto !important;
@@ -283,7 +283,7 @@ a, .simple-dialog a {
     background-color: transparent !important;
 }
 
-#player [data-id="play-pause"], #player [data-id="forward"], #player [data-id="rewind"] {
+#player .flat-button[data-id="play-pause"], #player .flat-button[data-id="forward"], #player .flat-button[data-id="rewind"] {
     -webkit-filter: brightness(20%) invert(90%);
 }
 
@@ -332,16 +332,16 @@ a, .simple-dialog a {
 }
 
 #player.active:hover .playing-progress-background {
-    background: #666 !important;
+    background: #666;
 }
 
 #top_divider_line, .playing-progress-background {
-    background: #555 !important;
+    background: #555;
 }
 
 #time_container_duration {
-    color: #ccc !important;
-    background-color: #555 !important;
+    color: #ccc;
+    background-color: #555;
 }
 
 #volume:hover, #volume.simulated-hover {
@@ -376,17 +376,17 @@ a, .simple-dialog a {
 #gbqfb {
     width: 24px;
     min-width: 24px;
-    margin-left: -30px;
+    margin-left: -36px;
     position: absolute;
     height: 24px;
-    margin-top: 4px;
+    margin-top: 1px;
     background: none;
+    box-shadow: none !important;
 }
 
-.gbqfi.gb_g {
+.gbqfi {
     width: 24px;
     height: 24px;
-    background-position: -211px -246px;
     -webkit-filter: invert(66%);
 }
 
