@@ -12,6 +12,12 @@
 
 @protocol CustomWebViewDelegate
 
+- (void)webView:(WebView *)webView didClearWindowObject:(WebScriptObject *)windowObject forFrame:(WebFrame *)frame;
+- (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame;
+- (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request;
+- (void)webView:(WebView *)sender runOpenPanelForFileButtonWithResultListener:(id<WebOpenPanelResultListener>)resultListener;
+- (void)webView:(WebView *)sender runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WebFrame *)frame;
+
 @end
 
 @interface CustomWebView : WebView {

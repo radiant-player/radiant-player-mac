@@ -26,7 +26,47 @@
     [self setAutoresizesSubviews:YES];
     [self setAcceptsTouchEvents:YES];
     [self addSubview:swipeView];
+    
+    [self setResourceLoadDelegate:self];
+    [self setUIDelegate:self];
+    [self setFrameLoadDelegate:self];
+    [self setPolicyDelegate:self];
 }
+
+#pragma mark - Web delegate methods
+
+- (void)webView:(WebView *)webView decidePolicyForNavigationAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id<WebPolicyDecisionListener>)listener
+{
+    // Proceed as normal.
+    [listener use];
+}
+
+- (void)webView:(WebView *)webView didClearWindowObject:(WebScriptObject *)windowObject forFrame:(WebFrame *)frame
+{
+    [appDelegate webView:webView didClearWindowObject:windowObject forFrame:frame];
+}
+
+- (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
+{
+    [appDelegate webView:sender didFinishLoadForFrame:frame];
+}
+
+- (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request
+{
+    return [appDelegate webView:sender createWebViewWithRequest:request];
+}
+
+- (void)webView:(WebView *)sender runOpenPanelForFileButtonWithResultListener:(id<WebOpenPanelResultListener>)resultListener
+{
+    [appDelegate webView:sender runOpenPanelForFileButtonWithResultListener:resultListener];
+}
+
+- (void)webView:(WebView *)sender runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WebFrame *)frame
+{
+    [appDelegate webView:sender runJavaScriptAlertPanelWithMessage:message initiatedByFrame:frame];
+}
+
+#pragma mark - Swipe code
 
 // Three fingers gesture, Lion (if enabled) and Leopard
 - (void)swipeWithEvent:(NSEvent *)event {
