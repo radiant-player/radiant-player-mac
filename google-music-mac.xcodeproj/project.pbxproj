@@ -385,7 +385,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd ${BUILT_PRODUCTS_DIR}\nrm \"${PRODUCT_NAME}.zip\"\nzip -u -r -1 \"${PRODUCT_NAME}.zip\" \"${PRODUCT_NAME}.app/\"";
+			shellScript = "cd \"${BUILT_PRODUCTS_DIR}\"\nrm \"${PRODUCT_NAME}.zip\" 2> /dev/null\nzip -u -r -1 \"${PRODUCT_NAME}.zip\" \"${PRODUCT_NAME}.app/\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
