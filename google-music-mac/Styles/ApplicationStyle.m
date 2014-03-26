@@ -42,7 +42,7 @@
 
 + (NSString *)jsNamed:(NSString *)name
 {
-    NSString *file = [NSString stringWithFormat:@"js/%@", name];
+    NSString *file = [NSString stringWithFormat:@"js/styles/%@", name];
     NSString *path = [[NSBundle mainBundle] pathForResource:file ofType:@"js"];
     NSString *js = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
     
@@ -58,7 +58,7 @@
     [cocoa setDescription:@"An application style to match Mac OS X."];
     [cocoa setWindowColor:[NSColor colorWithSRGBRed:0.898f green:0.898f blue:0.898f alpha:1.0f]];
     [cocoa setCss:[ApplicationStyle cssNamed:@"cocoa"]];
-    [cocoa setJs:nil];
+    [cocoa setJs:[ApplicationStyle jsNamed:@"cocoa"]];
     
     // Create the Dark style.
     ApplicationStyle *dark = [[ApplicationStyle alloc] init];
@@ -67,7 +67,7 @@
     [dark setDescription:@"A dark style similar to Spotify."];
     [dark setWindowColor:[NSColor colorWithSRGBRed:0.768f green:0.768f blue:0.768f alpha:1.0f]];
     [dark setCss:[ApplicationStyle cssNamed:@"dark"]];
-    [dark setJs:nil];
+    [dark setJs:[ApplicationStyle jsNamed:@"dark"]];
     
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
     [dictionary setObject:cocoa forKey:[cocoa name]];
