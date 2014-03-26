@@ -109,12 +109,12 @@
                                                                     attributes:attributes];
     
     [[NSColor grayColor] set];
-    NSBezierPath *totalTimePath = [NSBezierPath bezierPathWithRoundedRect:NSMakeRect(totalPoint.x - totalTime.size.width - 6, totalPoint.y, totalTime.size.width + 6, totalTime.size.height + 2)
+    NSBezierPath *totalTimePath = [NSBezierPath bezierPathWithRoundedRect:NSMakeRect(totalPoint.x - totalTime.size.width - 4, totalPoint.y, totalTime.size.width + 6, totalTime.size.height + 2)
                                                                   xRadius:3
                                                                   yRadius:3];
     [totalTimePath fill];
     
-    totalPoint.x = totalPoint.x - totalTime.size.width - 3;
+    totalPoint.x = totalPoint.x - totalTime.size.width - 1;
     [totalTime drawAtPoint:totalPoint];
 }
 

@@ -35,7 +35,6 @@
     [self close];
 }
 
-
 - (void)showRelativeToRect:(NSRect)rect ofView:(NSView *)view preferredEdge:(NSRectEdge)edge
 {
     if (popupDelegate)

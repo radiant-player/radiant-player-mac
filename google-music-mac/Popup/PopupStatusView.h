@@ -11,6 +11,9 @@
 #import "AppDelegate.h"
 #import "PopupPanel.h"
 
+@class PopupPanel;
+@protocol PopupDelegate;
+
 @interface PopupStatusView : NSView<PopupDelegate, NSMenuDelegate>
 {
     NSMenu *_menu;

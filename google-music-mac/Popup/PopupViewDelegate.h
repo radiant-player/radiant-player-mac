@@ -15,15 +15,22 @@
 #import "PlaybackConstants.h"
 
 @class AppDelegate;
+@class PopupPanel;
 
 @interface PopupViewDelegate : NSObject
 
 @property (assign) IBOutlet AppDelegate *appDelegate;
 @property (assign) IBOutlet PopupPanel *popup;
 
+@property (assign) NSInteger playbackMode;
+@property (retain) NSString *repeatMode;
+@property (retain) NSString *shuffleMode;
+@property (assign) NSInteger songRating;
+
 @property (assign) IBOutlet NSTextField *noSongLabel;
 
-@property (assign) IBOutlet NSImageView *artView;
+@property (assign) IBOutlet NSImageView *artExpandView;
+@property (assign) IBOutlet NSButton *artView;
 @property (assign) IBOutlet NSProgressIndicator *artProgress;
 @property (assign) IBOutlet NSTextField *titleLabel;
 @property (assign) IBOutlet NSTextField *artistLabel;
@@ -50,7 +57,21 @@
 - (void) ratingChanged:(NSInteger)rating;
 
 - (IBAction) setPlaybackTime:(id)sender;
-
+- (IBAction) togglePlayerSize:(id)sender;
 - (IBAction) hidePopupAndShowWindow:(id)sender;
+
+- (NSImage *) repeatNoneImage;
+- (NSImage *) repeatOneImage;
+- (NSImage *) repeatAllImage;
+- (NSImage *) backImage;
+- (NSImage *) playImage;
+- (NSImage *) pauseImage;
+- (NSImage *) forwardImage;
+- (NSImage *) shuffleOffImage;
+- (NSImage *) shuffleOnImage;
+- (NSImage *) thumbsUpOffImage;
+- (NSImage *) thumbsUpOnImage;
+- (NSImage *) thumbsDownOffImage;
+- (NSImage *) thumbsDownOnImage;
 
 @end

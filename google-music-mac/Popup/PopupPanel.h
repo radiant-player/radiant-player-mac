@@ -17,6 +17,8 @@
 
 @end
 
+@class PopupView;
+
 @interface PopupPanel : NSPanel<NSWindowDelegate>
 
 @property (assign) id<PopupDelegate> popupDelegate;
