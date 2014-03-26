@@ -1,7 +1,7 @@
 /*
- * js/styles/cocoa.js
+ * js/styles/dark.js
  *
- * This script contains code needed for the Cocoa style.
+ * This script contains code needed for the Dark style.
  *
  * Subject to terms and conditions in LICENSE.md.
  *

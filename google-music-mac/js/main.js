@@ -2,7 +2,7 @@
  * js/main.js
  *
  * This script is part of the JavaScript interface used to interact with
- * the Google Music page, in order to provide notifications functionality.
+ * the Google Play Music page, in order to provide notifications functionality.
  *
  * Created by Sajid Anwar.
  *
@@ -116,7 +116,7 @@ if (typeof window.MusicAPI === 'undefined') {
             }
         },
 
-        // Taken from the Google Music page.
+        // Taken from the Google Play Music page.
         toggleVisualization: function() {
             SJBpost('toggleVisualization');
         }

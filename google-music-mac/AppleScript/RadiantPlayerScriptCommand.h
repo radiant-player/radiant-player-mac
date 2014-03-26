@@ -1,5 +1,5 @@
 /*
- * GoogleMusicScriptCommand.h
+ * RadiantPlayerScriptCommand.h
  *
  * Originally created by Walter Da Col.
  *
@@ -9,5 +9,5 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface GoogleMusicScriptCommand : NSScriptCommand
+@interface RadiantPlayerScriptCommand : NSScriptCommand
 @end

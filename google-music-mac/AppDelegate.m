@@ -307,7 +307,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 }
 
 /**
- * Increases volume of Google Music by 10.
+ * Increases volume of Google Play Music by 10.
  */
 - (IBAction) volumeUp:(id)sender
 {
@@ -315,7 +315,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 }
 
 /**
- * Decreases volume of Google Music by 10.
+ * Decreases volume of Google Play Music by 10.
  */
 - (IBAction) volumeDown:(id)sender
 {

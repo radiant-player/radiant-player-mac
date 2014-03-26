@@ -2,7 +2,7 @@
  * js/styles.js
  *
  * This script is part of the JavaScript interface used to interact with
- * the Google Music page, allowing custom styles to be applied.
+ * the Google Play Music page, allowing custom styles to be applied.
  *
  * Created by Sajid Anwar.
  *

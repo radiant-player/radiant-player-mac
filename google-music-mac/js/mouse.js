@@ -2,7 +2,7 @@
  * js/mouse.js
  *
  * This script is part of the JavaScript interface used to interact with
- * the Google Music page, allowing mouse events to be sent to elements.
+ * the Google Play Music page, allowing mouse events to be sent to elements.
  *
  * Created by Sajid Anwar.
  *

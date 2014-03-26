@@ -2,7 +2,7 @@
  * js/navigation.js
  *
  * This script is part of the JavaScript interface used to interact with
- * the Google Music page, adding back and forward buttons to the page.
+ * the Google Play Music page, adding back and forward buttons to the page.
  *
  * Created by Sajid Anwar.
  *

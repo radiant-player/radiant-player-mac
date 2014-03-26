@@ -1,13 +1,13 @@
-[Google Music for Mac][1]
+[Radiant Player for Google Play Music™][1]
 =========================
 
-![](https://raw.github.com/kbhomes/GoogleMusicMac/gh-pages/images/application.png)
+![](https://raw.github.com/kbhomes/google-music-mac/gh-pages/images/application.png)
 
-Turn Google Music into a separate, beautiful application that integrates with your Mac.
+Turn Google Play Music into a separate, beautiful application that integrates with your Mac.
 
 Developed by [Sajid Anwar][2]. Originally created by [James Fator][3] at [JamesFator/GoogleMusicMac][4]. 
 
-No affiliation with Google.
+No affiliation with Google. Google Play is a trademark of Google Inc.
 
 [1]: http://kbhomes.github.io/google-music-mac/
 [2]: https://github.com/kbhomes/

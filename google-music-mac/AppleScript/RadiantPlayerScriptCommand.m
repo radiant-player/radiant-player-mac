@@ -1,5 +1,5 @@
 /*
- * GoogleMusicScriptCommand.m
+ * RadiantPlayerScriptCommand.m
  *
  * Originally created by Walter Da Col.
  *
@@ -7,10 +7,10 @@
  *
  */
 
-#import "GoogleMusicScriptCommand.h"
+#import "RadiantPlayerScriptCommand.h"
 #import "AppDelegate.h"
 
-@implementation GoogleMusicScriptCommand
+@implementation RadiantPlayerScriptCommand
 
 /**
  Called when supported AppleScript are executed
