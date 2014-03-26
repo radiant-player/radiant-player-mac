@@ -44,7 +44,7 @@
                                   }
      
                                   failureHandler:^(NSError *error) {
-                                      NSLog(@"Error scrobbling song: %@, %@", error, [error userInfo]);
+                                      NSLog(@"Error sending now playing song: %@, %@", error, [error userInfo]);
                                   }
      ];
 }
