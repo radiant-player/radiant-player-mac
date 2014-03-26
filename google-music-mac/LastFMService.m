@@ -25,7 +25,7 @@
                                          return;
                                      }
                                      failureHandler:^(NSError *error) {
-                                         return;
+                                         NSLog(@"Error scrobbling song: %@, %@", error, [error userInfo]);
                                      }
          ];
     }
@@ -44,7 +44,7 @@
                                   }
      
                                   failureHandler:^(NSError *error) {
-                                      return;
+                                      NSLog(@"Error scrobbling song: %@, %@", error, [error userInfo]);
                                   }
      ];
 }
