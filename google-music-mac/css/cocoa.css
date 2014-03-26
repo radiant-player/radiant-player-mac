@@ -80,7 +80,7 @@
 }
 
 .song-row .song-indicator[data-playback-status="paused"] {
-    background-position: -404px -2193px;
+    /*background-position: -404px -2193px;*/
 }
 
 .song-row td {
