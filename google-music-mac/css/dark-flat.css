@@ -94,8 +94,7 @@ a, .simple-dialog a {
     width: 32px !important;
     height: 26px !important;
 
-    background-image: url('ani_equalizer_white.gif');
-    background-size: 32px 26px;
+    -webkit-filter: invert(100%);
     background-color: transparent !important;
 }
 
@@ -169,6 +168,10 @@ a, .simple-dialog a {
     border-right: 1px solid #292929;
     width: auto;
     margin: 0;
+}
+
+#headerBar .tab-text.has-parent {
+    color: #fff;
 }
 
 #nav_collections .nav-item-container, .nav-item-container {
