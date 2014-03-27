@@ -52,6 +52,10 @@ a, .simple-dialog a {
     color: #bbb;
 }
 
+#headerBar .tab-text.has-parent {
+    color: #000;
+}
+
 .card {
     background-color: #555;
 }
