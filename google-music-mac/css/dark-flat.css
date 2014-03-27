@@ -1,0 +1,81 @@
+/*
+ * css/dark-flat.css
+ *
+ * Custom stylesheet that emulates the appearance of a dark and flat Mac OS X application.
+ *
+ * Created by Stefan Hoffmann.
+ *
+ * Subject to terms and conditions in LICENSE.md.
+ *
+ */
+
+#oneGoogleWrapper > div:first-child > div {
+    background: #C3C3C3 !important;
+}
+
+.song-table .header-row th {
+    background: #AAA !important;
+}
+
+.song-row td {
+    background-color: #525252 !important;
+}
+
+#nav_collections .nav-item-container.selected, .nav-item-container.selected, .nav-item-container.selected:focus, .nav-item-container.selected:hover {
+    background: #ff7d00 !important;
+}
+
+.nav-bar .header-tab-title {
+    height: 42px !important;
+    line-height: 45px !important;
+    margin-top: 0px !important;
+    border-bottom: 3px solid transparent;
+    cursor: pointer !important;
+}
+
+#loadingOverlay {
+    -webkit-filter: invert(80%);
+    opacity: .8 !important;
+}
+
+.sort-icon {
+    -webkit-filter: brightness(-20%);
+}
+
+.nav-bar .header-tab-title.selected {
+    border-radius: 0px !important;
+    background-image: none !important;
+    background-color: #555 !important;
+    box-shadow: none !important;
+    border-bottom: 3px solid #ff7d00 !important;
+}
+
+.nav-bar .header-tab-title.selected:hover {
+    border-bottom: 3px solid rgba(255, 133, 0, 0.6) !important;
+}
+
+.nav-bar .header-tab-title:hover {
+    background-color: rgba(100, 100, 100, 0.4) !important;
+    border-bottom: 3px solid rgba(100, 100, 100, 0.4) !important;
+}
+
+#nav {
+    background-color: #474747 !important;
+}
+
+.nav-bar .header-tab-title.selected {
+    background-color: #555;
+}
+
+.nav-bar {
+    background-image: none !important;
+    background-color: #232323;
+}
+
+#player, .player-middle {
+    background: #464646; !important
+}
+
+#volume_high, #volume_low {
+    -webkit-filter: invert(80%);
+}
