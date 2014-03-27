@@ -75,11 +75,8 @@
     [darkFlat setAuthor:@"Stefan Hoffmann"];
     [darkFlat setDescription:@"A flat version of the dark style."];
     [darkFlat setWindowColor:[NSColor colorWithSRGBRed:0.768f green:0.768f blue:0.768f alpha:1.0f]];
-    
-    NSString *css = [ApplicationStyle cssNamed:@"dark"];
-    css = [css stringByAppendingString:[ApplicationStyle cssNamed:@"dark-flat"]];
-    [darkFlat setCss:css];
-    [darkFlat setJs:[ApplicationStyle jsNamed:@"dark"]];
+    [darkFlat setCss:[ApplicationStyle cssNamed:@"dark-flat"]];
+    [darkFlat setJs:[ApplicationStyle jsNamed:@"dark-flat"]];
     
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
     [dictionary setObject:cocoa forKey:[cocoa name]];
