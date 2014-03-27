@@ -15,7 +15,6 @@
 		1A7B685317453E40001E509E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7B685217453E40001E509E /* AppDelegate.m */; };
 		1A7B685617453E40001E509E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A7B685417453E40001E509E /* MainMenu.xib */; };
 		1A7B687417453E4C001E509E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7B687317453E4C001E509E /* WebKit.framework */; };
-		1A7B68811745ABBD001E509E /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1A7B68801745ABBD001E509E /* icon.icns */; };
 		2B8FC1C018C9CB0E006D04FF /* google-music-mac.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 2B8FC1BF18C9CB0E006D04FF /* google-music-mac.sdef */; };
 		2B8FC1C318C9CB16006D04FF /* RadiantPlayerScriptCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8FC1C218C9CB16006D04FF /* RadiantPlayerScriptCommand.m */; };
 		38D0C36DAD0F40F5A7254224 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BABD1B4DDCC34CB291C66033 /* libPods.a */; };
@@ -33,6 +32,7 @@
 		D343CDF518C69DF4002F9DB3 /* NavigationPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D343CDF418C69DF4002F9DB3 /* NavigationPreferencesViewController.m */; };
 		D34DC2BC18C295A700C27596 /* LastFmService.m in Sources */ = {isa = PBXBuildFile; fileRef = D34DC2BB18C295A700C27596 /* LastFmService.m */; };
 		D35788BD18C2F820006AF859 /* GeneralPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35788BC18C2F820006AF859 /* GeneralPreferencesViewController.m */; };
+		D369FEFE18E3FB6B004CB1C6 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = D369FEFD18E3FB6B004CB1C6 /* icon.icns */; };
 		D370E8E018E21ABC007B5450 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D370E8DF18E21ABC007B5450 /* QuartzCore.framework */; };
 		D370E8E318E2BFE1007B5450 /* ExpandHoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = D370E8E218E2BFE1007B5450 /* ExpandHoverView.m */; };
 		D3B1668318BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */; };
@@ -63,7 +63,6 @@
 		1A7B685217453E40001E509E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1A7B685517453E40001E509E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		1A7B687317453E4C001E509E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		1A7B68801745ABBD001E509E /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		2B8FC1BF18C9CB0E006D04FF /* google-music-mac.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "google-music-mac.sdef"; sourceTree = "<group>"; };
 		2B8FC1C118C9CB16006D04FF /* RadiantPlayerScriptCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadiantPlayerScriptCommand.h; sourceTree = "<group>"; };
 		2B8FC1C218C9CB16006D04FF /* RadiantPlayerScriptCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadiantPlayerScriptCommand.m; sourceTree = "<group>"; };
@@ -94,6 +93,7 @@
 		D34DC2BB18C295A700C27596 /* LastFmService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastFmService.m; sourceTree = "<group>"; };
 		D35788BB18C2F820006AF859 /* GeneralPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralPreferencesViewController.h; sourceTree = "<group>"; };
 		D35788BC18C2F820006AF859 /* GeneralPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralPreferencesViewController.m; sourceTree = "<group>"; };
+		D369FEFD18E3FB6B004CB1C6 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		D370E8DF18E21ABC007B5450 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D370E8E118E2BFE1007B5450 /* ExpandHoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpandHoverView.h; sourceTree = "<group>"; };
 		D370E8E218E2BFE1007B5450 /* ExpandHoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandHoverView.m; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 		1A7B683317453E40001E509E = {
 			isa = PBXGroup;
 			children = (
-				1A7B68801745ABBD001E509E /* icon.icns */,
+				D369FEFD18E3FB6B004CB1C6 /* icon.icns */,
 				1A7B684517453E40001E509E /* google-music-mac */,
 				1A7B683E17453E40001E509E /* Frameworks */,
 				1A7B683D17453E40001E509E /* Products */,
@@ -341,11 +341,11 @@
 				2B8FC1C018C9CB0E006D04FF /* google-music-mac.sdef in Resources */,
 				D302E13418B561E100CCD18E /* Preferences.plist in Resources */,
 				1A7B684A17453E40001E509E /* InfoPlist.strings in Resources */,
+				D369FEFE18E3FB6B004CB1C6 /* icon.icns in Resources */,
 				D3DB8FF018BD253A00ABE93B /* images in Resources */,
 				1A7B685017453E40001E509E /* Credits.rtf in Resources */,
 				1A7B685617453E40001E509E /* MainMenu.xib in Resources */,
 				D3B71C3818C2F0F20041358B /* PreferencesWindowController.xib in Resources */,
-				1A7B68811745ABBD001E509E /* icon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
