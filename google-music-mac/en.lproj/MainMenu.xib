@@ -684,7 +684,7 @@
     </objects>
     <resources>
         <image name="NSEnterFullScreenTemplate" width="16" height="15"/>
-        <image name="arrow_expand_art" width="37.5" height="37.5"/>
+        <image name="arrow_expand_art" width="50" height="50"/>
         <image name="icon" width="512" height="512"/>
         <image name="next" width="512" height="512"/>
         <image name="play" width="512" height="512"/>
