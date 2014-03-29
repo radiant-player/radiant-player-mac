@@ -48,7 +48,7 @@ a, .simple-dialog a {
     height: calc(100% - 60px) !important;
 }
 
-#headerBar .tab-text {
+#headerBar .tab-text, #headerBar .tab-text.has-parent {
     color: #bbb;
 }
 
