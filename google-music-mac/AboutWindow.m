@@ -31,6 +31,8 @@
 
 - (void)showAboutWindow:(id)sender
 {
+    // Activate the app in case it is hidden.
+    [NSApp activateIgnoringOtherApps:YES];
     [self makeKeyAndOrderFront:nil];
     [self performSelectorInBackground:@selector(checkVersion) withObject:nil];
 }
