@@ -73,5 +73,6 @@
 - (NSImage *) thumbsUpOnImage;
 - (NSImage *) thumbsDownOffImage;
 - (NSImage *) thumbsDownOnImage;
+- (NSImage *) expandContractImage;
 
 @end

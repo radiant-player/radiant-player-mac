@@ -16,7 +16,6 @@
 - (void)awakeFromNib
 {
     [self setAlphaValue:0.0];
-    [self setImage:[Utilities imageFromName:@"arrow_expand_art"]];
 }
 
 - (void)mouseEntered:(NSEvent *)theEvent

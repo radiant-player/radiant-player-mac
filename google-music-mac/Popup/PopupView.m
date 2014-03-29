@@ -193,6 +193,9 @@
         // Set the background image.
         [self setBackgroundImage:[delegate.artView image]];
         
+        // Reset art's expand/contract image.
+        [delegate.artExpandView setImage:[delegate expandContractImage]];
+        
         // Begin the animation to resize.
         [NSAnimationContext beginGrouping];
         [[NSAnimationContext currentContext] setDuration:.25];
@@ -226,6 +229,9 @@
         
         // Remove the background image.
         [self setBackgroundImage:nil];
+        
+        // Reset art's expand/contract image.
+        [delegate.artExpandView setImage:[delegate expandContractImage]];
         
         // Begin the animation to resize.
         [NSAnimationContext beginGrouping];

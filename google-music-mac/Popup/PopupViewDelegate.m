@@ -50,6 +50,8 @@
     [thumbsupButton   setImage:[self thumbsUpOffImage]];
     [thumbsdownButton setImage:[self thumbsUpOnImage]];
     
+    [artExpandView setImage:[self expandContractImage]];
+    
     [popup.popupView setIsLargePlayer:NO];
 }
 
@@ -254,6 +256,14 @@
 - (NSImage *)thumbsDownOnImage
 {
     return [Utilities imageFromName:@"thumbsdown_on"];
+}
+
+- (NSImage *)expandContractImage
+{
+    if (popup.popupView.isLargePlayer)
+    return [Utilities imageFromName:@"arrow_contract_art"];
+    else
+    return [Utilities imageFromName:@"arrow_expand_art"];
 }
 
 @end
