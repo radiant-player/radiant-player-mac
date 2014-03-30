@@ -517,7 +517,6 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     [self evaluateJavaScriptFile:@"mouse"];
     [self evaluateJavaScriptFile:@"main"];
     [self evaluateJavaScriptFile:@"styles"];
-    [self evaluateJavaScriptFile:@"appbar"];
     
     // Apply the Last.fm JS and CSS.
     if ([defaults boolForKey:@"lastfm.enabled"])
@@ -532,6 +531,8 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         [self applyCSSFile:@"navigation"];
         [self evaluateJavaScriptFile:@"navigation"];
     }
+    
+    [self evaluateJavaScriptFile:@"appbar"];
     
     // Apply certain styles and JS only if the user prefers.
     BOOL stylesEnabled = [defaults boolForKey:@"styles.enabled"];
