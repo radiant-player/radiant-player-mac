@@ -21,6 +21,7 @@
 @synthesize popupDelegate;
 @synthesize defaults;
 @synthesize prefsController;
+@synthesize lastfmPopover;
 
 @synthesize currentTitle;
 @synthesize currentArtist;
@@ -176,6 +177,32 @@
     [statusItem setView:statusView];
     
     [statusView setStatusItem:statusItem];
+}
+
+- (void)showLastFmPopover:(id)sender
+{
+    if ([lastfmPopover isShown] == NO)
+    {
+        DOMDocument *document = [webView mainFrameDocument];
+        DOMElement *lastfmButton = [document querySelector:@"#lastfmButton"];
+        
+        if (lastfmButton != nil)
+        {
+            // The coordinate systems are different:
+            //   - Cocoa's x-axis is on the bottom of the screen
+            //   - DOM's x-axis is on the top of the screen
+            NSRect webviewRect = [webView bounds];
+            NSRect buttonRect = [lastfmButton boundingBox];
+            buttonRect.origin.y = webviewRect.size.height - buttonRect.origin.y - buttonRect.size.height;
+            
+            [lastfmPopover showRelativeToRect:buttonRect ofView:webView preferredEdge:NSMaxYEdge];
+            [lastfmPopover refreshTracks];
+        }
+    }
+    else
+    {
+        [lastfmPopover performClose:sender];
+    }
 }
 
 #pragma mark - Event tap methods
@@ -492,6 +519,13 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     [self evaluateJavaScriptFile:@"styles"];
     [self evaluateJavaScriptFile:@"appbar"];
     
+    // Apply the Last.fm JS and CSS.
+    if ([defaults boolForKey:@"lastfm.enabled"])
+    {
+        [self applyCSSFile:@"lastfm"];
+        [self evaluateJavaScriptFile:@"lastfm"];
+    }
+    
     // Apply the navigation styles.
     if ([defaults boolForKey:@"navigation.buttons.enabled"])
     {
@@ -574,6 +608,9 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     if (sel == @selector(moveWindowWithDeltaX:andDeltaY:))
         return @"moveWindow";
     
+    if (sel == @selector(showLastFmPopover:))
+        return @"showLastFmPopover";
+    
     if (sel == @selector(preferenceForKey:))
         return @"preferenceForKey";
     
@@ -589,6 +626,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         sel == @selector(shuffleChanged:) ||
         sel == @selector(ratingChanged:) ||
         sel == @selector(moveWindowWithDeltaX:andDeltaY:) ||
+        sel == @selector(showLastFmPopover:) ||
         sel == @selector(preferenceForKey:))
         return NO;
     

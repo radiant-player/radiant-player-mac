@@ -39,6 +39,9 @@
 		D3B71C2818C2D5240041358B /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B71C2718C2D5240041358B /* PreferencesWindowController.m */; };
 		D3B71C2F18C2D5770041358B /* LastFmPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B71C2D18C2D5770041358B /* LastFmPreferencesViewController.m */; };
 		D3B71C3818C2F0F20041358B /* PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3B71C3718C2F0F20041358B /* PreferencesWindowController.xib */; };
+		D3D4C3E518E76063007238B3 /* LastFmPopover.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3D4C3E418E76063007238B3 /* LastFmPopover.xib */; };
+		D3D4C3E818E76674007238B3 /* LastFmPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D4C3E718E76674007238B3 /* LastFmPopover.m */; };
+		D3D4C3EB18E77AA0007238B3 /* LastFmTrackTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D4C3EA18E77AA0007238B3 /* LastFmTrackTableCellView.m */; };
 		D3DB8FF018BD253A00ABE93B /* images in Resources */ = {isa = PBXBuildFile; fileRef = D3DB8FEF18BD253A00ABE93B /* images */; };
 		D3DB8FF518BD2AEC00ABE93B /* PlaybackConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DB8FF418BD2AEC00ABE93B /* PlaybackConstants.m */; };
 		D3DB8FF818BD6A6400ABE93B /* PlaybackSliderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DB8FF718BD6A6400ABE93B /* PlaybackSliderCell.m */; };
@@ -104,6 +107,11 @@
 		D3B71C2C18C2D5770041358B /* LastFmPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastFmPreferencesViewController.h; sourceTree = "<group>"; };
 		D3B71C2D18C2D5770041358B /* LastFmPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastFmPreferencesViewController.m; sourceTree = "<group>"; };
 		D3B71C3718C2F0F20041358B /* PreferencesWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesWindowController.xib; sourceTree = "<group>"; };
+		D3D4C3E418E76063007238B3 /* LastFmPopover.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LastFmPopover.xib; sourceTree = "<group>"; };
+		D3D4C3E618E76674007238B3 /* LastFmPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastFmPopover.h; sourceTree = "<group>"; };
+		D3D4C3E718E76674007238B3 /* LastFmPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastFmPopover.m; sourceTree = "<group>"; };
+		D3D4C3E918E77AA0007238B3 /* LastFmTrackTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastFmTrackTableCellView.h; sourceTree = "<group>"; };
+		D3D4C3EA18E77AA0007238B3 /* LastFmTrackTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastFmTrackTableCellView.m; sourceTree = "<group>"; };
 		D3DB8FEF18BD253A00ABE93B /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		D3DB8FF118BD27B700ABE93B /* PlaybackConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaybackConstants.h; sourceTree = "<group>"; };
 		D3DB8FF418BD2AEC00ABE93B /* PlaybackConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaybackConstants.m; sourceTree = "<group>"; };
@@ -174,6 +182,7 @@
 		1A7B684517453E40001E509E /* google-music-mac */ = {
 			isa = PBXGroup;
 			children = (
+				D3D4C3E318E75C79007238B3 /* LastFm */,
 				2B8FC1BB18C9C01E006D04FF /* AppleScript */,
 				D3B71C2318C2C3510041358B /* Preferences */,
 				D32CCEFE18BED65B00BDD484 /* Popup */,
@@ -189,8 +198,6 @@
 				1A7B685417453E40001E509E /* MainMenu.xib */,
 				D3DB8FF118BD27B700ABE93B /* PlaybackConstants.h */,
 				D3DB8FF418BD2AEC00ABE93B /* PlaybackConstants.m */,
-				D34DC2BA18C295A700C27596 /* LastFmService.h */,
-				D34DC2BB18C295A700C27596 /* LastFmService.m */,
 				D3091F6118C32961007C8DCD /* Utilities.h */,
 				D3091F6218C32961007C8DCD /* Utilities.m */,
 				1A7B684617453E40001E509E /* Supporting Files */,
@@ -282,6 +289,20 @@
 			path = Preferences;
 			sourceTree = "<group>";
 		};
+		D3D4C3E318E75C79007238B3 /* LastFm */ = {
+			isa = PBXGroup;
+			children = (
+				D34DC2BA18C295A700C27596 /* LastFmService.h */,
+				D34DC2BB18C295A700C27596 /* LastFmService.m */,
+				D3D4C3E618E76674007238B3 /* LastFmPopover.h */,
+				D3D4C3E718E76674007238B3 /* LastFmPopover.m */,
+				D3D4C3E418E76063007238B3 /* LastFmPopover.xib */,
+				D3D4C3E918E77AA0007238B3 /* LastFmTrackTableCellView.h */,
+				D3D4C3EA18E77AA0007238B3 /* LastFmTrackTableCellView.m */,
+			);
+			path = LastFm;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -337,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D326EA6418B2D7E500BEC02F /* css in Resources */,
+				D3D4C3E518E76063007238B3 /* LastFmPopover.xib in Resources */,
 				D326EA6518B2D7E500BEC02F /* js in Resources */,
 				2B8FC1C018C9CB0E006D04FF /* google-music-mac.sdef in Resources */,
 				D302E13418B561E100CCD18E /* Preferences.plist in Resources */,
@@ -411,6 +433,7 @@
 				D3B71C2F18C2D5770041358B /* LastFmPreferencesViewController.m in Sources */,
 				1A7B684C17453E40001E509E /* main.m in Sources */,
 				D3DB8FF518BD2AEC00ABE93B /* PlaybackConstants.m in Sources */,
+				D3D4C3EB18E77AA0007238B3 /* LastFmTrackTableCellView.m in Sources */,
 				1A7B685317453E40001E509E /* AppDelegate.m in Sources */,
 				D3DB8FF818BD6A6400ABE93B /* PlaybackSliderCell.m in Sources */,
 				D3FAC6D718BA942500D9F461 /* PopupViewDelegate.m in Sources */,
@@ -423,6 +446,7 @@
 				D35788BD18C2F820006AF859 /* GeneralPreferencesViewController.m in Sources */,
 				D3FAC6D418BA81EC00D9F461 /* PopupStatusView.m in Sources */,
 				D343CDF518C69DF4002F9DB3 /* NavigationPreferencesViewController.m in Sources */,
+				D3D4C3E818E76674007238B3 /* LastFmPopover.m in Sources */,
 				D3091F6318C32961007C8DCD /* Utilities.m in Sources */,
 				D370E8E318E2BFE1007B5450 /* ExpandHoverView.m in Sources */,
 				D32CCEFD18BE9BF800BDD484 /* PopupView.m in Sources */,

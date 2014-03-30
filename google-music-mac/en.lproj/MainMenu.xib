@@ -16,6 +16,7 @@
         <customObject id="-3" userLabel="Application"/>
         <customObject id="494" customClass="AppDelegate">
             <connections>
+                <outlet property="lastfmPopover" destination="leS-Oa-AB4" id="BqS-2d-ChW"/>
                 <outlet property="popup" destination="sr1-Je-yff" id="X7b-8t-XL5"/>
                 <outlet property="popupDelegate" destination="vhZ-72-AYY" id="CHe-5t-K17"/>
                 <outlet property="popupMenu" destination="29" id="cux-jC-5mK"/>
@@ -681,6 +682,7 @@
                 <outlet property="popupView" destination="4yq-G3-W3B" id="VcF-fy-kbk"/>
             </connections>
         </window>
+        <customObject id="leS-Oa-AB4" userLabel="Last.fm Popover" customClass="LastFmPopover"/>
     </objects>
     <resources>
         <image name="NSEnterFullScreenTemplate" width="16" height="15"/>
