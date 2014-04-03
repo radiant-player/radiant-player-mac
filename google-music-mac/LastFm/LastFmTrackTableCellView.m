@@ -15,5 +15,8 @@
 @synthesize titleView;
 @synthesize artistAlbumView;
 @synthesize timestampView;
+@synthesize loveButton;
+
+@synthesize trackData;
 
 @end

@@ -15,5 +15,8 @@
 @property (retain) IBOutlet NSTextField *titleView;
 @property (retain) IBOutlet NSTextField *artistAlbumView;
 @property (retain) IBOutlet NSTextField *timestampView;
+@property (retain) IBOutlet NSButton *loveButton;
+
+@property (retain) NSDictionary *trackData;
 
 @end

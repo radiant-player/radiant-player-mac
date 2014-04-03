@@ -23,6 +23,7 @@
     if (self != nil)
     {
         tracks = [[NSMutableArray alloc] init];
+        _lovedStatus = [NSMutableDictionary dictionary];
     }
     
     return self;
@@ -45,7 +46,7 @@
             
             NSMutableDictionary *track = [[NSMutableDictionary alloc] init];
             
-            if (imageUrl)   [track setObject:imageUrl forKey:@"image"];
+            if (imageUrl)   [track setObject:[[NSImage alloc] initWithContentsOfURL:imageUrl] forKey:@"image"];
             if (title)      [track setObject:title forKey:@"title"];
             if (artist)     [track setObject:artist forKey:@"artist"];
             if (album)      [track setObject:album forKey:@"album"];
@@ -55,6 +56,9 @@
                 NSInteger seconds = [zone secondsFromGMTForDate:date];
                 date = [NSDate dateWithTimeInterval:seconds sinceDate:date];
                 [track setObject:date forKey:@"date"];
+            }
+            else {
+                [track setObject:[NSNumber numberWithBool:YES] forKey:@"now-playing"];
             }
             
             [tracks addObject:track];
@@ -70,6 +74,88 @@
     };
     
     [LastFmService getRecentTracksWithLimit:10 successHandler:successHandler failureHandler:failureHandler];
+}
+
+- (void)toggleTrackLovedStatus:(id)sender
+{
+    if ([[sender superview] isKindOfClass:[LastFmTrackTableCellView class]])
+    {
+        LastFmTrackTableCellView *trackView = (LastFmTrackTableCellView *)[sender superview];
+        NSDictionary *track = [trackView trackData];
+        
+        NSString *title = [track objectForKey:@"title"];
+        NSString *artist = [track objectForKey:@"artist"];
+        NSString *path = [NSString stringWithFormat:@"%@/%@", title, artist];
+        
+        id loveSuccessHandler = ^(NSDictionary *result) {
+            [_lovedStatus setObject:[NSNumber numberWithBool:YES] forKey:path];
+        };
+        
+        id unloveSuccessHandler = ^(NSDictionary *result) {
+            [_lovedStatus removeObjectForKey:path];
+        };
+        
+        id failureHandler = ^(NSError *error) {
+            [self fetchTrackLovedStatus:title artist:artist sender:trackView];
+            NSLog(@"%@", error);
+        };
+        
+        if ([[_lovedStatus objectForKey:path] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
+            // Track is already loved, so unlove it.
+            [LastFmService unloveTrack:title artist:artist successHandler:unloveSuccessHandler failureHandler:failureHandler];
+            [trackView.loveButton setImage:[Utilities imageFromName:@"heart-outline"]];
+        }
+        else {
+            // Track is not loved.
+            [LastFmService loveTrack:title artist:artist successHandler:loveSuccessHandler failureHandler:failureHandler];
+            [trackView.loveButton setImage:[Utilities imageFromName:@"heart"]];
+        }
+    }
+}
+
+- (void)fetchTrackLovedStatus:(NSString *)track artist:(NSString *)artist sender:(LastFmTrackTableCellView *)sender
+{
+    NSString *path = [NSString stringWithFormat:@"%@/%@", track, artist];
+    NSNumber *loved = [_lovedStatus objectForKey:path];
+    
+    // Initially use the cached status.
+    if (loved != nil) {
+        if ([loved isEqualToNumber:[NSNumber numberWithBool:YES]]) {
+            [sender.loveButton setImage:[Utilities imageFromName:@"heart"]];
+        }
+        else {
+            [sender.loveButton setImage:[Utilities imageFromName:@"heart-outline"]];
+        }
+    }
+    
+    id successHandler = ^(NSDictionary *result) {
+        NSNumber *loved = [result objectForKey:@"userloved"];
+        
+        if ([loved isEqualToNumber:[NSNumber numberWithBool:YES]]) {
+            [_lovedStatus setObject:loved forKey:path];
+            [sender.loveButton setImage:[Utilities imageFromName:@"heart"]];
+        }
+        else {
+            [_lovedStatus removeObjectForKey:path];
+            [sender.loveButton setImage:[Utilities imageFromName:@"heart-outline"]];
+        }
+    };
+    
+    id failureHandler = ^(NSError *error) {
+        NSLog(@"%@", error);
+    };
+    
+    [LastFmService getTrackInfo:track artist:artist successHandler:successHandler failureHandler:failureHandler];
+}
+
+- (void)openRecentTracksPage:(id)sender
+{
+    NSWorkspace *workspace = [NSWorkspace sharedWorkspace];
+    NSString *username = [[[LastFm sharedInstance] username] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *page = [NSString stringWithFormat:@"http://www.last.fm/user/%@", username];
+    NSURL *url = [NSURL URLWithString:page];
+    
+    [[NSWorkspace sharedWorkspace] openURL:url];
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
@@ -89,19 +175,32 @@
         NSString *title = [track objectForKey:@"title"];
         NSString *artist = [track objectForKey:@"artist"];
         NSString *album = [track objectForKey:@"album"];
-        NSURL *imageUrl = [track objectForKey:@"image"];
+        NSImage *image = [track objectForKey:@"image"];
         NSDate *date = [track objectForKey:@"date"];
         NSString *dateString = @"";
         
         if (artist == nil)  artist = @"Unknown Artist";
         if (album == nil)   album = @"Unknown Album";
-        if (date != nil)    dateString = [date timeAgoSimple];
+        
+        if (date != nil) {
+            dateString = [date timeAgoSimple];
+        }
+        else {
+            if ([track objectForKey:@"now-playing"] == [NSNumber numberWithBool:YES]) {
+                dateString = @"▶";
+            }
+        }
         
         // Set up the track view.
+        [view setTrackData:[track copy]];
         [view.titleView setStringValue:title];
         [view.artistAlbumView setStringValue:[NSString stringWithFormat:@"%@ - %@", artist, album]];
         [view.timestampView setStringValue:dateString];
-        //[view.artView setImage:[[NSImage alloc] initWithContentsOfURL:imageUrl]];
+        [view.artView setImage:image];
+        
+        // Get the track's loved status.
+        [view.loveButton setImage:[Utilities imageFromName:@"heart-outline"]];
+        [self fetchTrackLovedStatus:title artist:artist sender:view];
         
         return view;
     }
@@ -150,6 +249,21 @@
 + (void)getRecentTracksWithLimit:(NSInteger)limit successHandler:(LastFmReturnBlockWithArray)successHandler failureHandler:(LastFmReturnBlockWithError)failureHandler;
 {
     [[LastFm sharedInstance] getRecentTracksForUserOrNil:nil limit:limit successHandler:successHandler failureHandler:failureHandler];
+}
+
++ (void)loveTrack:(NSString *)title artist:(NSString *)artist successHandler:(LastFmReturnBlockWithDictionary)successHandler failureHandler:(LastFmReturnBlockWithError)failureHandler
+{
+    [[LastFm sharedInstance] loveTrack:title artist:artist successHandler:successHandler failureHandler:failureHandler];
+}
+
++ (void)unloveTrack:(NSString *)title artist:(NSString *)artist successHandler:(LastFmReturnBlockWithDictionary)successHandler failureHandler:(LastFmReturnBlockWithError)failureHandler
+{
+    [[LastFm sharedInstance] unloveTrack:title artist:artist successHandler:successHandler failureHandler:failureHandler];
+}
+
++ (void)getTrackInfo:(NSString *)title artist:(NSString *)artist successHandler:(LastFmReturnBlockWithDictionary)successHandler failureHandler:(LastFmReturnBlockWithError)failureHandler
+{
+    [[LastFm sharedInstance] getInfoForTrack:title artist:artist username:nil successHandler:successHandler failureHandler:failureHandler];
 }
 
 @end
