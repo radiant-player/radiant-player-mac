@@ -10,6 +10,8 @@
 	<false/>
 	<key>lastfm.button.enabled</key>
 	<false/>
+	<key>lastfm.thumbsup.enabled</key>
+	<false/>
 	<key>styles.name</key>
 	<string>Cocoa</string>
 	<key>miniplayer.enabled</key>

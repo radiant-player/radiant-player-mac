@@ -43,7 +43,7 @@
     NSString *un = username ? [self forceString:username] : [self forceString:self.username];
     
     return [self performApiCallForMethod:@"track.getInfo"
-                                useCache:!self.nextRequestIgnoresCache
+                                useCache:NO
                               withParams:@{ @"track": [self forceString:title], @"artist": [self forceString:artist], @"username": un }
                                rootXpath:@"./track"
                         returnDictionary:YES

@@ -501,6 +501,19 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     
 - (void)ratingChanged:(NSInteger)rating
 {
+    if ([defaults boolForKey:@"lastfm.thumbsup.enabled"])
+    {
+        // Notify Last.fm of the rating change.
+        if (rating == MUSIC_RATING_THUMBSUP) {
+            id failureHandler = ^(NSError *error) { NSLog(@"Couldn't love track: %@", error); };
+            [LastFmService loveTrack:currentTitle artist:currentArtist successHandler:nil failureHandler:failureHandler];
+        }
+        else {
+            id failureHandler = ^(NSError *error) { NSLog(@"Couldn't unlove track: %@", error); };
+            [LastFmService unloveTrack:currentTitle artist:currentArtist successHandler:nil failureHandler:failureHandler];
+        }
+    }
+    
     [popupDelegate ratingChanged:rating];
 }
 
