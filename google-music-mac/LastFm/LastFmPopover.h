@@ -8,8 +8,11 @@
  */
 
 #import <Cocoa/Cocoa.h>
+#import <LastFM/LastFm.h>
 
 #import "LastFmService.h"
+
+#define LASTFM_SIGN_IN_TAG 1
 
 @interface LastFmPopover : NSPopover<NSPopoverDelegate>
 

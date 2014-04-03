@@ -189,13 +189,26 @@
                         <action selector="openRecentTracksPage:" target="esF-AN-bPo" id="yhz-Xr-Fgl"/>
                     </connections>
                 </button>
+                <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="aZW-Ye-nmY">
+                    <rect key="frame" x="10" y="109" width="352" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="You are not signed in to Last.fm" id="p7y-Ro-HSb">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
             <constraints>
+                <constraint firstAttribute="centerX" secondItem="aZW-Ye-nmY" secondAttribute="centerX" id="199-JS-8l2"/>
                 <constraint firstItem="ViF-Z6-eKo" firstAttribute="trailing" secondItem="lSz-j4-E31" secondAttribute="trailing" id="1eg-AT-foC"/>
+                <constraint firstItem="aZW-Ye-nmY" firstAttribute="leading" secondItem="GrA-xm-jlX" secondAttribute="leading" id="5m0-C7-TQZ"/>
+                <constraint firstItem="aZW-Ye-nmY" firstAttribute="trailing" secondItem="GrA-xm-jlX" secondAttribute="trailing" id="7zU-mW-LdG"/>
                 <constraint firstItem="GrA-xm-jlX" firstAttribute="top" secondItem="lSz-j4-E31" secondAttribute="bottom" constant="8" symbolic="YES" id="AaQ-VH-zPC"/>
                 <constraint firstItem="wYR-7e-VJD" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="Ax3-kp-VTg"/>
                 <constraint firstItem="wYR-7e-VJD" firstAttribute="centerX" secondItem="GrA-xm-jlX" secondAttribute="centerX" constant="-81.5" id="BLG-7G-2bd"/>
                 <constraint firstItem="ViF-Z6-eKo" firstAttribute="leading" secondItem="wYR-7e-VJD" secondAttribute="leading" id="E0T-Pp-QpE"/>
+                <constraint firstItem="aZW-Ye-nmY" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="JhH-2X-lvv"/>
                 <constraint firstAttribute="trailing" secondItem="GrA-xm-jlX" secondAttribute="trailing" constant="12" id="OGY-ob-htN"/>
                 <constraint firstItem="ViF-Z6-eKo" firstAttribute="top" secondItem="GrA-xm-jlX" secondAttribute="bottom" constant="5" id="PaT-0e-WzI"/>
                 <constraint firstItem="Jpy-jG-dnZ" firstAttribute="centerY" secondItem="lSz-j4-E31" secondAttribute="centerY" constant="1" id="SVb-8k-6CX"/>

@@ -27,8 +27,24 @@
 
 - (void)refreshTracks
 {
-    // Refresh the Last.fm service history.
-    [service refreshTracks];
+    // Make sure the user is signed in.
+    if ([[LastFm sharedInstance] session] == nil) {
+        // Hide everything but the warning message.
+        for (NSView *view in [self.contentViewController.view subviews])
+        {
+            [view setHidden:([view tag] != LASTFM_SIGN_IN_TAG)];
+        }
+    }
+    else {
+        // Show everything but the warning message.
+        for (NSView *view in [self.contentViewController.view subviews])
+        {
+            [view setHidden:([view tag] == LASTFM_SIGN_IN_TAG)];
+        }
+        
+        // Refresh the Last.fm service history.
+        [service refreshTracks];
+    }
 }
 
 

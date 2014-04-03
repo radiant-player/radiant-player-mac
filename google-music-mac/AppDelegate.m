@@ -519,7 +519,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     [self evaluateJavaScriptFile:@"styles"];
     
     // Apply the Last.fm JS and CSS.
-    if ([defaults boolForKey:@"lastfm.enabled"])
+    if ([defaults boolForKey:@"lastfm.button.enabled"])
     {
         [self applyCSSFile:@"lastfm"];
         [self evaluateJavaScriptFile:@"lastfm"];

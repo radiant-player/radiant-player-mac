@@ -305,16 +305,16 @@
             </subviews>
         </customView>
         <customView id="uPE-UJ-Mvs" userLabel="Last.fm Preferences">
-            <rect key="frame" x="0.0" y="0.0" width="325" height="220"/>
+            <rect key="frame" x="0.0" y="0.0" width="392" height="276"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="qq0-Xb-LVO">
-                    <rect key="frame" x="117" y="20" width="91" height="29"/>
+                    <rect key="frame" x="151" y="20" width="91" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="lastfm" id="UIE-Fx-6GJ"/>
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="P9p-EX-96C">
-                    <rect key="frame" x="18" y="183" width="90" height="17"/>
+                    <rect key="frame" x="18" y="239" width="90" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Scrobbling:" id="mHZ-3d-Tcw">
                         <font key="font" metaFont="system"/>
@@ -323,7 +323,7 @@
                     </textFieldCell>
                 </textField>
                 <button id="zMA-KR-d9H">
-                    <rect key="frame" x="112" y="182" width="195" height="18"/>
+                    <rect key="frame" x="112" y="238" width="262" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Scrobble songs to Last.fm" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="GwH-Oe-saC">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -334,7 +334,7 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="rvQ-NY-Dl6">
-                    <rect key="frame" x="18" y="131" width="90" height="17"/>
+                    <rect key="frame" x="14" y="131" width="90" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Username:" id="xqT-BO-fjB">
                         <font key="font" metaFont="system"/>
@@ -343,7 +343,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="K6O-90-mBb">
-                    <rect key="frame" x="18" y="101" width="90" height="17"/>
+                    <rect key="frame" x="14" y="101" width="90" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Password:" id="3g3-pA-OQf">
                         <font key="font" metaFont="system"/>
@@ -352,7 +352,7 @@
                     </textFieldCell>
                 </textField>
                 <textField verticalHuggingPriority="750" id="jsE-zR-hLS">
-                    <rect key="frame" x="114" y="128" width="191" height="22"/>
+                    <rect key="frame" x="110" y="128" width="262" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="" drawsBackground="YES" id="eqt-GX-x6K">
                         <font key="font" metaFont="system"/>
@@ -369,7 +369,7 @@
                     </connections>
                 </textField>
                 <secureTextField verticalHuggingPriority="750" id="i2g-5K-Cl4">
-                    <rect key="frame" x="114" y="98" width="191" height="22"/>
+                    <rect key="frame" x="110" y="98" width="262" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="" drawsBackground="YES" usesSingleLineMode="YES" id="kdg-ZI-3hD">
                         <font key="font" metaFont="system"/>
@@ -388,14 +388,14 @@
                     </connections>
                 </secureTextField>
                 <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="wli-GL-bJ9">
-                    <rect key="frame" x="20" y="164" width="293" height="5"/>
+                    <rect key="frame" x="12" y="164" width="368" height="5"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <font key="titleFont" metaFont="system"/>
                 </box>
                 <button verticalHuggingPriority="750" id="Xdb-Xz-u5h">
-                    <rect key="frame" x="108" y="62" width="203" height="32"/>
+                    <rect key="frame" x="104" y="62" width="274" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="push" title="Authorize" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oIR-4b-3nh">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -405,6 +405,26 @@
                         <action selector="authorizeScrobble:" target="ekN-Jf-CMK" id="0Na-Fh-PdD"/>
                     </connections>
                 </button>
+                <button id="ASF-JF-LyR">
+                    <rect key="frame" x="112" y="211" width="262" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Add Last.fm button to main window" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="NQJ-kR-35L">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="qKJ-ks-0kW" name="value" keyPath="values.lastfm.button.enabled" id="r7E-uI-Gab"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" id="LfQ-P8-Zwq">
+                    <rect key="frame" x="131" y="181" width="243" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Changing this preference will require a restart of the application to take effect" id="JUV-0K-skW">
+                        <font key="font" size="11" name="LucidaGrande"/>
+                        <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
         </customView>
         <arrayController id="spz-iP-VP0">
