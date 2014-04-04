@@ -188,10 +188,6 @@
         else {
             if ([track objectForKey:@"now-playing"] == [NSNumber numberWithBool:YES]) {
                 dateString = @"▶";
-                [view.timestampView setAlignment:NSCenterTextAlignment];
-            }
-            else {
-                [view.timestampView setAlignment:NSRightTextAlignment];
             }
         }
         
