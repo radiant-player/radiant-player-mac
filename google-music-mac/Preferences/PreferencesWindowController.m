@@ -43,6 +43,7 @@
     // Activate the app in case it is hidden.
     [NSApp activateIgnoringOtherApps:YES];
     [super showWindow:sender];
+    [self.window setLevel:NSPopUpMenuWindowLevel];
 }
 
 @end
