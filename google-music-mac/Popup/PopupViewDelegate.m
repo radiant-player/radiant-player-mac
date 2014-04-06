@@ -51,7 +51,6 @@
     [thumbsdownButton setImage:[self thumbsUpOnImage]];
     
     [artExpandView setImage:[self expandContractImage]];
-    
     [popup.popupView setIsLargePlayer:NO];
 }
 
@@ -157,6 +156,11 @@
 
 - (void)togglePlayerSize:(id)sender
 {
+    if ([popup.popupView isLargePlayer])
+        [[appDelegate defaults] setBool:NO forKey:@"miniplayer.large"];
+    else
+        [[appDelegate defaults] setBool:YES forKey:@"miniplayer.large"];
+    
     [popup.popupView togglePlayerSize];
 }
 

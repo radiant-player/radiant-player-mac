@@ -18,6 +18,8 @@
 	<true/>
 	<key>miniplayer.hide-dock-icon</key>
 	<false/>
+	<key>miniplayer.large</key>
+	<false/>
 	<key>navigation.buttons.enabled</key>
 	<true/>
 	<key>navigation.buttons.keep-logo</key>

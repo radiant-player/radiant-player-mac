@@ -171,6 +171,11 @@
     [statusView setMenu:popupMenu];
     [popup setPopupDelegate:statusView];
     
+    // Toggle the size of the mini-player.
+    if ([defaults boolForKey:@"miniplayer.large"] == YES) {
+        [[[popup popupView] delegate] togglePlayerSize:self];
+    }
+    
     NSStatusBar *bar = [NSStatusBar systemStatusBar];
     statusItem = [bar statusItemWithLength:NSSquareStatusItemLength];
     [statusItem setHighlightMode:YES];
