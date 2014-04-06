@@ -69,7 +69,7 @@
     eventTap = CGEventTapCreate(kCGSessionEventTap,
                                 kCGHeadInsertEventTap,
                                 kCGEventTapOptionDefault,
-                                kCGEventMaskForAllEvents,
+                                NX_SYSDEFINEDMASK,
                                 event_tap_callback,
                                 (__bridge void *)(self));
 	if (!eventTap) {
@@ -238,7 +238,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         return event;
     }
     
-    if ((type != NX_SYSDEFINED) && (type != NX_KEYDOWN))
+    if (type != NX_SYSDEFINED)
         return event;
     
     NSEvent* keyEvent = [NSEvent eventWithCGEvent: event];
