@@ -66,6 +66,37 @@
     [appDelegate webView:sender runJavaScriptAlertPanelWithMessage:message initiatedByFrame:frame];
 }
 
+- (NSURLRequest *)webView:(WebView *)sender resource:(id)identifier willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse fromDataSource:(WebDataSource *)dataSource
+{
+    NSURL *url = [request URL];
+    
+    // Interested if the URL is the original spritesheet we'll download or the inverted one we will provide.
+    if ([[[url pathExtension] lowercaseString] isEqualToString:@"png"])
+    {
+        if ([[url lastPathComponent] rangeOfString:@"sprites"].location == 0)
+        {
+            // Inverted sprites.
+            if ([[url lastPathComponent] rangeOfString:@"inverted"].location != NSNotFound)
+            {
+                NSMutableURLRequest *newRequest = [request mutableCopy];
+                [NSURLProtocol setProperty:self forKey:@"InvertedCustomWebView" inRequest:newRequest];
+                
+                return newRequest;
+            }
+            // Original sprites.
+            else
+            {
+                NSMutableURLRequest *newRequest = [request mutableCopy];
+                [NSURLProtocol setProperty:self forKey:@"OriginalCustomWebView" inRequest:newRequest];
+                
+                return newRequest;
+            }
+        }
+    }
+    
+    return request;
+}
+
 #pragma mark - Swipe code
 
 // Three fingers gesture, Lion (if enabled) and Leopard

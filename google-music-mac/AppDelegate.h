@@ -11,11 +11,15 @@
 #import <IOKit/hidsystem/ev_keymap.h>
 #import <WebKit/WebKit.h>
 
-#import "PopupStatusView.h"
 #import "DummyWebViewPolicyDelegate.h"
 #import "CustomWebView.h"
+#import "InvertedSpriteURLProtocol.h"
+#import "SpriteDownloadURLProtocol.h"
+
+#import "PopupStatusView.h"
 #import "PopupViewDelegate.h"
 #import "PopupPanel.h"
+
 #import "PreferencesWindowController.h"
 #import "ApplicationStyle.h"
 #import "LastFmPopover.h"

@@ -36,6 +36,8 @@
 		D370E8E018E21ABC007B5450 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D370E8DF18E21ABC007B5450 /* QuartzCore.framework */; };
 		D370E8E318E2BFE1007B5450 /* ExpandHoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = D370E8E218E2BFE1007B5450 /* ExpandHoverView.m */; };
 		D37B638418ED315B0098F9DC /* LastFm+TrackInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D37B638318ED315B0098F9DC /* LastFm+TrackInfo.m */; };
+		D37B638718F1E7680098F9DC /* SpriteDownloadURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D37B638618F1E7680098F9DC /* SpriteDownloadURLProtocol.m */; };
+		D37B638A18F1EFD30098F9DC /* InvertedSpriteURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D37B638918F1EFD30098F9DC /* InvertedSpriteURLProtocol.m */; };
 		D3B1668318BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */; };
 		D3B71C2818C2D5240041358B /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B71C2718C2D5240041358B /* PreferencesWindowController.m */; };
 		D3B71C2F18C2D5770041358B /* LastFmPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B71C2D18C2D5770041358B /* LastFmPreferencesViewController.m */; };
@@ -103,6 +105,10 @@
 		D370E8E218E2BFE1007B5450 /* ExpandHoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandHoverView.m; sourceTree = "<group>"; };
 		D37B638218ED315B0098F9DC /* LastFm+TrackInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LastFm+TrackInfo.h"; sourceTree = "<group>"; };
 		D37B638318ED315B0098F9DC /* LastFm+TrackInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LastFm+TrackInfo.m"; sourceTree = "<group>"; };
+		D37B638518F1E7680098F9DC /* SpriteDownloadURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteDownloadURLProtocol.h; sourceTree = "<group>"; };
+		D37B638618F1E7680098F9DC /* SpriteDownloadURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpriteDownloadURLProtocol.m; sourceTree = "<group>"; };
+		D37B638818F1EFD30098F9DC /* InvertedSpriteURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvertedSpriteURLProtocol.h; sourceTree = "<group>"; };
+		D37B638918F1EFD30098F9DC /* InvertedSpriteURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvertedSpriteURLProtocol.m; sourceTree = "<group>"; };
 		D3B1668118BB0E43003FCE6B /* DummyWebViewPolicyDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyWebViewPolicyDelegate.h; sourceTree = "<group>"; };
 		D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyWebViewPolicyDelegate.m; sourceTree = "<group>"; };
 		D3B71C2618C2D5240041358B /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
@@ -270,6 +276,10 @@
 				D3091F6518C3D7C4007C8DCD /* SwipeIndicatorView.m */,
 				D3091F6718C40FBD007C8DCD /* SwipeAnimation.h */,
 				D3091F6818C40FBD007C8DCD /* SwipeAnimation.m */,
+				D37B638518F1E7680098F9DC /* SpriteDownloadURLProtocol.h */,
+				D37B638618F1E7680098F9DC /* SpriteDownloadURLProtocol.m */,
+				D37B638818F1EFD30098F9DC /* InvertedSpriteURLProtocol.h */,
+				D37B638918F1EFD30098F9DC /* InvertedSpriteURLProtocol.m */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -437,6 +447,7 @@
 				2B8FC1C318C9CB16006D04FF /* RadiantPlayerScriptCommand.m in Sources */,
 				D3B71C2F18C2D5770041358B /* LastFmPreferencesViewController.m in Sources */,
 				1A7B684C17453E40001E509E /* main.m in Sources */,
+				D37B638A18F1EFD30098F9DC /* InvertedSpriteURLProtocol.m in Sources */,
 				D3DB8FF518BD2AEC00ABE93B /* PlaybackConstants.m in Sources */,
 				D3D4C3EB18E77AA0007238B3 /* LastFmTrackTableCellView.m in Sources */,
 				1A7B685317453E40001E509E /* AppDelegate.m in Sources */,
@@ -446,6 +457,7 @@
 				D3091F6918C40FBD007C8DCD /* SwipeAnimation.m in Sources */,
 				D323406A18C523BC008C165B /* AboutWindow.m in Sources */,
 				D32CCEFA18BE039E00BDD484 /* PopupPanel.m in Sources */,
+				D37B638718F1E7680098F9DC /* SpriteDownloadURLProtocol.m in Sources */,
 				D3B71C2818C2D5240041358B /* PreferencesWindowController.m in Sources */,
 				D318341718CFBC7400E8F9B1 /* AppearancePreferencesViewController.m in Sources */,
 				D37B638418ED315B0098F9DC /* LastFm+TrackInfo.m in Sources */,

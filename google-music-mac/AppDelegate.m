@@ -64,6 +64,10 @@
     }
     
     [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
+    
+    // Register our custom download protocols.
+    [NSURLProtocol registerClass:[SpriteDownloadURLProtocol class]];
+    [NSURLProtocol registerClass:[InvertedSpriteURLProtocol class]];
 
 	// Add an event tap to intercept the system defined media key events
     eventTap = CGEventTapCreate(kCGSessionEventTap,
