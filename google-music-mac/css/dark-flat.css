@@ -44,10 +44,11 @@ a, .simple-dialog a {
 }
 
 .g-doc {
+    height: -webkit-calc(100% - 60px) !important;
     height: calc(100% - 60px) !important;
 }
 
-#headerBar .tab-text {
+#headerBar .tab-text, #headerBar .tab-text.has-parent {
     color: #bbb;
 }
 
@@ -72,7 +73,7 @@ a, .simple-dialog a {
 }
 
 .song-table .header-row th {
-    background: #AAA;
+    background: #888;
     border-bottom: 1px solid #000;
     height: 26px;
     text-transform: none;
@@ -81,7 +82,7 @@ a, .simple-dialog a {
 }
 
 .song-row:nth-child(odd) td {
-    background-color: #585858 !important;
+    background-color: #373737 !important;
 }
 
 .song-row img {
@@ -113,7 +114,7 @@ a, .simple-dialog a {
     font-weight: 300;
     border-right: 1px solid #464646;
     cursor: default;
-    background-color: #525252 !important;
+    background-color: #313131 !important;
 }
 
 .song-row.selected-song-row td {
@@ -136,10 +137,24 @@ a, .simple-dialog a {
     margin-top: 8px;
 }
 
-.song-row .hover-button[data-id="menu"], .song-row .hover-button[data-id="menu"]:hover {
-    margin: 1px 0 0 0;
-    border: none;
-    border-radius: 0;
+.song-row td[data-col="rating"] {
+    border-right: none;
+}
+
+.song-row [data-col="rating"][data-rating="1"], 
+.song-row [data-col="rating"][data-rating="2"],
+.song-row [data-col="rating"][data-rating="5"] {
+    background-image: url(http://radiant-player-mac/sprites-inverted.png);
+}
+
+.song-row .rating-container.thumbs [data-rating="1"], 
+.song-row .rating-container.thumbs [data-rating="5"] {
+    background-image: url(http://radiant-player-mac/sprites-inverted.png);
+}
+
+.song-row .rating-container.thumbs [data-rating="1"]:hover,
+.song-row .rating-container.thumbs [data-rating="5"]:hover {
+    background-image: url(http://radiant-player-mac/sprites-inverted.png);
 }
 
 .song-row .rating-container.stars {
@@ -150,8 +165,15 @@ a, .simple-dialog a {
     margin-top: 0px;
 }
 
+.song-row .hover-button[data-id="menu"], .song-row .hover-button[data-id="menu"]:hover {
+    margin: 1px 0 0 0;
+    border: none;
+    border-radius: 0;
+}
+
 .song-row.selected-song-row .hover-button[data-id="menu"] {
     background-color: transparent !important;
+    background-image: url(http://radiant-player-mac/sprites-inverted.png) !important;
 }
 
 .song-row.currently-playing td[data-col="title"] {
@@ -168,10 +190,6 @@ a, .simple-dialog a {
     border-right: 1px solid #292929;
     width: auto;
     margin: 0;
-}
-
-#headerBar .tab-text.has-parent {
-    color: #fff;
 }
 
 #nav_collections .nav-item-container, .nav-item-container {
@@ -204,24 +222,24 @@ a, .simple-dialog a {
     display: none;
 }
 
-.nav-item-container:hover .playlistDropDown, .nav-item-container:hover .playlistDropDown:hover, .nav-item-container.selected .playlistDropDown, .nav-item-container.selected .playlistDropDown:hover {
+.nav-item-container .playlistDropDown, .nav-item-container.selected .playlistDropDown {
     background-color: transparent !important;
+    background-image: url(http://radiant-player-mac/sprites-inverted.png) !important;
     margin-top: 1px !important;
 }
 
 .nav-item-container.selected .playlistDropDown, .nav-item-container.selected .playlistDropDown:hover {
-    -webkit-filter: brightness(20%) invert(100%);
+    background-image: url(http://radiant-player-mac/sprites-inverted.png);
 }
 
 .nav-bar .header-tab-title.selected {
-    border: 1px solid #444;
     border-bottom: 3px solid #ff7d00 !important;
     background-color: #555;
     color: #eee;
 }
 
 .nav-bar .header-tab-title.selected:hover {
-    border-bottom: 3px solid rgba(255, 133, 0, 0.6) !important;
+    background-color: #555;
 }
 
 .nav-bar .header-tab-title {
@@ -233,7 +251,7 @@ a, .simple-dialog a {
 }
 
 .nav-bar .header-tab-title:hover {
-    background-color: transparent;
+    background-color: #333;
 }
 
 .nav-bar #breadcrumbs {
@@ -266,24 +284,13 @@ a, .simple-dialog a {
     background-color: transparent !important;
 }
 
-#player .flat-button[data-id="play-pause"], #player .flat-button[data-id="forward"], #player .flat-button[data-id="rewind"] {
-    -webkit-filter: brightness(20%) invert(90%);
-}
-
-#player .flat-button[data-id="repeat"][value="NO_REPEAT"] {
-    -webkit-filter: invert(100%);
-}
-
-#player .flat-button[data-id="shuffle"][value="NO_SHUFFLE"] {
-    -webkit-filter: invert(100%);
-}
-
-#player .flat-button[data-id="queue"] {
-    -webkit-filter: invert(100%);
-}
-
-#player .flat-button.selected[data-id="queue"] {
-    -webkit-filter: none;
+#player .flat-button[data-id="play-pause"], 
+#player .flat-button[data-id="forward"], 
+#player .flat-button[data-id="rewind"],
+#player .flat-button[data-id="repeat"][value="NO_REPEAT"],
+#player .flat-button[data-id="shuffle"][value="NO_SHUFFLE"],
+#player .flat-button[data-id="queue"]:not(.selected) {
+    background-image: url(http://radiant-player-mac/sprites-inverted.png);
 }
 
 .now-playing-menu-wrapper {
@@ -298,12 +305,8 @@ a, .simple-dialog a {
     background-color: transparent;
 }
 
-#player .rating-container.thumbs li {
-    -webkit-filter: invert(100%);
-}
-
-#player .rating-container.thumbs li.selected {
-    -webkit-filter: none;
+#player .rating-container.thumbs li:not(.selected) {
+    background-image: url(http://radiant-player-mac/sprites-inverted.png);
 }
 
 #playerSongTitle {
@@ -336,15 +339,15 @@ a, .simple-dialog a {
 }
 
 #volume .goog-slider-thumb {
-    -webkit-filter: invert(100%);
+    background-image: url(http://radiant-player-mac/sprites-inverted.png);
 }
 
 #volume_high, #volume_low {
-    -webkit-filter: invert(70%);
+    background-image: url(http://radiant-player-mac/sprites-inverted.png);
 }
 
 #oneGoogleWrapper > div:first-child > div {
-    background: #C3C3C3;
+    background: #C4C4C4;
     border-bottom: 1px solid #606060;
     height: 59px;
 }
@@ -352,6 +355,7 @@ a, .simple-dialog a {
 .gbqfqw {
     border-radius: 15px;
     border-color: #808080;
+    -webkit-box-shadow: inset 0px 2px 3px #aaa;
     box-shadow: inset 0px 2px 3px #aaa;
     border-right-width: 1px;
 }
@@ -364,6 +368,7 @@ a, .simple-dialog a {
     height: 24px;
     margin-top: 1px;
     background: none;
+    -wekbit-box-shadow: none !important;
     box-shadow: none !important;
 }
 

@@ -1,14 +1,14 @@
 /*
  * js/styles/dark-flat.js
  *
- * This script contains code needed for the Dark-Flat style.
+ * This script contains code needed for the Dark Flat style.
  *
  * Subject to terms and conditions in LICENSE.md.
  *
  */
 
-if (typeof window.Styles.Dark_Flat === 'undefined') {
-    window.Styles.Dark_Flat = true;
+if (typeof window.Styles.DarkFlat === 'undefined') {
+    window.Styles.DarkFlat = true;
     
     // Thumbs up and down styles.
     (function() {
