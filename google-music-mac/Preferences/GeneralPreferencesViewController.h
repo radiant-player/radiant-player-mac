@@ -12,4 +12,6 @@
 
 @interface GeneralPreferencesViewController : NSViewController<MASPreferencesViewController>
 
+@property (assign) BOOL isNotificationImageSupportAvailable;
+
 @end

@@ -13,6 +13,11 @@
 // This check ensures that, even though this script is run multiple times, our code is only attached once.
 if (typeof window.MusicAPI === 'undefined') {
     window.MusicAPI = {};
+    
+    /* Set up for Safari versions less than 7. */
+    if (typeof window.MutationObserver === 'undefined') {
+        window.MutationObserver = window.WebKitMutationObserver;
+    }
 
     /* Create a volume API. */
     window.MusicAPI.Volume = {

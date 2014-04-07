@@ -461,17 +461,21 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
             notif.informativeText = [NSString stringWithFormat:@"%@ — %@", artist, album];
         }
         
-        // Try to load the album art if possible.
-        if ([defaults boolForKey:@"notifications.show-album-art"] && art)
+        // Make sure the version of OS X supports this.
+        if ([notif respondsToSelector:@selector(setContentImage:)])
         {
-            NSURL *url = [NSURL URLWithString:art];
-            NSImage *image = [[NSImage alloc] initWithContentsOfURL:url];
-            
-            if ([defaults boolForKey:@"notifications.itunes-style"]) {
-                [notif setValue:image forKey:@"_identityImage"];
-            }
-            else {
-                notif.contentImage = image;
+            // Try to load the album art if possible.
+            if ([defaults boolForKey:@"notifications.show-album-art"] && art)
+            {
+                NSURL *url = [NSURL URLWithString:art];
+                NSImage *image = [[NSImage alloc] initWithContentsOfURL:url];
+                
+                if ([defaults boolForKey:@"notifications.itunes-style"]) {
+                    [notif setValue:image forKey:@"_identityImage"];
+                }
+                else {
+                    notif.contentImage = image;
+                }
             }
         }
         
