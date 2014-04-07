@@ -41,7 +41,7 @@
         [popupDelegate popupWillShow];
     
     NSRect statusRect = [view.window convertRectToScreen:view.bounds];
-    NSRect screenRect = [[[NSScreen screens] objectAtIndex:0] frame];
+    NSRect screenRect = [[NSScreen mainScreen] frame];
     
     NSRect frame = NSMakeRect(statusRect.origin.x,
                               statusRect.origin.y - self.frame.size.height - 2,
@@ -49,18 +49,21 @@
                               self.frame.size.height);
     
     frame.origin.x = NSMidX(statusRect) - (frame.size.width / 2);
-    [popupView setArrowX:(NSMidX(statusRect) - NSMinX(frame))];
     
     // Check if the frame goes off screen.
     if (NSMaxX(frame) > NSMaxX(screenRect)) {
         frame.origin.x -= NSMaxX(frame) - NSMaxX(screenRect);
     }
     
+    CGFloat arrowX = NSMidX(statusRect) - NSMinX(frame);
+    [popupView setArrowX:arrowX];
+    
     statusRect.origin.x -= statusRect.size.width / 2;
     
     [self setAlphaValue:0];
     [self setFrame:frame display:YES];
     [self makeKeyAndOrderFront:nil];
+    [self.popupView setNeedsDisplay:YES];
     
     [NSAnimationContext beginGrouping];
     [[NSAnimationContext currentContext] setDuration:0.15];
