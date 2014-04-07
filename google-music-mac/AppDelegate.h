@@ -15,6 +15,7 @@
 #import "CustomWebView.h"
 #import "InvertedSpriteURLProtocol.h"
 #import "SpriteDownloadURLProtocol.h"
+#import "ImageURLProtocol.h"
 
 #import "PopupStatusView.h"
 #import "PopupViewDelegate.h"

@@ -68,6 +68,7 @@
     // Register our custom download protocols.
     [NSURLProtocol registerClass:[SpriteDownloadURLProtocol class]];
     [NSURLProtocol registerClass:[InvertedSpriteURLProtocol class]];
+    [NSURLProtocol registerClass:[ImageURLProtocol class]];
 
 	// Add an event tap to intercept the system defined media key events
     eventTap = CGEventTapCreate(kCGSessionEventTap,

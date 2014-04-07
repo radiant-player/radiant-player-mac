@@ -12,6 +12,7 @@
 @interface Utilities : NSObject
 
 + (NSImage *)imageFromName:(NSString *)name;
++ (NSData *)dataWithContentsOfPath:(NSString *)path;
 
 + (NSString *)latestVersionFromGithub;
 + (NSString *)applicationVersion;

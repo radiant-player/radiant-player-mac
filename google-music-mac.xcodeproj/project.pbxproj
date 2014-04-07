@@ -42,6 +42,7 @@
 		D3B71C2818C2D5240041358B /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B71C2718C2D5240041358B /* PreferencesWindowController.m */; };
 		D3B71C2F18C2D5770041358B /* LastFmPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B71C2D18C2D5770041358B /* LastFmPreferencesViewController.m */; };
 		D3B71C3818C2F0F20041358B /* PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3B71C3718C2F0F20041358B /* PreferencesWindowController.xib */; };
+		D3CD9C3C18F25E0E002FBEE9 /* ImageURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CD9C3B18F25E0E002FBEE9 /* ImageURLProtocol.m */; };
 		D3D4C3E518E76063007238B3 /* LastFmPopover.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3D4C3E418E76063007238B3 /* LastFmPopover.xib */; };
 		D3D4C3E818E76674007238B3 /* LastFmPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D4C3E718E76674007238B3 /* LastFmPopover.m */; };
 		D3D4C3EB18E77AA0007238B3 /* LastFmTrackTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D4C3EA18E77AA0007238B3 /* LastFmTrackTableCellView.m */; };
@@ -116,6 +117,8 @@
 		D3B71C2C18C2D5770041358B /* LastFmPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastFmPreferencesViewController.h; sourceTree = "<group>"; };
 		D3B71C2D18C2D5770041358B /* LastFmPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastFmPreferencesViewController.m; sourceTree = "<group>"; };
 		D3B71C3718C2F0F20041358B /* PreferencesWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesWindowController.xib; sourceTree = "<group>"; };
+		D3CD9C3A18F25E0E002FBEE9 /* ImageURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageURLProtocol.h; sourceTree = "<group>"; };
+		D3CD9C3B18F25E0E002FBEE9 /* ImageURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageURLProtocol.m; sourceTree = "<group>"; };
 		D3D4C3E418E76063007238B3 /* LastFmPopover.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LastFmPopover.xib; sourceTree = "<group>"; };
 		D3D4C3E618E76674007238B3 /* LastFmPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastFmPopover.h; sourceTree = "<group>"; };
 		D3D4C3E718E76674007238B3 /* LastFmPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastFmPopover.m; sourceTree = "<group>"; };
@@ -280,6 +283,8 @@
 				D37B638618F1E7680098F9DC /* SpriteDownloadURLProtocol.m */,
 				D37B638818F1EFD30098F9DC /* InvertedSpriteURLProtocol.h */,
 				D37B638918F1EFD30098F9DC /* InvertedSpriteURLProtocol.m */,
+				D3CD9C3A18F25E0E002FBEE9 /* ImageURLProtocol.h */,
+				D3CD9C3B18F25E0E002FBEE9 /* ImageURLProtocol.m */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -442,6 +447,7 @@
 			files = (
 				D34DC2BC18C295A700C27596 /* LastFmService.m in Sources */,
 				D3B1668318BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m in Sources */,
+				D3CD9C3C18F25E0E002FBEE9 /* ImageURLProtocol.m in Sources */,
 				1A68DAD81803B588004CBA25 /* CustomWebView.m in Sources */,
 				D318341B18CFC7C500E8F9B1 /* ApplicationStyle.m in Sources */,
 				2B8FC1C318C9CB16006D04FF /* RadiantPlayerScriptCommand.m in Sources */,
