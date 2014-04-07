@@ -13,9 +13,13 @@
 
 @synthesize isNotificationImageSupportAvailable;
 
-- (void)awakeFromNib
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    isNotificationImageSupportAvailable = [NSUserNotification instancesRespondToSelector:@selector(setContentImage:)];
+    self = [super initWithCoder:aDecoder];
+    if (self != nil) {
+        self.isNotificationImageSupportAvailable = [NSUserNotification instancesRespondToSelector:@selector(setContentImage:)];
+    }
+    return self;
 }
 
 - (NSString *)identifier
