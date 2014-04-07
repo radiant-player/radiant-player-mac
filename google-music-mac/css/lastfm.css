@@ -1,0 +1,24 @@
+/*
+ * css/lastfm.css
+ *
+ * Custom stylesheet that styles our Last.fm button.
+ *
+ * Created by Sajid Anwar.
+ *
+ * Subject to terms and conditions in LICENSE.md.
+ *
+ */
+
+#lastfmButton {
+    width: 32px;
+    height: 32px;
+    margin-left: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: cover;
+    background-image: url(http://radiant-player-mac/images/lastfm-icon.png);
+}
+
+#lastfmButton:hover {
+    background-image: url(http://radiant-player-mac/images/lastfm-icon-hover.png);
+}

@@ -47,12 +47,16 @@
     [super setIntegerValue:anInteger];
 }
 
+- (NSRect)barRectFlipped:(BOOL)flipped
+{
+    NSRect rect = [[self controlView] bounds];
+    rect = NSInsetRect(rect, 3, 9);
+    return rect;
+}
+
 - (void)drawBarInside:(NSRect)aRect flipped:(BOOL)flipped
 {
     [NSGraphicsContext restoreGraphicsState];
-    
-    aRect.origin.y += 1;
-    aRect.size.height -= 2;
     
     NSRect knobRect = [self knobRectFlipped:true];
     
@@ -116,6 +120,12 @@
     
     totalPoint.x = totalPoint.x - totalTime.size.width - 1;
     [totalTime drawAtPoint:totalPoint];
+}
+
+- (void) drawWithFrame: (NSRect)cellFrame inView: (NSView*)controlView {
+    NSRect barFrame = [self barRectFlipped:[controlView isFlipped]];
+    [self drawBarInside:barFrame flipped:[controlView isFlipped]];
+    [self drawKnob];
 }
 
 @end

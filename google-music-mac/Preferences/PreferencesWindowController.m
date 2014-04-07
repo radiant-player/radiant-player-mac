@@ -38,4 +38,11 @@
     [self selectControllerAtIndex:0];
 }
 
+- (void)showWindow:(id)sender
+{
+    // Activate the app in case it is hidden.
+    [NSApp activateIgnoringOtherApps:YES];
+    [super showWindow:sender];
+}
+
 @end

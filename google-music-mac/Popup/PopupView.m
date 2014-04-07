@@ -77,7 +77,10 @@
         if (_backgroundImage != nil)
         {
             [path addClip];
-            [_backgroundImage drawInRect:[self bounds]];
+            [_backgroundImage drawInRect:[self bounds]
+                                fromRect:NSMakeRect(0, 0, _backgroundImage.size.width, _backgroundImage.size.height)
+                               operation:NSCompositeSourceOver
+                                fraction:1.0];
         }
         else
         {
@@ -193,6 +196,9 @@
         // Set the background image.
         [self setBackgroundImage:[delegate.artView image]];
         
+        // Reset art's expand/contract image.
+        [delegate.artExpandView setImage:[delegate expandContractImage]];
+        
         // Begin the animation to resize.
         [NSAnimationContext beginGrouping];
         [[NSAnimationContext currentContext] setDuration:.25];
@@ -226,6 +232,9 @@
         
         // Remove the background image.
         [self setBackgroundImage:nil];
+        
+        // Reset art's expand/contract image.
+        [delegate.artExpandView setImage:[delegate expandContractImage]];
         
         // Begin the animation to resize.
         [NSAnimationContext beginGrouping];

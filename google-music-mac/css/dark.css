@@ -16,6 +16,7 @@
 
 #loading-progress {
     background: #C4C4C4;
+    background: -webkit-linear-gradient(90deg, #A0A0A0, #C4C4C4);
     background: linear-gradient(0deg, #A0A0A0, #C4C4C4);
 }
 
@@ -45,10 +46,11 @@ a, .simple-dialog a {
 }
 
 .g-doc {
+    height: -webkit-calc(100% - 60px) !important;
     height: calc(100% - 60px) !important;
 }
 
-#headerBar .tab-text {
+#headerBar .tab-text, #headerBar .tab-text.has-parent {
     color: #bbb;
 }
 
@@ -73,6 +75,7 @@ a, .simple-dialog a {
 }
 
 .song-table .header-row th {
+    background: -webkit-linear-gradient(90deg, #666, #a8a8a8);
     background: linear-gradient(0deg, #666, #a8a8a8);
     border-bottom: 1px solid #000;
     height: 26px;
@@ -95,7 +98,7 @@ a, .simple-dialog a {
     width: 32px !important;
     height: 26px !important;
 
-    -webkit-filter: brightness(0%) invert(100%);
+    -webkit-filter: invert(100%);
     background-color: transparent !important;
 }
 
@@ -126,12 +129,6 @@ a, .simple-dialog a {
     background-color: #ff8200 !important;
 }
 
-.song-row.selected-song-row td[data-col="rating"][data-rating="1"], 
-.song-row.selected-song-row td[data-col="rating"][data-rating="2"],
-.song-row.selected-song-row td[data-col="rating"][data-rating="5"]  {
-    background-color: #007dff !important;
-}
-
 .song-row .hover-button[data-id=play] {
     height: 26px !important;
     width: 26px !important;
@@ -151,22 +148,20 @@ a, .simple-dialog a {
     border-right: none;
 }
 
-.song-row td[data-col="rating"][data-rating="1"],
-.song-row td[data-col="rating"][data-rating="2"],
-.song-row td[data-col="rating"][data-rating="5"] {
-    -webkit-filter: invert(100%);
+.song-row [data-col="rating"][data-rating="1"], 
+.song-row [data-col="rating"][data-rating="2"],
+.song-row [data-col="rating"][data-rating="5"] {
+    background-image: url(http://radiant-player-mac/sprites-inverted.png);
 }
 
-.song-row:not(.selected-song-row) td[data-col="rating"][data-rating="1"],
-.song-row:not(.selected-song-row) td[data-col="rating"][data-rating="2"],
-.song-row:not(.selected-song-row) td[data-col="rating"][data-rating="5"] {
-    background-color: #CECECE !important;
+.song-row .rating-container.thumbs [data-rating="1"], 
+.song-row .rating-container.thumbs [data-rating="5"] {
+    background-image: url(http://radiant-player-mac/sprites-inverted.png);
 }
 
-.song-row:nth-child(odd):not(.selected-song-row) td[data-col="rating"][data-rating="1"],
-.song-row:nth-child(odd):not(.selected-song-row) td[data-col="rating"][data-rating="2"],
-.song-row:nth-child(odd):not(.selected-song-row) td[data-col="rating"][data-rating="5"] {
-    background-color: #C8C8C8 !important;
+.song-row .rating-container.thumbs [data-rating="1"]:hover,
+.song-row .rating-container.thumbs [data-rating="5"]:hover {
+    background-image: url(http://radiant-player-mac/sprites-inverted.png);
 }
 
 .song-row .rating-container.stars {
@@ -185,7 +180,7 @@ a, .simple-dialog a {
 
 .song-row.selected-song-row .hover-button[data-id="menu"] {
     background-color: transparent !important;
-    -webkit-filter: brightness(20%) invert(100%);
+    background-image: url(http://radiant-player-mac/sprites-inverted.png) !important;
 }
 
 .song-row.currently-playing td[data-col="title"] {
@@ -214,6 +209,7 @@ a, .simple-dialog a {
 }
 
 #nav_collections .nav-item-container.selected, .nav-item-container.selected, .nav-item-container.selected:focus, .nav-item-container.selected:hover {
+    background: -webkit-linear-gradient(90deg, #ff7d00, #ff9d20) !important;
     background: linear-gradient(0deg, #ff7d00, #ff9d20) !important;
     color: white !important;
     font-weight: 400;
@@ -234,19 +230,22 @@ a, .simple-dialog a {
     display: none;
 }
 
-.nav-item-container:hover .playlistDropDown, .nav-item-container:hover .playlistDropDown:hover, .nav-item-container.selected .playlistDropDown, .nav-item-container.selected .playlistDropDown:hover {
+.nav-item-container .playlistDropDown, .nav-item-container.selected .playlistDropDown {
     background-color: transparent !important;
+    background-image: url(http://radiant-player-mac/sprites-inverted.png) !important;
     margin-top: 1px !important;
 }
 
 .nav-item-container.selected .playlistDropDown, .nav-item-container.selected .playlistDropDown:hover {
-    -webkit-filter: brightness(20%) invert(100%);
+    background-image: url(http://radiant-player-mac/sprites-inverted.png);
 }
 
 .nav-bar .header-tab-title.selected {
     border: 1px solid #555;
     border-radius: 20px;
+    background-image: -webkit-linear-gradient(90deg, #444, #666);
     background-image: linear-gradient(0deg, #444, #666);
+    -webkit-box-shadow: inset 0px 1px 1px #888;
     box-shadow: inset 0px 1px 1px #888;
     color: #eee;
 }
@@ -269,6 +268,7 @@ a, .simple-dialog a {
 }
 
 .nav-bar {
+    background-image: -webkit-linear-gradient(90deg, #232323, #404040);
     background-image: linear-gradient(0deg, #232323, #404040);
 }
 
@@ -281,6 +281,7 @@ a, .simple-dialog a {
 }
 
 #player, .player-middle {
+    background: -webkit-linear-gradient(90deg, #464646, #606060);
     background: linear-gradient(0deg, #464646, #606060);
     border-top: 1px solid #292929;
 }
@@ -294,25 +295,15 @@ a, .simple-dialog a {
     background-color: transparent !important;
 }
 
-#player .flat-button[data-id="play-pause"], #player .flat-button[data-id="forward"], #player .flat-button[data-id="rewind"] {
-    -webkit-filter: brightness(20%) invert(90%);
+#player .flat-button[data-id="play-pause"], 
+#player .flat-button[data-id="forward"], 
+#player .flat-button[data-id="rewind"],
+#player .flat-button[data-id="repeat"][value="NO_REPEAT"],
+#player .flat-button[data-id="shuffle"][value="NO_SHUFFLE"],
+#player .flat-button[data-id="queue"]:not(.selected) {
+    background-image: url(http://radiant-player-mac/sprites-inverted.png);
 }
 
-#player .flat-button[data-id="repeat"][value="NO_REPEAT"] {
-    -webkit-filter: invert(100%);
-}
-
-#player .flat-button[data-id="shuffle"][value="NO_SHUFFLE"] {
-    -webkit-filter: invert(100%);
-}
-
-#player .flat-button[data-id="queue"] {
-    -webkit-filter: invert(100%);
-}
-
-#player .flat-button.selected[data-id="queue"] {
-    -webkit-filter: none;
-}
 
 .now-playing-menu-wrapper {
     background: none;
@@ -320,18 +311,16 @@ a, .simple-dialog a {
 
 #player [data-id="now-playing-menu"] {
     border: none;
+    background-color: transparent !important;
+    background-image: url(http://radiant-player-mac/sprites-inverted.png);
 }
 
 #player .rating-container.thumbs li.selected:hover, #player .rating-container.thumbs li:hover {
     background-color: transparent;
 }
 
-#player .rating-container.thumbs li {
-    -webkit-filter: invert(100%);
-}
-
-#player .rating-container.thumbs li.selected {
-    -webkit-filter: none;
+#player .rating-container.thumbs li:not(.selected) {
+    background-image: url(http://radiant-player-mac/sprites-inverted.png);
 }
 
 #playerSongTitle {
@@ -364,14 +353,15 @@ a, .simple-dialog a {
 }
 
 #volume .goog-slider-thumb {
-    -webkit-filter: invert(100%);
+    background-image: url(http://radiant-player-mac/sprites-inverted.png);
 }
 
 #volume_high, #volume_low {
-    -webkit-filter: invert(100%);
+    background-image: url(http://radiant-player-mac/sprites-inverted.png);
 }
 
 #oneGoogleWrapper > div:first-child > div {
+    background: -webkit-linear-gradient(90deg, #808080, #B2B2B2 50%, #C4C4C4);
     background: linear-gradient(0deg, #808080, #B2B2B2 50%, #C4C4C4);
     border-bottom: 1px solid #606060;
     height: 59px;
@@ -380,6 +370,7 @@ a, .simple-dialog a {
 .gbqfqw {
     border-radius: 15px;
     border-color: #808080;
+    -webkit-box-shadow: inset 0px 2px 3px #aaa;
     box-shadow: inset 0px 2px 3px #aaa;
     border-right-width: 1px;
 }
@@ -392,6 +383,7 @@ a, .simple-dialog a {
     height: 24px;
     margin-top: 1px;
     background: none;
+    -wekbit-box-shadow: none !important;
     box-shadow: none !important;
 }
 

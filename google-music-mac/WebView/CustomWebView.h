@@ -27,6 +27,8 @@
 @property (nonatomic, strong) id<CustomWebViewDelegate> appDelegate;
 @property (retain) SwipeIndicatorView *swipeView;
 
+@property (retain) NSImage *invertedSpriteSheet;
+
 - (IBAction)selectAll:(id)sender;
 
 @end

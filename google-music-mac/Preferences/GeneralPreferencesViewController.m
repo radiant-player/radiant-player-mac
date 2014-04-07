@@ -11,6 +11,13 @@
 
 @implementation GeneralPreferencesViewController
 
+@synthesize isNotificationImageSupportAvailable;
+
+- (void)awakeFromNib
+{
+    isNotificationImageSupportAvailable = [NSUserNotification instancesRespondToSelector:@selector(setContentImage:)];
+}
+
 - (NSString *)identifier
 {
     return @"GeneralPreferences";

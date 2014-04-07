@@ -66,6 +66,52 @@
     [appDelegate webView:sender runJavaScriptAlertPanelWithMessage:message initiatedByFrame:frame];
 }
 
+- (NSURLRequest *)webView:(WebView *)sender resource:(id)identifier willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse fromDataSource:(WebDataSource *)dataSource
+{
+    NSURL *url = [request URL];
+    
+    // Handle special URLs.
+    if ([[url host] isEqualToString:@"radiant-player-mac"])
+    {
+        NSArray *components = [url pathComponents];
+        
+        // Handle image resources.
+        if ([[components objectAtIndex:1] isEqualToString:@"images"])
+        {
+            // Image resources.
+            NSMutableURLRequest *newRequest = [request mutableCopy];
+            [NSURLProtocol setProperty:self forKey:@"ImagesCustomWebView" inRequest:newRequest];
+            
+            return newRequest;
+        }
+        
+        // Interested if the URL is the original spritesheet we'll download or the inverted one we will provide.
+        else if ([[url lastPathComponent] rangeOfString:@"sprites"].location == 0 &&
+                 [[url lastPathComponent] rangeOfString:@"inverted"].location != NSNotFound)
+        {
+            // Inverted sprites.
+            NSMutableURLRequest *newRequest = [request mutableCopy];
+            [NSURLProtocol setProperty:self forKey:@"InvertedCustomWebView" inRequest:newRequest];
+            
+            return newRequest;
+        }
+    }
+    else
+    {
+        // Original sprites.
+        if ([[url pathExtension] isEqualToString:@"png"] &&
+            [[url lastPathComponent] rangeOfString:@"sprites"].location == 0)
+        {
+            NSMutableURLRequest *newRequest = [request mutableCopy];
+            [NSURLProtocol setProperty:self forKey:@"OriginalCustomWebView" inRequest:newRequest];
+            
+            return newRequest;
+        }
+    }
+    
+    return request;
+}
+
 #pragma mark - Swipe code
 
 // Three fingers gesture, Lion (if enabled) and Leopard

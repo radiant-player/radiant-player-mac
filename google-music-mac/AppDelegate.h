@@ -11,13 +11,19 @@
 #import <IOKit/hidsystem/ev_keymap.h>
 #import <WebKit/WebKit.h>
 
-#import "PopupStatusView.h"
 #import "DummyWebViewPolicyDelegate.h"
 #import "CustomWebView.h"
+#import "InvertedSpriteURLProtocol.h"
+#import "SpriteDownloadURLProtocol.h"
+#import "ImageURLProtocol.h"
+
+#import "PopupStatusView.h"
 #import "PopupViewDelegate.h"
 #import "PopupPanel.h"
+
 #import "PreferencesWindowController.h"
 #import "ApplicationStyle.h"
+#import "LastFmPopover.h"
 
 @class PopupViewDelegate;
 @class PopupStatusView;
@@ -41,6 +47,8 @@
 @property (nonatomic, retain) IBOutlet PopupPanel *popup;
 @property (nonatomic, retain) IBOutlet NSMenu *popupMenu;
 @property (assign) IBOutlet PopupViewDelegate *popupDelegate;
+
+@property (nonatomic, retain) IBOutlet LastFmPopover *lastfmPopover;
 
 @property (assign) IBOutlet PreferencesWindowController *prefsController;
 @property (assign) NSUserDefaults *defaults;
@@ -79,7 +87,7 @@
 - (IBAction) toggleVisualization:(id)sender;
 
 - (void) moveWindowWithDeltaX:(CGFloat)deltaX andDeltaY:(CGFloat)deltaY;
-
+- (void) showLastFmPopover:(id)sender;
 - (void) notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art duration:(NSTimeInterval)duration;
 
 // Refer to PlaybackConstants.m

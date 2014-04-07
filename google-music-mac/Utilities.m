@@ -19,6 +19,12 @@
     return [[NSImage alloc] initWithContentsOfFile:path];
 }
 
++ (NSData *)dataWithContentsOfPath:(NSString *)path
+{
+    NSString *location = [[NSBundle mainBundle] pathForResource:path ofType:nil];
+    return [NSData dataWithContentsOfFile:location];
+}
+
 + (NSString *)latestVersionFromGithub
 {
     NSURL *url = [NSURL URLWithString:@"https://api.github.com/repos/kbhomes/google-music-mac/releases"];

@@ -21,6 +21,7 @@
 @synthesize popupDelegate;
 @synthesize defaults;
 @synthesize prefsController;
+@synthesize lastfmPopover;
 
 @synthesize currentTitle;
 @synthesize currentArtist;
@@ -63,12 +64,17 @@
     }
     
     [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
+    
+    // Register our custom download protocols.
+    [NSURLProtocol registerClass:[SpriteDownloadURLProtocol class]];
+    [NSURLProtocol registerClass:[InvertedSpriteURLProtocol class]];
+    [NSURLProtocol registerClass:[ImageURLProtocol class]];
 
 	// Add an event tap to intercept the system defined media key events
     eventTap = CGEventTapCreate(kCGSessionEventTap,
                                 kCGHeadInsertEventTap,
                                 kCGEventTapOptionDefault,
-                                kCGEventMaskForAllEvents,
+                                NX_SYSDEFINEDMASK,
                                 event_tap_callback,
                                 (__bridge void *)(self));
 	if (!eventTap) {
@@ -170,12 +176,43 @@
     [statusView setMenu:popupMenu];
     [popup setPopupDelegate:statusView];
     
+    // Toggle the size of the mini-player.
+    if ([defaults boolForKey:@"miniplayer.large"] == YES) {
+        [[[popup popupView] delegate] togglePlayerSize:self];
+    }
+    
     NSStatusBar *bar = [NSStatusBar systemStatusBar];
     statusItem = [bar statusItemWithLength:NSSquareStatusItemLength];
     [statusItem setHighlightMode:YES];
     [statusItem setView:statusView];
     
     [statusView setStatusItem:statusItem];
+}
+
+- (void)showLastFmPopover:(id)sender
+{
+    if ([lastfmPopover isShown] == NO)
+    {
+        DOMDocument *document = [webView mainFrameDocument];
+        DOMElement *lastfmButton = [document querySelector:@"#lastfmButton"];
+        
+        if (lastfmButton != nil)
+        {
+            // The coordinate systems are different:
+            //   - Cocoa's x-axis is on the bottom of the screen
+            //   - DOM's x-axis is on the top of the screen
+            NSRect webviewRect = [webView bounds];
+            NSRect buttonRect = [lastfmButton boundingBox];
+            buttonRect.origin.y = webviewRect.size.height - buttonRect.origin.y - buttonRect.size.height;
+            
+            [lastfmPopover showRelativeToRect:buttonRect ofView:webView preferredEdge:NSMaxYEdge];
+            [lastfmPopover refreshTracks];
+        }
+    }
+    else
+    {
+        [lastfmPopover performClose:sender];
+    }
 }
 
 #pragma mark - Event tap methods
@@ -206,7 +243,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         return event;
     }
     
-    if ((type != NX_SYSDEFINED) && (type != NX_KEYDOWN))
+    if (type != NX_SYSDEFINED)
         return event;
     
     NSEvent* keyEvent = [NSEvent eventWithCGEvent: event];
@@ -425,17 +462,21 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
             notif.informativeText = [NSString stringWithFormat:@"%@ — %@", artist, album];
         }
         
-        // Try to load the album art if possible.
-        if ([defaults boolForKey:@"notifications.show-album-art"] && art)
+        // Make sure the version of OS X supports this.
+        if ([notif respondsToSelector:@selector(setContentImage:)])
         {
-            NSURL *url = [NSURL URLWithString:art];
-            NSImage *image = [[NSImage alloc] initWithContentsOfURL:url];
-            
-            if ([defaults boolForKey:@"notifications.itunes-style"]) {
-                [notif setValue:image forKey:@"_identityImage"];
-            }
-            else {
-                notif.contentImage = image;
+            // Try to load the album art if possible.
+            if ([defaults boolForKey:@"notifications.show-album-art"] && art)
+            {
+                NSURL *url = [NSURL URLWithString:art];
+                NSImage *image = [[NSImage alloc] initWithContentsOfURL:url];
+                
+                if ([defaults boolForKey:@"notifications.itunes-style"]) {
+                    [notif setValue:image forKey:@"_identityImage"];
+                }
+                else {
+                    notif.contentImage = image;
+                }
             }
         }
         
@@ -474,6 +515,19 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     
 - (void)ratingChanged:(NSInteger)rating
 {
+    if ([defaults boolForKey:@"lastfm.thumbsup.enabled"])
+    {
+        // Notify Last.fm of the rating change.
+        if (rating == MUSIC_RATING_THUMBSUP) {
+            id failureHandler = ^(NSError *error) { NSLog(@"Couldn't love track: %@", error); };
+            [LastFmService loveTrack:currentTitle artist:currentArtist successHandler:nil failureHandler:failureHandler];
+        }
+        else {
+            id failureHandler = ^(NSError *error) { NSLog(@"Couldn't unlove track: %@", error); };
+            [LastFmService unloveTrack:currentTitle artist:currentArtist successHandler:nil failureHandler:failureHandler];
+        }
+    }
+    
     [popupDelegate ratingChanged:rating];
 }
 
@@ -490,7 +544,13 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     [self evaluateJavaScriptFile:@"mouse"];
     [self evaluateJavaScriptFile:@"main"];
     [self evaluateJavaScriptFile:@"styles"];
-    [self evaluateJavaScriptFile:@"appbar"];
+    
+    // Apply the Last.fm JS and CSS.
+    if ([defaults boolForKey:@"lastfm.button.enabled"])
+    {
+        [self applyCSSFile:@"lastfm"];
+        [self evaluateJavaScriptFile:@"lastfm"];
+    }
     
     // Apply the navigation styles.
     if ([defaults boolForKey:@"navigation.buttons.enabled"])
@@ -498,6 +558,8 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         [self applyCSSFile:@"navigation"];
         [self evaluateJavaScriptFile:@"navigation"];
     }
+    
+    [self evaluateJavaScriptFile:@"appbar"];
     
     // Apply certain styles and JS only if the user prefers.
     BOOL stylesEnabled = [defaults boolForKey:@"styles.enabled"];
@@ -574,6 +636,9 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     if (sel == @selector(moveWindowWithDeltaX:andDeltaY:))
         return @"moveWindow";
     
+    if (sel == @selector(showLastFmPopover:))
+        return @"showLastFmPopover";
+    
     if (sel == @selector(preferenceForKey:))
         return @"preferenceForKey";
     
@@ -589,6 +654,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         sel == @selector(shuffleChanged:) ||
         sel == @selector(ratingChanged:) ||
         sel == @selector(moveWindowWithDeltaX:andDeltaY:) ||
+        sel == @selector(showLastFmPopover:) ||
         sel == @selector(preferenceForKey:))
         return NO;
     

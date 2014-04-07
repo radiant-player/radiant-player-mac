@@ -50,6 +50,7 @@
     [thumbsupButton   setImage:[self thumbsUpOffImage]];
     [thumbsdownButton setImage:[self thumbsUpOnImage]];
     
+    [artExpandView setImage:[self expandContractImage]];
     [popup.popupView setIsLargePlayer:NO];
 }
 
@@ -155,6 +156,11 @@
 
 - (void)togglePlayerSize:(id)sender
 {
+    if ([popup.popupView isLargePlayer])
+        [[appDelegate defaults] setBool:NO forKey:@"miniplayer.large"];
+    else
+        [[appDelegate defaults] setBool:YES forKey:@"miniplayer.large"];
+    
     [popup.popupView togglePlayerSize];
 }
 
@@ -254,6 +260,14 @@
 - (NSImage *)thumbsDownOnImage
 {
     return [Utilities imageFromName:@"thumbsdown_on"];
+}
+
+- (NSImage *)expandContractImage
+{
+    if (popup.popupView.isLargePlayer)
+    return [Utilities imageFromName:@"arrow_contract_art"];
+    else
+    return [Utilities imageFromName:@"arrow_expand_art"];
 }
 
 @end

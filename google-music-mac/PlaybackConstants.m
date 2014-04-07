@@ -25,4 +25,4 @@ NSInteger const MUSIC_PLAYING = 1;
 // Rating modes.
 NSInteger const MUSIC_RATING_THUMBSUP = 5;
 NSInteger const MUSIC_RATING_THUMBSDOWN = 1;
-NSInteger const MUSIC_RATING_NONE = 1;
+NSInteger const MUSIC_RATING_NONE = 0;
