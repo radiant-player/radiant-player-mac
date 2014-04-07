@@ -77,7 +77,10 @@
         if (_backgroundImage != nil)
         {
             [path addClip];
-            [_backgroundImage drawInRect:[self bounds]];
+            [_backgroundImage drawInRect:[self bounds]
+                                fromRect:NSMakeRect(0, 0, _backgroundImage.size.width, _backgroundImage.size.height)
+                               operation:NSCompositeSourceOver
+                                fraction:1.0];
         }
         else
         {
