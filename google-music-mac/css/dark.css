@@ -16,6 +16,7 @@
 
 #loading-progress {
     background: #C4C4C4;
+    background: -webkit-linear-gradient(90deg, #A0A0A0, #C4C4C4);
     background: linear-gradient(0deg, #A0A0A0, #C4C4C4);
 }
 
@@ -45,6 +46,7 @@ a, .simple-dialog a {
 }
 
 .g-doc {
+    height: -webkit-calc(100% - 60px) !important;
     height: calc(100% - 60px) !important;
 }
 
@@ -73,6 +75,7 @@ a, .simple-dialog a {
 }
 
 .song-table .header-row th {
+    background: -webkit-linear-gradient(90deg, #666, #a8a8a8);
     background: linear-gradient(0deg, #666, #a8a8a8);
     border-bottom: 1px solid #000;
     height: 26px;
@@ -206,6 +209,7 @@ a, .simple-dialog a {
 }
 
 #nav_collections .nav-item-container.selected, .nav-item-container.selected, .nav-item-container.selected:focus, .nav-item-container.selected:hover {
+    background: -webkit-linear-gradient(90deg, #ff7d00, #ff9d20) !important;
     background: linear-gradient(0deg, #ff7d00, #ff9d20) !important;
     color: white !important;
     font-weight: 400;
@@ -239,7 +243,9 @@ a, .simple-dialog a {
 .nav-bar .header-tab-title.selected {
     border: 1px solid #555;
     border-radius: 20px;
+    background-image: -webkit-linear-gradient(90deg, #444, #666);
     background-image: linear-gradient(0deg, #444, #666);
+    -webkit-box-shadow: inset 0px 1px 1px #888;
     box-shadow: inset 0px 1px 1px #888;
     color: #eee;
 }
@@ -262,6 +268,7 @@ a, .simple-dialog a {
 }
 
 .nav-bar {
+    background-image: -webkit-linear-gradient(90deg, #232323, #404040);
     background-image: linear-gradient(0deg, #232323, #404040);
 }
 
@@ -274,6 +281,7 @@ a, .simple-dialog a {
 }
 
 #player, .player-middle {
+    background: -webkit-linear-gradient(90deg, #464646, #606060);
     background: linear-gradient(0deg, #464646, #606060);
     border-top: 1px solid #292929;
 }
@@ -353,6 +361,7 @@ a, .simple-dialog a {
 }
 
 #oneGoogleWrapper > div:first-child > div {
+    background: -webkit-linear-gradient(90deg, #808080, #B2B2B2 50%, #C4C4C4);
     background: linear-gradient(0deg, #808080, #B2B2B2 50%, #C4C4C4);
     border-bottom: 1px solid #606060;
     height: 59px;
@@ -361,6 +370,7 @@ a, .simple-dialog a {
 .gbqfqw {
     border-radius: 15px;
     border-color: #808080;
+    -webkit-box-shadow: inset 0px 2px 3px #aaa;
     box-shadow: inset 0px 2px 3px #aaa;
     border-right-width: 1px;
 }
@@ -373,6 +383,7 @@ a, .simple-dialog a {
     height: 24px;
     margin-top: 1px;
     background: none;
+    -wekbit-box-shadow: none !important;
     box-shadow: none !important;
 }
 
