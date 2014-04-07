@@ -21,6 +21,7 @@
 
 @synthesize noSongLabel;
 
+@synthesize showMainWindowButton;
 @synthesize artExpandView;
 @synthesize artView;
 @synthesize artProgress;
@@ -50,7 +51,9 @@
     [thumbsupButton   setImage:[self thumbsUpOffImage]];
     [thumbsdownButton setImage:[self thumbsUpOnImage]];
     
-    [artExpandView setImage:[self expandContractImage]];
+    [artExpandView          setImage:[self expandContractImage]];
+    [showMainWindowButton   setImage:[self showMainWindowImage]];
+    
     [popup.popupView setIsLargePlayer:NO];
 }
 
@@ -265,9 +268,17 @@
 - (NSImage *)expandContractImage
 {
     if (popup.popupView.isLargePlayer)
-    return [Utilities imageFromName:@"arrow_contract_art"];
+        return [Utilities imageFromName:@"arrow_contract_art"];
     else
-    return [Utilities imageFromName:@"arrow_expand_art"];
+        return [Utilities imageFromName:@"arrow_expand_art"];
+}
+
+- (NSImage *)showMainWindowImage
+{
+    if (popup.popupView.isLargePlayer)
+        return [Utilities templateImage:NSImageNameEnterFullScreenTemplate withColor:[NSColor colorWithDeviceWhite:0.8 alpha:1.0]];
+    else
+        return [Utilities templateImage:NSImageNameEnterFullScreenTemplate withColor:[NSColor colorWithDeviceWhite:0.4 alpha:1.0]];
 }
 
 @end

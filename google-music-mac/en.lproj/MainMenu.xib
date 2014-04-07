@@ -320,6 +320,7 @@
                 <outlet property="playbackSlider" destination="8u2-Nn-ZZf" id="ww6-rb-TBx"/>
                 <outlet property="popup" destination="sr1-Je-yff" id="rGd-1u-1st"/>
                 <outlet property="repeatButton" destination="DvI-Lo-u1q" id="xDw-Gh-EXt"/>
+                <outlet property="showMainWindowButton" destination="v8E-fH-1nK" id="dtK-BB-Xf6"/>
                 <outlet property="shuffleButton" destination="0Xb-8Y-y5L" id="zxu-qb-yUd"/>
                 <outlet property="thumbsdownButton" destination="3Nx-UI-e4n" id="Snn-b8-pC4"/>
                 <outlet property="thumbsupButton" destination="EGc-cr-jAa" id="xfp-sj-yxk"/>

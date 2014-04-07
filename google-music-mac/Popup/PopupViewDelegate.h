@@ -29,6 +29,7 @@
 
 @property (assign) IBOutlet NSTextField *noSongLabel;
 
+@property (assign) IBOutlet NSButton *showMainWindowButton;
 @property (assign) IBOutlet NSImageView *artExpandView;
 @property (assign) IBOutlet NSButton *artView;
 @property (assign) IBOutlet NSProgressIndicator *artProgress;
@@ -74,5 +75,6 @@
 - (NSImage *) thumbsDownOffImage;
 - (NSImage *) thumbsDownOnImage;
 - (NSImage *) expandContractImage;
+- (NSImage *) showMainWindowImage;
 
 @end

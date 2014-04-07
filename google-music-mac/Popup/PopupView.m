@@ -219,6 +219,7 @@
         [delegate ratingChanged:delegate.songRating];
         [delegate.backButton setImage:[delegate backImage]];
         [delegate.forwardButton setImage:[delegate forwardImage]];
+        [delegate.showMainWindowButton setImage:[delegate showMainWindowImage]];
     }
     else
     {
@@ -256,6 +257,8 @@
         [delegate ratingChanged:delegate.songRating];
         [delegate.backButton setImage:[delegate backImage]];
         [delegate.forwardButton setImage:[delegate forwardImage]];
+        [delegate.showMainWindowButton setImage:[delegate showMainWindowImage]];
+
     }
 }
 

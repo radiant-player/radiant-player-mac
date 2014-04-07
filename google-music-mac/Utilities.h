@@ -13,6 +13,7 @@
 
 + (NSImage *)imageFromName:(NSString *)name;
 + (NSData *)dataWithContentsOfPath:(NSString *)path;
++ (NSImage *)templateImage:(NSString *)templateName withColor:(NSColor *)tint;
 
 + (NSString *)latestVersionFromGithub;
 + (NSString *)applicationVersion;
