@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:google-music-mac/css/dark-flat.css">
+   </FileRef>
+   <FileRef
       location = "group:google-music-mac.xcodeproj">
    </FileRef>
    <FileRef
