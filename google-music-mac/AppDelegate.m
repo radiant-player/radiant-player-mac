@@ -71,10 +71,14 @@
     [NSURLProtocol registerClass:[ImageURLProtocol class]];
 
 	// Add an event tap to intercept the system defined media key events
+    CGEventMask mask = ([defaults boolForKey:@"eventtap.alternative-method"])
+                        ? kCGEventMaskForAllEvents
+                        : NX_SYSDEFINEDMASK;
+    
     eventTap = CGEventTapCreate(kCGSessionEventTap,
                                 kCGHeadInsertEventTap,
                                 kCGEventTapOptionDefault,
-                                NX_SYSDEFINEDMASK,
+                                mask,
                                 event_tap_callback,
                                 (__bridge void *)(self));
 	if (!eventTap) {

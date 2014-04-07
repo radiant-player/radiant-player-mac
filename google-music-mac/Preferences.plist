@@ -12,8 +12,6 @@
 	<false/>
 	<key>lastfm.thumbsup.enabled</key>
 	<false/>
-	<key>styles.name</key>
-	<string>Cocoa</string>
 	<key>miniplayer.enabled</key>
 	<true/>
 	<key>miniplayer.hide-dock-icon</key>
@@ -32,9 +30,13 @@
 	<false/>
 	<key>notifications.show-album-art</key>
 	<false/>
+	<key>styles.name</key>
+	<string>Cocoa</string>
 	<key>styles.enabled</key>
 	<true/>
 	<key>updates.check</key>
 	<true/>
+	<key>eventtap.alternative-method</key>
+	<false/>
 </dict>
 </plist>

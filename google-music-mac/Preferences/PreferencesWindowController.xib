@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreferencesWindowController">
             <connections>
+                <outlet property="advancedController" destination="nFt-gq-AxK" id="cRo-7M-sFh"/>
                 <outlet property="appearanceController" destination="hV5-O3-L0a" id="wEv-K7-G7b"/>
                 <outlet property="generalController" destination="l7y-90-Hoh" id="wYy-dT-tD6"/>
                 <outlet property="lastFmController" destination="ekN-Jf-CMK" id="A4x-OK-cHf"/>
@@ -61,7 +62,7 @@
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="wI0-wb-A0h">
                     <rect key="frame" x="18" y="145" width="105" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Menu Player:" id="OVp-Sx-lNi">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Mini Player:" id="OVp-Sx-lNi">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -268,6 +269,11 @@
                 <outlet property="passwordField" destination="i2g-5K-Cl4" id="OzG-or-Fl7"/>
                 <outlet property="usernameField" destination="jsE-zR-hLS" id="jE3-32-FXk"/>
                 <outlet property="view" destination="uPE-UJ-Mvs" id="VFL-pG-hWF"/>
+            </connections>
+        </viewController>
+        <viewController id="nFt-gq-AxK" customClass="AdvancedPreferencesViewController">
+            <connections>
+                <outlet property="view" destination="csb-l7-N8T" id="CkN-d9-hDP"/>
             </connections>
         </viewController>
         <userDefaultsController representsSharedInstance="YES" id="qKJ-ks-0kW"/>
@@ -479,6 +485,43 @@ when the track is rated "thumbs up"</string>
                 <binding destination="-3" name="contentArray" keyPath="self.delegate.styles.@allValues" id="GQe-23-U3M"/>
             </connections>
         </arrayController>
+        <customView id="csb-l7-N8T" userLabel="Advanced Preferences">
+            <rect key="frame" x="0.0" y="0.0" width="474" height="114"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="GVf-gF-iGo">
+                    <rect key="frame" x="18" y="77" width="106" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Media Keys:" id="auw-Ok-dzZ">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button id="DH3-VL-aO6">
+                    <rect key="frame" x="128" y="76" width="328" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Use alternative method to listen for media keys" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Qkb-8c-2vy">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="qKJ-ks-0kW" name="value" keyPath="values.eventtap.alternative-method" id="Y8m-5q-gKf"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" id="jcU-kB-wTU">
+                    <rect key="frame" x="147" y="20" width="309" height="56"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" id="Y3c-yy-O4p">
+                        <font key="font" size="11" name="LucidaGrande"/>
+                        <string key="title">Required for some applications to work properly, like Adobe Fireworks, but will break Quick Look.
+Changing this preference will require a restart of the application to take effect</string>
+                        <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+        </customView>
     </objects>
     <resources>
         <image name="lastfm" width="900" height="269"/>
