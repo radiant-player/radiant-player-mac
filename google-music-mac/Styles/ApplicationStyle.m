@@ -78,10 +78,20 @@
     [darkFlat setCss:[ApplicationStyle cssNamed:@"dark-flat"]];
     [darkFlat setJs:[ApplicationStyle jsNamed:@"dark-flat"]];
     
+    // Create the Spotify Black style.
+    ApplicationStyle *spotifyBlack = [[ApplicationStyle alloc] init];
+    [spotifyBlack setName:@"Spotify Black"];
+    [spotifyBlack setAuthor:@"Anthony Barone"];
+    [spotifyBlack setDescription:@"A black style similar to the new Spotify."];
+    [spotifyBlack setWindowColor:[NSColor colorWithSRGBRed:0.133f green:0.137f blue:0.149f alpha:1.0f]];
+    [spotifyBlack setCss:[ApplicationStyle cssNamed:@"spotify-black"]];
+    [spotifyBlack setJs:[ApplicationStyle jsNamed:@"spotify-black"]];
+    
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
     [dictionary setObject:cocoa forKey:[cocoa name]];
     [dictionary setObject:dark forKey:[dark name]];
     [dictionary setObject:darkFlat forKey:[darkFlat name]];
+    [dictionary setObject:spotifyBlack forKey:[spotifyBlack name]];
     
     return dictionary;
 }
