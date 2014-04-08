@@ -38,8 +38,8 @@ if (typeof window.Styles.SpotifyBlack === 'undefined') {
         document.body.removeChild(el);
 
         // Apply a new stylesheet for the new thumbs up and down positions.
-        thumbsUpBackY -= 9;
-        thumbsDownBackY -= 7;
+        thumbsUpBackY -= 3;
+        thumbsDownBackY -= 1;
 
         var thumbsUpPosition = thumbsUpBackX + 'px ' + thumbsUpBackY + 'px';
         var thumbsDownPosition = thumbsDownBackX + 'px ' + thumbsDownBackY + 'px';

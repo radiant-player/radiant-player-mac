@@ -95,12 +95,16 @@ a, .simple-dialog a {
 }
 
 .song-row .song-indicator {
-    background-color: #121314 !important;
+    /*background-color: #121314 !important;*/
+    -webkit-filter: invert(100%);
+    background-color: transparent !important;
+    width: 35px !important;
 }
 
 .song-row.hover .song-indicator,
 .song-row.selected-song-row .song-indicator {
-	background-color: #222326 !important;	
+	/*background-color: #222326 !important;
+    -webkit-filter: none;*/
 }
 
 .song-row td {
@@ -165,11 +169,11 @@ a, .simple-dialog a {
 }
 
 .song-row .rating-container.thumbs [data-rating] {
-    margin-top: 0px;
+    margin-top: 6px;
 }
 
 .song-row .hover-button[data-id="menu"], .song-row .hover-button[data-id="menu"]:hover {
-    margin: 1px 0 0 0;
+    margin-top: 8px;
     border: none;
     border-radius: 0;
 }
@@ -217,12 +221,7 @@ a, .simple-dialog a {
     border-left: 3px solid #FF7D00;
 }
 
-.nav-item-container:hover .playlistDropDown, .nav-item-container:hover .playlistDropDown:hover, .nav-item-container.selected:focus .playlistDropDown, .nav-item-container.selected:focus .playlistDropDown:hover {
-    background: #2E2F33 !important;
-}
-
-#nav_collections .nav-item-container:hover,
-.nav-item-container:hover {
+#nav_collections .nav-item-container:hover, .nav-item-container:hover {
     background: #2E2F33 !important;
     color: #F7F9FF !important;
 }
@@ -241,7 +240,7 @@ a, .simple-dialog a {
 .nav-item-container .playlistDropDown, .nav-item-container.selected .playlistDropDown {
     background-color: transparent !important;
     background-image: url(http://radiant-player-mac/sprites-inverted.png) !important;
-    margin-top: 1px !important;
+    margin-top: 3px !important;
 }
 
 .nav-item-container.selected .playlistDropDown, .nav-item-container.selected .playlistDropDown:hover {
@@ -263,6 +262,8 @@ a, .simple-dialog a {
     line-height: 45px;
     color: #aaa;
     font-weight: 500;
+    text-transform: uppercase;
+    font-size: 12px;
     border-bottom: 3px solid transparent;
     transition: all 0.4s ease;
 }
@@ -343,11 +344,11 @@ a, .simple-dialog a {
 }
 
 #player.active:hover .playing-progress-background {
-    background: #666;
+    background: #555;
 }
 
 #top_divider_line, .playing-progress-background {
-    background: #555;
+    background: #333;
 }
 
 #time_container_duration {
@@ -373,12 +374,12 @@ a, .simple-dialog a {
 
 #oneGoogleWrapper > div:first-child > div {
     background: #222326;
-    border-bottom: 1px solid transparent;
+    border-bottom: 1px solid #333;
     height: 59px;
     color: #949599 !important;
 }
 
-.gb_oa.gb_4b.gb_k.gb_3b {
+.gb_Rb.gb_4b.gb_k {
 	display: none;
 }
 
@@ -492,4 +493,24 @@ div.simple-dialog-bg {
 ::-webkit-scrollbar-track {
     background: #222 !important;
     border-width: 0 !important;
+}
+
+#gm-back {
+    background-image: url(http://radiant-player-mac/images/arrow-left-white.png) !important;
+}
+
+#gm-forward {
+    background-image: url(http://radiant-player-mac/images/arrow-right-white.png) !important;
+}
+
+.gm-nav-button {
+    opacity: 0.8 !important;
+}
+
+.gm-nav-button:hover {
+    opacity: 1.0 !important;
+}
+
+.gm-nav-button:active {
+    opacity: 0.8 !important;
 }
