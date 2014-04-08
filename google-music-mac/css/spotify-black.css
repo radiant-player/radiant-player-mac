@@ -183,7 +183,7 @@ a, .simple-dialog a {
     background-image: url(http://radiant-player-mac/sprites-inverted.png) !important;
 }
 
-.song-row.currently-playing td[data-col="title"] {
+.song-row.currently-playing td {
     color: #ff8200 !important;
 }
 
