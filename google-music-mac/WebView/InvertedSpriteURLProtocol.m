@@ -26,27 +26,25 @@
     
     self = [super initWithRequest:_request cachedResponse:cachedResponse client:client];
     if (self) {
-        // Convert the inverted sprite sheet to data.
-        NSImage *inverted = [_delegate invertedSpriteSheet];
-        [inverted lockFocus] ;
-        NSBitmapImageRep *imgRep = [[NSBitmapImageRep alloc] initWithFocusedViewRect:NSMakeRect(0.0, 0.0, [inverted size].width, [inverted size].height)] ;
-        _data = [imgRep representationUsingType: NSPNGFileType properties: nil];
-        [inverted unlockFocus] ;
+        _data = [_delegate invertedSpriteSheet];
     }
     return self;
 }
 
 - (void)startLoading
 {
-    NSURLResponse *response = [[NSURLResponse alloc] initWithURL:[_request URL] MIMEType:@"image/png" expectedContentLength:[_data length] textEncodingName:nil];
-    [[self client] URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageAllowedInMemoryOnly];
+    NSDictionary *headers = @{
+        @"Content-Type": @"image/png",
+        @"Content-Length": [NSString stringWithFormat:@"%ld", [_data length]]
+    };
+    NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:[_request URL] statusCode:200 HTTPVersion:@"HTTP/1.1" headerFields:headers];
+    [[self client] URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageNotAllowed];
     [[self client] URLProtocol:self didLoadData:_data];
     [[self client] URLProtocolDidFinishLoading:self];
 }
 
 - (void)stopLoading
 {
-
 }
 
 @end

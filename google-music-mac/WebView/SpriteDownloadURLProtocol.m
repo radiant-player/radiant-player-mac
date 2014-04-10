@@ -17,7 +17,12 @@
 + (BOOL) canInitWithRequest:(NSURLRequest*)request
 {
     CustomWebView *delegate = [NSURLProtocol propertyForKey:@"OriginalCustomWebView" inRequest:request];
-    return (delegate != nil);
+    
+    if (delegate != nil) {
+        return [delegate invertedSpriteSheet] == nil;
+    }
+    
+    return NO;
 }
 
 - (id) initWithRequest:(NSURLRequest*)theRequest cachedResponse:(NSCachedURLResponse*)cachedResponse client:(id<NSURLProtocolClient>)client
@@ -67,13 +72,17 @@
     [invertFilter setDefaults];
     [invertFilter setValue:image forKey:kCIInputImageKey];
     CIImage *result = [invertFilter valueForKey:kCIOutputImageKey];
-    CGRect extent = [result extent];
     CGImageRef cgimage = [context createCGImage:result fromRect:[result extent]];
-    NSImage *inverted = [[NSImage alloc] initWithCGImage:cgimage size:extent.size];
+    
+    NSMutableData *data = [NSMutableData data];
+    CGImageDestinationRef dest = CGImageDestinationCreateWithData((__bridge CFMutableDataRef)(data), kUTTypePNG, 1, NULL);
+    CGImageDestinationAddImage(dest, cgimage, NULL);
+    CGImageDestinationFinalize(dest);
+    CFRelease(dest);
     
     // Forward the response to your delegate however you like
     if (_delegate) {
-        [_delegate setInvertedSpriteSheet:inverted];
+        [_delegate setInvertedSpriteSheet:[data copy]];
     }
 }
 

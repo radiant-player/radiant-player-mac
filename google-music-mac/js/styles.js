@@ -33,6 +33,13 @@ if (typeof window.Styles === 'undefined') {
             if (Styles.appliedStyles[key]) {
                 Styles.appliedStyles[key].disabled = true;
             }
+        },
+        
+        removeStyle: function(key) {
+            if (Styles.appliedStyles[key]) {
+                Styles.appliedStyles[key].parentNode.removeChild(Styles.appliedStyles[key]);
+                delete Styles.appliedStyles[key];
+            }
         }
     };
 }
