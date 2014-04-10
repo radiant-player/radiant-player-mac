@@ -7,11 +7,14 @@
  *
  */
 
-if (typeof window.Styles.DarkFlat === 'undefined') {
+if (typeof window.Styles.Applied === 'undefined') {
+    window.Styles.Applied = true;
     window.Styles.DarkFlat = true;
     
     // Thumbs up and down styles.
-    (function() {
+    var mediaChange = (function(list) {
+        window.Styles.removeStyle('thumbsUpDown');
+
         // Create dummy elements to get the computed styles for these elements.
         var td = document.createElement('td');
         td.dataset.col = 'rating';
@@ -45,11 +48,15 @@ if (typeof window.Styles.DarkFlat === 'undefined') {
         var thumbsDownPosition = thumbsDownBackX + 'px ' + thumbsDownBackY + 'px';
 
         window.Styles.applyStyle('thumbsUpDown',
-            '.song-row [data-col="rating"][data-rating="4"]:not(.stars), ' +
             '.song-row [data-col="rating"][data-rating="5"]:not(.stars) { background-position: ' + thumbsUpPosition + ' !important; } ' +
 
             '.song-row [data-col="rating"][data-rating="1"]:not(.stars), ' +
             '.song-row [data-col="rating"][data-rating="2"]:not(.stars) { background-position: ' + thumbsDownPosition + ' !important; } '
-        );
-     })();
+            );
+    });
+
+    mediaChange(null);
+
+    var mql = window.matchMedia("screen and (-webkit-min-device-pixel-ratio:1.5),screen and (min--moz-device-pixel-ratio:1.5),screen and (-o-min-device-pixel-ratio:1.5),screen and (min-resolution:1.5dppx)");
+    mql.addListener(mediaChange);
 }

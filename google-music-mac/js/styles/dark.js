@@ -7,11 +7,14 @@
  *
  */
 
-if (typeof window.Styles.Dark === 'undefined') {
+if (typeof window.Styles.Applied === 'undefined') {
+    window.Styles.Applied = true;
     window.Styles.Dark = true;
     
     // Thumbs up and down styles.
-    (function() {
+    var mediaChange = (function(list) {
+        window.Styles.removeStyle('thumbsUpDown');
+
         // Create dummy elements to get the computed styles for these elements.
         var td = document.createElement('td');
         td.dataset.col = 'rating';
@@ -49,6 +52,11 @@ if (typeof window.Styles.Dark === 'undefined') {
 
             '.song-row [data-col="rating"][data-rating="1"]:not(.stars), ' +
             '.song-row [data-col="rating"][data-rating="2"]:not(.stars) { background-position: ' + thumbsDownPosition + ' !important; } '
-        );
-     })();
+            );
+    });
+
+    mediaChange(null);
+
+    var mql = window.matchMedia("screen and (-webkit-min-device-pixel-ratio:1.5),screen and (min--moz-device-pixel-ratio:1.5),screen and (-o-min-device-pixel-ratio:1.5),screen and (min-resolution:1.5dppx)");
+    mql.addListener(mediaChange);
 }

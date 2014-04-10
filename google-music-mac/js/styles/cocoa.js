@@ -7,7 +7,8 @@
  *
  */
 
-if (typeof window.Styles.Cocoa === 'undefined') {
+if (typeof window.Styles.Applied === 'undefined') {
+    window.Styles.Applied = true;
     window.Styles.Cocoa = true;
     
     // Thumbs up and down styles.
