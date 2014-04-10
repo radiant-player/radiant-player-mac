@@ -20,6 +20,7 @@
 @property (retain) NSColor *windowColor;
 @property (retain) NSString *css;
 @property (retain) NSString *js;
+@property BOOL useInverseSprite;
 
 - (void)applyToWebView:(WebView *)webView;
 

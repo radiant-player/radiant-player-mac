@@ -68,6 +68,7 @@
     [dark setWindowColor:[NSColor colorWithSRGBRed:0.768f green:0.768f blue:0.768f alpha:1.0f]];
     [dark setCss:[ApplicationStyle cssNamed:@"dark"]];
     [dark setJs:[ApplicationStyle jsNamed:@"dark"]];
+    [dark setUseInverseSprite: true];
     
     // Create the Dark Flat style.
     ApplicationStyle *darkFlat = [[ApplicationStyle alloc] init];
@@ -77,6 +78,7 @@
     [darkFlat setWindowColor:[NSColor colorWithSRGBRed:0.768f green:0.768f blue:0.768f alpha:1.0f]];
     [darkFlat setCss:[ApplicationStyle cssNamed:@"dark-flat"]];
     [darkFlat setJs:[ApplicationStyle jsNamed:@"dark-flat"]];
+    [darkFlat setUseInverseSprite: true];
     
     // Create the Spotify Black style.
     ApplicationStyle *spotifyBlack = [[ApplicationStyle alloc] init];
@@ -86,6 +88,7 @@
     [spotifyBlack setWindowColor:[NSColor colorWithSRGBRed:0.133f green:0.137f blue:0.149f alpha:1.0f]];
     [spotifyBlack setCss:[ApplicationStyle cssNamed:@"spotify-black"]];
     [spotifyBlack setJs:[ApplicationStyle jsNamed:@"spotify-black"]];
+    [spotifyBlack setUseInverseSprite: true];
     
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
     [dictionary setObject:cocoa forKey:[cocoa name]];
