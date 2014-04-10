@@ -151,17 +151,17 @@ a, .simple-dialog a {
 .song-row [data-col="rating"][data-rating="1"], 
 .song-row [data-col="rating"][data-rating="2"],
 .song-row [data-col="rating"][data-rating="5"] {
-    background-image: url(http://radiant-player-mac/images/sprites-inverted.png);
+    background-image: url(http://radiant-player-mac/sprites-inverted.png);
 }
 
 .song-row .rating-container.thumbs [data-rating="1"], 
 .song-row .rating-container.thumbs [data-rating="5"] {
-    background-image: url(http://radiant-player-mac/images/sprites-inverted.png);
+    background-image: url(http://radiant-player-mac/sprites-inverted.png);
 }
 
 .song-row .rating-container.thumbs [data-rating="1"]:hover,
 .song-row .rating-container.thumbs [data-rating="5"]:hover {
-    background-image: url(http://radiant-player-mac/images/sprites-inverted.png);
+    background-image: url(http://radiant-player-mac/sprites-inverted.png);
 }
 
 .song-row .rating-container.stars {
@@ -180,7 +180,7 @@ a, .simple-dialog a {
 
 .song-row.selected-song-row .hover-button[data-id="menu"] {
     background-color: transparent !important;
-    background-image: url(http://radiant-player-mac/images/sprites-inverted.png) !important;
+    background-image: url(http://radiant-player-mac/sprites-inverted.png) !important;
 }
 
 .song-row.currently-playing td[data-col="title"] {
@@ -232,12 +232,12 @@ a, .simple-dialog a {
 
 .nav-item-container .playlistDropDown, .nav-item-container.selected .playlistDropDown {
     background-color: transparent !important;
-    background-image: url(http://radiant-player-mac/images/sprites-inverted.png) !important;
+    background-image: url(http://radiant-player-mac/sprites-inverted.png) !important;
     margin-top: 1px !important;
 }
 
 .nav-item-container.selected .playlistDropDown, .nav-item-container.selected .playlistDropDown:hover {
-    background-image: url(http://radiant-player-mac/images/sprites-inverted.png);
+    background-image: url(http://radiant-player-mac/sprites-inverted.png);
 }
 
 .nav-bar .header-tab-title.selected {
@@ -301,7 +301,7 @@ a, .simple-dialog a {
 #player .flat-button[data-id="repeat"][value="NO_REPEAT"],
 #player .flat-button[data-id="shuffle"][value="NO_SHUFFLE"],
 #player .flat-button[data-id="queue"]:not(.selected) {
-    background-image: url(http://radiant-player-mac/images/sprites-inverted.png);
+    background-image: url(http://radiant-player-mac/sprites-inverted.png);
 }
 
 
@@ -312,7 +312,7 @@ a, .simple-dialog a {
 #player [data-id="now-playing-menu"] {
     border: none;
     background-color: transparent !important;
-    background-image: url(http://radiant-player-mac/images/sprites-inverted.png);
+    background-image: url(http://radiant-player-mac/sprites-inverted.png);
 }
 
 #player .rating-container.thumbs li.selected:hover, #player .rating-container.thumbs li:hover {
@@ -320,7 +320,7 @@ a, .simple-dialog a {
 }
 
 #player .rating-container.thumbs li:not(.selected) {
-    background-image: url(http://radiant-player-mac/images/sprites-inverted.png);
+    background-image: url(http://radiant-player-mac/sprites-inverted.png);
 }
 
 #playerSongTitle {
@@ -353,11 +353,11 @@ a, .simple-dialog a {
 }
 
 #volume .goog-slider-thumb {
-    background-image: url(http://radiant-player-mac/images/sprites-inverted.png);
+    background-image: url(http://radiant-player-mac/sprites-inverted.png);
 }
 
 #volume_high, #volume_low {
-    background-image: url(http://radiant-player-mac/images/sprites-inverted.png);
+    background-image: url(http://radiant-player-mac/sprites-inverted.png);
 }
 
 #oneGoogleWrapper > div:first-child > div {
