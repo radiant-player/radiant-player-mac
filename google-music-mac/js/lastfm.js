@@ -23,7 +23,8 @@ if (typeof window.LastFmButton === 'undefined') {
     //    rightArea.removeChild(rightArea.childNodes[0]);
     
     // Remove the +Google name in the top-right area.
-    rightArea.removeChild(rightArea.childNodes[0]);
+    if (rightArea.childNodes.length)
+        rightArea.removeChild(rightArea.childNodes[0]);
 
     // Add a button that, when clicked, opens the Last.fm popover.
     var lastfmButton = document.createElement('a');

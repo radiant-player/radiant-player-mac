@@ -33,6 +33,16 @@ if (typeof window.GMNavigation === 'undefined') {
         logoContainer.parentNode.style.cssText = '';
     }
     
+    if (window.GoogleMusicApp.preferenceForKey("navigation.buttons.keep-links") == false)
+    {
+        // Obtain the area on the top-right, containing the Google account information.
+        var rightArea = document.querySelector('#oneGoogleWrapper > div:first-child > div:first-child > div:first-child');
+        
+        // Remove all of the children.
+        while (rightArea.childNodes.length)
+            rightArea.removeChild(rightArea.childNodes[0]);
+    }
+    
     // Change the styles of the sibling elements of the logo.
     document.querySelector('#oneGoogleWrapper > div:first-child > div:first-child > div:nth-child(1)').style.webkitFlexGrow = 0;
     document.querySelector('#oneGoogleWrapper > div:first-child > div:first-child > div:nth-child(3)').style.webkitFlexGrow = 1;

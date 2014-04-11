@@ -25,7 +25,7 @@ if (typeof window.GMAppBar === 'undefined') {
 
     var isDescendantOfExcludedElements = function(el) {
         for (var i = 0; i < exclude.length; i++) {
-            if (exclude[i] != null && exclude[i].contains(el))
+            if (exclude[i] && exclude[i].contains(el))
                 return true;
         }
         
