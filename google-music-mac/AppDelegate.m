@@ -569,11 +569,15 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     BOOL stylesEnabled = [defaults boolForKey:@"styles.enabled"];
     NSString *styleName = [defaults stringForKey:@"styles.name"];
     ApplicationStyle *style = [_styles objectForKey:styleName];
+    BOOL useInverseSprite = [style useInverseSprite];
     
     if (stylesEnabled && style)
     {
         [style applyToWebView:webView];
         [window setBackgroundColor:[style windowColor]];
+        if (useInverseSprite) {
+            [self applyCSSFile:@"inverse"];
+        }
     }
 }
 

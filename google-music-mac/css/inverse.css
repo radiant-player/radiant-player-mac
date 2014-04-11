@@ -1,0 +1,40 @@
+/*
+ * css/inverse.css
+ *
+ * Custom stylesheet that uses our custom generated color-inverted sprite.
+ *
+ * Created by Anthony Barone (@tonybaroneee)
+ *
+ * Subject to terms and conditions in LICENSE.md.
+ *
+ */
+
+.song-row [data-col="rating"][data-rating="1"], 
+.song-row [data-col="rating"][data-rating="2"],
+.song-row [data-col="rating"][data-rating="5"],
+.song-row .rating-container.thumbs [data-rating="1"], 
+.song-row .rating-container.thumbs [data-rating="5"],
+.song-row .rating-container.thumbs [data-rating="1"]:hover,
+.song-row .rating-container.thumbs [data-rating="5"]:hover,
+.song-row.selected-song-row .hover-button[data-id="menu"],
+.nav-item-container .playlistDropDown, .nav-item-container.selected .playlistDropDown,
+.nav-item-container.selected .playlistDropDown, .nav-item-container.selected .playlistDropDown:hover,
+#player .flat-button[data-id="play-pause"], 
+#player .flat-button[data-id="forward"], 
+#player .flat-button[data-id="rewind"],
+#player .flat-button[data-id="repeat"][value="NO_REPEAT"],
+#player .flat-button[data-id="shuffle"][value="NO_SHUFFLE"],
+#player .flat-button[data-id="queue"]:not(.selected),
+#player .rating-container.thumbs li:not(.selected),
+#volume .goog-slider-thumb,
+#volume_high, #volume_low {
+    background-image: url(https://radiant-player-mac/sprites-inverted.png) !important;
+}
+
+.song-row.selected-song-row .hover-button[data-id="menu"] {
+    background-color: transparent !important;
+}
+
+.nav-item-container .playlistDropDown, .nav-item-container.selected .playlistDropDown {
+    background-color: transparent !important;
+}

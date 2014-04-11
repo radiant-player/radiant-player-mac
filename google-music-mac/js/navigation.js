@@ -36,6 +36,20 @@ if (typeof window.GMNavigation === 'undefined') {
     // Change the styles of the sibling elements of the logo.
     document.querySelector('#oneGoogleWrapper > div:first-child > div:first-child > div:nth-child(1)').style.webkitFlexGrow = 0;
     document.querySelector('#oneGoogleWrapper > div:first-child > div:first-child > div:nth-child(3)').style.webkitFlexGrow = 1;
+
+    // Check if we should hide the Apps/Notifications/Share links
+    if (!window.GoogleMusicApp.preferenceForKey("navigation.buttons.keep-links"))
+    {
+        // Hide the links (the 2nd, 3rd, and 4th children of the link container)
+        var i = 0;
+        while (i < 3) {
+            document.querySelector('#oneGoogleWrapper > div:first-child > div:first-child > div:first-child > div:nth-child(2) > div:nth-child(2)').remove();
+            i++;
+        }
+
+        // Remove min-width constraint for account picture box
+        document.querySelector('.gb_Rb.gb_4b.gb_e').style.minWidth = '0px';
+    }
     
     // Create back and forward buttons.
     var backButton = document.createElement('button');
