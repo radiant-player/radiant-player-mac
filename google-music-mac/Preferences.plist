@@ -23,7 +23,7 @@
 	<key>navigation.buttons.keep-logo</key>
 	<false/>
 	<key>navigation.buttons.keep-links</key>
-	<true/>
+	<false/>
 	<key>navigation.swipe.enabled</key>
 	<true/>
 	<key>notifications.enabled</key>

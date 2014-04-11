@@ -41,6 +41,47 @@ a, .simple-dialog a {
     color: #999;
 }
 
+.button, .simple-dialog-buttons button, .button.primary {
+    border-radius: 20px;
+    box-shadow: none;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.button.small {
+    font-size: 12px;
+}
+
+.button:not(.primary), .button.small:not(.primary) {
+    background: transparent !important;
+    border-color: #88898c;
+    color: #dfe0e6 !important;
+}
+
+.button:not(.primary):hover, .button.small:not(.primary):hover {
+    color: #dfe0e6 !important;
+    border-color: #FF7D00;
+    opacity: 1;
+}
+
+.button:not(.primary):active, .button.small:not(.primary):active {
+    box-shadow: none;
+    opacity: 0.6;
+}
+
+#extra-links-anchor,
+.extra-links-dropdown,
+.actions button:not(.primary) .icon,
+.actions button:not(.primary):hover .icon,
+#action_bar_container button[data-id="shuffle-my-library"] .icon,
+#action_bar_container button[data-id="shuffle-my-library"]:hover .icon,
+#action_bar_container button[data-id="im-feeling-lucky"] .icon,
+#action_bar_container button[data-id="im-feeling-lucky"]:hover .icon,
+#action_bar_container button[data-id="filter-songs"] .icon,
+#action_bar_container button[data-id="filter-songs"]:hover .icon {
+    background-image: url(https://radiant-player-mac/sprites-inverted.png) !important;
+}
+
 .g-doc {
     height: -webkit-calc(100% - 60px) !important;
     height: calc(100% - 60px) !important;
@@ -456,15 +497,6 @@ div.simple-dialog-bg {
 
 .simple-dialog-title {
     color: #444 !important;
-}
-
-.button:not(.primary) {
-    background: #ddd !important;
-    color: #666 !important;
-	/*background: transparent !important;
-	border-color: #818285 !important;
-	border-radius: 25px !important;
-	color: #dfe0e6 !important;*/
 }
 
 .butter-bar-container {
