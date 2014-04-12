@@ -52,8 +52,14 @@
 
 + (NSString *)latestVersionFromGithub
 {
-    NSURL *url = [NSURL URLWithString:@"https://api.github.com/repos/kbhomes/google-music-mac/releases"];
+    NSURL *url = [NSURL URLWithString:@"https://api.github.com/repos/kbhomes/radiant-player-mac/releases"];
     NSData *data = [NSData dataWithContentsOfURL:url];
+    
+    if (!data)
+    {
+        url = [NSURL URLWithString:@"https://api.github.com/repos/kbhomes/google-music-mac/releases"];
+        data = [NSData dataWithContentsOfURL:url];
+    }
     
     if (data)
     {
