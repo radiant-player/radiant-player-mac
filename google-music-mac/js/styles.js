@@ -36,7 +36,7 @@ if (typeof window.Styles === 'undefined') {
         },
         
         removeStyle: function(key) {
-            if (Styles.appliedStyles[key]) {
+            if (Styles.appliedStyles[key] && Styles.appliedStyles[key].parentNode) {
                 Styles.appliedStyles[key].parentNode.removeChild(Styles.appliedStyles[key]);
                 delete Styles.appliedStyles[key];
             }

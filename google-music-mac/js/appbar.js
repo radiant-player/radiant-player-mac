@@ -18,8 +18,7 @@ if (typeof window.GMAppBar === 'undefined') {
     exclude.push(document.querySelector('#gm-back'));
     exclude.push(document.querySelector('#gm-forward'));
     exclude.push(document.querySelector('#oneGoogleWrapper input[name="q"]').parentNode);
-    exclude.push(document.querySelector('#oneGoogleWrapper > div:first-child > div:first-child > div:first-child > div:first-child'));
-    exclude.concat(document.querySelectorAll('#oneGoogleWrapper > div:first-child > div:first-child > div:first-child > div:nth-child(2) > div > div:first-child'));
+    exclude.concat(document.querySelectorAll('#oneGoogleWrapper > div:first-child > div:first-child > div:first-child > div'));
     
     var appBar = document.querySelector('#oneGoogleWrapper');
 
