@@ -344,6 +344,14 @@ div.simple-dialog-bg {
     top: 0;
 }
 
+.song-row.currently-playing td[data-col="track"] span {
+    visibility: collapse;
+}
+
+.song-row.currently-playing td[data-col="track"] span > div {
+    visibility: visible;
+}
+
 ::-webkit-scrollbar {
     width: 10px !important;
 }
