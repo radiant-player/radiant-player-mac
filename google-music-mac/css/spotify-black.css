@@ -194,6 +194,14 @@ a, .simple-dialog a {
     color: #ff8200 !important;
 }
 
+.song-row.currently-playing td[data-col="track"] span {
+    visibility: collapse;
+}
+
+.song-row.currently-playing td[data-col="track"] span > div {
+    visibility: visible;
+}
+
 .music-banner {
     display: none;
 }
