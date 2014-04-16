@@ -159,6 +159,21 @@ a, .simple-dialog a {
     color: white !important;
 }
 
+.song-table [data-col="index"] .content, 
+.song-table [data-col="track"] .content {
+    color: inherit;
+}
+
+.song-row.currently-playing td[data-col="track"] span,
+.song-row.currently-playing td[data-col="index"] span {
+    visibility: collapse;
+}
+
+.song-row.currently-playing td[data-col="track"] span > div,
+.song-row.currently-playing td[data-col="index"] span > div {
+    visibility: visible;
+}
+
 .music-banner {
     display: none;
 }

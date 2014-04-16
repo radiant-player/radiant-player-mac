@@ -344,6 +344,21 @@ div.simple-dialog-bg {
     top: 0;
 }
 
+.song-table [data-col="index"] .content, 
+.song-table [data-col="track"] .content {
+    color: inherit;
+}
+
+.song-row.currently-playing td[data-col="track"] span,
+.song-row.currently-playing td[data-col="index"] span {
+    visibility: collapse;
+}
+
+.song-row.currently-playing td[data-col="track"] span > div,
+.song-row.currently-playing td[data-col="index"] span > div {
+    visibility: visible;
+}
+
 ::-webkit-scrollbar {
     width: 10px !important;
 }
