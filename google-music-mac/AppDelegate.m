@@ -500,6 +500,8 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 - (void)playbackChanged:(NSInteger)mode
 {
     [popupDelegate playbackChanged:mode];
+    [statusView setPlaybackMode:mode];
+    [statusView setNeedsDisplay:YES];
 }
 
 - (void)playbackTimeChanged:(NSInteger)currentTime totalTime:(NSInteger)totalTime

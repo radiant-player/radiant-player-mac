@@ -8,6 +8,7 @@
  */
 
 #import "PopupStatusView.h"
+#import "PlaybackConstants.h"
 
 @implementation PopupStatusView
 
@@ -15,6 +16,7 @@
 @synthesize menu = _menu;
 @synthesize statusItem;
 @synthesize active;
+@synthesize playbackMode;
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -30,22 +32,36 @@
 	[super drawRect:rect];
     
     rect = NSInsetRect(rect, 2, 0);
+    
+    NSString *imageName;
 	
     // Draw the status bar item (highlight or not).
     if (self.active) {
         [[NSColor selectedMenuItemColor] set];
-        NSRectFill(rect);
         
-        NSImage *icon = [Utilities imageFromName:@"menuicon_white"];
-        [icon drawInRect:NSInsetRect(rect, 2, 2) fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"miniplayer.show-playing-status"] &&
+            playbackMode == MUSIC_PLAYING) {
+            imageName = @"menuicon_playing_white";
+        }
+        else {
+            imageName = @"menuicon_white";
+        }
     }
     else {
         [[NSColor clearColor] set];
-        NSRectFill(rect);
         
-        NSImage *icon = [Utilities imageFromName:@"menuicon"];
-        [icon drawInRect:NSInsetRect(rect, 2, 2) fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"miniplayer.show-playing-status"] &&
+            playbackMode == MUSIC_PLAYING) {
+            imageName = @"menuicon_playing";
+        }
+        else {
+            imageName = @"menuicon";
+        }
     }
+    
+    NSRectFill(rect);
+    NSImage *icon = [Utilities imageFromName:imageName];
+    [icon drawInRect:NSInsetRect(rect, 2, 2) fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
 }
 
 - (void)mouseDown:(NSEvent *)theEvent {

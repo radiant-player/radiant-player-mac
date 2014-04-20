@@ -18,6 +18,8 @@
 	<false/>
 	<key>miniplayer.large</key>
 	<false/>
+	<key>miniplayer.show-playing-status</key>
+	<false/>
 	<key>navigation.buttons.enabled</key>
 	<true/>
 	<key>navigation.buttons.keep-logo</key>

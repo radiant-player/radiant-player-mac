@@ -24,6 +24,7 @@
 @property (retain) NSMenu *menu;
 @property (retain) NSStatusItem *statusItem;
 @property (nonatomic) BOOL active;
+@property (assign) NSInteger playbackMode;
 
 - (void)showPopup;
 - (void)hidePopup;
