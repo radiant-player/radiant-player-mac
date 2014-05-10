@@ -35,12 +35,10 @@ if (typeof window.GMNavigation === 'undefined') {
     
     if (window.GoogleMusicApp.preferenceForKey("navigation.buttons.keep-links") == false)
     {
-        // Obtain the area on the top-right, containing the Google account information.
-        var rightArea = document.querySelector('#oneGoogleWrapper > div:first-child > div:first-child > div:first-child');
-        
-        // Remove all of the children.
-        while (rightArea.childNodes.length)
-            rightArea.removeChild(rightArea.childNodes[0]);
+        document.querySelector('#oneGoogleWrapper > div:first-child > div:first-child > div:first-child > div:last-child > div:nth-child(5)').style = "min-width: 0;";
+        document.querySelector('#oneGoogleWrapper > div:first-child > div:first-child > div:first-child > div:last-child > div:nth-child(4)').remove();
+        document.querySelector('#oneGoogleWrapper > div:first-child > div:first-child > div:first-child > div:last-child > div:nth-child(3)').remove();
+        document.querySelector('#oneGoogleWrapper > div:first-child > div:first-child > div:first-child > div:last-child > div:nth-child(2)').remove();
     }
     
     // Change the styles of the sibling elements of the logo.
