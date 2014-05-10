@@ -350,6 +350,7 @@ Changing this preference will require a restart of the application to take effec
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
+                        <binding destination="qKJ-ks-0kW" name="enabled" keyPath="values.navigation.buttons.enabled" id="Gd4-d5-PaQ"/>
                         <binding destination="qKJ-ks-0kW" name="value" keyPath="values.navigation.buttons.keep-logo" id="id8-09-S6h"/>
                     </connections>
                 </button>
