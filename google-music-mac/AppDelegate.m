@@ -552,11 +552,8 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     [self evaluateJavaScriptFile:@"styles"];
     
     // Apply the navigation styles.
-    if ([defaults boolForKey:@"navigation.buttons.enabled"])
-    {
-        [self applyCSSFile:@"navigation"];
-        [self evaluateJavaScriptFile:@"navigation"];
-    }
+    [self applyCSSFile:@"navigation"];
+    [self evaluateJavaScriptFile:@"navigation"];
     
     // Apply the Last.fm JS and CSS.
     if ([defaults boolForKey:@"lastfm.button.enabled"])
