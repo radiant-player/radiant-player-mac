@@ -24,6 +24,7 @@
 #import "PreferencesWindowController.h"
 #import "ApplicationStyle.h"
 #import "LastFmPopover.h"
+#import "TitleBarTextView.h"
 
 @class PopupViewDelegate;
 @class PopupStatusView;
@@ -41,6 +42,7 @@
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property (nonatomic, retain) TitleBarTextView *titleView;
 @property (nonatomic, retain) IBOutlet CustomWebView *webView;
 @property (nonatomic, retain) NSStatusItem *statusItem;
 @property (nonatomic, retain) PopupStatusView *statusView;

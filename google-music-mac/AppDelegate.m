@@ -13,6 +13,7 @@
 @implementation AppDelegate
 
 @synthesize webView;
+@synthesize titleView;
 @synthesize window;
 @synthesize statusItem;
 @synthesize statusView;
@@ -51,7 +52,18 @@
  */
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    // Put in our custom title text view.
+    titleView = [[TitleBarTextView alloc] initWithFrame:[[[window contentView] superview] bounds]];
+    [titleView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
+    [titleView setTitle:window.title];
+    [titleView setColor:nil];
+
+    [[window.contentView superview] addSubview:titleView
+                                    positioned:NSWindowBelow
+                                    relativeTo:[[[window.contentView superview] subviews] firstObject]];
+    
     // Change the title bar color.
+    [window setTitle:@""];
     [window setBackgroundColor:[NSColor colorWithSRGBRed:0.945 green:0.945 blue:0.945 alpha:1]];
     
     // Load the user preferences.
@@ -574,6 +586,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     {
         [style applyToWebView:webView];
         [window setBackgroundColor:[style windowColor]];
+        [titleView setColor:[style titleColor]];
     }
 }
 

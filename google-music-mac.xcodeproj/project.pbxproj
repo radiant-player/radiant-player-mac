@@ -27,6 +27,7 @@
 		D323406A18C523BC008C165B /* AboutWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D323406918C523BC008C165B /* AboutWindow.m */; };
 		D326EA6418B2D7E500BEC02F /* css in Resources */ = {isa = PBXBuildFile; fileRef = D326EA6218B2D7E500BEC02F /* css */; };
 		D326EA6518B2D7E500BEC02F /* js in Resources */ = {isa = PBXBuildFile; fileRef = D326EA6318B2D7E500BEC02F /* js */; };
+		D328616519234D7900395FEA /* TitleBarTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D328616419234D7900395FEA /* TitleBarTextView.m */; };
 		D32CCEFA18BE039E00BDD484 /* PopupPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = D32CCEF918BE039E00BDD484 /* PopupPanel.m */; };
 		D32CCEFD18BE9BF800BDD484 /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = D32CCEFC18BE9BF800BDD484 /* PopupView.m */; };
 		D343CDF518C69DF4002F9DB3 /* NavigationPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D343CDF418C69DF4002F9DB3 /* NavigationPreferencesViewController.m */; };
@@ -91,6 +92,8 @@
 		D323406918C523BC008C165B /* AboutWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWindow.m; sourceTree = "<group>"; };
 		D326EA6218B2D7E500BEC02F /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
 		D326EA6318B2D7E500BEC02F /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
+		D328616319234D7900395FEA /* TitleBarTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleBarTextView.h; sourceTree = "<group>"; };
+		D328616419234D7900395FEA /* TitleBarTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleBarTextView.m; sourceTree = "<group>"; };
 		D32CCEF818BE039E00BDD484 /* PopupPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupPanel.h; sourceTree = "<group>"; };
 		D32CCEF918BE039E00BDD484 /* PopupPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupPanel.m; sourceTree = "<group>"; };
 		D32CCEFB18BE9BF800BDD484 /* PopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupView.h; sourceTree = "<group>"; };
@@ -215,6 +218,8 @@
 				D3DB8FF418BD2AEC00ABE93B /* PlaybackConstants.m */,
 				D3091F6118C32961007C8DCD /* Utilities.h */,
 				D3091F6218C32961007C8DCD /* Utilities.m */,
+				D328616319234D7900395FEA /* TitleBarTextView.h */,
+				D328616419234D7900395FEA /* TitleBarTextView.m */,
 				1A7B684617453E40001E509E /* Supporting Files */,
 			);
 			path = "google-music-mac";
@@ -470,6 +475,7 @@
 				D32CCEFA18BE039E00BDD484 /* PopupPanel.m in Sources */,
 				D37B638718F1E7680098F9DC /* SpriteDownloadURLProtocol.m in Sources */,
 				D3B71C2818C2D5240041358B /* PreferencesWindowController.m in Sources */,
+				D328616519234D7900395FEA /* TitleBarTextView.m in Sources */,
 				D318341718CFBC7400E8F9B1 /* AppearancePreferencesViewController.m in Sources */,
 				D37B638418ED315B0098F9DC /* LastFm+TrackInfo.m in Sources */,
 				D35788BD18C2F820006AF859 /* GeneralPreferencesViewController.m in Sources */,

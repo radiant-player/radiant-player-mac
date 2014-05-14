@@ -18,6 +18,7 @@
 @property (assign) NSInteger version;
 
 @property (retain) NSColor *windowColor;
+@property (retain) NSColor *titleColor;
 @property (retain) NSString *css;
 @property (retain) NSString *js;
 

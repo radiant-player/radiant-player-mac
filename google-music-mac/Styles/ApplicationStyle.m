@@ -16,6 +16,9 @@
 @synthesize description;
 @synthesize version;
 
+@synthesize windowColor;
+@synthesize titleColor;
+
 @synthesize css;
 @synthesize js;
 
@@ -57,6 +60,7 @@
     [cocoa setAuthor:@"Sajid Anwar"];
     [cocoa setDescription:@"An application style to match Mac OS X."];
     [cocoa setWindowColor:[NSColor colorWithSRGBRed:0.898f green:0.898f blue:0.898f alpha:1.0f]];
+    [cocoa setTitleColor:nil];
     [cocoa setCss:[ApplicationStyle cssNamed:@"cocoa"]];
     [cocoa setJs:[ApplicationStyle jsNamed:@"cocoa"]];
     
@@ -66,6 +70,7 @@
     [dark setAuthor:@"Sajid Anwar"];
     [dark setDescription:@"A dark style similar to Spotify."];
     [dark setWindowColor:[NSColor colorWithSRGBRed:0.768f green:0.768f blue:0.768f alpha:1.0f]];
+    [dark setTitleColor:nil];
     [dark setCss:[ApplicationStyle cssNamed:@"dark"]];
     [dark setJs:[ApplicationStyle jsNamed:@"dark"]];
     
@@ -75,6 +80,7 @@
     [darkFlat setAuthor:@"Stefan Hoffmann"];
     [darkFlat setDescription:@"A flat version of the dark style."];
     [darkFlat setWindowColor:[NSColor colorWithSRGBRed:0.768f green:0.768f blue:0.768f alpha:1.0f]];
+    [darkFlat setTitleColor:nil];
     [darkFlat setCss:[ApplicationStyle cssNamed:@"dark-flat"]];
     [darkFlat setJs:[ApplicationStyle jsNamed:@"dark-flat"]];
     
@@ -84,6 +90,7 @@
     [spotifyBlack setAuthor:@"Anthony Barone"];
     [spotifyBlack setDescription:@"A black style similar to the new Spotify."];
     [spotifyBlack setWindowColor:[NSColor colorWithSRGBRed:0.133f green:0.137f blue:0.149f alpha:1.0f]];
+    [spotifyBlack setTitleColor:[NSColor colorWithWhite:0.7f alpha:1.0f]];
     [spotifyBlack setCss:[ApplicationStyle cssNamed:@"spotify-black"]];
     [spotifyBlack setJs:[ApplicationStyle jsNamed:@"spotify-black"]];
     
