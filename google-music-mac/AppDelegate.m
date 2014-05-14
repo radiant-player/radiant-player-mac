@@ -61,6 +61,7 @@
     if (([defaults boolForKey:@"miniplayer.enabled"] && [defaults boolForKey:@"miniplayer.hide-dock-icon"]))
     {
         [NSApp setActivationPolicy:NSApplicationActivationPolicyAccessory];
+        [window setCollectionBehavior:NSWindowCollectionBehaviorDefault];
     }
     
     [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];

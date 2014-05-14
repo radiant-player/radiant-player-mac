@@ -118,12 +118,19 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" id="V71-OH-XBr">
-                    <rect key="frame" x="146" y="49" width="314" height="42"/>
+                    <rect key="frame" x="146" y="63" width="314" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" id="pkS-R3-Khr">
+                    <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Access the main menu by right-clicking the menu icon" allowsEditingTextAttributes="YES" id="pkS-R3-Khr">
                         <font key="font" size="11" name="LucidaGrande"/>
-                        <string key="title">Access the main menu by right-clicking the menu item.
-Changing this preference will require a restart of the application to take effect</string>
+                        <color key="textColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" id="asB-JM-HUB">
+                    <rect key="frame" x="146" y="49" width="314" height="28"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Changing this preference will require a restart of the application to take effect" allowsEditingTextAttributes="YES" id="M1a-9Q-pog">
+                        <font key="font" size="11" name="LucidaGrande"/>
                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
