@@ -47,7 +47,8 @@ if (typeof window.GMNavigation === 'undefined') {
     document.querySelector('#oneGoogleWrapper > div:first-child > div:first-child > div:nth-child(1)').style.webkitFlexGrow = 0;
     document.querySelector('#oneGoogleWrapper > div:first-child > div:first-child > div:nth-child(3)').style.webkitFlexGrow = 1;
     
-    if(window.GoogleMusicApp.preferenceForKey("navigation.buttons.enabled") == true) {
+    if (window.GoogleMusicApp.preferenceForKey("navigation.buttons.enabled"))
+    {
         // Create back and forward buttons.
         var backButton = document.createElement('button');
         backButton.className = 'gm-nav-button';
@@ -64,5 +65,10 @@ if (typeof window.GMNavigation === 'undefined') {
         // Add the back and forward buttons.
         logoContainer.appendChild(backButton);
         logoContainer.appendChild(forwardButton);
+    }
+    else
+    {
+        logoContainer.parentNode.style.minWidth = '0px';
+        logoContainer.parentNode.style.paddingLeft = '30px';
     }
 }
