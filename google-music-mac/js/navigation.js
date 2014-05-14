@@ -36,10 +36,11 @@ if (typeof window.GMNavigation === 'undefined') {
     if (window.GoogleMusicApp.preferenceForKey("navigation.buttons.keep-links") == false)
     {
         // Obtain the area on the top-right, containing the Google account information.
-        var rightArea = document.querySelector('#oneGoogleWrapper > div:first-child > div:first-child > div:first-child');
+        var rightArea = document.querySelector('#oneGoogleWrapper > div:first-child > div:first-child > div:first-child > div:nth-child(2)');
+        rightArea.style.minWidth = 0;
         
-        // Remove all of the children.
-        while (rightArea.childNodes.length)
+        // Remove all of the children, except the last (the user button).
+        while (rightArea.childNodes.length > 1)
             rightArea.removeChild(rightArea.childNodes[0]);
     }
     
