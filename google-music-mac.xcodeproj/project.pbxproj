@@ -24,15 +24,20 @@
 		D3091F6918C40FBD007C8DCD /* SwipeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D3091F6818C40FBD007C8DCD /* SwipeAnimation.m */; };
 		D318341718CFBC7400E8F9B1 /* AppearancePreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D318341618CFBC7400E8F9B1 /* AppearancePreferencesViewController.m */; };
 		D318341B18CFC7C500E8F9B1 /* ApplicationStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D318341A18CFC7C500E8F9B1 /* ApplicationStyle.m */; };
+		D318342118D0513D00E8F9B1 /* CookieStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = D318342018D0513D00E8F9B1 /* CookieStorage.m */; };
 		D323406A18C523BC008C165B /* AboutWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D323406918C523BC008C165B /* AboutWindow.m */; };
 		D326EA6418B2D7E500BEC02F /* css in Resources */ = {isa = PBXBuildFile; fileRef = D326EA6218B2D7E500BEC02F /* css */; };
 		D326EA6518B2D7E500BEC02F /* js in Resources */ = {isa = PBXBuildFile; fileRef = D326EA6318B2D7E500BEC02F /* js */; };
 		D328616519234D7900395FEA /* TitleBarTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D328616419234D7900395FEA /* TitleBarTextView.m */; };
+		D32861681924000800395FEA /* NSDate+UTCString.m in Sources */ = {isa = PBXBuildFile; fileRef = D32861671924000800395FEA /* NSDate+UTCString.m */; };
+		D328616B192414B900395FEA /* NSHTTPCookie+Coding.m in Sources */ = {isa = PBXBuildFile; fileRef = D328616A192414B900395FEA /* NSHTTPCookie+Coding.m */; };
+		D32861701924744200395FEA /* NSHTTPCookieStorage+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = D328616F1924744200395FEA /* NSHTTPCookieStorage+Swizzle.m */; };
 		D32CCEFA18BE039E00BDD484 /* PopupPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = D32CCEF918BE039E00BDD484 /* PopupPanel.m */; };
 		D32CCEFD18BE9BF800BDD484 /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = D32CCEFC18BE9BF800BDD484 /* PopupView.m */; };
 		D343CDF518C69DF4002F9DB3 /* NavigationPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D343CDF418C69DF4002F9DB3 /* NavigationPreferencesViewController.m */; };
 		D34DC2BC18C295A700C27596 /* LastFmService.m in Sources */ = {isa = PBXBuildFile; fileRef = D34DC2BB18C295A700C27596 /* LastFmService.m */; };
 		D35788BD18C2F820006AF859 /* GeneralPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35788BC18C2F820006AF859 /* GeneralPreferencesViewController.m */; };
+		D362D5421924D17B00FC0C56 /* PrivacyPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D362D5411924D17B00FC0C56 /* PrivacyPreferencesViewController.m */; };
 		D369FEFE18E3FB6B004CB1C6 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = D369FEFD18E3FB6B004CB1C6 /* icon.icns */; };
 		D370E8E018E21ABC007B5450 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D370E8DF18E21ABC007B5450 /* QuartzCore.framework */; };
 		D370E8E318E2BFE1007B5450 /* ExpandHoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = D370E8E218E2BFE1007B5450 /* ExpandHoverView.m */; };
@@ -40,6 +45,7 @@
 		D37B638718F1E7680098F9DC /* SpriteDownloadURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D37B638618F1E7680098F9DC /* SpriteDownloadURLProtocol.m */; };
 		D37B638A18F1EFD30098F9DC /* InvertedSpriteURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D37B638918F1EFD30098F9DC /* InvertedSpriteURLProtocol.m */; };
 		D3B1668318BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */; };
+		D3B4C0C318DAB4740069AB18 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B4C0C218DAB4740069AB18 /* JavaScriptCore.framework */; };
 		D3B71C2818C2D5240041358B /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B71C2718C2D5240041358B /* PreferencesWindowController.m */; };
 		D3B71C2F18C2D5770041358B /* LastFmPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B71C2D18C2D5770041358B /* LastFmPreferencesViewController.m */; };
 		D3B71C3818C2F0F20041358B /* PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3B71C3718C2F0F20041358B /* PreferencesWindowController.xib */; };
@@ -88,12 +94,20 @@
 		D318341618CFBC7400E8F9B1 /* AppearancePreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppearancePreferencesViewController.m; sourceTree = "<group>"; };
 		D318341918CFC7C500E8F9B1 /* ApplicationStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationStyle.h; sourceTree = "<group>"; };
 		D318341A18CFC7C500E8F9B1 /* ApplicationStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationStyle.m; sourceTree = "<group>"; };
+		D318341F18D0513D00E8F9B1 /* CookieStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CookieStorage.h; sourceTree = "<group>"; };
+		D318342018D0513D00E8F9B1 /* CookieStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookieStorage.m; sourceTree = "<group>"; };
 		D323406818C523BC008C165B /* AboutWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWindow.h; sourceTree = "<group>"; };
 		D323406918C523BC008C165B /* AboutWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWindow.m; sourceTree = "<group>"; };
 		D326EA6218B2D7E500BEC02F /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
 		D326EA6318B2D7E500BEC02F /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
 		D328616319234D7900395FEA /* TitleBarTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleBarTextView.h; sourceTree = "<group>"; };
 		D328616419234D7900395FEA /* TitleBarTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleBarTextView.m; sourceTree = "<group>"; };
+		D32861661924000800395FEA /* NSDate+UTCString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+UTCString.h"; sourceTree = "<group>"; };
+		D32861671924000800395FEA /* NSDate+UTCString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+UTCString.m"; sourceTree = "<group>"; };
+		D3286169192414B900395FEA /* NSHTTPCookie+Coding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSHTTPCookie+Coding.h"; sourceTree = "<group>"; };
+		D328616A192414B900395FEA /* NSHTTPCookie+Coding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSHTTPCookie+Coding.m"; sourceTree = "<group>"; };
+		D328616E1924744200395FEA /* NSHTTPCookieStorage+Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSHTTPCookieStorage+Swizzle.h"; sourceTree = "<group>"; };
+		D328616F1924744200395FEA /* NSHTTPCookieStorage+Swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSHTTPCookieStorage+Swizzle.m"; sourceTree = "<group>"; };
 		D32CCEF818BE039E00BDD484 /* PopupPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupPanel.h; sourceTree = "<group>"; };
 		D32CCEF918BE039E00BDD484 /* PopupPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupPanel.m; sourceTree = "<group>"; };
 		D32CCEFB18BE9BF800BDD484 /* PopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupView.h; sourceTree = "<group>"; };
@@ -104,6 +118,8 @@
 		D34DC2BB18C295A700C27596 /* LastFmService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastFmService.m; sourceTree = "<group>"; };
 		D35788BB18C2F820006AF859 /* GeneralPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralPreferencesViewController.h; sourceTree = "<group>"; };
 		D35788BC18C2F820006AF859 /* GeneralPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralPreferencesViewController.m; sourceTree = "<group>"; };
+		D362D5401924D17B00FC0C56 /* PrivacyPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivacyPreferencesViewController.h; sourceTree = "<group>"; };
+		D362D5411924D17B00FC0C56 /* PrivacyPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivacyPreferencesViewController.m; sourceTree = "<group>"; };
 		D369FEFD18E3FB6B004CB1C6 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		D370E8DF18E21ABC007B5450 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D370E8E118E2BFE1007B5450 /* ExpandHoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpandHoverView.h; sourceTree = "<group>"; };
@@ -116,6 +132,7 @@
 		D37B638918F1EFD30098F9DC /* InvertedSpriteURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvertedSpriteURLProtocol.m; sourceTree = "<group>"; };
 		D3B1668118BB0E43003FCE6B /* DummyWebViewPolicyDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyWebViewPolicyDelegate.h; sourceTree = "<group>"; };
 		D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyWebViewPolicyDelegate.m; sourceTree = "<group>"; };
+		D3B4C0C218DAB4740069AB18 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		D3B71C2618C2D5240041358B /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
 		D3B71C2718C2D5240041358B /* PreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesWindowController.m; sourceTree = "<group>"; };
 		D3B71C2C18C2D5770041358B /* LastFmPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastFmPreferencesViewController.h; sourceTree = "<group>"; };
@@ -147,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D370E8E018E21ABC007B5450 /* QuartzCore.framework in Frameworks */,
+				D3B4C0C318DAB4740069AB18 /* JavaScriptCore.framework in Frameworks */,
 				1A7B687417453E4C001E509E /* WebKit.framework in Frameworks */,
 				1A7B684017453E40001E509E /* Cocoa.framework in Frameworks */,
 				38D0C36DAD0F40F5A7254224 /* libPods.a in Frameworks */,
@@ -179,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				D370E8DF18E21ABC007B5450 /* QuartzCore.framework */,
+				D3B4C0C218DAB4740069AB18 /* JavaScriptCore.framework */,
 				1A7B687317453E4C001E509E /* WebKit.framework */,
 				1A7B683F17453E40001E509E /* Cocoa.framework */,
 				1A7B684117453E40001E509E /* Other Frameworks */,
@@ -214,6 +233,8 @@
 				1A7B685117453E40001E509E /* AppDelegate.h */,
 				1A7B685217453E40001E509E /* AppDelegate.m */,
 				1A7B685417453E40001E509E /* MainMenu.xib */,
+				D32861661924000800395FEA /* NSDate+UTCString.h */,
+				D32861671924000800395FEA /* NSDate+UTCString.m */,
 				D3DB8FF118BD27B700ABE93B /* PlaybackConstants.h */,
 				D3DB8FF418BD2AEC00ABE93B /* PlaybackConstants.m */,
 				D3091F6118C32961007C8DCD /* Utilities.h */,
@@ -279,6 +300,8 @@
 		D32CCEFF18BED6C200BDD484 /* WebView */ = {
 			isa = PBXGroup;
 			children = (
+				D318341F18D0513D00E8F9B1 /* CookieStorage.h */,
+				D318342018D0513D00E8F9B1 /* CookieStorage.m */,
 				1A68DAD61803B588004CBA25 /* CustomWebView.h */,
 				1A68DAD71803B588004CBA25 /* CustomWebView.m */,
 				D3B1668118BB0E43003FCE6B /* DummyWebViewPolicyDelegate.h */,
@@ -293,6 +316,10 @@
 				D37B638918F1EFD30098F9DC /* InvertedSpriteURLProtocol.m */,
 				D3CD9C3A18F25E0E002FBEE9 /* ImageURLProtocol.h */,
 				D3CD9C3B18F25E0E002FBEE9 /* ImageURLProtocol.m */,
+				D3286169192414B900395FEA /* NSHTTPCookie+Coding.h */,
+				D328616A192414B900395FEA /* NSHTTPCookie+Coding.m */,
+				D328616E1924744200395FEA /* NSHTTPCookieStorage+Swizzle.h */,
+				D328616F1924744200395FEA /* NSHTTPCookieStorage+Swizzle.m */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -313,6 +340,8 @@
 				D35788BC18C2F820006AF859 /* GeneralPreferencesViewController.m */,
 				D343CDF318C69DF4002F9DB3 /* NavigationPreferencesViewController.h */,
 				D343CDF418C69DF4002F9DB3 /* NavigationPreferencesViewController.m */,
+				D362D5401924D17B00FC0C56 /* PrivacyPreferencesViewController.h */,
+				D362D5411924D17B00FC0C56 /* PrivacyPreferencesViewController.m */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -459,12 +488,14 @@
 				D3B1668318BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m in Sources */,
 				D3CD9C3C18F25E0E002FBEE9 /* ImageURLProtocol.m in Sources */,
 				1A68DAD81803B588004CBA25 /* CustomWebView.m in Sources */,
+				D318342118D0513D00E8F9B1 /* CookieStorage.m in Sources */,
 				D318341B18CFC7C500E8F9B1 /* ApplicationStyle.m in Sources */,
 				2B8FC1C318C9CB16006D04FF /* RadiantPlayerScriptCommand.m in Sources */,
 				D3B71C2F18C2D5770041358B /* LastFmPreferencesViewController.m in Sources */,
 				1A7B684C17453E40001E509E /* main.m in Sources */,
 				D37B638A18F1EFD30098F9DC /* InvertedSpriteURLProtocol.m in Sources */,
 				D3DB8FF518BD2AEC00ABE93B /* PlaybackConstants.m in Sources */,
+				D32861701924744200395FEA /* NSHTTPCookieStorage+Swizzle.m in Sources */,
 				D3D4C3EB18E77AA0007238B3 /* LastFmTrackTableCellView.m in Sources */,
 				1A7B685317453E40001E509E /* AppDelegate.m in Sources */,
 				D3DB8FF818BD6A6400ABE93B /* PlaybackSliderCell.m in Sources */,
@@ -472,6 +503,7 @@
 				D3091F6618C3D7C4007C8DCD /* SwipeIndicatorView.m in Sources */,
 				D3091F6918C40FBD007C8DCD /* SwipeAnimation.m in Sources */,
 				D323406A18C523BC008C165B /* AboutWindow.m in Sources */,
+				D328616B192414B900395FEA /* NSHTTPCookie+Coding.m in Sources */,
 				D32CCEFA18BE039E00BDD484 /* PopupPanel.m in Sources */,
 				D37B638718F1E7680098F9DC /* SpriteDownloadURLProtocol.m in Sources */,
 				D3B71C2818C2D5240041358B /* PreferencesWindowController.m in Sources */,
@@ -480,11 +512,13 @@
 				D37B638418ED315B0098F9DC /* LastFm+TrackInfo.m in Sources */,
 				D35788BD18C2F820006AF859 /* GeneralPreferencesViewController.m in Sources */,
 				D3FAC6D418BA81EC00D9F461 /* PopupStatusView.m in Sources */,
+				D362D5421924D17B00FC0C56 /* PrivacyPreferencesViewController.m in Sources */,
 				D343CDF518C69DF4002F9DB3 /* NavigationPreferencesViewController.m in Sources */,
 				D3F14A4918F357AA007D4536 /* AdvancedPreferencesViewController.m in Sources */,
 				D3D4C3E818E76674007238B3 /* LastFmPopover.m in Sources */,
 				D3091F6318C32961007C8DCD /* Utilities.m in Sources */,
 				D370E8E318E2BFE1007B5450 /* ExpandHoverView.m in Sources */,
+				D32861681924000800395FEA /* NSDate+UTCString.m in Sources */,
 				D32CCEFD18BE9BF800BDD484 /* PopupView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -15,6 +15,7 @@
 @synthesize appearanceController;
 @synthesize lastFmController;
 @synthesize navigationController;
+@synthesize privacyController;
 @synthesize advancedController;
 
 - (id)init
@@ -35,6 +36,7 @@
     [self addViewController:generalController];
     [self addViewController:appearanceController];
     [self addViewController:navigationController];
+    [self addViewController:privacyController];
     [self addViewController:lastFmController];
     [self addViewController:advancedController];
     [self selectControllerAtIndex:0];

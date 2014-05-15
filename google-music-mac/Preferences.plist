@@ -42,5 +42,9 @@
 	<true/>
 	<key>eventtap.alternative-method</key>
 	<false/>
+	<key>cookies.use-safari</key>
+	<false/>
+	<key>cookies.dont-save</key>
+	<false/>
 </dict>
 </plist>

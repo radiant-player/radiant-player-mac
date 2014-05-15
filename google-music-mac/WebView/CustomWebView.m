@@ -35,12 +35,6 @@
 
 #pragma mark - Web delegate methods
 
-- (void)webView:(WebView *)webView decidePolicyForNavigationAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id<WebPolicyDecisionListener>)listener
-{
-    // Proceed as normal.
-    [listener use];
-}
-
 - (void)webView:(WebView *)webView didClearWindowObject:(WebScriptObject *)windowObject forFrame:(WebFrame *)frame
 {
     [appDelegate webView:webView didClearWindowObject:windowObject forFrame:frame];
@@ -70,6 +64,8 @@
 {
     NSURL *url = [request URL];
     
+    NSMutableURLRequest *req = [request mutableCopy];
+
     // Handle special URLs.
     if ([[url host] isEqualToString:@"radiant-player-mac"])
     {
@@ -79,10 +75,8 @@
         if ([[components objectAtIndex:1] isEqualToString:@"images"])
         {
             // Image resources.
-            NSMutableURLRequest *newRequest = [request mutableCopy];
-            [NSURLProtocol setProperty:self forKey:@"ImagesCustomWebView" inRequest:newRequest];
-            
-            return newRequest;
+	    [NSURLProtocol setProperty:self forKey:@"ImagesCustomWebView" inRequest:req];
+	    return req;
         }
         
         // Interested if the URL is the original spritesheet we'll download or the inverted one we will provide.
@@ -90,10 +84,8 @@
                  [[url lastPathComponent] rangeOfString:@"inverted"].location != NSNotFound)
         {
             // Inverted sprites.
-            NSMutableURLRequest *newRequest = [request mutableCopy];
-            [NSURLProtocol setProperty:self forKey:@"InvertedCustomWebView" inRequest:newRequest];
-            
-            return newRequest;
+	    [NSURLProtocol setProperty:self forKey:@"InvertedCustomWebView" inRequest:req];
+	    return req;
         }
     }
     else
@@ -102,14 +94,12 @@
         if ([[url pathExtension] isEqualToString:@"png"] &&
             [[url lastPathComponent] rangeOfString:@"sprites"].location == 0)
         {
-            NSMutableURLRequest *newRequest = [request mutableCopy];
-            [NSURLProtocol setProperty:self forKey:@"OriginalCustomWebView" inRequest:newRequest];
-            
-            return newRequest;
+	    [NSURLProtocol setProperty:self forKey:@"OriginalCustomWebView" inRequest:req];
+	    return req;
         }
     }
     
-    return request;
+    return req;
 }
 
 #pragma mark - Swipe code
