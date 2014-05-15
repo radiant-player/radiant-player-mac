@@ -29,15 +29,15 @@ void SwizzleInstanceMethods(SEL method)
 {
     static dispatch_once_t token;
     dispatch_once(&token, ^{
-	SwizzleInstanceMethods(@selector(init));
-	SwizzleInstanceMethods(@selector(_initWithCFHTTPCookieStorage:));
-	SwizzleInstanceMethods(@selector(cookieAcceptPolicy));
-	SwizzleInstanceMethods(@selector(setCookieAcceptPolicy:));
-	SwizzleInstanceMethods(@selector(cookies));
-	SwizzleInstanceMethods(@selector(cookiesForURL:));
-	SwizzleInstanceMethods(@selector(sortedCookiesUsingDescriptors:));
-	SwizzleInstanceMethods(@selector(setCookie:));
-	SwizzleInstanceMethods(@selector(setCookies:forURL:mainDocumentURL:));
+        SwizzleInstanceMethods(@selector(init));
+        SwizzleInstanceMethods(@selector(_initWithCFHTTPCookieStorage:));
+        SwizzleInstanceMethods(@selector(cookieAcceptPolicy));
+        SwizzleInstanceMethods(@selector(setCookieAcceptPolicy:));
+        SwizzleInstanceMethods(@selector(cookies));
+        SwizzleInstanceMethods(@selector(cookiesForURL:));
+        SwizzleInstanceMethods(@selector(sortedCookiesUsingDescriptors:));
+        SwizzleInstanceMethods(@selector(setCookie:));
+        SwizzleInstanceMethods(@selector(setCookies:forURL:mainDocumentURL:));
     });
 }
 

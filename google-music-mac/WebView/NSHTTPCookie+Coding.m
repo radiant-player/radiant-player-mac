@@ -22,7 +22,7 @@
 
     // Make sure we actually were able to read something.
     if (properties == nil)
-	return nil;
+        return nil;
 
     return (self = [self initWithProperties:properties]);
 }

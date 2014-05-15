@@ -18,6 +18,7 @@
 + (NSMutableArray *)storage;
 + (BOOL)archive;
 + (void)unarchive;
++ (void)clearCookies;
 + (NSString *)cookieStoragePath;
 
 @end

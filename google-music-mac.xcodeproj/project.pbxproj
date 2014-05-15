@@ -37,6 +37,7 @@
 		D343CDF518C69DF4002F9DB3 /* NavigationPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D343CDF418C69DF4002F9DB3 /* NavigationPreferencesViewController.m */; };
 		D34DC2BC18C295A700C27596 /* LastFmService.m in Sources */ = {isa = PBXBuildFile; fileRef = D34DC2BB18C295A700C27596 /* LastFmService.m */; };
 		D35788BD18C2F820006AF859 /* GeneralPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35788BC18C2F820006AF859 /* GeneralPreferencesViewController.m */; };
+		D362D5421924D17B00FC0C56 /* PrivacyPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D362D5411924D17B00FC0C56 /* PrivacyPreferencesViewController.m */; };
 		D369FEFE18E3FB6B004CB1C6 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = D369FEFD18E3FB6B004CB1C6 /* icon.icns */; };
 		D370E8E018E21ABC007B5450 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D370E8DF18E21ABC007B5450 /* QuartzCore.framework */; };
 		D370E8E318E2BFE1007B5450 /* ExpandHoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = D370E8E218E2BFE1007B5450 /* ExpandHoverView.m */; };
@@ -117,6 +118,8 @@
 		D34DC2BB18C295A700C27596 /* LastFmService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastFmService.m; sourceTree = "<group>"; };
 		D35788BB18C2F820006AF859 /* GeneralPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralPreferencesViewController.h; sourceTree = "<group>"; };
 		D35788BC18C2F820006AF859 /* GeneralPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralPreferencesViewController.m; sourceTree = "<group>"; };
+		D362D5401924D17B00FC0C56 /* PrivacyPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivacyPreferencesViewController.h; sourceTree = "<group>"; };
+		D362D5411924D17B00FC0C56 /* PrivacyPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivacyPreferencesViewController.m; sourceTree = "<group>"; };
 		D369FEFD18E3FB6B004CB1C6 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		D370E8DF18E21ABC007B5450 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D370E8E118E2BFE1007B5450 /* ExpandHoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpandHoverView.h; sourceTree = "<group>"; };
@@ -337,6 +340,8 @@
 				D35788BC18C2F820006AF859 /* GeneralPreferencesViewController.m */,
 				D343CDF318C69DF4002F9DB3 /* NavigationPreferencesViewController.h */,
 				D343CDF418C69DF4002F9DB3 /* NavigationPreferencesViewController.m */,
+				D362D5401924D17B00FC0C56 /* PrivacyPreferencesViewController.h */,
+				D362D5411924D17B00FC0C56 /* PrivacyPreferencesViewController.m */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -507,6 +512,7 @@
 				D37B638418ED315B0098F9DC /* LastFm+TrackInfo.m in Sources */,
 				D35788BD18C2F820006AF859 /* GeneralPreferencesViewController.m in Sources */,
 				D3FAC6D418BA81EC00D9F461 /* PopupStatusView.m in Sources */,
+				D362D5421924D17B00FC0C56 /* PrivacyPreferencesViewController.m in Sources */,
 				D343CDF518C69DF4002F9DB3 /* NavigationPreferencesViewController.m in Sources */,
 				D3F14A4918F357AA007D4536 /* AdvancedPreferencesViewController.m in Sources */,
 				D3D4C3E818E76674007238B3 /* LastFmPopover.m in Sources */,

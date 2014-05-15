@@ -214,10 +214,20 @@
 
     if ([fileManager fileExistsAtPath:folder] == NO)
     {
-	[fileManager createDirectoryAtPath:folder withIntermediateDirectories:YES attributes:nil error:nil];
+        [fileManager createDirectoryAtPath:folder withIntermediateDirectories:YES attributes:nil error:nil];
     }
 
     return [folder stringByAppendingPathComponent:@"Cookies"];
+}
+
++ (void)clearCookies
+{
+    // First remove all cookies from memory.
+    [[CookieStorage storage] removeAllObjects];
+    
+    // Delete the storage file.
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    [fileManager removeItemAtPath:[CookieStorage cookieStoragePath] error:nil];
 }
 
 @end
