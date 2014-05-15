@@ -42,7 +42,7 @@
 
 - (void)setCookieAcceptPolicy:(NSHTTPCookieAcceptPolicy)cookieAcceptPolicy
 {
-
+    
 }
 
 - (void)deleteCookie:(NSHTTPCookie *)cookie
@@ -55,23 +55,23 @@
     NSString *domain = [[cookie domain] lowercaseString];
     NSString *path = [cookie path];
     NSString *name = [cookie name];
-
+    
     // Find the existing cookie in the array if possible.
     for (int i = 0; i < [CookieStorage storage].count; i++)
     {
-	NSHTTPCookie *cookie = [[CookieStorage storage] objectAtIndex:i];
-
-	// Check if the name, domain, and path matches.
-	if ([name isEqualToString:[cookie name]] &&
-	    [domain isEqualToString:[cookie domain]] &&
-	    [path isEqualToString:[cookie path]])
-	{
-	    // Remove the cookie.
-	    [[CookieStorage storage] removeObjectAtIndex:i];
-	    break;
-	}
+        NSHTTPCookie *cookie = [[CookieStorage storage] objectAtIndex:i];
+        
+        // Check if the name, domain, and path matches.
+        if ([name isEqualToString:[cookie name]] &&
+            [domain isEqualToString:[cookie domain]] &&
+            [path isEqualToString:[cookie path]])
+        {
+            // Remove the cookie.
+            [[CookieStorage storage] removeObjectAtIndex:i];
+            break;
+        }
     }
-
+    
     // Add the cookie.
     [[CookieStorage storage] addObject:cookie];
 }
@@ -80,50 +80,53 @@
 {
     for (NSHTTPCookie *cookie in cookies)
     {
-	[self setCookie:cookie];
+        [self setCookie:cookie];
     }
-
-    [CookieStorage archive];
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"cookies.dont-save"] == NO)
+    {
+        [CookieStorage archive];
+    }
 }
 
 - (NSArray *)cookiesForURL:(NSURL *)url
 {
     NSMutableArray *cookies = [NSMutableArray array];
     NSMutableArray *expired = [NSMutableArray array];
-
+    
     for (NSHTTPCookie *cookie in [CookieStorage storage])
     {
-	NSString *domain = [cookie domain];
-	NSString *path = [cookie path];
-
-	if ([CookieStorage hostMatchesDomainWithURL:url domain:domain] == NO)
-	    continue;
-
-	if ([[url path] hasPrefix:path] == NO)
-	    continue;
-
-	// Queue removal of expired cookies.
-	if ([cookie expiresDate] != nil && [[cookie expiresDate] isLessThan:[NSDate date]])
-	{
-	    [expired addObject:cookie];
-	    continue;
-	}
-
-	// Only include secure cookies on HTTPS sites.
-	if ([cookie isSecure] && [[url scheme] caseInsensitiveCompare:@"https"] != NSEqualToComparison)
-	{
-	    continue;
-	}
-
-	[cookies addObject:cookie];
+        NSString *domain = [cookie domain];
+        NSString *path = [cookie path];
+        
+        if ([CookieStorage hostMatchesDomainWithURL:url domain:domain] == NO)
+            continue;
+        
+        if ([[url path] hasPrefix:path] == NO)
+            continue;
+        
+        // Queue removal of expired cookies.
+        if ([cookie expiresDate] != nil && [[cookie expiresDate] isLessThan:[NSDate date]])
+        {
+            [expired addObject:cookie];
+            continue;
+        }
+        
+        // Only include secure cookies on HTTPS sites.
+        if ([cookie isSecure] && [[url scheme] caseInsensitiveCompare:@"https"] != NSEqualToComparison)
+        {
+            continue;
+        }
+        
+        [cookies addObject:cookie];
     }
-
+    
     // Remove the expired cookies.
     for (NSHTTPCookie *cookie in expired)
     {
-	[[CookieStorage storage] removeObject:cookie];
+        [[CookieStorage storage] removeObject:cookie];
     }
-
+    
     return cookies;
 }
 
@@ -146,19 +149,19 @@
     //   www.example.com matches .example.com
     //   www.example.com does not match google.com
     //   someexample.com does not match example.com
-
+    
     NSString *host = [[url host] lowercaseString];
     NSString *baseDomain = ([domain hasPrefix:@"."]) ? [domain substringFromIndex:1] : domain;
-
+    
     if ([host isEqualToString:baseDomain])
-	return YES;
-
+        return YES;
+    
     NSString *effectiveDomain = baseDomain;
-
+    
     // Add the "." at the beginning if it doesn't exist.
     if ([effectiveDomain hasPrefix:@"."] == NO)
-	effectiveDomain = [@"." stringByAppendingString:effectiveDomain];
-
+        effectiveDomain = [@"." stringByAppendingString:effectiveDomain];
+    
     return [host hasSuffix:effectiveDomain];
 }
 
@@ -174,17 +177,17 @@
 {
     NSString *path = [CookieStorage cookieStoragePath];
     id storage;
-
+    
     @try {
-	storage = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        storage = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
     }
     @catch (NSException *exception) {
-	NSLog(@"Could not load cookies file: %@", exception);
+        NSLog(@"Could not load cookies file: %@", exception);
     }
-
+    
     if ([storage isKindOfClass:[NSArray class]])
     {
-	[[CookieStorage storage] addObjectsFromArray:storage];
+        [[CookieStorage storage] addObjectsFromArray:storage];
     }
 }
 
@@ -199,24 +202,24 @@
     static NSMutableArray *storageArray = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-	storageArray = [NSMutableArray array];
+        storageArray = [NSMutableArray array];
     });
-
+    
     return storageArray;
 }
 
 + (NSString *)cookieStoragePath
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
-
+    
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
     NSString *folder = [[paths firstObject] stringByAppendingPathComponent:@"Radiant Player"];
-
+    
     if ([fileManager fileExistsAtPath:folder] == NO)
     {
         [fileManager createDirectoryAtPath:folder withIntermediateDirectories:YES attributes:nil error:nil];
     }
-
+    
     return [folder stringByAppendingPathComponent:@"Cookies"];
 }
 
