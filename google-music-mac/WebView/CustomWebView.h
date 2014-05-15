@@ -8,6 +8,7 @@
  */
 
 #import <WebKit/WebKit.h>
+#import <JavaScriptCore/JavaScriptCore.h>
 #import "SwipeIndicatorView.h"
 
 @protocol CustomWebViewDelegate
