@@ -40,6 +40,11 @@ void SwizzleCookieStorageMethods()
 
 + (void)load
 {
+    if ([[NSHTTPCookieStorage sharedHTTPCookieStorage] respondsToSelector:@selector(_initWithCFHTTPCookieStorage:)] == NO)
+    {
+        return;
+    }
+    
     static dispatch_once_t token;
     dispatch_once(&token, ^{
         if ([[NSUserDefaults standardUserDefaults] boolForKey:@"cookies.use-safari"] == NO)

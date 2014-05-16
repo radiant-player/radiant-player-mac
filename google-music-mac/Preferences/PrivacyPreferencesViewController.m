@@ -12,7 +12,9 @@
 
 @implementation PrivacyPreferencesViewController
 
+@synthesize useSafariCheckBox;
 @synthesize saveCookiesCheckBox;
+@synthesize removeCookiesButton;
 
 - (IBAction)removeCookies:(id)sender
 {
@@ -52,14 +54,23 @@
     }
 }
 
+- (void)awakeFromNib
+{
+    if ([[NSHTTPCookieStorage sharedHTTPCookieStorage] respondsToSelector:@selector(_initWithCFHTTPCookieStorage:)] == NO)
+    {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"cookies.use-safari"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [useSafariCheckBox setState:NSOnState];
+        [useSafariCheckBox setEnabled:NO];
+        [saveCookiesCheckBox setEnabled:NO];
+        [removeCookiesButton setEnabled:NO];
+    }
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Initialization code here.
-    }
-    return self;
+    return [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 }
 
 - (NSString *)identifier

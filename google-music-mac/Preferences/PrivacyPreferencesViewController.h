@@ -13,7 +13,9 @@
 
 @interface PrivacyPreferencesViewController : NSViewController<MASPreferencesViewController>
 
+@property (assign) IBOutlet NSButton *useSafariCheckBox;
 @property (assign) IBOutlet NSButton *saveCookiesCheckBox;
+@property (assign) IBOutlet NSButton *removeCookiesButton;
 
 - (IBAction)removeCookies:(id)sender;
 - (IBAction)preferenceSaveCookiesChanged:(id)sender;
