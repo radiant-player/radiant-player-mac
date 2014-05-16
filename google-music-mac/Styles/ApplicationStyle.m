@@ -90,7 +90,7 @@
     [spotifyBlack setAuthor:@"Anthony Barone"];
     [spotifyBlack setDescription:@"A black style similar to the new Spotify."];
     [spotifyBlack setWindowColor:[NSColor colorWithSRGBRed:0.133f green:0.137f blue:0.149f alpha:1.0f]];
-    [spotifyBlack setTitleColor:[NSColor colorWithWhite:0.7f alpha:1.0f]];
+    [spotifyBlack setTitleColor:[NSColor colorWithDeviceWhite:0.7f alpha:1.0f]];
     [spotifyBlack setCss:[ApplicationStyle cssNamed:@"spotify-black"]];
     [spotifyBlack setJs:[ApplicationStyle jsNamed:@"spotify-black"]];
     

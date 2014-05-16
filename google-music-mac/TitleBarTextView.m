@@ -29,7 +29,7 @@
     NSColor *textColor = _color;
     
     if (textColor == nil)
-        textColor = [NSColor colorWithWhite:0.2 alpha:1.0];
+        textColor = [NSColor colorWithDeviceWhite:0.2 alpha:1.0];
     
     // Center the text.
     NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
