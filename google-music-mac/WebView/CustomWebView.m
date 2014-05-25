@@ -113,9 +113,9 @@
     
     if (x != 0) {
 		if (x > 0)
-            [self goBack];
-        else
             [self goForward];
+        else
+            [self goBack];
 	}
 }
 
@@ -194,10 +194,10 @@
     // Handle the actual swipe
     if (sum > 0)
     {
-        [self goForward];
+        [self goBack];
     } else
     {
-        [self goBack];
+        [self goForward];
     }
 }
 
