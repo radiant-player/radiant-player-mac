@@ -94,7 +94,7 @@
     NSMutableArray *cookies = [NSMutableArray array];
     NSMutableArray *expired = [NSMutableArray array];
     
-    for (NSHTTPCookie *cookie in [CookieStorage storage])
+    for (NSHTTPCookie *cookie in [[CookieStorage storage] copy])
     {
         NSString *domain = [cookie domain];
         NSString *path = [cookie path];
