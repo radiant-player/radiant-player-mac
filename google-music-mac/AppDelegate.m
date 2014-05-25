@@ -317,6 +317,10 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 - (void)moveWindowWithDeltaX:(CGFloat)deltaX andDeltaY:(CGFloat)deltaY
 {
+    // We can only move the window if we're not in full screen mode.
+    if (([window styleMask] & NSFullScreenWindowMask) == NSFullScreenWindowMask)
+        return;
+        
     // Position starts at the bottom left, so the y-value is reversed.
     NSPoint position = window.frame.origin;
     position.x += deltaX;
