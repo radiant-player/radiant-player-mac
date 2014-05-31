@@ -125,7 +125,8 @@
 }
 
 .song-row .rating-container.stars {
-    height: auto !important;
+    height: 100% !important;
+    margin-top: 0px !important;
 }
 
 .song-row .rating-container.thumbs [data-rating] {

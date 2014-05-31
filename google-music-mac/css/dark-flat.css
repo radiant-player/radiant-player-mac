@@ -142,7 +142,8 @@ a, .simple-dialog a {
 }
 
 .song-row .rating-container.stars {
-    height: auto !important;
+    height: 100% !important;
+    margin-top: 0px !important;
 }
 
 .song-row .rating-container.thumbs [data-rating] {
@@ -424,13 +425,9 @@ div.simple-dialog-bg {
     border-width: 0 !important;
 }
 
-.song-row [data-col="rating"][data-rating="1"], 
-.song-row [data-col="rating"][data-rating="2"],
-.song-row [data-col="rating"][data-rating="5"],
-.song-row .rating-container.thumbs [data-rating="1"], 
-.song-row .rating-container.thumbs [data-rating="5"],
-.song-row .rating-container.thumbs [data-rating="1"]:hover,
-.song-row .rating-container.thumbs [data-rating="5"]:hover,
+.song-row [data-col="rating"],
+.song-row .rating-container [data-col="rating"], 
+.song-row .rating-container [data-col="rating"]:hover,
 .song-row.selected-song-row .hover-button[data-id="menu"],
 .nav-item-container .playlistDropDown, .nav-item-container.selected .playlistDropDown,
 .nav-item-container.selected .playlistDropDown, .nav-item-container.selected .playlistDropDown:hover,
@@ -444,6 +441,11 @@ div.simple-dialog-bg {
 #volume .goog-slider-thumb,
 #volume_high, #volume_low {
     background-image: url(https://radiant-player-mac/sprites-inverted.png) !important;
+}
+
+.song-row [data-col="rating"][data-rating="0"], 
+.song-row [data-col="rating"][data-rating="undefined"] { 
+    background-image: none !important;
 }
 
 .song-row.selected-song-row .hover-button[data-id="menu"] {

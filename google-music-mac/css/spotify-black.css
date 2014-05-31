@@ -177,7 +177,8 @@ a, .simple-dialog a {
 }
 
 .song-row .rating-container.stars {
-    height: auto !important;
+    height: 100% !important;
+    margin-top: -1px !important;
 }
 
 .song-row .rating-container.thumbs [data-rating] {
@@ -501,13 +502,9 @@ div.simple-dialog-bg {
     opacity: 0.8 !important;
 }
 
-.song-row [data-col="rating"][data-rating="1"], 
-.song-row [data-col="rating"][data-rating="2"],
-.song-row [data-col="rating"][data-rating="5"],
-.song-row .rating-container.thumbs [data-rating="1"], 
-.song-row .rating-container.thumbs [data-rating="5"],
-.song-row .rating-container.thumbs [data-rating="1"]:hover,
-.song-row .rating-container.thumbs [data-rating="5"]:hover,
+.song-row [data-col="rating"],
+.song-row .rating-container [data-col="rating"], 
+.song-row .rating-container [data-col="rating"]:hover,
 .song-row.selected-song-row .hover-button[data-id="menu"],
 .nav-item-container .playlistDropDown, .nav-item-container.selected .playlistDropDown,
 .nav-item-container.selected .playlistDropDown, .nav-item-container.selected .playlistDropDown:hover,
@@ -531,6 +528,11 @@ div.simple-dialog-bg {
 #action_bar_container button[data-id="filter-songs"] .icon,
 #action_bar_container button[data-id="filter-songs"]:hover .icon {
     background-image: url(https://radiant-player-mac/sprites-inverted.png) !important;
+}
+
+.song-row [data-col="rating"][data-rating="0"], 
+.song-row [data-col="rating"][data-rating="undefined"] { 
+    background-image: none !important;
 }
 
 .song-row.selected-song-row .hover-button[data-id="menu"] {

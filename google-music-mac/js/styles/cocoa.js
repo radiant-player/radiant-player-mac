@@ -52,4 +52,40 @@ if (typeof window.Styles.Applied === 'undefined') {
             '.song-row [data-col="rating"][data-rating="2"]:not(.stars) { background-position: ' + thumbsDownPosition + ' !important; } '
         );
     })();
+
+    // Star rating styles.
+    (function() {
+        // Create dummy elements to get the computed styles for these elements.
+        var td = document.createElement('td');
+        td.dataset.col = 'rating';
+        td.className = 'stars';
+
+        var el = document.createElement('div');
+        el.className = 'song-row';
+        el.appendChild(td);
+        el.style.display = 'none';
+        document.body.appendChild(el);
+
+        var finalStyle = '';
+
+        // Fix each star rating style, from 1 to 5.
+        for (var i = 1; i <= 5; i++) {
+            td.dataset.rating = i.toString();
+
+            var ratingStyle = document.defaultView.getComputedStyle(td, null);
+            var ratingBackX = parseInt(ratingStyle.backgroundPositionX);
+            var ratingBackY = parseInt(ratingStyle.backgroundPositionY);
+            ratingBackY -= 7;
+     
+            var ratingPosition = ratingBackX + 'px ' + ratingBackY + 'px';
+
+            finalStyle += '.song-row .stars[data-col="rating"][data-rating="' + i + '"] { background-position: ' + ratingPosition + ' !important; } ';
+        }
+
+        // Remove the element.
+        document.body.removeChild(el);
+     
+        // Apply a new stylesheet for each star rating.
+        window.Styles.applyStyle('ratingStars', finalStyle);
+    })();
 }
