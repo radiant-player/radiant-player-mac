@@ -19,8 +19,9 @@ NSString *const MUSIC_ALL_SHUFFLE = @"ALL_SHUFFLE";
 NSString *const MUSIC_NO_SHUFFLE = @"NO_SHUFFLE";
 
 // Playback modes.
-NSInteger const MUSIC_PAUSED = 0;
-NSInteger const MUSIC_PLAYING = 1;
+NSInteger const MUSIC_STOPPED = 0;
+NSInteger const MUSIC_PAUSED = 1;
+NSInteger const MUSIC_PLAYING = 2;
 
 // Rating modes.
 NSInteger const MUSIC_RATING_THUMBSUP = 5;

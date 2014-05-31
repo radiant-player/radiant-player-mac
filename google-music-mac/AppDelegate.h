@@ -58,8 +58,11 @@
 @property (copy, nonatomic) NSString *currentTitle;
 @property (copy, nonatomic) NSString *currentArtist;
 @property (copy, nonatomic) NSString *currentAlbum;
+@property (copy, nonatomic) NSString *currentArtURL;
+@property (copy, nonatomic) NSImage *currentArt;
 @property (assign) NSTimeInterval currentDuration;
 @property (assign) NSTimeInterval currentTimestamp;
+@property (assign) NSInteger currentPlaybackMode;
 
 - (void) checkVersion;
 - (void) initializeStatusBar;
@@ -87,6 +90,8 @@
 
 - (IBAction) toggleShuffle:(id)sender;
 - (IBAction) toggleVisualization:(id)sender;
+
+- (NSString *) currentSongURL;
 
 - (void) moveWindowWithDeltaX:(CGFloat)deltaX andDeltaY:(CGFloat)deltaY;
 - (void) showLastFmPopover:(id)sender;

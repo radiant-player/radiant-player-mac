@@ -73,6 +73,11 @@ if (typeof window.MusicAPI === 'undefined') {
         _eshuffle:    document.querySelector('button[data-id="shuffle"]'),
         _erepeat:     document.querySelector('button[data-id="repeat"]'),
 
+        // Playback modes.
+        STOPPED:    0,
+        PAUSED:     1,
+        PLAYING:    2,
+
         // Repeat modes.
         LIST_REPEAT:    'LIST_REPEAT',
         SINGLE_REPEAT:  'SINGLE_REPEAT',
@@ -160,6 +165,38 @@ if (typeof window.MusicAPI === 'undefined') {
         }
     };
 
+    /* Miscellaneous functions. */
+    window.MusicAPI.Extras = {
+
+        // Get a shareable URL of the song on Google Play Music.
+        getSongURL: function() {
+            var albumEl = document.querySelector('.player-album');
+            var artistEl = document.querySelector('.player-artist');
+
+            var urlTemplate = 'https://play.google.com/music/m/';
+            var url = null;
+
+            var parseID = function(id) {
+                return id.substring(0, id.indexOf('/'));
+            };
+
+            if (albumEl === null && aristEl === null) 
+                return null;
+
+            var albumId = parseID(albumEl.dataset.id);
+            var artistId = parseID(artistEl.dataset.id);
+
+            if (albumId) {
+                url = urlTemplate + albumId;
+            } 
+            else if (artistId) {
+                url = urlTemplate + artistId;
+            }
+
+            return url;
+        }
+    };
+
     var lastTitle = "";
     var lastArtist = "";
     var lastAlbum = "";
@@ -231,8 +268,23 @@ if (typeof window.MusicAPI === 'undefined') {
             var id = target.dataset.id;
 
             if (id == 'play-pause') {
+                var mode;
                 var playing = target.classList.contains('playing');
-                window.GoogleMusicApp.playbackChanged(playing ? 1 : 0);
+
+                if (playing) {
+                    mode = MusicAPI.Playback.PLAYING;
+                }
+                else {
+                    // If there is a current song, then the player is paused.
+                    if (document.querySelector('#playerSongInfo').childNodes.length) {
+                        mode = MusicAPI.Playback.PAUSED;
+                    }
+                    else {
+                        mode = MusicAPI.Playback.STOPPED;
+                    }
+                }
+
+                window.GoogleMusicApp.playbackChanged(mode);
             }
         });
     });

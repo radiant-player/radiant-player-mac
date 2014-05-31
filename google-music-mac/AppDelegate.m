@@ -27,8 +27,11 @@
 @synthesize currentTitle;
 @synthesize currentArtist;
 @synthesize currentAlbum;
+@synthesize currentArtURL;
+@synthesize currentArt;
 @synthesize currentDuration;
 @synthesize currentTimestamp;
+@synthesize currentPlaybackMode;
 
 /**
  * Closing the application, hides the player window but keeps music playing in the background.
@@ -458,6 +461,8 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     currentTitle = title;
     currentArtist = artist;
     currentAlbum = album;
+    currentArtURL = art;
+    currentArt = nil;
     currentDuration = duration;
     currentTimestamp = timestamp;
     
@@ -489,14 +494,13 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
             // Try to load the album art if possible.
             if ([defaults boolForKey:@"notifications.show-album-art"] && art)
             {
-                NSURL *url = [NSURL URLWithString:art];
-                NSImage *image = [[NSImage alloc] initWithContentsOfURL:url];
+                currentArt = [[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:currentArtURL]];
                 
                 if ([defaults boolForKey:@"notifications.itunes-style"]) {
-                    [notif setValue:image forKey:@"_identityImage"];
+                    [notif setValue:currentArt forKey:@"_identityImage"];
                 }
                 else {
-                    notif.contentImage = image;
+                    notif.contentImage = currentArt;
                 }
             }
         }
@@ -512,10 +516,17 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     }
 }
 
+- (NSString *)currentSongURL
+{
+    // Get the shareable URL of the current song.
+    return [webView stringByEvaluatingJavaScriptFromString:@"window.MusicAPI.Extras.getSongURL()"];
+}
+
 #pragma mark - Playback Notifications
 
 - (void)playbackChanged:(NSInteger)mode
 {
+    currentPlaybackMode = mode;
     [popupDelegate playbackChanged:mode];
     [statusView setPlaybackMode:mode];
     [statusView setNeedsDisplay:YES];

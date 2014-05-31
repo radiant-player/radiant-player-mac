@@ -1,30 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE dictionary SYSTEM "file://localhost/System/Library/DTDs/sdef.dtd">
 <dictionary title="Radiant Player Terminology">
-	<suite name="Radiant Player Suite" code="GMMs" description="The suite specific to Radiant Player for Google Play Music">
+	<xi:include href="file:///System/Library/ScriptingDefinitions/CocoaStandard.sdef" xpointer="xpointer(/dictionary/suite)"/>
+    
+    <suite name="Radiant Player Suite" code="GMMs" description="The suite specific to Radiant Player for Google Play Music">
+		
+        <class name="application" code="capp" description="Radiant Player's application object">
+            <cocoa class="NSApplication"/>
+            <property name="current song name" code="Snam" description="name of the currently playing song" type="text">
+                <cocoa key="currentTitle"/>
+            </property>
+            <property name="current song artist" code="Sart" description="artist of the currently playing song" type="text">
+                <cocoa key="currentArtist"/>
+            </property>
+            <property name="current song album" code="Salb" description="album of the currently playing song" type="text">
+                <cocoa key="currentAlbum"/>
+            </property>
+            <property name="current song art" code="Simg" description="art image of the currently playing song" type="image">
+                <cocoa key="currentArt"/>
+            </property>
+            <property name="current song url" code="Surl" description="shareable URL of the currently playing song" type="text">
+                <cocoa key="currentSongURL"/>
+            </property>
+            <property name="player state" code="Sstt" description="the state of the player (0 = stopped, 1 = paused, or 2 = playing)" type="integer">
+                <cocoa key="currentPlaybackMode"/>
+            </property>
+        </class>
+        
         <command name="back track" code="GMMsbatr" description="reposition to beginning of current track or go to previous track if already at start of current track">
 			<cocoa class="RadiantPlayerScriptCommand"/>
 		</command>
-        <command name="next track" code="GMMsnetr" description="advance to the next track in the current playlist">
+		<command name="next track" code="GMMsnetr" description="advance to the next track in the current playlist">
 			<cocoa class="RadiantPlayerScriptCommand"/>
 		</command>
-        <command name="playpause" code="GMMsplpa" description="toggle the playing/paused state of the current track">
+		<command name="playpause" code="GMMsplpa" description="toggle the playing/paused state of the current track">
 			<cocoa class="RadiantPlayerScriptCommand"/>
 		</command>
-        <command name="toggle thumbs up" code="GMMsthup" description="toggle thumbs up for current track">
+		<command name="toggle thumbs up" code="GMMsthup" description="toggle thumbs up for current track">
 			<cocoa class="RadiantPlayerScriptCommand"/>
 		</command>
-        <command name="toggle thumbs down" code="GMMsthdw" description="toggle thumbs down for current track">
+		<command name="toggle thumbs down" code="GMMsthdw" description="toggle thumbs down for current track">
 			<cocoa class="RadiantPlayerScriptCommand"/>
 		</command>
-        <command name="toggle shuffle" code="GMMsshfl" description="toggle shuffle on/off">
+		<command name="toggle shuffle" code="GMMsshfl" description="toggle shuffle on/off">
 			<cocoa class="RadiantPlayerScriptCommand"/>
 		</command>
-        <command name="toggle repeatmode" code="GMMsrpmo" description="toggle repeat mode">
+		<command name="toggle repeatmode" code="GMMsrpmo" description="toggle repeat mode">
 			<cocoa class="RadiantPlayerScriptCommand"/>
 		</command>
-        <command name="toggle visualization" code="GMMsvisl" description="toggle visualization on/off">
+		<command name="toggle visualization" code="GMMsvisl" description="toggle visualization on/off">
 			<cocoa class="RadiantPlayerScriptCommand"/>
 		</command>
+        
+        <value-type name="image" code="imag">
+            <cocoa class="NSImage" name="Image" />
+        </value-type>
 	</suite>
 </dictionary>
