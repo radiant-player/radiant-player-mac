@@ -46,5 +46,7 @@
 	<false/>
 	<key>cookies.dont-save</key>
 	<false/>
+	<key>window.full-screen</key>
+	<false/>
 </dict>
 </plist>

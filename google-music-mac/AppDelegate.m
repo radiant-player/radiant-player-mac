@@ -76,7 +76,36 @@
     if (([defaults boolForKey:@"miniplayer.enabled"] && [defaults boolForKey:@"miniplayer.hide-dock-icon"]))
     {
         [NSApp setActivationPolicy:NSApplicationActivationPolicyAccessory];
+        
+        // We can't go full screen if we're not a normal application.
         [window setCollectionBehavior:NSWindowCollectionBehaviorDefault];
+    }
+    else
+    {
+        // Check if we should be launching in full screen.
+        if ([defaults boolForKey:@"window.full-screen"])
+        {
+            [window toggleFullScreen:self];
+        }
+        
+        // Keep track of when we enter and exit full screen.
+        [[NSNotificationCenter defaultCenter]
+             addObserverForName:NSWindowDidEnterFullScreenNotification
+             object:nil
+             queue:nil
+             usingBlock:^(NSNotification *note) {
+                 [defaults setBool:YES forKey:@"window.full-screen"];
+             }
+        ];
+        
+        [[NSNotificationCenter defaultCenter]
+             addObserverForName:NSWindowDidExitFullScreenNotification
+             object:nil
+             queue:nil
+             usingBlock:^(NSNotification *note) {
+                 [defaults setBool:NO forKey:@"window.full-screen"];
+             }
+        ];
     }
     
     [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
