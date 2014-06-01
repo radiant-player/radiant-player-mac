@@ -15,11 +15,20 @@
 @synthesize webView;
 @synthesize titleView;
 @synthesize window;
+@synthesize menu;
+@synthesize controlsMenu;
 @synthesize statusItem;
 @synthesize statusView;
 @synthesize popup;
-@synthesize popupMenu;
 @synthesize popupDelegate;
+
+@synthesize thumbsUpMenuItem;
+@synthesize thumbsDownMenuItem;
+@synthesize starRatingMenuItem;
+@synthesize starRatingView;
+@synthesize starRatingLabel;
+@synthesize ratingsSeparatorMenuItem;
+
 @synthesize defaults;
 @synthesize prefsController;
 @synthesize lastfmPopover;
@@ -223,7 +232,7 @@
 {
     statusView = [[PopupStatusView alloc] initWithFrame:NSMakeRect(0, 0, NSSquareStatusItemLength, NSSquareStatusItemLength)];
     [statusView setPopup:popup];
-    [statusView setMenu:popupMenu];
+    [statusView setMenu:menu];
     [popup setPopupDelegate:statusView];
     
     // Toggle the size of the mini-player.
@@ -237,6 +246,44 @@
     [statusItem setView:statusView];
     
     [statusView setStatusItem:statusItem];
+}
+
+- (void)setupRatingMenuItems
+{
+    // Add the appropriate menu items.
+    if (isStarsRatingSystem)
+    {
+        [self setupStarRatingView];
+        [thumbsUpMenuItem setHidden:YES];
+        [thumbsDownMenuItem setHidden:YES];
+    }
+    else
+    {
+        [thumbsUpMenuItem setHidden:NO];
+        [thumbsDownMenuItem setHidden:NO];
+    }
+    
+    [ratingsSeparatorMenuItem setHidden:NO];
+}
+
+- (void)setupStarRatingView
+{
+    if ([controlsMenu indexOfItem:starRatingMenuItem] == -1)
+    {
+        [controlsMenu insertItem:starRatingMenuItem atIndex:7];
+        [starRatingView setStarImage:[Utilities imageFromName:@"stars/star_outline_black_small"]];
+        [starRatingView setStarHighlightedImage:[Utilities imageFromName:@"stars/star_filled_small"]];
+        [starRatingView setMaxRating:5];
+        [starRatingView setHalfStarThreshold:1];
+        [starRatingView setEditable:NO];
+        [starRatingView setDisplayMode:EDStarRatingDisplayFull];
+        [starRatingView setDelegate:self];
+    }
+}
+
+- (void)starsSelectionChanged:(EDStarRating *)control rating:(float)rating
+{
+    [self setStarRating:rating];
 }
 
 - (void)showLastFmPopover:(id)sender
@@ -569,6 +616,21 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     [popupDelegate playbackChanged:mode];
     [statusView setPlaybackMode:mode];
     [statusView setNeedsDisplay:YES];
+    
+    if (isStarsRatingSystem)
+    {
+        if (mode == MUSIC_STOPPED)
+        {
+            [starRatingView setEditable:NO];
+            [starRatingView setRating:0];
+            [starRatingLabel setTextColor:[NSColor disabledControlTextColor]];
+        }
+        else
+        {
+            [starRatingView setEditable:YES];
+            [starRatingLabel setTextColor:[NSColor controlTextColor]];
+        }
+    }
 }
 
 - (void)playbackTimeChanged:(NSInteger)currentTime totalTime:(NSInteger)totalTime
@@ -600,6 +662,9 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
             [LastFmService unloveTrack:currentTitle artist:currentArtist successHandler:nil failureHandler:failureHandler];
         }
     }
+    
+    if (isStarsRatingSystem)
+        [starRatingView setRating:rating];
     
     [popupDelegate ratingChanged:rating];
 }
@@ -645,6 +710,8 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     
     // Determine whether the player is using thumbs or stars.
     isStarsRatingSystem = (BOOL)[[webView windowScriptObject] evaluateWebScript:@"MusicAPI.Rating.isStarsRatingSystem()"];
+    
+    [self setupRatingMenuItems];
 }
 
 - (id)preferenceForKey:(NSString *)key

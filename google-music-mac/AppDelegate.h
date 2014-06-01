@@ -10,6 +10,7 @@
 #import <Cocoa/Cocoa.h>
 #import <IOKit/hidsystem/ev_keymap.h>
 #import <WebKit/WebKit.h>
+#import <EDStarRating/EDStarRating.h>
 
 #import "DummyWebViewPolicyDelegate.h"
 #import "CustomWebView.h"
@@ -30,7 +31,7 @@
 @class PopupStatusView;
 @class PopupPanel;
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, CustomWebViewDelegate, NSUserNotificationCenterDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate, CustomWebViewDelegate, NSUserNotificationCenterDelegate, EDStarRatingProtocol>
 {
 	CFMachPortRef eventTap;
     CFRunLoopSourceRef eventPortSource;
@@ -42,13 +43,22 @@
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet NSMenu *menu;
+@property (assign) IBOutlet NSMenu *controlsMenu;
+
 @property (nonatomic, retain) TitleBarTextView *titleView;
 @property (nonatomic, retain) IBOutlet CustomWebView *webView;
 @property (nonatomic, retain) NSStatusItem *statusItem;
 @property (nonatomic, retain) PopupStatusView *statusView;
 @property (nonatomic, retain) IBOutlet PopupPanel *popup;
-@property (nonatomic, retain) IBOutlet NSMenu *popupMenu;
 @property (assign) IBOutlet PopupViewDelegate *popupDelegate;
+
+@property (assign) IBOutlet NSMenuItem *thumbsUpMenuItem;
+@property (assign) IBOutlet NSMenuItem *thumbsDownMenuItem;
+@property (assign) IBOutlet NSMenuItem *starRatingMenuItem;
+@property (assign) IBOutlet EDStarRating *starRatingView;
+@property (assign) IBOutlet NSTextField *starRatingLabel;
+@property (assign) IBOutlet NSMenuItem *ratingsSeparatorMenuItem;
 
 @property (nonatomic, retain) IBOutlet LastFmPopover *lastfmPopover;
 
@@ -68,6 +78,8 @@
 - (void) checkVersion;
 - (void) initializeStatusBar;
 - (NSMutableDictionary *) styles;
+- (void) setupStarRatingView;
+- (void) setupRatingMenuItems;
     
 - (IBAction) webBrowserBack:(id)sender;
 - (IBAction) webBrowserForward:(id)sender;
