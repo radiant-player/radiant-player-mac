@@ -118,7 +118,7 @@
         ];
     }
     
-    [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
+    [[NotificationCenter center] setDelegate:self];
     
     // Register our custom download protocols.
     [NSURLProtocol registerClass:[SpriteDownloadURLProtocol class]];
@@ -563,42 +563,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
     if ([defaults boolForKey:@"notifications.enabled"])
     {
-        NSUserNotification *notif = [[NSUserNotification alloc] init];
-        notif.title = title;
-        
-        if ([defaults boolForKey:@"notifications.itunes-style"]) {
-            notif.subtitle = [NSString stringWithFormat:@"%@ — %@", artist, album];
-            [notif setValue:@YES forKey:@"_showsButtons"];
-        }
-        else {
-            notif.informativeText = [NSString stringWithFormat:@"%@ — %@", artist, album];
-        }
-        
-        // Make sure the version of OS X supports this.
-        if ([notif respondsToSelector:@selector(setContentImage:)])
-        {
-            // Try to load the album art if possible.
-            if ([defaults boolForKey:@"notifications.show-album-art"] && art)
-            {
-                currentArt = [[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:currentArtURL]];
-                
-                if ([defaults boolForKey:@"notifications.itunes-style"]) {
-                    [notif setValue:currentArt forKey:@"_identityImage"];
-                }
-                else {
-                    notif.contentImage = currentArt;
-                }
-            }
-        }
-        
-        notif.actionButtonTitle = @"Skip";
-        [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
-
-        // Remove the previous notifications in order to make this notification appear immediately.
-        [[NSUserNotificationCenter defaultUserNotificationCenter] removeAllDeliveredNotifications];
-        
-        // Deliver the notification.
-        [[NSUserNotificationCenter defaultUserNotificationCenter] scheduleNotification:notif];
+        [[NotificationCenter center] scheduleNotificationWithTitle:title artist:artist album:album imageURL:art];
     }
 }
 
@@ -818,14 +783,14 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     NSLog(@"%@", message);
 }
 
-#pragma mark - NSUserNotificationCenterDelegate
+#pragma mark - NotificationActivationDelegate
 
-- (void)userNotificationCenter:(NSUserNotificationCenter *)center didActivateNotification:(NSUserNotification *)notification
+- (void) notificationWasActivated:(NotificationActivationType)activationType
 {
-    if (notification.activationType == NSUserNotificationActivationTypeActionButtonClicked) {
-        [self forwardAction:center];
+    if (activationType == NotificationActivationTypeButtonClicked) {
+        [self forwardAction:self];
     }
-    else if (notification.activationType == NSUserNotificationActivationTypeContentsClicked) {
+    else if (activationType == NotificationActivationTypeContentsClicked) {
         [NSApp activateIgnoringOtherApps:YES];
         [window makeKeyAndOrderFront:self];
     }

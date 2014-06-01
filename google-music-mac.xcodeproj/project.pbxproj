@@ -28,6 +28,9 @@
 		D318341B18CFC7C500E8F9B1 /* ApplicationStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D318341A18CFC7C500E8F9B1 /* ApplicationStyle.m */; };
 		D318342118D0513D00E8F9B1 /* CookieStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = D318342018D0513D00E8F9B1 /* CookieStorage.m */; };
 		D31ACE84193ACDC300AC7CB4 /* RatingBadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D31ACE83193ACDC300AC7CB4 /* RatingBadgeButton.m */; };
+		D31ACE86193BCD3E00AC7CB4 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D31ACE85193BCD3E00AC7CB4 /* Growl.framework */; };
+		D31ACE8A193BDD0F00AC7CB4 /* NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D31ACE89193BDD0F00AC7CB4 /* NotificationCenter.m */; };
+		D31ACE8D193BE39E00AC7CB4 /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D31ACE85193BCD3E00AC7CB4 /* Growl.framework */; };
 		D323406A18C523BC008C165B /* AboutWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D323406918C523BC008C165B /* AboutWindow.m */; };
 		D326EA6418B2D7E500BEC02F /* css in Resources */ = {isa = PBXBuildFile; fileRef = D326EA6218B2D7E500BEC02F /* css */; };
 		D326EA6518B2D7E500BEC02F /* js in Resources */ = {isa = PBXBuildFile; fileRef = D326EA6318B2D7E500BEC02F /* js */; };
@@ -63,6 +66,20 @@
 		D3FAC6D418BA81EC00D9F461 /* PopupStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FAC6D318BA81EC00D9F461 /* PopupStatusView.m */; };
 		D3FAC6D718BA942500D9F461 /* PopupViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FAC6D618BA942500D9F461 /* PopupViewDelegate.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D31ACE8C193BE38900AC7CB4 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D31ACE8D193BE39E00AC7CB4 /* Growl.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1A68DAD61803B588004CBA25 /* CustomWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomWebView.h; sourceTree = "<group>"; };
@@ -105,6 +122,9 @@
 		D318342018D0513D00E8F9B1 /* CookieStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookieStorage.m; sourceTree = "<group>"; };
 		D31ACE82193ACDC300AC7CB4 /* RatingBadgeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingBadgeButton.h; sourceTree = "<group>"; };
 		D31ACE83193ACDC300AC7CB4 /* RatingBadgeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingBadgeButton.m; sourceTree = "<group>"; };
+		D31ACE85193BCD3E00AC7CB4 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = "google-music-mac/Frameworks/Growl.framework"; sourceTree = "<group>"; };
+		D31ACE88193BDD0F00AC7CB4 /* NotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationCenter.h; sourceTree = "<group>"; };
+		D31ACE89193BDD0F00AC7CB4 /* NotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationCenter.m; sourceTree = "<group>"; };
 		D323406818C523BC008C165B /* AboutWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWindow.h; sourceTree = "<group>"; };
 		D323406918C523BC008C165B /* AboutWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWindow.m; sourceTree = "<group>"; };
 		D326EA6218B2D7E500BEC02F /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
@@ -172,6 +192,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D31ACE86193BCD3E00AC7CB4 /* Growl.framework in Frameworks */,
 				D370E8E018E21ABC007B5450 /* QuartzCore.framework in Frameworks */,
 				D3B4C0C318DAB4740069AB18 /* JavaScriptCore.framework in Frameworks */,
 				1A7B687417453E4C001E509E /* WebKit.framework in Frameworks */,
@@ -205,6 +226,7 @@
 		1A7B683E17453E40001E509E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D31ACE85193BCD3E00AC7CB4 /* Growl.framework */,
 				D370E8DF18E21ABC007B5450 /* QuartzCore.framework */,
 				D3B4C0C218DAB4740069AB18 /* JavaScriptCore.framework */,
 				1A7B687317453E4C001E509E /* WebKit.framework */,
@@ -228,6 +250,7 @@
 		1A7B684517453E40001E509E /* google-music-mac */ = {
 			isa = PBXGroup;
 			children = (
+				D31ACE87193BDC9700AC7CB4 /* Notifications */,
 				D3D4C3E318E75C79007238B3 /* LastFm */,
 				2B8FC1BB18C9C01E006D04FF /* AppleScript */,
 				D3B71C2318C2C3510041358B /* Preferences */,
@@ -289,6 +312,15 @@
 				D318341A18CFC7C500E8F9B1 /* ApplicationStyle.m */,
 			);
 			path = Styles;
+			sourceTree = "<group>";
+		};
+		D31ACE87193BDC9700AC7CB4 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				D31ACE88193BDD0F00AC7CB4 /* NotificationCenter.h */,
+				D31ACE89193BDD0F00AC7CB4 /* NotificationCenter.m */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 		D32CCEFE18BED65B00BDD484 /* Popup */ = {
@@ -390,6 +422,7 @@
 				1A7B683A17453E40001E509E /* Resources */,
 				D3981F6318B5D5D900EA4D7A /* Run Script */,
 				D0B126C78BE34593B5FE493C /* Copy Pods Resources */,
+				D31ACE8C193BE38900AC7CB4 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -530,6 +563,7 @@
 				D30CA0081938722F007B05B2 /* NSImage+ScriptingDescriptor.m in Sources */,
 				D35788BD18C2F820006AF859 /* GeneralPreferencesViewController.m in Sources */,
 				D3FAC6D418BA81EC00D9F461 /* PopupStatusView.m in Sources */,
+				D31ACE8A193BDD0F00AC7CB4 /* NotificationCenter.m in Sources */,
 				D362D5421924D17B00FC0C56 /* PrivacyPreferencesViewController.m in Sources */,
 				D343CDF518C69DF4002F9DB3 /* NavigationPreferencesViewController.m in Sources */,
 				D3F14A4918F357AA007D4536 /* AdvancedPreferencesViewController.m in Sources */,
@@ -633,7 +667,10 @@
 			baseConfigurationReference = A32790DC482A48E18B516D0B /* Pods.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/google-music-mac/Frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "google-music-mac/prefix.pch";
 				INFOPLIST_FILE = "google-music-mac/info.plist";
@@ -647,7 +684,10 @@
 			baseConfigurationReference = A32790DC482A48E18B516D0B /* Pods.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/google-music-mac/Frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "google-music-mac/prefix.pch";
 				INFOPLIST_FILE = "google-music-mac/info.plist";

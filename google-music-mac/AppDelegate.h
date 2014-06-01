@@ -12,6 +12,8 @@
 #import <WebKit/WebKit.h>
 #import <EDStarRating/EDStarRating.h>
 
+#import "Notifications/NotificationCenter.h"
+
 #import "DummyWebViewPolicyDelegate.h"
 #import "CustomWebView.h"
 #import "InvertedSpriteURLProtocol.h"
@@ -31,7 +33,7 @@
 @class PopupStatusView;
 @class PopupPanel;
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, CustomWebViewDelegate, NSUserNotificationCenterDelegate, EDStarRatingProtocol>
+@interface AppDelegate : NSObject <NSApplicationDelegate, CustomWebViewDelegate, EDStarRatingProtocol, NotificationCenterDelegate>
 {
 	CFMachPortRef eventTap;
     CFRunLoopSourceRef eventPortSource;
