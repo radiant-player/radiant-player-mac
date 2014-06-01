@@ -168,7 +168,7 @@
     // Update subviews.
     for (NSView *view in [self subviews])
     {
-        if ([view tag] != NO_SONGS_PLAYING_TAG && [view tag] != EXPAND_ART_TAG)
+        if ([view tag] != NO_SONGS_PLAYING_TAG && [view tag] != EXPAND_ART_TAG && ![view isKindOfClass:[EDStarRating class]])
             [view setAlphaValue:_hoverAlphaMultiplier];
     }
     
@@ -220,6 +220,8 @@
         [delegate.backButton setImage:[delegate backImage]];
         [delegate.forwardButton setImage:[delegate forwardImage]];
         [delegate.showMainWindowButton setImage:[delegate showMainWindowImage]];
+        [delegate.starBadgeButton setImage:[delegate starBadgeImage:[delegate songRating]]];
+        [delegate.starRatingView setStarImage:[delegate starRatingImage]];
     }
     else
     {
@@ -258,7 +260,8 @@
         [delegate.backButton setImage:[delegate backImage]];
         [delegate.forwardButton setImage:[delegate forwardImage]];
         [delegate.showMainWindowButton setImage:[delegate showMainWindowImage]];
-
+        [delegate.starBadgeButton setImage:[delegate starBadgeImage:[delegate songRating]]];
+        [delegate.starRatingView setStarImage:[delegate starRatingImage]];
     }
 }
 

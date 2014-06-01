@@ -28,6 +28,7 @@
 @synthesize titleLabel;
 @synthesize artistLabel;
 @synthesize albumLabel;
+@synthesize infoView;
 
 @synthesize repeatButton;
 @synthesize backButton;
@@ -37,6 +38,8 @@
     
 @synthesize thumbsdownButton;
 @synthesize thumbsupButton;
+@synthesize starBadgeButton;
+@synthesize starRatingView;
 
 @synthesize playbackSlider;
 
@@ -51,10 +54,32 @@
     [thumbsupButton   setImage:[self thumbsUpOffImage]];
     [thumbsdownButton setImage:[self thumbsUpOnImage]];
     
+    [[starBadgeButton cell] setImageDimsWhenDisabled:NO];
+    [starBadgeButton setImage:[self starBadgeImage:0]];
+    [self setupStarRatingView];
+    
     [artExpandView          setImage:[self expandContractImage]];
     [showMainWindowButton   setImage:[self showMainWindowImage]];
     
     [popup.popupView setIsLargePlayer:NO];
+}
+
+- (void)setupStarRatingView
+{
+    [starRatingView setStarImage:[self starRatingImage]];
+    [starRatingView setStarHighlightedImage:[self starRatingHighlightedImage]];
+    [starRatingView setMaxRating:5];
+    [starRatingView setHalfStarThreshold:1];
+    [starRatingView setEditable:YES];
+    [starRatingView setHorizontalMargin:35];
+    [starRatingView setDisplayMode:EDStarRatingDisplayFull];
+    [starRatingView setDelegate:self];
+    [starRatingView setAlphaValue:0.0];
+}
+
+- (void)starsSelectionChanged:(id)sender rating:(float)rating
+{
+    [appDelegate setStarRating:rating];
 }
 
 - (void)updateSong:(NSString *)title artist:(NSString *)artist album:(NSString *)album art:(NSString *)art
@@ -62,8 +87,17 @@
     if (![noSongLabel isHidden])
     {
         [noSongLabel setHidden:YES];
-        [thumbsupButton setHidden:NO];
-        [thumbsdownButton setHidden:NO];
+        
+        if ([appDelegate isStarsRatingSystem])
+        {
+            [starBadgeButton setHidden:NO];
+            [starRatingView setHidden:NO];
+        }
+        else
+        {
+            [thumbsupButton setHidden:NO];
+            [thumbsdownButton setHidden:NO];
+        }
     }
     
     [titleLabel setStringValue:title];
@@ -134,20 +168,28 @@
 {
     songRating = rating;
     
-    if (rating == MUSIC_RATING_THUMBSUP)
+    if ([appDelegate isStarsRatingSystem])
     {
-        [thumbsupButton setImage:[self thumbsUpOnImage]];
-        [thumbsdownButton setImage:[self thumbsDownOffImage]];
-    }
-    else if (rating == MUSIC_RATING_THUMBSDOWN)
-    {
-        [thumbsupButton setImage:[self thumbsUpOffImage]];
-        [thumbsdownButton setImage:[self thumbsDownOnImage]];
+        [starBadgeButton setImage:[self starBadgeImage:rating]];
+        [starRatingView setRating:rating];
     }
     else
     {
-        [thumbsupButton setImage:[self thumbsUpOffImage]];
-        [thumbsdownButton setImage:[self thumbsDownOffImage]];
+        if (rating == MUSIC_RATING_THUMBSUP)
+        {
+            [thumbsupButton setImage:[self thumbsUpOnImage]];
+            [thumbsdownButton setImage:[self thumbsDownOffImage]];
+        }
+        else if (rating == MUSIC_RATING_THUMBSDOWN)
+        {
+            [thumbsupButton setImage:[self thumbsUpOffImage]];
+            [thumbsdownButton setImage:[self thumbsDownOnImage]];
+        }
+        else
+        {
+            [thumbsupButton setImage:[self thumbsUpOffImage]];
+            [thumbsdownButton setImage:[self thumbsDownOffImage]];
+        }
     }
 }
 
@@ -279,6 +321,35 @@
         return [Utilities templateImage:NSImageNameEnterFullScreenTemplate withColor:[NSColor colorWithDeviceWhite:0.8 alpha:1.0]];
     else
         return [Utilities templateImage:NSImageNameEnterFullScreenTemplate withColor:[NSColor colorWithDeviceWhite:0.4 alpha:1.0]];
+}
+
+- (NSImage *)starBadgeImage:(NSInteger)rating
+{
+    if (rating == 0)
+    {
+        if (popup.popupView.isLargePlayer)
+            return [Utilities imageFromName:@"stars/star_outline_white"];
+        else
+            return [Utilities imageFromName:@"stars/star_outline_black"];
+    }
+    else
+    {
+        NSString *name = [NSString stringWithFormat:@"stars/star_badge_%ld", (long)rating];
+        return [Utilities imageFromName:name];
+    }
+}
+
+- (NSImage *)starRatingImage
+{
+    if (popup.popupView.isLargePlayer)
+        return [Utilities imageFromName:@"stars/star_outline_white_small"];
+    else
+        return [Utilities imageFromName:@"stars/star_outline_black_small"];
+}
+
+- (NSImage *)starRatingHighlightedImage
+{
+    return [Utilities imageFromName:@"stars/star_filled_small"];
 }
 
 @end

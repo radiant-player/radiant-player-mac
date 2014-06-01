@@ -9,6 +9,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import <QuartzCore/QuartzCore.h>
+#import <EDStarRating/EDStarRating.h>
 #import "PopupViewDelegate.h"
 
 #define MINI_PLAYER_LARGE_HEIGHT 356.0

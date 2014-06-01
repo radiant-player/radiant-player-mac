@@ -63,6 +63,7 @@
 @property (assign) NSTimeInterval currentDuration;
 @property (assign) NSTimeInterval currentTimestamp;
 @property (assign) NSInteger currentPlaybackMode;
+@property (assign) BOOL isStarsRatingSystem;
 
 - (void) checkVersion;
 - (void) initializeStatusBar;
@@ -82,6 +83,7 @@
 
 - (IBAction) toggleThumbsUp:(id)sender;
 - (IBAction) toggleThumbsDown:(id)sender;
+- (void) setStarRating:(NSInteger)rating;
 
 - (IBAction) toggleRepeatMode:(id)sender;
 - (IBAction) repeatNone:(id)sender;

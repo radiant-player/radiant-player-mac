@@ -136,6 +136,11 @@ if (typeof window.MusicAPI === 'undefined') {
     /* Create a rating API. */
     window.MusicAPI.Rating = {
 
+        // Determine whether the rating system is thumbs or stars.
+        isStarsRatingSystem: function() {
+            return document.querySelector('.rating-container.stars') !== null;
+        },
+
         // Get current rating.
         getRating: function() {
             var el = document.querySelector('.player-rating-container li.selected');
@@ -159,6 +164,14 @@ if (typeof window.MusicAPI === 'undefined') {
         // Thumbs down.
         toggleThumbsDown: function() {
             var el = document.querySelector('.player-rating-container li[data-rating="1"]');
+
+            if (el)
+                el.click();
+        },
+
+        // Set a star rating.
+        setStarRating: function(rating) {
+            var el = document.querySelector('.player-rating-container li[data-rating="' + rating + '"]');
 
             if (el)
                 el.click();

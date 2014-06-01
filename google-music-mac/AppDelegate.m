@@ -32,6 +32,7 @@
 @synthesize currentDuration;
 @synthesize currentTimestamp;
 @synthesize currentPlaybackMode;
+@synthesize isStarsRatingSystem;
 
 /**
  * Closing the application, hides the player window but keeps music playing in the background.
@@ -429,6 +430,15 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 }
 
 /**
+ * Set the star rating (between 0 and 5) for the song.
+ */
+- (IBAction) setStarRating:(NSInteger)rating
+{
+    NSString *js = [NSString stringWithFormat:@"MusicAPI.Rating.setStarRating(%ld)", (long)rating];
+    [webView stringByEvaluatingJavaScriptFromString:js];
+}
+
+/**
  * Cycle between the repeat modes.
  */
 - (IBAction) toggleRepeatMode:(id)sender
@@ -632,6 +642,9 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         [window setBackgroundColor:[style windowColor]];
         [titleView setColor:[style titleColor]];
     }
+    
+    // Determine whether the player is using thumbs or stars.
+    isStarsRatingSystem = (BOOL)[[webView windowScriptObject] evaluateWebScript:@"MusicAPI.Rating.isStarsRatingSystem()"];
 }
 
 - (id)preferenceForKey:(NSString *)key

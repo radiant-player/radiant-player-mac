@@ -27,6 +27,7 @@
 		D318341718CFBC7400E8F9B1 /* AppearancePreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D318341618CFBC7400E8F9B1 /* AppearancePreferencesViewController.m */; };
 		D318341B18CFC7C500E8F9B1 /* ApplicationStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D318341A18CFC7C500E8F9B1 /* ApplicationStyle.m */; };
 		D318342118D0513D00E8F9B1 /* CookieStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = D318342018D0513D00E8F9B1 /* CookieStorage.m */; };
+		D31ACE84193ACDC300AC7CB4 /* RatingBadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D31ACE83193ACDC300AC7CB4 /* RatingBadgeButton.m */; };
 		D323406A18C523BC008C165B /* AboutWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D323406918C523BC008C165B /* AboutWindow.m */; };
 		D326EA6418B2D7E500BEC02F /* css in Resources */ = {isa = PBXBuildFile; fileRef = D326EA6218B2D7E500BEC02F /* css */; };
 		D326EA6518B2D7E500BEC02F /* js in Resources */ = {isa = PBXBuildFile; fileRef = D326EA6318B2D7E500BEC02F /* js */; };
@@ -102,6 +103,8 @@
 		D318341A18CFC7C500E8F9B1 /* ApplicationStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationStyle.m; sourceTree = "<group>"; };
 		D318341F18D0513D00E8F9B1 /* CookieStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CookieStorage.h; sourceTree = "<group>"; };
 		D318342018D0513D00E8F9B1 /* CookieStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookieStorage.m; sourceTree = "<group>"; };
+		D31ACE82193ACDC300AC7CB4 /* RatingBadgeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingBadgeButton.h; sourceTree = "<group>"; };
+		D31ACE83193ACDC300AC7CB4 /* RatingBadgeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingBadgeButton.m; sourceTree = "<group>"; };
 		D323406818C523BC008C165B /* AboutWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWindow.h; sourceTree = "<group>"; };
 		D323406918C523BC008C165B /* AboutWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWindow.m; sourceTree = "<group>"; };
 		D326EA6218B2D7E500BEC02F /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
@@ -303,6 +306,8 @@
 				D32CCEF918BE039E00BDD484 /* PopupPanel.m */,
 				D32CCEFB18BE9BF800BDD484 /* PopupView.h */,
 				D32CCEFC18BE9BF800BDD484 /* PopupView.m */,
+				D31ACE82193ACDC300AC7CB4 /* RatingBadgeButton.h */,
+				D31ACE83193ACDC300AC7CB4 /* RatingBadgeButton.m */,
 			);
 			path = Popup;
 			sourceTree = "<group>";
@@ -516,6 +521,7 @@
 				D323406A18C523BC008C165B /* AboutWindow.m in Sources */,
 				D328616B192414B900395FEA /* NSHTTPCookie+Coding.m in Sources */,
 				D32CCEFA18BE039E00BDD484 /* PopupPanel.m in Sources */,
+				D31ACE84193ACDC300AC7CB4 /* RatingBadgeButton.m in Sources */,
 				D37B638718F1E7680098F9DC /* SpriteDownloadURLProtocol.m in Sources */,
 				D3B71C2818C2D5240041358B /* PreferencesWindowController.m in Sources */,
 				D328616519234D7900395FEA /* TitleBarTextView.m in Sources */,
