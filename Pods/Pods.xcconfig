@@ -1,5 +1,5 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/KissXML" "${PODS_ROOT}/Headers/LastFm" "${PODS_ROOT}/Headers/MASPreferences" "${PODS_ROOT}/Headers/NSDate+TimeAgo" "$(SDKROOT)/usr/include/libxml2" "$(SDKROOT)/usr/include/libxml2"
-OTHER_CFLAGS = $(inherited) "-isystem${PODS_ROOT}/Headers" "-isystem${PODS_ROOT}/Headers/KissXML" "-isystem${PODS_ROOT}/Headers/LastFm" "-isystem${PODS_ROOT}/Headers/MASPreferences" "-isystem${PODS_ROOT}/Headers/NSDate+TimeAgo"
-OTHER_LDFLAGS = -ObjC -lxml2
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/EDStarRating" "${PODS_ROOT}/Headers/KissXML" "${PODS_ROOT}/Headers/LastFm" "${PODS_ROOT}/Headers/MASPreferences" "${PODS_ROOT}/Headers/NSDate+TimeAgo" "$(SDKROOT)/usr/include/libxml2" "$(SDKROOT)/usr/include/libxml2"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers" -isystem "${PODS_ROOT}/Headers/EDStarRating" -isystem "${PODS_ROOT}/Headers/KissXML" -isystem "${PODS_ROOT}/Headers/LastFm" -isystem "${PODS_ROOT}/Headers/MASPreferences" -isystem "${PODS_ROOT}/Headers/NSDate+TimeAgo"
+OTHER_LDFLAGS = -ObjC -lxml2 -framework QuartzCore
 PODS_ROOT = ${SRCROOT}/Pods

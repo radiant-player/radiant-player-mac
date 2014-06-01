@@ -1,0 +1,1 @@
+../../EDStarRating/EDStarRating/EDStarRating.h

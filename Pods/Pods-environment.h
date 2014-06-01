@@ -6,6 +6,12 @@
 // project.
 
 
+// EDStarRating
+#define COCOAPODS_POD_AVAILABLE_EDStarRating
+#define COCOAPODS_VERSION_MAJOR_EDStarRating 1
+#define COCOAPODS_VERSION_MINOR_EDStarRating 1
+#define COCOAPODS_VERSION_PATCH_EDStarRating 0
+
 // KissXML
 #define COCOAPODS_POD_AVAILABLE_KissXML
 #define COCOAPODS_VERSION_MAJOR_KissXML 5
