@@ -9,6 +9,8 @@
 
 #import "NotificationCenter.h"
 
+NSString *const SONG_NOTIFICATION_NAME = @"SongNotification";
+
 @implementation NotificationCenter
 
 @synthesize delegate;
@@ -25,7 +27,34 @@
     return shared;
 }
 
+- (id)init
+{
+    self = [super init];
+    
+    if (self)
+    {
+        [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
+        [GrowlApplicationBridge setGrowlDelegate:self];
+    }
+    
+    return self;
+}
+
 - (void)scheduleNotificationWithTitle:(NSString *)title artist:(NSString *)artist album:(NSString *)album imageURL:(NSString *)imageURL
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    if ([defaults boolForKey:@"notifications.use-growl"] && [GrowlApplicationBridge isGrowlRunning])
+    {
+        [self _scheduleGrowlNotificationWithTitle:title artist:artist album:album imageURL:imageURL];
+    }
+    else
+    {
+        [self _scheduleNSUserNotificationWithTitle:title artist:artist album:album imageURL:imageURL];
+    }
+}
+
+- (void)_scheduleNSUserNotificationWithTitle:(NSString *)title artist:(NSString *)artist album:(NSString *)album imageURL:(NSString *)imageURL
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
@@ -58,7 +87,6 @@
     }
     
     notif.actionButtonTitle = @"Skip";
-    [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
     
     // Remove the previous notifications in order to make this notification appear immediately.
     [[NSUserNotificationCenter defaultUserNotificationCenter] removeAllDeliveredNotifications];
@@ -67,8 +95,33 @@
     [[NSUserNotificationCenter defaultUserNotificationCenter] scheduleNotification:notif];
 }
 
-#pragma mark - NSUserNotificationCenterDelegate
+- (void)_scheduleGrowlNotificationWithTitle:(NSString *)title artist:(NSString *)artist album:(NSString *)album imageURL:(NSString *)imageURL
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *imageData = [NSData data];
+    
+    // Try to load the album art if possible.
+    if ([defaults boolForKey:@"notifications.show-album-art"] && imageURL)
+    {
+        NSImage *image = [[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:imageURL]];
+        imageData = [image TIFFRepresentation];
+    }
+    
+    NSDictionary *properties = @{
+        GROWL_NOTIFICATION_NAME: SONG_NOTIFICATION_NAME,
+        GROWL_NOTIFICATION_TITLE: title,
+        GROWL_NOTIFICATION_DESCRIPTION: [NSString stringWithFormat:@"%@ - %@", artist, album],
+        GROWL_NOTIFICATION_ICON_DATA: imageData
+    };
+    
+    [GrowlApplicationBridge notifyWithDictionary:properties];
+}
 
+#pragma mark - Delegates
+
+/*
+ * NSUserNotificationCenter delegate
+ */
 - (void)userNotificationCenter:(NSUserNotificationCenter *)center didActivateNotification:(NSUserNotification *)notification
 {
     NotificationActivationType type;
@@ -89,6 +142,27 @@
     }
     
     [delegate notificationWasActivated:type];
+}
+
+/*
+ * GrowlApplicationBridge delegate
+ */
+- (void)growlNotificationWasClicked:(id)clickContext
+{
+    [delegate notificationWasActivated:NotificationActivationTypeContentsClicked];
+}
+
+- (NSDictionary *)registrationDictionaryForGrowl
+{
+    return @{
+                GROWL_NOTIFICATIONS_ALL:        @[SONG_NOTIFICATION_NAME],
+                GROWL_NOTIFICATIONS_DEFAULT:    @[SONG_NOTIFICATION_NAME]
+            };
+}
+
+- (NSString *)applicationNameForGrowl
+{
+    return [Utilities applicationName];
 }
 
 

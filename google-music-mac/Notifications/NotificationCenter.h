@@ -8,6 +8,11 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <Growl/Growl.h>
+
+#import "../Utilities.h"
+
+extern NSString * const SONG_NOTIFICATION_NAME;
 
 typedef NS_ENUM(NSInteger, NotificationActivationType) {
     NotificationActivationTypeNone,
@@ -21,7 +26,7 @@ typedef NS_ENUM(NSInteger, NotificationActivationType) {
 
 @end
 
-@interface NotificationCenter : NSObject<NSUserNotificationCenterDelegate>
+@interface NotificationCenter : NSObject<NSUserNotificationCenterDelegate, GrowlApplicationBridgeDelegate>
 
 @property (retain) id<NotificationCenterDelegate> delegate;
 

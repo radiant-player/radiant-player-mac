@@ -18,6 +18,7 @@
     self = [super initWithCoder:aDecoder];
     if (self != nil) {
         self.isNotificationImageSupportAvailable = [NSUserNotification instancesRespondToSelector:@selector(setContentImage:)];
+        self.isGrowlSupportAvailable = [GrowlApplicationBridge isGrowlRunning];
     }
     return self;
 }
