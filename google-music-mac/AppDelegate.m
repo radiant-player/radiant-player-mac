@@ -60,6 +60,12 @@
     return NO;
 }
 
+- (void)receiveSleepNotif: (NSNotification*)notification
+{
+    if (currentPlaybackMode == MUSIC_PLAYING)
+        [self playPause:self];
+}
+
 /**
  * Application finished launching, we will register the event tap callback.
  */
@@ -178,6 +184,9 @@
     dummyWebViewDelegate = [[DummyWebViewPolicyDelegate alloc] init];
     dummyWebView = [[WebView alloc] init];
     [dummyWebView setPolicyDelegate:dummyWebViewDelegate];
+
+    // Register for machine sleep notifications
+    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self selector:@selector(receiveSleepNotif:) name:NSWorkspaceWillSleepNotification object:NULL];
 }
 
 - (void)checkVersion
