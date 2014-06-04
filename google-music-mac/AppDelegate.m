@@ -60,6 +60,12 @@
     return NO;
 }
 
+- (void)receiveSleepNotification:(NSNotification*)notification
+{
+    if (currentPlaybackMode == MUSIC_PLAYING)
+        [self playPause:self];
+}
+
 /**
  * Application finished launching, we will register the event tap callback.
  */
@@ -170,7 +176,7 @@
     }
     
     if ([defaults boolForKey:@"updates.check"]) {
-        // Run the version check after 5 seconds.
+        // Run the version check after 10 seconds.
         [self performSelector:@selector(checkVersion) withObject:nil afterDelay:10.0];
     }
 
@@ -178,6 +184,9 @@
     dummyWebViewDelegate = [[DummyWebViewPolicyDelegate alloc] init];
     dummyWebView = [[WebView alloc] init];
     [dummyWebView setPolicyDelegate:dummyWebViewDelegate];
+
+    // Register for machine sleep notifications
+    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self selector:@selector(receiveSleepNotification:) name:NSWorkspaceWillSleepNotification object:nil];
 }
 
 - (void)checkVersion
