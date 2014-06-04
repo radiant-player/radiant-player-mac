@@ -39,6 +39,11 @@
     return self;
 }
 
++ (NSURLRequest *)canonicalRequestForRequest:(NSURLRequest *)request
+{
+    return request;
+}
+
 - (void) startLoading
 {
     _connection = [NSURLConnection connectionWithRequest:[self request] delegate:self];

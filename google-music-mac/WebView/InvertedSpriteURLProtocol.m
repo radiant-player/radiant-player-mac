@@ -31,6 +31,11 @@
     return self;
 }
 
++ (NSURLRequest *)canonicalRequestForRequest:(NSURLRequest *)request
+{
+    return request;
+}
+
 - (void)startLoading
 {
     NSDictionary *headers = @{
