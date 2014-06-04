@@ -47,6 +47,11 @@
     
 }
 
++ (NSURLRequest *)canonicalRequestForRequest:(NSURLRequest *)request
+{
+    return request;
+}
+
 - (NSString *)mimeTypeFromURL:(NSURL *)url
 {
     NSString *extension = [[url pathExtension] lowercaseString];
