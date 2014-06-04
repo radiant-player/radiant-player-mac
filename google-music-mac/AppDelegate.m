@@ -60,7 +60,7 @@
     return NO;
 }
 
-- (void)receiveSleepNotif: (NSNotification*)notification
+- (void)receiveSleepNotification:(NSNotification*)notification
 {
     if (currentPlaybackMode == MUSIC_PLAYING)
         [self playPause:self];
@@ -176,7 +176,7 @@
     }
     
     if ([defaults boolForKey:@"updates.check"]) {
-        // Run the version check after 5 seconds.
+        // Run the version check after 10 seconds.
         [self performSelector:@selector(checkVersion) withObject:nil afterDelay:10.0];
     }
 
@@ -186,7 +186,7 @@
     [dummyWebView setPolicyDelegate:dummyWebViewDelegate];
 
     // Register for machine sleep notifications
-    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self selector:@selector(receiveSleepNotif:) name:NSWorkspaceWillSleepNotification object:NULL];
+    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self selector:@selector(receiveSleepNotification:) name:NSWorkspaceWillSleepNotification object:nil];
 }
 
 - (void)checkVersion
