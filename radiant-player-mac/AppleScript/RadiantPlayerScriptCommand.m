@@ -15,7 +15,7 @@
 /**
  Called when supported AppleScript are executed
  
- @see google-music-mac.sdef for all commands
+ @see radiant-player-mac.sdef for all commands
  @return nothing for now
  */
 - (id)performDefaultImplementation

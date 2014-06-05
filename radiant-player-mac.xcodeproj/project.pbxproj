@@ -15,7 +15,7 @@
 		1A7B685317453E40001E509E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7B685217453E40001E509E /* AppDelegate.m */; };
 		1A7B685617453E40001E509E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A7B685417453E40001E509E /* MainMenu.xib */; };
 		1A7B687417453E4C001E509E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7B687317453E4C001E509E /* WebKit.framework */; };
-		2B8FC1C018C9CB0E006D04FF /* google-music-mac.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 2B8FC1BF18C9CB0E006D04FF /* google-music-mac.sdef */; };
+		2B8FC1C018C9CB0E006D04FF /* radiant-player-mac.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 2B8FC1BF18C9CB0E006D04FF /* radiant-player-mac.sdef */; };
 		2B8FC1C318C9CB16006D04FF /* RadiantPlayerScriptCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8FC1C218C9CB16006D04FF /* RadiantPlayerScriptCommand.m */; };
 		38D0C36DAD0F40F5A7254224 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BABD1B4DDCC34CB291C66033 /* libPods.a */; };
 		D302E13418B561E100CCD18E /* Preferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = D302E13318B561E100CCD18E /* Preferences.plist */; };
@@ -98,7 +98,7 @@
 		1A7B685217453E40001E509E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1A7B685517453E40001E509E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		1A7B687317453E4C001E509E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		2B8FC1BF18C9CB0E006D04FF /* google-music-mac.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "google-music-mac.sdef"; sourceTree = "<group>"; };
+		2B8FC1BF18C9CB0E006D04FF /* radiant-player-mac.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "radiant-player-mac.sdef"; sourceTree = "<group>"; };
 		2B8FC1C118C9CB16006D04FF /* RadiantPlayerScriptCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadiantPlayerScriptCommand.h; sourceTree = "<group>"; };
 		2B8FC1C218C9CB16006D04FF /* RadiantPlayerScriptCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadiantPlayerScriptCommand.m; sourceTree = "<group>"; };
 		A32790DC482A48E18B516D0B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 		D318342018D0513D00E8F9B1 /* CookieStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookieStorage.m; sourceTree = "<group>"; };
 		D31ACE82193ACDC300AC7CB4 /* RatingBadgeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingBadgeButton.h; sourceTree = "<group>"; };
 		D31ACE83193ACDC300AC7CB4 /* RatingBadgeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingBadgeButton.m; sourceTree = "<group>"; };
-		D31ACE85193BCD3E00AC7CB4 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = "google-music-mac/Frameworks/Growl.framework"; sourceTree = "<group>"; };
+		D31ACE85193BCD3E00AC7CB4 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = "radiant-player-mac/Frameworks/Growl.framework"; sourceTree = "<group>"; };
 		D31ACE88193BDD0F00AC7CB4 /* NotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationCenter.h; sourceTree = "<group>"; };
 		D31ACE89193BDD0F00AC7CB4 /* NotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationCenter.m; sourceTree = "<group>"; };
 		D323406818C523BC008C165B /* AboutWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWindow.h; sourceTree = "<group>"; };
@@ -208,7 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				D369FEFD18E3FB6B004CB1C6 /* icon.icns */,
-				1A7B684517453E40001E509E /* google-music-mac */,
+				1A7B684517453E40001E509E /* radiant-player-mac */,
 				1A7B683E17453E40001E509E /* Frameworks */,
 				1A7B683D17453E40001E509E /* Products */,
 				A32790DC482A48E18B516D0B /* Pods.xcconfig */,
@@ -247,7 +247,7 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		1A7B684517453E40001E509E /* google-music-mac */ = {
+		1A7B684517453E40001E509E /* radiant-player-mac */ = {
 			isa = PBXGroup;
 			children = (
 				D31ACE87193BDC9700AC7CB4 /* Notifications */,
@@ -275,7 +275,7 @@
 				D328616419234D7900395FEA /* TitleBarTextView.m */,
 				1A7B684617453E40001E509E /* Supporting Files */,
 			);
-			path = "google-music-mac";
+			path = "radiant-player-mac";
 			sourceTree = "<group>";
 		};
 		1A7B684617453E40001E509E /* Supporting Files */ = {
@@ -294,7 +294,7 @@
 		2B8FC1BB18C9C01E006D04FF /* AppleScript */ = {
 			isa = PBXGroup;
 			children = (
-				2B8FC1BF18C9CB0E006D04FF /* google-music-mac.sdef */,
+				2B8FC1BF18C9CB0E006D04FF /* radiant-player-mac.sdef */,
 				2B8FC1C118C9CB16006D04FF /* RadiantPlayerScriptCommand.h */,
 				2B8FC1C218C9CB16006D04FF /* RadiantPlayerScriptCommand.m */,
 				D30CA00319383160007B05B2 /* NSApplication+ScriptingProperties.h */,
@@ -442,7 +442,7 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Sajid Anwar";
 			};
-			buildConfigurationList = 1A7B683717453E40001E509E /* Build configuration list for PBXProject "google-music-mac" */;
+			buildConfigurationList = 1A7B683717453E40001E509E /* Build configuration list for PBXProject "radiant-player-mac" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -467,7 +467,7 @@
 				D326EA6418B2D7E500BEC02F /* css in Resources */,
 				D3D4C3E518E76063007238B3 /* LastFmPopover.xib in Resources */,
 				D326EA6518B2D7E500BEC02F /* js in Resources */,
-				2B8FC1C018C9CB0E006D04FF /* google-music-mac.sdef in Resources */,
+				2B8FC1C018C9CB0E006D04FF /* radiant-player-mac.sdef in Resources */,
 				D302E13418B561E100CCD18E /* Preferences.plist in Resources */,
 				1A7B684A17453E40001E509E /* InfoPlist.strings in Resources */,
 				D369FEFE18E3FB6B004CB1C6 /* icon.icns in Resources */,
@@ -669,11 +669,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/google-music-mac/Frameworks",
+					"$(PROJECT_DIR)/radiant-player-mac/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "google-music-mac/prefix.pch";
-				INFOPLIST_FILE = "google-music-mac/info.plist";
+				GCC_PREFIX_HEADER = "radiant-player-mac/prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/radiant-player-mac/info.plist";
 				PRODUCT_NAME = "Radiant Player";
 				WRAPPER_EXTENSION = app;
 			};
@@ -686,11 +686,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/google-music-mac/Frameworks",
+					"$(PROJECT_DIR)/radiant-player-mac/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "google-music-mac/prefix.pch";
-				INFOPLIST_FILE = "google-music-mac/info.plist";
+				GCC_PREFIX_HEADER = "radiant-player-mac/prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/radiant-player-mac/info.plist";
 				PRODUCT_NAME = "Radiant Player";
 				WRAPPER_EXTENSION = app;
 			};
@@ -699,7 +699,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1A7B683717453E40001E509E /* Build configuration list for PBXProject "google-music-mac" */ = {
+		1A7B683717453E40001E509E /* Build configuration list for PBXProject "radiant-player-mac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1A7B686B17453E40001E509E /* Debug */,
