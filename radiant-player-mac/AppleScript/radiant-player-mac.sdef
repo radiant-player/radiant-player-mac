@@ -2,7 +2,7 @@
 <!DOCTYPE dictionary SYSTEM "file://localhost/System/Library/DTDs/sdef.dtd">
 <dictionary title="Radiant Player Terminology">
     <suite name="Radiant Player Suite" code="GMMs" description="The suite specific to Radiant Player for Google Play Music">
-		
+
         <class name="application" code="capp" description="Radiant Player's application object">
             <cocoa class="NSApplication"/>
             <property name="current song name" code="Snam" description="name of the currently playing song" type="text">
@@ -24,7 +24,7 @@
                 <cocoa key="currentPlaybackMode"/>
             </property>
         </class>
-        
+
         <command name="back track" code="GMMsbatr" description="reposition to beginning of current track or go to previous track if already at start of current track">
 			<cocoa class="RadiantPlayerScriptCommand"/>
 		</command>
@@ -49,7 +49,7 @@
 		<command name="toggle visualization" code="GMMsvisl" description="toggle visualization on/off">
 			<cocoa class="RadiantPlayerScriptCommand"/>
 		</command>
-        
+
         <value-type name="image" code="imag">
             <cocoa class="NSImage" name="Image" />
         </value-type>
