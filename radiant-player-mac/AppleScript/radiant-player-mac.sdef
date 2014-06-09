@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE dictionary SYSTEM "file://localhost/System/Library/DTDs/sdef.dtd">
 <dictionary title="Radiant Player Terminology">
-	<xi:include href="file:///System/Library/ScriptingDefinitions/CocoaStandard.sdef" xpointer="xpointer(/dictionary/suite)"/>
-    
     <suite name="Radiant Player Suite" code="GMMs" description="The suite specific to Radiant Player for Google Play Music">
 		
         <class name="application" code="capp" description="Radiant Player's application object">
