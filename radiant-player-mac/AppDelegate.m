@@ -652,9 +652,13 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
 {
+    // Only apply the main script file when the player is ready.
+    if ([[webView mainFrameDocument] querySelector:@"#playerSongInfo"]) {
+        [self evaluateJavaScriptFile:@"main"];
+    }
+    
     [self evaluateJavaScriptFile:@"keyboard"];
     [self evaluateJavaScriptFile:@"mouse"];
-    [self evaluateJavaScriptFile:@"main"];
     [self evaluateJavaScriptFile:@"styles"];
     
     // Apply the navigation styles.
