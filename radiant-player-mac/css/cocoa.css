@@ -9,7 +9,7 @@
  *
  */
 
-#main, .song-row td {
+#main, #content, .song-row td {
     background-color: white;
 }
 
