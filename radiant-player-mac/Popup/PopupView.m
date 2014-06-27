@@ -35,6 +35,10 @@
     _hoverAlphaMultiplier = 0.0;
     
     [self setAnimations:@{@"hoverAlphaMultiplier": [CABasicAnimation animation]}];
+    [self setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameVibrantLight]];
+    [self setBlendingMode:NSVisualEffectBlendingModeBehindWindow];
+    [self setMaterial:NSVisualEffectMaterialLight];
+    [self setState:NSVisualEffectStateActive];
 }
 
 - (void)drawRect:(NSRect)dirtyRect
@@ -82,13 +86,6 @@
                                operation:NSCompositeSourceOver
                                 fraction:1.0];
         }
-        else
-        {
-            NSColor *gradientTop = [NSColor colorWithDeviceWhite:1 alpha:FILL_OPACITY];
-            NSColor *gradientBottom = [NSColor colorWithDeviceWhite:0.95 alpha:FILL_OPACITY];
-            NSGradient *gradient = [[NSGradient alloc] initWithStartingColor:gradientTop endingColor:gradientBottom];
-            [gradient drawInBezierPath:path angle:-90.0];
-        }
         
         NSColor *gradientDark = [NSColor colorWithDeviceWhite:0.1 alpha:_hoverAlphaMultiplier*0.7];
         NSColor *gradientLight = [NSColor colorWithDeviceWhite:0.05 alpha:_hoverAlphaMultiplier*0.2];
@@ -102,24 +99,10 @@
                                     nil];
         [gradient drawInBezierPath:path angle:-90.0];
     }
-    else
-    {
-        NSColor *gradientTop = [NSColor colorWithDeviceWhite:1 alpha:FILL_OPACITY];
-        NSColor *gradientBottom = [NSColor colorWithDeviceWhite:0.95 alpha:FILL_OPACITY];
-        NSGradient *gradient = [[NSGradient alloc] initWithStartingColor:gradientTop endingColor:gradientBottom];
-        [gradient drawInBezierPath:path angle:-90.0];
-    }
     
     [NSGraphicsContext saveGraphicsState];
-    
-    NSBezierPath *clip = [NSBezierPath bezierPathWithRect:[self bounds]];
-    [clip appendBezierPath:path];
-    [clip addClip];
-    
-    [path setLineWidth:LINE_THICKNESS * 2];
-    [[NSColor whiteColor] setStroke];
-    [path stroke];
-    
+    [path addClip];
+    [super drawRect:dirtyRect];
     [NSGraphicsContext restoreGraphicsState];
 }
 

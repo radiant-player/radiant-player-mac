@@ -50,6 +50,8 @@
 		D37B638418ED315B0098F9DC /* LastFm+TrackInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D37B638318ED315B0098F9DC /* LastFm+TrackInfo.m */; };
 		D37B638718F1E7680098F9DC /* SpriteDownloadURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D37B638618F1E7680098F9DC /* SpriteDownloadURLProtocol.m */; };
 		D37B638A18F1EFD30098F9DC /* InvertedSpriteURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D37B638918F1EFD30098F9DC /* InvertedSpriteURLProtocol.m */; };
+		D37C9286195DFE870035709A /* YosemiteStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C9285195DFE870035709A /* YosemiteStyle.m */; };
+		D37C9289195E19BD0035709A /* NSImage+Data.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C9288195E19BD0035709A /* NSImage+Data.m */; };
 		D3B1668318BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */; };
 		D3B4C0C318DAB4740069AB18 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B4C0C218DAB4740069AB18 /* JavaScriptCore.framework */; };
 		D3B71C2818C2D5240041358B /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B71C2718C2D5240041358B /* PreferencesWindowController.m */; };
@@ -159,6 +161,10 @@
 		D37B638618F1E7680098F9DC /* SpriteDownloadURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpriteDownloadURLProtocol.m; sourceTree = "<group>"; };
 		D37B638818F1EFD30098F9DC /* InvertedSpriteURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvertedSpriteURLProtocol.h; sourceTree = "<group>"; };
 		D37B638918F1EFD30098F9DC /* InvertedSpriteURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvertedSpriteURLProtocol.m; sourceTree = "<group>"; };
+		D37C9284195DFE870035709A /* YosemiteStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YosemiteStyle.h; sourceTree = "<group>"; };
+		D37C9285195DFE870035709A /* YosemiteStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YosemiteStyle.m; sourceTree = "<group>"; };
+		D37C9287195E19BD0035709A /* NSImage+Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+Data.h"; sourceTree = "<group>"; };
+		D37C9288195E19BD0035709A /* NSImage+Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Data.m"; sourceTree = "<group>"; };
 		D3B1668118BB0E43003FCE6B /* DummyWebViewPolicyDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyWebViewPolicyDelegate.h; sourceTree = "<group>"; };
 		D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyWebViewPolicyDelegate.m; sourceTree = "<group>"; };
 		D3B4C0C218DAB4740069AB18 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -267,6 +273,8 @@
 				1A7B685417453E40001E509E /* MainMenu.xib */,
 				D32861661924000800395FEA /* NSDate+UTCString.h */,
 				D32861671924000800395FEA /* NSDate+UTCString.m */,
+				D37C9287195E19BD0035709A /* NSImage+Data.h */,
+				D37C9288195E19BD0035709A /* NSImage+Data.m */,
 				D3DB8FF118BD27B700ABE93B /* PlaybackConstants.h */,
 				D3DB8FF418BD2AEC00ABE93B /* PlaybackConstants.m */,
 				D3091F6118C32961007C8DCD /* Utilities.h */,
@@ -310,6 +318,8 @@
 			children = (
 				D318341918CFC7C500E8F9B1 /* ApplicationStyle.h */,
 				D318341A18CFC7C500E8F9B1 /* ApplicationStyle.m */,
+				D37C9284195DFE870035709A /* YosemiteStyle.h */,
+				D37C9285195DFE870035709A /* YosemiteStyle.m */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -550,9 +560,11 @@
 				D3DB8FF818BD6A6400ABE93B /* PlaybackSliderCell.m in Sources */,
 				D3FAC6D718BA942500D9F461 /* PopupViewDelegate.m in Sources */,
 				D3091F6618C3D7C4007C8DCD /* SwipeIndicatorView.m in Sources */,
+				D37C9286195DFE870035709A /* YosemiteStyle.m in Sources */,
 				D3091F6918C40FBD007C8DCD /* SwipeAnimation.m in Sources */,
 				D323406A18C523BC008C165B /* AboutWindow.m in Sources */,
 				D328616B192414B900395FEA /* NSHTTPCookie+Coding.m in Sources */,
+				D37C9289195E19BD0035709A /* NSImage+Data.m in Sources */,
 				D32CCEFA18BE039E00BDD484 /* PopupPanel.m in Sources */,
 				D31ACE84193ACDC300AC7CB4 /* RatingBadgeButton.m in Sources */,
 				D37B638718F1E7680098F9DC /* SpriteDownloadURLProtocol.m in Sources */,

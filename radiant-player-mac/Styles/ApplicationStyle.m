@@ -8,6 +8,7 @@
  */
 
 #import "ApplicationStyle.h"
+#import "YosemiteStyle.h"
 
 @implementation ApplicationStyle
 
@@ -22,7 +23,7 @@
 @synthesize css;
 @synthesize js;
 
-- (void)applyToWebView:(id)webView
+- (void)applyToWebView:(id)webView window:(NSWindow *)window
 {
     // Setup the CSS.
     NSString *cssBootstrap = @"Styles.applyStyle(\"%@\", \"%@\");";
@@ -94,11 +95,15 @@
     [spotifyBlack setCss:[ApplicationStyle cssNamed:@"spotify-black"]];
     [spotifyBlack setJs:[ApplicationStyle jsNamed:@"spotify-black"]];
     
+    // Create the Yosemite style.
+    YosemiteStyle *yosemite = [[YosemiteStyle alloc] init];
+    
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
     [dictionary setObject:cocoa forKey:[cocoa name]];
     [dictionary setObject:dark forKey:[dark name]];
     [dictionary setObject:darkFlat forKey:[darkFlat name]];
     [dictionary setObject:spotifyBlack forKey:[spotifyBlack name]];
+    [dictionary setObject:yosemite forKey:[yosemite name]];
     
     return dictionary;
 }

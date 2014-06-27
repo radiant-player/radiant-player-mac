@@ -22,7 +22,6 @@
     swipeView = [[SwipeIndicatorView alloc] initWithFrame:self.frame];
     [swipeView setWebView:self];
     [swipeView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
-    [self setWantsLayer:YES];
     [self setAutoresizesSubviews:YES];
     [self setAcceptsTouchEvents:YES];
     [self addSubview:swipeView];

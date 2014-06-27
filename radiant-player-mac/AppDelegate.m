@@ -83,7 +83,6 @@
     
     // Change the title bar color.
     [window setTitle:@""];
-    [window setBackgroundColor:[NSColor colorWithSRGBRed:0.945 green:0.945 blue:0.945 alpha:1]];
     
     // Load the user preferences.
     defaults = [NSUserDefaults standardUserDefaults];
@@ -681,9 +680,9 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     
     if (stylesEnabled && style)
     {
-        [style applyToWebView:webView];
-        [window setBackgroundColor:[style windowColor]];
-        [titleView setColor:[style titleColor]];
+        [style applyToWebView:webView window:window];
+//        [window setBackgroundColor:[style windowColor]];
+//        [titleView setColor:[style titleColor]];
     }
     
     // Determine whether the player is using thumbs or stars.
