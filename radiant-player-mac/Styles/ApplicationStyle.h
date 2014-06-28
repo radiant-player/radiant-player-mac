@@ -28,4 +28,6 @@
 + (NSString *)jsNamed:(NSString *)name;
 + (NSMutableDictionary *)styles;
 
++ (void)applyYosemiteVisualEffects:(WebView *)webView window:(NSWindow *)window;
+
 @end

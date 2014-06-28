@@ -84,6 +84,27 @@
     // Change the title bar color.
     [window setTitle:@""];
     
+    
+    [[NSNotificationCenter defaultCenter]
+         addObserverForName:NSWindowWillEnterFullScreenNotification
+         object:nil
+         queue:nil
+         usingBlock:^(NSNotification *note) {
+             [[window toolbar] setVisible:NO];
+         }
+     ];
+    
+    
+    
+    [[NSNotificationCenter defaultCenter]
+         addObserverForName:NSWindowWillEnterFullScreenNotification
+         object:nil
+         queue:nil
+         usingBlock:^(NSNotification *note) {
+             [[window toolbar] setVisible:YES];
+         }
+     ];
+    
     // Load the user preferences.
     defaults = [NSUserDefaults standardUserDefaults];
     
@@ -681,8 +702,6 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     if (stylesEnabled && style)
     {
         [style applyToWebView:webView window:window];
-//        [window setBackgroundColor:[style windowColor]];
-//        [titleView setColor:[style titleColor]];
     }
     
     // Determine whether the player is using thumbs or stars.

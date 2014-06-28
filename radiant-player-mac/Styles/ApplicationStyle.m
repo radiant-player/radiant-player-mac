@@ -8,6 +8,7 @@
  */
 
 #import "ApplicationStyle.h"
+#import "SpotifyBlackStyle.h"
 #import "YosemiteStyle.h"
 
 @implementation ApplicationStyle
@@ -25,6 +26,8 @@
 
 - (void)applyToWebView:(id)webView window:(NSWindow *)window
 {
+    [window setBackgroundColor:[self windowColor]];
+    
     // Setup the CSS.
     NSString *cssBootstrap = @"Styles.applyStyle(\"%@\", \"%@\");";
     NSString *cssFinal = [NSString stringWithFormat:cssBootstrap, [self name], [self css]];
@@ -86,14 +89,7 @@
     [darkFlat setJs:[ApplicationStyle jsNamed:@"dark-flat"]];
     
     // Create the Spotify Black style.
-    ApplicationStyle *spotifyBlack = [[ApplicationStyle alloc] init];
-    [spotifyBlack setName:@"Spotify Black"];
-    [spotifyBlack setAuthor:@"Anthony Barone"];
-    [spotifyBlack setDescription:@"A black style similar to the new Spotify."];
-    [spotifyBlack setWindowColor:[NSColor colorWithSRGBRed:0.133f green:0.137f blue:0.149f alpha:1.0f]];
-    [spotifyBlack setTitleColor:[NSColor colorWithDeviceWhite:0.7f alpha:1.0f]];
-    [spotifyBlack setCss:[ApplicationStyle cssNamed:@"spotify-black"]];
-    [spotifyBlack setJs:[ApplicationStyle jsNamed:@"spotify-black"]];
+    SpotifyBlackStyle *spotifyBlack = [[SpotifyBlackStyle alloc] init];
     
     // Create the Yosemite style.
     YosemiteStyle *yosemite = [[YosemiteStyle alloc] init];
@@ -106,6 +102,29 @@
     [dictionary setObject:yosemite forKey:[yosemite name]];
     
     return dictionary;
+}
+
++ (void)applyYosemiteVisualEffects:(WebView *)webView window:(NSWindow *)window
+{
+    [window setBackgroundColor:[NSColor colorWithSRGBRed:0.945 green:0.945 blue:0.945 alpha:1]];
+    [window setStyleMask:(window.styleMask | NSFullSizeContentViewWindowMask)];
+    [window setTitlebarAppearsTransparent:YES];
+    [window setTitleVisibility:NSWindowTitleHidden];
+    [[window toolbar] setVisible:YES];
+    
+    [webView setDrawsBackground:NO];
+    
+    NSRect frame = window.frame;
+    frame.origin = CGPointMake(0, 0);
+    
+    NSVisualEffectView *bgView = [[NSVisualEffectView alloc] initWithFrame:frame];
+    [bgView setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameVibrantLight]];
+    [bgView setBlendingMode:NSVisualEffectBlendingModeBehindWindow];
+    [bgView setMaterial:NSVisualEffectMaterialLight];
+    [bgView setState:NSVisualEffectStateFollowsWindowActiveState];
+    [bgView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
+    
+    [[window contentView] addSubview:bgView positioned:NSWindowBelow relativeTo:nil];
 }
 
 @end

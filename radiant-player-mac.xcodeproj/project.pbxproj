@@ -52,6 +52,7 @@
 		D37B638A18F1EFD30098F9DC /* InvertedSpriteURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D37B638918F1EFD30098F9DC /* InvertedSpriteURLProtocol.m */; };
 		D37C9286195DFE870035709A /* YosemiteStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C9285195DFE870035709A /* YosemiteStyle.m */; };
 		D37C9289195E19BD0035709A /* NSImage+Data.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C9288195E19BD0035709A /* NSImage+Data.m */; };
+		D37C928C195E3B3F0035709A /* SpotifyBlackStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C928B195E3B3F0035709A /* SpotifyBlackStyle.m */; };
 		D3B1668318BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */; };
 		D3B4C0C318DAB4740069AB18 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B4C0C218DAB4740069AB18 /* JavaScriptCore.framework */; };
 		D3B71C2818C2D5240041358B /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B71C2718C2D5240041358B /* PreferencesWindowController.m */; };
@@ -165,6 +166,8 @@
 		D37C9285195DFE870035709A /* YosemiteStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YosemiteStyle.m; sourceTree = "<group>"; };
 		D37C9287195E19BD0035709A /* NSImage+Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+Data.h"; sourceTree = "<group>"; };
 		D37C9288195E19BD0035709A /* NSImage+Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Data.m"; sourceTree = "<group>"; };
+		D37C928A195E3B3F0035709A /* SpotifyBlackStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifyBlackStyle.h; sourceTree = "<group>"; };
+		D37C928B195E3B3F0035709A /* SpotifyBlackStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotifyBlackStyle.m; sourceTree = "<group>"; };
 		D3B1668118BB0E43003FCE6B /* DummyWebViewPolicyDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyWebViewPolicyDelegate.h; sourceTree = "<group>"; };
 		D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyWebViewPolicyDelegate.m; sourceTree = "<group>"; };
 		D3B4C0C218DAB4740069AB18 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -316,6 +319,8 @@
 		D318341818CFC73500E8F9B1 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
+				D37C928A195E3B3F0035709A /* SpotifyBlackStyle.h */,
+				D37C928B195E3B3F0035709A /* SpotifyBlackStyle.m */,
 				D318341918CFC7C500E8F9B1 /* ApplicationStyle.h */,
 				D318341A18CFC7C500E8F9B1 /* ApplicationStyle.m */,
 				D37C9284195DFE870035709A /* YosemiteStyle.h */,
@@ -577,6 +582,7 @@
 				D3FAC6D418BA81EC00D9F461 /* PopupStatusView.m in Sources */,
 				D31ACE8A193BDD0F00AC7CB4 /* NotificationCenter.m in Sources */,
 				D362D5421924D17B00FC0C56 /* PrivacyPreferencesViewController.m in Sources */,
+				D37C928C195E3B3F0035709A /* SpotifyBlackStyle.m in Sources */,
 				D343CDF518C69DF4002F9DB3 /* NavigationPreferencesViewController.m in Sources */,
 				D3F14A4918F357AA007D4536 /* AdvancedPreferencesViewController.m in Sources */,
 				D3D4C3E818E76674007238B3 /* LastFmPopover.m in Sources */,

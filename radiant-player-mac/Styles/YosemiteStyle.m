@@ -27,25 +27,7 @@
 - (void)applyToWebView:(WebView *)webView window:(NSWindow *)window
 {
     [super applyToWebView:webView window:window];
-    
-    [window setBackgroundColor:[NSColor colorWithSRGBRed:0.945 green:0.945 blue:0.945 alpha:1]];
-    [window setStyleMask:(window.styleMask | NSFullSizeContentViewWindowMask)];
-    [window setTitlebarAppearsTransparent:YES];
-    [window setTitleVisibility:NSWindowTitleHidden];
-    
-    [webView setDrawsBackground:NO];
-    
-    NSRect frame = window.frame;
-    frame.origin = CGPointMake(0, 0);
-    
-    NSVisualEffectView *bgView = [[NSVisualEffectView alloc] initWithFrame:frame];
-    [bgView setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameVibrantLight]];
-    [bgView setBlendingMode:NSVisualEffectBlendingModeBehindWindow];
-    [bgView setMaterial:NSVisualEffectMaterialLight];
-    [bgView setState:NSVisualEffectStateFollowsWindowActiveState];
-    [bgView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
-    
-    [[window contentView] addSubview:bgView positioned:NSWindowBelow relativeTo:nil];
+    [ApplicationStyle applyYosemiteVisualEffects:webView window:window];
 }
 
 @end

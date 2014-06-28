@@ -304,7 +304,7 @@
                     <constraint firstItem="536" firstAttribute="top" secondItem="372" secondAttribute="top" id="656"/>
                 </constraints>
             </view>
-            <toolbar key="toolbar" implicitIdentifier="68A24D56-BCA3-4F88-AA87-3F70F6021A18" autosavesConfiguration="NO" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconAndLabel" sizeMode="regular" id="c7x-mm-euH">
+            <toolbar key="toolbar" implicitIdentifier="68A24D56-BCA3-4F88-AA87-3F70F6021A18" autosavesConfiguration="NO" allowsUserCustomization="NO" showsBaselineSeparator="NO" prefersToBeShown="NO" displayMode="iconAndLabel" sizeMode="regular" id="c7x-mm-euH">
                 <allowedToolbarItems>
                     <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="qC3-6V-NJM"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="zsK-Ws-Bqk"/>
