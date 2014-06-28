@@ -65,14 +65,18 @@
     DarkStyle *dark = [[DarkStyle alloc] init];
     DarkFlatStyle *darkFlat = [[DarkFlatStyle alloc] init];
     SpotifyBlackStyle *spotifyBlack = [[SpotifyBlackStyle alloc] init];
-    YosemiteStyle *yosemite = [[YosemiteStyle alloc] init];
     
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
     [dictionary setObject:cocoa forKey:[cocoa name]];
     [dictionary setObject:dark forKey:[dark name]];
     [dictionary setObject:darkFlat forKey:[darkFlat name]];
     [dictionary setObject:spotifyBlack forKey:[spotifyBlack name]];
-    [dictionary setObject:yosemite forKey:[yosemite name]];
+    
+    if (rint(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9)
+    {
+        YosemiteStyle *yosemite = [[YosemiteStyle alloc] init];
+        [dictionary setObject:yosemite forKey:[yosemite name]];
+    }
     
     return dictionary;
 }

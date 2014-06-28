@@ -328,6 +328,8 @@
 		D318341818CFC73500E8F9B1 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
+				D318341918CFC7C500E8F9B1 /* ApplicationStyle.h */,
+				D318341A18CFC7C500E8F9B1 /* ApplicationStyle.m */,
 				D37C9293195E42800035709A /* CocoaStyle.h */,
 				D37C9294195E42800035709A /* CocoaStyle.m */,
 				D37C9290195E41290035709A /* DarkFlatStyle.h */,
@@ -336,8 +338,6 @@
 				D37C928E195E3F290035709A /* DarkStyle.m */,
 				D37C928A195E3B3F0035709A /* SpotifyBlackStyle.h */,
 				D37C928B195E3B3F0035709A /* SpotifyBlackStyle.m */,
-				D318341918CFC7C500E8F9B1 /* ApplicationStyle.h */,
-				D318341A18CFC7C500E8F9B1 /* ApplicationStyle.m */,
 				D37C9284195DFE870035709A /* YosemiteStyle.h */,
 				D37C9285195DFE870035709A /* YosemiteStyle.m */,
 			);
