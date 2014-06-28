@@ -13,6 +13,7 @@
 #import "DarkFlatStyle.h"
 #import "SpotifyBlackStyle.h"
 #import "YosemiteStyle.h"
+#import "../AppDelegate.h"
 
 @implementation ApplicationStyle
 
@@ -84,10 +85,7 @@
 + (void)applyYosemiteVisualEffects:(WebView *)webView window:(NSWindow *)window
 {
     [window setBackgroundColor:[NSColor colorWithSRGBRed:0.945 green:0.945 blue:0.945 alpha:1]];
-    [window setStyleMask:(window.styleMask | NSFullSizeContentViewWindowMask)];
-    [window setTitlebarAppearsTransparent:YES];
-    [window setTitleVisibility:NSWindowTitleHidden];
-    [[window toolbar] setVisible:YES];
+    [(AppDelegate *)[NSApp delegate] showToolbar];
     
     [webView setDrawsBackground:NO];
     

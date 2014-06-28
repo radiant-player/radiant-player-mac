@@ -15,6 +15,7 @@
 @synthesize webView;
 @synthesize titleView;
 @synthesize window;
+@synthesize toolbar;
 @synthesize menu;
 @synthesize controlsMenu;
 @synthesize statusItem;
@@ -92,22 +93,16 @@
              object:nil
              queue:nil
              usingBlock:^(NSNotification *note) {
-                 [window setStyleMask:(window.styleMask & ~NSFullSizeContentViewWindowMask)];
-                 [window setTitlebarAppearsTransparent:NO];
-                 [window setTitleVisibility:NSWindowTitleVisible];
-                 [[window toolbar] setVisible:NO];
+                 [self hideToolbar];
              }
          ];
         
         [[NSNotificationCenter defaultCenter]
-             addObserverForName:NSWindowWillExitFullScreenNotification
+             addObserverForName:NSWindowDidExitFullScreenNotification
              object:nil
              queue:nil
              usingBlock:^(NSNotification *note) {
-                 [window setStyleMask:(window.styleMask | NSFullSizeContentViewWindowMask)];
-                 [window setTitlebarAppearsTransparent:YES];
-                 [window setTitleVisibility:NSWindowTitleHidden];
-                 [[window toolbar] setVisible:YES];
+                 [self showToolbar];
              }
          ];
     }
@@ -315,6 +310,24 @@
         [starRatingView setDisplayMode:EDStarRatingDisplayFull];
         [starRatingView setDelegate:self];
     }
+}
+
+- (void)showToolbar
+{
+    [window setStyleMask:(window.styleMask | NSFullSizeContentViewWindowMask)];
+    [window setTitlebarAppearsTransparent:YES];
+    [window setTitleVisibility:NSWindowTitleHidden];
+    [window setToolbar:toolbar];
+    [toolbar setVisible:YES];
+}
+
+- (void)hideToolbar
+{
+//    [window setStyleMask:(window.styleMask & ~NSFullSizeContentViewWindowMask)];
+//    [window setTitlebarAppearsTransparent:NO];
+//    [window setTitleVisibility:NSWindowTitleVisible];
+    [window setToolbar:nil];
+    [toolbar setVisible:NO];
 }
 
 - (void)starsSelectionChanged:(EDStarRating *)control rating:(float)rating

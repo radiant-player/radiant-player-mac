@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6154.17" systemVersion="14A238x" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment defaultVersion="1080" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6154.17"/>
         <plugIn identifier="com.apple.WebKitIBPlugin" version="6154.17"/>
     </dependencies>
@@ -27,6 +28,7 @@
                 <outlet property="starRatingView" destination="XCB-1i-pOq" id="JBG-we-TAC"/>
                 <outlet property="thumbsDownMenuItem" destination="V0w-yV-z7x" id="yOr-PC-H25"/>
                 <outlet property="thumbsUpMenuItem" destination="v1A-Za-ChF" id="fcc-2L-b1c"/>
+                <outlet property="toolbar" destination="c7x-mm-euH" id="elP-CG-s9k"/>
                 <outlet property="webView" destination="536" id="554"/>
                 <outlet property="window" destination="371" id="532"/>
             </connections>
@@ -304,31 +306,6 @@
                     <constraint firstItem="536" firstAttribute="top" secondItem="372" secondAttribute="top" id="656"/>
                 </constraints>
             </view>
-            <toolbar key="toolbar" implicitIdentifier="68A24D56-BCA3-4F88-AA87-3F70F6021A18" autosavesConfiguration="NO" allowsUserCustomization="NO" showsBaselineSeparator="NO" prefersToBeShown="NO" displayMode="iconAndLabel" sizeMode="regular" id="c7x-mm-euH">
-                <allowedToolbarItems>
-                    <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="qC3-6V-NJM"/>
-                    <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="zsK-Ws-Bqk"/>
-                    <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="nxj-n0-H0u"/>
-                    <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="E9k-Nj-osq"/>
-                    <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="cMp-oK-ruB"/>
-                    <toolbarItem implicitItemIdentifier="C5C6DE98-F0C9-49CB-98D6-3D6CB7A4C29D" label="" paletteLabel="" tag="-1" id="gcq-uA-JXK">
-                        <size key="maxSize" width="1" height="0.0"/>
-                    </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="1744DF85-0506-4376-8288-D7D60EAC4431" label="" paletteLabel="" tag="-1" id="1YT-u4-Kbt">
-                        <nil key="toolTip"/>
-                        <size key="minSize" width="2" height="32"/>
-                        <size key="maxSize" width="2" height="32"/>
-                        <customView key="view" id="cnx-JR-34W">
-                            <rect key="frame" x="0.0" y="14" width="2" height="32"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        </customView>
-                    </toolbarItem>
-                </allowedToolbarItems>
-                <defaultToolbarItems>
-                    <toolbarItem reference="1YT-u4-Kbt"/>
-                    <toolbarItem reference="nxj-n0-H0u"/>
-                </defaultToolbarItems>
-            </toolbar>
             <connections>
                 <outlet property="delegate" destination="494" id="etb-Kh-VC3"/>
             </connections>
@@ -764,6 +741,30 @@
                 <constraint firstAttribute="bottom" secondItem="F5F-yr-hWN" secondAttribute="bottom" constant="7" id="uzr-x9-grM"/>
             </constraints>
         </customView>
+        <toolbar implicitIdentifier="68A24D56-BCA3-4F88-AA87-3F70F6021A18" autosavesConfiguration="NO" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconAndLabel" sizeMode="regular" id="c7x-mm-euH">
+            <allowedToolbarItems>
+                <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="qC3-6V-NJM"/>
+                <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="zsK-Ws-Bqk"/>
+                <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="nxj-n0-H0u"/>
+                <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="E9k-Nj-osq"/>
+                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="cMp-oK-ruB"/>
+                <toolbarItem implicitItemIdentifier="C5C6DE98-F0C9-49CB-98D6-3D6CB7A4C29D" label="" paletteLabel="" tag="-1" id="gcq-uA-JXK">
+                    <size key="maxSize" width="1" height="0.0"/>
+                </toolbarItem>
+                <toolbarItem implicitItemIdentifier="1744DF85-0506-4376-8288-D7D60EAC4431" label="" paletteLabel="" tag="-1" id="1YT-u4-Kbt">
+                    <nil key="toolTip"/>
+                    <size key="minSize" width="2" height="32"/>
+                    <size key="maxSize" width="2" height="32"/>
+                    <customView key="view" id="cnx-JR-34W">
+                        <rect key="frame" x="0.0" y="14" width="2" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </customView>
+                </toolbarItem>
+            </allowedToolbarItems>
+            <defaultToolbarItems>
+                <toolbarItem reference="1YT-u4-Kbt"/>
+            </defaultToolbarItems>
+        </toolbar>
     </objects>
     <resources>
         <image name="NSEnterFullScreenTemplate" width="16" height="15"/>

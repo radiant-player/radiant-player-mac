@@ -45,6 +45,7 @@
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet NSToolbar *toolbar;
 @property (assign) IBOutlet NSMenu *menu;
 @property (assign) IBOutlet NSMenu *controlsMenu;
 
@@ -82,6 +83,8 @@
 - (NSMutableDictionary *) styles;
 - (void) setupStarRatingView;
 - (void) setupRatingMenuItems;
+- (void) hideToolbar;
+- (void) showToolbar;
     
 - (IBAction) webBrowserBack:(id)sender;
 - (IBAction) webBrowserForward:(id)sender;
