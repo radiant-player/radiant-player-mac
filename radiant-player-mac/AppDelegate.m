@@ -85,25 +85,32 @@
     [window setTitle:@""];
     
     
-    [[NSNotificationCenter defaultCenter]
-         addObserverForName:NSWindowWillEnterFullScreenNotification
-         object:nil
-         queue:nil
-         usingBlock:^(NSNotification *note) {
-             [[window toolbar] setVisible:NO];
-         }
-     ];
-    
-    
-    
-    [[NSNotificationCenter defaultCenter]
-         addObserverForName:NSWindowWillEnterFullScreenNotification
-         object:nil
-         queue:nil
-         usingBlock:^(NSNotification *note) {
-             [[window toolbar] setVisible:YES];
-         }
-     ];
+    if (rint(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9)
+    {
+        [[NSNotificationCenter defaultCenter]
+             addObserverForName:NSWindowWillEnterFullScreenNotification
+             object:nil
+             queue:nil
+             usingBlock:^(NSNotification *note) {
+                 [window setStyleMask:(window.styleMask & ~NSFullSizeContentViewWindowMask)];
+                 [window setTitlebarAppearsTransparent:NO];
+                 [window setTitleVisibility:NSWindowTitleVisible];
+                 [[window toolbar] setVisible:NO];
+             }
+         ];
+        
+        [[NSNotificationCenter defaultCenter]
+             addObserverForName:NSWindowWillExitFullScreenNotification
+             object:nil
+             queue:nil
+             usingBlock:^(NSNotification *note) {
+                 [window setStyleMask:(window.styleMask | NSFullSizeContentViewWindowMask)];
+                 [window setTitlebarAppearsTransparent:YES];
+                 [window setTitleVisibility:NSWindowTitleHidden];
+                 [[window toolbar] setVisible:YES];
+             }
+         ];
+    }
     
     // Load the user preferences.
     defaults = [NSUserDefaults standardUserDefaults];

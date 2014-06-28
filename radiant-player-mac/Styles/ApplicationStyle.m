@@ -8,6 +8,9 @@
  */
 
 #import "ApplicationStyle.h"
+#import "CocoaStyle.h"
+#import "DarkStyle.h"
+#import "DarkFlatStyle.h"
 #import "SpotifyBlackStyle.h"
 #import "YosemiteStyle.h"
 
@@ -57,41 +60,11 @@
 }
 
 + (NSMutableDictionary *)styles
-{
-    // Create the Cocoa style.
-    ApplicationStyle *cocoa = [[ApplicationStyle alloc] init];
-    [cocoa setName:@"Cocoa"];
-    [cocoa setAuthor:@"Sajid Anwar"];
-    [cocoa setDescription:@"An application style to match Mac OS X."];
-    [cocoa setWindowColor:[NSColor colorWithSRGBRed:0.898f green:0.898f blue:0.898f alpha:1.0f]];
-    [cocoa setTitleColor:nil];
-    [cocoa setCss:[ApplicationStyle cssNamed:@"cocoa"]];
-    [cocoa setJs:[ApplicationStyle jsNamed:@"cocoa"]];
-    
-    // Create the Dark style.
-    ApplicationStyle *dark = [[ApplicationStyle alloc] init];
-    [dark setName:@"Dark"];
-    [dark setAuthor:@"Sajid Anwar"];
-    [dark setDescription:@"A dark style similar to Spotify."];
-    [dark setWindowColor:[NSColor colorWithSRGBRed:0.768f green:0.768f blue:0.768f alpha:1.0f]];
-    [dark setTitleColor:nil];
-    [dark setCss:[ApplicationStyle cssNamed:@"dark"]];
-    [dark setJs:[ApplicationStyle jsNamed:@"dark"]];
-    
-    // Create the Dark Flat style.
-    ApplicationStyle *darkFlat = [[ApplicationStyle alloc] init];
-    [darkFlat setName:@"Dark Flat"];
-    [darkFlat setAuthor:@"Stefan Hoffmann"];
-    [darkFlat setDescription:@"A flat version of the dark style."];
-    [darkFlat setWindowColor:[NSColor colorWithSRGBRed:0.768f green:0.768f blue:0.768f alpha:1.0f]];
-    [darkFlat setTitleColor:nil];
-    [darkFlat setCss:[ApplicationStyle cssNamed:@"dark-flat"]];
-    [darkFlat setJs:[ApplicationStyle jsNamed:@"dark-flat"]];
-    
-    // Create the Spotify Black style.
+{    
+    CocoaStyle *cocoa = [[CocoaStyle alloc] init];
+    DarkStyle *dark = [[DarkStyle alloc] init];
+    DarkFlatStyle *darkFlat = [[DarkFlatStyle alloc] init];
     SpotifyBlackStyle *spotifyBlack = [[SpotifyBlackStyle alloc] init];
-    
-    // Create the Yosemite style.
     YosemiteStyle *yosemite = [[YosemiteStyle alloc] init];
     
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
