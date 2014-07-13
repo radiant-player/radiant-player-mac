@@ -12,6 +12,13 @@
 #define COCOAPODS_VERSION_MINOR_EDStarRating 1
 #define COCOAPODS_VERSION_PATCH_EDStarRating 0
 
+// JSONKit
+#define COCOAPODS_POD_AVAILABLE_JSONKit
+// This library does not follow semantic-versioning,
+// so we were not able to define version macros.
+// Please contact the author.
+// Version: 1.5pre.
+
 // KissXML
 #define COCOAPODS_POD_AVAILABLE_KissXML
 #define COCOAPODS_VERSION_MAJOR_KissXML 5
