@@ -43,6 +43,8 @@
 @synthesize currentPlaybackMode;
 @synthesize isStarsRatingSystem;
 
+@synthesize remoteControlServer;
+
 /**
  * Closing the application, hides the player window but keeps music playing in the background.
  */
@@ -187,6 +189,10 @@
 
     // Register for machine sleep notifications
     [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self selector:@selector(receiveSleepNotification:) name:NSWorkspaceWillSleepNotification object:nil];
+    
+    remoteControlServer = [[RemoteController alloc] init];
+    
+    [remoteControlServer startServerOnPort:4242];
 }
 
 - (void)checkVersion

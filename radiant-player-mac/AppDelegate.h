@@ -29,6 +29,8 @@
 #import "LastFmPopover.h"
 #import "TitleBarTextView.h"
 
+#import "RemoteController.h"
+
 @class PopupViewDelegate;
 @class PopupStatusView;
 @class PopupPanel;
@@ -76,6 +78,8 @@
 @property (assign) NSTimeInterval currentTimestamp;
 @property (assign) NSInteger currentPlaybackMode;
 @property (assign) BOOL isStarsRatingSystem;
+
+@property (nonatomic, retain) RemoteController *remoteControlServer;
 
 - (void) checkVersion;
 - (void) initializeStatusBar;
