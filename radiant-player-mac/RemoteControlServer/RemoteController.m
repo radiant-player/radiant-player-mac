@@ -22,13 +22,21 @@
     NSLog(@"RemoteControl server started.");
 }
 - (void)serverDidStop:(PSWebSocketServer *)server {
-    NSLog(@"RemoteControl server stopeed.");
+    NSLog(@"RemoteControl server stopped.");
 }
 - (BOOL)server:(PSWebSocketServer *)server acceptWebSocketWithRequest:(NSURLRequest *)request {
     return YES;
 }
 - (void)server:(PSWebSocketServer *)server webSocket:(PSWebSocket *)webSocket didReceiveMessage:(id)message {
+    NSDictionary *m = [((NSString*) message) objectFromJSONString];
+    NSString *action = [m objectForKey: @"action"];
     
+    if(action) {
+        action = [@"socket." stringByAppendingString:action];
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:action
+         object:nil ];
+    }
 }
 - (void)server:(PSWebSocketServer *)server webSocketDidOpen:(PSWebSocket *)webSocket {
     NSLog(@"Connection opened.");

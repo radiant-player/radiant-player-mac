@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <PSWebSocketServer.h>
+#import <JSONKit/JSONKit.h>
 
 @interface RemoteController : NSObject <PSWebSocketServerDelegate>
 
