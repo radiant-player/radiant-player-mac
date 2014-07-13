@@ -193,7 +193,7 @@
     remoteControlServer = [[RemoteController alloc] init];
     
     // Start the WebSocket server
-    [remoteControlServer startServerOnPort:4242];
+    [remoteControlServer startServerOnPort:19745];
     
     // And listen to it's Notifications:
     [[NSNotificationCenter defaultCenter]
