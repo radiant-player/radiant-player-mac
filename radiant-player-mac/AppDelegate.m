@@ -43,6 +43,8 @@
 @synthesize currentPlaybackMode;
 @synthesize isStarsRatingSystem;
 
+@synthesize remoteControlServer;
+
 /**
  * Closing the application, hides the player window but keeps music playing in the background.
  */
@@ -187,6 +189,36 @@
 
     // Register for machine sleep notifications
     [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self selector:@selector(receiveSleepNotification:) name:NSWorkspaceWillSleepNotification object:nil];
+    
+    remoteControlServer = [[RemoteController alloc] init];
+    
+    // Start the WebSocket server
+    [remoteControlServer startServerOnPort:19745];
+    
+    // And listen to it's Notifications:
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(playPause:)
+     name:@"socket.playpause"
+     object:nil ];
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(forwardAction:)
+     name:@"socket.forwardAction"
+     object:nil ];
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(backAction:)
+     name:@"socket.backAction"
+     object:nil ];
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(socketConnected:)
+     name:@"socket.connected"
+     object:nil ];
 }
 
 - (void)checkVersion
@@ -574,6 +606,13 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     {
         [[NotificationCenter center] scheduleNotificationWithTitle:title artist:artist album:album imageURL:art];
     }
+    
+    [remoteControlServer broadcastCurrentSongWithTitle:currentTitle andArtist:currentArtist andAlbum:currentAlbum andArtURL:currentArtURL];
+}
+
+- (void) socketConnected:(id)sender
+{
+    [remoteControlServer broadcastCurrentSongWithTitle:currentTitle andArtist:currentArtist andAlbum:currentAlbum andArtURL:currentArtURL];
 }
 
 - (NSString *)currentSongURL

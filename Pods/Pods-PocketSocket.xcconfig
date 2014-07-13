@@ -1,0 +1,1 @@
+PODS_POCKETSOCKET_OTHER_LDFLAGS = -lsystem -lz -framework CFNetwork -framework Foundation -framework Security
