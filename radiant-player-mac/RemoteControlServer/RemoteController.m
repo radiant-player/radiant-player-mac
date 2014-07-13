@@ -23,10 +23,14 @@
 - (void)broadcastCurrentSongWithTitle:(NSString*)title andArtist:(NSString*)artist andAlbum:(NSString*)album andArtURL:(NSString*)art {
     NSMutableDictionary *messageDic = [NSMutableDictionary dictionary];
     
-    [messageDic setObject:title forKey:@"title"];
-    [messageDic setObject:artist forKey:@"artist"];
-    [messageDic setObject:album forKey:@"album"];
-    [messageDic setObject:art forKey:@"artUrl"];
+    if(title)
+        [messageDic setObject:title forKey:@"title"];
+    if(artist)
+        [messageDic setObject:artist forKey:@"artist"];
+    if(album)
+        [messageDic setObject:album forKey:@"album"];
+    if(art)
+        [messageDic setObject:art forKey:@"artUrl"];
 
     NSString* jsonMessage = [messageDic JSONString];
     
