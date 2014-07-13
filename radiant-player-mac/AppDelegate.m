@@ -213,6 +213,12 @@
      selector:@selector(backAction:)
      name:@"socket.backAction"
      object:nil ];
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(socketConnected:)
+     name:@"socket.connected"
+     object:nil ];
 }
 
 - (void)checkVersion
@@ -601,7 +607,12 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         [[NotificationCenter center] scheduleNotificationWithTitle:title artist:artist album:album imageURL:art];
     }
     
-    [remoteControlServer broadcastCurrentSongWithTitle:title andArtist:artist andAlbum:album andArtURL:art];
+    [remoteControlServer broadcastCurrentSongWithTitle:currentTitle andArtist:currentArtist andAlbum:currentAlbum andArtURL:currentArtURL];
+}
+
+- (void) socketConnected:(id)sender
+{
+    [remoteControlServer broadcastCurrentSongWithTitle:currentTitle andArtist:currentArtist andAlbum:currentAlbum andArtURL:currentArtURL];
 }
 
 - (NSString *)currentSongURL

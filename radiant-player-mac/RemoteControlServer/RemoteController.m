@@ -60,8 +60,12 @@
 }
 - (void)server:(PSWebSocketServer *)server webSocketDidOpen:(PSWebSocket *)webSocket {
     NSLog(@"Connection opened.");
-    
+
     [connectedClients addObject:webSocket];
+    
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"socket.connected"
+     object:nil ];
 }
 - (void)server:(PSWebSocketServer *)server webSocket:(PSWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
     NSLog(@"Server websocket did close with code: %@, reason: %@, wasClean: %@", @(code), reason, @(wasClean));
