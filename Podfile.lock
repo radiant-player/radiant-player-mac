@@ -5,12 +5,14 @@ PODS:
     - KissXML (~> 5.0)
   - MASPreferences (1.1)
   - NSDate+TimeAgo (1.0.3)
+  - PocketSocket (0.6.1)
 
 DEPENDENCIES:
   - EDStarRating
   - LastFm
   - MASPreferences (~> 1.1)
   - NSDate+TimeAgo
+  - PocketSocket
 
 SPEC CHECKSUMS:
   EDStarRating: c7b87f9866be0ea29bb054964023b8eb3f18286c
@@ -18,5 +20,6 @@ SPEC CHECKSUMS:
   LastFm: 26cffa0ee5b39a4ad8c9451e882d75ce27036d3e
   MASPreferences: 971d03da4b3818f8ea0d0ef10b86b02b2c052d17
   NSDate+TimeAgo: f3533e0198fab05b716368b19f8c2185d53d6f3b
+  PocketSocket: d7aae634f10202fd7e5453a54db53d9a1de2c684
 
 COCOAPODS: 0.33.1

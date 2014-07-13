@@ -18,6 +18,7 @@
 		2B8FC1C018C9CB0E006D04FF /* radiant-player-mac.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 2B8FC1BF18C9CB0E006D04FF /* radiant-player-mac.sdef */; };
 		2B8FC1C318C9CB16006D04FF /* RadiantPlayerScriptCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8FC1C218C9CB16006D04FF /* RadiantPlayerScriptCommand.m */; };
 		38D0C36DAD0F40F5A7254224 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BABD1B4DDCC34CB291C66033 /* libPods.a */; };
+		69BDA1731972B9F9003F6C29 /* RemoteController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BDA1721972B9F9003F6C29 /* RemoteController.m */; };
 		D302E13418B561E100CCD18E /* Preferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = D302E13318B561E100CCD18E /* Preferences.plist */; };
 		D3091F6318C32961007C8DCD /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D3091F6218C32961007C8DCD /* Utilities.m */; };
 		D3091F6618C3D7C4007C8DCD /* SwipeIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3091F6518C3D7C4007C8DCD /* SwipeIndicatorView.m */; };
@@ -101,6 +102,8 @@
 		2B8FC1BF18C9CB0E006D04FF /* radiant-player-mac.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "radiant-player-mac.sdef"; sourceTree = "<group>"; };
 		2B8FC1C118C9CB16006D04FF /* RadiantPlayerScriptCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadiantPlayerScriptCommand.h; sourceTree = "<group>"; };
 		2B8FC1C218C9CB16006D04FF /* RadiantPlayerScriptCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadiantPlayerScriptCommand.m; sourceTree = "<group>"; };
+		69BDA1711972B9F9003F6C29 /* RemoteController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemoteController.h; path = RemoteControlServer/RemoteController.h; sourceTree = "<group>"; };
+		69BDA1721972B9F9003F6C29 /* RemoteController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RemoteController.m; path = RemoteControlServer/RemoteController.m; sourceTree = "<group>"; };
 		A32790DC482A48E18B516D0B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		BABD1B4DDCC34CB291C66033 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D302E13318B561E100CCD18E /* Preferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Preferences.plist; sourceTree = "<group>"; };
@@ -250,6 +253,7 @@
 		1A7B684517453E40001E509E /* radiant-player-mac */ = {
 			isa = PBXGroup;
 			children = (
+				69BDA1701972B9DB003F6C29 /* RemoteControlServer */,
 				D31ACE87193BDC9700AC7CB4 /* Notifications */,
 				D3D4C3E318E75C79007238B3 /* LastFm */,
 				2B8FC1BB18C9C01E006D04FF /* AppleScript */,
@@ -303,6 +307,15 @@
 				D30CA0071938722F007B05B2 /* NSImage+ScriptingDescriptor.m */,
 			);
 			path = AppleScript;
+			sourceTree = "<group>";
+		};
+		69BDA1701972B9DB003F6C29 /* RemoteControlServer */ = {
+			isa = PBXGroup;
+			children = (
+				69BDA1711972B9F9003F6C29 /* RemoteController.h */,
+				69BDA1721972B9F9003F6C29 /* RemoteController.m */,
+			);
+			name = RemoteControlServer;
 			sourceTree = "<group>";
 		};
 		D318341818CFC73500E8F9B1 /* Styles */ = {
@@ -556,6 +569,7 @@
 				D32CCEFA18BE039E00BDD484 /* PopupPanel.m in Sources */,
 				D31ACE84193ACDC300AC7CB4 /* RatingBadgeButton.m in Sources */,
 				D37B638718F1E7680098F9DC /* SpriteDownloadURLProtocol.m in Sources */,
+				69BDA1731972B9F9003F6C29 /* RemoteController.m in Sources */,
 				D3B71C2818C2D5240041358B /* PreferencesWindowController.m in Sources */,
 				D328616519234D7900395FEA /* TitleBarTextView.m in Sources */,
 				D318341718CFBC7400E8F9B1 /* AppearancePreferencesViewController.m in Sources */,
