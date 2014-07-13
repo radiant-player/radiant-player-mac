@@ -192,7 +192,27 @@
     
     remoteControlServer = [[RemoteController alloc] init];
     
+    // Start the WebSocket server
     [remoteControlServer startServerOnPort:4242];
+    
+    // And listen to it's Notifications:
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(playPause:)
+     name:@"socket.playpause"
+     object:nil ];
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(forwardAction:)
+     name:@"socket.forwardAction"
+     object:nil ];
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(backAction:)
+     name:@"socket.backAction"
+     object:nil ];
 }
 
 - (void)checkVersion
