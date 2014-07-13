@@ -600,6 +600,8 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     {
         [[NotificationCenter center] scheduleNotificationWithTitle:title artist:artist album:album imageURL:art];
     }
+    
+    [remoteControlServer broadcastCurrentSongWithTitle:title andArtist:artist andAlbum:album andArtURL:art];
 }
 
 - (NSString *)currentSongURL

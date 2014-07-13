@@ -13,7 +13,9 @@
 @interface RemoteController : NSObject <PSWebSocketServerDelegate>
 
 @property (nonatomic, strong) PSWebSocketServer *server;
+@property (nonatomic, retain) NSMutableArray *connectedClients;
 
 - (void)startServerOnPort:(int)port;
+- (void)broadcastCurrentSongWithTitle:(NSString*)title andArtist:(NSString*)artist andAlbum:(NSString*)album andArtURL:(NSString*)art;
 
 @end
