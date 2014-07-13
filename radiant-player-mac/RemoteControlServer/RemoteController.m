@@ -19,20 +19,19 @@
 #pragma mark - PSWebSocketServerDelegate
 
 - (void)serverDidStart:(PSWebSocketServer *)server {
-    NSLog(@"Server did start…");
+    NSLog(@"RemoteControl server started.");
 }
 - (void)serverDidStop:(PSWebSocketServer *)server {
-    NSLog(@"Server did stop…");
+    NSLog(@"RemoteControl server stopeed.");
 }
 - (BOOL)server:(PSWebSocketServer *)server acceptWebSocketWithRequest:(NSURLRequest *)request {
-    NSLog(@"Server should accept request: %@", request);
     return YES;
 }
 - (void)server:(PSWebSocketServer *)server webSocket:(PSWebSocket *)webSocket didReceiveMessage:(id)message {
-    NSLog(@"Server websocket did receive message: %@", message);
+    
 }
 - (void)server:(PSWebSocketServer *)server webSocketDidOpen:(PSWebSocket *)webSocket {
-    NSLog(@"Server websocket did open");
+    NSLog(@"Connection opened.");
 }
 - (void)server:(PSWebSocketServer *)server webSocket:(PSWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
     NSLog(@"Server websocket did close with code: %@, reason: %@, wasClean: %@", @(code), reason, @(wasClean));
