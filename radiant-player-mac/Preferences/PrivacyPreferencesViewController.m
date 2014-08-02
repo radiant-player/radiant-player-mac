@@ -18,7 +18,7 @@
 
 - (IBAction)removeCookies:(id)sender
 {
-    [CookieStorage clearCookies];
+    [[CookieStorage instance] clearCookies];
     
     NSAlert *alert = [NSAlert alertWithMessageText:@"Success"
                                      defaultButton:@"OK"
