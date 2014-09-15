@@ -274,9 +274,9 @@
     NSStatusBar *bar = [NSStatusBar systemStatusBar];
     statusItem = [bar statusItemWithLength:NSSquareStatusItemLength];
     [statusItem setHighlightMode:YES];
-    [statusItem setView:statusView];
     
     [statusView setStatusItem:statusItem];
+    [statusView setupStatusItem];
 }
 
 - (void)setupRatingMenuItems

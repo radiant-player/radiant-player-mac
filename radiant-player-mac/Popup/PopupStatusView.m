@@ -27,6 +27,59 @@
     return self;
 }
 
+- (void)setupStatusItem
+{
+    if ([statusItem respondsToSelector:@selector(button)]) {
+        id button = [statusItem button];
+        [button setImage:[self buttonImage]];
+        [button setTarget:self];
+        [button setAction:@selector(buttonAction:)];
+        [button sendActionOn:(NSLeftMouseDownMask|NSRightMouseDownMask|NSLeftMouseUpMask)];
+    }
+    else {
+        [statusItem setView:self];
+    }
+}
+
+- (NSImage *)buttonImage
+{
+    NSRect rect = [[self buttonView] frame];
+    rect = NSInsetRect(rect, 3, 1);
+    
+    NSImage *image = [Utilities imageFromName:@"menuicon"];
+    [image setTemplate:YES];
+    [image setSize:rect.size];
+    return image;
+}
+
+- (NSRect)buttonFrame
+{
+    if ([statusItem respondsToSelector:@selector(button)]) {
+        id button = [statusItem button];
+        NSRect rectInWindow = [button convertRect:[button bounds] toView:nil];
+        NSRect screenRect = [[button window] convertRectToScreen:rectInWindow];
+        
+        return screenRect;
+    }
+    else {
+        return [self frame];
+    }
+}
+
+- (NSView *)buttonView {
+    if ([statusItem respondsToSelector:@selector(button)]) {
+        return [statusItem button];
+    }
+    else {
+        return self;
+    }
+}
+
+- (void)update
+{
+    
+}
+
 - (void)drawRect:(NSRect)rect
 {
 	[super drawRect:rect];
@@ -76,13 +129,25 @@
 - (void)rightMouseDown:(NSEvent *)theEvent
 {
     if (statusItem != nil && _menu != nil) {
-        [statusItem popUpStatusItemMenu:_menu];
+        [statusItem popUpStatusItemMenu:_menu];\
+    }
+}
+
+- (void)buttonAction:(id)sender
+{
+    NSEventType type = [[NSApp currentEvent] type];
+    
+    if (type == NSRightMouseDown) {
+        [self rightMouseDown:nil];
+    }
+    else if (type == NSLeftMouseDown) {
+        [self mouseDown:nil];
     }
 }
 
 - (void)showPopup
 {
-    [popup showRelativeToRect:[self frame] ofView:self preferredEdge:NSMinYEdge];
+    [popup showRelativeToRect:[self buttonFrame] ofView:[self buttonView] preferredEdge:NSMinYEdge];
     
     if (self.globalMonitor == nil)
     {
@@ -124,6 +189,7 @@
 {
     _menu = menu;
     [_menu setDelegate:self];
+    [statusItem setMenu:menu];
 }
 
 - (void)menuWillOpen:(NSMenu *)menu
