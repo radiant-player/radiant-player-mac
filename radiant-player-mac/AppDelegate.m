@@ -281,26 +281,54 @@
 
 - (void)setupRatingMenuItems
 {
+    NSLog(@"isstars: %d", isStarsRatingSystem);
+    
     // Add the appropriate menu items.
     if (isStarsRatingSystem)
     {
         [self setupStarRatingView];
         [thumbsUpMenuItem setHidden:YES];
         [thumbsDownMenuItem setHidden:YES];
+        [starRatingMenuItem setHidden:NO];
     }
     else
     {
+        [self setupThumbsUpRatingView];
         [thumbsUpMenuItem setHidden:NO];
         [thumbsDownMenuItem setHidden:NO];
+        [starRatingMenuItem setHidden:YES];
     }
     
     [ratingsSeparatorMenuItem setHidden:NO];
+}
+
+- (void)setupThumbsUpRatingView
+{
+    if ([controlsMenu indexOfItem:thumbsUpMenuItem] == -1)
+    {
+        NSInteger starindex = [controlsMenu indexOfItem:starRatingMenuItem];
+        
+        if (starindex != -1)
+            [controlsMenu removeItemAtIndex:starindex];
+        
+        [controlsMenu insertItem:thumbsUpMenuItem atIndex:7];
+        [controlsMenu insertItem:thumbsDownMenuItem atIndex:8];
+    }
 }
 
 - (void)setupStarRatingView
 {
     if ([controlsMenu indexOfItem:starRatingMenuItem] == -1)
     {
+        NSInteger tui = [controlsMenu indexOfItem:thumbsUpMenuItem];
+        NSInteger tdi = [controlsMenu indexOfItem:thumbsDownMenuItem];
+        
+        if (tui != -1 && tdi != -1)
+        {
+            [controlsMenu removeItemAtIndex:tui];
+            [controlsMenu removeItemAtIndex:tdi];
+        }
+        
         [controlsMenu insertItem:starRatingMenuItem atIndex:7];
         [starRatingView setStarImage:[Utilities imageFromName:@"stars/star_outline_black_small"]];
         [starRatingView setStarHighlightedImage:[Utilities imageFromName:@"stars/star_filled_small"]];
@@ -725,7 +753,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     }
     
     // Determine whether the player is using thumbs or stars.
-    isStarsRatingSystem = (BOOL)[[webView windowScriptObject] evaluateWebScript:@"MusicAPI.Rating.isStarsRatingSystem()"];
+    isStarsRatingSystem = [[webView windowScriptObject] evaluateWebScript:@"MusicAPI.Rating.isStarsRatingSystem()"] == YES;
     
     [self setupRatingMenuItems];
 }

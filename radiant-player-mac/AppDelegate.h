@@ -81,6 +81,7 @@
 - (void) checkVersion;
 - (void) initializeStatusBar;
 - (NSMutableDictionary *) styles;
+- (void) setupThumbsUpRatingView;
 - (void) setupStarRatingView;
 - (void) setupRatingMenuItems;
 - (void) hideToolbar;
