@@ -95,7 +95,7 @@
     NSVisualEffectView *bgView = [[NSVisualEffectView alloc] initWithFrame:frame];
     [bgView setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameVibrantLight]];
     [bgView setBlendingMode:NSVisualEffectBlendingModeBehindWindow];
-    [bgView setMaterial:NSVisualEffectMaterialLight];
+    [bgView setMaterial:NSVisualEffectMaterialAppearanceBased];
     [bgView setState:NSVisualEffectStateFollowsWindowActiveState];
     [bgView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
     

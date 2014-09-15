@@ -35,9 +35,9 @@
     _hoverAlphaMultiplier = 0.0;
     
     [self setAnimations:@{@"hoverAlphaMultiplier": [CABasicAnimation animation]}];
-    [self setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameVibrantLight]];
+    [self setAppearance:[NSAppearance currentAppearance]];
     [self setBlendingMode:NSVisualEffectBlendingModeBehindWindow];
-    [self setMaterial:NSVisualEffectMaterialLight];
+    [self setMaterial:NSVisualEffectMaterialAppearanceBased];
     [self setState:NSVisualEffectStateActive];
 }
 
@@ -74,6 +74,10 @@
     [path lineToPoint:NSMakePoint(arrowX - ARROW_WIDTH / 2, NSMaxY(contentRect) - ARROW_HEIGHT)];
     [path closePath];
     
+    [NSGraphicsContext saveGraphicsState];
+    [path addClip];
+    [super drawRect:dirtyRect];
+    [NSGraphicsContext restoreGraphicsState];
     
     // Draw the background album art image if possible.
     if (isLargePlayer)
@@ -99,11 +103,6 @@
                                     nil];
         [gradient drawInBezierPath:path angle:-90.0];
     }
-    
-    [NSGraphicsContext saveGraphicsState];
-    [path addClip];
-    [super drawRect:dirtyRect];
-    [NSGraphicsContext restoreGraphicsState];
 }
 
 - (void)mouseEntered:(NSEvent *)event
