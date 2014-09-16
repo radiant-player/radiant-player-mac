@@ -241,10 +241,14 @@ body {
 }
 
 #player, .player-middle {
-    background: -webkit-linear-gradient(90deg, #e0e0e0, #ededed);
-    background: linear-gradient(0deg, #e0e0e0, #ededed);
+    background: none;
     box-shadow: none;
-    border-top: 1px solid #ccc;
+    border-top: none;
+}
+
+#top_divider_line {
+    height: 1px;
+    background-color: #bbb;
 }
 
 .player-middle {

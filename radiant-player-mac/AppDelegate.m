@@ -347,7 +347,7 @@
     [window setTitleVisibility:NSWindowTitleHidden];
     [window setToolbar:toolbar];
     [toolbar setVisible:YES];
-    [[self window] setFrame:frame display:YES];
+    [[self window] setFrame:frame display:NO];
 }
 
 - (void)hideToolbar
