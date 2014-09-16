@@ -9,14 +9,11 @@
 
 #import "PopupView.h"
 
-#define ARROW_WIDTH 12
-#define ARROW_HEIGHT 8
-
-#define FILL_OPACITY 0.95f
-#define STROKE_OPACITY 1.0f
+#define ARROW_WIDTH 18
+#define ARROW_HEIGHT 7
 
 #define LINE_THICKNESS 1.0f
-#define CORNER_RADIUS 6.0f
+#define CORNER_RADIUS 12.0f
 
 @implementation PopupView
 
@@ -77,6 +74,9 @@
     [NSGraphicsContext saveGraphicsState];
     [path addClip];
     [super drawRect:dirtyRect];
+    [[NSColor colorWithWhite:1.0 alpha:0.3] set];
+    [path fill];
+    [path stroke];
     [NSGraphicsContext restoreGraphicsState];
     
     // Draw the background album art image if possible.

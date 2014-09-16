@@ -72,20 +72,6 @@
  */
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Put in our custom title text view.
-    titleView = [[TitleBarTextView alloc] initWithFrame:[[[window contentView] superview] bounds]];
-    [titleView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
-    [titleView setTitle:window.title];
-    [titleView setColor:nil];
-
-    [[window.contentView superview] addSubview:titleView
-                                    positioned:NSWindowBelow
-                                    relativeTo:[[[window.contentView superview] subviews] firstObject]];
-    
-    // Change the title bar color.
-    [window setTitle:@""];
-    
-    
     if (rint(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9)
     {
         [[NSNotificationCenter defaultCenter]
@@ -98,13 +84,28 @@
          ];
         
         [[NSNotificationCenter defaultCenter]
-             addObserverForName:NSWindowDidExitFullScreenNotification
+             addObserverForName:NSWindowWillExitFullScreenNotification
              object:nil
              queue:nil
              usingBlock:^(NSNotification *note) {
                  [self showToolbar];
              }
          ];
+    }
+    else
+    {
+        // Put in our custom title text view.
+        titleView = [[TitleBarTextView alloc] initWithFrame:[[[window contentView] superview] bounds]];
+        [titleView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
+        [titleView setTitle:window.title];
+        [titleView setColor:nil];
+        
+        [[window.contentView superview] addSubview:titleView
+                                        positioned:NSWindowBelow
+                                        relativeTo:[[[window.contentView superview] subviews] firstObject]];
+        
+        // Change the title bar color.
+        [window setTitle:@""];
     }
     
     // Load the user preferences.
@@ -281,8 +282,6 @@
 
 - (void)setupRatingMenuItems
 {
-    NSLog(@"isstars: %d", isStarsRatingSystem);
-    
     // Add the appropriate menu items.
     if (isStarsRatingSystem)
     {
@@ -342,11 +341,13 @@
 
 - (void)showToolbar
 {
+    NSRect frame = [[self window] frame];
     [window setStyleMask:(window.styleMask | NSFullSizeContentViewWindowMask)];
     [window setTitlebarAppearsTransparent:YES];
     [window setTitleVisibility:NSWindowTitleHidden];
     [window setToolbar:toolbar];
     [toolbar setVisible:YES];
+    [[self window] setFrame:frame display:YES];
 }
 
 - (void)hideToolbar
