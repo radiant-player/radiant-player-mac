@@ -169,7 +169,7 @@ a, .simple-dialog a {
 
 .song-table [data-col="index"] .content, 
 .song-table [data-col="track"] .content {
-    color: inherit;
+    color: white;
 }
 
 .song-row.currently-playing td[data-col="track"] span,
