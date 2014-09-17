@@ -20,7 +20,7 @@
 
 @class PopupViewDelegate;
 
-@interface PopupView : NSVisualEffectView {
+@interface PopupView : NSView {
     NSImage *_backgroundImage;
     CGFloat _hoverAlphaMultiplier;
 }

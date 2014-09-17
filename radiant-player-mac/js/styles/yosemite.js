@@ -9,7 +9,7 @@
 
 if (typeof window.Styles.Applied === 'undefined') {
     window.Styles.Applied = true;
-    window.Styles.Cocoa = true;
+    window.Styles.Yosemite = true;
     
     // Thumbs up and down styles.
     (function() {

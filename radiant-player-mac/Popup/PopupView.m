@@ -12,6 +12,9 @@
 #define ARROW_WIDTH 18
 #define ARROW_HEIGHT 7
 
+#define FILL_OPACITY 0.95f
+#define STROKE_OPACITY 1.0f
+
 #define LINE_THICKNESS 1.0f
 #define CORNER_RADIUS 12.0f
 
@@ -32,10 +35,15 @@
     _hoverAlphaMultiplier = 0.0;
     
     [self setAnimations:@{@"hoverAlphaMultiplier": [CABasicAnimation animation]}];
-    [self setAppearance:[NSAppearance currentAppearance]];
-    [self setBlendingMode:NSVisualEffectBlendingModeBehindWindow];
-    [self setMaterial:NSVisualEffectMaterialAppearanceBased];
-    [self setState:NSVisualEffectStateActive];
+
+    if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9) {
+        object_setClass(self, [NSVisualEffectView class]);
+        NSVisualEffectView *view = (NSVisualEffectView *)self;
+        [view setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameVibrantLight]];
+        [view setBlendingMode:NSVisualEffectBlendingModeBehindWindow];
+        [view setMaterial:NSVisualEffectMaterialLight];
+        [view setState:NSVisualEffectStateActive];
+    }
 }
 
 - (void)drawRect:(NSRect)dirtyRect
@@ -71,13 +79,13 @@
     [path lineToPoint:NSMakePoint(arrowX - ARROW_WIDTH / 2, NSMaxY(contentRect) - ARROW_HEIGHT)];
     [path closePath];
     
-    [NSGraphicsContext saveGraphicsState];
-    [path addClip];
-    [super drawRect:dirtyRect];
-    [[NSColor colorWithWhite:1.0 alpha:0.3] set];
-    [path fill];
-    [path stroke];
-    [NSGraphicsContext restoreGraphicsState];
+    // [NSGraphicsContext saveGraphicsState];
+    // [path addClip];
+    // [super drawRect:dirtyRect];
+    // [[NSColor colorWithWhite:1.0 alpha:0.3] set];
+    // [path fill];
+    // [path stroke];
+    // [NSGraphicsContext restoreGraphicsState];
     
     // Draw the background album art image if possible.
     if (isLargePlayer)
@@ -89,6 +97,13 @@
                                 fromRect:NSMakeRect(0, 0, _backgroundImage.size.width, _backgroundImage.size.height)
                                operation:NSCompositeSourceOver
                                 fraction:1.0];
+        }
+        else if (floor(NSAppKitVersionNumber) <= NSAppKitVersionNumber10_9)
+        {
+            NSColor *gradientTop = [NSColor colorWithDeviceWhite:1 alpha:FILL_OPACITY];
+            NSColor *gradientBottom = [NSColor colorWithDeviceWhite:0.95 alpha:FILL_OPACITY];
+            NSGradient *gradient = [[NSGradient alloc] initWithStartingColor:gradientTop endingColor:gradientBottom];
+            [gradient drawInBezierPath:path angle:-90.0];
         }
         
         NSColor *gradientDark = [NSColor colorWithDeviceWhite:0.1 alpha:_hoverAlphaMultiplier*0.7];
@@ -103,6 +118,29 @@
                                     nil];
         [gradient drawInBezierPath:path angle:-90.0];
     }
+    else if (floor(NSAppKitVersionNumber) <= NSAppKitVersionNumber10_9)
+    {
+        NSColor *gradientTop = [NSColor colorWithDeviceWhite:1 alpha:FILL_OPACITY];
+        NSColor *gradientBottom = [NSColor colorWithDeviceWhite:0.95 alpha:FILL_OPACITY];
+        NSGradient *gradient = [[NSGradient alloc] initWithStartingColor:gradientTop endingColor:gradientBottom];
+        [gradient drawInBezierPath:path angle:-90.0];
+    }
+    
+    [NSGraphicsContext saveGraphicsState];
+    [path addClip];
+    
+    if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9)
+    {
+        [super drawRect:dirtyRect];
+    }
+    else if (!isLargePlayer)
+    {
+        [path setLineWidth:LINE_THICKNESS * 2];
+        [[NSColor whiteColor] setStroke];
+        [path stroke];
+    }
+    
+    [NSGraphicsContext restoreGraphicsState];
 }
 
 - (void)mouseEntered:(NSEvent *)event

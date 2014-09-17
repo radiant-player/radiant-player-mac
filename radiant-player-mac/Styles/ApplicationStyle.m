@@ -31,6 +31,7 @@
 - (void)applyToWebView:(id)webView window:(NSWindow *)window
 {
     [window setBackgroundColor:[self windowColor]];
+    [[(AppDelegate *)[window delegate] titleView] setColor:[self titleColor]];
     
     // Setup the CSS.
     NSString *cssBootstrap = @"Styles.applyStyle(\"%@\", \"%@\");";
@@ -73,7 +74,7 @@
     [dictionary setObject:darkFlat forKey:[darkFlat name]];
     [dictionary setObject:spotifyBlack forKey:[spotifyBlack name]];
     
-    if (rint(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9)
+    if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9)
     {
         YosemiteStyle *yosemite = [[YosemiteStyle alloc] init];
         [dictionary setObject:yosemite forKey:[yosemite name]];

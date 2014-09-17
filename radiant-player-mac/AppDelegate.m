@@ -72,7 +72,7 @@
  */
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    if (rint(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9)
+    if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9)
     {
         [[NSNotificationCenter defaultCenter]
              addObserverForName:NSWindowWillEnterFullScreenNotification

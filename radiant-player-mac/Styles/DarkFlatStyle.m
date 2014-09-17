@@ -28,7 +28,7 @@
 
 - (void)applyToWebView:(WebView *)webView window:(NSWindow *)window
 {
-    if (rint(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9) {
+    if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9) {
         [ApplicationStyle applyYosemiteVisualEffects:webView window:window];
         [self setCss:[NSString stringWithFormat:@"%@%@", [self css], [ApplicationStyle cssNamed:@"dark-yosemite"]]];
     }
