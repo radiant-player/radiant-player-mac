@@ -10,6 +10,7 @@
 #import <Foundation/Foundation.h>
 #import "CustomWebView.h"
 #import "Utilities.h"
+#import "../NSImage+Data.h"
 
 @interface ImageURLProtocol : NSURLProtocol {
     CustomWebView *_delegate;

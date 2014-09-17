@@ -22,10 +22,12 @@
 @property (retain) NSString *css;
 @property (retain) NSString *js;
 
-- (void)applyToWebView:(WebView *)webView;
+- (void)applyToWebView:(WebView *)webView window:(NSWindow *)window;
 
 + (NSString *)cssNamed:(NSString *)name;
 + (NSString *)jsNamed:(NSString *)name;
 + (NSMutableDictionary *)styles;
+
++ (void)applyYosemiteVisualEffects:(WebView *)webView window:(NSWindow *)window;
 
 @end

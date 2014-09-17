@@ -26,6 +26,13 @@
 @property (nonatomic) BOOL active;
 @property (assign) NSInteger playbackMode;
 
+- (void)setupStatusItem;
+- (void)update;
+- (id)button;
+- (NSRect)buttonFrame;
+- (NSView *)buttonView;
+- (NSImage *)buttonImage;
+
 - (void)showPopup;
 - (void)hidePopup;
 

@@ -22,7 +22,6 @@
     swipeView = [[SwipeIndicatorView alloc] initWithFrame:self.frame];
     [swipeView setWebView:self];
     [swipeView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
-    [self setWantsLayer:YES];
     [self setAutoresizesSubviews:YES];
     [self setAcceptsTouchEvents:YES];
     [self addSubview:swipeView];
@@ -63,7 +62,6 @@
 - (NSURLRequest *)webView:(WebView *)sender resource:(id)identifier willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse fromDataSource:(WebDataSource *)dataSource
 {
     NSURL *url = [request URL];
-    
     NSMutableURLRequest *req = [request mutableCopy];
 
     // Handle special URLs.
@@ -75,8 +73,8 @@
         if ([[components objectAtIndex:1] isEqualToString:@"images"])
         {
             // Image resources.
-	    [NSURLProtocol setProperty:self forKey:@"ImagesCustomWebView" inRequest:req];
-	    return req;
+            [NSURLProtocol setProperty:self forKey:@"ImagesCustomWebView" inRequest:req];
+            return req;
         }
         
         // Interested if the URL is the original spritesheet we'll download or the inverted one we will provide.
@@ -84,22 +82,44 @@
                  [[url lastPathComponent] rangeOfString:@"inverted"].location != NSNotFound)
         {
             // Inverted sprites.
-	    [NSURLProtocol setProperty:self forKey:@"InvertedCustomWebView" inRequest:req];
-	    return req;
+            [NSURLProtocol setProperty:self forKey:@"InvertedCustomWebView" inRequest:req];
+            return req;
         }
     }
     else
     {
+        [self handleCookiesForRequest:req redirectResponse:redirectResponse];
+        
         // Original sprites.
         if ([[url pathExtension] isEqualToString:@"png"] &&
             [[url lastPathComponent] rangeOfString:@"sprites"].location == 0)
         {
-	    [NSURLProtocol setProperty:self forKey:@"OriginalCustomWebView" inRequest:req];
-	    return req;
+            [NSURLProtocol setProperty:self forKey:@"OriginalCustomWebView" inRequest:req];
+            return req;
         }
     }
     
     return req;
+}
+
+#pragma mark - Cookie code
+
+- (void)webView:(WebView *)sender resource:(id)identifier didReceiveResponse:(NSURLResponse *)response fromDataSource:(WebDataSource *)dataSource
+{
+    if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
+        [[CookieStorage instance] handleCookiesInResponse:(NSHTTPURLResponse *)response];
+    }
+}
+
+
+- (void)handleCookiesForRequest:(NSMutableURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse
+{
+    if ([redirectResponse isKindOfClass:[NSHTTPURLResponse class]]) {
+        [[CookieStorage instance] handleCookiesInResponse:(NSHTTPURLResponse *)redirectResponse];
+    }
+    
+    [request setHTTPShouldHandleCookies:NO];
+    [[CookieStorage instance] handleCookiesInRequest:request];
 }
 
 #pragma mark - Swipe code

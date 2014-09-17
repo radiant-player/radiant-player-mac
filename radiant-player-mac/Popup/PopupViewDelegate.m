@@ -146,12 +146,12 @@
 {
     repeatMode = mode;
     
-    if ([MUSIC_NO_REPEAT isEqualToString:mode])
-        [repeatButton setImage:[self repeatNoneImage]];
-    else if ([MUSIC_LIST_REPEAT isEqualToString:mode])
+    if ([MUSIC_LIST_REPEAT isEqualToString:mode])
         [repeatButton setImage:[self repeatAllImage]];
     else if ([MUSIC_SINGLE_REPEAT isEqualToString:mode])
         [repeatButton setImage:[self repeatOneImage]];
+    else
+        [repeatButton setImage:[self repeatNoneImage]];
 }
 
 - (void)shuffleChanged:(NSString *)mode

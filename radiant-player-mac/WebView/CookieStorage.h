@@ -10,15 +10,31 @@
 
 #import <WebKit/WebKit.h>
 
-@interface CookieStorage : NSObject
+@interface CookieStorage : NSObject {
+    NSMutableArray *_storage;
+    NSString *_storagePath;
+}
 
++ (CookieStorage *)instance;
 
-+ (BOOL)hostMatchesDomainWithURL:(NSURL *)url domain:(NSString *)domain;
+// Mimic the parts of the NSHTTPCookieStorage interface that we need.
+- (void)deleteCookie:(NSHTTPCookie *)cookie;
+- (NSHTTPCookieAcceptPolicy)cookieAcceptPolicy;
+- (void)setCookieAcceptPolicy:(NSHTTPCookieAcceptPolicy)policy;
+- (NSArray *)cookies;
+- (NSArray *)cookiesForURL:(NSURL *)URL;
+- (NSArray *)sortedCookiesUsingDescriptors:(NSArray*)sortOrder;
+- (void)setCookie:(NSHTTPCookie *)cookie;
+- (void)setCookies:(NSArray *)cookies;
 
-+ (NSMutableArray *)storage;
-+ (BOOL)archive;
-+ (void)unarchive;
-+ (void)clearCookies;
-+ (NSString *)cookieStoragePath;
+// HTTP request/response handling.
+- (void)handleCookiesInRequest:(NSMutableURLRequest *)request;
+- (void)handleCookiesInResponse:(NSHTTPURLResponse *)response;
+
+- (BOOL)archive;
+- (void)unarchive;
+- (void)clearCookies;
+
++ (NSString *)defaultCookieStoragePath;
 
 @end

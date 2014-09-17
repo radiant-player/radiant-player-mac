@@ -15,6 +15,7 @@
 @synthesize webView;
 @synthesize titleView;
 @synthesize window;
+@synthesize toolbar;
 @synthesize menu;
 @synthesize controlsMenu;
 @synthesize statusItem;
@@ -71,19 +72,41 @@
  */
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Put in our custom title text view.
-    titleView = [[TitleBarTextView alloc] initWithFrame:[[[window contentView] superview] bounds]];
-    [titleView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
-    [titleView setTitle:window.title];
-    [titleView setColor:nil];
-
-    [[window.contentView superview] addSubview:titleView
-                                    positioned:NSWindowBelow
-                                    relativeTo:[[[window.contentView superview] subviews] firstObject]];
-    
-    // Change the title bar color.
-    [window setTitle:@""];
-    [window setBackgroundColor:[NSColor colorWithSRGBRed:0.945 green:0.945 blue:0.945 alpha:1]];
+    if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9)
+    {
+        [[NSNotificationCenter defaultCenter]
+             addObserverForName:NSWindowWillEnterFullScreenNotification
+             object:nil
+             queue:nil
+             usingBlock:^(NSNotification *note) {
+                 [self hideToolbar];
+             }
+         ];
+        
+        [[NSNotificationCenter defaultCenter]
+             addObserverForName:NSWindowWillExitFullScreenNotification
+             object:nil
+             queue:nil
+             usingBlock:^(NSNotification *note) {
+                 [self showToolbar];
+             }
+         ];
+    }
+    else
+    {
+        // Put in our custom title text view.
+        titleView = [[TitleBarTextView alloc] initWithFrame:[[[window contentView] superview] bounds]];
+        [titleView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
+        [titleView setTitle:window.title];
+        [titleView setColor:nil];
+        
+        [[window.contentView superview] addSubview:titleView
+                                        positioned:NSWindowBelow
+                                        relativeTo:[[[window.contentView superview] subviews] firstObject]];
+        
+        // Change the title bar color.
+        [window setTitle:@""];
+    }
     
     // Load the user preferences.
     defaults = [NSUserDefaults standardUserDefaults];
@@ -252,9 +275,9 @@
     NSStatusBar *bar = [NSStatusBar systemStatusBar];
     statusItem = [bar statusItemWithLength:NSSquareStatusItemLength];
     [statusItem setHighlightMode:YES];
-    [statusItem setView:statusView];
     
     [statusView setStatusItem:statusItem];
+    [statusView setupStatusItem];
 }
 
 - (void)setupRatingMenuItems
@@ -265,20 +288,46 @@
         [self setupStarRatingView];
         [thumbsUpMenuItem setHidden:YES];
         [thumbsDownMenuItem setHidden:YES];
+        [starRatingMenuItem setHidden:NO];
     }
     else
     {
+        [self setupThumbsUpRatingView];
         [thumbsUpMenuItem setHidden:NO];
         [thumbsDownMenuItem setHidden:NO];
+        [starRatingMenuItem setHidden:YES];
     }
     
     [ratingsSeparatorMenuItem setHidden:NO];
+}
+
+- (void)setupThumbsUpRatingView
+{
+    if ([controlsMenu indexOfItem:thumbsUpMenuItem] == -1)
+    {
+        NSInteger starindex = [controlsMenu indexOfItem:starRatingMenuItem];
+        
+        if (starindex != -1)
+            [controlsMenu removeItemAtIndex:starindex];
+        
+        [controlsMenu insertItem:thumbsUpMenuItem atIndex:7];
+        [controlsMenu insertItem:thumbsDownMenuItem atIndex:8];
+    }
 }
 
 - (void)setupStarRatingView
 {
     if ([controlsMenu indexOfItem:starRatingMenuItem] == -1)
     {
+        NSInteger tui = [controlsMenu indexOfItem:thumbsUpMenuItem];
+        NSInteger tdi = [controlsMenu indexOfItem:thumbsDownMenuItem];
+        
+        if (tui != -1 && tdi != -1)
+        {
+            [controlsMenu removeItemAtIndex:tui];
+            [controlsMenu removeItemAtIndex:tdi];
+        }
+        
         [controlsMenu insertItem:starRatingMenuItem atIndex:7];
         [starRatingView setStarImage:[Utilities imageFromName:@"stars/star_outline_black_small"]];
         [starRatingView setStarHighlightedImage:[Utilities imageFromName:@"stars/star_filled_small"]];
@@ -288,6 +337,26 @@
         [starRatingView setDisplayMode:EDStarRatingDisplayFull];
         [starRatingView setDelegate:self];
     }
+}
+
+- (void)showToolbar
+{
+    NSRect frame = [[self window] frame];
+    [window setStyleMask:(window.styleMask | NSFullSizeContentViewWindowMask)];
+    [window setTitlebarAppearsTransparent:YES];
+    [window setTitleVisibility:NSWindowTitleHidden];
+    [window setToolbar:toolbar];
+    [toolbar setVisible:YES];
+    [[self window] setFrame:frame display:NO];
+}
+
+- (void)hideToolbar
+{
+//    [window setStyleMask:(window.styleMask & ~NSFullSizeContentViewWindowMask)];
+//    [window setTitlebarAppearsTransparent:NO];
+//    [window setTitleVisibility:NSWindowTitleVisible];
+    [window setToolbar:nil];
+    [toolbar setVisible:NO];
 }
 
 - (void)starsSelectionChanged:(EDStarRating *)control rating:(float)rating
@@ -681,13 +750,11 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     
     if (stylesEnabled && style)
     {
-        [style applyToWebView:webView];
-        [window setBackgroundColor:[style windowColor]];
-        [titleView setColor:[style titleColor]];
+        [style applyToWebView:webView window:window];
     }
     
     // Determine whether the player is using thumbs or stars.
-    isStarsRatingSystem = (BOOL)[[webView windowScriptObject] evaluateWebScript:@"MusicAPI.Rating.isStarsRatingSystem()"];
+    isStarsRatingSystem = [[webView windowScriptObject] evaluateWebScript:@"MusicAPI.Rating.isStarsRatingSystem()"] == YES;
     
     [self setupRatingMenuItems];
 }

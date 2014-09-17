@@ -27,8 +27,18 @@
     self = [super initWithRequest:_request cachedResponse:cachedResponse client:client];
     if (self) {
         NSString *name = [[_request URL] lastPathComponent];
-        NSString *path = [NSString stringWithFormat:@"images/%@", name];
-        _data = [Utilities dataWithContentsOfPath:path];
+        
+        // Handle special images.
+        if ([name caseInsensitiveCompare:@"arrow-left-yosemite.png"] == NSOrderedSame) {
+            _data = [[[NSImage imageNamed:NSImageNameGoLeftTemplate] resizeImage:NSMakeSize(16, 18)] PNGData];
+        }
+        else if ([name caseInsensitiveCompare:@"arrow-right-yosemite.png"] == NSOrderedSame) {
+            _data = [[[NSImage imageNamed:NSImageNameGoRightTemplate] resizeImage:NSMakeSize(16, 18)] PNGData];
+        }
+        else {
+            NSString *path = [NSString stringWithFormat:@"images/%@", name];
+            _data = [Utilities dataWithContentsOfPath:path];
+        }
     }
     return self;
 }

@@ -9,14 +9,14 @@
 
 #import "PopupView.h"
 
-#define ARROW_WIDTH 12
-#define ARROW_HEIGHT 8
+#define ARROW_WIDTH 14
+#define ARROW_HEIGHT 7
 
 #define FILL_OPACITY 0.95f
 #define STROKE_OPACITY 1.0f
 
 #define LINE_THICKNESS 1.0f
-#define CORNER_RADIUS 6.0f
+#define CORNER_RADIUS 10.0f
 
 @implementation PopupView
 
@@ -35,6 +35,19 @@
     _hoverAlphaMultiplier = 0.0;
     
     [self setAnimations:@{@"hoverAlphaMultiplier": [CABasicAnimation animation]}];
+
+    if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9) {
+        _backgroundView = [[NSVisualEffectView alloc] initWithFrame:[self frame]];
+        
+        NSVisualEffectView *view = (NSVisualEffectView *)_backgroundView;
+        [view setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameVibrantLight]];
+        [view setBlendingMode:NSVisualEffectBlendingModeBehindWindow];
+        [view setMaterial:NSVisualEffectMaterialLight];
+        [view setState:NSVisualEffectStateActive];
+        [view setAutoresizingMask:(NSViewWidthSizable|NSViewHeightSizable)];
+        
+        [self addSubview:view positioned:NSWindowBelow relativeTo:nil];
+    }
 }
 
 - (void)drawRect:(NSRect)dirtyRect
@@ -70,6 +83,47 @@
     [path lineToPoint:NSMakePoint(arrowX - ARROW_WIDTH / 2, NSMaxY(contentRect) - ARROW_HEIGHT)];
     [path closePath];
     
+    NSColor *gradientDark = [NSColor colorWithDeviceWhite:0.1 alpha:_hoverAlphaMultiplier*0.7];
+    NSColor *gradientLight = [NSColor colorWithDeviceWhite:0.05 alpha:_hoverAlphaMultiplier*0.2];
+    NSColor *gradientNone = [NSColor colorWithDeviceWhite:0.0 alpha:_hoverAlphaMultiplier*0.1];
+    NSGradient *hoverGradient = [[NSGradient alloc] initWithColorsAndLocations:
+                            gradientDark, 0.0,
+                            gradientLight, 0.3,
+                            gradientNone, 0.50,
+                            gradientLight, 0.7,
+                            gradientDark, 1.0,
+                            nil];
+    
+    
+    NSColor *gradientTop = [NSColor colorWithDeviceWhite:1 alpha:FILL_OPACITY];
+    NSColor *gradientBottom = [NSColor colorWithDeviceWhite:0.95 alpha:FILL_OPACITY];
+    NSGradient *backgroundGradient = [[NSGradient alloc] initWithStartingColor:gradientTop endingColor:gradientBottom];
+    
+    [NSGraphicsContext saveGraphicsState];
+    [path addClip];
+    
+    if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9)
+    {
+        NSVisualEffectView *view = (NSVisualEffectView *)_backgroundView;
+        NSImage *maskImage = [NSImage imageWithSize:self.bounds.size flipped:NO drawingHandler:^BOOL(NSRect dstRect) {
+            if (_backgroundImage == nil)
+                [path fill];
+            
+            return YES;
+        }];
+        [view setMaskImage:maskImage];
+        
+        [[NSColor colorWithWhite:1.0 alpha:0.3] setStroke];
+        [path stroke];
+    }
+    else if (!isLargePlayer)
+    {
+        [path setLineWidth:LINE_THICKNESS * 2];
+        [[NSColor whiteColor] setStroke];
+        [path stroke];
+    }
+    
+    [NSGraphicsContext restoreGraphicsState];
     
     // Draw the background album art image if possible.
     if (isLargePlayer)
@@ -82,45 +136,17 @@
                                operation:NSCompositeSourceOver
                                 fraction:1.0];
         }
-        else
+        else if (_hoverAlphaMultiplier < 0.1 || floor(NSAppKitVersionNumber) <= NSAppKitVersionNumber10_9)
         {
-            NSColor *gradientTop = [NSColor colorWithDeviceWhite:1 alpha:FILL_OPACITY];
-            NSColor *gradientBottom = [NSColor colorWithDeviceWhite:0.95 alpha:FILL_OPACITY];
-            NSGradient *gradient = [[NSGradient alloc] initWithStartingColor:gradientTop endingColor:gradientBottom];
-            [gradient drawInBezierPath:path angle:-90.0];
+            [backgroundGradient drawInBezierPath:path angle:-90.0];
         }
         
-        NSColor *gradientDark = [NSColor colorWithDeviceWhite:0.1 alpha:_hoverAlphaMultiplier*0.7];
-        NSColor *gradientLight = [NSColor colorWithDeviceWhite:0.05 alpha:_hoverAlphaMultiplier*0.2];
-        NSColor *gradientNone = [NSColor colorWithDeviceWhite:0.0 alpha:_hoverAlphaMultiplier*0.1];
-        NSGradient *gradient = [[NSGradient alloc] initWithColorsAndLocations:
-                                    gradientDark, 0.0,
-                                    gradientLight, 0.3,
-                                    gradientNone, 0.50,
-                                    gradientLight, 0.7,
-                                    gradientDark, 1.0,
-                                    nil];
-        [gradient drawInBezierPath:path angle:-90.0];
+        [hoverGradient drawInBezierPath:path angle:-90.0];
     }
-    else
+    else if (floor(NSAppKitVersionNumber) <= NSAppKitVersionNumber10_9)
     {
-        NSColor *gradientTop = [NSColor colorWithDeviceWhite:1 alpha:FILL_OPACITY];
-        NSColor *gradientBottom = [NSColor colorWithDeviceWhite:0.95 alpha:FILL_OPACITY];
-        NSGradient *gradient = [[NSGradient alloc] initWithStartingColor:gradientTop endingColor:gradientBottom];
-        [gradient drawInBezierPath:path angle:-90.0];
+        [backgroundGradient drawInBezierPath:path angle:-90.0];
     }
-    
-    [NSGraphicsContext saveGraphicsState];
-    
-    NSBezierPath *clip = [NSBezierPath bezierPathWithRect:[self bounds]];
-    [clip appendBezierPath:path];
-    [clip addClip];
-    
-    [path setLineWidth:LINE_THICKNESS * 2];
-    [[NSColor whiteColor] setStroke];
-    [path stroke];
-    
-    [NSGraphicsContext restoreGraphicsState];
 }
 
 - (void)mouseEntered:(NSEvent *)event
@@ -168,8 +194,14 @@
     // Update subviews.
     for (NSView *view in [self subviews])
     {
-        if ([view tag] != NO_SONGS_PLAYING_TAG && [view tag] != EXPAND_ART_TAG && ![view isKindOfClass:[EDStarRating class]])
+        if ([view tag] != NO_SONGS_PLAYING_TAG &&
+            [view tag] != EXPAND_ART_TAG &&
+            view != _backgroundView &&
+            ![view isKindOfClass:[EDStarRating class]]
+        )
+        {
             [view setAlphaValue:_hoverAlphaMultiplier];
+        }
     }
     
     // Redraw.
