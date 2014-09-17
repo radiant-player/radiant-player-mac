@@ -22,6 +22,7 @@
 
 @interface PopupView : NSView {
     NSImage *_backgroundImage;
+    NSView *_backgroundView;
     CGFloat _hoverAlphaMultiplier;
 }
 

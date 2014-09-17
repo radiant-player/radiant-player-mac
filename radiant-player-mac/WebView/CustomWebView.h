@@ -10,6 +10,7 @@
 #import <WebKit/WebKit.h>
 #import <JavaScriptCore/JavaScriptCore.h>
 #import "SwipeIndicatorView.h"
+#import "CookieStorage.h"
 
 @protocol CustomWebViewDelegate
 
