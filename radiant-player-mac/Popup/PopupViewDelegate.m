@@ -119,7 +119,7 @@
     [artProgress stopAnimation:self];
     
     // Update the large mini player if necessary.
-    if (popup.popupView.isLargePlayer)
+    if ([popup.popupView useWhiteIcons])
     {
         [popup.popupView setBackgroundImage:image];
         [popup.popupView setNeedsDisplay:YES];
@@ -220,7 +220,7 @@
 
 - (NSImage *)repeatNoneImage
 {
-    if (popup.popupView.isLargePlayer)
+    if ([popup.popupView useWhiteIcons])
         return [Utilities imageFromName:@"repeat_none_white"];
     else
         return [Utilities imageFromName:@"repeat_none"];
@@ -238,7 +238,7 @@
 
 - (NSImage *)backImage
 {
-    if (popup.popupView.isLargePlayer)
+    if ([popup.popupView useWhiteIcons])
         return [Utilities imageFromName:@"previous_white"];
     else
         return [Utilities imageFromName:@"previous"];
@@ -246,7 +246,7 @@
 
 - (NSImage *)playImage
 {
-    if (popup.popupView.isLargePlayer)
+    if ([popup.popupView useWhiteIcons])
         return [Utilities imageFromName:@"play_white"];
     else
         return [Utilities imageFromName:@"play"];
@@ -254,7 +254,7 @@
 
 - (NSImage *)pauseImage
 {
-    if (popup.popupView.isLargePlayer)
+    if ([popup.popupView useWhiteIcons])
         return [Utilities imageFromName:@"pause_white"];
     else
         return [Utilities imageFromName:@"pause"];
@@ -262,7 +262,7 @@
 
 - (NSImage *)forwardImage
 {
-    if (popup.popupView.isLargePlayer)
+    if ([popup.popupView useWhiteIcons])
         return [Utilities imageFromName:@"next_white"];
     else
         return [Utilities imageFromName:@"next"];
@@ -270,7 +270,7 @@
 
 - (NSImage *)shuffleOffImage
 {
-    if (popup.popupView.isLargePlayer)
+    if ([popup.popupView useWhiteIcons])
         return [Utilities imageFromName:@"shuffle_off_white"];
     else
         return [Utilities imageFromName:@"shuffle_off"];
@@ -283,7 +283,7 @@
 
 - (NSImage *)thumbsUpOffImage
 {
-    if (popup.popupView.isLargePlayer)
+    if ([popup.popupView useWhiteIcons])
         return [Utilities imageFromName:@"thumbsup_outline_white"];
     else
         return [Utilities imageFromName:@"thumbsup_outline"];
@@ -296,7 +296,7 @@
 
 - (NSImage *)thumbsDownOffImage
 {
-    if (popup.popupView.isLargePlayer)
+    if ([popup.popupView useWhiteIcons])
         return [Utilities imageFromName:@"thumbsdown_outline_white"];
     else
         return [Utilities imageFromName:@"thumbsdown_outline"];
@@ -309,7 +309,7 @@
 
 - (NSImage *)expandContractImage
 {
-    if (popup.popupView.isLargePlayer)
+    if ([popup.popupView useWhiteIcons])
         return [Utilities imageFromName:@"arrow_contract_art"];
     else
         return [Utilities imageFromName:@"arrow_expand_art"];
@@ -317,7 +317,7 @@
 
 - (NSImage *)showMainWindowImage
 {
-    if (popup.popupView.isLargePlayer)
+    if ([popup.popupView useWhiteIcons])
         return [Utilities templateImage:NSImageNameEnterFullScreenTemplate withColor:[NSColor colorWithDeviceWhite:0.8 alpha:1.0]];
     else
         return [Utilities templateImage:NSImageNameEnterFullScreenTemplate withColor:[NSColor colorWithDeviceWhite:0.4 alpha:1.0]];
@@ -327,7 +327,7 @@
 {
     if (rating == 0)
     {
-        if (popup.popupView.isLargePlayer)
+        if ([popup.popupView useWhiteIcons])
             return [Utilities imageFromName:@"stars/star_outline_white"];
         else
             return [Utilities imageFromName:@"stars/star_outline_black"];
@@ -341,7 +341,7 @@
 
 - (NSImage *)starRatingImage
 {
-    if (popup.popupView.isLargePlayer)
+    if ([popup.popupView useWhiteIcons])
         return [Utilities imageFromName:@"stars/star_outline_white_small"];
     else
         return [Utilities imageFromName:@"stars/star_outline_black_small"];

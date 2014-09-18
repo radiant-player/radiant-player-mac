@@ -39,10 +39,14 @@
     if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9) {
         _backgroundView = [[NSVisualEffectView alloc] initWithFrame:[self frame]];
         
+        if ([Utilities isSystemInDarkMode])
+            [self setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameVibrantDark]];
+        else
+            [self setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameVibrantLight]];
+        
         NSVisualEffectView *view = (NSVisualEffectView *)_backgroundView;
-        [view setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameVibrantLight]];
         [view setBlendingMode:NSVisualEffectBlendingModeBehindWindow];
-        [view setMaterial:NSVisualEffectMaterialLight];
+        [view setMaterial:NSVisualEffectMaterialAppearanceBased];
         [view setState:NSVisualEffectStateActive];
         [view setAutoresizingMask:(NSViewWidthSizable|NSViewHeightSizable)];
         
@@ -106,7 +110,7 @@
     {
         NSVisualEffectView *view = (NSVisualEffectView *)_backgroundView;
         NSImage *maskImage = [NSImage imageWithSize:self.bounds.size flipped:NO drawingHandler:^BOOL(NSRect dstRect) {
-            if (_backgroundImage == nil)
+            if (_backgroundImage == nil || !isLargePlayer)
                 [path fill];
             
             return YES;
@@ -278,11 +282,11 @@
         [NSAnimationContext endGrouping];
         
         // Recolor elements.
-        [delegate.titleLabel setTextColor:[NSColor blackColor]];
+        [delegate.titleLabel setTextColor:[NSColor labelColor]];
         [delegate.titleLabel setAlignment:NSLeftTextAlignment];
-        [delegate.artistLabel setTextColor:[NSColor blackColor]];
+        [delegate.artistLabel setTextColor:[NSColor labelColor]];
         [delegate.artistLabel setAlignment:NSLeftTextAlignment];
-        [delegate.albumLabel setTextColor:[NSColor blackColor]];
+        [delegate.albumLabel setTextColor:[NSColor labelColor]];
         [delegate.albumLabel setAlignment:NSLeftTextAlignment];
         
         [delegate playbackChanged:delegate.playbackMode];
@@ -295,6 +299,21 @@
         [delegate.starBadgeButton setImage:[delegate starBadgeImage:[delegate songRating]]];
         [delegate.starRatingView setStarImage:[delegate starRatingImage]];
     }
+}
+
+- (BOOL)isDarkAppearance
+{
+    if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9)
+    {
+        return [[[self appearance] name] isEqualToString:NSAppearanceNameVibrantDark];
+    }
+    
+    return NO;
+}
+
+- (BOOL)useWhiteIcons
+{
+    return isLargePlayer || [self isDarkAppearance];
 }
 
 @end

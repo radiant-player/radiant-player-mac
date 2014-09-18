@@ -141,4 +141,9 @@
     return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"ApplicationName"];
 }
 
++ (BOOL)isSystemInDarkMode
+{
+    return [[[NSUserDefaults standardUserDefaults] stringForKey:@"AppleInterfaceStyle"] isEqualToString:@"Dark"];
+}
+
 @end

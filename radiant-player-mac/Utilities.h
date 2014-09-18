@@ -23,4 +23,6 @@
 + (NSString *)applicationHomepage;
 + (NSString *)applicationName;
 
++ (BOOL)isSystemInDarkMode;
+
 @end

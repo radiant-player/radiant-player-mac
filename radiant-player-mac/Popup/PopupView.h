@@ -36,5 +36,7 @@
 @property (retain) IBOutlet PopupViewDelegate *delegate;
 
 - (void) togglePlayerSize;
+- (BOOL) isDarkAppearance;
+- (BOOL) useWhiteIcons;
 
 @end
