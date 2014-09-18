@@ -305,7 +305,7 @@
 {
     if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9)
     {
-        return [[[self appearance] name] isEqualToString:NSAppearanceNameVibrantDark];
+        return [Utilities isSystemInDarkMode];
     }
     
     return NO;
