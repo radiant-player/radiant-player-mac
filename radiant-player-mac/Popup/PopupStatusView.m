@@ -44,7 +44,7 @@
 - (NSImage *)buttonImage
 {
     NSRect rect = [[self buttonView] frame];
-    rect = NSInsetRect(rect, 3, 1);
+    rect = NSInsetRect(rect, 4, 2);
     
     NSImage *image = [Utilities imageFromName:@"menuicon"];
     [image setTemplate:YES];

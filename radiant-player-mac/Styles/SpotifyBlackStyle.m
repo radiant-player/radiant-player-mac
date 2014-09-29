@@ -29,7 +29,7 @@
 - (void)applyToWebView:(WebView *)webView window:(NSWindow *)window
 {
     if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9) {
-        [ApplicationStyle applyYosemiteVisualEffects:webView window:window];
+        [ApplicationStyle applyYosemiteVisualEffects:webView window:window appearance:NSAppearanceNameVibrantDark];
         [self setCss:[NSString stringWithFormat:@"%@%@", [self css], [ApplicationStyle cssNamed:@"spotify-black-yosemite"]]];
     }
     

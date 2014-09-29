@@ -83,7 +83,7 @@
     return dictionary;
 }
 
-+ (void)applyYosemiteVisualEffects:(WebView *)webView window:(NSWindow *)window
++ (void)applyYosemiteVisualEffects:(WebView *)webView window:(NSWindow *)window appearance:(NSString *)appearanceName
 {
     [window setBackgroundColor:[NSColor colorWithSRGBRed:0.945 green:0.945 blue:0.945 alpha:1]];
     [(AppDelegate *)[NSApp delegate] showToolbar];
@@ -94,7 +94,7 @@
     frame.origin = CGPointMake(0, 0);
     
     NSVisualEffectView *bgView = [[NSVisualEffectView alloc] initWithFrame:frame];
-    [bgView setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameVibrantLight]];
+    [bgView setAppearance:[NSAppearance appearanceNamed:appearanceName]];
     [bgView setBlendingMode:NSVisualEffectBlendingModeBehindWindow];
     [bgView setMaterial:NSVisualEffectMaterialAppearanceBased];
     [bgView setState:NSVisualEffectStateFollowsWindowActiveState];

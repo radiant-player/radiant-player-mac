@@ -27,7 +27,7 @@
 - (void)applyToWebView:(WebView *)webView window:(NSWindow *)window
 {
     [super applyToWebView:webView window:window];
-    [ApplicationStyle applyYosemiteVisualEffects:webView window:window];
+    [ApplicationStyle applyYosemiteVisualEffects:webView window:window appearance:NSAppearanceNameVibrantLight];
 }
 
 @end
