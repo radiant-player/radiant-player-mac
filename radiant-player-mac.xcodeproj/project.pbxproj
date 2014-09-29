@@ -41,6 +41,7 @@
 		D32CCEFA18BE039E00BDD484 /* PopupPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = D32CCEF918BE039E00BDD484 /* PopupPanel.m */; };
 		D32CCEFD18BE9BF800BDD484 /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = D32CCEFC18BE9BF800BDD484 /* PopupView.m */; };
 		D343CDF518C69DF4002F9DB3 /* NavigationPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D343CDF418C69DF4002F9DB3 /* NavigationPreferencesViewController.m */; };
+		D346173519D907F300017023 /* SpotifyBlackVibrantStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D346173419D907F300017023 /* SpotifyBlackVibrantStyle.m */; };
 		D34DC2BC18C295A700C27596 /* LastFmService.m in Sources */ = {isa = PBXBuildFile; fileRef = D34DC2BB18C295A700C27596 /* LastFmService.m */; };
 		D35788BD18C2F820006AF859 /* GeneralPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35788BC18C2F820006AF859 /* GeneralPreferencesViewController.m */; };
 		D362D5421924D17B00FC0C56 /* PrivacyPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D362D5411924D17B00FC0C56 /* PrivacyPreferencesViewController.m */; };
@@ -149,6 +150,8 @@
 		D32CCEFC18BE9BF800BDD484 /* PopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupView.m; sourceTree = "<group>"; };
 		D343CDF318C69DF4002F9DB3 /* NavigationPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationPreferencesViewController.h; sourceTree = "<group>"; };
 		D343CDF418C69DF4002F9DB3 /* NavigationPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationPreferencesViewController.m; sourceTree = "<group>"; };
+		D346173319D907F300017023 /* SpotifyBlackVibrantStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifyBlackVibrantStyle.h; sourceTree = "<group>"; };
+		D346173419D907F300017023 /* SpotifyBlackVibrantStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotifyBlackVibrantStyle.m; sourceTree = "<group>"; };
 		D34DC2BA18C295A700C27596 /* LastFmService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastFmService.h; sourceTree = "<group>"; };
 		D34DC2BB18C295A700C27596 /* LastFmService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastFmService.m; sourceTree = "<group>"; };
 		D35788BB18C2F820006AF859 /* GeneralPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralPreferencesViewController.h; sourceTree = "<group>"; };
@@ -338,6 +341,8 @@
 				D37C928E195E3F290035709A /* DarkStyle.m */,
 				D37C928A195E3B3F0035709A /* SpotifyBlackStyle.h */,
 				D37C928B195E3B3F0035709A /* SpotifyBlackStyle.m */,
+				D346173319D907F300017023 /* SpotifyBlackVibrantStyle.h */,
+				D346173419D907F300017023 /* SpotifyBlackVibrantStyle.m */,
 				D37C9284195DFE870035709A /* YosemiteStyle.h */,
 				D37C9285195DFE870035709A /* YosemiteStyle.m */,
 			);
@@ -588,6 +593,7 @@
 				D37C9289195E19BD0035709A /* NSImage+Data.m in Sources */,
 				D32CCEFA18BE039E00BDD484 /* PopupPanel.m in Sources */,
 				D31ACE84193ACDC300AC7CB4 /* RatingBadgeButton.m in Sources */,
+				D346173519D907F300017023 /* SpotifyBlackVibrantStyle.m in Sources */,
 				D37B638718F1E7680098F9DC /* SpriteDownloadURLProtocol.m in Sources */,
 				D37C9295195E42800035709A /* CocoaStyle.m in Sources */,
 				D3B71C2818C2D5240041358B /* PreferencesWindowController.m in Sources */,

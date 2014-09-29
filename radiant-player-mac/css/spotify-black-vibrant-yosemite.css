@@ -1,0 +1,65 @@
+/*
+ * css/spotify-black-vibrant-yosemite.css
+ *
+ * Additions to the Spotify Black Yosemite style to add vibrancy.
+ *
+ * Created by Sajid Anwar.
+ *
+ * Subject to terms and conditions in LICENSE.md.
+ *
+ */
+
+body {
+    background: none;
+}
+
+.player-middle {
+    background: none;
+}
+
+#nav,
+#oneGoogleWrapper > div:first-child > div:first-child,
+#player {
+    background: rgba(20,20,20,0.5);
+}
+
+#nav_collections .nav-item-container.selected,
+.nav-item-container.selected,
+.nav-item-container.selected:focus,
+.nav-item-container.selected:hover {
+    background: rgba(80,80,80,0.3) !important;
+}
+
+#nav_collections .nav-item-container:hover, .nav-item-container:hover {
+    background: none !important;
+    color: #949599 !important;
+}
+
+#main, #content {
+    background-color: rgba(10,10,10,0.7);
+}
+
+.nav-bar, .queue-details {
+    background: rgba(0,0,0,0.7);
+}
+
+.queue-details .fade {
+    background: none !important;
+}
+
+#headerBar, .nerd-panel {
+    background: none !important;
+}
+
+#loading-progress {
+    background: transparent;
+}
+
+#loading-progress-message {
+    color: #999;
+    text-align: center;
+}
+
+#loading-progress-bar {
+    background-color: rgba(0,0,0,0.5);
+}

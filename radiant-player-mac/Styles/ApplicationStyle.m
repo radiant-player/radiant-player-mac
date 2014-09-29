@@ -12,6 +12,7 @@
 #import "DarkStyle.h"
 #import "DarkFlatStyle.h"
 #import "SpotifyBlackStyle.h"
+#import "SpotifyBlackVibrantStyle.h"
 #import "YosemiteStyle.h"
 #import "../AppDelegate.h"
 
@@ -78,6 +79,9 @@
     {
         YosemiteStyle *yosemite = [[YosemiteStyle alloc] init];
         [dictionary setObject:yosemite forKey:[yosemite name]];
+        
+        SpotifyBlackVibrantStyle *spotifyBlackVibrant = [[SpotifyBlackVibrantStyle alloc] init];
+        [dictionary setObject:spotifyBlackVibrant forKey:[spotifyBlackVibrant name]];
     }
     
     return dictionary;

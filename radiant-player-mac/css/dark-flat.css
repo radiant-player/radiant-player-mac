@@ -314,7 +314,7 @@ a, .simple-dialog a {
     opacity: 1 !important;
 }
 
-#oneGoogleWrapper > div:first-child > div {
+#oneGoogleWrapper > div:first-child > div:first-child {
     background: #C4C4C4;
     border-bottom: 1px solid #606060;
     height: 59px;
@@ -444,7 +444,8 @@ div.simple-dialog-bg {
 }
 
 .song-row [data-col="rating"][data-rating="0"], 
-.song-row [data-col="rating"][data-rating="undefined"] { 
+.song-row [data-col="rating"][data-rating="undefined"],
+.song-row [data-col="rating"][data-rating="null"] {
     background-image: none !important;
 }
 

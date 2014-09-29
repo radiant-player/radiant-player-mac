@@ -368,7 +368,7 @@ a, .simple-dialog a {
     opacity: 1 !important;
 }
 
-#oneGoogleWrapper > div:first-child > div {
+#oneGoogleWrapper > div:first-child > div:first-child {
     background: #222326;
     border-bottom: 1px solid #333;
     height: 59px;
@@ -530,8 +530,9 @@ div.simple-dialog-bg {
     background-image: url(https://radiant-player-mac/sprites-inverted.png) !important;
 }
 
-.song-row [data-col="rating"][data-rating="0"], 
-.song-row [data-col="rating"][data-rating="undefined"] { 
+.song-row [data-col="rating"][data-rating="0"],
+.song-row [data-col="rating"][data-rating="undefined"],
+.song-row [data-col="rating"][data-rating="null"] {
     background-image: none !important;
 }
 

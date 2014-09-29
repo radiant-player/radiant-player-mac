@@ -266,7 +266,7 @@
     opacity: 1 !important;
 }
 
-#oneGoogleWrapper > div:first-child > div {
+#oneGoogleWrapper > div:first-child > div:first-child {
     background: -webkit-linear-gradient(90deg, #b5b5b5, #d5d5d5 50%, #e5e5e5);
     background: linear-gradient(0deg, #b5b5b5, #d5d5d5 50%, #e5e5e5);
     border-bottom: 1px solid #606060;
