@@ -11,6 +11,13 @@
 
 @implementation AppearancePreferencesViewController
 
+@synthesize sortDescriptors;
+
+- (void)awakeFromNib
+{
+    self.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES] ];
+}
+
 - (NSString *)identifier
 {
     return @"AppearancePreferences";

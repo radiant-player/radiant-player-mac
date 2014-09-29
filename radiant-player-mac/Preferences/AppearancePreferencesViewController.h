@@ -12,4 +12,6 @@
 
 @interface AppearancePreferencesViewController : NSViewController<MASPreferencesViewController>
 
+@property NSArray *sortDescriptors;
+
 @end

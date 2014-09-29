@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6246" systemVersion="14A361c" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <deployment defaultVersion="1080" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6246"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreferencesWindowController">
@@ -107,7 +107,7 @@
                     <rect key="frame" x="146" y="169" width="314" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Changing this preference will require a restart of the application to take effect" id="7lz-27-vG3">
-                        <font key="font" size="11" name="LucidaGrande"/>
+                        <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -116,7 +116,7 @@
                     <rect key="frame" x="146" y="227" width="314" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Requires Mac OS X 10.9 or higher" id="oHg-L4-hVc">
-                        <font key="font" size="11" name="LucidaGrande"/>
+                        <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -125,7 +125,7 @@
                     <rect key="frame" x="146" y="266" width="314" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Requires Mac OS X 10.9 or higher" id="qDC-cN-hCA">
-                        <font key="font" size="11" name="LucidaGrande"/>
+                        <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -134,7 +134,7 @@
                     <rect key="frame" x="146" y="89" width="314" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Access the main menu by right-clicking the menu icon" allowsEditingTextAttributes="YES" id="pkS-R3-Khr">
-                        <font key="font" size="11" name="LucidaGrande"/>
+                        <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -143,7 +143,7 @@
                     <rect key="frame" x="146" y="75" width="314" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Changing this preference will require a restart of the application to take effect" allowsEditingTextAttributes="YES" id="M1a-9Q-pog">
-                        <font key="font" size="11" name="LucidaGrande"/>
+                        <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -202,7 +202,7 @@
                 </button>
             </subviews>
         </customView>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="D7u-3l-nVG" userLabel="Appearance Preferences">
             <rect key="frame" x="0.0" y="0.0" width="362" height="134"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -231,11 +231,27 @@
                     <rect key="frame" x="18" y="86" width="326" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" alignment="center" title="Changing these preferences will require a restart of the application to take effect" id="z4T-NV-tMN">
-                        <font key="font" size="11" name="LucidaGrande"/>
+                        <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="yZz-74-VDm">
+                    <rect key="frame" x="-2" y="22" width="103" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Style:" id="IEE-Nf-LIX">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="zhW-EN-10a">
+                    <rect key="frame" x="12" y="75" width="338" height="5"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <font key="titleFont" metaFont="system"/>
+                </box>
                 <popUpButton verticalHuggingPriority="750" id="DeQ-rh-16G">
                     <rect key="frame" x="105" y="17" width="248" height="26"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -261,22 +277,6 @@
                         <binding destination="qKJ-ks-0kW" name="selectedValue" keyPath="values.styles.name" previousBinding="bDM-qg-ACl" id="SEB-nv-2Hs"/>
                     </connections>
                 </popUpButton>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="yZz-74-VDm">
-                    <rect key="frame" x="-2" y="22" width="103" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Style:" id="IEE-Nf-LIX">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="zhW-EN-10a">
-                    <rect key="frame" x="12" y="75" width="338" height="5"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <font key="titleFont" metaFont="system"/>
-                </box>
             </subviews>
         </customView>
         <viewController id="l7y-90-Hoh" customClass="GeneralPreferencesViewController">
@@ -356,7 +356,7 @@
                     <rect key="frame" x="144" y="128" width="316" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Changing this preference will require a restart of the application to take effect" id="Qso-vW-SGy">
-                        <font key="font" size="11" name="LucidaGrande"/>
+                        <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -365,7 +365,7 @@
                     <rect key="frame" x="144" y="74" width="316" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Changing this preference will require a restart of the application to take effect" id="DrQ-jv-xAH">
-                        <font key="font" size="11" name="LucidaGrande"/>
+                        <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -386,7 +386,7 @@
                     <rect key="frame" x="144" y="20" width="316" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Changing this preference will require a restart of the application to take effect" id="VMS-2j-c8q">
-                        <font key="font" size="11" name="LucidaGrande"/>
+                        <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -487,7 +487,7 @@
                         </binding>
                     </connections>
                 </secureTextField>
-                <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="wli-GL-bJ9">
+                <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="wli-GL-bJ9">
                     <rect key="frame" x="12" y="159" width="368" height="5"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
@@ -520,7 +520,7 @@
                     <rect key="frame" x="131" y="174" width="243" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Changing this preference will require a restart of the application to take effect" id="JUV-0K-skW">
-                        <font key="font" size="11" name="LucidaGrande"/>
+                        <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -543,6 +543,7 @@ when the track is rated "thumbs up"</string>
         <arrayController id="spz-iP-VP0">
             <connections>
                 <binding destination="-3" name="contentArray" keyPath="self.delegate.styles.@allValues" id="GQe-23-U3M"/>
+                <binding destination="hV5-O3-L0a" name="sortDescriptors" keyPath="self.sortDescriptors" id="8CU-iP-8nh"/>
             </connections>
         </arrayController>
         <customView id="gCh-A3-1dO" userLabel="Privacy Preferences">
@@ -601,12 +602,12 @@ when the track is rated "thumbs up"</string>
                     <rect key="frame" x="18" y="229" width="384" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" alignment="center" title="Changing these preference may log you out of Google Play Music" id="Zwl-r2-vbh">
-                        <font key="font" size="11" name="LucidaGrande"/>
+                        <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="JjR-H1-mF0">
+                <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="JjR-H1-mF0">
                     <rect key="frame" x="12" y="198" width="396" height="5"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
@@ -617,7 +618,7 @@ when the track is rated "thumbs up"</string>
                     <rect key="frame" x="141" y="86" width="261" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Enabling this preference will require you to log in every time you open Radiant Player" id="Q6P-fR-pZS">
-                        <font key="font" size="11" name="LucidaGrande"/>
+                        <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -626,7 +627,7 @@ when the track is rated "thumbs up"</string>
                     <rect key="frame" x="141" y="140" width="261" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Changing this preference will require a restart of the application to take effect" id="inZ-bd-JZT">
-                        <font key="font" size="11" name="LucidaGrande"/>
+                        <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -635,7 +636,7 @@ when the track is rated "thumbs up"</string>
                     <rect key="frame" x="122" y="20" width="280" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="This will clear all cookies stored by Radiant Player and will force a log out" id="XAY-l9-IEt">
-                        <font key="font" size="11" name="LucidaGrande"/>
+                        <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -644,7 +645,7 @@ when the track is rated "thumbs up"</string>
                     <rect key="frame" x="18" y="209" width="384" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="These preferences require Mac OS X 10.9 or higher" id="hz2-wh-sIU">
-                        <font key="font" size="11" name="LucidaGrande-Bold"/>
+                        <font key="font" metaFont="smallSystemBold"/>
                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -679,7 +680,7 @@ when the track is rated "thumbs up"</string>
                     <rect key="frame" x="147" y="20" width="309" height="56"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" id="Y3c-yy-O4p">
-                        <font key="font" size="11" name="LucidaGrande"/>
+                        <font key="font" metaFont="smallSystem"/>
                         <string key="title">Required for some applications to work properly, like Adobe Fireworks, but will break Quick Look.
 Changing this preference will require a restart of the application to take effect</string>
                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
