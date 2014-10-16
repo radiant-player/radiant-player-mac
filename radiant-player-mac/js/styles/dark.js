@@ -11,6 +11,22 @@ if (typeof window.Styles.Applied === 'undefined') {
     window.Styles.Applied = true;
     window.Styles.Dark = true;
     
+    window.Styles.Callbacks.onEnterFullScreen = function() {
+        if (window.GoogleMusicApp.isYosemite()) {
+            var el = document.querySelector('#oneGoogleWrapper > div:first-child > div:first-child > div:nth-child(2)');
+            el.style.setProperty('margin-left', '65px', 'important');
+            el.style.setProperty('margin-right', '65px', 'important');
+        }
+    };
+    
+    window.Styles.Callbacks.onExitFullScreen = function() {
+        if (window.GoogleMusicApp.isYosemite()) {
+            var el = document.querySelector('#oneGoogleWrapper > div:first-child > div:first-child > div:nth-child(2)');
+            el.style.setProperty('margin-left', '100px', 'important');
+            el.style.setProperty('margin-right', '30px', 'important');
+        }
+    };
+    
     // Thumbs up and down styles.
     var mediaChange = (function(list) {
         (function() {
@@ -43,7 +59,7 @@ if (typeof window.Styles.Applied === 'undefined') {
 
             // Apply a new stylesheet for the new thumbs up and down positions.
             thumbsUpBackY -= 9;
-            thumbsDownBackY -= 7;
+            thumbsDownBackY -= 6;
 
             var thumbsUpPosition = thumbsUpBackX + 'px ' + thumbsUpBackY + 'px';
             var thumbsDownPosition = thumbsDownBackX + 'px ' + thumbsDownBackY + 'px';

@@ -125,6 +125,7 @@
 - (void) ratingChanged:(NSInteger)rating;
 
 - (id) preferenceForKey:(NSString *)key;
+- (BOOL) isYosemite;
 
 - (void) evaluateJavaScriptFile:(NSString *)name;
 - (void) applyCSSFile:(NSString *)name;

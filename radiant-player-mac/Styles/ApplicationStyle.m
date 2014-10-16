@@ -63,14 +63,12 @@
 }
 
 + (NSMutableDictionary *)styles
-{    
-    CocoaStyle *cocoa = [[CocoaStyle alloc] init];
+{
     DarkStyle *dark = [[DarkStyle alloc] init];
     DarkFlatStyle *darkFlat = [[DarkFlatStyle alloc] init];
     SpotifyBlackStyle *spotifyBlack = [[SpotifyBlackStyle alloc] init];
     
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
-    [dictionary setObject:cocoa forKey:[cocoa name]];
     [dictionary setObject:dark forKey:[dark name]];
     [dictionary setObject:darkFlat forKey:[darkFlat name]];
     [dictionary setObject:spotifyBlack forKey:[spotifyBlack name]];
@@ -82,6 +80,11 @@
         
         SpotifyBlackVibrantStyle *spotifyBlackVibrant = [[SpotifyBlackVibrantStyle alloc] init];
         [dictionary setObject:spotifyBlackVibrant forKey:[spotifyBlackVibrant name]];
+    }
+    else
+    {
+        CocoaStyle *cocoa = [[CocoaStyle alloc] init];
+        [dictionary setObject:cocoa forKey:[cocoa name]];
     }
     
     return dictionary;
