@@ -11,6 +11,14 @@ if (typeof window.Styles.Applied === 'undefined') {
     window.Styles.Applied = true;
     window.Styles.Cocoa = true;
     
+    window.Styles.Callbacks.onEnterFullScreen = function() {
+        
+    };
+    
+    window.Styles.Callbacks.onExitFullScreen = function() {
+        
+    };s
+    
     // Thumbs up and down styles.
     (function() {
         // Create dummy elements to get the computed styles for these elements.

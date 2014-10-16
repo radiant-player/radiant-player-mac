@@ -106,6 +106,9 @@
 
 - (void)webView:(WebView *)sender resource:(id)identifier didReceiveResponse:(NSURLResponse *)response fromDataSource:(WebDataSource *)dataSource
 {
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"cookies.use-safari"] == YES)
+        return;
+    
     if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
         [[CookieStorage instance] handleCookiesInResponse:(NSHTTPURLResponse *)response];
     }
@@ -114,6 +117,9 @@
 
 - (void)handleCookiesForRequest:(NSMutableURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse
 {
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"cookies.use-safari"] == YES)
+        return;
+    
     if ([redirectResponse isKindOfClass:[NSHTTPURLResponse class]]) {
         [[CookieStorage instance] handleCookiesInResponse:(NSHTTPURLResponse *)redirectResponse];
     }

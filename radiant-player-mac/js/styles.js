@@ -40,6 +40,11 @@ if (typeof window.Styles === 'undefined') {
                 Styles.appliedStyles[key].parentNode.removeChild(Styles.appliedStyles[key]);
                 delete Styles.appliedStyles[key];
             }
+        },
+        
+        Callbacks: {
+            onEnterFullScreen: function() { },
+            onExitFullScreen: function() { }
         }
     };
 }

@@ -79,6 +79,7 @@
              object:nil
              queue:nil
              usingBlock:^(NSNotification *note) {
+                 [webView stringByEvaluatingJavaScriptFromString:@"window.Styles.Callbacks.onEnterFullScreen();"];
                  [self hideToolbar];
              }
          ];
@@ -87,7 +88,8 @@
              addObserverForName:NSWindowWillExitFullScreenNotification
              object:nil
              queue:nil
-             usingBlock:^(NSNotification *note) {
+         usingBlock:^(NSNotification *note) {
+             [webView stringByEvaluatingJavaScriptFromString:@"window.Styles.Callbacks.onExitFullScreen();"];
                  [self showToolbar];
              }
          ];
@@ -766,6 +768,11 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     else
         return nil;
 }
+
+- (BOOL)isYosemite
+{
+    return floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9;
+}
     
 - (void) evaluateJavaScriptFile:(NSString *)name
 {
@@ -828,6 +835,9 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     if (sel == @selector(preferenceForKey:))
         return @"preferenceForKey";
     
+    if (sel == @selector(isYosemite))
+        return @"isYosemite";
+    
     return nil;
 }
 
@@ -841,7 +851,8 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         sel == @selector(ratingChanged:) ||
         sel == @selector(moveWindowWithDeltaX:andDeltaY:) ||
         sel == @selector(showLastFmPopover:) ||
-        sel == @selector(preferenceForKey:))
+        sel == @selector(preferenceForKey:) ||
+        sel == @selector(isYosemite))
         return NO;
     
     return YES;
