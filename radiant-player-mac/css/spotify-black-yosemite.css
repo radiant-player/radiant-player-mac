@@ -41,26 +41,34 @@
 }
 
 #gbqfb {
+    border: none;
     width: 24px;
     min-width: 24px;
-    margin-left: -30px;
+    margin-left: -35px;
     position: absolute;
     height: 24px;
-    margin-top: 4px;
-    background: none;
+    background: transparent;
+    -webkit-filter: invert(50%);
+}
+
+#gbqfb:active:active {
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background: transparent;
+    filter: none;
+    -webkit-filter: invert(80%);
+}
+
+#gbqfb:hover {
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 .gbqfi.gb_g {
     width: 24px;
     height: 24px;
     background-position: -211px -246px;
-}
-
-#gbqfb:active {
-    background: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    -webkit-filter: brightness(0%);
 }
 
 #gbqfq {
