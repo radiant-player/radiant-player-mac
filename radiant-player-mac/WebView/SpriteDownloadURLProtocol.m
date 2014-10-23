@@ -25,7 +25,7 @@
     return NO;
 }
 
-- (id) initWithRequest:(NSURLRequest*)theRequest cachedResponse:(NSCachedURLResponse*)cachedResponse client:(id<NSURLProtocolClient>)client
+- (id) initWithRequest:(NSURLRequest *)theRequest cachedResponse:(NSCachedURLResponse *)cachedResponse client:(id<NSURLProtocolClient>)client
 {
     // Move the delegate from the request to this instance
     NSMutableURLRequest* req = (NSMutableURLRequest*)theRequest;
@@ -56,17 +56,17 @@
 
 - (void)connection:(NSURLConnection*)conn didReceiveResponse:(NSURLResponse*)response
 {
-    [[self client] URLProtocol:self didReceiveResponse:response cacheStoragePolicy:[[self request] cachePolicy]];
+    [[self client] URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageNotAllowed];
     [_data setLength:0];
 }
 
-- (void)connection:(NSURLConnection*)connection didReceiveData:(NSData*)data
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     [[self client] URLProtocol:self didLoadData:data];
     [_data appendData:data];
 }
 
-- (void)connectionDidFinishLoading:(NSURLConnection*)conn
+- (void)connectionDidFinishLoading:(NSURLConnection *)conn
 {
     [[self client] URLProtocolDidFinishLoading:self];
     
@@ -83,6 +83,7 @@
     CGImageDestinationRef dest = CGImageDestinationCreateWithData((__bridge CFMutableDataRef)(data), kUTTypePNG, 1, NULL);
     CGImageDestinationAddImage(dest, cgimage, NULL);
     CGImageDestinationFinalize(dest);
+    CGImageRelease(cgimage);
     CFRelease(dest);
     
     // Forward the response to your delegate however you like

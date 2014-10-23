@@ -178,15 +178,15 @@ a, .simple-dialog a {
 
 .song-row .rating-container.stars {
     height: 100% !important;
-    margin-top: -1px !important;
+    line-height: 50%;
 }
 
 .song-row .rating-container.thumbs [data-rating] {
-    margin-top: 6px;
+    margin-top: 0px;
 }
 
 .song-row .hover-button[data-id="menu"], .song-row .hover-button[data-id="menu"]:hover {
-    margin-top: 8px;
+    margin: 1px 0 0 0;
     border: none;
     border-radius: 0;
 }
@@ -321,6 +321,14 @@ a, .simple-dialog a {
 .player-middle {
     padding: 3px 0 0 0;
     margin: 0;
+}
+
+#playerSongInfo {
+    overflow: hidden;
+}
+
+#playerSongInfo .text-wrapper #playerSongTitle {
+    margin-right: 110px;
 }
 
 #player .flat-button, #player .flat-button:hover, #player .flat-button:active {

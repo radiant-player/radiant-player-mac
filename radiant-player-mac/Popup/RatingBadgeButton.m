@@ -33,7 +33,7 @@
      */
     
     NSTrackingArea *boxArea = [[NSTrackingArea alloc]
-                                    initWithRect:[self convertRectFromBase:box]
+                               initWithRect:[self convertRectFromBacking:box]
                                     options:NSTrackingMouseEnteredAndExited|NSTrackingActiveAlways
                                     owner:self
                                     userInfo:@{@"badge": [NSNumber numberWithBool:NO]}];
