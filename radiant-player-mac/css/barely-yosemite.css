@@ -22,7 +22,11 @@ body {
     background: -webkit-linear-gradient(90deg, #D9D9D9, #ECECEC);
     background: linear-gradient(0deg, #D9D9D9, #ECECEC);
     border-bottom: 1px solid #B2B2B2;
-    height: 59px;
+    border-top: 1px solid #F6F6F6;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    box-sizing: border-box;
+    height: 60px;
 }
 
 #oneGoogleWrapper > div:first-child > div:first-child > div:first-child {
