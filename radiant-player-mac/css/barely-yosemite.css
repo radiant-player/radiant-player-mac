@@ -1,0 +1,142 @@
+/*
+ * css/barely-yosemite.css
+ *
+ * Custom stylesheet that emulates just the header of a native Yosemite application.
+ *
+ * Created by Sajid Anwar, stipped down to just the header by Steven La
+ *
+ * Subject to terms and conditions in LICENSE.md.
+ *
+ */
+
+body {
+    background: none !important;
+}
+
+.g-doc {
+    height: -webkit-calc(100% - 60px) !important;
+    height: calc(100% - 60px) !important;
+}
+
+#oneGoogleWrapper > div:first-child > div:first-child {
+    background: -webkit-linear-gradient(90deg, #D9D9D9, #ECECEC);
+    background: linear-gradient(0deg, #D9D9D9, #ECECEC);
+    border-bottom: 1px solid #B2B2B2;
+    border-top: 1px solid #F6F6F6;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    box-sizing: border-box;
+    height: 60px;
+}
+
+#oneGoogleWrapper > div:first-child > div:first-child > div:first-child {
+    min-width: 0px !important;
+}
+
+#oneGoogleWrapper > div:first-child > div:first-child > div:nth-child(2) {
+    margin-left: 100px !important;
+    margin-right: 30px !important;
+    min-width: 0px;
+}
+
+#oneGoogleWrapper > div:first-child > div:first-child > div:nth-child(2) > div:first-child {
+    position: static;
+    padding: 0;
+}
+
+.gbqfqw {
+    border-radius: 3px;
+    border-color: #ccc;
+    border-bottom: 1px solid #bbb;
+    border-top: 1px solid #ddd;
+    border-right-width: 1px;
+    background: #fcfcfc;
+}
+
+.gbqfqw:hover {
+    border-color: #ccc !important;
+    border-bottom: 1px solid #bbb !important;
+    border-top: 1px solid #ddd !important;
+    border-right-width: 1px;
+}
+
+.gbqfqw:active, .gbqfqw.gbqfqwf {
+    border-color: #4285f4 !important;
+}
+
+#gbqfb {
+    border: none;
+    width: 24px;
+    min-width: 24px;
+    margin-left: -35px;
+    position: absolute;
+    height: 24px;
+    background: transparent;
+    -webkit-filter: invert(50%);
+}
+
+#gbqfb:active:active {
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background: transparent;
+    filter: none;
+    -webkit-filter: invert(80%);
+}
+
+#gbqfb:hover {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.gbqfi.gb_g {
+    width: 24px;
+    height: 24px;
+    background-position: -211px -246px;
+}
+
+#gbqfq {
+    margin-top: 5px !important;
+    padding-left: 2px !important;
+    font-size: 14px !important;
+    cursor: default;
+    text-align: center;
+}
+
+#gbqfq:focus {
+    cursor: text;
+    text-align: left;
+}
+
+.gm-nav-button {
+    border-radius: 3px;
+    background-color: #fcfcfc;
+    opacity: 1;
+    border-bottom: 1px solid #bbb;
+    border-top: 1px solid #ddd;
+    margin-left: 0;
+    margin-right: 0;
+    
+    background-size: 10px 12px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.gm-nav-button:hover {
+    opacity: 1;
+}
+
+.gm-nav-button:active {
+    opacity: 1;
+    background-color: #eee;
+}
+
+#gm-back {
+    background-image: url(http://radiant-player-mac/images/arrow-left-yosemite.png);
+    margin-right: 1px;
+}
+
+#gm-forward {
+    background-image: url(http://radiant-player-mac/images/arrow-right-yosemite.png);
+}
+

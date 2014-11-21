@@ -110,6 +110,7 @@
 
 - (IBAction) toggleShuffle:(id)sender;
 - (IBAction) toggleVisualization:(id)sender;
+- (IBAction) focusSearch:(id)sender;
 
 - (NSString *) currentSongURL;
 
