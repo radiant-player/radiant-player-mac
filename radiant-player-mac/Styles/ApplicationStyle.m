@@ -14,6 +14,7 @@
 #import "SpotifyBlackStyle.h"
 #import "SpotifyBlackVibrantStyle.h"
 #import "YosemiteStyle.h"
+#import "LightStyle.h"
 #import "../AppDelegate.h"
 
 @implementation ApplicationStyle
@@ -77,6 +78,9 @@
     {
         YosemiteStyle *yosemite = [[YosemiteStyle alloc] init];
         [dictionary setObject:yosemite forKey:[yosemite name]];
+        
+        LightStyle *barelyYosemite = [[LightStyle alloc] init];
+        [dictionary setObject:barelyYosemite forKey:[barelyYosemite name]];
         
         SpotifyBlackVibrantStyle *spotifyBlackVibrant = [[SpotifyBlackVibrantStyle alloc] init];
         [dictionary setObject:spotifyBlackVibrant forKey:[spotifyBlackVibrant name]];
