@@ -613,6 +613,14 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Playback.toggleVisualization()"];
 }
 
+/**
+ * Sets focus on the search bar
+ */
+- (IBAction) focusSearch:(id)sender
+{
+    [webView stringByEvaluatingJavaScriptFromString:@"document.querySelector('#gbqfq').select()"];
+}
+
 - (void)notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art duration:(NSTimeInterval)duration
 {
     NSTimeInterval timestamp = [[NSDate date] timeIntervalSince1970];
