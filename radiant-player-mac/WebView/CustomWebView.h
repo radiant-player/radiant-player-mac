@@ -31,6 +31,4 @@
 
 @property (retain) NSData *invertedSpriteSheet;
 
-- (IBAction)selectAll:(id)sender;
-
 @end

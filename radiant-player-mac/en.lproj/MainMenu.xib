@@ -131,11 +131,6 @@
                                     <action selector="delete:" target="-1" id="235"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Select All" keyEquivalent="a" id="hIO-3X-3Jm">
-                                <connections>
-                                    <action selector="selectAll:" target="536" id="Wge-u1-feB"/>
-                                </connections>
-                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="206">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
