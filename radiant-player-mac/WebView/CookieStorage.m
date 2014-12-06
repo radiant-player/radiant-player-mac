@@ -32,6 +32,7 @@
     if (self) {
         _storage = [NSMutableArray array];
         _storagePath = [CookieStorage defaultCookieStoragePath];
+        _policy = NSHTTPCookieAcceptPolicyAlways;
         
         [self unarchive];
     }
@@ -42,6 +43,16 @@
 - (void)deleteCookie:(NSHTTPCookie *)cookie
 {
     [_storage removeObject:cookie];
+}
+
+- (NSHTTPCookieAcceptPolicy)cookieAcceptPolicy
+{
+    return _policy;
+}
+
+- (void)setCookieAcceptPolicy:(NSHTTPCookieAcceptPolicy)policy
+{
+    _policy = policy;
 }
 
 - (void)setCookie:(NSHTTPCookie *)cookie

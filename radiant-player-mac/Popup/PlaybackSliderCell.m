@@ -94,7 +94,7 @@
     NSPoint curPoint = NSMakePoint(aRect.origin.x, aRect.origin.y + 3);
     NSInteger curMinutes = ((self.integerValue / 1000) / 60);
     NSInteger curSeconds = ((self.integerValue / 1000) % 60);
-    NSAttributedString *curTime = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d:%02d", curMinutes, curSeconds]
+    NSAttributedString *curTime = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%ld:%02ld", (long)curMinutes, (long)curSeconds]
                                                                   attributes:attributes];
     
     [[NSColor orangeColor] set];
@@ -109,7 +109,7 @@
     NSPoint totalPoint = NSMakePoint(aRect.size.width, aRect.origin.y + 3);
     NSInteger totalMinutes = ((int)(self.maxValue / 1000) / 60);
     NSInteger totalSeconds = ((int)(self.maxValue / 1000) % 60);
-    NSAttributedString *totalTime = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d:%02d", totalMinutes, totalSeconds]
+    NSAttributedString *totalTime = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%ld:%02ld", (long)totalMinutes, (long)totalSeconds]
                                                                     attributes:attributes];
     
     [[NSColor grayColor] set];

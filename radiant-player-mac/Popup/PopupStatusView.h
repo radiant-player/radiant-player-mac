@@ -28,7 +28,6 @@
 
 - (void)setupStatusItem;
 - (void)update;
-- (id)button;
 - (NSRect)buttonFrame;
 - (NSView *)buttonView;
 - (NSImage *)buttonImage;

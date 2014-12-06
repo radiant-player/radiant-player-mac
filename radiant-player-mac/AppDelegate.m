@@ -764,7 +764,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     }
     
     // Determine whether the player is using thumbs or stars.
-    isStarsRatingSystem = [[webView windowScriptObject] evaluateWebScript:@"MusicAPI.Rating.isStarsRatingSystem()"] == YES;
+    isStarsRatingSystem = (int)[[webView windowScriptObject] evaluateWebScript:@"MusicAPI.Rating.isStarsRatingSystem()"] == YES;
     
     [self setupRatingMenuItems];
 }

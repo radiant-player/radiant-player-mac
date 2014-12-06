@@ -90,11 +90,7 @@
     [[NSAnimationContext currentContext] setDuration:.15];
     [[self animator] setAlphaValue:0];
     [NSAnimationContext endGrouping];
-    
-    dispatch_after(dispatch_walltime(NULL, NSEC_PER_SEC * .15 * 2), dispatch_get_main_queue(), ^{
-        
-        [self orderOut:nil];
-    });
+
 }
 
 @end

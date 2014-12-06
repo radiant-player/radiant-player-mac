@@ -143,7 +143,7 @@ a, .simple-dialog a {
 
 .song-row .rating-container.stars {
     height: 100% !important;
-    margin-top: 0px !important;
+    line-height: 50%;
 }
 
 .song-row .rating-container.thumbs [data-rating] {
@@ -267,6 +267,14 @@ a, .simple-dialog a {
 .player-middle {
     padding: 3px 0 0 0;
     margin: 0;
+}
+
+#playerSongInfo {
+    overflow: hidden;
+}
+
+#playerSongInfo .text-wrapper #playerSongTitle {
+    margin-right: 110px;
 }
 
 #player .flat-button, #player .flat-button:hover, #player .flat-button:active {
