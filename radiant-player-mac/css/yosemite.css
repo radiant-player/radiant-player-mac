@@ -13,7 +13,7 @@ body {
     background: none !important;
 }
 
-#main, #content, .song-row td {
+#main, #content, #music-content, .song-row td {
     background-color: white;
 }
 

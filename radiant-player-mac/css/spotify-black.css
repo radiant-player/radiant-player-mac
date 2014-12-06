@@ -9,7 +9,7 @@
  *
  */
 
-#main, #content {
+#main, #content, #music-content {
     background-color: #121314;
     color: #bbb;
 }
