@@ -1,5 +1,5 @@
 /*
- * BarelyYosemiteStyle.m
+ * LightStyle.m
  *
  * Created by Steven La.
  *
@@ -7,17 +7,17 @@
  *
  */
 
-#import "BarelyYosemiteStyle.h"
+#import "LightStyle.h"
 
-@implementation BarelyYosemiteStyle
+@implementation LightStyle
 
 - (id)init
 {
     if (self = [super init]) {
-        [self setName:@"Barely Yosemite"];
+        [self setName:@"Light"];
         [self setAuthor:@"Steven La"];
         [self setDescription:@"A lightweight theme that integrates the header."];
-        [self setCss:[ApplicationStyle cssNamed:@"barely-yosemite"]];
+        [self setCss:[ApplicationStyle cssNamed:@"light"]];
     }
     
     return self;

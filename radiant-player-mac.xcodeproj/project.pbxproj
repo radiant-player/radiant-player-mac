@@ -18,7 +18,7 @@
 		2B8FC1C018C9CB0E006D04FF /* radiant-player-mac.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 2B8FC1BF18C9CB0E006D04FF /* radiant-player-mac.sdef */; };
 		2B8FC1C318C9CB16006D04FF /* RadiantPlayerScriptCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8FC1C218C9CB16006D04FF /* RadiantPlayerScriptCommand.m */; };
 		38D0C36DAD0F40F5A7254224 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BABD1B4DDCC34CB291C66033 /* libPods.a */; };
-		B06FB3D219F7723500351943 /* BarelyYosemiteStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BB948819F76CFD0081C97D /* BarelyYosemiteStyle.m */; };
+		B06FB3D219F7723500351943 /* LightStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BB948819F76CFD0081C97D /* LightStyle.m */; };
 		D302E13418B561E100CCD18E /* Preferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = D302E13318B561E100CCD18E /* Preferences.plist */; };
 		D3091F6318C32961007C8DCD /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D3091F6218C32961007C8DCD /* Utilities.m */; };
 		D3091F6618C3D7C4007C8DCD /* SwipeIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3091F6518C3D7C4007C8DCD /* SwipeIndicatorView.m */; };
@@ -110,8 +110,8 @@
 		2B8FC1C118C9CB16006D04FF /* RadiantPlayerScriptCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadiantPlayerScriptCommand.h; sourceTree = "<group>"; };
 		2B8FC1C218C9CB16006D04FF /* RadiantPlayerScriptCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadiantPlayerScriptCommand.m; sourceTree = "<group>"; };
 		A32790DC482A48E18B516D0B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		B0BB948719F76CF80081C97D /* BarelyYosemiteStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarelyYosemiteStyle.h; sourceTree = "<group>"; };
-		B0BB948819F76CFD0081C97D /* BarelyYosemiteStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarelyYosemiteStyle.m; sourceTree = "<group>"; };
+		B0BB948719F76CF80081C97D /* LightStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightStyle.h; sourceTree = "<group>"; };
+		B0BB948819F76CFD0081C97D /* LightStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightStyle.m; sourceTree = "<group>"; };
 		BABD1B4DDCC34CB291C66033 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D302E13318B561E100CCD18E /* Preferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Preferences.plist; sourceTree = "<group>"; };
 		D3091F6118C32961007C8DCD /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
@@ -336,8 +336,8 @@
 			children = (
 				D318341918CFC7C500E8F9B1 /* ApplicationStyle.h */,
 				D318341A18CFC7C500E8F9B1 /* ApplicationStyle.m */,
-				B0BB948719F76CF80081C97D /* BarelyYosemiteStyle.h */,
-				B0BB948819F76CFD0081C97D /* BarelyYosemiteStyle.m */,
+				B0BB948719F76CF80081C97D /* LightStyle.h */,
+				B0BB948819F76CFD0081C97D /* LightStyle.m */,
 				D37C9293195E42800035709A /* CocoaStyle.h */,
 				D37C9294195E42800035709A /* CocoaStyle.m */,
 				D37C9290195E41290035709A /* DarkFlatStyle.h */,
@@ -619,7 +619,7 @@
 				D37C928F195E3F290035709A /* DarkStyle.m in Sources */,
 				D32861681924000800395FEA /* NSDate+UTCString.m in Sources */,
 				D32CCEFD18BE9BF800BDD484 /* PopupView.m in Sources */,
-				B06FB3D219F7723500351943 /* BarelyYosemiteStyle.m in Sources */,
+				B06FB3D219F7723500351943 /* LightStyle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

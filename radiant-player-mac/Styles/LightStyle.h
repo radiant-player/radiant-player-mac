@@ -1,5 +1,5 @@
 /*
- * BarelyYosemiteStyle.h
+ * LightStyle.h
  *
  * Created by Steven La.
  *
@@ -9,6 +9,6 @@
 
 #import "ApplicationStyle.h"
 
-@interface BarelyYosemiteStyle : ApplicationStyle
+@interface LightStyle : ApplicationStyle
 
 @end
