@@ -24,6 +24,7 @@
 
 @interface CustomWebView : WebView {
     NSMutableDictionary *_touches;
+    BOOL _warnedAboutPlugin;
 }
 
 @property (nonatomic, strong) id<CustomWebViewDelegate> appDelegate;

@@ -19,6 +19,8 @@
 
 - (void)awakeFromNib
 {
+    _warnedAboutPlugin = NO;
+    
     swipeView = [[SwipeIndicatorView alloc] initWithFrame:self.frame];
     [swipeView setWebView:self];
     [swipeView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
@@ -100,6 +102,29 @@
     }
     
     return req;
+}
+
+- (void)webView:(WebView *)sender plugInFailedWithError:(NSError *)error dataSource:(WebDataSource *)dataSource
+{
+    if (!_warnedAboutPlugin) {
+        _warnedAboutPlugin = YES;
+        
+        NSString *pluginName = [[error userInfo] objectForKey:WebKitErrorPlugInNameKey];
+        NSString *pluginUrl = [NSURL URLWithString:[[error userInfo] objectForKey:WebKitErrorPlugInPageURLStringKey]];
+        NSString *reason = [[error userInfo] objectForKey:NSLocalizedDescriptionKey];
+        
+        NSAlert *alert = [NSAlert alertWithMessageText:reason
+                                         defaultButton:@"Download plug-in update..."
+                                       alternateButton:@"OK"
+                                           otherButton:nil
+                             informativeTextWithFormat:@"%@ plug-in could not be loaded and may be out-of-date. You will need to download the latest plug-in update from within Safari, and restart Radiant Player once it is installed.", pluginName];
+        
+        NSModalResponse response = [alert runModal];
+        
+        if (response == NSAlertDefaultReturn) {
+            [[NSWorkspace sharedWorkspace] openURLs:@[pluginUrl] withAppBundleIdentifier:@"com.apple.Safari" options:NSWorkspaceLaunchDefault additionalEventParamDescriptor:nil launchIdentifiers:NULL];
+        }
+    }
 }
 
 #pragma mark - Cookie code
