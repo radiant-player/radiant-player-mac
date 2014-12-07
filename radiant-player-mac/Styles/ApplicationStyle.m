@@ -104,14 +104,21 @@
     NSRect frame = window.frame;
     frame.origin = CGPointMake(0, 0);
     
-    NSVisualEffectView *bgView = [[NSVisualEffectView alloc] initWithFrame:frame];
-    [bgView setAppearance:[NSAppearance appearanceNamed:appearanceName]];
-    [bgView setBlendingMode:NSVisualEffectBlendingModeBehindWindow];
-    [bgView setMaterial:NSVisualEffectMaterialAppearanceBased];
-    [bgView setState:NSVisualEffectStateFollowsWindowActiveState];
-    [bgView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
+    NSArray *subviews = [[window contentView] subviews];
     
-    [[window contentView] addSubview:bgView positioned:NSWindowBelow relativeTo:nil];
+    if ([[subviews firstObject] isKindOfClass:[NSVisualEffectView class]]) {
+        NSVisualEffectView *bgView = [subviews firstObject];
+        [bgView setAppearance:[NSAppearance appearanceNamed:appearanceName]];
+    }
+    else {
+        NSVisualEffectView *bgView = [[NSVisualEffectView alloc] initWithFrame:frame];
+        [bgView setAppearance:[NSAppearance appearanceNamed:appearanceName]];
+        [bgView setBlendingMode:NSVisualEffectBlendingModeBehindWindow];
+        [bgView setMaterial:NSVisualEffectMaterialAppearanceBased];
+        [bgView setState:NSVisualEffectStateFollowsWindowActiveState];
+        [bgView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
+        [[window contentView] addSubview:bgView positioned:NSWindowBelow relativeTo:nil];
+    }
 }
 
 @end
