@@ -50,6 +50,10 @@
 @property (assign) IBOutlet NSMenu *menu;
 @property (assign) IBOutlet NSMenu *controlsMenu;
 
+@property (assign) IBOutlet NSProgressIndicator *loadingIndicator;
+@property (assign) IBOutlet NSTextField *loadingMessage;
+@property (assign) IBOutlet NSButton *reloadButton;
+
 @property (nonatomic, retain) TitleBarTextView *titleView;
 @property (nonatomic, retain) IBOutlet CustomWebView *webView;
 @property (nonatomic, retain) NSStatusItem *statusItem;
@@ -87,7 +91,8 @@
 - (void) setupRatingMenuItems;
 - (void) useTallTitleBar;
 - (void) useNormalTitleBar;
-    
+
+- (IBAction) load:(id)sender;
 - (IBAction) webBrowserBack:(id)sender;
 - (IBAction) webBrowserForward:(id)sender;
 

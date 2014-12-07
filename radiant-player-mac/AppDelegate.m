@@ -23,6 +23,10 @@
 @synthesize popup;
 @synthesize popupDelegate;
 
+@synthesize loadingIndicator;
+@synthesize loadingMessage;
+@synthesize reloadButton;
+
 @synthesize thumbsUpMenuItem;
 @synthesize thumbsDownMenuItem;
 @synthesize starRatingMenuItem;
@@ -76,6 +80,9 @@
     
     if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9)
     {
+        [self useTallTitleBar];
+        [ApplicationStyle applyYosemiteVisualEffects:webView window:window appearance:NSAppearanceNameVibrantLight];
+        
         [[NSNotificationCenter defaultCenter]
              addObserverForName:NSWindowWillEnterFullScreenNotification
              object:nil
@@ -186,9 +193,7 @@
     [webView setAppDelegate:self];
     
     // Load the main page
-    NSURL *url = [NSURL URLWithString:@"https://play.google.com/music"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [[webView mainFrame] loadRequest:request];
+    [self load:self];
     
     WebPreferences *preferences = [webView preferences];
     [preferences setPlugInsEnabled:YES];
@@ -516,6 +521,19 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 #pragma mark - Web Browser Actions
 
+- (void) load:(id)sender
+{
+    [loadingIndicator setHidden:NO];
+    [loadingIndicator startAnimation:self];
+    [loadingMessage setHidden:NO];
+    [loadingMessage setStringValue:@"Loading Google Play Music..."];
+    [reloadButton setHidden:YES];
+    
+    NSURL *url = [NSURL URLWithString:@"https://play.google.com/music"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [[webView mainFrame] loadRequest:request];
+}
+
 - (void) webBrowserBack:(id)sender
 {
     [webView goBack];
@@ -778,6 +796,41 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 - (void)webView:(WebView *)webView didClearWindowObject:(WebScriptObject *)windowObject forFrame:(WebFrame *)frame
 {
     [windowObject setValue:self forKey:@"GoogleMusicApp"];
+}
+
+- (void)webView:(WebView *)sender didFailLoadWithError:(NSError *)error forFrame:(WebFrame *)frame
+{
+    NSString *url = [[error userInfo] valueForKey:NSURLErrorFailingURLStringErrorKey];
+    NSString *reason = [[error userInfo] valueForKey:NSLocalizedDescriptionKey];
+    
+    if ([url isEqualToString:@"https://play.google.com/music"]) {
+        [loadingIndicator stopAnimation:self];
+        [loadingMessage setStringValue:reason];
+        [reloadButton setHidden:NO];
+    }
+}
+
+- (void)webView:(WebView *)sender didFailProvisionalLoadWithError:(NSError *)error forFrame:(WebFrame *)frame
+{
+    NSString *url = [[error userInfo] valueForKey:NSURLErrorFailingURLStringErrorKey];
+    NSString *reason = [[error userInfo] valueForKey:NSLocalizedDescriptionKey];
+    
+    if ([url isEqualToString:@"https://play.google.com/music"]) {
+        [loadingIndicator stopAnimation:self];
+        [loadingMessage setStringValue:reason];
+        [reloadButton setHidden:NO];
+    }
+}
+
+- (void)webView:(WebView *)sender didCommitLoadForFrame:(WebFrame *)frame
+{
+    NSString *url = [[[[frame dataSource] request] URL] absoluteString];
+    
+    if ([url isEqualToString:@"https://play.google.com/music/listen"]) {
+        [loadingIndicator setHidden:YES];
+        [loadingMessage setHidden:YES];
+        [reloadButton setHidden:YES];
+    }
 }
 
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame

@@ -16,6 +16,9 @@
 
 - (void)webView:(WebView *)webView didClearWindowObject:(WebScriptObject *)windowObject forFrame:(WebFrame *)frame;
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame;
+- (void)webView:(WebView *)sender didFailLoadWithError:(NSError *)error forFrame:(WebFrame *)frame;
+- (void)webView:(WebView *)sender didFailProvisionalLoadWithError:(NSError *)error forFrame:(WebFrame *)frame;
+- (void)webView:(WebView *)sender didCommitLoadForFrame:(WebFrame *)frame;
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request;
 - (void)webView:(WebView *)sender runOpenPanelForFileButtonWithResultListener:(id<WebOpenPanelResultListener>)resultListener;
 - (void)webView:(WebView *)sender runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WebFrame *)frame;

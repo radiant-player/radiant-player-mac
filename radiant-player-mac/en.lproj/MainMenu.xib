@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="6250"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="6254"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -12,16 +13,19 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="494" customClass="AppDelegate">
             <connections>
                 <outlet property="controlsMenu" destination="376" id="qvJ-5F-Ga4"/>
                 <outlet property="lastfmPopover" destination="leS-Oa-AB4" id="BqS-2d-ChW"/>
+                <outlet property="loadingIndicator" destination="bWs-vC-4n9" id="uzA-Th-cr8"/>
+                <outlet property="loadingMessage" destination="qBi-0j-ssN" id="4LJ-bO-as4"/>
                 <outlet property="menu" destination="29" id="di3-2o-KDz"/>
                 <outlet property="popup" destination="sr1-Je-yff" id="X7b-8t-XL5"/>
                 <outlet property="popupDelegate" destination="vhZ-72-AYY" id="CHe-5t-K17"/>
                 <outlet property="prefsController" destination="Lzb-Be-DHP" id="G8R-fX-IHV"/>
                 <outlet property="ratingsSeparatorMenuItem" destination="VD8-yV-cM6" id="w7l-Y2-Ivt"/>
+                <outlet property="reloadButton" destination="pVF-no-ka9" id="Y2l-vC-tPP"/>
                 <outlet property="starRatingLabel" destination="F5F-yr-hWN" id="YZC-dp-bEp"/>
                 <outlet property="starRatingMenuItem" destination="AU3-72-l3d" id="gH3-3w-nwg"/>
                 <outlet property="starRatingView" destination="XCB-1i-pOq" id="JBG-we-TAC"/>
@@ -297,12 +301,51 @@
                             <nil key="identifier"/>
                         </webPreferences>
                     </webView>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="mf9-a3-xaf">
+                        <rect key="frame" x="0.0" y="0.0" width="942" height="702"/>
+                        <subviews>
+                            <button hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pVF-no-ka9">
+                                <rect key="frame" x="429" y="306" width="84" height="32"/>
+                                <buttonCell key="cell" type="push" title="Reload" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Cam-gA-HFn">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="load:" target="494" id="t6h-UF-y9h"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qBi-0j-ssN">
+                                <rect key="frame" x="78" y="342" width="786" height="17"/>
+                                <textFieldCell key="cell" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="center" title="Loading Google Play Music..." id="LPv-tE-YtJ">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="bWs-vC-4n9">
+                                <rect key="frame" x="463" y="367" width="16" height="16"/>
+                            </progressIndicator>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="qBi-0j-ssN" firstAttribute="top" secondItem="bWs-vC-4n9" secondAttribute="bottom" constant="8" id="1f0-o5-O90"/>
+                            <constraint firstItem="qBi-0j-ssN" firstAttribute="leading" secondItem="mf9-a3-xaf" secondAttribute="leading" constant="80" id="6Qp-cT-mmo"/>
+                            <constraint firstAttribute="centerX" secondItem="pVF-no-ka9" secondAttribute="centerX" id="CGP-rR-zSc"/>
+                            <constraint firstAttribute="centerY" secondItem="qBi-0j-ssN" secondAttribute="centerY" id="EEz-S9-avf"/>
+                            <constraint firstItem="pVF-no-ka9" firstAttribute="top" secondItem="qBi-0j-ssN" secondAttribute="bottom" constant="8" id="LUu-BL-B7A"/>
+                            <constraint firstAttribute="centerX" secondItem="bWs-vC-4n9" secondAttribute="centerX" id="e7c-Qd-MRE"/>
+                            <constraint firstAttribute="trailing" secondItem="qBi-0j-ssN" secondAttribute="trailing" constant="80" id="qb3-kD-KM5"/>
+                        </constraints>
+                    </customView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="536" firstAttribute="trailing" secondItem="372" secondAttribute="trailing" id="586"/>
                     <constraint firstItem="536" firstAttribute="leading" secondItem="372" secondAttribute="leading" id="587"/>
                     <constraint firstItem="536" firstAttribute="bottom" secondItem="372" secondAttribute="bottom" id="588"/>
                     <constraint firstItem="536" firstAttribute="top" secondItem="372" secondAttribute="top" id="656"/>
+                    <constraint firstAttribute="trailing" secondItem="mf9-a3-xaf" secondAttribute="trailing" id="Oua-gv-ans"/>
+                    <constraint firstAttribute="bottom" secondItem="mf9-a3-xaf" secondAttribute="bottom" id="XrH-LZ-5EU"/>
+                    <constraint firstItem="mf9-a3-xaf" firstAttribute="leading" secondItem="372" secondAttribute="leading" id="m3a-sL-1T4"/>
+                    <constraint firstItem="mf9-a3-xaf" firstAttribute="top" secondItem="372" secondAttribute="top" id="xud-4r-DHs"/>
                 </constraints>
             </view>
             <connections>

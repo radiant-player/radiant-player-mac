@@ -31,7 +31,7 @@
 		D31ACE84193ACDC300AC7CB4 /* RatingBadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D31ACE83193ACDC300AC7CB4 /* RatingBadgeButton.m */; };
 		D31ACE86193BCD3E00AC7CB4 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D31ACE85193BCD3E00AC7CB4 /* Growl.framework */; };
 		D31ACE8A193BDD0F00AC7CB4 /* NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D31ACE89193BDD0F00AC7CB4 /* NotificationCenter.m */; };
-		D31ACE8D193BE39E00AC7CB4 /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D31ACE85193BCD3E00AC7CB4 /* Growl.framework */; };
+		D31ACE8D193BE39E00AC7CB4 /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D31ACE85193BCD3E00AC7CB4 /* Growl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		D323406A18C523BC008C165B /* AboutWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D323406918C523BC008C165B /* AboutWindow.m */; };
 		D326EA6418B2D7E500BEC02F /* css in Resources */ = {isa = PBXBuildFile; fileRef = D326EA6218B2D7E500BEC02F /* css */; };
 		D326EA6518B2D7E500BEC02F /* js in Resources */ = {isa = PBXBuildFile; fileRef = D326EA6318B2D7E500BEC02F /* js */; };
@@ -479,7 +479,7 @@
 		1A7B683417453E40001E509E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Sajid Anwar";
 			};
 			buildConfigurationList = 1A7B683717453E40001E509E /* Build configuration list for PBXProject "radiant-player-mac" */;

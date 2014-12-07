@@ -46,6 +46,21 @@
     [appDelegate webView:sender didFinishLoadForFrame:frame];
 }
 
+- (void)webView:(WebView *)sender didFailLoadWithError:(NSError *)error forFrame:(WebFrame *)frame
+{
+    [appDelegate webView:sender didFailLoadWithError:error forFrame:frame];
+}
+
+- (void)webView:(WebView *)sender didFailProvisionalLoadWithError:(NSError *)error forFrame:(WebFrame *)frame
+{
+    [appDelegate webView:sender didFailProvisionalLoadWithError:error forFrame:frame];
+}
+
+- (void)webView:(WebView *)sender didCommitLoadForFrame:(WebFrame *)frame
+{
+    [appDelegate webView:sender didCommitLoadForFrame:frame];
+}
+
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request
 {
     return [appDelegate webView:sender createWebViewWithRequest:request];
@@ -110,7 +125,7 @@
         _warnedAboutPlugin = YES;
         
         NSString *pluginName = [[error userInfo] objectForKey:WebKitErrorPlugInNameKey];
-        NSString *pluginUrl = [NSURL URLWithString:[[error userInfo] objectForKey:WebKitErrorPlugInPageURLStringKey]];
+        NSURL *pluginUrl = [NSURL URLWithString:[[error userInfo] objectForKey:WebKitErrorPlugInPageURLStringKey]];
         NSString *reason = [[error userInfo] objectForKey:NSLocalizedDescriptionKey];
         
         NSAlert *alert = [NSAlert alertWithMessageText:reason
