@@ -97,7 +97,7 @@
 + (void)applyYosemiteVisualEffects:(WebView *)webView window:(NSWindow *)window appearance:(NSString *)appearanceName
 {
     [window setBackgroundColor:[NSColor colorWithSRGBRed:0.945 green:0.945 blue:0.945 alpha:1]];
-    [(AppDelegate *)[NSApp delegate] showToolbar];
+    [(AppDelegate *)[NSApp delegate] useTallTitleBar];
     
     [webView setDrawsBackground:NO];
     

@@ -33,12 +33,13 @@
 @class PopupStatusView;
 @class PopupPanel;
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, CustomWebViewDelegate, EDStarRatingProtocol, NotificationCenterDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate, CustomWebViewDelegate, EDStarRatingProtocol, NotificationCenterDelegate>
 {
 	CFMachPortRef eventTap;
     CFRunLoopSourceRef eventPortSource;
     
     NSMutableDictionary *_styles;
+    BOOL _isTall;
     
     WebView *dummyWebView;
     DummyWebViewPolicyDelegate *dummyWebViewDelegate;
@@ -84,8 +85,8 @@
 - (void) setupThumbsUpRatingView;
 - (void) setupStarRatingView;
 - (void) setupRatingMenuItems;
-- (void) hideToolbar;
-- (void) showToolbar;
+- (void) useTallTitleBar;
+- (void) useNormalTitleBar;
     
 - (IBAction) webBrowserBack:(id)sender;
 - (IBAction) webBrowserForward:(id)sender;

@@ -72,6 +72,8 @@
  */
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    [window setDelegate:self];
+    
     if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9)
     {
         [[NSNotificationCenter defaultCenter]
@@ -80,7 +82,7 @@
              queue:nil
              usingBlock:^(NSNotification *note) {
                  [webView stringByEvaluatingJavaScriptFromString:@"window.Styles.Callbacks.onEnterFullScreen();"];
-                 [self hideToolbar];
+                 [self useNormalTitleBar];
              }
          ];
         
@@ -90,7 +92,7 @@
              queue:nil
          usingBlock:^(NSNotification *note) {
              [webView stringByEvaluatingJavaScriptFromString:@"window.Styles.Callbacks.onExitFullScreen();"];
-                 [self showToolbar];
+                 [self useTallTitleBar];
              }
          ];
     }
@@ -341,24 +343,73 @@
     }
 }
 
-- (void)showToolbar
+/*
+ * Modified from @weAreYeah's BSD-licensed WAYWindow
+ * https://github.com/weAreYeah/WAYWindow
+ */
+float _defaultTitleBarHeight() {
+    NSRect frame = NSMakeRect(0, 0, 800, 600);
+    NSRect contentRect = [NSWindow contentRectForFrameRect:frame styleMask: NSTitledWindowMask];
+    return NSHeight(frame) - NSHeight(contentRect);
+}
+
+- (void)_adjustTitleBar
 {
+    while ([[window titlebarAccessoryViewControllers] count]) {
+        [window removeTitlebarAccessoryViewControllerAtIndex:0];
+    }
+    
+    if (_isTall) {
+        
+        float height = 60 - _defaultTitleBarHeight();
+
+        NSView *accessory = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, 10, height)];
+        NSTitlebarAccessoryViewController *controller = [[NSTitlebarAccessoryViewController alloc] init];
+        [controller setView:accessory];
+        [window addTitlebarAccessoryViewController:controller];
+    }
+    
+    NSArray *buttons = @[
+        [window standardWindowButton:NSWindowCloseButton],
+        [window standardWindowButton:NSWindowMiniaturizeButton],
+        [window standardWindowButton:NSWindowZoomButton]
+    ];
+
+    [buttons enumerateObjectsUsingBlock:^(NSButton *button, NSUInteger i, BOOL *stop) {
+        NSRect frame = [button frame];
+        frame.origin.x += 10;
+        frame.origin.y = NSHeight(button.superview.frame)/2 - NSHeight(button.frame)/2;
+        [button setFrame:frame];
+    }];
+}
+
+- (void)useTallTitleBar
+{
+    _isTall = YES;
+    [self _adjustTitleBar];
+    
     NSRect frame = [[self window] frame];
     [window setStyleMask:(window.styleMask | NSFullSizeContentViewWindowMask)];
     [window setTitlebarAppearsTransparent:YES];
     [window setTitleVisibility:NSWindowTitleHidden];
-    [window setToolbar:toolbar];
-    [toolbar setVisible:YES];
     [[self window] setFrame:frame display:NO];
 }
 
-- (void)hideToolbar
+- (void)useNormalTitleBar
 {
-//    [window setStyleMask:(window.styleMask & ~NSFullSizeContentViewWindowMask)];
-//    [window setTitlebarAppearsTransparent:NO];
-//    [window setTitleVisibility:NSWindowTitleVisible];
-    [window setToolbar:nil];
-    [toolbar setVisible:NO];
+    _isTall = NO;
+    [self _adjustTitleBar];
+    
+    NSRect frame = [[self window] frame];
+    [window setStyleMask:(window.styleMask & ~NSFullSizeContentViewWindowMask)];
+    [window setTitlebarAppearsTransparent:NO];
+    [window setTitleVisibility:NSWindowTitleVisible];
+    [[self window] setFrame:frame display:NO];
+}
+
+- (void) windowDidResize:(NSNotification *)notification
+{
+    [self _adjustTitleBar];
 }
 
 - (void)starsSelectionChanged:(EDStarRating *)control rating:(float)rating
