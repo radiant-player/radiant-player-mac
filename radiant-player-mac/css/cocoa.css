@@ -36,10 +36,6 @@
     height: 3px;
 }
 
-.g-content {
-    margin: 0;
-}
-
 .g-doc {
     height: -webkit-calc(100% - 60px) !important;
     height: calc(100% - 60px) !important;
@@ -49,8 +45,16 @@
     background-color: #f8f8f8;
 }
 
+.header + .song-table {
+    margin-top: 0;
+}
+
 .song-table {
     padding: 0;
+    margin-right: -20px;
+    margin-left: -20px;
+    margin-top: -20px;
+    width: calc(100% + 34px)
 }
 
 .song-table .header-row th {
