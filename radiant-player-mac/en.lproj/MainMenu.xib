@@ -170,6 +170,12 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="UoN-kB-9nv"/>
+                            <menuItem title="Volume" id="ylU-oy-rjV">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <outlet property="view" destination="sBg-fM-CoC" id="aiQ-Jo-PTS"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="Volume Up" keyEquivalent="" id="kTD-6G-c5s">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES"/>
                                 <connections>
@@ -807,6 +813,38 @@
                 <toolbarItem reference="1YT-u4-Kbt"/>
             </defaultToolbarItems>
         </toolbar>
+        <customView id="sBg-fM-CoC">
+            <rect key="frame" x="0.0" y="0.0" width="252" height="33"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uuf-BB-8x3">
+                    <rect key="frame" x="18" y="7" width="53" height="18"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" sendsActionOnEndEditing="YES" title="Volume" id="qxH-cb-Hjw">
+                        <font key="font" metaFont="system" size="14"/>
+                        <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dNn-V0-8Tw">
+                    <rect key="frame" x="146" y="6" width="96" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="92" id="qn0-2S-Sba"/>
+                    </constraints>
+                    <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="QHQ-7S-O9J"/>
+                    <connections>
+                        <action selector="volumeSliderChanged:" target="494" id="rXN-qx-krT"/>
+                    </connections>
+                </slider>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="dNn-V0-8Tw" secondAttribute="trailing" constant="12" id="Eiu-Be-eKI"/>
+                <constraint firstAttribute="centerY" secondItem="dNn-V0-8Tw" secondAttribute="centerY" id="NbQ-Bh-r1b"/>
+                <constraint firstItem="uuf-BB-8x3" firstAttribute="leading" secondItem="sBg-fM-CoC" secondAttribute="leading" constant="20" id="Zq3-cu-Za1"/>
+                <constraint firstAttribute="bottom" secondItem="uuf-BB-8x3" secondAttribute="bottom" constant="7" id="gPu-jd-vtR"/>
+                <constraint firstItem="uuf-BB-8x3" firstAttribute="top" secondItem="sBg-fM-CoC" secondAttribute="top" constant="8" id="u8Y-2J-KAn"/>
+            </constraints>
+            <point key="canvasLocation" x="268" y="-244"/>
+        </customView>
     </objects>
     <resources>
         <image name="NSEnterFullScreenTemplate" width="15" height="15"/>

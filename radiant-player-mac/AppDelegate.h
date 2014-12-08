@@ -102,8 +102,10 @@
 - (IBAction) forwardAction:(id)sender;
 - (IBAction) backAction:(id)sender;
 
+- (IBAction) volumeSliderChanged:(id)sender;
 - (IBAction) volumeUp:(id)sender;
 - (IBAction) volumeDown:(id)sender;
+- (void) setVolume:(int)value;
 
 - (IBAction) toggleThumbsUp:(id)sender;
 - (IBAction) toggleThumbsDown:(id)sender;

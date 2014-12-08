@@ -610,6 +610,19 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 }
 
 /**
+ * Sets the volume of Google Play Music.
+ */
+- (void) setVolume:(int)volume
+{
+    [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"MusicAPI.Volume.setVolume(%d)", volume]];
+}
+
+- (IBAction) volumeSliderChanged:(id)sender
+{
+    [self setVolume:[sender intValue]];
+}
+
+/**
  * Toggle the song's thumbs up rating.
  */
 - (IBAction) toggleThumbsUp:(id)sender
