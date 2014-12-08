@@ -34,8 +34,8 @@ body {
 }
 
 #oneGoogleWrapper > div:first-child > div:first-child > div:nth-child(2) {
-    margin-left: 100px !important;
-    margin-right: 30px !important;
+    margin-left: 90px !important;
+    margin-right: 20px !important;
     min-width: 0px;
 }
 
