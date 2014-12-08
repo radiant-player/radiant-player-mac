@@ -452,6 +452,7 @@ div.simple-dialog-bg {
 
 #gm-back {
     background-image: url(http://radiant-player-mac/images/arrow-left-yosemite.png);
+    margin-right: 1px;
 }
 
 #gm-forward {
