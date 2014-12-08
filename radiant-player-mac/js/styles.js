@@ -44,7 +44,13 @@ if (typeof window.Styles === 'undefined') {
         
         Callbacks: {
             onEnterFullScreen: function() { },
-            onExitFullScreen: function() { }
+            onExitFullScreen: function() { },
+            onWindowDidBecomeActive: function() {
+                document.body.classList.remove('inactive');
+            },
+            onWindowDidBecomeInactive: function() {
+                document.body.classList.add('inactive');
+            },
         }
     };
 }

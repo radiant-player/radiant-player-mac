@@ -12,7 +12,7 @@
 
 // This check ensures that, even though this script is run multiple times, our code is only attached once.
 if (typeof window.GMNavigation === 'undefined') {
-    window.GMNavigation = true;
+    window.GMNavigation = { };
     
     var logoContainer = document.querySelector('#oneGoogleWrapper > div:first-child > div:first-child > div:nth-child(2) > div:first-child');
     var buttonsEnabled = window.GoogleMusicApp.preferenceForKey("navigation.buttons.enabled");
@@ -71,4 +71,25 @@ if (typeof window.GMNavigation === 'undefined') {
         while (rightArea.childNodes.length > 1)
             rightArea.removeChild(rightArea.childNodes[0]);
     }
+    
+    window.GMNavigation.Callbacks = {
+        onHistoryChange: function(canGoBack, canGoForward) {
+//            if (!buttonsEnabled)
+//                return;
+//            
+//            var back = document.querySelector('#gm-back');
+//            var forward = document.querySelector('#gm-forward');
+//            
+//            if (canGoBack)
+//                back.classList.remove('inactive');
+//            else
+//                back.classList.add('inactive');
+//            
+//            
+//            if (canGoForward)
+//                forward.classList.remove('inactive');
+//            else
+//                forward.classList.add('inactive');
+        }
+    };
 }

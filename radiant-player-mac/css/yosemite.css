@@ -294,7 +294,6 @@ body {
 
 #oneGoogleWrapper > div:first-child > div:first-child {
     background: -webkit-linear-gradient(90deg, #d6d0d6, #edeaed);
-    background: linear-gradient(0deg, #d6d0d6, #edeaed);
     border-bottom: 1px solid #888;
     height: 59px;
 }
@@ -457,6 +456,18 @@ div.simple-dialog-bg {
 
 #gm-forward {
     background-image: url(http://radiant-player-mac/images/arrow-right-yosemite.png);
+}
+
+body.inactive .gm-nav-button {
+    
+}
+
+body.inactive #gm-back, #gm-back.inactive {
+    background-image: url(http://radiant-player-mac/images/arrow-left-yosemite-inactive.png);
+}
+
+body.inactive #gm-forward, #gm-forward.inactive {
+    background-image: url(http://radiant-player-mac/images/arrow-right-yosemite-inactive.png);
 }
 
 ::-webkit-scrollbar {

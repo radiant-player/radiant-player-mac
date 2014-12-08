@@ -35,6 +35,14 @@
         else if ([name caseInsensitiveCompare:@"arrow-right-yosemite.png"] == NSOrderedSame) {
             _data = [[[NSImage imageNamed:NSImageNameGoRightTemplate] resizeImage:NSMakeSize(16, 18)] PNGData];
         }
+        else if ([name caseInsensitiveCompare:@"arrow-left-yosemite-inactive.png"] == NSOrderedSame) {
+            NSColor *inactiveColor = [NSColor colorWithRed:0.68 green:0.68 blue:0.68 alpha:1.0];
+            _data = [[[Utilities templateImage:NSImageNameGoLeftTemplate withColor:inactiveColor] resizeImage:NSMakeSize(16, 18)] PNGData];
+        }
+        else if ([name caseInsensitiveCompare:@"arrow-right-yosemite-inactive.png"] == NSOrderedSame) {
+            NSColor *inactiveColor = [NSColor colorWithRed:0.68 green:0.68 blue:0.68 alpha:1.0];
+            _data = [[[Utilities templateImage:NSImageNameGoRightTemplate withColor:inactiveColor] resizeImage:NSMakeSize(16, 18)] PNGData];
+        }
         else {
             NSString *path = [NSString stringWithFormat:@"images/%@", name];
             _data = [Utilities dataWithContentsOfPath:path];

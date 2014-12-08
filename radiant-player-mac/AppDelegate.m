@@ -85,7 +85,7 @@
         
         [[NSNotificationCenter defaultCenter]
              addObserverForName:NSWindowWillEnterFullScreenNotification
-             object:nil
+             object:window
              queue:nil
              usingBlock:^(NSNotification *note) {
                  [webView stringByEvaluatingJavaScriptFromString:@"window.Styles.Callbacks.onEnterFullScreen();"];
@@ -95,7 +95,7 @@
         
         [[NSNotificationCenter defaultCenter]
              addObserverForName:NSWindowWillExitFullScreenNotification
-             object:nil
+             object:window
              queue:nil
          usingBlock:^(NSNotification *note) {
              [webView stringByEvaluatingJavaScriptFromString:@"window.Styles.Callbacks.onExitFullScreen();"];
@@ -118,6 +118,24 @@
         // Change the title bar color.
         [window setTitle:@""];
     }
+    // Set notifications for this window being inactive or active.
+    [[NSNotificationCenter defaultCenter]
+         addObserverForName:NSWindowDidBecomeMainNotification
+         object:window
+         queue:nil
+         usingBlock:^(NSNotification *note) {
+             [webView stringByEvaluatingJavaScriptFromString:@"window.Styles.Callbacks.onWindowDidBecomeActive();"];
+         }
+     ];
+    
+    [[NSNotificationCenter defaultCenter]
+         addObserverForName:NSWindowDidResignKeyNotification
+         object:window
+         queue:nil
+         usingBlock:^(NSNotification *note) {
+             [webView stringByEvaluatingJavaScriptFromString:@"window.Styles.Callbacks.onWindowDidBecomeInactive();"];
+         }
+     ];
     
     // Load the user preferences.
     defaults = [NSUserDefaults standardUserDefaults];
@@ -881,9 +899,15 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     }
     
     // Determine whether the player is using thumbs or stars.
-    isStarsRatingSystem = (int)[[webView windowScriptObject] evaluateWebScript:@"MusicAPI.Rating.isStarsRatingSystem()"] == YES;
+    isStarsRatingSystem = (int)[[webView windowScriptObject] evaluateWebScript:@"window.MusicAPI.Rating.isStarsRatingSystem()"] == YES;
     
     [self setupRatingMenuItems];
+    
+    // Communicate with the navigation system on the new status of the back-forward list.
+    BOOL canGoBack = [webView canGoBack];
+    BOOL canGoForward = [webView canGoForward];
+    NSString *call = [NSString stringWithFormat:@"window.GMNavigation.Callbacks.onHistoryChange(%@, %@)", canGoBack ? @"true" : @"false", canGoForward ? @"true" : @"false"];
+    [[webView windowScriptObject] evaluateWebScript:call];
 }
 
 - (id)preferenceForKey:(NSString *)key

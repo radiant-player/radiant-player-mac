@@ -108,3 +108,15 @@
 #gm-forward {
     background-image: url(http://radiant-player-mac/images/arrow-right-yosemite.png) !important;
 }
+
+body.inactive .gm-nav-button {
+    
+}
+
+body.inactive #gm-back, #gm-back.inactive {
+    background-image: url(http://radiant-player-mac/images/arrow-left-yosemite-inactive.png) !important;
+}
+
+body.inactive #gm-forward, #gm-forward.inactive {
+    background-image: url(http://radiant-player-mac/images/arrow-right-yosemite-inactive.png) !important;
+}
