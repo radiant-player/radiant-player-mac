@@ -118,7 +118,7 @@
 }
 
 - (void)mouseDown:(NSEvent *)theEvent {
-    if (self.active) {
+    if (self.active && (self.popup.docked || self.popup.isActive)) {
         [self hidePopup];
     }
     else {
@@ -147,16 +147,23 @@
 
 - (void)showPopup
 {
-    [popup showRelativeToRect:[self buttonFrame] ofView:[self buttonView] preferredEdge:NSMinYEdge];
-    
-    if (self.globalMonitor == nil)
+    if ([popup docked])
     {
-        self.globalMonitor =
-            [NSEvent addGlobalMonitorForEventsMatchingMask:NSLeftMouseUp|NSRightMouseUp
-                     handler:^(NSEvent *ev) {
-                         if ([popup isActive])
-                             [self hidePopup];
-                     }];
+        [popup showRelativeToRect:[self buttonFrame] ofView:[self buttonView] preferredEdge:NSMinYEdge];
+        
+        if (_globalMonitor == nil)
+        {
+            _globalMonitor =
+                [NSEvent addGlobalMonitorForEventsMatchingMask:NSLeftMouseUp|NSRightMouseUp
+                                                       handler:^(NSEvent *ev) {
+                                                           if ([popup isActive])
+                                                               [self hidePopup];
+                                                       }];
+        }
+    }
+    else
+    {
+        [popup show];
     }
 }
 
@@ -166,6 +173,12 @@
     [self setNeedsDisplay:YES];
     
     [popup close];
+}
+
+- (void)dockPopup
+{
+    [popup dock];
+    [self showPopup];
 }
 
 - (void)popupWillShow
@@ -178,6 +191,20 @@
 {
     [self setActive:NO];
     [self setNeedsDisplay:YES];
+}
+
+- (void)popupDidDock
+{
+    [self showPopup];
+}
+
+- (void)popupDidUndock
+{
+    if (_globalMonitor)
+    {
+        [NSEvent removeMonitor:_globalMonitor];
+        _globalMonitor = nil;
+    }
 }
 
 - (NSMenu *)menu

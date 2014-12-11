@@ -32,7 +32,9 @@
 
 @property (assign) IBOutlet NSTextField *noSongLabel;
 
-@property (assign) IBOutlet NSButton *showMainWindowButton;
+@property (assign) IBOutlet NSMenu *actionButtonMenu;
+@property (assign) IBOutlet NSLayoutConstraint *actionButtonTopConstraint;
+@property (assign) IBOutlet NSButton *actionButton;
 @property (assign) IBOutlet NSImageView *artExpandView;
 @property (assign) IBOutlet NSButton *artView;
 @property (assign) IBOutlet NSProgressIndicator *artProgress;
@@ -69,7 +71,11 @@
 
 - (IBAction) setPlaybackTime:(id)sender;
 - (IBAction) togglePlayerSize:(id)sender;
-- (IBAction) hidePopupAndShowWindow:(id)sender;
+- (IBAction) actionButtonSelector:(id)sender;
+- (IBAction) showMainWindow:(id)sender;
+
+- (void) popupDidDock;
+- (void) popupDidUndock;
 
 - (NSImage *) repeatNoneImage;
 - (NSImage *) repeatOneImage;
@@ -85,7 +91,7 @@
 - (NSImage *) thumbsDownOffImage;
 - (NSImage *) thumbsDownOnImage;
 - (NSImage *) expandContractImage;
-- (NSImage *) showMainWindowImage;
+- (NSImage *) actionButtonImage;
 - (NSImage *) starBadgeImage:(NSInteger)rating;
 - (NSImage *) starRatingImage;
 - (NSImage *) starRatingHighlightedImage;

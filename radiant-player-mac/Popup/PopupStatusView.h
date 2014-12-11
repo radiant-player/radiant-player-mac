@@ -34,5 +34,6 @@
 
 - (void)showPopup;
 - (void)hidePopup;
+- (void)dockPopup;
 
 @end

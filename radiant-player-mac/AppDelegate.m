@@ -307,6 +307,11 @@
     [statusView setupStatusItem];
 }
 
+- (void)dockPopup:(id)sender
+{
+    [statusView dockPopup];
+}
+
 - (void)setupRatingMenuItems
 {
     // Add the appropriate menu items.

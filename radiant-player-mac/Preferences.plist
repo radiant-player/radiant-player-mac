@@ -20,6 +20,8 @@
 	<false/>
 	<key>miniplayer.show-playing-status</key>
 	<false/>
+	<key>miniplayer.always-on-top</key>
+	<true/>
 	<key>navigation.buttons.enabled</key>
 	<true/>
 	<key>navigation.buttons.keep-logo</key>

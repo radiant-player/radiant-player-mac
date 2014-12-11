@@ -92,6 +92,8 @@
 - (void) useTallTitleBar;
 - (void) useNormalTitleBar;
 
+- (IBAction) dockPopup:(id)sender;
+
 - (IBAction) load:(id)sender;
 - (IBAction) webBrowserBack:(id)sender;
 - (IBAction) webBrowserForward:(id)sender;

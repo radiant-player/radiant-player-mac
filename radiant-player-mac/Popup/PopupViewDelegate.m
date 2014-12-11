@@ -21,7 +21,9 @@
 
 @synthesize noSongLabel;
 
-@synthesize showMainWindowButton;
+@synthesize actionButtonMenu;
+@synthesize actionButtonTopConstraint;
+@synthesize actionButton;
 @synthesize artExpandView;
 @synthesize artView;
 @synthesize artProgress;
@@ -59,7 +61,7 @@
     [self setupStarRatingView];
     
     [artExpandView          setImage:[self expandContractImage]];
-    [showMainWindowButton   setImage:[self showMainWindowImage]];
+    [actionButton           setImage:[self actionButtonImage]];
     
     [popup.popupView setIsLargePlayer:NO];
 }
@@ -212,11 +214,41 @@
     [popup.popupView togglePlayerSize];
 }
 
-- (void)hidePopupAndShowWindow:(id)sender
+- (void)showMainWindow:(id)selector
 {
     [NSApp activateIgnoringOtherApps:YES];
     [[appDelegate window] makeKeyAndOrderFront:self];
-    [popup close];
+    
+    if ([popup docked])
+        [popup close];
+}
+
+- (void)actionButtonSelector:(id)sender
+{
+    // If the popup is docked, the action button brings the main window.
+    if ([popup docked])
+    {
+        [self showMainWindow:sender];
+    }
+    // Otherwise, it shows a context menu.
+    else
+    {
+        [actionButtonMenu popUpMenuPositioningItem:nil atLocation:[NSEvent mouseLocation] inView:nil];
+    }
+}
+
+- (void)popupDidDock
+{
+    [actionButton setImage:[self actionButtonImage]];
+    [actionButtonTopConstraint setConstant:10];
+    [popup.popupView setNeedsDisplay:YES];
+}
+
+- (void)popupDidUndock
+{
+    [actionButton setImage:[self actionButtonImage]];
+    [actionButtonTopConstraint setConstant:5];
+    [popup.popupView setNeedsDisplay:YES];
 }
 
 #pragma mark - Image code
@@ -318,12 +350,22 @@
         return [Utilities imageFromName:@"arrow_expand_art"];
 }
 
-- (NSImage *)showMainWindowImage
+- (NSImage *)actionButtonImage
 {
-    if ([popup.popupView useWhiteIcons])
-        return [Utilities templateImage:NSImageNameEnterFullScreenTemplate withColor:[NSColor colorWithDeviceWhite:0.8 alpha:1.0]];
+    if ([popup docked])
+    {
+        if ([popup.popupView useWhiteIcons])
+            return [Utilities templateImage:NSImageNameEnterFullScreenTemplate withColor:[NSColor colorWithDeviceWhite:0.8 alpha:1.0]];
+        else
+            return [Utilities templateImage:NSImageNameEnterFullScreenTemplate withColor:[NSColor colorWithDeviceWhite:0.4 alpha:1.0]];
+    }
     else
-        return [Utilities templateImage:NSImageNameEnterFullScreenTemplate withColor:[NSColor colorWithDeviceWhite:0.4 alpha:1.0]];
+    {
+        if ([popup.popupView useWhiteIcons])
+            return [[Utilities templateImage:NSImageNameActionTemplate withColor:[NSColor colorWithDeviceWhite:0.8 alpha:1.0]] resizeImage:NSMakeSize(12, 12)];
+        else
+            return [[Utilities templateImage:NSImageNameActionTemplate withColor:[NSColor colorWithDeviceWhite:0.4 alpha:1.0]] resizeImage:NSMakeSize(12, 12)];
+    }
 }
 
 - (NSImage *)starBadgeImage:(NSInteger)rating

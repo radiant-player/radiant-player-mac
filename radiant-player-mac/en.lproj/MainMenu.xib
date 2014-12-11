@@ -362,6 +362,9 @@
         <userDefaultsController representsSharedInstance="YES" id="Vyy-aQ-Qdc"/>
         <customObject id="vhZ-72-AYY" userLabel="Popup Delegate" customClass="PopupViewDelegate">
             <connections>
+                <outlet property="actionButton" destination="v8E-fH-1nK" id="4OW-vR-y4C"/>
+                <outlet property="actionButtonMenu" destination="1au-Yd-Y9d" id="ha3-IX-dJu"/>
+                <outlet property="actionButtonTopConstraint" destination="rKs-eC-YiY" id="FtP-jL-0Z4"/>
                 <outlet property="albumLabel" destination="yJg-I1-edx" id="TPa-H6-zdV"/>
                 <outlet property="appDelegate" destination="494" id="tun-Ab-XAj"/>
                 <outlet property="artExpandView" destination="9xX-aB-17c" id="nbz-Xd-0Ij"/>
@@ -376,7 +379,6 @@
                 <outlet property="playbackSlider" destination="8u2-Nn-ZZf" id="ww6-rb-TBx"/>
                 <outlet property="popup" destination="sr1-Je-yff" id="rGd-1u-1st"/>
                 <outlet property="repeatButton" destination="DvI-Lo-u1q" id="xDw-Gh-EXt"/>
-                <outlet property="showMainWindowButton" destination="v8E-fH-1nK" id="dtK-BB-Xf6"/>
                 <outlet property="shuffleButton" destination="0Xb-8Y-y5L" id="zxu-qb-yUd"/>
                 <outlet property="starBadgeButton" destination="vVf-7Y-Grl" id="rO0-Fo-ZuO"/>
                 <outlet property="starRatingView" destination="mx1-ph-Wrj" id="3xw-wT-dsC"/>
@@ -690,7 +692,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="hidePopupAndShowWindow:" target="vhZ-72-AYY" id="3xi-mX-Ted"/>
+                            <action selector="actionButtonSelector:" target="vhZ-72-AYY" id="2yG-qr-l9f"/>
                         </connections>
                     </button>
                     <customView hidden="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mx1-ph-Wrj" customClass="EDStarRating">
@@ -845,6 +847,30 @@
             </constraints>
             <point key="canvasLocation" x="268" y="-244"/>
         </customView>
+        <menu id="1au-Yd-Y9d">
+            <items>
+                <menuItem title="Keep always on top" id="rwJ-dR-jUQ">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <binding destination="vhZ-72-AYY" name="value" keyPath="self.popup.isAlwaysOnTop" id="RL2-ZH-P8h"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="7No-pm-G06"/>
+                <menuItem title="Dock mini player" id="u04-Zl-Mh7">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="dockPopup:" target="494" id="v2B-GU-rmE"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Show main window" id="Z1y-pW-YwC">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="showMainWindow:" target="vhZ-72-AYY" id="f7h-N5-cJp"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="-1" y="222.5"/>
+        </menu>
     </objects>
     <resources>
         <image name="NSEnterFullScreenTemplate" width="15" height="15"/>
