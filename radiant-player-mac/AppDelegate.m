@@ -423,6 +423,17 @@ float _defaultTitleBarHeight() {
     [[self window] setFrame:frame display:NO];
 }
 
+- (void) setDockShowArt:(BOOL)showArt
+{
+    if (showArt && currentArt) {
+        [NSApp setApplicationIconImage:currentArt];
+    }
+    else
+    {
+        [NSApp setApplicationIconImage:nil];
+    }
+}
+
 - (void) windowDidResize:(NSNotification *)notification
 {
     [self _adjustTitleBar];
@@ -752,6 +763,29 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     {
         [[NotificationCenter center] scheduleNotificationWithTitle:title artist:artist album:album imageURL:art];
     }
+
+    if ([defaults boolForKey:@"dock.show-art"])
+    {
+        if (art != nil) {
+            [self performSelectorInBackground:@selector(downloadAlbumArt:) withObject:art];
+        }
+        else
+        {
+            [NSApp setApplicationIconImage: nil];
+        }
+    }
+}
+
+- (void)downloadAlbumArt:(NSString *)art
+{
+    NSURL *url = [NSURL URLWithString:art];
+    currentArt = [[NSImage alloc] initWithContentsOfURL:url];
+    if ([defaults boolForKey:@"dock.show-art"] && currentArt) {
+        [NSApp setApplicationIconImage:currentArt];
+    }
+    else {
+        [NSApp setApplicationIconImage: nil];
+    }
 }
 
 - (NSString *)currentSongURL
@@ -782,6 +816,11 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
             [starRatingView setEditable:YES];
             [starRatingLabel setTextColor:[NSColor controlTextColor]];
         }
+    }
+
+    if (mode == MUSIC_STOPPED) {
+        [NSApp setApplicationIconImage: nil];
+        currentArt = nil;
     }
 }
 

@@ -7,6 +7,7 @@
  *
  */
 
+#import "AppDelegate.h"
 #import "AppearancePreferencesViewController.h"
 
 @implementation AppearancePreferencesViewController
@@ -31,6 +32,12 @@
 - (NSString *)toolbarItemLabel
 {
     return @"Appearance";
+}
+
+- (IBAction) setDockShowArt:(NSButton *)sender
+{
+    BOOL showArt = [sender state] == NSOnState;
+    [(AppDelegate*) [[NSApplication sharedApplication]delegate] setDockShowArt:showArt];
 }
 
 @end
