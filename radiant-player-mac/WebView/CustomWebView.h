@@ -26,7 +26,10 @@
 @end
 
 @interface CustomWebView : WebView {
-    NSMutableDictionary *_touches;
+    NSPoint _gestureStartPoint;
+    NSPoint _gestureCurrentPoint;
+    BOOL _inGesture;
+    BOOL _receivingTouches;
     BOOL _warnedAboutPlugin;
 }
 
