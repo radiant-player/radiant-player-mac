@@ -106,16 +106,16 @@
     
     NSArray *subviews = [[window contentView] subviews];
     
-    if ([[subviews firstObject] isKindOfClass:[NSVisualEffectView class]]) {
-        NSVisualEffectView *bgView = [subviews firstObject];
+    if ([[subviews firstObject] isKindOfClass:[VisualEffectView class]]) {
+        VisualEffectView *bgView = [subviews firstObject];
         [bgView setAppearance:[NSAppearance appearanceNamed:appearanceName]];
     }
     else {
-        NSVisualEffectView *bgView = [[NSVisualEffectView alloc] initWithFrame:frame];
+        VisualEffectView *bgView = [[VisualEffectView alloc] initWithFrame:frame];
         [bgView setAppearance:[NSAppearance appearanceNamed:appearanceName]];
-        [bgView setBlendingMode:NSVisualEffectBlendingModeBehindWindow];
-        [bgView setMaterial:NSVisualEffectMaterialAppearanceBased];
-        [bgView setState:NSVisualEffectStateFollowsWindowActiveState];
+        [bgView setBlendingMode:VisualEffectBlendingModeBehindWindow];
+        [bgView setMaterial:VisualEffectMaterialAppearanceBased];
+        [bgView setState:VisualEffectStateFollowsWindowActiveState];
         [bgView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
         [[window contentView] addSubview:bgView positioned:NSWindowBelow relativeTo:nil];
     }

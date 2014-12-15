@@ -27,7 +27,7 @@
 #import "PreferencesWindowController.h"
 #import "ApplicationStyle.h"
 #import "LastFmPopover.h"
-#import "TitleBarTextView.h"
+#import "Support/TitleBarTextView.h"
 
 @class PopupViewDelegate;
 @class PopupStatusView;
