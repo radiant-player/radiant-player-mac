@@ -26,15 +26,23 @@
 
 @synthesize delegate;
 
++ (void)load
+{
+    NSLog(@"Load");
+}
+
 - (void)awakeFromNib
 {
     isLargePlayer = NO;
     _hoverAlphaMultiplier = 0.0;
 
-    if ([Utilities isSystemInDarkMode])
-        [self setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameVibrantDark]];
-    else
-        [self setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameVibrantLight]];
+    if (NSVisualEffectViewExists)
+    {
+        if ([Utilities isSystemInDarkMode])
+            [self setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameVibrantDark]];
+        else
+            [self setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameVibrantLight]];
+    }
 
     [self setBlendingMode:VisualEffectBlendingModeBehindWindow];
     [self setMaterial:VisualEffectMaterialAppearanceBased];

@@ -383,6 +383,10 @@ float _defaultTitleBarHeight() {
 
 - (void)_adjustTitleBar
 {
+    if (![window respondsToSelector:@selector(titlebarAccessoryViewControllers)]) {
+        return;
+    }
+    
     while ([[window titlebarAccessoryViewControllers] count]) {
         [window removeTitlebarAccessoryViewControllerAtIndex:0];
     }

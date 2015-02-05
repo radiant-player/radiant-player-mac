@@ -9,6 +9,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+extern BOOL NSVisualEffectViewExists;
+
 /* The main material that this view displays.
  */
 typedef NS_ENUM(NSInteger, VisualEffectMaterial) {
@@ -30,7 +32,7 @@ typedef NS_ENUM(NSInteger, VisualEffectState) {
     VisualEffectStateInactive,
 };
 
-@interface VisualEffectView : NSVisualEffectView {
+@interface VisualEffectView : NSView {
     VisualEffectBlendingMode _blendingMode;
     VisualEffectMaterial _material;
     VisualEffectState _state;
