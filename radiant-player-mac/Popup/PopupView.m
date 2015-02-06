@@ -8,6 +8,7 @@
  */
 
 #import "PopupView.h"
+#import <objc/runtime.h>
 
 #define ARROW_WIDTH 14
 #define ARROW_HEIGHT 7
@@ -26,27 +27,23 @@
 
 @synthesize delegate;
 
-+ (void)load
-{
-    NSLog(@"Load");
-}
-
 - (void)awakeFromNib
 {
     isLargePlayer = NO;
     _hoverAlphaMultiplier = 0.0;
-
+    
     if (NSVisualEffectViewExists)
     {
         if ([Utilities isSystemInDarkMode])
             [self setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameVibrantDark]];
         else
             [self setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameVibrantLight]];
+        
+        [self setBlendingMode:VisualEffectBlendingModeBehindWindow];
+        [self setMaterial:VisualEffectMaterialAppearanceBased];
+        [self setState:VisualEffectStateActive];
     }
-
-    [self setBlendingMode:VisualEffectBlendingModeBehindWindow];
-    [self setMaterial:VisualEffectMaterialAppearanceBased];
-    [self setState:VisualEffectStateActive];
+    
     [self setAnimations:@{@"hoverAlphaMultiplier": [CABasicAnimation animation]}];
     
     // Update subviews to not be vibrant!
@@ -64,12 +61,12 @@
     NSColor *gradientLight = [NSColor colorWithDeviceWhite:0.05 alpha:_hoverAlphaMultiplier*0.2];
     NSColor *gradientNone = [NSColor colorWithDeviceWhite:0.0 alpha:_hoverAlphaMultiplier*0.1];
     NSGradient *hoverGradient = [[NSGradient alloc] initWithColorsAndLocations:
-                            gradientDark, 0.0,
-                            gradientLight, 0.3,
-                            gradientNone, 0.50,
-                            gradientLight, 0.7,
-                            gradientDark, 1.0,
-                            nil];
+                                 gradientDark, 0.0,
+                                 gradientLight, 0.3,
+                                 gradientNone, 0.50,
+                                 gradientLight, 0.7,
+                                 gradientDark, 1.0,
+                                 nil];
     
     
     [NSGraphicsContext saveGraphicsState];
@@ -206,7 +203,7 @@
         if ([view tag] != NO_SONGS_PLAYING_TAG &&
             [view tag] != EXPAND_ART_TAG &&
             ![view isKindOfClass:[EDStarRating class]]
-        )
+            )
         {
             [view setAlphaValue:_hoverAlphaMultiplier];
         }
@@ -325,7 +322,12 @@
     if ([self useWhiteIcons])
         return [NSColor whiteColor];
     else
-        return [NSColor labelColor];
+    {
+        if ([[NSColor class] respondsToSelector:@selector(labelColor)])
+            return [NSColor labelColor];
+        else
+            return [NSColor textColor];
+    }
 }
 
 @end

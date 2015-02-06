@@ -10,6 +10,7 @@
 #import <Cocoa/Cocoa.h>
 
 extern BOOL NSVisualEffectViewExists;
+extern Class NSVisualEffectViewClass;
 
 /* The main material that this view displays.
  */

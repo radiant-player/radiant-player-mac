@@ -23,23 +23,11 @@
 @synthesize blendingMode = _blendingMode;
 
 BOOL NSVisualEffectViewExists;
-
-+ (void)load
-{
-    NSVisualEffectViewExists = NSClassFromString(@"NSVisualEffectView") != nil;
-    
-    if (NSVisualEffectViewExists)
-    {
-        // FIXME: Deprecated, but still achieves what I want? Think of a better solution!
-        class_setSuperclass(self, [NSVisualEffectView class]);
-    }
-}
+Class NSVisualEffectViewClass;
 
 - (void)setMaskImage:(NSImage *)maskImage
 {
-    if (NSVisualEffectViewExists)
-        [super performSelector:@selector(setMaskImage:) withObject:maskImage];
-//        [super setMaskImage:maskImage];
+    
 }
 
 - (VisualEffectBlendingMode)blendingMode
@@ -49,19 +37,7 @@ BOOL NSVisualEffectViewExists;
 
 - (void)setBlendingMode:(VisualEffectBlendingMode)blendingMode
 {
-    if (NSVisualEffectViewExists)
-    {
-        switch (blendingMode) {
-            case VisualEffectBlendingModeBehindWindow:
-//                [super setBlendingMode:NSVisualEffectBlendingModeBehindWindow];
-                [super performSelector:@selector(setBlendingMode:) withObject:NSVisualEffectBlendingModeBehindWindow];
-                break;
-        }
-    }
-    else
-    {
-        _blendingMode = blendingMode;
-    }
+    _blendingMode = blendingMode;
 }
 
 - (VisualEffectState)state
@@ -71,24 +47,7 @@ BOOL NSVisualEffectViewExists;
 
 - (void)setState:(VisualEffectState)state
 {
-    if (NSVisualEffectViewExists)
-    {
-        switch (state) {
-            case VisualEffectStateActive: [super performSelector:@selector(setState:) withObject:[NSNumber numberWithInt:NSVisualEffectStateActive]]; break;
-            case VisualEffectStateInactive: [super performSelector:@selector(setState:) withObject:[NSNumber numberWithInt:NSVisualEffectStateInactive]]; break;
-            case VisualEffectStateFollowsWindowActiveState: [super performSelector:@selector(setState:) withObject:[NSNumber numberWithInt:NSVisualEffectStateFollowsWindowActiveState]]; break;
-        }
-        
-//        switch (state) {
-//            case VisualEffectStateActive: [super setState:NSVisualEffectStateActive]; break;
-//            case VisualEffectStateInactive: [super setState:NSVisualEffectStateInactive]; break;
-//            case VisualEffectStateFollowsWindowActiveState: [super setState:NSVisualEffectStateFollowsWindowActiveState]; break;
-//        }
-    }
-    else
-    {
-        _state = state;
-    }
+    _state = state;
 }
 
 - (VisualEffectMaterial)material
@@ -98,26 +57,7 @@ BOOL NSVisualEffectViewExists;
 
 - (void)setMaterial:(VisualEffectMaterial)material
 {
-    if (NSVisualEffectViewExists)
-    {
-        switch (material) {
-            case VisualEffectMaterialAppearanceBased: [super performSelector:@selector(setMaterial:) withObject:[NSNumber numberWithInt:NSVisualEffectMaterialAppearanceBased]]; break;
-            case VisualEffectMaterialLight: [super performSelector:@selector(setMaterial:) withObject:[NSNumber numberWithInt:NSVisualEffectMaterialLight]]; break;
-            case VisualEffectMaterialDark: [super performSelector:@selector(setMaterial:) withObject:[NSNumber numberWithInt:NSVisualEffectMaterialDark]]; break;
-            case VisualEffectMaterialTitlebar: [super performSelector:@selector(setMaterial:) withObject:[NSNumber numberWithInt:NSVisualEffectMaterialTitlebar]]; break;
-        }
-        
-//        switch (material) {
-//            case VisualEffectMaterialAppearanceBased: [super setMaterial:NSVisualEffectMaterialAppearanceBased]; break;
-//            case VisualEffectMaterialLight: [super setMaterial:NSVisualEffectMaterialLight]; break;
-//            case VisualEffectMaterialDark: [super setMaterial:NSVisualEffectMaterialDark]; break;
-//            case VisualEffectMaterialTitlebar: [super setMaterial:NSVisualEffectMaterialTitlebar]; break;
-//        }
-    }
-    else
-    {
-        _material = material;
-    }
+    _material = material;
 }
 
 - (BOOL)_isDark
