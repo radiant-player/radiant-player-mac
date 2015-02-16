@@ -132,7 +132,6 @@ body {
 
 .song-row .rating-container.stars {
     height: 100% !important;
-    line-height: 50%;
 }
 
 .song-row .rating-container.thumbs [data-rating] {

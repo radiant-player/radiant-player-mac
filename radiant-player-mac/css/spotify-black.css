@@ -177,12 +177,11 @@ a, .simple-dialog a {
 }
 
 .song-row .rating-container.stars {
-    height: 100% !important;
-    line-height: 50%;
+    top: -1px;
 }
 
 .song-row .rating-container.thumbs [data-rating] {
-    margin-top: 0px;
+    margin-top: 7px;
 }
 
 .song-row .hover-button[data-id="menu"], .song-row .hover-button[data-id="menu"]:hover {

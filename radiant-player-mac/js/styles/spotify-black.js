@@ -58,8 +58,8 @@ if (typeof window.Styles.Applied === 'undefined') {
             document.body.removeChild(el);
 
             // Apply a new stylesheet for the new thumbs up and down positions.
-            thumbsUpBackY -= 3;
-            thumbsDownBackY -= 1;
+            thumbsUpBackY -= 2;
+            thumbsDownBackY += 1;
 
             var thumbsUpPosition = thumbsUpBackX + 'px ' + thumbsUpBackY + 'px';
             var thumbsDownPosition = thumbsDownBackX + 'px ' + thumbsDownBackY + 'px';
