@@ -335,40 +335,24 @@
 
 - (void)setupThumbsUpRatingView
 {
-    if ([controlsMenu indexOfItem:thumbsUpMenuItem] == -1)
-    {
-        NSInteger starindex = [controlsMenu indexOfItem:starRatingMenuItem];
-        
-        if (starindex != -1)
-            [controlsMenu removeItemAtIndex:starindex];
-        
-        [controlsMenu insertItem:thumbsUpMenuItem atIndex:7];
-        [controlsMenu insertItem:thumbsDownMenuItem atIndex:8];
-    }
+    [thumbsUpMenuItem setHidden:NO];
+    [thumbsDownMenuItem setHidden:NO];
+    [starRatingMenuItem setHidden:YES];
 }
 
 - (void)setupStarRatingView
 {
-    if ([controlsMenu indexOfItem:starRatingMenuItem] == -1)
-    {
-        NSInteger tui = [controlsMenu indexOfItem:thumbsUpMenuItem];
-        NSInteger tdi = [controlsMenu indexOfItem:thumbsDownMenuItem];
-        
-        if (tui != -1 && tdi != -1)
-        {
-            [controlsMenu removeItemAtIndex:tui];
-            [controlsMenu removeItemAtIndex:tdi];
-        }
-        
-        [controlsMenu insertItem:starRatingMenuItem atIndex:7];
-        [starRatingView setStarImage:[Utilities imageFromName:@"stars/star_outline_black_small"]];
-        [starRatingView setStarHighlightedImage:[Utilities imageFromName:@"stars/star_filled_small"]];
-        [starRatingView setMaxRating:5];
-        [starRatingView setHalfStarThreshold:1];
-        [starRatingView setEditable:NO];
-        [starRatingView setDisplayMode:EDStarRatingDisplayFull];
-        [starRatingView setDelegate:self];
-    }
+    [thumbsUpMenuItem setHidden:YES];
+    [thumbsDownMenuItem setHidden:YES];
+    [starRatingMenuItem setHidden:NO];
+    
+    [starRatingView setStarImage:[Utilities imageFromName:@"stars/star_outline_black_small"]];
+    [starRatingView setStarHighlightedImage:[Utilities imageFromName:@"stars/star_filled_small"]];
+    [starRatingView setMaxRating:5];
+    [starRatingView setHalfStarThreshold:1];
+    [starRatingView setEditable:NO];
+    [starRatingView setDisplayMode:EDStarRatingDisplayFull];
+    [starRatingView setDelegate:self];
 }
 
 /*
@@ -739,6 +723,13 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         [LastFmService scrobbleSong:currentTitle withArtist:currentArtist album:currentAlbum duration:currentDuration timestamp:currentTimestamp];
         [LastFmService sendNowPlaying:title withArtist:artist album:album duration:duration timestamp:timestamp];
     }
+    
+    // Determine whether the player is using thumbs or stars.
+    NSNumber *value = [[webView windowScriptObject] evaluateWebScript:@"window.MusicAPI.Rating.isStarsRatingSystem()"];
+    NSLog(@"%@", value);
+    isStarsRatingSystem = [value boolValue];
+    [self setupRatingMenuItems];
+
     
     // Update our current data.
     currentTitle = title;

@@ -199,6 +199,18 @@
                                     <action selector="toggleThumbsDown:" target="494" id="4Y5-bB-SVp"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Rating" hidden="YES" id="AU3-72-l3d">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <binding destination="494" name="enabled" keyPath="self.isStopped" id="qo7-8V-Ui7">
+                                        <dictionary key="options">
+                                            <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                    <outlet property="view" destination="Hd4-lS-MgE" id="v7m-w3-YIY"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" hidden="YES" id="VD8-yV-cM6"/>
                             <menuItem title="Repeat Mode" id="yzV-K5-YkR">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -751,18 +763,6 @@
             </connections>
         </window>
         <customObject id="leS-Oa-AB4" userLabel="Last.fm Popover" customClass="LastFmPopover"/>
-        <menuItem title="Rating" id="AU3-72-l3d">
-            <modifierMask key="keyEquivalentModifierMask"/>
-            <connections>
-                <binding destination="494" name="enabled" keyPath="self.isStopped" id="qo7-8V-Ui7">
-                    <dictionary key="options">
-                        <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
-                        <string key="NSValueTransformerName">NSNegateBoolean</string>
-                    </dictionary>
-                </binding>
-                <outlet property="view" destination="Hd4-lS-MgE" id="v7m-w3-YIY"/>
-            </connections>
-        </menuItem>
         <customView id="Hd4-lS-MgE">
             <rect key="frame" x="0.0" y="0.0" width="252" height="33"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
