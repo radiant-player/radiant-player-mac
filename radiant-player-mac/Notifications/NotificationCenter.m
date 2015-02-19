@@ -42,19 +42,28 @@ NSString *const SONG_NOTIFICATION_NAME = @"SongNotification";
 
 - (void)scheduleNotificationWithTitle:(NSString *)title artist:(NSString *)artist album:(NSString *)album imageURL:(NSString *)imageURL
 {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-
-    if ([defaults boolForKey:@"notifications.use-growl"] && [GrowlApplicationBridge isGrowlRunning])
-    {
-        [self _scheduleGrowlNotificationWithTitle:title artist:artist album:album imageURL:imageURL];
-    }
-    else
-    {
-        [self _scheduleNSUserNotificationWithTitle:title artist:artist album:album imageURL:imageURL];
-    }
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSImage *image = nil;
+        
+        if ([defaults boolForKey:@"notifications.show-album-art"] && imageURL)
+        {
+            image = [[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:imageURL]];
+        }
+        
+        if ([defaults boolForKey:@"notifications.use-growl"] && [GrowlApplicationBridge isGrowlRunning])
+        {
+            [self _scheduleGrowlNotificationWithTitle:title artist:artist album:album image:image];
+        }
+        else
+        {
+            [self _scheduleNSUserNotificationWithTitle:title artist:artist album:album image:image];
+        }
+    });
 }
 
-- (void)_scheduleNSUserNotificationWithTitle:(NSString *)title artist:(NSString *)artist album:(NSString *)album imageURL:(NSString *)imageURL
+- (void)_scheduleNSUserNotificationWithTitle:(NSString *)title artist:(NSString *)artist album:(NSString *)album image:(NSImage *)image
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
@@ -70,19 +79,13 @@ NSString *const SONG_NOTIFICATION_NAME = @"SongNotification";
     }
     
     // Make sure the version of OS X supports this.
-    if ([notif respondsToSelector:@selector(setContentImage:)])
+    if (image && [notif respondsToSelector:@selector(setContentImage:)])
     {
-        // Try to load the album art if possible.
-        if ([defaults boolForKey:@"notifications.show-album-art"] && imageURL)
-        {
-            NSImage *image = [[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:imageURL]];
-            
-            if ([defaults boolForKey:@"notifications.itunes-style"]) {
-                [notif setValue:image forKey:@"_identityImage"];
-            }
-            else {
-                notif.contentImage = image;
-            }
+        if ([defaults boolForKey:@"notifications.itunes-style"]) {
+            [notif setValue:image forKey:@"_identityImage"];
+        }
+        else {
+            notif.contentImage = image;
         }
     }
     
@@ -95,17 +98,12 @@ NSString *const SONG_NOTIFICATION_NAME = @"SongNotification";
     [[NSUserNotificationCenter defaultUserNotificationCenter] scheduleNotification:notif];
 }
 
-- (void)_scheduleGrowlNotificationWithTitle:(NSString *)title artist:(NSString *)artist album:(NSString *)album imageURL:(NSString *)imageURL
+- (void)_scheduleGrowlNotificationWithTitle:(NSString *)title artist:(NSString *)artist album:(NSString *)album image:(NSImage *)image
 {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSData *imageData = [NSData data];
     
-    // Try to load the album art if possible.
-    if ([defaults boolForKey:@"notifications.show-album-art"] && imageURL)
-    {
-        NSImage *image = [[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:imageURL]];
+    if (image)
         imageData = [image TIFFRepresentation];
-    }
     
     NSDictionary *properties = @{
         GROWL_NOTIFICATION_NAME: SONG_NOTIFICATION_NAME,
