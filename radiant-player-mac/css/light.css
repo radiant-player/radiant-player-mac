@@ -107,6 +107,10 @@ body {
     text-align: left;
 }
 
+#gbqfq:focus::-webkit-input-placeholder {
+    opacity: 0;
+}
+
 .gm-nav-button {
     border-radius: 3px;
     background-color: #fcfcfc;

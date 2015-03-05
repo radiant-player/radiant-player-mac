@@ -275,7 +275,7 @@ body {
     background: none;
 }
 
-#player [data-id="now-playing-menu"] {
+#player:not(.material) [data-id="now-playing-menu"] {
     border: none;
 }
 
