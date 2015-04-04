@@ -1,0 +1,25 @@
+/*
+ * css/none.css
+ *
+ * Minimum stylesheet for "no" style.
+ *
+ * Created by Sajid Anwar, stipped down to just the header by Steven La
+ *
+ * Subject to terms and conditions in LICENSE.md.
+ *
+ */
+
+#oneGoogleWrapper > div:first-child > div:first-child > div:first-child {
+    min-width: 0px !important;
+}
+
+#oneGoogleWrapper > div:first-child > div:first-child > div:nth-child(2) {
+    margin-left: 90px !important;
+    margin-right: 20px !important;
+    min-width: 0px;
+}
+
+#oneGoogleWrapper > div:first-child > div:first-child > div:nth-child(2) > div:first-child {
+    position: static;
+    padding: 0;
+}

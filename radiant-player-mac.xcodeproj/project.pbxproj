@@ -72,6 +72,7 @@
 		D3DB8FF018BD253A00ABE93B /* images in Resources */ = {isa = PBXBuildFile; fileRef = D3DB8FEF18BD253A00ABE93B /* images */; };
 		D3DB8FF518BD2AEC00ABE93B /* PlaybackConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DB8FF418BD2AEC00ABE93B /* PlaybackConstants.m */; };
 		D3DB8FF818BD6A6400ABE93B /* PlaybackSliderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DB8FF718BD6A6400ABE93B /* PlaybackSliderCell.m */; };
+		D3DF18181A99A581002AEE64 /* EmptyStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DF18171A99A581002AEE64 /* EmptyStyle.m */; };
 		D3F14A4918F357AA007D4536 /* AdvancedPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F14A4818F357AA007D4536 /* AdvancedPreferencesViewController.m */; };
 		D3FAC6D418BA81EC00D9F461 /* PopupStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FAC6D318BA81EC00D9F461 /* PopupStatusView.m */; };
 		D3FAC6D718BA942500D9F461 /* PopupViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FAC6D618BA942500D9F461 /* PopupViewDelegate.m */; };
@@ -209,6 +210,8 @@
 		D3DB8FF418BD2AEC00ABE93B /* PlaybackConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaybackConstants.m; sourceTree = "<group>"; };
 		D3DB8FF618BD6A6400ABE93B /* PlaybackSliderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaybackSliderCell.h; sourceTree = "<group>"; };
 		D3DB8FF718BD6A6400ABE93B /* PlaybackSliderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaybackSliderCell.m; sourceTree = "<group>"; };
+		D3DF18161A99A581002AEE64 /* EmptyStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyStyle.h; sourceTree = "<group>"; };
+		D3DF18171A99A581002AEE64 /* EmptyStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyStyle.m; sourceTree = "<group>"; };
 		D3F14A4718F357AA007D4536 /* AdvancedPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvancedPreferencesViewController.h; sourceTree = "<group>"; };
 		D3F14A4818F357AA007D4536 /* AdvancedPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvancedPreferencesViewController.m; sourceTree = "<group>"; };
 		D3FAC6D218BA81EC00D9F461 /* PopupStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupStatusView.h; sourceTree = "<group>"; };
@@ -349,6 +352,8 @@
 				D37C9291195E41290035709A /* DarkFlatStyle.m */,
 				D37C928D195E3F290035709A /* DarkStyle.h */,
 				D37C928E195E3F290035709A /* DarkStyle.m */,
+				D3DF18161A99A581002AEE64 /* EmptyStyle.h */,
+				D3DF18171A99A581002AEE64 /* EmptyStyle.m */,
 				D37C928A195E3B3F0035709A /* SpotifyBlackStyle.h */,
 				D37C928B195E3B3F0035709A /* SpotifyBlackStyle.m */,
 				D346173319D907F300017023 /* SpotifyBlackVibrantStyle.h */,
@@ -605,6 +610,7 @@
 				D35F2E8C1A3D9D130072E461 /* Swizzle.c in Sources */,
 				D3DB8FF518BD2AEC00ABE93B /* PlaybackConstants.m in Sources */,
 				D32861701924744200395FEA /* NSHTTPCookieStorage+Swizzle.m in Sources */,
+				D3DF18181A99A581002AEE64 /* EmptyStyle.m in Sources */,
 				D3D4C3EB18E77AA0007238B3 /* LastFmTrackTableCellView.m in Sources */,
 				1A7B685317453E40001E509E /* AppDelegate.m in Sources */,
 				D3DB8FF818BD6A6400ABE93B /* PlaybackSliderCell.m in Sources */,

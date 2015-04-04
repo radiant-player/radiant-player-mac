@@ -282,7 +282,10 @@
 - (NSMutableDictionary *)styles
 {
     if (_styles == nil)
+    {
         _styles = [ApplicationStyle styles];
+        [_styles setObject:[[EmptyStyle alloc] init] forKey:@"Empty"];
+    }
     
     return _styles;
 }
@@ -892,10 +895,10 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     NSString *styleName = [defaults stringForKey:@"styles.name"];
     ApplicationStyle *style = [_styles objectForKey:styleName];
     
-    if (stylesEnabled && style)
-    {
-        [style applyToWebView:webView window:window];
-    }
+    if (!stylesEnabled || !style)
+        style = [_styles objectForKey:@"Empty"];
+    
+    [style applyToWebView:webView window:window];
     
     // Determine whether the player is using thumbs or stars.
     isStarsRatingSystem = (int)[[webView windowScriptObject] evaluateWebScript:@"window.MusicAPI.Rating.isStarsRatingSystem()"] == YES;

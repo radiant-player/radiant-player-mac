@@ -26,6 +26,7 @@
 
 #import "PreferencesWindowController.h"
 #import "ApplicationStyle.h"
+#import "EmptyStyle.h"
 #import "LastFmPopover.h"
 #import "Support/TitleBarTextView.h"
 
