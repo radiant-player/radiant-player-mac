@@ -84,6 +84,10 @@
     text-align: left;
 }
 
+#gbqfq:focus::-webkit-input-placeholder {
+    opacity: 0;
+}
+
 .gm-nav-button {
     opacity: 1 !important;
     background-size: 12px 16px !important;
