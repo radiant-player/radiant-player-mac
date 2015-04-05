@@ -8,6 +8,7 @@
  */
 
 #import "GeneralPreferencesViewController.h"
+#import "AppDelegate.h"
 
 @implementation GeneralPreferencesViewController
 
@@ -36,6 +37,12 @@
 - (NSString *)toolbarItemLabel
 {
     return @"General";
+}
+
+- (IBAction) toggleDockArt:(NSButton *)sender
+{
+    BOOL showArt = [sender state] == NSOnState;
+    [(AppDelegate *)[NSApp delegate] toggleDockArt:showArt];
 }
 
 @end

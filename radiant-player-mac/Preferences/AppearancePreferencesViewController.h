@@ -14,6 +14,4 @@
 
 @property NSArray *sortDescriptors;
 
-- (IBAction) setDockShowArt:(id)sender;
-
 @end

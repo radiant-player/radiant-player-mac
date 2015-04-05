@@ -91,7 +91,7 @@
 - (void) setupRatingMenuItems;
 - (void) useTallTitleBar;
 - (void) useNormalTitleBar;
-- (void) setDockShowArt:(BOOL)showArt;
+- (void) toggleDockArt:(BOOL)showArt;
 
 - (IBAction) dockPopup:(id)sender;
 

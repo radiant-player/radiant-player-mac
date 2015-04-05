@@ -16,4 +16,6 @@
 @property (assign) BOOL isNotificationImageSupportAvailable;
 @property (assign) BOOL isGrowlSupportAvailable;
 
+- (IBAction)toggleDockArt:(NSButton *)sender;
+
 @end

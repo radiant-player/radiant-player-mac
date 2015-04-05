@@ -423,7 +423,7 @@ float _defaultTitleBarHeight() {
     [[self window] setFrame:frame display:NO];
 }
 
-- (void) setDockShowArt:(BOOL)showArt
+- (void) toggleDockArt:(BOOL)showArt
 {
     if (showArt && currentArt) {
         [NSApp setApplicationIconImage:currentArt];
@@ -780,12 +780,8 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 {
     NSURL *url = [NSURL URLWithString:art];
     currentArt = [[NSImage alloc] initWithContentsOfURL:url];
-    if ([defaults boolForKey:@"dock.show-art"] && currentArt) {
-        [NSApp setApplicationIconImage:currentArt];
-    }
-    else {
-        [NSApp setApplicationIconImage: nil];
-    }
+    
+    [self toggleDockArt:[defaults boolForKey:@"dock.show-art"]];
 }
 
 - (NSString *)currentSongURL
