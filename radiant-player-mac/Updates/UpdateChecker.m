@@ -38,7 +38,7 @@
                     NSString *version = [rel objectForKey:@"name"];
                     
                     // Specific to this release chnnel, or is the stable channel (doesn't contain a -beta).
-                    if ([version hasSuffix:releaseChannel] || ![version containsString:@"-"])
+                    if ([version hasSuffix:releaseChannel] || [version rangeOfString:@"-"].location == NSNotFound)
                     {
                         return [version substringFromIndex:1];
                     }
