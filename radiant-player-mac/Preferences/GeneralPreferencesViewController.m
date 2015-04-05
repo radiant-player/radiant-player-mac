@@ -12,6 +12,7 @@
 @implementation GeneralPreferencesViewController
 
 @synthesize isNotificationImageSupportAvailable;
+@synthesize buttonReleaseChannels;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {

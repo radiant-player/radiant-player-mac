@@ -9,6 +9,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Utilities.h"
+#import "Updates/UpdateChecker.h"
 
 @interface AboutWindow : NSWindow
 

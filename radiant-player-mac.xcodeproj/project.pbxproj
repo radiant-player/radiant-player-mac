@@ -74,6 +74,8 @@
 		D3DB8FF818BD6A6400ABE93B /* PlaybackSliderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DB8FF718BD6A6400ABE93B /* PlaybackSliderCell.m */; };
 		D3DF18181A99A581002AEE64 /* EmptyStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DF18171A99A581002AEE64 /* EmptyStyle.m */; };
 		D3F14A4918F357AA007D4536 /* AdvancedPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F14A4818F357AA007D4536 /* AdvancedPreferencesViewController.m */; };
+		D3F401AB1AD0A04900B8F4FC /* ReleaseChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F401AA1AD0A04900B8F4FC /* ReleaseChannel.m */; };
+		D3F401AF1AD0A10600B8F4FC /* UpdateChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F401AE1AD0A10600B8F4FC /* UpdateChecker.m */; };
 		D3FAC6D418BA81EC00D9F461 /* PopupStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FAC6D318BA81EC00D9F461 /* PopupStatusView.m */; };
 		D3FAC6D718BA942500D9F461 /* PopupViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FAC6D618BA942500D9F461 /* PopupViewDelegate.m */; };
 /* End PBXBuildFile section */
@@ -214,6 +216,10 @@
 		D3DF18171A99A581002AEE64 /* EmptyStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyStyle.m; sourceTree = "<group>"; };
 		D3F14A4718F357AA007D4536 /* AdvancedPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvancedPreferencesViewController.h; sourceTree = "<group>"; };
 		D3F14A4818F357AA007D4536 /* AdvancedPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvancedPreferencesViewController.m; sourceTree = "<group>"; };
+		D3F401A91AD0A04900B8F4FC /* ReleaseChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleaseChannel.h; sourceTree = "<group>"; };
+		D3F401AA1AD0A04900B8F4FC /* ReleaseChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReleaseChannel.m; sourceTree = "<group>"; };
+		D3F401AD1AD0A10600B8F4FC /* UpdateChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateChecker.h; sourceTree = "<group>"; };
+		D3F401AE1AD0A10600B8F4FC /* UpdateChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateChecker.m; sourceTree = "<group>"; };
 		D3FAC6D218BA81EC00D9F461 /* PopupStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupStatusView.h; sourceTree = "<group>"; };
 		D3FAC6D318BA81EC00D9F461 /* PopupStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupStatusView.m; sourceTree = "<group>"; };
 		D3FAC6D518BA942500D9F461 /* PopupViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupViewDelegate.h; sourceTree = "<group>"; };
@@ -283,6 +289,7 @@
 		1A7B684517453E40001E509E /* radiant-player-mac */ = {
 			isa = PBXGroup;
 			children = (
+				D3F401AC1AD0A05100B8F4FC /* Updates */,
 				D36F50621A3D871D000541C9 /* Support */,
 				D31ACE87193BDC9700AC7CB4 /* Notifications */,
 				D3D4C3E318E75C79007238B3 /* LastFm */,
@@ -472,6 +479,17 @@
 			path = LastFm;
 			sourceTree = "<group>";
 		};
+		D3F401AC1AD0A05100B8F4FC /* Updates */ = {
+			isa = PBXGroup;
+			children = (
+				D3F401A91AD0A04900B8F4FC /* ReleaseChannel.h */,
+				D3F401AA1AD0A04900B8F4FC /* ReleaseChannel.m */,
+				D3F401AD1AD0A10600B8F4FC /* UpdateChecker.h */,
+				D3F401AE1AD0A10600B8F4FC /* UpdateChecker.m */,
+			);
+			path = Updates;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -640,6 +658,8 @@
 				D3F14A4918F357AA007D4536 /* AdvancedPreferencesViewController.m in Sources */,
 				D3D4C3E818E76674007238B3 /* LastFmPopover.m in Sources */,
 				D3091F6318C32961007C8DCD /* Utilities.m in Sources */,
+				D3F401AB1AD0A04900B8F4FC /* ReleaseChannel.m in Sources */,
+				D3F401AF1AD0A10600B8F4FC /* UpdateChecker.m in Sources */,
 				D370E8E318E2BFE1007B5450 /* ExpandHoverView.m in Sources */,
 				D37C928F195E3F290035709A /* DarkStyle.m in Sources */,
 				D32861681924000800395FEA /* NSDate+UTCString.m in Sources */,

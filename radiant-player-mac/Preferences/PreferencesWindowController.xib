@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreferencesWindowController">
@@ -17,11 +17,11 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customView id="vbX-VO-Vnk" userLabel="General Preferences">
-            <rect key="frame" x="0.0" y="0.0" width="478" height="374"/>
+            <rect key="frame" x="0.0" y="0.0" width="478" height="385"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="kP2-c6-sUP">
-                    <rect key="frame" x="18" y="337" width="105" height="17"/>
+                    <rect key="frame" x="18" y="348" width="105" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Notifications:" id="BLl-CP-SxA">
                         <font key="font" metaFont="system"/>
@@ -30,7 +30,7 @@
                     </textFieldCell>
                 </textField>
                 <button id="Dew-bn-PGn">
-                    <rect key="frame" x="127" y="335" width="333" height="18"/>
+                    <rect key="frame" x="127" y="346" width="333" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Display notification when song changes" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Qb9-rA-qYZ">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -41,7 +41,7 @@
                     </connections>
                 </button>
                 <button id="BA4-pG-D4J">
-                    <rect key="frame" x="127" y="308" width="333" height="18"/>
+                    <rect key="frame" x="127" y="319" width="333" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Use Growl for notifications" bezelStyle="regularSquare" imagePosition="left" inset="2" id="JTn-91-56Z">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -53,7 +53,7 @@
                     </connections>
                 </button>
                 <button id="XVx-UD-G6n">
-                    <rect key="frame" x="127" y="281" width="333" height="18"/>
+                    <rect key="frame" x="127" y="292" width="333" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Include album art in notification" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Y8s-G0-q23">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -73,7 +73,7 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="wI0-wb-A0h">
-                    <rect key="frame" x="18" y="199" width="105" height="17"/>
+                    <rect key="frame" x="18" y="210" width="105" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Mini Player:" id="OVp-Sx-lNi">
                         <font key="font" metaFont="system"/>
@@ -82,7 +82,7 @@
                     </textFieldCell>
                 </textField>
                 <button id="QzZ-lJ-ZC6">
-                    <rect key="frame" x="127" y="198" width="333" height="18"/>
+                    <rect key="frame" x="127" y="209" width="333" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Show mini player in menu bar" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="KVZ-cW-hgC">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -93,7 +93,7 @@
                     </connections>
                 </button>
                 <button id="8q9-1Z-gSc">
-                    <rect key="frame" x="127" y="145" width="333" height="18"/>
+                    <rect key="frame" x="127" y="156" width="333" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Show playing status in mini player icon" bezelStyle="regularSquare" imagePosition="left" inset="2" id="yf5-1F-e4y">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -105,7 +105,7 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" id="Ewn-Vn-Jf4">
-                    <rect key="frame" x="146" y="169" width="314" height="29"/>
+                    <rect key="frame" x="146" y="180" width="314" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Changing this preference will require a restart of the application to take effect" id="7lz-27-vG3">
                         <font key="font" metaFont="smallSystem"/>
@@ -114,7 +114,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" id="iW3-JM-t6v">
-                    <rect key="frame" x="146" y="227" width="314" height="14"/>
+                    <rect key="frame" x="146" y="238" width="314" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Requires Mac OS X 10.9 or higher" id="oHg-L4-hVc">
                         <font key="font" metaFont="smallSystem"/>
@@ -123,7 +123,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" id="mPF-4G-rPI">
-                    <rect key="frame" x="146" y="266" width="314" height="14"/>
+                    <rect key="frame" x="146" y="277" width="314" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Requires Mac OS X 10.9 or higher" id="qDC-cN-hCA">
                         <font key="font" metaFont="smallSystem"/>
@@ -132,7 +132,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" id="V71-OH-XBr">
-                    <rect key="frame" x="146" y="89" width="314" height="28"/>
+                    <rect key="frame" x="146" y="100" width="314" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Access the main menu by right-clicking the menu icon" allowsEditingTextAttributes="YES" id="pkS-R3-Khr">
                         <font key="font" metaFont="smallSystem"/>
@@ -141,7 +141,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" id="asB-JM-HUB">
-                    <rect key="frame" x="146" y="75" width="314" height="28"/>
+                    <rect key="frame" x="146" y="86" width="314" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Changing this preference will require a restart of the application to take effect" allowsEditingTextAttributes="YES" id="M1a-9Q-pog">
                         <font key="font" metaFont="smallSystem"/>
@@ -150,7 +150,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="DRs-aQ-9fg">
-                    <rect key="frame" x="19" y="46" width="103" height="17"/>
+                    <rect key="frame" x="19" y="57" width="103" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Updates:" id="IYs-8o-aDY">
                         <font key="font" metaFont="system"/>
@@ -158,8 +158,17 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="7av-ul-PMs">
+                    <rect key="frame" x="146" y="33" width="52" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Use the" id="r7U-9W-OCL">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
                 <button id="0sK-A0-tA8">
-                    <rect key="frame" x="127" y="45" width="333" height="18"/>
+                    <rect key="frame" x="127" y="56" width="333" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Check for updates when the application starts" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ZzK-wa-l8x">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -170,7 +179,7 @@
                     </connections>
                 </button>
                 <button id="q91-pT-YTA">
-                    <rect key="frame" x="127" y="242" width="333" height="18"/>
+                    <rect key="frame" x="127" y="253" width="333" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Use iTunes style notifications" bezelStyle="regularSquare" imagePosition="left" inset="2" id="nox-ZI-U8i">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -190,7 +199,7 @@
                     </connections>
                 </button>
                 <button id="JnW-st-Alq">
-                    <rect key="frame" x="127" y="118" width="333" height="18"/>
+                    <rect key="frame" x="127" y="129" width="333" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Hide the dock icon when the mini player is active" bezelStyle="regularSquare" imagePosition="left" inset="2" id="x2Z-xf-GDv">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -201,7 +210,35 @@
                         <binding destination="qKJ-ks-0kW" name="value" keyPath="values.miniplayer.hide-dock-icon" id="QD4-Nv-BSl"/>
                     </connections>
                 </button>
+                <popUpButton verticalHuggingPriority="750" id="2eV-23-Cyl" userLabel="Release Channel">
+                    <rect key="frame" x="202" y="27" width="86" height="26"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="u4f-gH-s3d" userLabel="Release Channel">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="menu"/>
+                        <menu key="menu" id="Ujk-jU-AYa"/>
+                    </popUpButtonCell>
+                    <connections>
+                        <binding destination="E80-z1-A00" name="content" keyPath="arrangedObjects" id="rr3-Bm-vmP"/>
+                        <binding destination="qKJ-ks-0kW" name="selectedValue" keyPath="values.updates.channel" previousBinding="rr3-Bm-vmP" id="Ega-ax-Cvr">
+                            <dictionary key="options">
+                                <string key="NSNoSelectionPlaceholder">stable</string>
+                                <string key="NSNullPlaceholder">stable</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </popUpButton>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="az4-Wi-WKH">
+                    <rect key="frame" x="291" y="33" width="155" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="release channel" id="dfi-IZ-LxK">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
+            <point key="canvasLocation" x="260" y="270.5"/>
         </customView>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="D7u-3l-nVG" userLabel="Appearance Preferences">
@@ -282,6 +319,7 @@
         </customView>
         <viewController id="l7y-90-Hoh" customClass="GeneralPreferencesViewController">
             <connections>
+                <outlet property="buttonReleaseChannels" destination="2eV-23-Cyl" id="ycc-dy-1hk"/>
                 <outlet property="view" destination="vbX-VO-Vnk" id="h9c-5w-o7h"/>
             </connections>
         </viewController>
@@ -541,7 +579,7 @@ when the track is rated "thumbs up"</string>
                 </button>
             </subviews>
         </customView>
-        <arrayController id="spz-iP-VP0">
+        <arrayController id="spz-iP-VP0" userLabel="Styles Array Controller">
             <connections>
                 <binding destination="-3" name="contentArray" keyPath="self.delegate.styles.@allValues" id="GQe-23-U3M"/>
                 <binding destination="hV5-O3-L0a" name="sortDescriptors" keyPath="self.sortDescriptors" id="8CU-iP-8nh"/>
@@ -690,6 +728,11 @@ Changing this preference will require a restart of the application to take effec
                 </textField>
             </subviews>
         </customView>
+        <arrayController id="E80-z1-A00" userLabel="Release Channels Array Controller">
+            <connections>
+                <binding destination="-3" name="contentArray" keyPath="self.delegate.releaseChannels" id="pFm-s5-qpV"/>
+            </connections>
+        </arrayController>
     </objects>
     <resources>
         <image name="lastfm" width="900" height="269"/>

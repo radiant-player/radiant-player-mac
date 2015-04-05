@@ -44,6 +44,8 @@
 	<true/>
 	<key>updates.check</key>
 	<true/>
+	<key>updates.channel</key>
+	<string>stable</string>
 	<key>eventtap.alternative-method</key>
 	<false/>
 	<key>cookies.use-safari</key>

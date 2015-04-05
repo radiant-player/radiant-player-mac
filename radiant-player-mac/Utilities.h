@@ -15,11 +15,6 @@
 + (NSData *)dataWithContentsOfPath:(NSString *)path;
 + (NSImage *)templateImage:(NSString *)templateName withColor:(NSColor *)tint;
 
-+ (NSString *)latestVersionFromGithub;
-+ (NSString *)applicationVersion;
-+ (BOOL)isVersionUpToDateWithApplication:(NSString *)appVersion latest:(NSString *)latest;
-+ (BOOL)isApplicationUpToDate;
-
 + (NSString *)applicationHomepage;
 + (NSString *)applicationName;
 

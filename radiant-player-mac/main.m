@@ -12,6 +12,8 @@
 #import "Support/VisualEffectView.h"
 #import "Popup/PopupView.h"
 
+#include "Updates/UpdateChecker.h"
+
 int main(int argc, char *argv[])
 {
     // Register default preferences.

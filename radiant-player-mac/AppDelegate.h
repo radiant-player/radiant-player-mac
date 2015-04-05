@@ -24,6 +24,8 @@
 #import "PopupViewDelegate.h"
 #import "PopupPanel.h"
 
+#import "Utilities.h"
+#import "Updates/UpdateChecker.h"
 #import "PreferencesWindowController.h"
 #import "ApplicationStyle.h"
 #import "EmptyStyle.h"
@@ -40,6 +42,7 @@
     CFRunLoopSourceRef eventPortSource;
     
     NSMutableDictionary *_styles;
+    NSArray *_releaseChannels;
     BOOL _isTall;
     
     WebView *dummyWebView;
@@ -87,6 +90,7 @@
 - (void) checkVersion;
 - (void) initializeStatusBar;
 - (NSMutableDictionary *) styles;
+- (NSArray *) releaseChannels;
 - (void) setupThumbsUpRatingView;
 - (void) setupStarRatingView;
 - (void) setupRatingMenuItems;

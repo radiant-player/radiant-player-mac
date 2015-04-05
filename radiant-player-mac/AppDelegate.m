@@ -242,10 +242,11 @@
 - (void)checkVersion
 {
     NSString *appName = [Utilities applicationName];
-    NSString *appVersion = [Utilities applicationVersion];
-    NSString *latestVersion = [Utilities latestVersionFromGithub];
+    NSString *appVersion = [UpdateChecker applicationVersion];
+    NSString *releaseChannel = [UpdateChecker releaseChannel];
+    NSString *latestVersion = [UpdateChecker latestVersionFromGithub:releaseChannel];
     
-    if (latestVersion != nil && [Utilities isVersionUpToDateWithApplication:appVersion latest:latestVersion] == NO) {
+    if (latestVersion != nil && [UpdateChecker isVersionUpToDateWithApplication:appVersion latest:latestVersion] == NO) {
         // Application is out of date.
         NSString *messageFormat = @"You are running version %@ of %@, but the latest version is %@. Do you want to be taken to the download page?";
         NSString *message = [NSString stringWithFormat:messageFormat, appVersion, appName, latestVersion];
@@ -288,6 +289,16 @@
     }
     
     return _styles;
+}
+
+- (NSArray *)releaseChannels
+{
+    if (_releaseChannels == nil)
+    {
+        _releaseChannels = @[CHANNEL_STABLE, CHANNEL_BETA];
+    }
+    
+    return _releaseChannels;
 }
 
 - (void)initializeStatusBar
