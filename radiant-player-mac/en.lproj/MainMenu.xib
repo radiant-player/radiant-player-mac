@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="6254"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="6250"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -265,10 +265,22 @@
                                     <binding destination="494" name="enabled" keyPath="self.webView.canGoBack" id="HoQ-bC-hWc"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Go Back" alternate="YES" keyEquivalent="[" id="4cT-OG-3S2">
+                                <connections>
+                                    <action selector="webBrowserBack:" target="494" id="iou-SY-tS2"/>
+                                    <binding destination="494" name="enabled" keyPath="self.webView.canGoBack" id="mq3-br-b1C"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="Go Forward" keyEquivalent="" id="h8M-FE-ECf">
                                 <connections>
                                     <action selector="webBrowserForward:" target="494" id="9mb-ll-qGE"/>
                                     <binding destination="494" name="enabled" keyPath="self.webView.canGoForward" id="Oed-xO-0Qu"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Go Forward" alternate="YES" keyEquivalent="]" id="ZZG-0g-3wo">
+                                <connections>
+                                    <action selector="webBrowserForward:" target="494" id="AOB-QY-BFN"/>
+                                    <binding destination="494" name="enabled" keyPath="self.webView.canGoForward" id="dA5-K2-r4h"/>
                                 </connections>
                             </menuItem>
                         </items>
@@ -305,7 +317,7 @@
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="942" height="702"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" id="372">
                 <rect key="frame" x="0.0" y="0.0" width="942" height="702"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -403,7 +415,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="131" y="159" width="297" height="338"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <value key="minSize" type="size" width="297" height="325"/>
             <value key="maxSize" type="size" width="297" height="325"/>
             <view key="contentView" id="bh6-VI-WVo">
@@ -506,7 +518,7 @@
             <windowCollectionBehavior key="collectionBehavior" moveToActiveSpace="YES" ignoresCycle="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="139" y="81" width="356" height="152"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" id="4yq-G3-W3B" customClass="PopupView">
                 <rect key="frame" x="0.0" y="0.0" width="356" height="152"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
