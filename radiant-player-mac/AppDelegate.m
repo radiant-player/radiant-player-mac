@@ -738,7 +738,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
  */
 - (IBAction) focusSearch:(id)sender
 {
-    [webView stringByEvaluatingJavaScriptFromString:@"document.querySelector('#gbqfq').select()"];
+    [webView stringByEvaluatingJavaScriptFromString:@"document.querySelector('.material-search').select()"];
 }
 
 - (void)notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art duration:(NSTimeInterval)duration
@@ -921,8 +921,6 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         [self evaluateJavaScriptFile:@"main"];
     }
     
-    [self evaluateJavaScriptFile:@"keyboard"];
-    [self evaluateJavaScriptFile:@"mouse"];
     [self evaluateJavaScriptFile:@"styles"];
     
     // Apply the navigation styles.

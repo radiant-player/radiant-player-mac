@@ -3,23 +3,10 @@
  *
  * Minimum stylesheet for "no" style.
  *
- * Created by Sajid Anwar, stipped down to just the header by Steven La
+ * Created by Sajid Anwar.
  *
  * Subject to terms and conditions in LICENSE.md.
  *
  */
 
-#oneGoogleWrapper > div:first-child > div:first-child > div:first-child {
-    min-width: 0px !important;
-}
-
-#oneGoogleWrapper > div:first-child > div:first-child > div:nth-child(2) {
-    margin-left: 90px !important;
-    margin-right: 20px !important;
-    min-width: 0px;
-}
-
-#oneGoogleWrapper > div:first-child > div:first-child > div:nth-child(2) > div:first-child {
-    position: static;
-    padding: 0;
-}
+/* Turns out, I don't think we actually need anything for the "no style" style.

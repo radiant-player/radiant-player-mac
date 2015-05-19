@@ -10,31 +10,18 @@
  */
 
 .gm-nav-button {
-    display: inline-block;
-    border: none;
-    outline: none;
-    vertical-align: top;
-    opacity: 0.6;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    min-width: 24px;
 
-    width: 30px;
-    height: 30px;
-    background-color: transparent;
-    background-size: 30px 30px;
-    margin: 15px 8px 0 8px;
 }
 
-.gm-nav-button:hover {
-    opacity: 0.4;
+#rp-padding-left {
+    min-width: 77px;
 }
 
-.gm-nav-button:active {
-    opacity: 0.6;
-}
-
-#gm-back {
-    background-image: url(http://radiant-player-mac/images/arrow-left.png);
-}
-
-#gm-forward {
-    background-image: url(http://radiant-player-mac/images/arrow-right.png);
+/* When the navigation drawer is open */
+core-drawer-panel:not([narrow]) #rp-padding-left {
+    min-width: 0px;
 }

@@ -425,50 +425,6 @@ div.simple-dialog-bg {
     visibility: visible;
 }
 
-.gm-nav-button {
-    border-radius: 3px;
-    background-color: #fcfcfc;
-    opacity: 1;
-    border-bottom: 1px solid #bbb;
-    border-top: 1px solid #ddd;
-    margin-left:0;
-    margin-right: 0;
-    
-    background-size: 12px 16px;
-    background-position: 9px 6px;
-    background-repeat: no-repeat;
-}
-
-.gm-nav-button:hover {
-    opacity: 1;
-}
-
-.gm-nav-button:active {
-    opacity: 1;
-    background-color: #eee;
-}
-
-#gm-back {
-    background-image: url(http://radiant-player-mac/images/arrow-left-yosemite.png);
-    margin-right: 1px;
-}
-
-#gm-forward {
-    background-image: url(http://radiant-player-mac/images/arrow-right-yosemite.png);
-}
-
-body.inactive .gm-nav-button {
-    
-}
-
-body.inactive #gm-back, #gm-back.inactive {
-    background-image: url(http://radiant-player-mac/images/arrow-left-yosemite-inactive.png);
-}
-
-body.inactive #gm-forward, #gm-forward.inactive {
-    background-image: url(http://radiant-player-mac/images/arrow-right-yosemite-inactive.png);
-}
-
 ::-webkit-scrollbar {
     width: 10px !important;
 }

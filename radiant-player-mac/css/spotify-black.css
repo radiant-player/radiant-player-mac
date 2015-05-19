@@ -496,26 +496,6 @@ div.simple-dialog-bg {
     border-width: 0 !important;
 }
 
-#gm-back {
-    background-image: url(https://radiant-player-mac/images/arrow-left-white.png) !important;
-}
-
-#gm-forward {
-    background-image: url(https://radiant-player-mac/images/arrow-right-white.png) !important;
-}
-
-.gm-nav-button {
-    opacity: 0.8 !important;
-}
-
-.gm-nav-button:hover {
-    opacity: 1.0 !important;
-}
-
-.gm-nav-button:active {
-    opacity: 0.8 !important;
-}
-
 .song-row [data-col="rating"],
 .song-row .rating-container [data-col="rating"], 
 .song-row .rating-container [data-col="rating"]:hover,
