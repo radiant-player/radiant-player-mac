@@ -182,6 +182,7 @@
     [NSURLProtocol registerClass:[SpriteDownloadURLProtocol class]];
     [NSURLProtocol registerClass:[InvertedSpriteURLProtocol class]];
     [NSURLProtocol registerClass:[ImageURLProtocol class]];
+    [NSURLProtocol registerClass:[JSURLProtocol class]];
     [NSURLProtocol registerClass:[WebComponentsURLProtocol class]];
 
 	// Add an event tap to intercept the system defined media key events
@@ -974,11 +975,15 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     
 - (void) evaluateJavaScriptFile:(NSString *)name
 {
-    NSString *file = [NSString stringWithFormat:@"js/%@", name];
-    NSString *path = [[NSBundle mainBundle] pathForResource:file ofType:@"js"];
-    NSString *js = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
-    
-    [webView stringByEvaluatingJavaScriptFromString:js];
+    NSString *template =
+        @"if (document.querySelector('#rp-script-%1$@') == null) {"
+        "    var js = document.createElement('script');"
+        "    js.id = 'rp-script-%1$@';"
+        "    js.src = 'http://radiant-player-mac/js/%1$@.js';"
+        "    document.head.appendChild(js);"
+        "}";
+    NSString *insert = [NSString stringWithFormat:template, name];
+    [webView stringByEvaluatingJavaScriptFromString:insert];
 }
 
 - (void) applyCSSFile:(NSString *)name

@@ -88,8 +88,16 @@
     {
         NSArray *components = [url pathComponents];
         
+        // Handle script resources.
+        if ([[components objectAtIndex:1] isEqualToString:@"js"])
+        {
+            // JS resources.
+            [NSURLProtocol setProperty:self forKey:@"JSCustomWebView" inRequest:req];
+            return req;
+        }
+        
         // Handle image resources.
-        if ([[components objectAtIndex:1] isEqualToString:@"images"])
+        else if ([[components objectAtIndex:1] isEqualToString:@"images"])
         {
             // Image resources.
             [NSURLProtocol setProperty:self forKey:@"ImagesCustomWebView" inRequest:req];
