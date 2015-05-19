@@ -19,6 +19,7 @@
 #import "InvertedSpriteURLProtocol.h"
 #import "SpriteDownloadURLProtocol.h"
 #import "ImageURLProtocol.h"
+#import "WebComponentsURLProtocol.h"
 
 #import "PopupStatusView.h"
 #import "PopupViewDelegate.h"

@@ -51,6 +51,7 @@
 		D36F50651A3D874E000541C9 /* VisualEffectView.m in Sources */ = {isa = PBXBuildFile; fileRef = D36F50641A3D874E000541C9 /* VisualEffectView.m */; };
 		D370E8E018E21ABC007B5450 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D370E8DF18E21ABC007B5450 /* QuartzCore.framework */; };
 		D370E8E318E2BFE1007B5450 /* ExpandHoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = D370E8E218E2BFE1007B5450 /* ExpandHoverView.m */; };
+		D377DB5E1B0AADB700026312 /* WebComponentsURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D377DB5D1B0AADB700026312 /* WebComponentsURLProtocol.m */; };
 		D37B638418ED315B0098F9DC /* LastFm+TrackInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D37B638318ED315B0098F9DC /* LastFm+TrackInfo.m */; };
 		D37B638718F1E7680098F9DC /* SpriteDownloadURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D37B638618F1E7680098F9DC /* SpriteDownloadURLProtocol.m */; };
 		D37B638A18F1EFD30098F9DC /* InvertedSpriteURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D37B638918F1EFD30098F9DC /* InvertedSpriteURLProtocol.m */; };
@@ -174,6 +175,8 @@
 		D370E8DF18E21ABC007B5450 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D370E8E118E2BFE1007B5450 /* ExpandHoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpandHoverView.h; sourceTree = "<group>"; };
 		D370E8E218E2BFE1007B5450 /* ExpandHoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandHoverView.m; sourceTree = "<group>"; };
+		D377DB5C1B0AADB700026312 /* WebComponentsURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebComponentsURLProtocol.h; sourceTree = "<group>"; };
+		D377DB5D1B0AADB700026312 /* WebComponentsURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebComponentsURLProtocol.m; sourceTree = "<group>"; };
 		D37B638218ED315B0098F9DC /* LastFm+TrackInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LastFm+TrackInfo.h"; sourceTree = "<group>"; };
 		D37B638318ED315B0098F9DC /* LastFm+TrackInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LastFm+TrackInfo.m"; sourceTree = "<group>"; };
 		D37B638518F1E7680098F9DC /* SpriteDownloadURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteDownloadURLProtocol.h; sourceTree = "<group>"; };
@@ -420,6 +423,8 @@
 				D37B638918F1EFD30098F9DC /* InvertedSpriteURLProtocol.m */,
 				D3CD9C3A18F25E0E002FBEE9 /* ImageURLProtocol.h */,
 				D3CD9C3B18F25E0E002FBEE9 /* ImageURLProtocol.m */,
+				D377DB5C1B0AADB700026312 /* WebComponentsURLProtocol.h */,
+				D377DB5D1B0AADB700026312 /* WebComponentsURLProtocol.m */,
 				D3286169192414B900395FEA /* NSHTTPCookie+Coding.h */,
 				D328616A192414B900395FEA /* NSHTTPCookie+Coding.m */,
 				D328616E1924744200395FEA /* NSHTTPCookieStorage+Swizzle.h */,
@@ -644,6 +649,7 @@
 				D346173519D907F300017023 /* SpotifyBlackVibrantStyle.m in Sources */,
 				D37B638718F1E7680098F9DC /* SpriteDownloadURLProtocol.m in Sources */,
 				D37C9295195E42800035709A /* CocoaStyle.m in Sources */,
+				D377DB5E1B0AADB700026312 /* WebComponentsURLProtocol.m in Sources */,
 				D3B71C2818C2D5240041358B /* PreferencesWindowController.m in Sources */,
 				D328616519234D7900395FEA /* TitleBarTextView.m in Sources */,
 				D318341718CFBC7400E8F9B1 /* AppearancePreferencesViewController.m in Sources */,
