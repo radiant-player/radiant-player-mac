@@ -116,7 +116,7 @@
 - (void)downloadAlbumArt:(NSString *)art
 {
     // Download the 500px size image.
-    art = [art stringByReplacingOccurrencesOfString:@"=s130-" withString:@"=s500-"];
+    art = [art stringByReplacingOccurrencesOfString:@"=s90-" withString:@"=s500-"];
     
     NSURL *url = [NSURL URLWithString:art];
     NSImage *image = [[NSImage alloc] initWithContentsOfURL:url];
