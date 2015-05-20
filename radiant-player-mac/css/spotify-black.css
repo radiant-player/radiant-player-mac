@@ -224,6 +224,11 @@ a, .simple-dialog a {
     color: #F7F9FF !important;
 }
 
+#nav_collections .nav-item-container:focus,
+.nav-item-container:focus, .nav-item-container:hover {
+    background-color: transparent;
+}
+
 .material .nav-section-header {
     padding-left: 0;
     font-weight: 300;
