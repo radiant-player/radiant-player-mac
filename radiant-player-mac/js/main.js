@@ -253,7 +253,6 @@ if (typeof window.MusicAPI === 'undefined') {
                             ratingEl.observe.icon = 'iconChanged_';
                             ratingEl.iconChanged_ = function(oldIcon) {
                                 this.iconChanged(oldIcon);
-                                console.log(MusicAPI.Rating.getRating());
                                 GoogleMusicApp.ratingChanged(MusicAPI.Rating.getRating());
                             };
                         }
