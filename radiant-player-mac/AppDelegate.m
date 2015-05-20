@@ -287,7 +287,7 @@
     if (_styles == nil)
     {
         _styles = [ApplicationStyle styles];
-        [_styles setObject:[[GoogleStyle alloc] init] forKey:@"Empty"];
+        [_styles setObject:[[GoogleStyle alloc] init] forKey:@"Google"];
     }
     
     return _styles;
@@ -941,8 +941,13 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     NSString *styleName = [defaults stringForKey:@"styles.name"];
     ApplicationStyle *style = [_styles objectForKey:styleName];
     
+    if (!style) {
+        [defaults setObject:@"Google" forKey:@"styles.name"];
+        [defaults synchronize];
+    }
+    
     if (!stylesEnabled || !style)
-        style = [_styles objectForKey:@"Empty"];
+        style = [_styles objectForKey:@"Google"];
     
     [style applyToWebView:webView window:window];
     
