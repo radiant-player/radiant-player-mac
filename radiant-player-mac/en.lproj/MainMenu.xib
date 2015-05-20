@@ -259,25 +259,13 @@
                                     <action selector="focusSearch:" target="494" id="b8Y-wi-Hzu"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Go Back" keyEquivalent="" id="Z2y-h2-xro">
-                                <connections>
-                                    <action selector="webBrowserBack:" target="494" id="bK9-Lc-bhJ"/>
-                                    <binding destination="494" name="enabled" keyPath="self.webView.canGoBack" id="HoQ-bC-hWc"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Go Back" alternate="YES" keyEquivalent="[" id="4cT-OG-3S2">
+                            <menuItem title="Go Back" keyEquivalent="[" id="4cT-OG-3S2">
                                 <connections>
                                     <action selector="webBrowserBack:" target="494" id="iou-SY-tS2"/>
                                     <binding destination="494" name="enabled" keyPath="self.webView.canGoBack" id="mq3-br-b1C"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Go Forward" keyEquivalent="" id="h8M-FE-ECf">
-                                <connections>
-                                    <action selector="webBrowserForward:" target="494" id="9mb-ll-qGE"/>
-                                    <binding destination="494" name="enabled" keyPath="self.webView.canGoForward" id="Oed-xO-0Qu"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Go Forward" alternate="YES" keyEquivalent="]" id="ZZG-0g-3wo">
+                            <menuItem title="Go Forward" keyEquivalent="]" id="ZZG-0g-3wo">
                                 <connections>
                                     <action selector="webBrowserForward:" target="494" id="AOB-QY-BFN"/>
                                     <binding destination="494" name="enabled" keyPath="self.webView.canGoForward" id="dA5-K2-r4h"/>
