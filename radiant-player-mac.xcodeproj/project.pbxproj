@@ -59,9 +59,6 @@
 		D37C9286195DFE870035709A /* YosemiteStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C9285195DFE870035709A /* YosemiteStyle.m */; };
 		D37C9289195E19BD0035709A /* NSImage+Data.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C9288195E19BD0035709A /* NSImage+Data.m */; };
 		D37C928C195E3B3F0035709A /* SpotifyBlackStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C928B195E3B3F0035709A /* SpotifyBlackStyle.m */; };
-		D37C928F195E3F290035709A /* DarkStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C928E195E3F290035709A /* DarkStyle.m */; };
-		D37C9292195E41290035709A /* DarkFlatStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C9291195E41290035709A /* DarkFlatStyle.m */; };
-		D37C9295195E42800035709A /* CocoaStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C9294195E42800035709A /* CocoaStyle.m */; };
 		D3B1668318BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */; };
 		D3B4C0C318DAB4740069AB18 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B4C0C218DAB4740069AB18 /* JavaScriptCore.framework */; };
 		D3B71C2818C2D5240041358B /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B71C2718C2D5240041358B /* PreferencesWindowController.m */; };
@@ -74,7 +71,7 @@
 		D3DB8FF018BD253A00ABE93B /* images in Resources */ = {isa = PBXBuildFile; fileRef = D3DB8FEF18BD253A00ABE93B /* images */; };
 		D3DB8FF518BD2AEC00ABE93B /* PlaybackConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DB8FF418BD2AEC00ABE93B /* PlaybackConstants.m */; };
 		D3DB8FF818BD6A6400ABE93B /* PlaybackSliderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DB8FF718BD6A6400ABE93B /* PlaybackSliderCell.m */; };
-		D3DF18181A99A581002AEE64 /* EmptyStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DF18171A99A581002AEE64 /* EmptyStyle.m */; };
+		D3DF18181A99A581002AEE64 /* GoogleStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DF18171A99A581002AEE64 /* GoogleStyle.m */; };
 		D3F14A4918F357AA007D4536 /* AdvancedPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F14A4818F357AA007D4536 /* AdvancedPreferencesViewController.m */; };
 		D3F401AB1AD0A04900B8F4FC /* ReleaseChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F401AA1AD0A04900B8F4FC /* ReleaseChannel.m */; };
 		D3F401AF1AD0A10600B8F4FC /* UpdateChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F401AE1AD0A10600B8F4FC /* UpdateChecker.m */; };
@@ -192,12 +189,6 @@
 		D37C9288195E19BD0035709A /* NSImage+Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Data.m"; sourceTree = "<group>"; };
 		D37C928A195E3B3F0035709A /* SpotifyBlackStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifyBlackStyle.h; sourceTree = "<group>"; };
 		D37C928B195E3B3F0035709A /* SpotifyBlackStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotifyBlackStyle.m; sourceTree = "<group>"; };
-		D37C928D195E3F290035709A /* DarkStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DarkStyle.h; sourceTree = "<group>"; };
-		D37C928E195E3F290035709A /* DarkStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DarkStyle.m; sourceTree = "<group>"; };
-		D37C9290195E41290035709A /* DarkFlatStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DarkFlatStyle.h; sourceTree = "<group>"; };
-		D37C9291195E41290035709A /* DarkFlatStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DarkFlatStyle.m; sourceTree = "<group>"; };
-		D37C9293195E42800035709A /* CocoaStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaStyle.h; sourceTree = "<group>"; };
-		D37C9294195E42800035709A /* CocoaStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoaStyle.m; sourceTree = "<group>"; };
 		D3B1668118BB0E43003FCE6B /* DummyWebViewPolicyDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyWebViewPolicyDelegate.h; sourceTree = "<group>"; };
 		D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyWebViewPolicyDelegate.m; sourceTree = "<group>"; };
 		D3B4C0C218DAB4740069AB18 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -218,8 +209,8 @@
 		D3DB8FF418BD2AEC00ABE93B /* PlaybackConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaybackConstants.m; sourceTree = "<group>"; };
 		D3DB8FF618BD6A6400ABE93B /* PlaybackSliderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaybackSliderCell.h; sourceTree = "<group>"; };
 		D3DB8FF718BD6A6400ABE93B /* PlaybackSliderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaybackSliderCell.m; sourceTree = "<group>"; };
-		D3DF18161A99A581002AEE64 /* EmptyStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyStyle.h; sourceTree = "<group>"; };
-		D3DF18171A99A581002AEE64 /* EmptyStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyStyle.m; sourceTree = "<group>"; };
+		D3DF18161A99A581002AEE64 /* GoogleStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleStyle.h; sourceTree = "<group>"; };
+		D3DF18171A99A581002AEE64 /* GoogleStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleStyle.m; sourceTree = "<group>"; };
 		D3F14A4718F357AA007D4536 /* AdvancedPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvancedPreferencesViewController.h; sourceTree = "<group>"; };
 		D3F14A4818F357AA007D4536 /* AdvancedPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvancedPreferencesViewController.m; sourceTree = "<group>"; };
 		D3F401A91AD0A04900B8F4FC /* ReleaseChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleaseChannel.h; sourceTree = "<group>"; };
@@ -359,14 +350,8 @@
 				D318341A18CFC7C500E8F9B1 /* ApplicationStyle.m */,
 				B0BB948719F76CF80081C97D /* LightStyle.h */,
 				B0BB948819F76CFD0081C97D /* LightStyle.m */,
-				D37C9293195E42800035709A /* CocoaStyle.h */,
-				D37C9294195E42800035709A /* CocoaStyle.m */,
-				D37C9290195E41290035709A /* DarkFlatStyle.h */,
-				D37C9291195E41290035709A /* DarkFlatStyle.m */,
-				D37C928D195E3F290035709A /* DarkStyle.h */,
-				D37C928E195E3F290035709A /* DarkStyle.m */,
-				D3DF18161A99A581002AEE64 /* EmptyStyle.h */,
-				D3DF18171A99A581002AEE64 /* EmptyStyle.m */,
+				D3DF18161A99A581002AEE64 /* GoogleStyle.h */,
+				D3DF18171A99A581002AEE64 /* GoogleStyle.m */,
 				D37C928A195E3B3F0035709A /* SpotifyBlackStyle.h */,
 				D37C928B195E3B3F0035709A /* SpotifyBlackStyle.m */,
 				D346173319D907F300017023 /* SpotifyBlackVibrantStyle.h */,
@@ -630,7 +615,6 @@
 				D318342118D0513D00E8F9B1 /* CookieStorage.m in Sources */,
 				D318341B18CFC7C500E8F9B1 /* ApplicationStyle.m in Sources */,
 				2B8FC1C318C9CB16006D04FF /* RadiantPlayerScriptCommand.m in Sources */,
-				D37C9292195E41290035709A /* DarkFlatStyle.m in Sources */,
 				D3B71C2F18C2D5770041358B /* LastFmPreferencesViewController.m in Sources */,
 				D30CA00519383160007B05B2 /* NSApplication+ScriptingProperties.m in Sources */,
 				1A7B684C17453E40001E509E /* main.m in Sources */,
@@ -638,7 +622,7 @@
 				D35F2E8C1A3D9D130072E461 /* Swizzle.c in Sources */,
 				D3DB8FF518BD2AEC00ABE93B /* PlaybackConstants.m in Sources */,
 				D32861701924744200395FEA /* NSHTTPCookieStorage+Swizzle.m in Sources */,
-				D3DF18181A99A581002AEE64 /* EmptyStyle.m in Sources */,
+				D3DF18181A99A581002AEE64 /* GoogleStyle.m in Sources */,
 				D3D4C3EB18E77AA0007238B3 /* LastFmTrackTableCellView.m in Sources */,
 				1A7B685317453E40001E509E /* AppDelegate.m in Sources */,
 				D3DB8FF818BD6A6400ABE93B /* PlaybackSliderCell.m in Sources */,
@@ -654,7 +638,6 @@
 				D31ACE84193ACDC300AC7CB4 /* RatingBadgeButton.m in Sources */,
 				D346173519D907F300017023 /* SpotifyBlackVibrantStyle.m in Sources */,
 				D37B638718F1E7680098F9DC /* SpriteDownloadURLProtocol.m in Sources */,
-				D37C9295195E42800035709A /* CocoaStyle.m in Sources */,
 				D377DB5E1B0AADB700026312 /* WebComponentsURLProtocol.m in Sources */,
 				D3B71C2818C2D5240041358B /* PreferencesWindowController.m in Sources */,
 				D328616519234D7900395FEA /* TitleBarTextView.m in Sources */,
@@ -673,7 +656,6 @@
 				D3F401AB1AD0A04900B8F4FC /* ReleaseChannel.m in Sources */,
 				D3F401AF1AD0A10600B8F4FC /* UpdateChecker.m in Sources */,
 				D370E8E318E2BFE1007B5450 /* ExpandHoverView.m in Sources */,
-				D37C928F195E3F290035709A /* DarkStyle.m in Sources */,
 				D32861681924000800395FEA /* NSDate+UTCString.m in Sources */,
 				D32CCEFD18BE9BF800BDD484 /* PopupView.m in Sources */,
 				D36F50651A3D874E000541C9 /* VisualEffectView.m in Sources */,

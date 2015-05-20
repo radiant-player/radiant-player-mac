@@ -30,7 +30,7 @@
 #import "Updates/UpdateChecker.h"
 #import "PreferencesWindowController.h"
 #import "ApplicationStyle.h"
-#import "EmptyStyle.h"
+#import "GoogleStyle.h"
 #import "LastFmPopover.h"
 #import "Support/TitleBarTextView.h"
 

@@ -287,7 +287,7 @@
     if (_styles == nil)
     {
         _styles = [ApplicationStyle styles];
-        [_styles setObject:[[EmptyStyle alloc] init] forKey:@"Empty"];
+        [_styles setObject:[[GoogleStyle alloc] init] forKey:@"Empty"];
     }
     
     return _styles;

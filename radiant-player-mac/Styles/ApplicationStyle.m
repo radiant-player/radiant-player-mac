@@ -8,9 +8,6 @@
  */
 
 #import "ApplicationStyle.h"
-#import "CocoaStyle.h"
-#import "DarkStyle.h"
-#import "DarkFlatStyle.h"
 #import "SpotifyBlackStyle.h"
 #import "SpotifyBlackVibrantStyle.h"
 #import "YosemiteStyle.h"
@@ -65,31 +62,22 @@
 
 + (NSMutableDictionary *)styles
 {
-    DarkStyle *dark = [[DarkStyle alloc] init];
-    DarkFlatStyle *darkFlat = [[DarkFlatStyle alloc] init];
     SpotifyBlackStyle *spotifyBlack = [[SpotifyBlackStyle alloc] init];
     
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
-    [dictionary setObject:dark forKey:[dark name]];
-    [dictionary setObject:darkFlat forKey:[darkFlat name]];
     [dictionary setObject:spotifyBlack forKey:[spotifyBlack name]];
     
-    if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9)
-    {
-        YosemiteStyle *yosemite = [[YosemiteStyle alloc] init];
-        [dictionary setObject:yosemite forKey:[yosemite name]];
-        
-        LightStyle *barelyYosemite = [[LightStyle alloc] init];
-        [dictionary setObject:barelyYosemite forKey:[barelyYosemite name]];
-        
-        SpotifyBlackVibrantStyle *spotifyBlackVibrant = [[SpotifyBlackVibrantStyle alloc] init];
-        [dictionary setObject:spotifyBlackVibrant forKey:[spotifyBlackVibrant name]];
-    }
-    else
-    {
-        CocoaStyle *cocoa = [[CocoaStyle alloc] init];
-        [dictionary setObject:cocoa forKey:[cocoa name]];
-    }
+//    if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9)
+//    {
+//        YosemiteStyle *yosemite = [[YosemiteStyle alloc] init];
+//        [dictionary setObject:yosemite forKey:[yosemite name]];
+//        
+//        LightStyle *barelyYosemite = [[LightStyle alloc] init];
+//        [dictionary setObject:barelyYosemite forKey:[barelyYosemite name]];
+//        
+//        SpotifyBlackVibrantStyle *spotifyBlackVibrant = [[SpotifyBlackVibrantStyle alloc] init];
+//        [dictionary setObject:spotifyBlackVibrant forKey:[spotifyBlackVibrant name]];
+//    }
     
     return dictionary;
 }

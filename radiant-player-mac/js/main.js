@@ -107,7 +107,7 @@ if (typeof window.MusicAPI === 'undefined') {
         P.forward =        function() { _eforward.click(); };
         P.rewind =         function() { _erewind.click(); };
 
-        P.getShuffle =     function() { return _eshuffle.value; };
+        P.getShuffle =     function() { return _eshuffle.getAttribute('value'); };
         P.toggleShuffle =  function() { _eshuffle.click(); };
 
         P.getRepeat = function() {
@@ -144,7 +144,7 @@ if (typeof window.MusicAPI === 'undefined') {
         
         // Determine whether the rating element is selected.
         R.isRatingSelected = function(el) {
-            return el.$.icon.getAttribute('aria-label').indexOf('-outline') == -1;
+            return el.icon.indexOf('-outline') == -1;
         };
 
         // Determine whether the rating system is thumbs or stars.
@@ -159,8 +159,8 @@ if (typeof window.MusicAPI === 'undefined') {
             for (var i = 0; i < els.length; i++) {
                 var el = els[i];
                 
-                if (isRatingSelected(el))
-                    return el.dataset.rating;
+                if (R.isRatingSelected(el))
+                    return parseInt(el.dataset.rating);
             }
             
             return 0;
@@ -186,7 +186,7 @@ if (typeof window.MusicAPI === 'undefined') {
         R.setStarRating = function(rating) {
             var el = document.querySelector('.player-rating-container sj-icon-button[data-rating="' + rating + '"]');
 
-            if (el && !isRatingSelected(el))
+            if (el && !R.isRatingSelected(el))
                 el.click();
         }
         
@@ -245,13 +245,20 @@ if (typeof window.MusicAPI === 'undefined') {
                 if (name == 'now-playing-info-wrapper')  {
                     
                     // Fire the rating observer if the thumbs exist (no harm if already observing)
-                    var ratingsEl = document.querySelector('#player .player-rating-container');
-                    if (ratingsEl != null) {
-                        ratingObserver.observe(ratingsEl, { attributes: true, subtree: true });
+                    var ratingEls = document.querySelectorAll('.player-rating-container sj-icon-button[data-rating]');
+                    for (var j = 0; j < ratingEls.length; j++) {
+                        var ratingEl = ratingEls[j];
+                        
+                        if (ratingEl.observe.icon != 'iconChanged_') {
+                            ratingEl.observe.icon = 'iconChanged_';
+                            ratingEl.iconChanged_ = function(oldIcon) {
+                                this.iconChanged(oldIcon);
+                                console.log(MusicAPI.Rating.getRating());
+                                GoogleMusicApp.ratingChanged(MusicAPI.Rating.getRating());
+                            };
+                        }
                     }
-                    else {
-                        ratingObserver.disconnect();
-                    }
+                    GoogleMusicApp.ratingChanged(MusicAPI.Rating.getRating());
                     
                     var now = new Date();
 
@@ -291,7 +298,7 @@ if (typeof window.MusicAPI === 'undefined') {
             var id = target.dataset.id;
 
             if (id == 'shuffle') {
-                GoogleMusicApp.shuffleChanged(target.value);
+                GoogleMusicApp.shuffleChanged(target.getAttribute('value'));
             }
         });
     });
@@ -302,7 +309,7 @@ if (typeof window.MusicAPI === 'undefined') {
             var id = target.dataset.id;
 
             if (id == 'repeat') {
-                GoogleMusicApp.repeatChanged(target.value);
+                GoogleMusicApp.repeatChanged(target.getAttribute('value'));
             }
         });
     });
@@ -347,25 +354,9 @@ if (typeof window.MusicAPI === 'undefined') {
         });
     });
 
-    ratingObserver = new MutationObserver(function(mutations) {
-        mutations.forEach(function(m) {
-            var target = m.target;
-
-            if (MusicAPI.Rating.isRatingSelected(target))
-            {
-                GoogleMusicApp.ratingChanged(target.dataset.rating);
-            }
-        });
-    });
-    
-
     addObserver.observe(document.querySelector('#player #playerSongInfo'), { childList: true, subtree: true });
     shuffleObserver.observe(document.querySelector('#player sj-icon-button[data-id="shuffle"]'), { attributes: true });
     repeatObserver.observe(document.querySelector('#player sj-icon-button[data-id="repeat"]'), { attributes: true });
     playbackObserver.observe(document.querySelector('#player sj-icon-button[data-id="play-pause"]'), { attributes: true });
     playbackTimeObserver.observe(document.querySelector('#player #material-player-progress'), { attributes: true });
-    
-    // We need to start the ratings observer later, at least when the first song
-    // starts playing, which can be handled in the `addObserver`.
-    // ratingObserver.observe(document.querySelector('#player .player-rating-container'), { attributes: true, subtree: true });
 }
