@@ -14,26 +14,14 @@
 if (typeof window.GMNavigation === 'undefined') {
     window.GMNavigation = { };
         
-    var logoContainer = document.querySelector('.menu-logo');
     var buttonsContainer = document.querySelector('#material-one-left');
     var openNavButton = document.querySelector('#left-nav-open-button');
     
     var buttonsEnabled = window.GoogleMusicApp.preferenceForKey("navigation.buttons.enabled");
-    var keepLogo = window.GoogleMusicApp.preferenceForKey("navigation.buttons.keep-logo");
     var keepLinks = window.GoogleMusicApp.preferenceForKey("navigation.buttons.keep-links");
     
     if (buttonsEnabled)
     {
-        if (!keepLogo)
-        {
-            // Hide the Google Play Music logo.
-            logoContainer.style.visibility = 'hidden';
-        }
-        
-        // Move the button in the navigation menu to the right.
-        var menuButton = document.querySelector('#left-nav-close-button');
-        menuButton.parentNode.appendChild(menuButton);
-        
         // Create back and forward buttons.
         var backButton = document.createElement('sj-icon-button');
         backButton.className = 'gm-nav-button';
@@ -72,25 +60,4 @@ if (typeof window.GMNavigation === 'undefined') {
     
     // Adjust the drawer navigation scrolling mode to accomodate the traffic light buttons.
     document.querySelector('#drawer #nav-container').setAttribute('mode', '');
-    
-    window.GMNavigation.Callbacks = {
-        onHistoryChange: function(canGoBack, canGoForward) {
-//            if (!buttonsEnabled)
-//                return;
-//            
-//            var back = document.querySelector('#gm-back');
-//            var forward = document.querySelector('#gm-forward');
-//            
-//            if (canGoBack)
-//                back.classList.remove('inactive');
-//            else
-//                back.classList.add('inactive');
-//            
-//            
-//            if (canGoForward)
-//                forward.classList.remove('inactive');
-//            else
-//                forward.classList.add('inactive');
-        }
-    };
 }

@@ -9,4 +9,6 @@
  *
  */
 
-/* Turns out, I don't think we actually need anything for the "no style" style.
+#nav-container #dropShadow {
+    display: none;
+}

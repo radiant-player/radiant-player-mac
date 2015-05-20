@@ -229,13 +229,30 @@ if (typeof window.MusicAPI === 'undefined') {
     var lastArtist = "";
     var lastAlbum = "";
     
-    var addObserver = new MutationObserver(function(mutations) {
+    var addObserver, 
+        shuffleObserver,
+        repeatObserver,
+        playbackObserver,
+        playbackTimeObserver,
+        ratingObserver;
+    
+    addObserver = new MutationObserver(function(mutations) {
         mutations.forEach(function(m) {
             for (var i = 0; i < m.addedNodes.length; i++) {
                 var target = m.addedNodes[i];
                 var name = target.id || target.className;
 
                 if (name == 'now-playing-info-wrapper')  {
+                    
+                    // Fire the rating observer if the thumbs exist (no harm if already observing)
+                    var ratingsEl = document.querySelector('#player .player-rating-container');
+                    if (ratingsEl != null) {
+                        ratingObserver.observe(ratingsEl, { attributes: true, subtree: true });
+                    }
+                    else {
+                        ratingObserver.disconnect();
+                    }
+                    
                     var now = new Date();
 
                     var title = document.querySelector('#player #player-song-title');
@@ -268,7 +285,7 @@ if (typeof window.MusicAPI === 'undefined') {
         });
     });
 
-    var shuffleObserver = new MutationObserver(function(mutations) {
+    shuffleObserver = new MutationObserver(function(mutations) {
         mutations.forEach(function(m) {
             var target = m.target;
             var id = target.dataset.id;
@@ -279,7 +296,7 @@ if (typeof window.MusicAPI === 'undefined') {
         });
     });
 
-    var repeatObserver = new MutationObserver(function(mutations) {
+    repeatObserver = new MutationObserver(function(mutations) {
         mutations.forEach(function(m) {
             var target = m.target;
             var id = target.dataset.id;
@@ -290,7 +307,7 @@ if (typeof window.MusicAPI === 'undefined') {
         });
     });
 
-    var playbackObserver = new MutationObserver(function(mutations) {
+    playbackObserver = new MutationObserver(function(mutations) {
         mutations.forEach(function(m) {
             var target = m.target;
             var id = target.dataset.id;
@@ -317,7 +334,7 @@ if (typeof window.MusicAPI === 'undefined') {
         });
     });
 
-    var playbackTimeObserver = new MutationObserver(function(mutations) {
+    playbackTimeObserver = new MutationObserver(function(mutations) {
         mutations.forEach(function(m) {
             var target = m.target;
             var id = target.id;
@@ -330,7 +347,7 @@ if (typeof window.MusicAPI === 'undefined') {
         });
     });
 
-    var ratingObserver = new MutationObserver(function(mutations) {
+    ratingObserver = new MutationObserver(function(mutations) {
         mutations.forEach(function(m) {
             var target = m.target;
 
@@ -347,5 +364,8 @@ if (typeof window.MusicAPI === 'undefined') {
     repeatObserver.observe(document.querySelector('#player sj-icon-button[data-id="repeat"]'), { attributes: true });
     playbackObserver.observe(document.querySelector('#player sj-icon-button[data-id="play-pause"]'), { attributes: true });
     playbackTimeObserver.observe(document.querySelector('#player #material-player-progress'), { attributes: true });
-    ratingObserver.observe(document.querySelector('#player .player-rating-container'), { attributes: true, subtree: true });
+    
+    // We need to start the ratings observer later, at least when the first song
+    // starts playing, which can be handled in the `addObserver`.
+    // ratingObserver.observe(document.querySelector('#player .player-rating-container'), { attributes: true, subtree: true });
 }

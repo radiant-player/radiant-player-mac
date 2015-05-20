@@ -43,8 +43,12 @@ if (typeof window.Styles === 'undefined') {
         },
         
         Callbacks: {
-            onEnterFullScreen: function() { },
-            onExitFullScreen: function() { },
+            onEnterFullScreen: function() {
+                document.body.classList.add('full-screen');
+            },
+            onExitFullScreen: function() {
+                document.body.classList.remove('full-screen');
+            },
             onWindowDidBecomeActive: function() {
                 document.body.classList.remove('inactive');
             },
@@ -53,4 +57,12 @@ if (typeof window.Styles === 'undefined') {
             },
         }
     };
+    
+    // Apply a quick Safari fix.
+    Object.defineProperty(document.querySelector('#material-hero-image').style, 'transform', {
+        get: function() { return this.webkitTransform; },
+        set: function(val) { this.webkitTransform = val; },
+        enumerable: true,
+        configurable: true
+    });
 }

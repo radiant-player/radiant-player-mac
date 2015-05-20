@@ -26,8 +26,6 @@
 	<true/>
 	<key>navigation.buttons.enabled</key>
 	<true/>
-	<key>navigation.buttons.keep-logo</key>
-	<false/>
 	<key>navigation.buttons.keep-links</key>
 	<false/>
 	<key>navigation.swipe.enabled</key>

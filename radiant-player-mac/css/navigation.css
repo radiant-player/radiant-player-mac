@@ -21,7 +21,12 @@
     min-width: 77px;
 }
 
-/* When the navigation drawer is open */
+/* When the navigation drawer is open, or Radiant Player is full screen */
+body.full-screen #rp-padding-left,
 core-drawer-panel:not([narrow]) #rp-padding-left {
     min-width: 0px;
 }
+
+/* Move the close navigation menu button to the right and hide the Google Play Logo if we are not full-screen */
+body:not(.full-screen) #left-nav-close-button { -webkit-order: 1; }
+body:not(.full-screen) .menu-logo { visibility: hidden; }
