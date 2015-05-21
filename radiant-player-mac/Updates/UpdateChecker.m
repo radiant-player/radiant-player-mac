@@ -12,7 +12,7 @@
 
 @implementation UpdateChecker
 
-+ (NSString *)latestVersionFromGithub:(NSString *)releaseChannel
++ (NSDictionary *)latestReleaseFromGitHub:(NSString *)releaseChannel
 {
     NSURL *url = [NSURL URLWithString:@"https://api.github.com/repos/kbhomes/radiant-player-mac/releases"];
     NSData *data = [NSData dataWithContentsOfURL:url];
@@ -40,7 +40,7 @@
                     // Specific to this release chnnel, or is the stable channel (doesn't contain a -beta).
                     if ([version hasSuffix:releaseChannel] || [version rangeOfString:@"-"].location == NSNotFound)
                     {
-                        return [version substringFromIndex:1];
+                        return rel;
                     }
                 }
             }
@@ -105,7 +105,7 @@
 + (BOOL)isApplicationUpToDate
 {
     NSString *channel = [UpdateChecker releaseChannel];
-    NSString *latest = [UpdateChecker latestVersionFromGithub:channel];
+    NSString *latest = [[[UpdateChecker latestReleaseFromGitHub:channel] objectForKey:@"name"] substringFromIndex:1];
     NSString *current = [UpdateChecker applicationVersion];
     
     return [UpdateChecker isVersionUpToDateWithApplication:current latest:latest];

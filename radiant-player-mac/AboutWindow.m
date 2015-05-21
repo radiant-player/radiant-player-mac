@@ -46,7 +46,8 @@
     
     NSString *appVersion = [UpdateChecker applicationVersion];
     NSString *releaseChannel = [UpdateChecker releaseChannel];
-    NSString *latestVersion = [UpdateChecker latestVersionFromGithub:releaseChannel];
+    NSDictionary *latestRelease = [UpdateChecker latestReleaseFromGitHub:releaseChannel];
+    NSString *latestVersion = [[latestRelease objectForKey:@"name"] substringFromIndex:1];
     
     NSTimeInterval elapsed = [[NSDate date] timeIntervalSinceDate:start];
     
@@ -60,7 +61,7 @@
         if ([UpdateChecker isVersionUpToDateWithApplication:appVersion latest:latestVersion] == NO) {
             // Application is out of date.
             NSString *messageFormat = @"<p style='text-align: center'>The latest version is %@. <a href='%@'>Download it now.</a></p>";
-            NSString *messageHTML = [NSString stringWithFormat:messageFormat, latestVersion, [Utilities applicationHomepage]];
+            NSString *messageHTML = [NSString stringWithFormat:messageFormat, latestVersion, [latestRelease objectForKey:@"html_url"]];
             NSData *messageData = [messageHTML dataUsingEncoding:NSUTF8StringEncoding];
             NSMutableAttributedString *message = [[NSMutableAttributedString alloc] initWithHTML:messageData documentAttributes:nil];
             [message addAttribute:NSFontAttributeName value:[NSFont systemFontOfSize:12] range:NSMakeRange(0, [message length])];

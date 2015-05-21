@@ -11,7 +11,7 @@
 
 @interface UpdateChecker : NSObject
 
-+ (NSString *)latestVersionFromGithub:(NSString *)releaseChannel;
++ (NSDictionary *)latestReleaseFromGitHub:(NSString *)releaseChannel;
 + (NSString *)releaseChannel;
 + (NSString *)applicationVersion;
 + (BOOL)isVersionUpToDateWithApplication:(NSString *)appVersion latest:(NSString *)latest;

@@ -246,7 +246,8 @@
     NSString *appName = [Utilities applicationName];
     NSString *appVersion = [UpdateChecker applicationVersion];
     NSString *releaseChannel = [UpdateChecker releaseChannel];
-    NSString *latestVersion = [UpdateChecker latestVersionFromGithub:releaseChannel];
+    NSDictionary *latestRelease = [UpdateChecker latestReleaseFromGitHub:releaseChannel];
+    NSString *latestVersion = [[latestRelease objectForKey:@"name"] substringFromIndex:1];
     
     if (latestVersion != nil && [UpdateChecker isVersionUpToDateWithApplication:appVersion latest:latestVersion] == NO) {
         // Application is out of date.
@@ -269,9 +270,9 @@
         
         NSModalResponse response = [updateAlert runModal];
         
-        // If the user hit OK, open the homepage in the default browser.
+        // If the user hit OK, open the release page in the default browser.
         if (response == NSAlertFirstButtonReturn) {
-            [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[Utilities applicationHomepage]]];
+            [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[latestRelease objectForKey:@"html_url"]]];
         }
         
         // If the user selected "dont check for updates", set that preference.
