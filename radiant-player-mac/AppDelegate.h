@@ -130,6 +130,8 @@
 - (IBAction) toggleVisualization:(id)sender;
 - (IBAction) focusSearch:(id)sender;
 
+- (IBAction) selectAll:(id)sender;
+
 - (NSString *) currentSongURL;
 
 - (void) moveWindowWithDeltaX:(CGFloat)deltaX andDeltaY:(CGFloat)deltaY;

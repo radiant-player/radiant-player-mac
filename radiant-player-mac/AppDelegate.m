@@ -742,6 +742,14 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     [webView stringByEvaluatingJavaScriptFromString:@"document.querySelector('.material-search').select()"];
 }
 
+/**
+ * Allow the user to Select All on the web view.
+ */
+- (IBAction) selectAll:(id)sender
+{
+    [webView selectAll:sender];
+}
+
 - (void)notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art duration:(NSTimeInterval)duration
 {
     NSTimeInterval timestamp = [[NSDate date] timeIntervalSince1970];

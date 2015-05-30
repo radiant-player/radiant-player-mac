@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7702" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="6250"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7702"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="7702"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -127,12 +127,17 @@
                                     <action selector="pasteAsPlainText:" target="-1" id="486"/>
                                 </connections>
                             </menuItem>
-                            <menuItem isSeparatorItem="YES" id="214">
-                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
-                            </menuItem>
                             <menuItem title="Delete" id="202">
                                 <connections>
                                     <action selector="delete:" target="-1" id="235"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="214">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Select All" keyEquivalent="a" id="DtM-YD-wG2">
+                                <connections>
+                                    <action selector="selectAll:" target="494" id="Mnc-Ca-74p"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="206">
@@ -750,7 +755,7 @@
                     <constraint firstItem="BxE-sk-mNE" firstAttribute="centerX" secondItem="dQ2-sg-PYy" secondAttribute="centerX" id="nPv-wP-ZC6"/>
                     <constraint firstItem="arE-Wm-iTc" firstAttribute="bottom" secondItem="3Nx-UI-e4n" secondAttribute="bottom" constant="-2" id="nwv-tD-PbZ"/>
                     <constraint firstItem="arE-Wm-iTc" firstAttribute="leading" secondItem="dQ2-sg-PYy" secondAttribute="trailing" constant="8" symbolic="YES" id="o8Y-a6-ctn"/>
-                    <constraint firstItem="v8E-fH-1nK" firstAttribute="top" secondItem="4yq-G3-W3B" secondAttribute="top" constant="10" id="rKs-eC-YiY"/>
+                    <constraint firstItem="v8E-fH-1nK" firstAttribute="top" secondItem="4yq-G3-W3B" secondAttribute="top" constant="10" type="user" id="rKs-eC-YiY"/>
                     <constraint firstItem="3Nx-UI-e4n" firstAttribute="trailing" secondItem="EGc-cr-jAa" secondAttribute="trailing" id="vLN-vM-xFg"/>
                     <constraint firstAttribute="bottom" secondItem="8u2-Nn-ZZf" secondAttribute="bottom" constant="11" id="xd4-IP-uZX"/>
                 </constraints>
