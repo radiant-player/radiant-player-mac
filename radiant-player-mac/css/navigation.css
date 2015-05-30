@@ -21,10 +21,20 @@
     min-width: 77px;
 }
 
+/* If the "songs selected" toolbar is open, move it. */
+#sliding_action_bar_container.material {
+    padding-left: 85px;
+}
+
 /* When the navigation drawer is open, or Radiant Player is full screen */
 body.full-screen #rp-padding-left,
 core-drawer-panel:not([narrow]) #rp-padding-left {
     min-width: 0px;
+}
+
+body.full-screen #sliding_action_bar_container.material,
+core-drawer-panel:not([narrow]) #sliding_action_bar_container.material {
+    padding-left: 16px;
 }
 
 /* Move the close navigation menu button to the right and hide the Google Play Logo if we are not full-screen */
