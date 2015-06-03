@@ -49,7 +49,7 @@
     // Update subviews to not be vibrant!
     for (NSView *view in [self subviews])
     {
-        [view setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameAqua]];
+        [view setAppearance:[self appearance]];
     }
 }
 
