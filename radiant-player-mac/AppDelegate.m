@@ -567,6 +567,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     [loadingMessage setHidden:NO];
     [loadingMessage setStringValue:@"Loading Google Play Music..."];
     [reloadButton setHidden:YES];
+    [[reloadButton superview] setHidden:NO];
     
     NSURL *url = [NSURL URLWithString:@"https://play.google.com/music"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -897,6 +898,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         [loadingIndicator stopAnimation:self];
         [loadingMessage setStringValue:reason];
         [reloadButton setHidden:NO];
+        [[reloadButton superview] setHidden:NO];
     }
 }
 
@@ -909,6 +911,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         [loadingIndicator stopAnimation:self];
         [loadingMessage setStringValue:reason];
         [reloadButton setHidden:NO];
+        [[reloadButton superview] setHidden:NO];
     }
 }
 
@@ -920,6 +923,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         [loadingIndicator setHidden:YES];
         [loadingMessage setHidden:YES];
         [reloadButton setHidden:YES];
+        [[reloadButton superview] setHidden:YES];
     }
 }
 
