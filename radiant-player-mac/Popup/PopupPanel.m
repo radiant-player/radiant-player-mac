@@ -29,7 +29,7 @@
     [self setBackgroundColor:[NSColor clearColor]];
     [self setOpaque:NO];
     [self setLevel:NSPopUpMenuWindowLevel];
-    [self setCollectionBehavior:NSWindowCollectionBehaviorCanJoinAllSpaces|NSWindowCollectionBehaviorTransient];
+    [self setCollectionBehavior:NSWindowCollectionBehaviorMoveToActiveSpace|NSWindowCollectionBehaviorTransient|NSWindowCollectionBehaviorFullScreenAuxiliary];
     [self setFloatingPanel:self.isAlwaysOnTop];
     [self setHidesOnDeactivate:NO];
     [self setDelegate:self];
