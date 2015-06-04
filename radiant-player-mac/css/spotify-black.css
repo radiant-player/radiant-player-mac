@@ -89,7 +89,7 @@ a, .simple-dialog a {
 .material-container,
 .material-playlist-container,
 .songlist-container,
-#queue-container {
+#queue-overlay {
     background-color: rgba(18, 19, 20, 0.98);
     box-shadow: none;
 }

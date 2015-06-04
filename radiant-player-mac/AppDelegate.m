@@ -936,6 +936,9 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     
     [self evaluateJavaScriptFile:@"styles"];
     
+    // Apply common styles.
+    [self applyCSSFile:@"common"];
+    
     // Apply the navigation styles.
     [self applyCSSFile:@"navigation"];
     [self evaluateJavaScriptFile:@"navigation"];

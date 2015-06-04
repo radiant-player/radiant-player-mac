@@ -1,0 +1,17 @@
+/*
+* css/common.css
+*
+* Style fixes common to all styles.
+*
+* Created by Sajid Anwar.
+*
+* Subject to terms and conditions in LICENSE.md.
+*
+*/
+
+/* Fix the queue display on OS X 10.9 */
+#queue-overlay {
+    top: 128px;
+    height: auto;
+    margin-top: 0;
+}
