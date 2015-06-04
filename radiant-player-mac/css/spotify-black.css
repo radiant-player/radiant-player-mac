@@ -460,6 +460,10 @@ div.simple-dialog-bg {
     color: #888 !important;
 }
 
+.material .goog-menuheader {
+    color: #aaa !important;
+}
+
 .material .goog-menu .goog-menuitem:hover .goog-menuitem-content {
     color: #fafafa !important;
 }
