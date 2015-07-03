@@ -1,5 +1,5 @@
 /*
- * CocoaStyle.h
+ * GoogleStyle.h
  *
  * Created by Sajid Anwar.
  *
@@ -9,6 +9,6 @@
 
 #import "ApplicationStyle.h"
 
-@interface CocoaStyle : ApplicationStyle
+@interface GoogleStyle : ApplicationStyle
 
 @end

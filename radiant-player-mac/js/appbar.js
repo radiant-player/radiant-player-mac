@@ -19,13 +19,12 @@ if (typeof window.GMAppBar === 'undefined') {
     
     (function() {
         // Handle dragging of the application bar.
-        var exclude = [];
-        exclude.push(document.querySelector('#gm-back'));
-        exclude.push(document.querySelector('#gm-forward'));
-        exclude.push(document.querySelector('#oneGoogleWrapper input[name="q"]').parentNode);
-        Array.prototype.push.apply(exclude, document.querySelectorAll('#oneGoogleWrapper > div:first-child > div:first-child > div:first-child > *'));
+        var exclude = []
+            .concat([].slice.call(document.querySelectorAll('.gm-nav-button')))
+            .concat(document.querySelector('#material-one-middle input.material-search').parentNode)
+                    .concat([].slice.call(document.querySelectorAll('#material-one-right > div:first-child > div:first-child > div:first-child > *')));
         
-        var appBar = document.querySelector('#oneGoogleWrapper');
+        var appBar = document.querySelector('#material-app-bar');
 
         var isDescendantOfExcludedElements = function(el) {
             for (var i = 0; i < exclude.length; i++) {

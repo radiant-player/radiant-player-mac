@@ -8,10 +8,12 @@
  */
 
 #import "GeneralPreferencesViewController.h"
+#import "AppDelegate.h"
 
 @implementation GeneralPreferencesViewController
 
 @synthesize isNotificationImageSupportAvailable;
+@synthesize buttonReleaseChannels;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -36,6 +38,12 @@
 - (NSString *)toolbarItemLabel
 {
     return @"General";
+}
+
+- (IBAction) toggleDockArt:(NSButton *)sender
+{
+    BOOL showArt = [sender state] == NSOnState;
+    [(AppDelegate *)[NSApp delegate] toggleDockArt:showArt];
 }
 
 @end

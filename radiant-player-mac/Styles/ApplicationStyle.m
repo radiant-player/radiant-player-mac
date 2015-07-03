@@ -8,12 +8,10 @@
  */
 
 #import "ApplicationStyle.h"
-#import "CocoaStyle.h"
-#import "DarkStyle.h"
-#import "DarkFlatStyle.h"
 #import "SpotifyBlackStyle.h"
 #import "SpotifyBlackVibrantStyle.h"
 #import "YosemiteStyle.h"
+#import "LightStyle.h"
 #import "../AppDelegate.h"
 
 @implementation ApplicationStyle
@@ -64,28 +62,22 @@
 
 + (NSMutableDictionary *)styles
 {
-    DarkStyle *dark = [[DarkStyle alloc] init];
-    DarkFlatStyle *darkFlat = [[DarkFlatStyle alloc] init];
     SpotifyBlackStyle *spotifyBlack = [[SpotifyBlackStyle alloc] init];
     
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
-    [dictionary setObject:dark forKey:[dark name]];
-    [dictionary setObject:darkFlat forKey:[darkFlat name]];
     [dictionary setObject:spotifyBlack forKey:[spotifyBlack name]];
     
-    if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9)
-    {
-        YosemiteStyle *yosemite = [[YosemiteStyle alloc] init];
-        [dictionary setObject:yosemite forKey:[yosemite name]];
-        
-        SpotifyBlackVibrantStyle *spotifyBlackVibrant = [[SpotifyBlackVibrantStyle alloc] init];
-        [dictionary setObject:spotifyBlackVibrant forKey:[spotifyBlackVibrant name]];
-    }
-    else
-    {
-        CocoaStyle *cocoa = [[CocoaStyle alloc] init];
-        [dictionary setObject:cocoa forKey:[cocoa name]];
-    }
+//    if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9)
+//    {
+//        YosemiteStyle *yosemite = [[YosemiteStyle alloc] init];
+//        [dictionary setObject:yosemite forKey:[yosemite name]];
+//        
+//        LightStyle *barelyYosemite = [[LightStyle alloc] init];
+//        [dictionary setObject:barelyYosemite forKey:[barelyYosemite name]];
+//        
+//        SpotifyBlackVibrantStyle *spotifyBlackVibrant = [[SpotifyBlackVibrantStyle alloc] init];
+//        [dictionary setObject:spotifyBlackVibrant forKey:[spotifyBlackVibrant name]];
+//    }
     
     return dictionary;
 }
@@ -93,21 +85,28 @@
 + (void)applyYosemiteVisualEffects:(WebView *)webView window:(NSWindow *)window appearance:(NSString *)appearanceName
 {
     [window setBackgroundColor:[NSColor colorWithSRGBRed:0.945 green:0.945 blue:0.945 alpha:1]];
-    [(AppDelegate *)[NSApp delegate] showToolbar];
+    [(AppDelegate *)[NSApp delegate] useTallTitleBar];
     
     [webView setDrawsBackground:NO];
     
     NSRect frame = window.frame;
     frame.origin = CGPointMake(0, 0);
     
-    NSVisualEffectView *bgView = [[NSVisualEffectView alloc] initWithFrame:frame];
-    [bgView setAppearance:[NSAppearance appearanceNamed:appearanceName]];
-    [bgView setBlendingMode:NSVisualEffectBlendingModeBehindWindow];
-    [bgView setMaterial:NSVisualEffectMaterialAppearanceBased];
-    [bgView setState:NSVisualEffectStateFollowsWindowActiveState];
-    [bgView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
+    NSArray *subviews = [[window contentView] subviews];
     
-    [[window contentView] addSubview:bgView positioned:NSWindowBelow relativeTo:nil];
+    if ([[subviews firstObject] isKindOfClass:[NSVisualEffectView class]]) {
+        NSVisualEffectView *bgView = [subviews firstObject];
+        [bgView setAppearance:[NSAppearance appearanceNamed:appearanceName]];
+    }
+    else {
+        NSVisualEffectView *bgView = [[NSVisualEffectView alloc] initWithFrame:frame];
+        [bgView setAppearance:[NSAppearance appearanceNamed:appearanceName]];
+        [bgView setBlendingMode:NSVisualEffectBlendingModeBehindWindow];
+        [bgView setMaterial:NSVisualEffectMaterialAppearanceBased];
+        [bgView setState:NSVisualEffectStateFollowsWindowActiveState];
+        [bgView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
+        [[window contentView] addSubview:bgView positioned:NSWindowBelow relativeTo:nil];
+    }
 }
 
 @end

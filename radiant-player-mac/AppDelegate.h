@@ -19,26 +19,33 @@
 #import "InvertedSpriteURLProtocol.h"
 #import "SpriteDownloadURLProtocol.h"
 #import "ImageURLProtocol.h"
+#import "JSURLProtocol.h"
+#import "WebComponentsURLProtocol.h"
 
 #import "PopupStatusView.h"
 #import "PopupViewDelegate.h"
 #import "PopupPanel.h"
 
+#import "Utilities.h"
+#import "Updates/UpdateChecker.h"
 #import "PreferencesWindowController.h"
 #import "ApplicationStyle.h"
+#import "GoogleStyle.h"
 #import "LastFmPopover.h"
-#import "TitleBarTextView.h"
+#import "Support/TitleBarTextView.h"
 
 @class PopupViewDelegate;
 @class PopupStatusView;
 @class PopupPanel;
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, CustomWebViewDelegate, EDStarRatingProtocol, NotificationCenterDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate, CustomWebViewDelegate, EDStarRatingProtocol, NotificationCenterDelegate>
 {
 	CFMachPortRef eventTap;
     CFRunLoopSourceRef eventPortSource;
     
     NSMutableDictionary *_styles;
+    NSArray *_releaseChannels;
+    BOOL _isTall;
     
     WebView *dummyWebView;
     DummyWebViewPolicyDelegate *dummyWebViewDelegate;
@@ -48,6 +55,10 @@
 @property (assign) IBOutlet NSToolbar *toolbar;
 @property (assign) IBOutlet NSMenu *menu;
 @property (assign) IBOutlet NSMenu *controlsMenu;
+
+@property (assign) IBOutlet NSProgressIndicator *loadingIndicator;
+@property (assign) IBOutlet NSTextField *loadingMessage;
+@property (assign) IBOutlet NSButton *reloadButton;
 
 @property (nonatomic, retain) TitleBarTextView *titleView;
 @property (nonatomic, retain) IBOutlet CustomWebView *webView;
@@ -81,12 +92,17 @@
 - (void) checkVersion;
 - (void) initializeStatusBar;
 - (NSMutableDictionary *) styles;
+- (NSArray *) releaseChannels;
 - (void) setupThumbsUpRatingView;
 - (void) setupStarRatingView;
 - (void) setupRatingMenuItems;
-- (void) hideToolbar;
-- (void) showToolbar;
-    
+- (void) useTallTitleBar;
+- (void) useNormalTitleBar;
+- (void) toggleDockArt:(BOOL)showArt;
+
+- (IBAction) dockPopup:(id)sender;
+
+- (IBAction) load:(id)sender;
 - (IBAction) webBrowserBack:(id)sender;
 - (IBAction) webBrowserForward:(id)sender;
 
@@ -96,8 +112,10 @@
 - (IBAction) forwardAction:(id)sender;
 - (IBAction) backAction:(id)sender;
 
+- (IBAction) volumeSliderChanged:(id)sender;
 - (IBAction) volumeUp:(id)sender;
 - (IBAction) volumeDown:(id)sender;
+- (void) setVolume:(int)value;
 
 - (IBAction) toggleThumbsUp:(id)sender;
 - (IBAction) toggleThumbsDown:(id)sender;
@@ -110,6 +128,9 @@
 
 - (IBAction) toggleShuffle:(id)sender;
 - (IBAction) toggleVisualization:(id)sender;
+- (IBAction) focusSearch:(id)sender;
+
+- (IBAction) selectAll:(id)sender;
 
 - (NSString *) currentSongURL;
 

@@ -13,7 +13,7 @@ body {
     background: none !important;
 }
 
-#main, #content, .song-row td {
+#main, #content, #music-content, .song-row td {
     background-color: white;
 }
 
@@ -38,10 +38,6 @@ body {
     height: 3px;
 }
 
-.g-content {
-    margin: 0;
-}
-
 .g-doc {
     height: -webkit-calc(100% - 60px) !important;
     height: calc(100% - 60px) !important;
@@ -51,8 +47,16 @@ body {
     background-color: #f8f8f8;
 }
 
+.header + .song-table {
+    margin-top: 0;
+}
+
 .song-table {
     padding: 0;
+    margin-right: -20px;
+    margin-left: -20px;
+    margin-top: -20px;
+    width: calc(100% + 34px)
 }
 
 .song-table .header-row th {
@@ -128,7 +132,6 @@ body {
 
 .song-row .rating-container.stars {
     height: 100% !important;
-    line-height: 50%;
 }
 
 .song-row .rating-container.thumbs [data-rating] {
@@ -272,7 +275,7 @@ body {
     background: none;
 }
 
-#player [data-id="now-playing-menu"] {
+#player:not(.material) [data-id="now-playing-menu"] {
     border: none;
 }
 
@@ -290,7 +293,6 @@ body {
 
 #oneGoogleWrapper > div:first-child > div:first-child {
     background: -webkit-linear-gradient(90deg, #d6d0d6, #edeaed);
-    background: linear-gradient(0deg, #d6d0d6, #edeaed);
     border-bottom: 1px solid #888;
     height: 59px;
 }
@@ -421,37 +423,6 @@ div.simple-dialog-bg {
 .song-row.currently-playing td[data-col="track"] span > div,
 .song-row.currently-playing td[data-col="index"] span > div {
     visibility: visible;
-}
-
-.gm-nav-button {
-    border-radius: 3px;
-    background-color: #fcfcfc;
-    opacity: 1;
-    border-bottom: 1px solid #bbb;
-    border-top: 1px solid #ddd;
-    margin-left:0;
-    margin-right: 0;
-    
-    background-size: 12px 16px;
-    background-position: 9px 6px;
-    background-repeat: no-repeat;
-}
-
-.gm-nav-button:hover {
-    opacity: 1;
-}
-
-.gm-nav-button:active {
-    opacity: 1;
-    background-color: #eee;
-}
-
-#gm-back {
-    background-image: url(http://radiant-player-mac/images/arrow-left-yosemite.png);
-}
-
-#gm-forward {
-    background-image: url(http://radiant-player-mac/images/arrow-right-yosemite.png);
 }
 
 ::-webkit-scrollbar {

@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <EDStarRating/EDStarRating.h>
 #import "PopupViewDelegate.h"
+#import "../Support/VisualEffectView.h"
 
 #define MINI_PLAYER_LARGE_HEIGHT 356.0
 #define MINI_PLAYER_SMALL_HEIGHT 152.0
@@ -20,9 +21,9 @@
 
 @class PopupViewDelegate;
 
-@interface PopupView : NSView {
+@interface PopupView : VisualEffectView {
     NSImage *_backgroundImage;
-    NSView *_backgroundView;
+//    NSView *_backgroundView;
     CGFloat _hoverAlphaMultiplier;
 }
 

@@ -15,7 +15,7 @@
 
 - (id)initWithSwipeView:(SwipeIndicatorView *)view
 {
-    self = [self initWithDuration:1.0 animationCurve:NSAnimationEaseOut];
+    self = [self initWithDuration:0.5 animationCurve:NSAnimationEaseOut];
     
     if (self) {
         _originalAmount = [view swipeAmount];

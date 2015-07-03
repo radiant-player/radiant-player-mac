@@ -9,19 +9,12 @@
 
 #import "NSHTTPCookieStorage+Swizzle.h"
 #import "CookieStorage.h"
+#import "../Support/Swizzle.h"
 
 #include <objc/runtime.h>
 #include <objc/objc.h>
 
 @implementation NSHTTPCookieStorage (Swizzle)
-
-void SwizzleInstanceMethods(Class class, SEL methodA, SEL methodB)
-{
-    Method originalMethod = class_getInstanceMethod(class, methodA);
-    Method swizzledMethod = class_getInstanceMethod(class, methodB);
-
-    method_exchangeImplementations(originalMethod, swizzledMethod);
-}
 
 void SwizzleCookieStorageMethods(Class class)
 {

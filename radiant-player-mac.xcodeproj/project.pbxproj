@@ -18,6 +18,7 @@
 		2B8FC1C018C9CB0E006D04FF /* radiant-player-mac.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 2B8FC1BF18C9CB0E006D04FF /* radiant-player-mac.sdef */; };
 		2B8FC1C318C9CB16006D04FF /* RadiantPlayerScriptCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8FC1C218C9CB16006D04FF /* RadiantPlayerScriptCommand.m */; };
 		38D0C36DAD0F40F5A7254224 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BABD1B4DDCC34CB291C66033 /* libPods.a */; };
+		B06FB3D219F7723500351943 /* LightStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BB948819F76CFD0081C97D /* LightStyle.m */; };
 		D302E13418B561E100CCD18E /* Preferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = D302E13318B561E100CCD18E /* Preferences.plist */; };
 		D3091F6318C32961007C8DCD /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D3091F6218C32961007C8DCD /* Utilities.m */; };
 		D3091F6618C3D7C4007C8DCD /* SwipeIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3091F6518C3D7C4007C8DCD /* SwipeIndicatorView.m */; };
@@ -30,7 +31,7 @@
 		D31ACE84193ACDC300AC7CB4 /* RatingBadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D31ACE83193ACDC300AC7CB4 /* RatingBadgeButton.m */; };
 		D31ACE86193BCD3E00AC7CB4 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D31ACE85193BCD3E00AC7CB4 /* Growl.framework */; };
 		D31ACE8A193BDD0F00AC7CB4 /* NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D31ACE89193BDD0F00AC7CB4 /* NotificationCenter.m */; };
-		D31ACE8D193BE39E00AC7CB4 /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D31ACE85193BCD3E00AC7CB4 /* Growl.framework */; };
+		D31ACE8D193BE39E00AC7CB4 /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D31ACE85193BCD3E00AC7CB4 /* Growl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		D323406A18C523BC008C165B /* AboutWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D323406918C523BC008C165B /* AboutWindow.m */; };
 		D326EA6418B2D7E500BEC02F /* css in Resources */ = {isa = PBXBuildFile; fileRef = D326EA6218B2D7E500BEC02F /* css */; };
 		D326EA6518B2D7E500BEC02F /* js in Resources */ = {isa = PBXBuildFile; fileRef = D326EA6318B2D7E500BEC02F /* js */; };
@@ -44,19 +45,20 @@
 		D346173519D907F300017023 /* SpotifyBlackVibrantStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D346173419D907F300017023 /* SpotifyBlackVibrantStyle.m */; };
 		D34DC2BC18C295A700C27596 /* LastFmService.m in Sources */ = {isa = PBXBuildFile; fileRef = D34DC2BB18C295A700C27596 /* LastFmService.m */; };
 		D35788BD18C2F820006AF859 /* GeneralPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35788BC18C2F820006AF859 /* GeneralPreferencesViewController.m */; };
+		D35F2E8C1A3D9D130072E461 /* Swizzle.c in Sources */ = {isa = PBXBuildFile; fileRef = D35F2E8B1A3D9D130072E461 /* Swizzle.c */; };
 		D362D5421924D17B00FC0C56 /* PrivacyPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D362D5411924D17B00FC0C56 /* PrivacyPreferencesViewController.m */; };
 		D369FEFE18E3FB6B004CB1C6 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = D369FEFD18E3FB6B004CB1C6 /* icon.icns */; };
+		D36F50651A3D874E000541C9 /* VisualEffectView.m in Sources */ = {isa = PBXBuildFile; fileRef = D36F50641A3D874E000541C9 /* VisualEffectView.m */; };
 		D370E8E018E21ABC007B5450 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D370E8DF18E21ABC007B5450 /* QuartzCore.framework */; };
 		D370E8E318E2BFE1007B5450 /* ExpandHoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = D370E8E218E2BFE1007B5450 /* ExpandHoverView.m */; };
+		D377DB5B1B0A6F5900026312 /* JSURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D377DB5A1B0A6F5900026312 /* JSURLProtocol.m */; };
+		D377DB5E1B0AADB700026312 /* WebComponentsURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D377DB5D1B0AADB700026312 /* WebComponentsURLProtocol.m */; };
 		D37B638418ED315B0098F9DC /* LastFm+TrackInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D37B638318ED315B0098F9DC /* LastFm+TrackInfo.m */; };
 		D37B638718F1E7680098F9DC /* SpriteDownloadURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D37B638618F1E7680098F9DC /* SpriteDownloadURLProtocol.m */; };
 		D37B638A18F1EFD30098F9DC /* InvertedSpriteURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D37B638918F1EFD30098F9DC /* InvertedSpriteURLProtocol.m */; };
 		D37C9286195DFE870035709A /* YosemiteStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C9285195DFE870035709A /* YosemiteStyle.m */; };
 		D37C9289195E19BD0035709A /* NSImage+Data.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C9288195E19BD0035709A /* NSImage+Data.m */; };
 		D37C928C195E3B3F0035709A /* SpotifyBlackStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C928B195E3B3F0035709A /* SpotifyBlackStyle.m */; };
-		D37C928F195E3F290035709A /* DarkStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C928E195E3F290035709A /* DarkStyle.m */; };
-		D37C9292195E41290035709A /* DarkFlatStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C9291195E41290035709A /* DarkFlatStyle.m */; };
-		D37C9295195E42800035709A /* CocoaStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C9294195E42800035709A /* CocoaStyle.m */; };
 		D3B1668318BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */; };
 		D3B4C0C318DAB4740069AB18 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B4C0C218DAB4740069AB18 /* JavaScriptCore.framework */; };
 		D3B71C2818C2D5240041358B /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B71C2718C2D5240041358B /* PreferencesWindowController.m */; };
@@ -69,7 +71,10 @@
 		D3DB8FF018BD253A00ABE93B /* images in Resources */ = {isa = PBXBuildFile; fileRef = D3DB8FEF18BD253A00ABE93B /* images */; };
 		D3DB8FF518BD2AEC00ABE93B /* PlaybackConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DB8FF418BD2AEC00ABE93B /* PlaybackConstants.m */; };
 		D3DB8FF818BD6A6400ABE93B /* PlaybackSliderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DB8FF718BD6A6400ABE93B /* PlaybackSliderCell.m */; };
+		D3DF18181A99A581002AEE64 /* GoogleStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DF18171A99A581002AEE64 /* GoogleStyle.m */; };
 		D3F14A4918F357AA007D4536 /* AdvancedPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F14A4818F357AA007D4536 /* AdvancedPreferencesViewController.m */; };
+		D3F401AB1AD0A04900B8F4FC /* ReleaseChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F401AA1AD0A04900B8F4FC /* ReleaseChannel.m */; };
+		D3F401AF1AD0A10600B8F4FC /* UpdateChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F401AE1AD0A10600B8F4FC /* UpdateChecker.m */; };
 		D3FAC6D418BA81EC00D9F461 /* PopupStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FAC6D318BA81EC00D9F461 /* PopupStatusView.m */; };
 		D3FAC6D718BA942500D9F461 /* PopupViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FAC6D618BA942500D9F461 /* PopupViewDelegate.m */; };
 /* End PBXBuildFile section */
@@ -109,6 +114,8 @@
 		2B8FC1C118C9CB16006D04FF /* RadiantPlayerScriptCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadiantPlayerScriptCommand.h; sourceTree = "<group>"; };
 		2B8FC1C218C9CB16006D04FF /* RadiantPlayerScriptCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadiantPlayerScriptCommand.m; sourceTree = "<group>"; };
 		A32790DC482A48E18B516D0B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		B0BB948719F76CF80081C97D /* LightStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightStyle.h; sourceTree = "<group>"; };
+		B0BB948819F76CFD0081C97D /* LightStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightStyle.m; sourceTree = "<group>"; };
 		BABD1B4DDCC34CB291C66033 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D302E13318B561E100CCD18E /* Preferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Preferences.plist; sourceTree = "<group>"; };
 		D3091F6118C32961007C8DCD /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
@@ -156,12 +163,20 @@
 		D34DC2BB18C295A700C27596 /* LastFmService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastFmService.m; sourceTree = "<group>"; };
 		D35788BB18C2F820006AF859 /* GeneralPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralPreferencesViewController.h; sourceTree = "<group>"; };
 		D35788BC18C2F820006AF859 /* GeneralPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralPreferencesViewController.m; sourceTree = "<group>"; };
+		D35F2E8A1A3D9C2F0072E461 /* Swizzle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Swizzle.h; sourceTree = "<group>"; };
+		D35F2E8B1A3D9D130072E461 /* Swizzle.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Swizzle.c; sourceTree = "<group>"; };
 		D362D5401924D17B00FC0C56 /* PrivacyPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivacyPreferencesViewController.h; sourceTree = "<group>"; };
 		D362D5411924D17B00FC0C56 /* PrivacyPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivacyPreferencesViewController.m; sourceTree = "<group>"; };
 		D369FEFD18E3FB6B004CB1C6 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+		D36F50631A3D874E000541C9 /* VisualEffectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisualEffectView.h; sourceTree = "<group>"; };
+		D36F50641A3D874E000541C9 /* VisualEffectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisualEffectView.m; sourceTree = "<group>"; };
 		D370E8DF18E21ABC007B5450 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D370E8E118E2BFE1007B5450 /* ExpandHoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpandHoverView.h; sourceTree = "<group>"; };
 		D370E8E218E2BFE1007B5450 /* ExpandHoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandHoverView.m; sourceTree = "<group>"; };
+		D377DB591B0A6F5900026312 /* JSURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSURLProtocol.h; sourceTree = "<group>"; };
+		D377DB5A1B0A6F5900026312 /* JSURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSURLProtocol.m; sourceTree = "<group>"; };
+		D377DB5C1B0AADB700026312 /* WebComponentsURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebComponentsURLProtocol.h; sourceTree = "<group>"; };
+		D377DB5D1B0AADB700026312 /* WebComponentsURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebComponentsURLProtocol.m; sourceTree = "<group>"; };
 		D37B638218ED315B0098F9DC /* LastFm+TrackInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LastFm+TrackInfo.h"; sourceTree = "<group>"; };
 		D37B638318ED315B0098F9DC /* LastFm+TrackInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LastFm+TrackInfo.m"; sourceTree = "<group>"; };
 		D37B638518F1E7680098F9DC /* SpriteDownloadURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteDownloadURLProtocol.h; sourceTree = "<group>"; };
@@ -174,12 +189,6 @@
 		D37C9288195E19BD0035709A /* NSImage+Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Data.m"; sourceTree = "<group>"; };
 		D37C928A195E3B3F0035709A /* SpotifyBlackStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifyBlackStyle.h; sourceTree = "<group>"; };
 		D37C928B195E3B3F0035709A /* SpotifyBlackStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotifyBlackStyle.m; sourceTree = "<group>"; };
-		D37C928D195E3F290035709A /* DarkStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DarkStyle.h; sourceTree = "<group>"; };
-		D37C928E195E3F290035709A /* DarkStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DarkStyle.m; sourceTree = "<group>"; };
-		D37C9290195E41290035709A /* DarkFlatStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DarkFlatStyle.h; sourceTree = "<group>"; };
-		D37C9291195E41290035709A /* DarkFlatStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DarkFlatStyle.m; sourceTree = "<group>"; };
-		D37C9293195E42800035709A /* CocoaStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaStyle.h; sourceTree = "<group>"; };
-		D37C9294195E42800035709A /* CocoaStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoaStyle.m; sourceTree = "<group>"; };
 		D3B1668118BB0E43003FCE6B /* DummyWebViewPolicyDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyWebViewPolicyDelegate.h; sourceTree = "<group>"; };
 		D3B1668218BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyWebViewPolicyDelegate.m; sourceTree = "<group>"; };
 		D3B4C0C218DAB4740069AB18 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -200,8 +209,14 @@
 		D3DB8FF418BD2AEC00ABE93B /* PlaybackConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaybackConstants.m; sourceTree = "<group>"; };
 		D3DB8FF618BD6A6400ABE93B /* PlaybackSliderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaybackSliderCell.h; sourceTree = "<group>"; };
 		D3DB8FF718BD6A6400ABE93B /* PlaybackSliderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaybackSliderCell.m; sourceTree = "<group>"; };
+		D3DF18161A99A581002AEE64 /* GoogleStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleStyle.h; sourceTree = "<group>"; };
+		D3DF18171A99A581002AEE64 /* GoogleStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleStyle.m; sourceTree = "<group>"; };
 		D3F14A4718F357AA007D4536 /* AdvancedPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvancedPreferencesViewController.h; sourceTree = "<group>"; };
 		D3F14A4818F357AA007D4536 /* AdvancedPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvancedPreferencesViewController.m; sourceTree = "<group>"; };
+		D3F401A91AD0A04900B8F4FC /* ReleaseChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleaseChannel.h; sourceTree = "<group>"; };
+		D3F401AA1AD0A04900B8F4FC /* ReleaseChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReleaseChannel.m; sourceTree = "<group>"; };
+		D3F401AD1AD0A10600B8F4FC /* UpdateChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateChecker.h; sourceTree = "<group>"; };
+		D3F401AE1AD0A10600B8F4FC /* UpdateChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateChecker.m; sourceTree = "<group>"; };
 		D3FAC6D218BA81EC00D9F461 /* PopupStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupStatusView.h; sourceTree = "<group>"; };
 		D3FAC6D318BA81EC00D9F461 /* PopupStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupStatusView.m; sourceTree = "<group>"; };
 		D3FAC6D518BA942500D9F461 /* PopupViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupViewDelegate.h; sourceTree = "<group>"; };
@@ -271,6 +286,8 @@
 		1A7B684517453E40001E509E /* radiant-player-mac */ = {
 			isa = PBXGroup;
 			children = (
+				D3F401AC1AD0A05100B8F4FC /* Updates */,
+				D36F50621A3D871D000541C9 /* Support */,
 				D31ACE87193BDC9700AC7CB4 /* Notifications */,
 				D3D4C3E318E75C79007238B3 /* LastFm */,
 				2B8FC1BB18C9C01E006D04FF /* AppleScript */,
@@ -294,8 +311,6 @@
 				D3DB8FF418BD2AEC00ABE93B /* PlaybackConstants.m */,
 				D3091F6118C32961007C8DCD /* Utilities.h */,
 				D3091F6218C32961007C8DCD /* Utilities.m */,
-				D328616319234D7900395FEA /* TitleBarTextView.h */,
-				D328616419234D7900395FEA /* TitleBarTextView.m */,
 				1A7B684617453E40001E509E /* Supporting Files */,
 			);
 			path = "radiant-player-mac";
@@ -333,12 +348,10 @@
 			children = (
 				D318341918CFC7C500E8F9B1 /* ApplicationStyle.h */,
 				D318341A18CFC7C500E8F9B1 /* ApplicationStyle.m */,
-				D37C9293195E42800035709A /* CocoaStyle.h */,
-				D37C9294195E42800035709A /* CocoaStyle.m */,
-				D37C9290195E41290035709A /* DarkFlatStyle.h */,
-				D37C9291195E41290035709A /* DarkFlatStyle.m */,
-				D37C928D195E3F290035709A /* DarkStyle.h */,
-				D37C928E195E3F290035709A /* DarkStyle.m */,
+				B0BB948719F76CF80081C97D /* LightStyle.h */,
+				B0BB948819F76CFD0081C97D /* LightStyle.m */,
+				D3DF18161A99A581002AEE64 /* GoogleStyle.h */,
+				D3DF18171A99A581002AEE64 /* GoogleStyle.m */,
 				D37C928A195E3B3F0035709A /* SpotifyBlackStyle.h */,
 				D37C928B195E3B3F0035709A /* SpotifyBlackStyle.m */,
 				D346173319D907F300017023 /* SpotifyBlackVibrantStyle.h */,
@@ -398,12 +411,29 @@
 				D37B638918F1EFD30098F9DC /* InvertedSpriteURLProtocol.m */,
 				D3CD9C3A18F25E0E002FBEE9 /* ImageURLProtocol.h */,
 				D3CD9C3B18F25E0E002FBEE9 /* ImageURLProtocol.m */,
+				D377DB591B0A6F5900026312 /* JSURLProtocol.h */,
+				D377DB5A1B0A6F5900026312 /* JSURLProtocol.m */,
+				D377DB5C1B0AADB700026312 /* WebComponentsURLProtocol.h */,
+				D377DB5D1B0AADB700026312 /* WebComponentsURLProtocol.m */,
 				D3286169192414B900395FEA /* NSHTTPCookie+Coding.h */,
 				D328616A192414B900395FEA /* NSHTTPCookie+Coding.m */,
 				D328616E1924744200395FEA /* NSHTTPCookieStorage+Swizzle.h */,
 				D328616F1924744200395FEA /* NSHTTPCookieStorage+Swizzle.m */,
 			);
 			path = WebView;
+			sourceTree = "<group>";
+		};
+		D36F50621A3D871D000541C9 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				D328616319234D7900395FEA /* TitleBarTextView.h */,
+				D328616419234D7900395FEA /* TitleBarTextView.m */,
+				D36F50631A3D874E000541C9 /* VisualEffectView.h */,
+				D36F50641A3D874E000541C9 /* VisualEffectView.m */,
+				D35F2E8A1A3D9C2F0072E461 /* Swizzle.h */,
+				D35F2E8B1A3D9D130072E461 /* Swizzle.c */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 		D3B71C2318C2C3510041358B /* Preferences */ = {
@@ -444,6 +474,17 @@
 			path = LastFm;
 			sourceTree = "<group>";
 		};
+		D3F401AC1AD0A05100B8F4FC /* Updates */ = {
+			isa = PBXGroup;
+			children = (
+				D3F401A91AD0A04900B8F4FC /* ReleaseChannel.h */,
+				D3F401AA1AD0A04900B8F4FC /* ReleaseChannel.m */,
+				D3F401AD1AD0A10600B8F4FC /* UpdateChecker.h */,
+				D3F401AE1AD0A10600B8F4FC /* UpdateChecker.m */,
+			);
+			path = Updates;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -474,7 +515,7 @@
 		1A7B683417453E40001E509E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Sajid Anwar";
 			};
 			buildConfigurationList = 1A7B683717453E40001E509E /* Build configuration list for PBXProject "radiant-player-mac" */;
@@ -574,13 +615,14 @@
 				D318342118D0513D00E8F9B1 /* CookieStorage.m in Sources */,
 				D318341B18CFC7C500E8F9B1 /* ApplicationStyle.m in Sources */,
 				2B8FC1C318C9CB16006D04FF /* RadiantPlayerScriptCommand.m in Sources */,
-				D37C9292195E41290035709A /* DarkFlatStyle.m in Sources */,
 				D3B71C2F18C2D5770041358B /* LastFmPreferencesViewController.m in Sources */,
 				D30CA00519383160007B05B2 /* NSApplication+ScriptingProperties.m in Sources */,
 				1A7B684C17453E40001E509E /* main.m in Sources */,
 				D37B638A18F1EFD30098F9DC /* InvertedSpriteURLProtocol.m in Sources */,
+				D35F2E8C1A3D9D130072E461 /* Swizzle.c in Sources */,
 				D3DB8FF518BD2AEC00ABE93B /* PlaybackConstants.m in Sources */,
 				D32861701924744200395FEA /* NSHTTPCookieStorage+Swizzle.m in Sources */,
+				D3DF18181A99A581002AEE64 /* GoogleStyle.m in Sources */,
 				D3D4C3EB18E77AA0007238B3 /* LastFmTrackTableCellView.m in Sources */,
 				1A7B685317453E40001E509E /* AppDelegate.m in Sources */,
 				D3DB8FF818BD6A6400ABE93B /* PlaybackSliderCell.m in Sources */,
@@ -591,11 +633,12 @@
 				D323406A18C523BC008C165B /* AboutWindow.m in Sources */,
 				D328616B192414B900395FEA /* NSHTTPCookie+Coding.m in Sources */,
 				D37C9289195E19BD0035709A /* NSImage+Data.m in Sources */,
+				D377DB5B1B0A6F5900026312 /* JSURLProtocol.m in Sources */,
 				D32CCEFA18BE039E00BDD484 /* PopupPanel.m in Sources */,
 				D31ACE84193ACDC300AC7CB4 /* RatingBadgeButton.m in Sources */,
 				D346173519D907F300017023 /* SpotifyBlackVibrantStyle.m in Sources */,
 				D37B638718F1E7680098F9DC /* SpriteDownloadURLProtocol.m in Sources */,
-				D37C9295195E42800035709A /* CocoaStyle.m in Sources */,
+				D377DB5E1B0AADB700026312 /* WebComponentsURLProtocol.m in Sources */,
 				D3B71C2818C2D5240041358B /* PreferencesWindowController.m in Sources */,
 				D328616519234D7900395FEA /* TitleBarTextView.m in Sources */,
 				D318341718CFBC7400E8F9B1 /* AppearancePreferencesViewController.m in Sources */,
@@ -610,10 +653,13 @@
 				D3F14A4918F357AA007D4536 /* AdvancedPreferencesViewController.m in Sources */,
 				D3D4C3E818E76674007238B3 /* LastFmPopover.m in Sources */,
 				D3091F6318C32961007C8DCD /* Utilities.m in Sources */,
+				D3F401AB1AD0A04900B8F4FC /* ReleaseChannel.m in Sources */,
+				D3F401AF1AD0A10600B8F4FC /* UpdateChecker.m in Sources */,
 				D370E8E318E2BFE1007B5450 /* ExpandHoverView.m in Sources */,
-				D37C928F195E3F290035709A /* DarkStyle.m in Sources */,
 				D32861681924000800395FEA /* NSDate+UTCString.m in Sources */,
 				D32CCEFD18BE9BF800BDD484 /* PopupView.m in Sources */,
+				D36F50651A3D874E000541C9 /* VisualEffectView.m in Sources */,
+				B06FB3D219F7723500351943 /* LightStyle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,9 +14,9 @@
 - (id)init
 {
     if (self = [super init]) {
-        [self setName:@"Spotify Black"];
+        [self setName:@"Black"];
         [self setAuthor:@"Anthony Barone"];
-        [self setDescription:@"A black style similar to the new Spotify."];
+        [self setDescription:@"A deep black style."];
         [self setWindowColor:[NSColor colorWithSRGBRed:0.133f green:0.137f blue:0.149f alpha:1.0f]];
         [self setTitleColor:[NSColor colorWithDeviceWhite:0.7f alpha:1.0f]];
         [self setCss:[ApplicationStyle cssNamed:@"spotify-black"]];

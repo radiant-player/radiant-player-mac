@@ -8,6 +8,11 @@
  */
 
 #import <Cocoa/Cocoa.h>
+#import <objc/runtime.h>
+#import "Support/VisualEffectView.h"
+#import "Popup/PopupView.h"
+
+#include "Updates/UpdateChecker.h"
 
 int main(int argc, char *argv[])
 {
@@ -15,6 +20,19 @@ int main(int argc, char *argv[])
     NSString *prefsPath = [[NSBundle mainBundle] pathForResource:@"Preferences" ofType:@"plist"];
     NSDictionary *prefs = [NSDictionary dictionaryWithContentsOfFile:prefsPath];
     [[NSUserDefaults standardUserDefaults] registerDefaults:prefs];
+    
+    // Register the NSVisualEffectView class if it doesn't exist.
+    NSVisualEffectViewExists = NSClassFromString(@"NSVisualEffectView") != nil;
+    
+    if (!NSVisualEffectViewExists)
+    {
+        NSVisualEffectViewClass = [VisualEffectView class];
+    }
+    else
+    {
+        NSVisualEffectViewClass = [NSVisualEffectView class];
+        class_setSuperclass([PopupView class], [NSVisualEffectView class]);
+    }
     
     return NSApplicationMain(argc, (const char **)argv);
 }

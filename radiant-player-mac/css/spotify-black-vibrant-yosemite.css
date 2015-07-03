@@ -8,7 +8,7 @@
  * Subject to terms and conditions in LICENSE.md.
  *
  */
-
+/*
 body {
     background: none;
 }
@@ -45,7 +45,7 @@ body {
 
 .queue-details .fade {
     background: none !important;
-}
+}*/
 
 #headerBar, .nerd-panel {
     background: none !important;

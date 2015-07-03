@@ -78,7 +78,7 @@
 {
     knobRect = NSInsetRect(knobRect, 5, 5);
     
-    [[NSColor grayColor] set];
+    [[NSColor orangeColor] set];
     NSBezierPath *path = [NSBezierPath bezierPathWithOvalInRect:knobRect];
     [path fill];
     

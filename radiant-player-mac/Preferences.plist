@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>dock.show-art</key>
+	<false/>
 	<key>lastfm.api-secret</key>
 	<string>1142932de0c86a98c00f4dbe90d911de</string>
 	<key>lastfm.api-key</key>
@@ -20,10 +22,10 @@
 	<false/>
 	<key>miniplayer.show-playing-status</key>
 	<false/>
+	<key>miniplayer.always-on-top</key>
+	<true/>
 	<key>navigation.buttons.enabled</key>
 	<true/>
-	<key>navigation.buttons.keep-logo</key>
-	<false/>
 	<key>navigation.buttons.keep-links</key>
 	<false/>
 	<key>navigation.swipe.enabled</key>
@@ -42,6 +44,8 @@
 	<true/>
 	<key>updates.check</key>
 	<true/>
+	<key>updates.channel</key>
+	<string>stable</string>
 	<key>eventtap.alternative-method</key>
 	<false/>
 	<key>cookies.use-safari</key>

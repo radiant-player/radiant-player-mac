@@ -16,175 +16,190 @@ if (typeof window.MusicAPI === 'undefined') {
     
     /* Set up for Safari versions less than 7. */
     if (typeof window.MutationObserver === 'undefined') {
-        window.MutationObserver = window.WebKitMutationObserver;
+        window.MutationObserver = WebKitMutationObserver;
     }
 
     /* Create a volume API. */
-    window.MusicAPI.Volume = {
-
+    MusicAPI.Volume = (function() {
+        var V = {};
+        
         // A reference to the volume slider element.
-        slider: document.querySelector('#vslider'),
-
+        var slider = document.querySelector('#material-vslider');
+        slider.step = 1;
+            
         // Get the current volume level.
-        getVolume: function() {
-            return parseInt(window.MusicAPI.Volume.slider.getAttribute('aria-valuenow'));
-        },
+        V.getVolume = function() {
+            return parseInt(slider.value);
+        };
 
         // Set the volume level (0 - 100).
-        setVolume: function(vol) {
-            var current = window.MusicAPI.Volume.getVolume();
+        V.setVolume = function(vol) {
+            var current = V.getVolume();
 
             if (vol > current) {
-                window.MusicAPI.Volume.increaseVolume(vol - current);
+                V.increaseVolume(vol - current);
             }
             else if (vol < current) {
-                window.MusicAPI.Volume.decreaseVolume(current - vol);
+                V.decreaseVolume(current - vol);
             }
-        },
+        };
 
         // Increase the volume by an amount (default of 1).
-        increaseVolume: function(amount) {
+        V.increaseVolume = function(amount) {
             if (typeof amount === 'undefined') 
                 amount = 1;
 
             for (var i = 0; i < amount; i++) {
-                window.Keyboard.sendKey(window.MusicAPI.Volume.slider, window.Keyboard.KEY_UP);
+                slider.increment();
             }
-        },
+        };
 
         // Decrease the volume by an amount (default of 1).
-        decreaseVolume: function(amount) {
+        V.decreaseVolume = function(amount) {
             if (typeof amount === 'undefined') 
                 amount = 1;
 
             for (var i = 0; i < amount; i++) {
-                window.Keyboard.sendKey(window.MusicAPI.Volume.slider, window.Keyboard.KEY_DOWN);
+                slider.decrement();
             }
-        }
-    };
-
+        };
+        
+        return V;
+    })();
+    
     /* Create a playback API. */
-    window.MusicAPI.Playback = {
-
+    MusicAPI.Playback = (function() {
+        var P = {};
+        
         // References to the media playback elements.
-        _eplayPause:  document.querySelector('button[data-id="play-pause"]'),
-        _eforward:    document.querySelector('button[data-id="forward"]'),
-        _erewind:     document.querySelector('button[data-id="rewind"]'),
-        _eshuffle:    document.querySelector('button[data-id="shuffle"]'),
-        _erepeat:     document.querySelector('button[data-id="repeat"]'),
-
+        var _eplayPause =  document.querySelector('#player sj-icon-button[data-id="play-pause"]');
+        var _eforward =    document.querySelector('#player sj-icon-button[data-id="forward"]');
+        var _erewind =     document.querySelector('#player sj-icon-button[data-id="rewind"]');
+        var _eshuffle =    document.querySelector('#player sj-icon-button[data-id="shuffle"]');
+        var _erepeat =     document.querySelector('#player sj-icon-button[data-id="repeat"]');
+        var _eplayback =   document.querySelector('#player #material-player-progress');
+        
         // Playback modes.
-        STOPPED:    0,
-        PAUSED:     1,
-        PLAYING:    2,
+        P.STOPPED = 0;
+        P.PAUSED = 1;
+        P.PLAYING = 2;
 
         // Repeat modes.
-        LIST_REPEAT:    'LIST_REPEAT',
-        SINGLE_REPEAT:  'SINGLE_REPEAT',
-        NO_REPEAT:      'NO_REPEAT',
+        P.LIST_REPEAT =    'LIST_REPEAT';
+        P.SINGLE_REPEAT =  'SINGLE_REPEAT';
+        P.NO_REPEAT =      'NO_REPEAT';
 
         // Shuffle modes.
-        ALL_SHUFFLE:    'ALL_SHUFFLE',
-        NO_SHUFFLE:     'NO_SHUFFLE',
+        P.ALL_SHUFFLE =    'ALL_SHUFFLE';
+        P.NO_SHUFFLE =     'NO_SHUFFLE';
         
-        // Time functions.
-        getPlaybackTime: function() {
-            return parseInt(slider.getAttribute('aria-valuenow'));
-        },
+        P.getPlaybackTime = function() {
+            return parseInt(_eplayback.value);
+        };
         
-        setPlaybackTime: function(milliseconds) {
-            var percent = milliseconds / parseFloat(slider.getAttribute('aria-valuemax'));
-            var lower = slider.offsetLeft + 6;
-            var upper = slider.offsetLeft + slider.clientWidth - 6;
-            var x = lower + percent*(upper - lower);
-            
-            window.Mouse.clickAtLocation(slider, x, 0)
-        },
-
+        P.setPlaybackTime = function(milliseconds) {
+            _eplayback.value = milliseconds;
+            _eplayback.fire('change');
+        };
+        
         // Playback functions.
-        playPause:      function() { MusicAPI.Playback._eplayPause.click(); },
-        forward:        function() { MusicAPI.Playback._eforward.click(); },
-        rewind:         function() { MusicAPI.Playback._erewind.click(); },
+        P.playPause =      function() { _eplayPause.click(); };
+        P.forward =        function() { _eforward.click(); };
+        P.rewind =         function() { _erewind.click(); };
 
-        getShuffle:     function() { return MusicAPI.Playback._eshuffle.value; }, 
-        toggleShuffle:  function() { MusicAPI.Playback._eshuffle.click(); },
+        P.getShuffle =     function() { return _eshuffle.getAttribute('value'); };
+        P.toggleShuffle =  function() { _eshuffle.click(); };
 
-        getRepeat:      function() {
-            return MusicAPI.Playback._erepeat.value;
-        },
+        P.getRepeat = function() {
+            return _erepeat.value;
+        };
 
-        changeRepeat:   function(mode) { 
+        P.changeRepeat = function(mode) { 
             if (!mode) {
                 // Toggle between repeat modes once.
-                MusicAPI.Playback._erepeat.click(); 
+                _erepeat.click(); 
             }
             else {
                 // Toggle between repeat modes until the desired mode is activated.
-                while (MusicAPI.Playback.getRepeat() !== mode) {
-                    MusicAPI.Playback._erepeat.click();
+                while (P.getRepeat() !== mode) {
+                    _erepeat.click();
                 }
             }
-        },
+        };
 
         // Taken from the Google Play Music page.
-        toggleVisualization: function() {
-            SJBpost('toggleVisualization');
-        }
+        P.toggleVisualization = function() {
+            var el = document.querySelector('#hover-icon');
+            
+            if (el)
+                el.click();
+        };
 
-    };
+        return P;
+    })();
 
     /* Create a rating API. */
-    window.MusicAPI.Rating = {
+    MusicAPI.Rating = (function() {
+        var R = {};
+        
+        // Determine whether the rating element is selected.
+        R.isRatingSelected = function(el) {
+            return el.icon.indexOf('-outline') == -1;
+        };
 
         // Determine whether the rating system is thumbs or stars.
-        isStarsRatingSystem: function() {
+        R.isStarsRatingSystem = function() {
             return document.querySelector('.rating-container.stars') !== null;
-        },
+        };
 
         // Get current rating.
-        getRating: function() {
-            var el = document.querySelector('.player-rating-container li.selected');
+        R.getRating = function() {
+            var els = document.querySelectorAll('.player-rating-container sj-icon-button[data-rating]');
 
-            if (el) {
-                return el.value;
+            for (var i = 0; i < els.length; i++) {
+                var el = els[i];
+                
+                if (R.isRatingSelected(el))
+                    return parseInt(el.dataset.rating);
             }
-            else {
-                return 0;
-            }
-        },
+            
+            return 0;
+        };
 
         // Thumbs up.
-        toggleThumbsUp: function() {
-            var el = document.querySelector('.player-rating-container li[data-rating="5"]');
+        R.toggleThumbsUp = function() {
+            var el = document.querySelector('.player-rating-container sj-icon-button[data-rating="5"]');
 
             if (el)
                 el.click();
-        },
+        };
 
         // Thumbs down.
-        toggleThumbsDown: function() {
-            var el = document.querySelector('.player-rating-container li[data-rating="1"]');
+        R.toggleThumbsDown = function() {
+            var el = document.querySelector('.player-rating-container sj-icon-button[data-rating="1"]');
 
             if (el)
                 el.click();
-        },
+        };
 
         // Set a star rating.
-        setStarRating: function(rating) {
-            var el = document.querySelector('.player-rating-container li[data-rating="' + rating + '"]');
+        R.setStarRating = function(rating) {
+            var el = document.querySelector('.player-rating-container sj-icon-button[data-rating="' + rating + '"]');
 
-            if (el)
+            if (el && !R.isRatingSelected(el))
                 el.click();
         }
-    };
+        
+        return R;
+    })();
 
     /* Miscellaneous functions. */
-    window.MusicAPI.Extras = {
+    MusicAPI.Extras = {
 
         // Get a shareable URL of the song on Google Play Music.
         getSongURL: function() {
-            var albumEl = document.querySelector('.player-album');
-            var artistEl = document.querySelector('.player-artist');
+            var albumEl = document.querySelector('#player .player-album');
+            var artistEl = document.querySelector('#player .player-artist');
 
             var urlTemplate = 'https://play.google.com/music/m/';
             var url = null;
@@ -214,20 +229,43 @@ if (typeof window.MusicAPI === 'undefined') {
     var lastArtist = "";
     var lastAlbum = "";
     
-    var addObserver = new MutationObserver(function(mutations) {
+    var addObserver, 
+        shuffleObserver,
+        repeatObserver,
+        playbackObserver,
+        playbackTimeObserver,
+        ratingObserver;
+    
+    addObserver = new MutationObserver(function(mutations) {
         mutations.forEach(function(m) {
             for (var i = 0; i < m.addedNodes.length; i++) {
                 var target = m.addedNodes[i];
                 var name = target.id || target.className;
 
-                if (name == 'text-wrapper')  {
+                if (name == 'now-playing-info-wrapper')  {
+                    
+                    // Fire the rating observer if the thumbs exist (no harm if already observing)
+                    var ratingEls = document.querySelectorAll('.player-rating-container sj-icon-button[data-rating]');
+                    for (var j = 0; j < ratingEls.length; j++) {
+                        var ratingEl = ratingEls[j];
+                        
+                        if (ratingEl.observe.icon != 'iconChanged_') {
+                            ratingEl.observe.icon = 'iconChanged_';
+                            ratingEl.iconChanged_ = function(oldIcon) {
+                                this.iconChanged(oldIcon);
+                                GoogleMusicApp.ratingChanged(MusicAPI.Rating.getRating());
+                            };
+                        }
+                    }
+                    GoogleMusicApp.ratingChanged(MusicAPI.Rating.getRating());
+                    
                     var now = new Date();
 
-                    var title = document.querySelector('#playerSongTitle');
-                    var artist = document.querySelector('#player-artist');
-                    var album = document.querySelector('.player-album');
-                    var art = document.querySelector('#playingAlbumArt');
-                    var duration = parseInt(document.querySelector('#player #slider').getAttribute('aria-valuemax')) / 1000;
+                    var title = document.querySelector('#player #player-song-title');
+                    var artist = document.querySelector('#player #player-artist');
+                    var album = document.querySelector('#player .player-album');
+                    var art = document.querySelector('#player #playingAlbumArt');
+                    var duration = parseInt(document.querySelector('#player #material-player-progress').max) / 1000;
 
                     title = (title) ? title.innerText : 'Unknown';
                     artist = (artist) ? artist.innerText : 'Unknown';
@@ -242,7 +280,7 @@ if (typeof window.MusicAPI === 'undefined') {
                     // Make sure that this is the first of the notifications for the
                     // insertion of the song information elements.
                     if (lastTitle != title || lastArtist != artist || lastAlbum != album) {
-                        window.GoogleMusicApp.notifySong(title, artist, album, art, duration);
+                        GoogleMusicApp.notifySong(title, artist, album, art, duration);
 
                         lastTitle = title;
                         lastArtist = artist;
@@ -253,29 +291,29 @@ if (typeof window.MusicAPI === 'undefined') {
         });
     });
 
-    var shuffleObserver = new MutationObserver(function(mutations) {
+    shuffleObserver = new MutationObserver(function(mutations) {
         mutations.forEach(function(m) {
             var target = m.target;
             var id = target.dataset.id;
 
             if (id == 'shuffle') {
-                window.GoogleMusicApp.shuffleChanged(target.value);
+                GoogleMusicApp.shuffleChanged(target.getAttribute('value'));
             }
         });
     });
 
-    var repeatObserver = new MutationObserver(function(mutations) {
+    repeatObserver = new MutationObserver(function(mutations) {
         mutations.forEach(function(m) {
             var target = m.target;
             var id = target.dataset.id;
 
             if (id == 'repeat') {
-                window.GoogleMusicApp.repeatChanged(target.value);
+                GoogleMusicApp.repeatChanged(target.getAttribute('value'));
             }
         });
     });
 
-    var playbackObserver = new MutationObserver(function(mutations) {
+    playbackObserver = new MutationObserver(function(mutations) {
         mutations.forEach(function(m) {
             var target = m.target;
             var id = target.dataset.id;
@@ -297,40 +335,27 @@ if (typeof window.MusicAPI === 'undefined') {
                     }
                 }
 
-                window.GoogleMusicApp.playbackChanged(mode);
+                GoogleMusicApp.playbackChanged(mode);
             }
         });
     });
 
-    var playbackTimeObserver = new MutationObserver(function(mutations) {
+    playbackTimeObserver = new MutationObserver(function(mutations) {
         mutations.forEach(function(m) {
             var target = m.target;
             var id = target.id;
 
-            if (id == 'slider') {
-                var currentTime = parseInt(target.getAttribute('aria-valuenow'));
-                var totalTime = parseInt(target.getAttribute('aria-valuemax'));
-                window.GoogleMusicApp.playbackTimeChanged(currentTime, totalTime);
+            if (id == 'material-player-progress') {
+                var currentTime = parseInt(target.value);
+                var totalTime = parseInt(target.max);
+                GoogleMusicApp.playbackTimeChanged(currentTime, totalTime);
             }
         });
     });
 
-    var ratingObserver = new MutationObserver(function(mutations) {
-        mutations.forEach(function(m) {
-            var target = m.target;
-
-            if (target.classList.contains('selected'))
-            {
-                window.GoogleMusicApp.ratingChanged(target.dataset.rating);
-            }
-        });
-    });
-    
-
-    addObserver.observe(document.querySelector('#playerSongInfo'), { childList: true, subtree: true });
-    shuffleObserver.observe(document.querySelector('#player button[data-id="shuffle"]'), { attributes: true });
-    repeatObserver.observe(document.querySelector('#player button[data-id="repeat"]'), { attributes: true });
-    playbackObserver.observe(document.querySelector('#player button[data-id="play-pause"]'), { attributes: true });
-    playbackTimeObserver.observe(document.querySelector('#player #slider'), { attributes: true });
-    ratingObserver.observe(document.querySelector('#player .player-rating-container'), { attributes: true, subtree: true });
+    addObserver.observe(document.querySelector('#player #playerSongInfo'), { childList: true, subtree: true });
+    shuffleObserver.observe(document.querySelector('#player sj-icon-button[data-id="shuffle"]'), { attributes: true });
+    repeatObserver.observe(document.querySelector('#player sj-icon-button[data-id="repeat"]'), { attributes: true });
+    playbackObserver.observe(document.querySelector('#player sj-icon-button[data-id="play-pause"]'), { attributes: true });
+    playbackTimeObserver.observe(document.querySelector('#player #material-player-progress'), { attributes: true });
 }

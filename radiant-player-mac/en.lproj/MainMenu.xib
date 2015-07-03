@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6154.17" systemVersion="14A329f" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7702" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6154.17"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="6154.17"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7702"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="7702"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -12,16 +13,19 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="494" customClass="AppDelegate">
             <connections>
                 <outlet property="controlsMenu" destination="376" id="qvJ-5F-Ga4"/>
                 <outlet property="lastfmPopover" destination="leS-Oa-AB4" id="BqS-2d-ChW"/>
+                <outlet property="loadingIndicator" destination="bWs-vC-4n9" id="uzA-Th-cr8"/>
+                <outlet property="loadingMessage" destination="qBi-0j-ssN" id="4LJ-bO-as4"/>
                 <outlet property="menu" destination="29" id="di3-2o-KDz"/>
                 <outlet property="popup" destination="sr1-Je-yff" id="X7b-8t-XL5"/>
                 <outlet property="popupDelegate" destination="vhZ-72-AYY" id="CHe-5t-K17"/>
                 <outlet property="prefsController" destination="Lzb-Be-DHP" id="G8R-fX-IHV"/>
                 <outlet property="ratingsSeparatorMenuItem" destination="VD8-yV-cM6" id="w7l-Y2-Ivt"/>
+                <outlet property="reloadButton" destination="pVF-no-ka9" id="Y2l-vC-tPP"/>
                 <outlet property="starRatingLabel" destination="F5F-yr-hWN" id="YZC-dp-bEp"/>
                 <outlet property="starRatingMenuItem" destination="AU3-72-l3d" id="gH3-3w-nwg"/>
                 <outlet property="starRatingView" destination="XCB-1i-pOq" id="JBG-we-TAC"/>
@@ -123,17 +127,17 @@
                                     <action selector="pasteAsPlainText:" target="-1" id="486"/>
                                 </connections>
                             </menuItem>
-                            <menuItem isSeparatorItem="YES" id="214">
-                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
-                            </menuItem>
                             <menuItem title="Delete" id="202">
                                 <connections>
                                     <action selector="delete:" target="-1" id="235"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Select All" keyEquivalent="a" id="hIO-3X-3Jm">
+                            <menuItem isSeparatorItem="YES" id="214">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Select All" keyEquivalent="a" id="DtM-YD-wG2">
                                 <connections>
-                                    <action selector="selectAll:" target="536" id="Wge-u1-feB"/>
+                                    <action selector="selectAll:" target="494" id="Mnc-Ca-74p"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="206">
@@ -171,6 +175,12 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="UoN-kB-9nv"/>
+                            <menuItem title="Volume" id="ylU-oy-rjV">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <outlet property="view" destination="sBg-fM-CoC" id="aiQ-Jo-PTS"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="Volume Up" keyEquivalent="" id="kTD-6G-c5s">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES"/>
                                 <connections>
@@ -192,6 +202,18 @@
                             <menuItem title="Toggle Thumbs Down" hidden="YES" keyEquivalent="k" id="V0w-yV-z7x">
                                 <connections>
                                     <action selector="toggleThumbsDown:" target="494" id="4Y5-bB-SVp"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Rating" hidden="YES" id="AU3-72-l3d">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <binding destination="494" name="enabled" keyPath="self.isStopped" id="qo7-8V-Ui7">
+                                        <dictionary key="options">
+                                            <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                    <outlet property="view" destination="Hd4-lS-MgE" id="v7m-w3-YIY"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" hidden="YES" id="VD8-yV-cM6"/>
@@ -237,16 +259,21 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="wOi-9h-iyD"/>
-                            <menuItem title="Go Back" keyEquivalent="" id="Mas-re-Dv3">
+                            <menuItem title="Search" keyEquivalent="f" id="Mas-re-Dv3">
                                 <connections>
-                                    <action selector="webBrowserBack:" target="494" id="U3u-bH-IkG"/>
-                                    <binding destination="494" name="enabled" keyPath="self.webView.canGoBack" id="PBT-5y-8z1"/>
+                                    <action selector="focusSearch:" target="494" id="b8Y-wi-Hzu"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Go Forward" keyEquivalent="" id="h8M-FE-ECf">
+                            <menuItem title="Go Back" keyEquivalent="[" id="4cT-OG-3S2">
                                 <connections>
-                                    <action selector="webBrowserForward:" target="494" id="9mb-ll-qGE"/>
-                                    <binding destination="494" name="enabled" keyPath="self.webView.canGoForward" id="Oed-xO-0Qu"/>
+                                    <action selector="webBrowserBack:" target="494" id="iou-SY-tS2"/>
+                                    <binding destination="494" name="enabled" keyPath="self.webView.canGoBack" id="mq3-br-b1C"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Go Forward" keyEquivalent="]" id="ZZG-0g-3wo">
+                                <connections>
+                                    <action selector="webBrowserForward:" target="494" id="AOB-QY-BFN"/>
+                                    <binding destination="494" name="enabled" keyPath="self.webView.canGoForward" id="dA5-K2-r4h"/>
                                 </connections>
                             </menuItem>
                         </items>
@@ -283,7 +310,7 @@
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="942" height="702"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" id="372">
                 <rect key="frame" x="0.0" y="0.0" width="942" height="702"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -297,12 +324,51 @@
                             <nil key="identifier"/>
                         </webPreferences>
                     </webView>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="mf9-a3-xaf">
+                        <rect key="frame" x="0.0" y="0.0" width="942" height="702"/>
+                        <subviews>
+                            <button hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pVF-no-ka9">
+                                <rect key="frame" x="429" y="306" width="84" height="32"/>
+                                <buttonCell key="cell" type="push" title="Reload" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Cam-gA-HFn">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="load:" target="494" id="t6h-UF-y9h"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qBi-0j-ssN">
+                                <rect key="frame" x="78" y="342" width="786" height="17"/>
+                                <textFieldCell key="cell" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="center" title="Loading Google Play Music..." id="LPv-tE-YtJ">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="bWs-vC-4n9">
+                                <rect key="frame" x="463" y="367" width="16" height="16"/>
+                            </progressIndicator>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="qBi-0j-ssN" firstAttribute="top" secondItem="bWs-vC-4n9" secondAttribute="bottom" constant="8" id="1f0-o5-O90"/>
+                            <constraint firstItem="qBi-0j-ssN" firstAttribute="leading" secondItem="mf9-a3-xaf" secondAttribute="leading" constant="80" id="6Qp-cT-mmo"/>
+                            <constraint firstAttribute="centerX" secondItem="pVF-no-ka9" secondAttribute="centerX" id="CGP-rR-zSc"/>
+                            <constraint firstAttribute="centerY" secondItem="qBi-0j-ssN" secondAttribute="centerY" id="EEz-S9-avf"/>
+                            <constraint firstItem="pVF-no-ka9" firstAttribute="top" secondItem="qBi-0j-ssN" secondAttribute="bottom" constant="8" id="LUu-BL-B7A"/>
+                            <constraint firstAttribute="centerX" secondItem="bWs-vC-4n9" secondAttribute="centerX" id="e7c-Qd-MRE"/>
+                            <constraint firstAttribute="trailing" secondItem="qBi-0j-ssN" secondAttribute="trailing" constant="80" id="qb3-kD-KM5"/>
+                        </constraints>
+                    </customView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="536" firstAttribute="trailing" secondItem="372" secondAttribute="trailing" id="586"/>
                     <constraint firstItem="536" firstAttribute="leading" secondItem="372" secondAttribute="leading" id="587"/>
                     <constraint firstItem="536" firstAttribute="bottom" secondItem="372" secondAttribute="bottom" id="588"/>
                     <constraint firstItem="536" firstAttribute="top" secondItem="372" secondAttribute="top" id="656"/>
+                    <constraint firstAttribute="trailing" secondItem="mf9-a3-xaf" secondAttribute="trailing" id="Oua-gv-ans"/>
+                    <constraint firstAttribute="bottom" secondItem="mf9-a3-xaf" secondAttribute="bottom" id="XrH-LZ-5EU"/>
+                    <constraint firstItem="mf9-a3-xaf" firstAttribute="leading" secondItem="372" secondAttribute="leading" id="m3a-sL-1T4"/>
+                    <constraint firstItem="mf9-a3-xaf" firstAttribute="top" secondItem="372" secondAttribute="top" id="xud-4r-DHs"/>
                 </constraints>
             </view>
             <connections>
@@ -313,6 +379,9 @@
         <userDefaultsController representsSharedInstance="YES" id="Vyy-aQ-Qdc"/>
         <customObject id="vhZ-72-AYY" userLabel="Popup Delegate" customClass="PopupViewDelegate">
             <connections>
+                <outlet property="actionButton" destination="v8E-fH-1nK" id="4OW-vR-y4C"/>
+                <outlet property="actionButtonMenu" destination="1au-Yd-Y9d" id="ha3-IX-dJu"/>
+                <outlet property="actionButtonTopConstraint" destination="rKs-eC-YiY" id="FtP-jL-0Z4"/>
                 <outlet property="albumLabel" destination="yJg-I1-edx" id="TPa-H6-zdV"/>
                 <outlet property="appDelegate" destination="494" id="tun-Ab-XAj"/>
                 <outlet property="artExpandView" destination="9xX-aB-17c" id="nbz-Xd-0Ij"/>
@@ -327,7 +396,6 @@
                 <outlet property="playbackSlider" destination="8u2-Nn-ZZf" id="ww6-rb-TBx"/>
                 <outlet property="popup" destination="sr1-Je-yff" id="rGd-1u-1st"/>
                 <outlet property="repeatButton" destination="DvI-Lo-u1q" id="xDw-Gh-EXt"/>
-                <outlet property="showMainWindowButton" destination="v8E-fH-1nK" id="dtK-BB-Xf6"/>
                 <outlet property="shuffleButton" destination="0Xb-8Y-y5L" id="zxu-qb-yUd"/>
                 <outlet property="starBadgeButton" destination="vVf-7Y-Grl" id="rO0-Fo-ZuO"/>
                 <outlet property="starRatingView" destination="mx1-ph-Wrj" id="3xw-wT-dsC"/>
@@ -340,7 +408,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="131" y="159" width="297" height="338"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <value key="minSize" type="size" width="297" height="325"/>
             <value key="maxSize" type="size" width="297" height="325"/>
             <view key="contentView" id="bh6-VI-WVo">
@@ -443,7 +511,7 @@
             <windowCollectionBehavior key="collectionBehavior" moveToActiveSpace="YES" ignoresCycle="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="139" y="81" width="356" height="152"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" id="4yq-G3-W3B" customClass="PopupView">
                 <rect key="frame" x="0.0" y="0.0" width="356" height="152"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -641,7 +709,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="hidePopupAndShowWindow:" target="vhZ-72-AYY" id="3xi-mX-Ted"/>
+                            <action selector="actionButtonSelector:" target="vhZ-72-AYY" id="2yG-qr-l9f"/>
                         </connections>
                     </button>
                     <customView hidden="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mx1-ph-Wrj" customClass="EDStarRating">
@@ -687,7 +755,7 @@
                     <constraint firstItem="BxE-sk-mNE" firstAttribute="centerX" secondItem="dQ2-sg-PYy" secondAttribute="centerX" id="nPv-wP-ZC6"/>
                     <constraint firstItem="arE-Wm-iTc" firstAttribute="bottom" secondItem="3Nx-UI-e4n" secondAttribute="bottom" constant="-2" id="nwv-tD-PbZ"/>
                     <constraint firstItem="arE-Wm-iTc" firstAttribute="leading" secondItem="dQ2-sg-PYy" secondAttribute="trailing" constant="8" symbolic="YES" id="o8Y-a6-ctn"/>
-                    <constraint firstItem="v8E-fH-1nK" firstAttribute="top" secondItem="4yq-G3-W3B" secondAttribute="top" constant="10" id="rKs-eC-YiY"/>
+                    <constraint firstItem="v8E-fH-1nK" firstAttribute="top" secondItem="4yq-G3-W3B" secondAttribute="top" constant="10" type="user" id="rKs-eC-YiY"/>
                     <constraint firstItem="3Nx-UI-e4n" firstAttribute="trailing" secondItem="EGc-cr-jAa" secondAttribute="trailing" id="vLN-vM-xFg"/>
                     <constraint firstAttribute="bottom" secondItem="8u2-Nn-ZZf" secondAttribute="bottom" constant="11" id="xd4-IP-uZX"/>
                 </constraints>
@@ -700,18 +768,6 @@
             </connections>
         </window>
         <customObject id="leS-Oa-AB4" userLabel="Last.fm Popover" customClass="LastFmPopover"/>
-        <menuItem title="Rating" id="AU3-72-l3d">
-            <modifierMask key="keyEquivalentModifierMask"/>
-            <connections>
-                <binding destination="494" name="enabled" keyPath="self.isStopped" id="qo7-8V-Ui7">
-                    <dictionary key="options">
-                        <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
-                        <string key="NSValueTransformerName">NSNegateBoolean</string>
-                    </dictionary>
-                </binding>
-                <outlet property="view" destination="Hd4-lS-MgE" id="v7m-w3-YIY"/>
-            </connections>
-        </menuItem>
         <customView id="Hd4-lS-MgE">
             <rect key="frame" x="0.0" y="0.0" width="252" height="33"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -764,6 +820,62 @@
                 <toolbarItem reference="1YT-u4-Kbt"/>
             </defaultToolbarItems>
         </toolbar>
+        <customView id="sBg-fM-CoC">
+            <rect key="frame" x="0.0" y="0.0" width="252" height="33"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uuf-BB-8x3">
+                    <rect key="frame" x="18" y="7" width="53" height="18"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" sendsActionOnEndEditing="YES" title="Volume" id="qxH-cb-Hjw">
+                        <font key="font" metaFont="system" size="14"/>
+                        <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dNn-V0-8Tw">
+                    <rect key="frame" x="146" y="6" width="96" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="92" id="qn0-2S-Sba"/>
+                    </constraints>
+                    <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="QHQ-7S-O9J"/>
+                    <connections>
+                        <action selector="volumeSliderChanged:" target="494" id="rXN-qx-krT"/>
+                    </connections>
+                </slider>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="dNn-V0-8Tw" secondAttribute="trailing" constant="12" id="Eiu-Be-eKI"/>
+                <constraint firstAttribute="centerY" secondItem="dNn-V0-8Tw" secondAttribute="centerY" id="NbQ-Bh-r1b"/>
+                <constraint firstItem="uuf-BB-8x3" firstAttribute="leading" secondItem="sBg-fM-CoC" secondAttribute="leading" constant="20" id="Zq3-cu-Za1"/>
+                <constraint firstAttribute="bottom" secondItem="uuf-BB-8x3" secondAttribute="bottom" constant="7" id="gPu-jd-vtR"/>
+                <constraint firstItem="uuf-BB-8x3" firstAttribute="top" secondItem="sBg-fM-CoC" secondAttribute="top" constant="8" id="u8Y-2J-KAn"/>
+            </constraints>
+            <point key="canvasLocation" x="268" y="-244"/>
+        </customView>
+        <menu id="1au-Yd-Y9d">
+            <items>
+                <menuItem title="Keep always on top" id="rwJ-dR-jUQ">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <binding destination="vhZ-72-AYY" name="value" keyPath="self.popup.isAlwaysOnTop" id="RL2-ZH-P8h"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="7No-pm-G06"/>
+                <menuItem title="Dock mini player" id="u04-Zl-Mh7">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="dockPopup:" target="494" id="v2B-GU-rmE"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Show main window" id="Z1y-pW-YwC">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="showMainWindow:" target="vhZ-72-AYY" id="f7h-N5-cJp"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="-1" y="222.5"/>
+        </menu>
     </objects>
     <resources>
         <image name="NSEnterFullScreenTemplate" width="15" height="15"/>

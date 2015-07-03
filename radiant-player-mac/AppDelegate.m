@@ -23,6 +23,10 @@
 @synthesize popup;
 @synthesize popupDelegate;
 
+@synthesize loadingIndicator;
+@synthesize loadingMessage;
+@synthesize reloadButton;
+
 @synthesize thumbsUpMenuItem;
 @synthesize thumbsDownMenuItem;
 @synthesize starRatingMenuItem;
@@ -72,25 +76,30 @@
  */
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    [window setDelegate:self];
+    
     if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9)
     {
+        [self useTallTitleBar];
+        [ApplicationStyle applyYosemiteVisualEffects:webView window:window appearance:NSAppearanceNameVibrantLight];
+        
         [[NSNotificationCenter defaultCenter]
              addObserverForName:NSWindowWillEnterFullScreenNotification
-             object:nil
+             object:window
              queue:nil
              usingBlock:^(NSNotification *note) {
                  [webView stringByEvaluatingJavaScriptFromString:@"window.Styles.Callbacks.onEnterFullScreen();"];
-                 [self hideToolbar];
+                 [self useNormalTitleBar];
              }
          ];
         
         [[NSNotificationCenter defaultCenter]
              addObserverForName:NSWindowWillExitFullScreenNotification
-             object:nil
+             object:window
              queue:nil
          usingBlock:^(NSNotification *note) {
              [webView stringByEvaluatingJavaScriptFromString:@"window.Styles.Callbacks.onExitFullScreen();"];
-                 [self showToolbar];
+                 [self useTallTitleBar];
              }
          ];
     }
@@ -109,6 +118,24 @@
         // Change the title bar color.
         [window setTitle:@""];
     }
+    // Set notifications for this window being inactive or active.
+    [[NSNotificationCenter defaultCenter]
+         addObserverForName:NSWindowDidBecomeMainNotification
+         object:window
+         queue:nil
+         usingBlock:^(NSNotification *note) {
+             [webView stringByEvaluatingJavaScriptFromString:@"window.Styles.Callbacks.onWindowDidBecomeActive();"];
+         }
+     ];
+    
+    [[NSNotificationCenter defaultCenter]
+         addObserverForName:NSWindowDidResignKeyNotification
+         object:window
+         queue:nil
+         usingBlock:^(NSNotification *note) {
+             [webView stringByEvaluatingJavaScriptFromString:@"window.Styles.Callbacks.onWindowDidBecomeInactive();"];
+         }
+     ];
     
     // Load the user preferences.
     defaults = [NSUserDefaults standardUserDefaults];
@@ -155,6 +182,8 @@
     [NSURLProtocol registerClass:[SpriteDownloadURLProtocol class]];
     [NSURLProtocol registerClass:[InvertedSpriteURLProtocol class]];
     [NSURLProtocol registerClass:[ImageURLProtocol class]];
+    [NSURLProtocol registerClass:[JSURLProtocol class]];
+    [NSURLProtocol registerClass:[WebComponentsURLProtocol class]];
 
 	// Add an event tap to intercept the system defined media key events
     CGEventMask mask = ([defaults boolForKey:@"eventtap.alternative-method"])
@@ -184,9 +213,7 @@
     [webView setAppDelegate:self];
     
     // Load the main page
-    NSURL *url = [NSURL URLWithString:@"https://play.google.com/music"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [[webView mainFrame] loadRequest:request];
+    [self load:self];
     
     WebPreferences *preferences = [webView preferences];
     [preferences setPlugInsEnabled:YES];
@@ -217,10 +244,12 @@
 - (void)checkVersion
 {
     NSString *appName = [Utilities applicationName];
-    NSString *appVersion = [Utilities applicationVersion];
-    NSString *latestVersion = [Utilities latestVersionFromGithub];
+    NSString *appVersion = [UpdateChecker applicationVersion];
+    NSString *releaseChannel = [UpdateChecker releaseChannel];
+    NSDictionary *latestRelease = [UpdateChecker latestReleaseFromGitHub:releaseChannel];
+    NSString *latestVersion = [[latestRelease objectForKey:@"name"] substringFromIndex:1];
     
-    if (latestVersion != nil && [Utilities isVersionUpToDateWithApplication:appVersion latest:latestVersion] == NO) {
+    if (latestVersion != nil && [UpdateChecker isVersionUpToDateWithApplication:appVersion latest:latestVersion] == NO) {
         // Application is out of date.
         NSString *messageFormat = @"You are running version %@ of %@, but the latest version is %@. Do you want to be taken to the download page?";
         NSString *message = [NSString stringWithFormat:messageFormat, appVersion, appName, latestVersion];
@@ -241,9 +270,9 @@
         
         NSModalResponse response = [updateAlert runModal];
         
-        // If the user hit OK, open the homepage in the default browser.
+        // If the user hit OK, open the release page in the default browser.
         if (response == NSAlertFirstButtonReturn) {
-            [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[Utilities applicationHomepage]]];
+            [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[latestRelease objectForKey:@"html_url"]]];
         }
         
         // If the user selected "dont check for updates", set that preference.
@@ -257,9 +286,22 @@
 - (NSMutableDictionary *)styles
 {
     if (_styles == nil)
+    {
         _styles = [ApplicationStyle styles];
+        [_styles setObject:[[GoogleStyle alloc] init] forKey:@"Google"];
+    }
     
     return _styles;
+}
+
+- (NSArray *)releaseChannels
+{
+    if (_releaseChannels == nil)
+    {
+        _releaseChannels = @[CHANNEL_STABLE, CHANNEL_BETA];
+    }
+    
+    return _releaseChannels;
 }
 
 - (void)initializeStatusBar
@@ -280,6 +322,11 @@
     
     [statusView setStatusItem:statusItem];
     [statusView setupStatusItem];
+}
+
+- (void)dockPopup:(id)sender
+{
+    [statusView dockPopup];
 }
 
 - (void)setupRatingMenuItems
@@ -305,60 +352,108 @@
 
 - (void)setupThumbsUpRatingView
 {
-    if ([controlsMenu indexOfItem:thumbsUpMenuItem] == -1)
-    {
-        NSInteger starindex = [controlsMenu indexOfItem:starRatingMenuItem];
-        
-        if (starindex != -1)
-            [controlsMenu removeItemAtIndex:starindex];
-        
-        [controlsMenu insertItem:thumbsUpMenuItem atIndex:7];
-        [controlsMenu insertItem:thumbsDownMenuItem atIndex:8];
-    }
+    [thumbsUpMenuItem setHidden:NO];
+    [thumbsDownMenuItem setHidden:NO];
+    [starRatingMenuItem setHidden:YES];
 }
 
 - (void)setupStarRatingView
 {
-    if ([controlsMenu indexOfItem:starRatingMenuItem] == -1)
-    {
-        NSInteger tui = [controlsMenu indexOfItem:thumbsUpMenuItem];
-        NSInteger tdi = [controlsMenu indexOfItem:thumbsDownMenuItem];
-        
-        if (tui != -1 && tdi != -1)
-        {
-            [controlsMenu removeItemAtIndex:tui];
-            [controlsMenu removeItemAtIndex:tdi];
-        }
-        
-        [controlsMenu insertItem:starRatingMenuItem atIndex:7];
-        [starRatingView setStarImage:[Utilities imageFromName:@"stars/star_outline_black_small"]];
-        [starRatingView setStarHighlightedImage:[Utilities imageFromName:@"stars/star_filled_small"]];
-        [starRatingView setMaxRating:5];
-        [starRatingView setHalfStarThreshold:1];
-        [starRatingView setEditable:NO];
-        [starRatingView setDisplayMode:EDStarRatingDisplayFull];
-        [starRatingView setDelegate:self];
-    }
+    [thumbsUpMenuItem setHidden:YES];
+    [thumbsDownMenuItem setHidden:YES];
+    [starRatingMenuItem setHidden:NO];
+    
+    [starRatingView setStarImage:[Utilities imageFromName:@"stars/star_outline_black_small"]];
+    [starRatingView setStarHighlightedImage:[Utilities imageFromName:@"stars/star_filled_small"]];
+    [starRatingView setMaxRating:5];
+    [starRatingView setHalfStarThreshold:1];
+    [starRatingView setEditable:NO];
+    [starRatingView setDisplayMode:EDStarRatingDisplayFull];
+    [starRatingView setDelegate:self];
 }
 
-- (void)showToolbar
+/*
+ * Modified from @weAreYeah's BSD-licensed WAYWindow
+ * https://github.com/weAreYeah/WAYWindow
+ */
+float _defaultTitleBarHeight() {
+    NSRect frame = NSMakeRect(0, 0, 800, 600);
+    NSRect contentRect = [NSWindow contentRectForFrameRect:frame styleMask: NSTitledWindowMask];
+    return NSHeight(frame) - NSHeight(contentRect);
+}
+
+- (void)_adjustTitleBar
 {
+    if (![window respondsToSelector:@selector(titlebarAccessoryViewControllers)]) {
+        return;
+    }
+    
+    while ([[window titlebarAccessoryViewControllers] count]) {
+        [window removeTitlebarAccessoryViewControllerAtIndex:0];
+    }
+    
+    if (_isTall) {
+        
+        float height = 60 - _defaultTitleBarHeight();
+
+        NSView *accessory = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, 10, height)];
+        NSTitlebarAccessoryViewController *controller = [[NSTitlebarAccessoryViewController alloc] init];
+        [controller setView:accessory];
+        [window addTitlebarAccessoryViewController:controller];
+    }
+    
+    NSArray *buttons = @[
+        [window standardWindowButton:NSWindowCloseButton],
+        [window standardWindowButton:NSWindowMiniaturizeButton],
+        [window standardWindowButton:NSWindowZoomButton]
+    ];
+
+    [buttons enumerateObjectsUsingBlock:^(NSButton *button, NSUInteger i, BOOL *stop) {
+        NSRect frame = [button frame];
+        frame.origin.x += 10;
+        frame.origin.y = NSHeight(button.superview.frame)/2 - NSHeight(button.frame)/2;
+        [button setFrame:frame];
+    }];
+}
+
+- (void)useTallTitleBar
+{
+    _isTall = YES;
+    [self _adjustTitleBar];
+    
     NSRect frame = [[self window] frame];
     [window setStyleMask:(window.styleMask | NSFullSizeContentViewWindowMask)];
     [window setTitlebarAppearsTransparent:YES];
     [window setTitleVisibility:NSWindowTitleHidden];
-    [window setToolbar:toolbar];
-    [toolbar setVisible:YES];
     [[self window] setFrame:frame display:NO];
 }
 
-- (void)hideToolbar
+- (void)useNormalTitleBar
 {
-//    [window setStyleMask:(window.styleMask & ~NSFullSizeContentViewWindowMask)];
-//    [window setTitlebarAppearsTransparent:NO];
-//    [window setTitleVisibility:NSWindowTitleVisible];
-    [window setToolbar:nil];
-    [toolbar setVisible:NO];
+    _isTall = NO;
+    [self _adjustTitleBar];
+    
+    NSRect frame = [[self window] frame];
+    [window setStyleMask:(window.styleMask & ~NSFullSizeContentViewWindowMask)];
+    [window setTitlebarAppearsTransparent:NO];
+    [window setTitleVisibility:NSWindowTitleVisible];
+    [[self window] setFrame:frame display:NO];
+}
+
+- (void) toggleDockArt:(BOOL)showArt
+{
+    if (showArt && currentArt) {
+        [NSApp setApplicationIconImage:currentArt];
+    }
+    else
+    {
+        [NSApp setApplicationIconImage:nil];
+    }
+}
+
+- (void) windowDidResize:(NSNotification *)notification
+{
+    [self _adjustTitleBar];
 }
 
 - (void)starsSelectionChanged:(EDStarRating *)control rating:(float)rating
@@ -465,6 +560,20 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 #pragma mark - Web Browser Actions
 
+- (void) load:(id)sender
+{
+    [loadingIndicator setHidden:NO];
+    [loadingIndicator startAnimation:self];
+    [loadingMessage setHidden:NO];
+    [loadingMessage setStringValue:@"Loading Google Play Music..."];
+    [reloadButton setHidden:YES];
+    [[reloadButton superview] setHidden:NO];
+    
+    NSURL *url = [NSURL URLWithString:@"https://play.google.com/music"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [[webView mainFrame] loadRequest:request];
+}
+
 - (void) webBrowserBack:(id)sender
 {
     [webView goBack];
@@ -541,6 +650,19 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 }
 
 /**
+ * Sets the volume of Google Play Music.
+ */
+- (void) setVolume:(int)volume
+{
+    [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"MusicAPI.Volume.setVolume(%d)", volume]];
+}
+
+- (IBAction) volumeSliderChanged:(id)sender
+{
+    [self setVolume:[sender intValue]];
+}
+
+/**
  * Toggle the song's thumbs up rating.
  */
 - (IBAction) toggleThumbsUp:(id)sender
@@ -613,6 +735,22 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Playback.toggleVisualization()"];
 }
 
+/**
+ * Sets focus on the search bar
+ */
+- (IBAction) focusSearch:(id)sender
+{
+    [webView stringByEvaluatingJavaScriptFromString:@"document.querySelector('.material-search').select()"];
+}
+
+/**
+ * Allow the user to Select All on the web view.
+ */
+- (IBAction) selectAll:(id)sender
+{
+    [webView selectAll:sender];
+}
+
 - (void)notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art duration:(NSTimeInterval)duration
 {
     NSTimeInterval timestamp = [[NSDate date] timeIntervalSince1970];
@@ -622,6 +760,12 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         [LastFmService scrobbleSong:currentTitle withArtist:currentArtist album:currentAlbum duration:currentDuration timestamp:currentTimestamp];
         [LastFmService sendNowPlaying:title withArtist:artist album:album duration:duration timestamp:timestamp];
     }
+    
+    // Determine whether the player is using thumbs or stars.
+    NSNumber *value = [[webView windowScriptObject] evaluateWebScript:@"window.MusicAPI.Rating.isStarsRatingSystem()"];
+    isStarsRatingSystem = [value boolValue];
+    [self setupRatingMenuItems];
+
     
     // Update our current data.
     currentTitle = title;
@@ -645,6 +789,25 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     {
         [[NotificationCenter center] scheduleNotificationWithTitle:title artist:artist album:album imageURL:art];
     }
+
+    if ([defaults boolForKey:@"dock.show-art"])
+    {
+        if (art != nil) {
+            [self performSelectorInBackground:@selector(downloadAlbumArt:) withObject:art];
+        }
+        else
+        {
+            [NSApp setApplicationIconImage: nil];
+        }
+    }
+}
+
+- (void)downloadAlbumArt:(NSString *)art
+{
+    NSURL *url = [NSURL URLWithString:art];
+    currentArt = [[NSImage alloc] initWithContentsOfURL:url];
+    
+    [self toggleDockArt:[defaults boolForKey:@"dock.show-art"]];
 }
 
 - (NSString *)currentSongURL
@@ -675,6 +838,11 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
             [starRatingView setEditable:YES];
             [starRatingLabel setTextColor:[NSColor controlTextColor]];
         }
+    }
+
+    if (mode == MUSIC_STOPPED) {
+        [NSApp setApplicationIconImage: nil];
+        currentArt = nil;
     }
 }
 
@@ -721,6 +889,44 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     [windowObject setValue:self forKey:@"GoogleMusicApp"];
 }
 
+- (void)webView:(WebView *)sender didFailLoadWithError:(NSError *)error forFrame:(WebFrame *)frame
+{
+    NSString *url = [[error userInfo] valueForKey:NSURLErrorFailingURLStringErrorKey];
+    NSString *reason = [[error userInfo] valueForKey:NSLocalizedDescriptionKey];
+    
+    if ([url isEqualToString:@"https://play.google.com/music"]) {
+        [loadingIndicator stopAnimation:self];
+        [loadingMessage setStringValue:reason];
+        [reloadButton setHidden:NO];
+        [[reloadButton superview] setHidden:NO];
+    }
+}
+
+- (void)webView:(WebView *)sender didFailProvisionalLoadWithError:(NSError *)error forFrame:(WebFrame *)frame
+{
+    NSString *url = [[error userInfo] valueForKey:NSURLErrorFailingURLStringErrorKey];
+    NSString *reason = [[error userInfo] valueForKey:NSLocalizedDescriptionKey];
+    
+    if ([url isEqualToString:@"https://play.google.com/music"]) {
+        [loadingIndicator stopAnimation:self];
+        [loadingMessage setStringValue:reason];
+        [reloadButton setHidden:NO];
+        [[reloadButton superview] setHidden:NO];
+    }
+}
+
+- (void)webView:(WebView *)sender didCommitLoadForFrame:(WebFrame *)frame
+{
+    NSString *url = [[[[frame dataSource] request] URL] absoluteString];
+    
+    if ([url isEqualToString:@"https://play.google.com/music/listen"]) {
+        [loadingIndicator setHidden:YES];
+        [loadingMessage setHidden:YES];
+        [reloadButton setHidden:YES];
+        [[reloadButton superview] setHidden:YES];
+    }
+}
+
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
 {
     // Only apply the main script file when the player is ready.
@@ -728,9 +934,10 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         [self evaluateJavaScriptFile:@"main"];
     }
     
-    [self evaluateJavaScriptFile:@"keyboard"];
-    [self evaluateJavaScriptFile:@"mouse"];
     [self evaluateJavaScriptFile:@"styles"];
+    
+    // Apply common styles.
+    [self applyCSSFile:@"common"];
     
     // Apply the navigation styles.
     [self applyCSSFile:@"navigation"];
@@ -750,15 +957,26 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     NSString *styleName = [defaults stringForKey:@"styles.name"];
     ApplicationStyle *style = [_styles objectForKey:styleName];
     
-    if (stylesEnabled && style)
-    {
-        [style applyToWebView:webView window:window];
+    if (!style) {
+        [defaults setObject:@"Google" forKey:@"styles.name"];
+        [defaults synchronize];
     }
     
+    if (!stylesEnabled || !style)
+        style = [_styles objectForKey:@"Google"];
+    
+    [style applyToWebView:webView window:window];
+    
     // Determine whether the player is using thumbs or stars.
-    isStarsRatingSystem = (int)[[webView windowScriptObject] evaluateWebScript:@"MusicAPI.Rating.isStarsRatingSystem()"] == YES;
+    isStarsRatingSystem = (int)[[webView windowScriptObject] evaluateWebScript:@"window.MusicAPI.Rating.isStarsRatingSystem()"] == YES;
     
     [self setupRatingMenuItems];
+    
+    // Communicate with the navigation system on the new status of the back-forward list.
+    BOOL canGoBack = [webView canGoBack];
+    BOOL canGoForward = [webView canGoForward];
+    NSString *call = [NSString stringWithFormat:@"window.GMNavigation.Callbacks.onHistoryChange(%@, %@)", canGoBack ? @"true" : @"false", canGoForward ? @"true" : @"false"];
+    [[webView windowScriptObject] evaluateWebScript:call];
 }
 
 - (id)preferenceForKey:(NSString *)key
@@ -776,11 +994,15 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     
 - (void) evaluateJavaScriptFile:(NSString *)name
 {
-    NSString *file = [NSString stringWithFormat:@"js/%@", name];
-    NSString *path = [[NSBundle mainBundle] pathForResource:file ofType:@"js"];
-    NSString *js = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
-    
-    [webView stringByEvaluatingJavaScriptFromString:js];
+    NSString *template =
+        @"if (document.querySelector('#rp-script-%1$@') == null) {"
+        "    var js = document.createElement('script');"
+        "    js.id = 'rp-script-%1$@';"
+        "    js.src = 'http://radiant-player-mac/js/%1$@.js';"
+        "    document.head.appendChild(js);"
+        "}";
+    NSString *insert = [NSString stringWithFormat:template, name];
+    [webView stringByEvaluatingJavaScriptFromString:insert];
 }
 
 - (void) applyCSSFile:(NSString *)name

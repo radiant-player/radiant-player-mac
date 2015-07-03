@@ -10,31 +10,33 @@
  */
 
 .gm-nav-button {
-    display: inline-block;
-    border: none;
-    outline: none;
-    vertical-align: top;
-    opacity: 0.6;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    min-width: 24px;
 
-    width: 30px;
-    height: 30px;
-    background-color: transparent;
-    background-size: 30px 30px;
-    margin: 15px 8px 0 8px;
 }
 
-.gm-nav-button:hover {
-    opacity: 0.4;
+#rp-padding-left {
+    min-width: 77px;
 }
 
-.gm-nav-button:active {
-    opacity: 0.6;
+/* If the "songs selected" toolbar is open, move it. */
+#sliding_action_bar_container.material {
+    padding-left: 85px;
 }
 
-#gm-back {
-    background-image: url(http://radiant-player-mac/images/arrow-left.png);
+/* When the navigation drawer is open, or Radiant Player is full screen */
+body.full-screen #rp-padding-left,
+core-drawer-panel:not([narrow]) #rp-padding-left {
+    min-width: 0px;
 }
 
-#gm-forward {
-    background-image: url(http://radiant-player-mac/images/arrow-right.png);
+body.full-screen #sliding_action_bar_container.material,
+core-drawer-panel:not([narrow]) #sliding_action_bar_container.material {
+    padding-left: 16px;
 }
+
+/* Move the close navigation menu button to the right and hide the Google Play Logo if we are not full-screen */
+body:not(.full-screen) #left-nav-close-button { -webkit-order: 1; }
+body:not(.full-screen) .menu-logo { visibility: hidden; }

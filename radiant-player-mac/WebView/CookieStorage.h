@@ -13,6 +13,7 @@
 @interface CookieStorage : NSObject {
     NSMutableArray *_storage;
     NSString *_storagePath;
+    NSHTTPCookieAcceptPolicy _policy;
 }
 
 + (CookieStorage *)instance;

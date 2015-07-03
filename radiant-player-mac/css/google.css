@@ -1,0 +1,14 @@
+/*
+ * css/none.css
+ *
+ * Minimum stylesheet for "no" style.
+ *
+ * Created by Sajid Anwar.
+ *
+ * Subject to terms and conditions in LICENSE.md.
+ *
+ */
+
+#nav-container #dropShadow {
+    display: none;
+}

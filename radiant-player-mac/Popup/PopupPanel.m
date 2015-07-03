@@ -13,16 +13,29 @@
 
 @synthesize popupDelegate;
 @synthesize popupView;
+@synthesize docked = _docked;
+@synthesize isAlwaysOnTop;
 
 -(void)awakeFromNib
 {
+    
+    _docked = NO;
+    _undockStartMouse = NSMakePoint(0, 0);
+    _undockStartFrame = [self frame];
+    _undocking = NO;
+    
+    self.isAlwaysOnTop = [[NSUserDefaults standardUserDefaults] boolForKey:@"miniplayer.always-on-top"];
+    
     [self setBackgroundColor:[NSColor clearColor]];
     [self setOpaque:NO];
     [self setLevel:NSPopUpMenuWindowLevel];
-    [self setCollectionBehavior:NSWindowCollectionBehaviorCanJoinAllSpaces | NSWindowCollectionBehaviorTransient];
-    [self setFloatingPanel:YES];
+    [self setCollectionBehavior:NSWindowCollectionBehaviorMoveToActiveSpace|NSWindowCollectionBehaviorTransient|NSWindowCollectionBehaviorFullScreenAuxiliary];
+    [self setFloatingPanel:self.isAlwaysOnTop];
     [self setHidesOnDeactivate:NO];
     [self setDelegate:self];
+    [self dock];
+    
+    [self addObserver:self forKeyPath:NSStringFromSelector(@selector(isAlwaysOnTop)) options:0 context:NULL];
 }
 
 - (BOOL)canBecomeKeyWindow
@@ -32,7 +45,8 @@
 
 - (void)windowDidResignKey:(NSNotification *)notification
 {
-    [self close];
+    if (_docked)
+        [self close];
 }
 
 - (void)showRelativeToRect:(NSRect)rect ofView:(NSView *)view preferredEdge:(NSRectEdge)edge
@@ -62,7 +76,30 @@
     
     [self setAlphaValue:0];
     [self setFrame:frame display:YES];
+    
     [self makeKeyAndOrderFront:nil];
+    [self toggleAlwaysOnTop:nil];
+    [self toggleAlwaysOnTop:nil];
+    
+    [self.popupView setNeedsDisplay:YES];
+    
+    [NSAnimationContext beginGrouping];
+    [[NSAnimationContext currentContext] setDuration:0.15];
+    [[self animator] setAlphaValue:1];
+    [NSAnimationContext endGrouping];
+}
+
+- (void)show
+{
+    if (popupDelegate)
+        [popupDelegate popupWillShow];
+    
+    [self setAlphaValue:0];
+    
+    [self makeKeyAndOrderFront:nil];
+    [self toggleAlwaysOnTop:nil];
+    [self toggleAlwaysOnTop:nil];
+    
     [self.popupView setNeedsDisplay:YES];
     
     [NSAnimationContext beginGrouping];
@@ -73,7 +110,7 @@
 
 - (BOOL)isActive
 {
-    return [self isKeyWindow];
+    return [self isKeyWindow] || ([self isFloatingPanel] && [self alphaValue] > 0);
 }
 
 - (void)close
@@ -90,7 +127,86 @@
     [[NSAnimationContext currentContext] setDuration:.15];
     [[self animator] setAlphaValue:0];
     [NSAnimationContext endGrouping];
+}
 
+- (void)mouseDown:(NSEvent *)ev
+{
+    if (_docked) {
+        _undockStartMouse = [NSEvent mouseLocation];
+        _undockStartFrame = [self frame];
+        _undocking = YES;
+    }
+}
+
+- (void)mouseUp:(NSEvent *)ev
+{
+    if (_undocking) {
+        _undockStartFrame = [self frame];
+        _undockStartMouse = NSMakePoint(0, 0);
+        _undocking = NO;
+    }
+    
+    [self setMovableByWindowBackground:!_docked];
+}
+
+- (void)mouseDragged:(NSEvent *)ev
+{
+    if (_undocking) {
+        NSPoint mouseOrigin = [NSEvent mouseLocation];
+        float deltaX = mouseOrigin.x - _undockStartMouse.x;
+        float deltaY = mouseOrigin.y - _undockStartMouse.y;
+        float distance = sqrt(deltaX * deltaX + deltaY * deltaY);
+        
+        if (distance < 30) {
+            [self setFrame:_undockStartFrame display:NO];
+            [self dock];
+        }
+        else {
+            NSRect newFrame = _undockStartFrame;
+            newFrame.origin.x += deltaX;
+            newFrame.origin.y += deltaY;
+            [self setFrame:newFrame display:NO];
+            [self undock];
+        }
+    }
+}
+
+- (void)dock
+{
+    if (!_docked)
+    {
+        _docked = YES;
+        [[popupView delegate] popupDidDock];
+        
+        if (popupDelegate && [popupDelegate respondsToSelector:@selector(popupDidDock)])
+            [popupDelegate popupDidDock];
+    }
+}
+
+- (void)undock
+{
+    if (_docked)
+    {
+        _docked = NO;
+        [[popupView delegate] popupDidUndock];
+        
+        if (popupDelegate && [popupDelegate respondsToSelector:@selector(popupDidUndock)])
+            [popupDelegate popupDidUndock];
+    }
+}
+
+- (void)toggleAlwaysOnTop:(id)sender
+{
+    self.isAlwaysOnTop = !self.isAlwaysOnTop;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:NSStringFromSelector(@selector(isAlwaysOnTop))])
+    {
+        [self setFloatingPanel:self.isAlwaysOnTop];
+        [[NSUserDefaults standardUserDefaults] setBool:isAlwaysOnTop forKey:@"miniplayer.always-on-top"];
+    }
 }
 
 @end

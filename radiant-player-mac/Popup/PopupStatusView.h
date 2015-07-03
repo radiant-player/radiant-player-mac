@@ -28,12 +28,12 @@
 
 - (void)setupStatusItem;
 - (void)update;
-- (id)button;
 - (NSRect)buttonFrame;
 - (NSView *)buttonView;
 - (NSImage *)buttonImage;
 
 - (void)showPopup;
 - (void)hidePopup;
+- (void)dockPopup;
 
 @end

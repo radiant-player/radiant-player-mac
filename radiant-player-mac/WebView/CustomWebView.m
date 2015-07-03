@@ -19,6 +19,10 @@
 
 - (void)awakeFromNib
 {
+    _warnedAboutPlugin = NO;
+    _inGesture = NO;
+    _receivingTouches = NO;
+    
     swipeView = [[SwipeIndicatorView alloc] initWithFrame:self.frame];
     [swipeView setWebView:self];
     [swipeView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
@@ -42,6 +46,21 @@
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
 {
     [appDelegate webView:sender didFinishLoadForFrame:frame];
+}
+
+- (void)webView:(WebView *)sender didFailLoadWithError:(NSError *)error forFrame:(WebFrame *)frame
+{
+    [appDelegate webView:sender didFailLoadWithError:error forFrame:frame];
+}
+
+- (void)webView:(WebView *)sender didFailProvisionalLoadWithError:(NSError *)error forFrame:(WebFrame *)frame
+{
+    [appDelegate webView:sender didFailProvisionalLoadWithError:error forFrame:frame];
+}
+
+- (void)webView:(WebView *)sender didCommitLoadForFrame:(WebFrame *)frame
+{
+    [appDelegate webView:sender didCommitLoadForFrame:frame];
 }
 
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request
@@ -69,8 +88,16 @@
     {
         NSArray *components = [url pathComponents];
         
+        // Handle script resources.
+        if ([[components objectAtIndex:1] isEqualToString:@"js"])
+        {
+            // JS resources.
+            [NSURLProtocol setProperty:self forKey:@"JSCustomWebView" inRequest:req];
+            return req;
+        }
+        
         // Handle image resources.
-        if ([[components objectAtIndex:1] isEqualToString:@"images"])
+        else if ([[components objectAtIndex:1] isEqualToString:@"images"])
         {
             // Image resources.
             [NSURLProtocol setProperty:self forKey:@"ImagesCustomWebView" inRequest:req];
@@ -90,8 +117,13 @@
     {
         [self handleCookiesForRequest:req redirectResponse:redirectResponse];
         
+        // The WebComponents library that was buggy!
+        if ([[url lastPathComponent] isEqualToString:@"webcomponents.js"])
+        {
+            [NSURLProtocol setProperty:self forKey:@"WebComponentsCustomWebView" inRequest:req];
+        }
         // Original sprites.
-        if ([[url pathExtension] isEqualToString:@"png"] &&
+        else if ([[url pathExtension] isEqualToString:@"png"] &&
             [[url lastPathComponent] rangeOfString:@"sprites"].location == 0)
         {
             [NSURLProtocol setProperty:self forKey:@"OriginalCustomWebView" inRequest:req];
@@ -100,6 +132,34 @@
     }
     
     return req;
+}
+
+- (void)webView:(WebView *)sender plugInFailedWithError:(NSError *)error dataSource:(WebDataSource *)dataSource
+{
+    if (!_warnedAboutPlugin) {
+        _warnedAboutPlugin = YES;
+        
+        NSString *pluginName = [[error userInfo] objectForKey:WebKitErrorPlugInNameKey];
+        NSURL *pluginUrl = [NSURL URLWithString:[[error userInfo] objectForKey:WebKitErrorPlugInPageURLStringKey]];
+        NSString *reason = [[error userInfo] objectForKey:NSLocalizedDescriptionKey];
+        
+        NSAlert *alert = [NSAlert alertWithMessageText:reason
+                                         defaultButton:@"Download plug-in update..."
+                                       alternateButton:@"OK"
+                                           otherButton:nil
+                             informativeTextWithFormat:@"%@ plug-in could not be loaded and may be out-of-date. You will need to download the latest plug-in update from within Safari, and restart Radiant Player once it is installed.", pluginName];
+        
+        NSModalResponse response = [alert runModal];
+        
+        if (response == NSAlertDefaultReturn) {
+            [[NSWorkspace sharedWorkspace] openURLs:@[pluginUrl] withAppBundleIdentifier:@"com.apple.Safari" options:NSWorkspaceLaunchDefault additionalEventParamDescriptor:nil launchIdentifiers:NULL];
+        }
+    }
+}
+
+-(BOOL)performDragOperation:(id<NSDraggingInfo>)sender
+{
+    return false;
 }
 
 #pragma mark - Cookie code
@@ -154,6 +214,16 @@
 
 - (void)beginGestureWithEvent:(NSEvent *)event
 {
+    _inGesture = YES;
+}
+
+- (void)endGestureWithEvent:(NSEvent *)event
+{
+    _inGesture = NO;
+}
+
+- (void)touchesBeganWithEvent:(NSEvent *)event
+{
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"navigation.swipe.enabled"] == NO)
         return;
     
@@ -165,60 +235,68 @@
     
     NSSet *touches = [event touchesMatchingPhase:NSTouchPhaseAny inView:nil];
     
-    _touches = [[NSMutableDictionary alloc] init];
-    
-    for (NSTouch *touch in touches) {
-        [_touches setObject:touch forKey:touch.identity];
-    }
-}
-
-- (void)endGestureWithEvent:(NSEvent *)event
-{
-    if (!_touches)
+    if ([touches count] != 2)
         return;
     
-    [swipeView startAnimation];
-    
+    _receivingTouches = YES;
+    _gestureStartPoint = [self touchPositionForTouches:touches];
+    _gestureCurrentPoint = NSMakePoint(0, 0);
+}
+
+- (void)touchesMovedWithEvent:(NSEvent *)event
+{
     NSSet *touches = [event touchesMatchingPhase:NSTouchPhaseAny inView:nil];
     
-    // release twoFingersTouches early
-    NSMutableDictionary *beginTouches = [_touches copy];
-    _touches = nil;
+    if (!_receivingTouches)
+        return;
     
-    NSMutableArray *magnitudes = [[NSMutableArray alloc] init];
+    if ([touches count] != 2)
+        return;
     
-    for (NSTouch *touch in touches)
-    {
-        NSTouch *beginTouch = [beginTouches objectForKey:touch.identity];
-        
-        if (!beginTouch) continue;
-        
-        float magnitude = touch.normalizedPosition.x - beginTouch.normalizedPosition.x;
-        [magnitudes addObject:[NSNumber numberWithFloat:magnitude]];
-    }
-    
-    // Need at least two points
-    if ([magnitudes count] < 2) return;
-    
-    CGFloat sum = 0;
-    
-    for (NSNumber *magnitude in magnitudes)
-        sum += [magnitude floatValue];
+    _gestureCurrentPoint = [self touchPositionForTouches:touches];
+    CGFloat delta = _gestureCurrentPoint.x - _gestureStartPoint.x;
+    delta *= SWIPE_AMOUNT_MULTIPLIER;
     
     // Handle natural direction in Lion
     BOOL naturalDirectionEnabled = [[[NSUserDefaults standardUserDefaults] valueForKey:@"com.apple.swipescrolldirection"] boolValue];
     
     if (naturalDirectionEnabled)
-        sum *= -1;
+        delta *= -1;
     
-    // See if absolute sum is long enough to be considered a complete gesture
-    CGFloat absoluteSum = fabsf(sum);
+    [swipeView setSwipeAmount:delta];
+    [swipeView setNeedsDisplay:YES];
+}
+
+- (void)touchesEndedWithEvent:(NSEvent *)event
+{
+    [swipeView startAnimation];
     
-    if (absoluteSum < SWIPE_MINIMUM_LENGTH)
+    NSSet *touches = [event touchesMatchingPhase:NSTouchPhaseAny inView:nil];
+    
+    if (!_receivingTouches)
+        return;
+    
+    if ([touches count] != 2)
+        return;
+    
+    _gestureCurrentPoint = [self touchPositionForTouches:touches];
+    CGFloat delta = _gestureCurrentPoint.x - _gestureStartPoint.x;
+    delta *= SWIPE_AMOUNT_MULTIPLIER;
+    
+    // Handle natural direction in Lion
+    BOOL naturalDirectionEnabled = [[[NSUserDefaults standardUserDefaults] valueForKey:@"com.apple.swipescrolldirection"] boolValue];
+    
+    if (naturalDirectionEnabled)
+        delta *= -1;
+    
+    // See if absolute delta is long enough to be considered a complete gesture
+    CGFloat absoluteDelta = fabsf(delta);
+    
+    if (absoluteDelta < SWIPE_MINIMUM_LENGTH)
         return;
     
     // Handle the actual swipe
-    if (sum > 0)
+    if (delta > 0)
     {
         [self goForward];
     } else
@@ -227,44 +305,22 @@
     }
 }
 
-- (void)touchesMovedWithEvent:(NSEvent *)event
+- (NSPoint)touchPositionForTouches:(NSSet *)touches
 {
-    if (!_touches)
-        return;
-    
-    NSSet *touches = [event touchesMatchingPhase:NSTouchPhaseAny inView:nil];
-    NSMutableArray *magnitudes = [[NSMutableArray alloc] init];
+    NSPoint position = NSMakePoint(0, 0);
     
     for (NSTouch *touch in touches)
     {
-        NSTouch *beginTouch = [_touches objectForKey:touch.identity];
-        
-        if (!beginTouch)
-            continue;
-        
-        float magnitude = touch.normalizedPosition.x - beginTouch.normalizedPosition.x;
-        
-        [magnitudes addObject:[NSNumber numberWithFloat:magnitude]];
+        position.x += touch.normalizedPosition.x;
+        position.y += touch.normalizedPosition.y;
     }
     
-    // Need at least two points
-    if ([magnitudes count] < 2) {
-        return;
+    if ([touches count] > 0) {
+        position.x /= [touches count];
+        position.y /= [touches count];
     }
     
-    CGFloat sum = 0;
-    
-    for (NSNumber *magnitude in magnitudes)
-        sum += [magnitude floatValue];
-    
-    // Handle natural direction in Lion
-    BOOL naturalDirectionEnabled = [[[NSUserDefaults standardUserDefaults] valueForKey:@"com.apple.swipescrolldirection"] boolValue];
-    
-    if (naturalDirectionEnabled)
-        sum *= -1;
-    
-    [swipeView setSwipeAmount:sum];
-    [swipeView setNeedsDisplay:YES];
+    return position;
 }
 
 @end
