@@ -82,16 +82,35 @@ a, .simple-dialog a {
 .cluster.material-cluster .header h2.title,
 .settings-cluster.material-cluster .header h2.title,
 .section-header,
+.material .section-header,
 .material .recommended-header {
     color: #ddd;
+}
+
+#music-content .material-banner.banner.ws-search-banner,
+#music-content .material-banner.banner.new-user-quiz-card,
+#music-content .material-banner.banner.ws-subscriber-card {
+    background-color: rgba(34, 35, 38, 0.8);
+}
+
+#music-content .material-banner.banner.ws-search-banner .title,
+#music-content .material-banner.banner.new-user-quiz-card .title,
+#music-content .material-banner.banner.ws-subscriber-card .title {
+    color: #ccc;
 }
 
 .material-container,
 .material-playlist-container,
 .songlist-container,
+.material-detail-view .top-tracks,
+.station-container-content-wrapper .material-album-container,
 #queue-overlay {
     background-color: rgba(18, 19, 20, 0.98);
     box-shadow: none;
+}
+
+.station-container-content-wrapper .material-container-details {
+    background-color: transparent;
 }
 
 #queue-overlay::after {
@@ -187,6 +206,11 @@ a, .simple-dialog a {
     visibility: visible;
 }
 
+.material .song-row.hover [data-col="index"] .content,
+.material .song-row.hover [data-col="track"] .content {
+    color: transparent;
+}
+
 .material .song-row .song-indicator,
 .material .song-row .title-right-items,
 .material .song-row .content,
@@ -214,6 +238,15 @@ a, .simple-dialog a {
 
 .music-banner {
     display: none;
+}
+
+.subcategories-list .subcategory:hover,
+.subcategories-list .subcategory:focus {
+    background-color: #222;
+}
+
+.subcategories-list .subcategory:not(:last-child) {
+    border-color: #333;
 }
 
 #nav, core-header-panel#nav-container, .nav-toolbar {
@@ -391,6 +424,10 @@ a, .simple-dialog a {
 
 .suggested-query {
     color: #666;
+}
+
+.more-songs-container {
+    border-top-color: transparent;
 }
 
 .material a, .material .simple-dialog a {
