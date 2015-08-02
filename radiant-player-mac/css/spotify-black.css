@@ -486,3 +486,6 @@ div.simple-dialog-bg {
 {
     background-image: url(https://radiant-player-mac/sprites-inverted.png) !important;
 }
+.material-card[data-size="small"][data-type="imfl"] .title {
+    color: #FFF;
+}
