@@ -118,7 +118,8 @@
         [self handleCookiesForRequest:req redirectResponse:redirectResponse];
         
         // The WebComponents library that was buggy!
-        if ([[url lastPathComponent] isEqualToString:@"webcomponents.js"])
+        NSString *fileName = [url lastPathComponent];
+        if ([fileName isEqualToString:@"webcomponents.js"] || [fileName isEqualToString:@"webcomponents.min.js"])
         {
             [NSURLProtocol setProperty:self forKey:@"WebComponentsCustomWebView" inRequest:req];
         }
