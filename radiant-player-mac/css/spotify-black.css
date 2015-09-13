@@ -9,12 +9,84 @@
  *
  */
 
+body,
 body.material,
-core-toolbar#material-app-bar,
-core-header-panel #music-content.material .material-cover
+#player.material:hover #material-player-progress #sliderContainer:not(.disabled) #sliderBar #progressContainer
 {
-    background-color: #121314;
-    color: #bbb;
+    background-color: #36383C;
+    color: #e3e3e3;
+}
+
+::-webkit-scrollbar {
+    background-color: #222326;
+    width: 1.25em /* 20px / 16px */;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #03A6B5;
+    border: 0.25em /* 4px / 16px */ solid #222326;
+    border-radius: 1.25em /* 20px / 16px */;
+}
+
+::-webkit-scrollbar { width: 0 !important }
+
+core-header-panel#content-container.transparent #material-app-bar {
+    background-color: rgba(3, 166, 181, 0.4);
+}
+
+#material-one-middle {
+    margin-left: 45px;
+}
+
+core-toolbar#material-app-bar,
+core-header-panel #music-content.material .material-cover,
+sj-paper-button.material-primary,
+.material-container-details sj-fab,
+.material .song-row .explicit,
+.material-card .explicit
+{
+    background-color: #03A6B5;
+}
+
+.more-songs-container,
+.material-detail-view .material-container-details .actions {
+    border-top: 1px solid #222326;
+}
+
+.subcategories-list .subcategory:not(:last-child) {
+    border-bottom: 1px solid #222326;
+}
+
+#checkbox.checked {
+    background-color: #03A6B5 !important;
+    border-color: #03A6B5 !important;
+}
+
+paper-toggle-button [checked] .toggle,
+paper-slider #sliderBar #activeProgress,
+paper-slider #sliderKnobInner,
+paper-input-decorator #underline .focused-underline {
+    background-color: #03A6B5 !important;
+}
+
+paper-action-dialog sj-paper-button
+{
+    color: #03A6B5 !important;
+}
+
+#player.material sj-icon-button
+{
+    color: #eee;
+}
+
+#player.material .material-player-middle sj-icon-button[data-id="play-pause"]:not([disabled]),
+#player.material .material-player-middle sj-icon-button[data-id="repeat"][value="LIST_REPEAT"], 
+#player.material .material-player-middle sj-icon-button[data-id="repeat"][value="SINGLE_REPEAT"], 
+#player.material .material-player-middle sj-icon-button[data-id="shuffle"][value="ALL_SHUFFLE"],
+.nav-item-container.selected core-icon,
+.more-songs-container
+{
+    color: #03A6B5;
 }
 
 core-toolbar#material-app-bar {
@@ -23,7 +95,7 @@ core-toolbar#material-app-bar {
 
 .material .cluster-text-protection,
 .material .cluster-text-protection::before {
-    background-color: #121314;
+    background-color: #36383C;
 }
 
 #loading-progress {
@@ -35,7 +107,7 @@ core-toolbar#material-app-bar {
 }
 
 #loading-progress-message {
-    color: #444;
+    color: white;
     text-align: center;
 }
 
@@ -50,7 +122,7 @@ core-toolbar#material-app-bar {
 }
 
 a, .simple-dialog a {
-    color: #999;
+    color: #a9a9a9;
 }
 
 .card-group {
@@ -59,16 +131,28 @@ a, .simple-dialog a {
 
 .material-card,
 .material-card .details,
-.settings-card {
+.settings-card
+{
     background-color: rgba(34, 35, 38, 0.8) !important;
 }
 
-.material-card .title {
+.material-card .title
+{
     color: #ddd;
 }
 
-.material-card .sub-title {
-    color: #999;
+.material-card .details sj-icon-button.menu-anchor {
+    color: #fff;
+}
+
+.material-card[data-size="small"][data-type="imfl"] .title {
+    color: #FFF;
+}
+
+.material-card .sub-title,
+.cluster.material-cluster .header span.subtitle
+{
+    color: #a9a9a9;
 }
 
 .material-card .reason {
@@ -83,14 +167,15 @@ a, .simple-dialog a {
 .settings-cluster.material-cluster .header h2.title,
 .section-header,
 .material .recommended-header {
-    color: #ddd;
+    color: #eee;
 }
 
 .material-container,
 .material-playlist-container,
 .songlist-container,
-#queue-overlay {
-    background-color: rgba(18, 19, 20, 0.98);
+#queue-overlay,
+.material-detail-view .top-tracks {
+    background-color: rgba(30, 32, 34, 0.98);
     box-shadow: none;
 }
 
@@ -145,7 +230,8 @@ a, .simple-dialog a {
 }
 
 .material .song-table [data-col="title"],
-.material .song-table.mini [data-col="song-details"] .song-title {
+.material .song-table.mini [data-col="song-details"] .song-title,
+.material-card .details .left-items .index {
     color: white;
 }
 
@@ -164,12 +250,11 @@ a, .simple-dialog a {
 }
 
 .material .song-row.selected-song-row td {
-    color: white !important;
     background-color: #222326 !important;
 }
 
 .material .song-row.currently-playing td {
-    color: #ff8200 !important;
+    color: #fff !important;
 }
 
 .material .song-table [data-col="index"] .content,
@@ -188,28 +273,32 @@ a, .simple-dialog a {
 }
 
 .material .song-row .song-indicator,
+.material .song-row.hover .song-indicator,
 .material .song-row .title-right-items,
 .material .song-row .content,
 .material .song-row .song-indicator[data-playback-status="paused"],
 .material .song-row .song-indicator[data-playback-status="loading"],
 .material .song-row [data-col="index"] .hover-button[data-id="play"],
 .material .song-row [data-col="track"] .hover-button[data-id="play"],
+.material .song-row.hover .song-indicator[data-playback-status="paused"],
+.material .song-row.hover .song-indicator[data-playback-status="loading"],
 .material .song-row.selected-song-row .song-indicator,
 .material .song-row.selected-song-row .title-right-items,
 .material .song-row.selected-song-row .content,
 .material .song-row.selected-song-row .song-indicator[data-playback-status="paused"],
 .material .song-row.selected-song-row .song-indicator[data-playback-status="loading"],
 .material .song-row.selected-song-row [data-col="index"] .hover-button[data-id="play"],
-.material .song-row.selected-song-row [data-col="track"] .hover-button[data-id="play"],
-.material .song-row.hover .song-indicator,
+.material .song-row.selected-song-row [data-col="track"] .hover-button[data-id="play"]
+{
+    background-color: transparent;
+}
+
 .material .song-row.hover .title-right-items,
 .material .song-row.hover .content,
-.material .song-row.hover .song-indicator[data-playback-status="paused"],
-.material .song-row.hover .song-indicator[data-playback-status="loading"],
 .material .song-row.hover [data-col="index"] .hover-button[data-id="play"],
 .material .song-row.hover [data-col="track"] .hover-button[data-id="play"]
 {
-    background-color: transparent;
+    background-color: #222326;
 }
 
 .music-banner {
@@ -237,10 +326,11 @@ a, .simple-dialog a {
 .material #nav_collections .nav-item-container.selected,
 .material .nav-item-container.selected,
 .material .nav-item-container.selected:focus,
-.material .nav-item-container.selected:hover {
+.material .nav-item-container.selected:hover,
+.subcategories-list .subcategory:hover {
     background: #2E2F33 !important;
     color: #F7F9FF !important;
-    border-left: 3px solid #FF7D00;
+    border-left: 3px solid #03A6B5;
 }
 
 .material #nav_collections .nav-item-container:hover,
@@ -252,6 +342,11 @@ a, .simple-dialog a {
 #nav_collections .nav-item-container:focus,
 .nav-item-container:focus, .nav-item-container:hover {
     background-color: transparent;
+}
+
+.material-detail-view .material-container-details .info .description:hover {
+    background-color: transparent;
+    color: #fff;
 }
 
 .material .nav-section-header {
@@ -273,7 +368,7 @@ a, .simple-dialog a {
 }
 
 .nav-bar .header-tab-title.selected {
-    border-bottom: 3px solid #ff7d00 !important;
+    border-bottom: 3px solid #03A6B5 !important;
     background-color: transparent;
     color: #fff;
 }
@@ -306,16 +401,16 @@ a, .simple-dialog a {
 }
 
 .nav-bar {
-    background-color: #121314;
+    background-color: #36383C;
 }
 
 #headerBar {
-    background-color: #121314;
+    background-color: #36383C;
     border-bottom: 1px solid #222326;
 }
 
 .read-more-button-wrapper.fade-out {
-    background: #121314;
+    background: #36383C;
 }
 
 .fade-out:after {
@@ -397,6 +492,11 @@ a, .simple-dialog a {
     color: #aaa;;
 }
 
+.material a.primary,
+a.primary {
+    color: #03A6B5;;
+}
+
 div.simple-dialog-bg {
     opacity: 0.01 !important;
     background-color: transparent;
@@ -475,6 +575,14 @@ div.simple-dialog-bg {
 .material .goog-menu .goog-menuitem .rating-container sj-icon-button {
     color: white;
 }
+
+.material .goog-menu .goog-menuitem.selected .goog-menuitem-content {
+    color: #03A6B5 !important;
+}
+
+.material .goog-menu .goog-menuitem.selected .goog-menuitem-content:hover {
+    color: #00C2D1 !important;
+}   
 
 [data-account-type="all-access"] .actions sj-paper-button[data-id="radio"] .icon,
 .header-row [data-col="duration"] .icon,
