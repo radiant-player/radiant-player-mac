@@ -527,3 +527,7 @@ div.simple-dialog-bg {
 .material-card .details sj-icon-button.menu-anchor {
     color: #fff;
 }
+
+.material-card[data-size="small"][data-type="imfl"] .title {
+    color: #FFF;
+}
