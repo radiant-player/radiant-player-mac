@@ -20,8 +20,8 @@
 
 @synthesize isLargePlayer;
 @synthesize trackingArea;
-@synthesize backgroundImage = _backgroundImage;
-@synthesize hoverAlphaMultiplier = _hoverAlphaMultiplier;
+@synthesize backgroundImage;
+@synthesize hoverAlphaMultiplier;
 
 @synthesize arrowX;
 
@@ -77,13 +77,13 @@
     // Draw the background album art image if possible.
     if (isLargePlayer)
     {
-        if (_backgroundImage != nil)
+        if (backgroundImage != nil)
         {
             [path addClip];
-            [_backgroundImage drawInRect:[self bounds]
-                                fromRect:NSMakeRect(0, 0, _backgroundImage.size.width, _backgroundImage.size.height)
-                               operation:NSCompositeSourceOver
-                                fraction:1.0];
+            [backgroundImage drawInRect:[self bounds]
+                               fromRect:NSMakeRect(0, 0, backgroundImage.size.width, backgroundImage.size.height)
+                              operation:NSCompositeSourceOver
+                               fraction:1.0];
         }
         
         [hoverGradient drawInBezierPath:path angle:-90.0];
