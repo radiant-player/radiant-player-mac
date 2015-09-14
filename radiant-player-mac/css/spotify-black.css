@@ -249,7 +249,7 @@ a, .simple-dialog a {
     border-color: #333;
 }
 
-#nav, core-header-panel#nav-container, .material .nav-toolbar {
+#nav, core-header-panel#nav-container, .material .nav-toolbar, .material .nav-toolbar {
     background-color: #222326;
     border-right: 1px solid #292929;
 }
