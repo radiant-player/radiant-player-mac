@@ -249,7 +249,7 @@ a, .simple-dialog a {
     border-color: #333;
 }
 
-#nav, core-header-panel#nav-container, .nav-toolbar {
+#nav, core-header-panel#nav-container, .material .nav-toolbar {
     background-color: #222326;
     border-right: 1px solid #292929;
 }
@@ -263,7 +263,7 @@ a, .simple-dialog a {
     font-size: 13px !important;
     font-weight: 400 !important;
     color: #949599 !important;
-    padding: 5px 0 5px 16px;
+    padding: 5px 0 5px 32px;
     border-left: 3px solid transparent;
 }
 
@@ -288,7 +288,7 @@ a, .simple-dialog a {
 }
 
 .material .nav-section-header {
-    padding-left: 0;
+    padding-left: 16px;
     font-weight: 300;
     color: #777;
     text-shadow: 0px -1px 0px #222;

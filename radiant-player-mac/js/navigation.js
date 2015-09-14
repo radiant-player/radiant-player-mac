@@ -45,7 +45,7 @@ if (typeof window.GMNavigation === 'undefined') {
     if (!keepLinks)
     {
         // Obtain the area on the top-right, containing the Google account information.
-        var rightArea = document.querySelector('#material-one-right > div:first-child > div:first-child > div:first-child');
+        var rightArea = document.querySelector('#material-one-right > div > div > div');
         rightArea.style.minWidth = 0;
         
         // Remove all of the children, except the last (the user button).

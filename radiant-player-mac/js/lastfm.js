@@ -16,7 +16,7 @@ if (typeof window.LastFmButton === 'undefined') {
     window.LastFmButton = true;
 
     // Obtain the area on the top-right, containing the Google account information.
-    var rightArea = document.querySelector('#material-one-right > div:first-child > div:first-child > div:first-child');
+    var rightArea = document.querySelector('#material-one-right > div > div > div');
 
     // Add a button that, when clicked, opens the Last.fm popover.
     var lastfmButton = document.createElement('a');
