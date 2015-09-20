@@ -166,17 +166,41 @@ a, .simple-dialog a {
 .cluster.material-cluster .header h2.title,
 .settings-cluster.material-cluster .header h2.title,
 .section-header,
+.material .section-header,
 .material .recommended-header {
     color: #eee;
+}
+
+#music-content .material-banner.banner.ws-search-banner,
+#music-content .material-banner.banner.new-user-quiz-card,
+#music-content .material-banner.banner.ws-subscriber-card {
+    background-color: rgba(34, 35, 38, 0.8);
+}
+
+#music-content .material-banner.banner.ws-search-banner .title,
+#music-content .material-banner.banner.new-user-quiz-card .title,
+#music-content .material-banner.banner.ws-subscriber-card .title {
+    color: #ccc;
 }
 
 .material-container,
 .material-playlist-container,
 .songlist-container,
+<<<<<<< HEAD
 #queue-overlay,
 .material-detail-view .top-tracks {
     background-color: rgba(30, 32, 34, 0.98);
+=======
+.material-detail-view .top-tracks,
+.station-container-content-wrapper .material-album-container,
+#queue-overlay {
+    background-color: rgba(18, 19, 20, 0.98);
+>>>>>>> kbhomes/master
     box-shadow: none;
+}
+
+.station-container-content-wrapper .material-container-details {
+    background-color: transparent;
 }
 
 #queue-overlay::after {
@@ -272,6 +296,11 @@ a, .simple-dialog a {
     visibility: visible;
 }
 
+.material .song-row.hover [data-col="index"] .content,
+.material .song-row.hover [data-col="track"] .content {
+    color: transparent;
+}
+
 .material .song-row .song-indicator,
 .material .song-row.hover .song-indicator,
 .material .song-row .title-right-items,
@@ -305,7 +334,16 @@ a, .simple-dialog a {
     display: none;
 }
 
-#nav, core-header-panel#nav-container, .nav-toolbar {
+.subcategories-list .subcategory:hover,
+.subcategories-list .subcategory:focus {
+    background-color: #222;
+}
+
+.subcategories-list .subcategory:not(:last-child) {
+    border-color: #333;
+}
+
+#nav, core-header-panel#nav-container, .material .nav-toolbar {
     background-color: #222326;
     border-right: 1px solid #292929;
 }
@@ -319,7 +357,7 @@ a, .simple-dialog a {
     font-size: 13px !important;
     font-weight: 400 !important;
     color: #949599 !important;
-    padding: 5px 0 5px 16px;
+    padding: 5px 0 5px 32px;
     border-left: 3px solid transparent;
 }
 
@@ -350,7 +388,7 @@ a, .simple-dialog a {
 }
 
 .material .nav-section-header {
-    padding-left: 0;
+    padding-left: 16px;
     font-weight: 300;
     color: #777;
     text-shadow: 0px -1px 0px #222;
@@ -488,6 +526,10 @@ a, .simple-dialog a {
     color: #666;
 }
 
+.more-songs-container {
+    border-top-color: transparent;
+}
+
 .material a, .material .simple-dialog a {
     color: #aaa;;
 }
@@ -593,4 +635,12 @@ div.simple-dialog-bg {
 .material .song-row [data-col="track"] .hover-button[data-id=play]
 {
     background-image: url(https://radiant-player-mac/sprites-inverted.png) !important;
+}
+
+.material-card .details sj-icon-button.menu-anchor {
+    color: #fff;
+}
+
+.material-card[data-size="small"][data-type="imfl"] .title {
+    color: #FFF;
 }

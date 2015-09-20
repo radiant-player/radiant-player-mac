@@ -15,3 +15,9 @@
     height: auto;
     margin-top: 0;
 }
+
+/* Fix the display of the menu bar on OS X 10.10 */
+#material-app-bar .material-header-bar.visible {
+    display: -webkit-flex;
+    display: flex;
+}
