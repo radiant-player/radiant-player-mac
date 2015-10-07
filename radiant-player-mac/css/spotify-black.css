@@ -191,6 +191,10 @@ a, .simple-dialog a {
     color: #ff8200 !important;
 }
 
+.material .song-row:not(.selected-song-row):hover *:not(.hover-button, .rating-container li) {
+    background-color: #333439 !important;
+}
+
 .material .song-table [data-col="index"] .content,
 .material .song-table [data-col="track"] .content {
     color: inherit;
@@ -522,6 +526,22 @@ div.simple-dialog-bg {
 .material .song-row [data-col="track"] .hover-button[data-id=play]
 {
     background-image: url(https://radiant-player-mac/sprites-inverted.png) !important;
+}
+
+.material .song-row .rating-container.thumbs [data-rating="1"] {
+    background-image: url(https://radiant-player-mac/thumbsdown_outline_white.png) !important;
+}
+
+.material .song-row .rating-container.thumbs [data-rating="1"].selected {
+    background-image: url(https://radiant-player-mac/thumbsdown_white.png) !important;
+}
+
+.material .song-row .rating-container.thumbs [data-rating="5"] {
+    background-image: url(https://radiant-player-mac/thumbsup_outline_white.png) !important;
+}
+
+.material .song-row .rating-container.thumbs [data-rating="5"].selected {
+    background-image: url(https://radiant-player-mac/thumbsup_white.png) !important;
 }
 
 .material-card .details sj-icon-button.menu-anchor {
