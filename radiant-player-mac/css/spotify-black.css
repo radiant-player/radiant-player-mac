@@ -528,6 +528,22 @@ div.simple-dialog-bg {
     background-image: url(https://radiant-player-mac/sprites-inverted.png) !important;
 }
 
+.material .song-row .rating-container.thumbs [data-rating="1"] {
+    background-image: url(https://radiant-player-mac/thumbsdown_outline_white.png) !important;
+}
+
+.material .song-row .rating-container.thumbs [data-rating="1"].selected {
+    background-image: url(https://radiant-player-mac/thumbsdown_white.png) !important;
+}
+
+.material .song-row .rating-container.thumbs [data-rating="5"] {
+    background-image: url(https://radiant-player-mac/thumbsup_outline_white.png) !important;
+}
+
+.material .song-row .rating-container.thumbs [data-rating="5"].selected {
+    background-image: url(https://radiant-player-mac/thumbsup_white.png) !important;
+}
+
 .material-card .details sj-icon-button.menu-anchor {
     color: #fff;
 }
