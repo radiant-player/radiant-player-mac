@@ -527,7 +527,7 @@ div.simple-dialog-bg {
 }
 
 .material .song-row .column-content {
-    background-color: #000000;
+  background-color: transparent !important;
 }
 
 .material .song-row:hover,
