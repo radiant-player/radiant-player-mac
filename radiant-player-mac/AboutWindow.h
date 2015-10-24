@@ -9,16 +9,12 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Utilities.h"
-#import "Updates/UpdateChecker.h"
 
 @interface AboutWindow : NSWindow
 
 @property (assign) IBOutlet NSTextField *versionLabel;
 @property (assign) IBOutlet NSTextField *creditsField;
-@property (assign) IBOutlet NSTextField *checkLabel;
-@property (assign) IBOutlet NSProgressIndicator *checkProgress;
 
 - (IBAction)showAboutWindow:(id)sender;
-- (void)checkVersion;
 
 @end
