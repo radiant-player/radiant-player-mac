@@ -25,6 +25,8 @@
 		D3091F6918C40FBD007C8DCD /* SwipeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D3091F6818C40FBD007C8DCD /* SwipeAnimation.m */; };
 		D30CA00519383160007B05B2 /* NSApplication+ScriptingProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D30CA00419383160007B05B2 /* NSApplication+ScriptingProperties.m */; };
 		D30CA0081938722F007B05B2 /* NSImage+ScriptingDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = D30CA0071938722F007B05B2 /* NSImage+ScriptingDescriptor.m */; };
+		D30F57891BDB7B2200929904 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D30F57881BDB7B2200929904 /* Sparkle.framework */; settings = {ASSET_TAGS = (); }; };
+		D30F578B1BDB7BD300929904 /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D30F57881BDB7B2200929904 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D318341718CFBC7400E8F9B1 /* AppearancePreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D318341618CFBC7400E8F9B1 /* AppearancePreferencesViewController.m */; };
 		D318341B18CFC7C500E8F9B1 /* ApplicationStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D318341A18CFC7C500E8F9B1 /* ApplicationStyle.m */; };
 		D318342118D0513D00E8F9B1 /* CookieStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = D318342018D0513D00E8F9B1 /* CookieStorage.m */; };
@@ -87,6 +89,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D31ACE8D193BE39E00AC7CB4 /* Growl.framework in Copy Frameworks */,
+				D30F578B1BDB7BD300929904 /* Sparkle.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,6 +131,7 @@
 		D30CA00419383160007B05B2 /* NSApplication+ScriptingProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSApplication+ScriptingProperties.m"; sourceTree = "<group>"; };
 		D30CA0061938722F007B05B2 /* NSImage+ScriptingDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+ScriptingDescriptor.h"; sourceTree = "<group>"; };
 		D30CA0071938722F007B05B2 /* NSImage+ScriptingDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+ScriptingDescriptor.m"; sourceTree = "<group>"; };
+		D30F57881BDB7B2200929904 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = "radiant-player-mac/Frameworks/Sparkle.framework"; sourceTree = "<group>"; };
 		D318341518CFBC7400E8F9B1 /* AppearancePreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppearancePreferencesViewController.h; sourceTree = "<group>"; };
 		D318341618CFBC7400E8F9B1 /* AppearancePreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppearancePreferencesViewController.m; sourceTree = "<group>"; };
 		D318341918CFC7C500E8F9B1 /* ApplicationStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationStyle.h; sourceTree = "<group>"; };
@@ -231,6 +235,7 @@
 				D31ACE86193BCD3E00AC7CB4 /* Growl.framework in Frameworks */,
 				D370E8E018E21ABC007B5450 /* QuartzCore.framework in Frameworks */,
 				D3B4C0C318DAB4740069AB18 /* JavaScriptCore.framework in Frameworks */,
+				D30F57891BDB7B2200929904 /* Sparkle.framework in Frameworks */,
 				1A7B687417453E4C001E509E /* WebKit.framework in Frameworks */,
 				1A7B684017453E40001E509E /* Cocoa.framework in Frameworks */,
 				38D0C36DAD0F40F5A7254224 /* libPods.a in Frameworks */,
@@ -262,6 +267,7 @@
 		1A7B683E17453E40001E509E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D30F57881BDB7B2200929904 /* Sparkle.framework */,
 				D31ACE85193BCD3E00AC7CB4 /* Growl.framework */,
 				D370E8DF18E21ABC007B5450 /* QuartzCore.framework */,
 				D3B4C0C218DAB4740069AB18 /* JavaScriptCore.framework */,
