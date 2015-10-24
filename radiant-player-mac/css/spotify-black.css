@@ -135,7 +135,7 @@ a, .simple-dialog a {
 }
 
 .material .song-table .header-row th {
-    background: transparent;
+    background: transparent !important;
     border-bottom: 1px solid #222326;
     height: 26px;
     text-transform: none;
@@ -145,7 +145,7 @@ a, .simple-dialog a {
 
 .material .song-row .song-indicator {
     -webkit-filter: invert(100%);
-    background-color: transparent;
+    background-color: transparent !important;
 }
 
 .material .song-row.hover .song-indicator,
@@ -182,7 +182,9 @@ a, .simple-dialog a {
     background-color: #222326 !important;
 }
 
-.material .song-row.selected-song-row td {
+.material .song-row.selected-song-row td,
+.material-detail-view .song-table .song-row.selected-song-row td,
+.material-detail-view .song-table .song-row.selected-song-row .column-content {
     color: white !important;
     background-color: #222326 !important;
 }
@@ -208,7 +210,7 @@ a, .simple-dialog a {
 
 .material .song-row.hover [data-col="index"] .content,
 .material .song-row.hover [data-col="track"] .content {
-    color: transparent;
+    color: transparent !important;
 }
 
 .material .song-row .song-indicator,
@@ -233,7 +235,7 @@ a, .simple-dialog a {
 .material .song-row.hover [data-col="index"] .hover-button[data-id="play"],
 .material .song-row.hover [data-col="track"] .hover-button[data-id="play"]
 {
-    background-color: transparent;
+    background-color: transparent !important;
 }
 
 .music-banner {
@@ -452,7 +454,7 @@ div.simple-dialog-bg {
 
 @-webkit-keyframes slidedown {
    from {
-      max-height: 0%; 
+      max-height: 0%;
    }
 
    to {
@@ -524,6 +526,15 @@ div.simple-dialog-bg {
     background-image: url(https://radiant-player-mac/sprites-inverted.png) !important;
 }
 
+.material .song-row .column-content {
+  background-color: transparent !important;
+}
+
+.material .song-row:hover,
+.material .song-row:hover td,
+.material .song-row:hover .column-content {
+    background-color: #27282b !important;
+}
 .material-card .details sj-icon-button.menu-anchor {
     color: #fff;
 }
