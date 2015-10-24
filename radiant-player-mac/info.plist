@@ -44,5 +44,7 @@
 	<string>radiant-player-mac-dsa-pub.pem</string>
 	<key>SUFeedURL</key>
 	<string>https://radiant-player.github.io/radiant-player-mac/appcast/appcast.xml</string>
+	<key>SUScheduledCheckInterval</key>
+	<integer>3600</integer>
 </dict>
 </plist>

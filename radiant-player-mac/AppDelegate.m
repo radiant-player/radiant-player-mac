@@ -10,6 +10,8 @@
 #import "AppDelegate.h"
 #import "LastFmService.h"
 
+#import <Sparkle/Sparkle.h>
+
 @implementation AppDelegate
 
 @synthesize webView;
@@ -227,9 +229,9 @@
         popupDelegate = nil;
     }
     
-    if ([defaults boolForKey:@"updates.check"]) {
+    if ([[SUUpdater sharedUpdater] automaticallyChecksForUpdates]) {
         // Run the version check after 10 seconds.
-        [self performSelector:@selector(checkVersion) withObject:nil afterDelay:10.0];
+        [[SUUpdater sharedUpdater] performSelector:@selector(checkForUpdatesInBackground) withObject:nil afterDelay:10.0];
     }
 
     // Load the dummy WebView (for opening links in the default browser).
@@ -241,48 +243,6 @@
     [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self selector:@selector(receiveSleepNotification:) name:NSWorkspaceWillSleepNotification object:nil];
 }
 
-- (void)checkVersion
-{
-    NSString *appName = [Utilities applicationName];
-    NSString *appVersion = [UpdateChecker applicationVersion];
-    NSString *releaseChannel = [UpdateChecker releaseChannel];
-    NSDictionary *latestRelease = [UpdateChecker latestReleaseFromGitHub:releaseChannel];
-    NSString *latestVersion = [[latestRelease objectForKey:@"name"] substringFromIndex:1];
-    
-    if (latestVersion != nil && [UpdateChecker isVersionUpToDateWithApplication:appVersion latest:latestVersion] == NO) {
-        // Application is out of date.
-        NSString *messageFormat = @"You are running version %@ of %@, but the latest version is %@. Do you want to be taken to the download page?";
-        NSString *message = [NSString stringWithFormat:messageFormat, appVersion, appName, latestVersion];
-        
-        NSAlert *updateAlert = [[NSAlert alloc] init];
-        [updateAlert setIcon:[NSApp applicationIconImage]];
-        [updateAlert setMessageText:@"Update Available"];
-        [updateAlert setInformativeText:message];
-        [updateAlert addButtonWithTitle:@"OK"];
-        [updateAlert addButtonWithTitle:@"Cancel"];
-        [updateAlert addButtonWithTitle:@"Don't check for updates"];
-        
-        NSButton *dontButton = [[updateAlert buttons] objectAtIndex:2];
-        [dontButton setButtonType:NSSwitchButton];
-        [dontButton setState:NSOffState];
-        [dontButton setAction:nil];
-        [dontButton setTarget:nil];
-        
-        NSModalResponse response = [updateAlert runModal];
-        
-        // If the user hit OK, open the release page in the default browser.
-        if (response == NSAlertFirstButtonReturn) {
-            [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[latestRelease objectForKey:@"html_url"]]];
-        }
-        
-        // If the user selected "dont check for updates", set that preference.
-        if ([dontButton state] == NSOnState) {
-            [defaults setBool:NO forKey:@"updates.check"];
-            [defaults synchronize];
-        }
-    }
-}
-
 - (NSMutableDictionary *)styles
 {
     if (_styles == nil)
@@ -292,16 +252,6 @@
     }
     
     return _styles;
-}
-
-- (NSArray *)releaseChannels
-{
-    if (_releaseChannels == nil)
-    {
-        _releaseChannels = @[CHANNEL_STABLE, CHANNEL_BETA];
-    }
-    
-    return _releaseChannels;
 }
 
 - (void)initializeStatusBar

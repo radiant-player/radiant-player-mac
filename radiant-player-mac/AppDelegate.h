@@ -27,7 +27,6 @@
 #import "PopupPanel.h"
 
 #import "Utilities.h"
-#import "Updates/UpdateChecker.h"
 #import "PreferencesWindowController.h"
 #import "ApplicationStyle.h"
 #import "GoogleStyle.h"
@@ -44,7 +43,6 @@
     CFRunLoopSourceRef eventPortSource;
     
     NSMutableDictionary *_styles;
-    NSArray *_releaseChannels;
     BOOL _isTall;
     
     WebView *dummyWebView;
@@ -89,10 +87,8 @@
 @property (assign) NSInteger currentPlaybackMode;
 @property (assign) BOOL isStarsRatingSystem;
 
-- (void) checkVersion;
 - (void) initializeStatusBar;
 - (NSMutableDictionary *) styles;
-- (NSArray *) releaseChannels;
 - (void) setupThumbsUpRatingView;
 - (void) setupStarRatingView;
 - (void) setupRatingMenuItems;
