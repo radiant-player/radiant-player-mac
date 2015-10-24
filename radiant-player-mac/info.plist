@@ -20,6 +20,8 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>CFBundleVersion</key>
+	<string>1.4.1</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.4.1</string>
 	<key>CFBundleSignature</key>
@@ -40,5 +42,7 @@
 	<string>radiant-player-mac.sdef</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>radiant-player-mac-dsa-pub.pem</string>
+	<key>SUFeedURL</key>
+	<string>https://radiant-player.github.io/radiant-player-mac/appcast/appcast.xml</string>
 </dict>
 </plist>
