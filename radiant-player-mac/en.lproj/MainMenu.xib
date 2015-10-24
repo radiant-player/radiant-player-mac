@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7702" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7702"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="7702"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="8191"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -36,6 +36,7 @@
                 <outlet property="window" destination="371" id="532"/>
             </connections>
         </customObject>
+        <customObject id="zLy-Co-F7o" customClass="SUUpdater"/>
         <customObject id="Lzb-Be-DHP" customClass="PreferencesWindowController"/>
         <menu title="AMainMenu" systemMenu="main" id="29">
             <items>
@@ -59,7 +60,7 @@
                             <menuItem title="Check For Updates..." id="oZe-sz-7x4">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <action selector="showAboutWindow:" target="z9v-11-gZ0" id="6tC-xQ-RSX"/>
+                                    <action selector="checkForUpdates:" target="zLy-Co-F7o" id="sUG-pS-Jy8"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="143">
@@ -755,7 +756,7 @@
                     <constraint firstItem="BxE-sk-mNE" firstAttribute="centerX" secondItem="dQ2-sg-PYy" secondAttribute="centerX" id="nPv-wP-ZC6"/>
                     <constraint firstItem="arE-Wm-iTc" firstAttribute="bottom" secondItem="3Nx-UI-e4n" secondAttribute="bottom" constant="-2" id="nwv-tD-PbZ"/>
                     <constraint firstItem="arE-Wm-iTc" firstAttribute="leading" secondItem="dQ2-sg-PYy" secondAttribute="trailing" constant="8" symbolic="YES" id="o8Y-a6-ctn"/>
-                    <constraint firstItem="v8E-fH-1nK" firstAttribute="top" secondItem="4yq-G3-W3B" secondAttribute="top" constant="10" type="user" id="rKs-eC-YiY"/>
+                    <constraint firstItem="v8E-fH-1nK" firstAttribute="top" secondItem="4yq-G3-W3B" secondAttribute="top" constant="10" id="rKs-eC-YiY"/>
                     <constraint firstItem="3Nx-UI-e4n" firstAttribute="trailing" secondItem="EGc-cr-jAa" secondAttribute="trailing" id="vLN-vM-xFg"/>
                     <constraint firstAttribute="bottom" secondItem="8u2-Nn-ZZf" secondAttribute="bottom" constant="11" id="xd4-IP-uZX"/>
                 </constraints>

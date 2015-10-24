@@ -55,6 +55,8 @@
 		D370E8E318E2BFE1007B5450 /* ExpandHoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = D370E8E218E2BFE1007B5450 /* ExpandHoverView.m */; };
 		D377DB5B1B0A6F5900026312 /* JSURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D377DB5A1B0A6F5900026312 /* JSURLProtocol.m */; };
 		D377DB5E1B0AADB700026312 /* WebComponentsURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D377DB5D1B0AADB700026312 /* WebComponentsURLProtocol.m */; };
+		D37A5FCB1BDBEA6A0027FBD4 /* radiant-player-mac-dsa-pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = D37A5FCA1BDBEA6A0027FBD4 /* radiant-player-mac-dsa-pub.pem */; settings = {ASSET_TAGS = (); }; };
+		D37A5FCD1BDBEAFB0027FBD4 /* radiant-player-mac-dsa-pub.pem in Copy DSA Public Key */ = {isa = PBXBuildFile; fileRef = D37A5FCA1BDBEA6A0027FBD4 /* radiant-player-mac-dsa-pub.pem */; };
 		D37B638418ED315B0098F9DC /* LastFm+TrackInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D37B638318ED315B0098F9DC /* LastFm+TrackInfo.m */; };
 		D37B638718F1E7680098F9DC /* SpriteDownloadURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D37B638618F1E7680098F9DC /* SpriteDownloadURLProtocol.m */; };
 		D37B638A18F1EFD30098F9DC /* InvertedSpriteURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D37B638918F1EFD30098F9DC /* InvertedSpriteURLProtocol.m */; };
@@ -92,6 +94,17 @@
 				D30F578B1BDB7BD300929904 /* Sparkle.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D37A5FCC1BDBEAE90027FBD4 /* Copy DSA Public Key */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				D37A5FCD1BDBEAFB0027FBD4 /* radiant-player-mac-dsa-pub.pem in Copy DSA Public Key */,
+			);
+			name = "Copy DSA Public Key";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -181,6 +194,7 @@
 		D377DB5A1B0A6F5900026312 /* JSURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSURLProtocol.m; sourceTree = "<group>"; };
 		D377DB5C1B0AADB700026312 /* WebComponentsURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebComponentsURLProtocol.h; sourceTree = "<group>"; };
 		D377DB5D1B0AADB700026312 /* WebComponentsURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebComponentsURLProtocol.m; sourceTree = "<group>"; };
+		D37A5FCA1BDBEA6A0027FBD4 /* radiant-player-mac-dsa-pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "radiant-player-mac-dsa-pub.pem"; sourceTree = "<group>"; };
 		D37B638218ED315B0098F9DC /* LastFm+TrackInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LastFm+TrackInfo.h"; sourceTree = "<group>"; };
 		D37B638318ED315B0098F9DC /* LastFm+TrackInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LastFm+TrackInfo.m"; sourceTree = "<group>"; };
 		D37B638518F1E7680098F9DC /* SpriteDownloadURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteDownloadURLProtocol.h; sourceTree = "<group>"; };
@@ -251,6 +265,7 @@
 				D369FEFD18E3FB6B004CB1C6 /* icon.icns */,
 				1A7B684517453E40001E509E /* radiant-player-mac */,
 				1A7B683E17453E40001E509E /* Frameworks */,
+				D37A5FC91BDBEA2C0027FBD4 /* Resources */,
 				1A7B683D17453E40001E509E /* Products */,
 				A32790DC482A48E18B516D0B /* Pods.xcconfig */,
 			);
@@ -442,6 +457,15 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		D37A5FC91BDBEA2C0027FBD4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D37A5FCA1BDBEA6A0027FBD4 /* radiant-player-mac-dsa-pub.pem */,
+			);
+			name = Resources;
+			path = "radiant-player-mac/Resources";
+			sourceTree = "<group>";
+		};
 		D3B71C2318C2C3510041358B /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
@@ -502,9 +526,9 @@
 				1A7B683817453E40001E509E /* Sources */,
 				1A7B683917453E40001E509E /* Frameworks */,
 				1A7B683A17453E40001E509E /* Resources */,
-				D3981F6318B5D5D900EA4D7A /* Run Script */,
 				D0B126C78BE34593B5FE493C /* Copy Pods Resources */,
 				D31ACE8C193BE38900AC7CB4 /* Copy Frameworks */,
+				D37A5FCC1BDBEAE90027FBD4 /* Copy DSA Public Key */,
 			);
 			buildRules = (
 			);
@@ -523,6 +547,11 @@
 			attributes = {
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Sajid Anwar";
+				TargetAttributes = {
+					1A7B683B17453E40001E509E = {
+						DevelopmentTeam = EEYCECM4QA;
+					};
+				};
 			};
 			buildConfigurationList = 1A7B683717453E40001E509E /* Build configuration list for PBXProject "radiant-player-mac" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -556,6 +585,7 @@
 				D3DB8FF018BD253A00ABE93B /* images in Resources */,
 				1A7B685017453E40001E509E /* Credits.rtf in Resources */,
 				1A7B685617453E40001E509E /* MainMenu.xib in Resources */,
+				D37A5FCB1BDBEA6A0027FBD4 /* radiant-player-mac-dsa-pub.pem in Resources */,
 				D3B71C3818C2F0F20041358B /* PreferencesWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -592,20 +622,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		D3981F6318B5D5D900EA4D7A /* Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Run Script";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "cd \"${BUILT_PRODUCTS_DIR}\"\nrm \"${PRODUCT_NAME}.zip\" 2> /dev/null\nzip -r \"${PRODUCT_NAME}.zip\" \"${PRODUCT_NAME}.app/\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -768,6 +784,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "radiant-player-mac/prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/radiant-player-mac/info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = "Radiant Player";
 				WRAPPER_EXTENSION = app;
 			};
@@ -785,6 +802,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "radiant-player-mac/prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/radiant-player-mac/info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = "Radiant Player";
 				WRAPPER_EXTENSION = app;
 			};
