@@ -72,11 +72,11 @@ if (typeof window.MusicAPI === 'undefined') {
         var P = {};
         
         // References to the media playback elements.
-        var _eplayPause =  document.querySelector('#player sj-icon-button[data-id="play-pause"]');
-        var _eforward =    document.querySelector('#player sj-icon-button[data-id="forward"]');
-        var _erewind =     document.querySelector('#player sj-icon-button[data-id="rewind"]');
-        var _eshuffle =    document.querySelector('#player sj-icon-button[data-id="shuffle"]');
-        var _erepeat =     document.querySelector('#player sj-icon-button[data-id="repeat"]');
+        var _eplayPause =  document.querySelector('#player paper-icon-button[data-id="play-pause"]');
+        var _eforward =    document.querySelector('#player paper-icon-button[data-id="forward"]');
+        var _erewind =     document.querySelector('#player paper-icon-button[data-id="rewind"]');
+        var _eshuffle =    document.querySelector('#player paper-icon-button[data-id="shuffle"]');
+        var _erepeat =     document.querySelector('#player paper-icon-button[data-id="repeat"]');
         var _eplayback =   document.querySelector('#player #material-player-progress');
         
         // Playback modes.
