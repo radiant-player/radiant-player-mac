@@ -1,0 +1,2327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>1</key>
+    <dict>
+      <key>description</key>
+      <string>Generic Desktop</string>
+      <key>ranges</key>
+      <dict>
+      </dict>
+      <key>usages</key>
+      <dict>
+        <key>0</key>
+        <string>Undefined</string>
+        <key>1</key>
+        <string>Pointer</string>
+        <key>2</key>
+        <string>Mouse</string>
+        <key>3</key>
+        <string>Reserved</string>
+        <key>4</key>
+        <string>Joystick</string>
+        <key>5</key>
+        <string>Game Pad</string>
+        <key>6</key>
+        <string>Keyboard</string>
+        <key>7</key>
+        <string>Keypad</string>
+        <key>8</key>
+        <string>Multi-axis Controller</string>
+        <key>48</key>
+        <string>X</string>
+        <key>49</key>
+        <string>Y</string>
+        <key>50</key>
+        <string>Z</string>
+        <key>51</key>
+        <string>Rx</string>
+        <key>52</key>
+        <string>Ry</string>
+        <key>53</key>
+        <string>Rz</string>
+        <key>54</key>
+        <string>Slider</string>
+        <key>55</key>
+        <string>Dial</string>
+        <key>56</key>
+        <string>Wheel</string>
+        <key>57</key>
+        <string>Hat Switch</string>
+        <key>58</key>
+        <string>Counted Buffer</string>
+        <key>59</key>
+        <string>Byte Count</string>
+        <key>60</key>
+        <string>Motion Wakeup</string>
+        <key>64</key>
+        <string>Vx</string>
+        <key>65</key>
+        <string>Vy</string>
+        <key>66</key>
+        <string>Vz</string>
+        <key>67</key>
+        <string>Vbrx</string>
+        <key>68</key>
+        <string>Vbry</string>
+        <key>69</key>
+        <string>Vbrx</string>
+        <key>70</key>
+        <string>Vno</string>
+        <key>128</key>
+        <string>System Control</string>
+        <key>129</key>
+        <string>System Power Down</string>
+        <key>130</key>
+        <string>System Sleep</string>
+        <key>131</key>
+        <string>System Wake Up</string>
+        <key>132</key>
+        <string>System Context Menu</string>
+        <key>133</key>
+        <string>System Main Menu</string>
+        <key>134</key>
+        <string>System App Menu</string>
+        <key>135</key>
+        <string>System Menu Help</string>
+        <key>136</key>
+        <string>System Menu Exit</string>
+        <key>137</key>
+        <string>System Menu Select</string>
+        <key>138</key>
+        <string>System Menu Right</string>
+        <key>139</key>
+        <string>System Menu Left</string>
+        <key>140</key>
+        <string>System Menu Up</string>
+        <key>141</key>
+        <string>System Menu Down</string>
+        <key>144</key>
+        <string>D-pad Up</string>
+        <key>145</key>
+        <string>D-pad Down</string>
+        <key>146</key>
+        <string>D-pad Right</string>
+        <key>147</key>
+        <string>D-pad Left</string>
+      </dict>
+    </dict>
+    <key>2</key>
+    <dict>
+      <key>description</key>
+      <string>Simulation Controls</string>
+      <key>ranges</key>
+      <dict>
+      </dict>
+      <key>usages</key>
+      <dict>
+        <key>0</key>
+        <string>Undefined</string>
+        <key>1</key>
+        <string>Flight Simulation Device</string>
+        <key>2</key>
+        <string>Automobile Simulation Device</string>
+        <key>3</key>
+        <string>Tank Simulation Device</string>
+        <key>4</key>
+        <string>Spaceship Simulation Device</string>
+        <key>5</key>
+        <string>Submarine Simulation Device</string>
+        <key>6</key>
+        <string>Sailing Simulation Device</string>
+        <key>7</key>
+        <string>Motorcycle Simulation Device</string>
+        <key>8</key>
+        <string>Sports Simulation Device</string>
+        <key>9</key>
+        <string>Airplane Simulation Device</string>
+        <key>10</key>
+        <string>Helicopter Simulation Device</string>
+        <key>11</key>
+        <string>Magic Carpet Simulation Device</string>
+        <key>12</key>
+        <string>Bicycle</string>
+        <key>32</key>
+        <string>Flight Control Stick</string>
+        <key>33</key>
+        <string>Flight Stick</string>
+        <key>34</key>
+        <string>Cyclic Control</string>
+        <key>35</key>
+        <string>Cyclic Trim</string>
+        <key>36</key>
+        <string>Flight Yoke</string>
+        <key>37</key>
+        <string>Track Control</string>
+        <key>38</key>
+        <string>Driving Control</string>
+        <key>176</key>
+        <string>Aileron</string>
+        <key>177</key>
+        <string>Aileron Trim</string>
+        <key>178</key>
+        <string>Anti-Torque Control</string>
+        <key>179</key>
+        <string>Auto-pilot Enable</string>
+        <key>180</key>
+        <string>Chaff Release</string>
+        <key>181</key>
+        <string>Collective Control</string>
+        <key>182</key>
+        <string>Dive Brake</string>
+        <key>183</key>
+        <string>Electronic Counter Measures</string>
+        <key>184</key>
+        <string>Elevator</string>
+        <key>185</key>
+        <string>Elevator Trim</string>
+        <key>186</key>
+        <string>Rudder</string>
+        <key>187</key>
+        <string>Throttle</string>
+        <key>188</key>
+        <string>Flight Communication</string>
+        <key>189</key>
+        <string>Flare Release</string>
+        <key>190</key>
+        <string>Landing Gear</string>
+        <key>191</key>
+        <string>Toe Brake</string>
+        <key>192</key>
+        <string>Trigger</string>
+        <key>193</key>
+        <string>Weapons Arm</string>
+        <key>194</key>
+        <string>Weapons Select</string>
+        <key>195</key>
+        <string>Wing Flaps</string>
+        <key>196</key>
+        <string>Accelerator</string>
+        <key>197</key>
+        <string>Brake</string>
+        <key>198</key>
+        <string>Clutch</string>
+        <key>199</key>
+        <string>Shifter</string>
+        <key>200</key>
+        <string>Steering</string>
+        <key>201</key>
+        <string>Turret Direction</string>
+        <key>202</key>
+        <string>Barrel Elevation</string>
+        <key>203</key>
+        <string>Dive Plane</string>
+        <key>204</key>
+        <string>Ballast</string>
+        <key>205</key>
+        <string>Bicycle Crank</string>
+        <key>206</key>
+        <string>Handle Bars</string>
+        <key>207</key>
+        <string>Front Brake</string>
+        <key>208</key>
+        <string>Rear Brake</string>
+      </dict>
+    </dict>
+    <key>3</key>
+    <dict>
+      <key>description</key>
+      <string>VR Controls</string>
+      <key>ranges</key>
+      <dict>
+      </dict>
+      <key>usages</key>
+      <dict>
+        <key>0</key>
+        <string>Unidentified</string>
+        <key>1</key>
+        <string>Belt</string>
+        <key>2</key>
+        <string>Body Suit</string>
+        <key>3</key>
+        <string>Flexor</string>
+        <key>4</key>
+        <string>Glove</string>
+        <key>5</key>
+        <string>Head Tracker</string>
+        <key>6</key>
+        <string>Head Mounted Display</string>
+        <key>7</key>
+        <string>Hand Tracker</string>
+        <key>8</key>
+        <string>Oculometer</string>
+        <key>9</key>
+        <string>Vest</string>
+        <key>10</key>
+        <string>Animatronic Device</string>
+        <key>32</key>
+        <string>Stereo Enable</string>
+        <key>33</key>
+        <string>Display Enable</string>
+      </dict>
+    </dict>
+    <key>4</key>
+    <dict>
+      <key>description</key>
+      <string>Sports Controls</string>
+      <key>ranges</key>
+      <dict>
+      </dict>
+      <key>usages</key>
+      <dict>
+        <key>0</key>
+        <string>Unidentified</string>
+        <key>1</key>
+        <string>Baseball Bat</string>
+        <key>2</key>
+        <string>Golf Club</string>
+        <key>3</key>
+        <string>Rowing Machine</string>
+        <key>4</key>
+        <string>Treadmill</string>
+        <key>48</key>
+        <string>Oar</string>
+        <key>49</key>
+        <string>Slope</string>
+        <key>50</key>
+        <string>Rate</string>
+        <key>51</key>
+        <string>Stick Speed</string>
+        <key>52</key>
+        <string>Stick Face Angle</string>
+        <key>53</key>
+        <string>Stick Heel/Toe</string>
+        <key>54</key>
+        <string>Stick Follow Through</string>
+        <key>55</key>
+        <string>Stick Tempo</string>
+        <key>56</key>
+        <string>Stick Type</string>
+        <key>57</key>
+        <string>Stick Height</string>
+        <key>80</key>
+        <string>Putter</string>
+        <key>81</key>
+        <string>1 Iron</string>
+        <key>82</key>
+        <string>2 Iron</string>
+        <key>83</key>
+        <string>3 Iron</string>
+        <key>84</key>
+        <string>4 Iron</string>
+        <key>85</key>
+        <string>5 Iron</string>
+        <key>86</key>
+        <string>6 Iron</string>
+        <key>87</key>
+        <string>7 Iron</string>
+        <key>88</key>
+        <string>8 Iron</string>
+        <key>89</key>
+        <string>9 Iron</string>
+        <key>90</key>
+        <string>10 Iron</string>
+        <key>91</key>
+        <string>11 Iron</string>
+        <key>92</key>
+        <string>Sand Wedge</string>
+        <key>93</key>
+        <string>Loft Wedge</string>
+        <key>94</key>
+        <string>Power Wedge</string>
+        <key>95</key>
+        <string>1 Wood</string>
+        <key>96</key>
+        <string>3 Wood</string>
+        <key>97</key>
+        <string>5 Wood</string>
+        <key>98</key>
+        <string>7 Wood</string>
+        <key>99</key>
+        <string>9 Wood</string>
+      </dict>
+    </dict>
+    <key>5</key>
+    <dict>
+      <key>description</key>
+      <string>Game Controls</string>
+      <key>ranges</key>
+      <dict>
+      </dict>
+      <key>usages</key>
+      <dict>
+        <key>0</key>
+        <string>Undefined</string>
+        <key>1</key>
+        <string>3D Game Controller</string>
+        <key>2</key>
+        <string>Pinball Device</string>
+        <key>3</key>
+        <string>Gun Device</string>
+        <key>32</key>
+        <string>Point of View</string>
+        <key>33</key>
+        <string>Turn Right/Left</string>
+        <key>34</key>
+        <string>Pitch Right/Left</string>
+        <key>35</key>
+        <string>Roll Forward/Backward</string>
+        <key>36</key>
+        <string>Move Right/Left</string>
+        <key>37</key>
+        <string>Move Forward/Backward</string>
+        <key>38</key>
+        <string>Move Up/Down</string>
+        <key>39</key>
+        <string>Lean Right/Left</string>
+        <key>40</key>
+        <string>Lean Forward/Backward</string>
+        <key>41</key>
+        <string>Height of POV</string>
+        <key>42</key>
+        <string>Flipper</string>
+        <key>43</key>
+        <string>Secondary Flipper</string>
+        <key>44</key>
+        <string>Bump</string>
+        <key>45</key>
+        <string>New Game</string>
+        <key>46</key>
+        <string>Shoot Ball</string>
+        <key>47</key>
+        <string>Player</string>
+        <key>48</key>
+        <string>Gun Bolt</string>
+        <key>49</key>
+        <string>Gun Clip</string>
+        <key>50</key>
+        <string>Gun Selector</string>
+        <key>51</key>
+        <string>Gun Single Shot</string>
+        <key>52</key>
+        <string>Gun Burst</string>
+        <key>53</key>
+        <string>Gun Automatic</string>
+        <key>54</key>
+        <string>Gun Safety</string>
+        <key>55</key>
+        <string>Gamepad Fire/Jump</string>
+        <key>57</key>
+        <string>Gamepad Trigger</string>
+      </dict>
+    </dict>
+    <key>7</key>
+    <dict>
+      <key>description</key>
+      <string>Keyboard</string>
+      <key>ranges</key>
+      <dict>
+      </dict>
+      <key>usages</key>
+      <dict>
+        <key>0</key>
+        <string>No Event</string>
+        <key>1</key>
+        <string>Keyboard ErrorRollOver</string>
+        <key>2</key>
+        <string>Keyboard POSTFail</string>
+        <key>3</key>
+        <string>Keyboard ErrorUndefined</string>
+        <key>4</key>
+        <string>Keyboard a and A</string>
+        <key>5</key>
+        <string>Keyboard b and B</string>
+        <key>6</key>
+        <string>Keyboard c and C</string>
+        <key>7</key>
+        <string>Keyboard d and D</string>
+        <key>8</key>
+        <string>Keyboard e and E</string>
+        <key>9</key>
+        <string>Keyboard f and F</string>
+        <key>10</key>
+        <string>Keyboard g and G</string>
+        <key>11</key>
+        <string>Keyboard h and H</string>
+        <key>12</key>
+        <string>Keyboard i and I</string>
+        <key>13</key>
+        <string>Keyboard j and J</string>
+        <key>14</key>
+        <string>Keyboard k and K</string>
+        <key>15</key>
+        <string>Keyboard l and L</string>
+        <key>16</key>
+        <string>Keyboard m and M</string>
+        <key>17</key>
+        <string>Keyboard n and N</string>
+        <key>18</key>
+        <string>Keyboard o and O</string>
+        <key>19</key>
+        <string>Keyboard p and P</string>
+        <key>20</key>
+        <string>Keyboard q and Q</string>
+        <key>21</key>
+        <string>Keyboard r and R</string>
+        <key>22</key>
+        <string>Keyboard s and S</string>
+        <key>23</key>
+        <string>Keyboard t and T</string>
+        <key>24</key>
+        <string>Keyboard u and U</string>
+        <key>25</key>
+        <string>Keyboard v and V</string>
+        <key>26</key>
+        <string>Keyboard w and W</string>
+        <key>27</key>
+        <string>Keyboard x and X</string>
+        <key>28</key>
+        <string>Keyboard y and Y</string>
+        <key>29</key>
+        <string>Keyboard z and Z</string>
+        <key>30</key>
+        <string>Keyboard 1 and !</string>
+        <key>31</key>
+        <string>Keyboard 2 and @</string>
+        <key>32</key>
+        <string>Keyboard 3 and #</string>
+        <key>33</key>
+        <string>Keyboard 4 and $</string>
+        <key>34</key>
+        <string>Keyboard 5 and %</string>
+        <key>35</key>
+        <string>Keyboard 6 and ^</string>
+        <key>36</key>
+        <string>Keyboard 7 and &amp;</string>
+        <key>37</key>
+        <string>Keyboard 8 and *</string>
+        <key>38</key>
+        <string>Keyboard 9 and (</string>
+        <key>39</key>
+        <string>Keyboard 0 and )</string>
+        <key>40</key>
+        <string>Keyboard Return (ENTER)</string>
+        <key>41</key>
+        <string>Keyboard ESCAPE</string>
+        <key>42</key>
+        <string>Keyboard DELETE (Backspace)</string>
+        <key>43</key>
+        <string>Keyboard Tab</string>
+        <key>44</key>
+        <string>Keyboard Spacebar</string>
+        <key>45</key>
+        <string>Keyboard - and (underscore)</string>
+        <key>46</key>
+        <string>Keyboard = and +</string>
+        <key>47</key>
+        <string>Keyboard [ and {</string>
+        <key>48</key>
+        <string>Keyboard ] and }</string>
+        <key>49</key>
+        <string>Keyboard \ and |</string>
+        <key>50</key>
+        <string>Keyboard Non-US # and ~</string>
+        <key>51</key>
+        <string>Keyboard ; and :</string>
+        <key>52</key>
+        <string>Keyboard ' and "</string>
+        <key>53</key>
+        <string>Keyboard Grave Accent and Tilde</string>
+        <key>54</key>
+        <string>Keyboard, and &lt;</string>
+        <key>55</key>
+        <string>Keyboard . and &gt;</string>
+        <key>56</key>
+        <string>Keyboard / and ?</string>
+        <key>57</key>
+        <string>Keyboard Caps Lock</string>
+        <key>58</key>
+        <string>Keyboard F1</string>
+        <key>59</key>
+        <string>Keyboard F2</string>
+        <key>60</key>
+        <string>Keyboard F3</string>
+        <key>61</key>
+        <string>Keyboard F4</string>
+        <key>62</key>
+        <string>Keyboard F5</string>
+        <key>63</key>
+        <string>Keyboard F6</string>
+        <key>64</key>
+        <string>Keyboard F7</string>
+        <key>65</key>
+        <string>Keyboard F8</string>
+        <key>66</key>
+        <string>Keyboard F9</string>
+        <key>67</key>
+        <string>Keyboard F10</string>
+        <key>68</key>
+        <string>Keyboard F11</string>
+        <key>69</key>
+        <string>Keyboard F12</string>
+        <key>70</key>
+        <string>Keyboard PrintScreen</string>
+        <key>71</key>
+        <string>Keyboard Scroll Lock</string>
+        <key>72</key>
+        <string>Keyboard Pause</string>
+        <key>73</key>
+        <string>Keyboard Insert</string>
+        <key>74</key>
+        <string>Keyboard Home</string>
+        <key>75</key>
+        <string>Keyboard PageUp</string>
+        <key>76</key>
+        <string>Keyboard Delete Forward</string>
+        <key>77</key>
+        <string>Keyboard End</string>
+        <key>78</key>
+        <string>Keyboard PageDown</string>
+        <key>79</key>
+        <string>Keyboard RightArrow</string>
+        <key>80</key>
+        <string>Keyboard LeftArrow</string>
+        <key>81</key>
+        <string>Keyboard DownArrow</string>
+        <key>82</key>
+        <string>Keyboard UpArrow</string>
+        <key>83</key>
+        <string>Keypad Num Lock and Clear</string>
+        <key>84</key>
+        <string>Keypad /</string>
+        <key>85</key>
+        <string>Keypad *</string>
+        <key>86</key>
+        <string>Keypad -</string>
+        <key>87</key>
+        <string>Keypad +</string>
+        <key>88</key>
+        <string>Keypad ENTER</string>
+        <key>89</key>
+        <string>Keypad 1 and End</string>
+        <key>90</key>
+        <string>Keypad 2 and Down Arrow</string>
+        <key>91</key>
+        <string>Keypad 3 and PageDn</string>
+        <key>92</key>
+        <string>Keypad 4 and Left Arrow</string>
+        <key>93</key>
+        <string>Keypad 5</string>
+        <key>94</key>
+        <string>Keypad 6 and Right Arrow</string>
+        <key>95</key>
+        <string>Keypad 7 and Home</string>
+        <key>96</key>
+        <string>Keypad 8 and Up Arrow</string>
+        <key>97</key>
+        <string>Keypad 9 and PageUp</string>
+        <key>98</key>
+        <string>Keypad 0 and Insert</string>
+        <key>99</key>
+        <string>Keypad . and Delete</string>
+        <key>100</key>
+        <string>Keyboard Non-US \ and |</string>
+        <key>101</key>
+        <string>Keyboard Application</string>
+        <key>102</key>
+        <string>Keyboard Power</string>
+        <key>103</key>
+        <string>Keypad =</string>
+        <key>104</key>
+        <string>Keyboard F13</string>
+        <key>105</key>
+        <string>Keyboard F14</string>
+        <key>106</key>
+        <string>Keyboard F15</string>
+        <key>107</key>
+        <string>Keyboard F16</string>
+        <key>108</key>
+        <string>Keyboard F17</string>
+        <key>109</key>
+        <string>Keyboard F18</string>
+        <key>110</key>
+        <string>Keyboard F19</string>
+        <key>111</key>
+        <string>Keyboard F20</string>
+        <key>112</key>
+        <string>Keyboard F21</string>
+        <key>113</key>
+        <string>Keyboard F22</string>
+        <key>114</key>
+        <string>Keyboard F23</string>
+        <key>115</key>
+        <string>Keyboard F24</string>
+        <key>116</key>
+        <string>Keyboard Execute</string>
+        <key>117</key>
+        <string>Keyboard Help</string>
+        <key>118</key>
+        <string>Keyboard Menu</string>
+        <key>119</key>
+        <string>Keyboard Select</string>
+        <key>120</key>
+        <string>Keyboard Stop</string>
+        <key>121</key>
+        <string>Keyboard Again</string>
+        <key>122</key>
+        <string>Keyboard Undo</string>
+        <key>123</key>
+        <string>Keyboard Cut</string>
+        <key>124</key>
+        <string>Keyboard Copy</string>
+        <key>125</key>
+        <string>Keyboard Paste</string>
+        <key>126</key>
+        <string>Keyboard Find</string>
+        <key>127</key>
+        <string>Keyboard Mute</string>
+        <key>128</key>
+        <string>Keyboard Volume Up</string>
+        <key>129</key>
+        <string>Keyboard Volume Down</string>
+        <key>130</key>
+        <string>Keyboard Locking Caps Lock</string>
+        <key>131</key>
+        <string>Keyboard Locking Num Lock</string>
+        <key>132</key>
+        <string>Keyboard Locking Scroll Lock</string>
+        <key>133</key>
+        <string>Keypad Comma</string>
+        <key>134</key>
+        <string>Keypad Equal Sign</string>
+        <key>135</key>
+        <string>Keyboard International1</string>
+        <key>136</key>
+        <string>Keyboard International2</string>
+        <key>137</key>
+        <string>Keyboard International3</string>
+        <key>138</key>
+        <string>Keyboard International4</string>
+        <key>139</key>
+        <string>Keyboard International5</string>
+        <key>140</key>
+        <string>Keyboard International6</string>
+        <key>141</key>
+        <string>Keyboard International7</string>
+        <key>142</key>
+        <string>Keyboard International8</string>
+        <key>143</key>
+        <string>Keyboard International9</string>
+        <key>144</key>
+        <string>Keyboard LANG1</string>
+        <key>145</key>
+        <string>Keyboard LANG2</string>
+        <key>146</key>
+        <string>Keyboard LANG3</string>
+        <key>147</key>
+        <string>Keyboard LANG4</string>
+        <key>148</key>
+        <string>Keyboard LANG5</string>
+        <key>149</key>
+        <string>Keyboard LANG6</string>
+        <key>150</key>
+        <string>Keyboard LANG7</string>
+        <key>151</key>
+        <string>Keyboard LANG8</string>
+        <key>152</key>
+        <string>Keyboard LANG9</string>
+        <key>153</key>
+        <string>Keyboard Alternate Erase</string>
+        <key>154</key>
+        <string>Keyboard SysReq/Attention</string>
+        <key>155</key>
+        <string>Keyboard Cancel</string>
+        <key>156</key>
+        <string>Keyboard Clear</string>
+        <key>157</key>
+        <string>Keyboard Prior</string>
+        <key>158</key>
+        <string>Keyboard Return</string>
+        <key>159</key>
+        <string>Keyboard Separator</string>
+        <key>160</key>
+        <string>Keyboard Out</string>
+        <key>161</key>
+        <string>Keyboard Oper</string>
+        <key>162</key>
+        <string>Keyboard Clear/Again</string>
+        <key>163</key>
+        <string>Keyboard CrSel/Props</string>
+        <key>164</key>
+        <string>Keyboard ExSel</string>
+        <key>224</key>
+        <string>Keyboard LeftControl</string>
+        <key>225</key>
+        <string>Keyboard LeftShift</string>
+        <key>226</key>
+        <string>Keyboard LeftAlt</string>
+        <key>227</key>
+        <string>Keyboard Left GUI</string>
+        <key>228</key>
+        <string>Keyboard RightControl</string>
+        <key>229</key>
+        <string>Keyboard RightShift</string>
+        <key>230</key>
+        <string>Keyboard RightAlt</string>
+        <key>231</key>
+        <string>Keyboard Right GUI</string>
+      </dict>
+    </dict>
+    <key>8</key>
+    <dict>
+      <key>description</key>
+      <string>LEDs</string>
+      <key>ranges</key>
+      <dict>
+        <key>{76, 65535}</key>
+        <string>Reserved</string>
+      </dict>
+      <key>usages</key>
+      <dict>
+        <key>0</key>
+        <string>Undefined</string>
+        <key>1</key>
+        <string>Num Lock</string>
+        <key>2</key>
+        <string>Caps Lock</string>
+        <key>3</key>
+        <string>Scroll Lock</string>
+        <key>4</key>
+        <string>Compose</string>
+        <key>5</key>
+        <string>Kana</string>
+        <key>6</key>
+        <string>Power</string>
+        <key>7</key>
+        <string>Shift</string>
+        <key>8</key>
+        <string>Do Not Disturb</string>
+        <key>9</key>
+        <string>Mute</string>
+        <key>10</key>
+        <string>Tone Enable</string>
+        <key>11</key>
+        <string>High Cut Filter</string>
+        <key>12</key>
+        <string>Low Cut Filter</string>
+        <key>13</key>
+        <string>Equalizer Enable</string>
+        <key>14</key>
+        <string>Sound Field On</string>
+        <key>15</key>
+        <string>Surround Field On</string>
+        <key>16</key>
+        <string>Repeat</string>
+        <key>17</key>
+        <string>Stereo</string>
+        <key>18</key>
+        <string>Sampling Rate Detect</string>
+        <key>19</key>
+        <string>Spinning</string>
+        <key>20</key>
+        <string>CAV</string>
+        <key>21</key>
+        <string>CLV</string>
+        <key>22</key>
+        <string>Recording Format Detect</string>
+        <key>23</key>
+        <string>Off-Hook</string>
+        <key>24</key>
+        <string>Ring</string>
+        <key>25</key>
+        <string>Message Waiting</string>
+        <key>26</key>
+        <string>Data Mode</string>
+        <key>27</key>
+        <string>Battery Operation</string>
+        <key>28</key>
+        <string>Battery OK</string>
+        <key>29</key>
+        <string>Battery Low</string>
+        <key>30</key>
+        <string>Speaker</string>
+        <key>31</key>
+        <string>Head Set</string>
+        <key>32</key>
+        <string>Hold</string>
+        <key>33</key>
+        <string>Microphone</string>
+        <key>34</key>
+        <string>Coverage</string>
+        <key>35</key>
+        <string>Night Mode</string>
+        <key>36</key>
+        <string>Send Calls</string>
+        <key>37</key>
+        <string>Call Pickup</string>
+        <key>38</key>
+        <string>Conference</string>
+        <key>39</key>
+        <string>Stand-by</string>
+        <key>40</key>
+        <string>Camera On</string>
+        <key>41</key>
+        <string>Camera Off</string>
+        <key>42</key>
+        <string>On-Line</string>
+        <key>43</key>
+        <string>Off-Line</string>
+        <key>44</key>
+        <string>Busy</string>
+        <key>45</key>
+        <string>Ready</string>
+        <key>46</key>
+        <string>Paper-Out</string>
+        <key>47</key>
+        <string>Paper-Jam</string>
+        <key>48</key>
+        <string>Remote</string>
+        <key>49</key>
+        <string>Forward</string>
+        <key>50</key>
+        <string>Reverse</string>
+        <key>51</key>
+        <string>Stop</string>
+        <key>52</key>
+        <string>Rewind</string>
+        <key>53</key>
+        <string>Fast Forward</string>
+        <key>54</key>
+        <string>Play</string>
+        <key>55</key>
+        <string>Pause</string>
+        <key>56</key>
+        <string>Record</string>
+        <key>57</key>
+        <string>Error</string>
+        <key>58</key>
+        <string>Usage Selected Indicator</string>
+        <key>59</key>
+        <string>Usage In Use Indicator</string>
+        <key>60</key>
+        <string>Usage Multi Mode Indicator</string>
+        <key>61</key>
+        <string>Indicator On</string>
+        <key>62</key>
+        <string>Indicator Flash</string>
+        <key>63</key>
+        <string>Indicator Slow Blink</string>
+        <key>64</key>
+        <string>Indicator Fast Blink</string>
+        <key>65</key>
+        <string>Indicator Off</string>
+        <key>66</key>
+        <string>Flash On Time</string>
+        <key>67</key>
+        <string>Slow Blink On Time</string>
+        <key>68</key>
+        <string>Slow Blink Off Time</string>
+        <key>69</key>
+        <string>Fast Blink On Time</string>
+        <key>70</key>
+        <string>Fast Blink Off Time</string>
+        <key>71</key>
+        <string>Usage Indicator Color</string>
+        <key>72</key>
+        <string>Red</string>
+        <key>73</key>
+        <string>Green</string>
+        <key>74</key>
+        <string>Amber</string>
+        <key>75</key>
+        <string>Generic Indicator</string>
+        <key>76</key>
+        <string>System Suspend</string>
+        <key>77</key>
+        <string>External Power Connected</string>
+      </dict>
+    </dict>
+    <key>9</key>
+    <dict>
+      <key>default</key>
+      <string>Button %d</string>
+      <key>description</key>
+      <string>Button</string>
+      <key>ranges</key>
+      <dict>
+      </dict>
+      <key>usages</key>
+      <dict>
+        <key>0</key>
+        <string>No Button Pressed</string>
+      </dict>
+    </dict>
+    <key>10</key>
+    <dict>
+      <key>default</key>
+      <string>Instance %d</string>
+      <key>description</key>
+      <string>Ordinal</string>
+      <key>ranges</key>
+      <dict>
+      </dict>
+      <key>usages</key>
+      <dict>
+        <key>0</key>
+        <string>Unused</string>
+      </dict>
+    </dict>
+    <key>11</key>
+    <dict>
+      <key>description</key>
+      <string>Telephony</string>
+      <key>ranges</key>
+      <dict>
+      </dict>
+      <key>usages</key>
+      <dict>
+        <key>0</key>
+        <string>Unassigned</string>
+        <key>1</key>
+        <string>Phone</string>
+        <key>2</key>
+        <string>Answering Machine</string>
+        <key>3</key>
+        <string>Message Controls</string>
+        <key>4</key>
+        <string>Handset</string>
+        <key>5</key>
+        <string>Headset</string>
+        <key>6</key>
+        <string>Telephony Key Pad</string>
+        <key>7</key>
+        <string>Programmable Button</string>
+        <key>32</key>
+        <string>Hook Switch</string>
+        <key>33</key>
+        <string>Flash</string>
+        <key>34</key>
+        <string>Feature</string>
+        <key>35</key>
+        <string>Hold</string>
+        <key>36</key>
+        <string>Redial</string>
+        <key>37</key>
+        <string>Transfer</string>
+        <key>38</key>
+        <string>Drop</string>
+        <key>39</key>
+        <string>Park</string>
+        <key>40</key>
+        <string>Forward Calls</string>
+        <key>41</key>
+        <string>Alternate Function</string>
+        <key>42</key>
+        <string>Line</string>
+        <key>43</key>
+        <string>Speaker Phone</string>
+        <key>44</key>
+        <string>Conference</string>
+        <key>45</key>
+        <string>Ring Enable</string>
+        <key>46</key>
+        <string>Ring Select</string>
+        <key>47</key>
+        <string>Phone Mute</string>
+        <key>48</key>
+        <string>Caller ID</string>
+        <key>80</key>
+        <string>Speed Dial</string>
+        <key>81</key>
+        <string>Store Number</string>
+        <key>82</key>
+        <string>Recall Number</string>
+        <key>83</key>
+        <string>Phone Directory</string>
+        <key>112</key>
+        <string>Voice Mail</string>
+        <key>113</key>
+        <string>Screen Calls</string>
+        <key>114</key>
+        <string>Do Not Disturb</string>
+        <key>115</key>
+        <string>Message</string>
+        <key>116</key>
+        <string>Answer On/Off</string>
+        <key>144</key>
+        <string>Inside Dial Tone</string>
+        <key>145</key>
+        <string>Outside Dial Tone</string>
+        <key>146</key>
+        <string>Inside Ring Tone</string>
+        <key>147</key>
+        <string>Outside Ring Tone</string>
+        <key>148</key>
+        <string>Priority Ring Tone</string>
+        <key>149</key>
+        <string>Inside Ringback</string>
+        <key>150</key>
+        <string>Priority Ringback</string>
+        <key>151</key>
+        <string>Line Busy Tone</string>
+        <key>152</key>
+        <string>Reorder Tone</string>
+        <key>153</key>
+        <string>Call Waiting Tone</string>
+        <key>154</key>
+        <string>Confirmation Tone 1</string>
+        <key>155</key>
+        <string>Confirmation Tone 2</string>
+        <key>156</key>
+        <string>Tones Off</string>
+        <key>176</key>
+        <string>Phone Key 0</string>
+        <key>177</key>
+        <string>Phone Key 1</string>
+        <key>178</key>
+        <string>Phone Key 2</string>
+        <key>179</key>
+        <string>Phone Key 3</string>
+        <key>180</key>
+        <string>Phone Key 4</string>
+        <key>181</key>
+        <string>Phone Key 5</string>
+        <key>182</key>
+        <string>Phone Key 6</string>
+        <key>183</key>
+        <string>Phone Key 7</string>
+        <key>184</key>
+        <string>Phone Key 8</string>
+        <key>185</key>
+        <string>Phone Key 9</string>
+        <key>186</key>
+        <string>Phone Key Star</string>
+        <key>187</key>
+        <string>Phone Key Pound</string>
+        <key>188</key>
+        <string>Phone Key A</string>
+        <key>189</key>
+        <string>Phone Key B</string>
+        <key>190</key>
+        <string>Phone Key C</string>
+        <key>191</key>
+        <string>Phone Key D</string>
+      </dict>
+    </dict>
+    <key>12</key>
+    <dict>
+      <key>description</key>
+      <string>Consumer</string>
+      <key>ranges</key>
+      <dict>
+      </dict>
+      <key>usages</key>
+      <dict>
+        <key>0</key>
+        <string>Unassigned</string>
+        <key>1</key>
+        <string>Consumer Control</string>
+        <key>2</key>
+        <string>Numeric Key Pad</string>
+        <key>3</key>
+        <string>Programmable Buttons</string>
+        <key>32</key>
+        <string>+10</string>
+        <key>33</key>
+        <string>+100</string>
+        <key>34</key>
+        <string>AM/PM</string>
+        <key>48</key>
+        <string>Power</string>
+        <key>49</key>
+        <string>Reset</string>
+        <key>50</key>
+        <string>Sleep</string>
+        <key>51</key>
+        <string>Sleep After</string>
+        <key>52</key>
+        <string>Sleep Mode</string>
+        <key>53</key>
+        <string>Illumination</string>
+        <key>54</key>
+        <string>Function Buttons</string>
+        <key>64</key>
+        <string>Menu</string>
+        <key>65</key>
+        <string>Menu  Pick</string>
+        <key>66</key>
+        <string>Menu Up</string>
+        <key>67</key>
+        <string>Menu Down</string>
+        <key>68</key>
+        <string>Menu Left</string>
+        <key>69</key>
+        <string>Menu Right</string>
+        <key>70</key>
+        <string>Menu Escape</string>
+        <key>71</key>
+        <string>Menu Value Increase</string>
+        <key>72</key>
+        <string>Menu Value Decrease</string>
+        <key>96</key>
+        <string>Data On Screen</string>
+        <key>97</key>
+        <string>Closed Caption</string>
+        <key>98</key>
+        <string>Closed Caption Select</string>
+        <key>99</key>
+        <string>VCR/TV</string>
+        <key>100</key>
+        <string>Broadcast Mode</string>
+        <key>101</key>
+        <string>Snapshot</string>
+        <key>102</key>
+        <string>Still</string>
+        <key>128</key>
+        <string>Selection</string>
+        <key>129</key>
+        <string>Assign Selection</string>
+        <key>130</key>
+        <string>Mode Step</string>
+        <key>131</key>
+        <string>Recall Last</string>
+        <key>132</key>
+        <string>Enter Channel</string>
+        <key>133</key>
+        <string>Order Movie</string>
+        <key>134</key>
+        <string>Channel</string>
+        <key>135</key>
+        <string>Media Selection</string>
+        <key>136</key>
+        <string>Media Select Computer</string>
+        <key>137</key>
+        <string>Media Select TV</string>
+        <key>138</key>
+        <string>Media Select WWW</string>
+        <key>139</key>
+        <string>Media Select DVD</string>
+        <key>140</key>
+        <string>Media Select Telephone</string>
+        <key>141</key>
+        <string>Media Select Program Guide</string>
+        <key>142</key>
+        <string>Media Select Video Phone</string>
+        <key>143</key>
+        <string>Media Select Games</string>
+        <key>144</key>
+        <string>Media Select Messages</string>
+        <key>145</key>
+        <string>Media Select CD</string>
+        <key>146</key>
+        <string>Media Select VCR</string>
+        <key>147</key>
+        <string>Media Select Tuner</string>
+        <key>148</key>
+        <string>Quit</string>
+        <key>149</key>
+        <string>Help</string>
+        <key>150</key>
+        <string>Media Select Tape</string>
+        <key>151</key>
+        <string>Media Select Cable</string>
+        <key>152</key>
+        <string>Media Select Satellite</string>
+        <key>153</key>
+        <string>Media Select Security</string>
+        <key>154</key>
+        <string>Media Select Home</string>
+        <key>155</key>
+        <string>Media Select Call</string>
+        <key>156</key>
+        <string>Channel Increment</string>
+        <key>157</key>
+        <string>Channel Decrement</string>
+        <key>158</key>
+        <string>Media Select SAP</string>
+        <key>160</key>
+        <string>VCR Plus</string>
+        <key>161</key>
+        <string>Once</string>
+        <key>162</key>
+        <string>Daily</string>
+        <key>163</key>
+        <string>Weekly</string>
+        <key>164</key>
+        <string>Monthly</string>
+        <key>176</key>
+        <string>Play</string>
+        <key>177</key>
+        <string>Pause</string>
+        <key>178</key>
+        <string>Record</string>
+        <key>179</key>
+        <string>Fast Forward</string>
+        <key>180</key>
+        <string>Rewind</string>
+        <key>181</key>
+        <string>Scan Next Track</string>
+        <key>182</key>
+        <string>Scan Previous Track</string>
+        <key>183</key>
+        <string>Stop</string>
+        <key>184</key>
+        <string>Eject</string>
+        <key>185</key>
+        <string>Random Play</string>
+        <key>186</key>
+        <string>Select DisC</string>
+        <key>187</key>
+        <string>Enter Disc</string>
+        <key>188</key>
+        <string>Repeat</string>
+        <key>189</key>
+        <string>Tracking</string>
+        <key>190</key>
+        <string>Track Normal</string>
+        <key>191</key>
+        <string>Slow Tracking</string>
+        <key>192</key>
+        <string>Frame Forward</string>
+        <key>193</key>
+        <string>Frame Back</string>
+        <key>194</key>
+        <string>Mark</string>
+        <key>195</key>
+        <string>Clear Mark</string>
+        <key>196</key>
+        <string>Repeat From Mark</string>
+        <key>197</key>
+        <string>Return To Mark</string>
+        <key>198</key>
+        <string>Search Mark Forward</string>
+        <key>199</key>
+        <string>Search Mark Backwards</string>
+        <key>200</key>
+        <string>Counter Reset</string>
+        <key>201</key>
+        <string>Show Counter</string>
+        <key>202</key>
+        <string>Tracking Increment</string>
+        <key>203</key>
+        <string>Tracking Decrement</string>
+        <key>205</key>
+        <string>Pause/Play</string>
+        <key>224</key>
+        <string>Volume</string>
+        <key>225</key>
+        <string>Balance</string>
+        <key>226</key>
+        <string>Mute</string>
+        <key>227</key>
+        <string>Bass</string>
+        <key>228</key>
+        <string>Treble</string>
+        <key>229</key>
+        <string>Bass Boost</string>
+        <key>230</key>
+        <string>Surround Mode</string>
+        <key>231</key>
+        <string>Loudness</string>
+        <key>232</key>
+        <string>MPX</string>
+        <key>233</key>
+        <string>Volume Up</string>
+        <key>234</key>
+        <string>Volume Down</string>
+        <key>240</key>
+        <string>Speed Select</string>
+        <key>241</key>
+        <string>Playback Speed</string>
+        <key>242</key>
+        <string>Standard Play</string>
+        <key>243</key>
+        <string>Long Play</string>
+        <key>244</key>
+        <string>Extended Play</string>
+        <key>245</key>
+        <string>Slow</string>
+        <key>256</key>
+        <string>Fan Enable</string>
+        <key>257</key>
+        <string>Fan Speed</string>
+        <key>258</key>
+        <string>Light</string>
+        <key>259</key>
+        <string>Light Illumination Level</string>
+        <key>260</key>
+        <string>Climate Control Enable</string>
+        <key>261</key>
+        <string>Room Temperature</string>
+        <key>262</key>
+        <string>Security Enable</string>
+        <key>263</key>
+        <string>Fire Alarm</string>
+        <key>264</key>
+        <string>Police Alarm</string>
+        <key>336</key>
+        <string>Balance Right</string>
+        <key>337</key>
+        <string>Balance Left</string>
+        <key>338</key>
+        <string>Bass Increment</string>
+        <key>339</key>
+        <string>Bass Decrement</string>
+        <key>340</key>
+        <string>Treble Increment</string>
+        <key>341</key>
+        <string>Treble Decrement</string>
+        <key>352</key>
+        <string>Speaker System</string>
+        <key>353</key>
+        <string>Channel Left</string>
+        <key>354</key>
+        <string>Channel Right</string>
+        <key>355</key>
+        <string>Channel Center</string>
+        <key>356</key>
+        <string>Channel Front</string>
+        <key>357</key>
+        <string>Channel Center Front</string>
+        <key>358</key>
+        <string>Channel Side</string>
+        <key>359</key>
+        <string>Channel Surround</string>
+        <key>360</key>
+        <string>Channel Low Frequency Enhancement</string>
+        <key>361</key>
+        <string>Channel Top</string>
+        <key>362</key>
+        <string>Channel Unknown</string>
+        <key>368</key>
+        <string>Sub-channel</string>
+        <key>369</key>
+        <string>Sub-channel Increment</string>
+        <key>370</key>
+        <string>Sub-channel Decrement</string>
+        <key>371</key>
+        <string>Alternate Audio Increment</string>
+        <key>372</key>
+        <string>Alternate Audio Decrement</string>
+        <key>384</key>
+        <string>Application Launch Buttons</string>
+        <key>385</key>
+        <string>AL Launch Button Configuration Tool</string>
+        <key>386</key>
+        <string>AL Programmable Button Configuration</string>
+        <key>387</key>
+        <string>AL Consumer Control Configuration</string>
+        <key>388</key>
+        <string>AL Word Processor</string>
+        <key>389</key>
+        <string>AL Text Editor</string>
+        <key>390</key>
+        <string>AL Spreadsheet</string>
+        <key>391</key>
+        <string>AL Graphics Editor</string>
+        <key>392</key>
+        <string>AL Presentation App</string>
+        <key>393</key>
+        <string>AL Database App</string>
+        <key>394</key>
+        <string>AL Email Reader</string>
+        <key>395</key>
+        <string>AL Newsreader</string>
+        <key>396</key>
+        <string>AL Voicemail</string>
+        <key>397</key>
+        <string>AL Contacts/Address Book</string>
+        <key>398</key>
+        <string>AL Calendar/Schedule</string>
+        <key>399</key>
+        <string>AL Task/Project Manager</string>
+        <key>400</key>
+        <string>AL Log/Journal/Timecard</string>
+        <key>401</key>
+        <string>AL Checkbook/Finance</string>
+        <key>402</key>
+        <string>AL Calculator</string>
+        <key>403</key>
+        <string>AL A/V Capture/Playback</string>
+        <key>404</key>
+        <string>AL Local Machine Browser</string>
+        <key>405</key>
+        <string>AL LAN/WAN Browser</string>
+        <key>406</key>
+        <string>AL Internet Browser</string>
+        <key>407</key>
+        <string>AL Remote Networking/ISP Connect</string>
+        <key>408</key>
+        <string>AL Network Conference</string>
+        <key>409</key>
+        <string>AL Network Chat</string>
+        <key>410</key>
+        <string>AL Telephony/Dialer</string>
+        <key>411</key>
+        <string>AL Logon</string>
+        <key>412</key>
+        <string>AL Logoff</string>
+        <key>413</key>
+        <string>AL Logon/Logoff</string>
+        <key>414</key>
+        <string>AL Terminal Lock/Screensaver</string>
+        <key>415</key>
+        <string>AL Control Panel</string>
+        <key>416</key>
+        <string>AL Command Line Processor/Run</string>
+        <key>417</key>
+        <string>AL Process/Task Manager</string>
+        <key>418</key>
+        <string>AL Select Tast/Application</string>
+        <key>419</key>
+        <string>AL Next Task/Application</string>
+        <key>420</key>
+        <string>AL Previous Task/Application</string>
+        <key>421</key>
+        <string>AL Preemptive Halt Task/Application</string>
+        <key>423</key>
+        <string>AL My Documents</string>
+        <key>427</key>
+        <string>AC Spell</string>
+        <key>438</key>
+        <string>AL My Pictures</string>
+        <key>439</key>
+        <string>AL My Music</string>
+        <key>512</key>
+        <string>Generic GUI Application Controls</string>
+        <key>513</key>
+        <string>AC New</string>
+        <key>514</key>
+        <string>AC Open</string>
+        <key>515</key>
+        <string>AC Close</string>
+        <key>516</key>
+        <string>AC Exit</string>
+        <key>517</key>
+        <string>AC Maximize</string>
+        <key>518</key>
+        <string>AC Minimize</string>
+        <key>519</key>
+        <string>AC Save</string>
+        <key>520</key>
+        <string>AC Print</string>
+        <key>521</key>
+        <string>AC Properties</string>
+        <key>538</key>
+        <string>AC Undo</string>
+        <key>539</key>
+        <string>AC Copy</string>
+        <key>540</key>
+        <string>AC Cut</string>
+        <key>541</key>
+        <string>AC Paste</string>
+        <key>542</key>
+        <string>AC Select All</string>
+        <key>543</key>
+        <string>AC Find</string>
+        <key>544</key>
+        <string>AC Find and Replace</string>
+        <key>545</key>
+        <string>AC Search</string>
+        <key>546</key>
+        <string>AC Go To</string>
+        <key>547</key>
+        <string>AC Home</string>
+        <key>548</key>
+        <string>AC Back</string>
+        <key>549</key>
+        <string>AC Forward</string>
+        <key>550</key>
+        <string>AC Stop</string>
+        <key>551</key>
+        <string>AC Refresh</string>
+        <key>552</key>
+        <string>AC Previous Link</string>
+        <key>553</key>
+        <string>AC Next Link</string>
+        <key>554</key>
+        <string>AC Bookmarks</string>
+        <key>555</key>
+        <string>AC History</string>
+        <key>556</key>
+        <string>AC Subscriptions</string>
+        <key>557</key>
+        <string>AC Zoom In</string>
+        <key>558</key>
+        <string>AC Zoom Out</string>
+        <key>559</key>
+        <string>AC Zoom</string>
+        <key>560</key>
+        <string>AC Full Screen View</string>
+        <key>561</key>
+        <string>AC Normal View</string>
+        <key>562</key>
+        <string>AC View Toggle</string>
+        <key>563</key>
+        <string>AC Scroll Up</string>
+        <key>564</key>
+        <string>AC Scroll Down</string>
+        <key>565</key>
+        <string>AC Scroll</string>
+        <key>566</key>
+        <string>AC Pan Left</string>
+        <key>567</key>
+        <string>AC Pan Right</string>
+        <key>568</key>
+        <string>AC Pan</string>
+        <key>569</key>
+        <string>AC New Window</string>
+        <key>570</key>
+        <string>AC Tile Horizontally</string>
+        <key>571</key>
+        <string>AC Tile Vertically</string>
+        <key>572</key>
+        <string>AC Format</string>
+        <key>633</key>
+        <string>AC Redo</string>
+        <key>649</key>
+        <string>AC Reply</string>
+        <key>651</key>
+        <string>AC Fwd</string>
+        <key>652</key>
+        <string>AC Send</string>
+      </dict>
+    </dict>
+    <key>13</key>
+    <dict>
+      <key>description</key>
+      <string>Digitizer</string>
+      <key>ranges</key>
+      <dict>
+      </dict>
+      <key>usages</key>
+      <dict>
+        <key>0</key>
+        <string>Undefined</string>
+        <key>1</key>
+        <string>Digitizer</string>
+        <key>2</key>
+        <string>Pen</string>
+        <key>3</key>
+        <string>Light Pen</string>
+        <key>4</key>
+        <string>Touch Screen</string>
+        <key>5</key>
+        <string>Touch Pad</string>
+        <key>6</key>
+        <string>White Board</string>
+        <key>7</key>
+        <string>Coordinate Measuring Machine</string>
+        <key>8</key>
+        <string>3-D Digitizer</string>
+        <key>9</key>
+        <string>Stereo Plotter</string>
+        <key>10</key>
+        <string>Articulated Arm</string>
+        <key>11</key>
+        <string>Armature</string>
+        <key>12</key>
+        <string>Multiple Point Digitizer</string>
+        <key>13</key>
+        <string>Free Space Wand</string>
+        <key>32</key>
+        <string>Stylus</string>
+        <key>33</key>
+        <string>Puck</string>
+        <key>34</key>
+        <string>Finger</string>
+        <key>48</key>
+        <string>Tip Pressure</string>
+        <key>49</key>
+        <string>Barrel Pressure</string>
+        <key>50</key>
+        <string>In Range</string>
+        <key>51</key>
+        <string>Touch</string>
+        <key>52</key>
+        <string>Untouch</string>
+        <key>53</key>
+        <string>Tap</string>
+        <key>54</key>
+        <string>Quality</string>
+        <key>55</key>
+        <string>Data Valid</string>
+        <key>56</key>
+        <string>Transducer Index</string>
+        <key>57</key>
+        <string>Tablet Function Keys</string>
+        <key>58</key>
+        <string>Program Change Keys</string>
+        <key>59</key>
+        <string>Battery Strength</string>
+        <key>60</key>
+        <string>Invert</string>
+        <key>61</key>
+        <string>X Tilt</string>
+        <key>62</key>
+        <string>Y Tilt</string>
+        <key>63</key>
+        <string>Azimuth</string>
+        <key>64</key>
+        <string>Altitude</string>
+        <key>65</key>
+        <string>Twist</string>
+        <key>66</key>
+        <string>Tip Switch</string>
+        <key>67</key>
+        <string>Secondary Tip Switch</string>
+        <key>68</key>
+        <string>Barrel Switch</string>
+        <key>69</key>
+        <string>Eraser</string>
+        <key>70</key>
+        <string>Tablet Pick</string>
+      </dict>
+    </dict>
+    <key>15</key>
+    <dict>
+      <key>description</key>
+      <string>Physical Interface Device</string>
+      <key>ranges</key>
+      <dict>
+      </dict>
+      <key>usages</key>
+      <dict>
+      </dict>
+    </dict>
+    <key>16</key>
+    <dict>
+      <key>default</key>
+      <string>Unicode Char u%04x</string>
+      <key>description</key>
+      <string>Unicode</string>
+      <key>ranges</key>
+      <dict>
+      </dict>
+      <key>usages</key>
+      <dict>
+      </dict>
+    </dict>
+    <key>20</key>
+    <dict>
+      <key>description</key>
+      <string>Alphnumeric Display</string>
+      <key>ranges</key>
+      <dict>
+      </dict>
+      <key>usages</key>
+      <dict>
+        <key>0</key>
+        <string>Undefined</string>
+        <key>1</key>
+        <string>Alphanumeric Display</string>
+        <key>32</key>
+        <string>Display Attributes Report</string>
+        <key>33</key>
+        <string>ASCII Character Set</string>
+        <key>34</key>
+        <string>Data Read Back</string>
+        <key>35</key>
+        <string>Font Read Back</string>
+        <key>36</key>
+        <string>Display Control Report</string>
+        <key>37</key>
+        <string>Clear Display</string>
+        <key>38</key>
+        <string>Display Enable</string>
+        <key>39</key>
+        <string>Screen Saver Delay</string>
+        <key>40</key>
+        <string>Screen Saver Enable</string>
+        <key>41</key>
+        <string>Vertical Scroll</string>
+        <key>42</key>
+        <string>Horizontal Scroll</string>
+        <key>43</key>
+        <string>Character Report</string>
+        <key>44</key>
+        <string>Display Data</string>
+        <key>45</key>
+        <string>Display Status</string>
+        <key>46</key>
+        <string>Stat Not Ready</string>
+        <key>47</key>
+        <string>Stat Ready</string>
+        <key>48</key>
+        <string>Err Not a loadable character</string>
+        <key>49</key>
+        <string>Err Font data cannot be read</string>
+        <key>50</key>
+        <string>Cursor Position Report</string>
+        <key>51</key>
+        <string>Row</string>
+        <key>52</key>
+        <string>Column</string>
+        <key>53</key>
+        <string>Rows</string>
+        <key>54</key>
+        <string>Columns</string>
+        <key>55</key>
+        <string>Cursor Pixel Positioning</string>
+        <key>56</key>
+        <string>Cursor Mode</string>
+        <key>57</key>
+        <string>Cursor Enable</string>
+        <key>58</key>
+        <string>Cursor Blink</string>
+        <key>59</key>
+        <string>Font Report</string>
+        <key>60</key>
+        <string>Font Data</string>
+        <key>61</key>
+        <string>Character Width</string>
+        <key>62</key>
+        <string>Character Height</string>
+        <key>63</key>
+        <string>Character Spacing Horizontal</string>
+        <key>64</key>
+        <string>Character Spacing Vertical</string>
+        <key>65</key>
+        <string>Unicode Character Set</string>
+      </dict>
+    </dict>
+    <key>128</key>
+    <dict>
+      <key>description</key>
+      <string>Monitor</string>
+      <key>ranges</key>
+      <dict>
+      </dict>
+      <key>usages</key>
+      <dict>
+        <key>0</key>
+        <string>Undefined</string>
+        <key>1</key>
+        <string>Monitor Control</string>
+        <key>2</key>
+        <string>EDID Information</string>
+        <key>3</key>
+        <string>VDIF Information</string>
+        <key>4</key>
+        <string>VESA Version</string>
+        <key>5</key>
+        <string>On Screen Display</string>
+        <key>6</key>
+        <string>Auto Size Center</string>
+        <key>7</key>
+        <string>Polarity Horz Synch</string>
+        <key>8</key>
+        <string>Polarity Vert Synch</string>
+        <key>9</key>
+        <string>Sync Type</string>
+        <key>10</key>
+        <string>Screen Position</string>
+        <key>11</key>
+        <string>Horizontal Frequency</string>
+        <key>12</key>
+        <string>Vertical Frequency</string>
+      </dict>
+    </dict>
+    <key>129</key>
+    <dict>
+      <key>default</key>
+      <string>ENUM %d</string>
+      <key>description</key>
+      <string>Monitor Enumerated Values</string>
+      <key>ranges</key>
+      <dict>
+      </dict>
+      <key>usages</key>
+      <dict>
+        <key>0</key>
+        <string>unassigned</string>
+      </dict>
+    </dict>
+    <key>130</key>
+    <dict>
+      <key>description</key>
+      <string>VESA Virtual Controls</string>
+      <key>ranges</key>
+      <dict>
+      </dict>
+      <key>usages</key>
+      <dict>
+        <key>16</key>
+        <string>Brightness</string>
+        <key>18</key>
+        <string>Contrast</string>
+        <key>22</key>
+        <string>Video Gain Red</string>
+        <key>24</key>
+        <string>Video Gain Green</string>
+        <key>26</key>
+        <string>Video Gain Blue</string>
+        <key>28</key>
+        <string>Focus</string>
+        <key>32</key>
+        <string>Horizontal Position</string>
+        <key>34</key>
+        <string>Horizontal Size</string>
+        <key>36</key>
+        <string>Horizontal Pincushion</string>
+        <key>38</key>
+        <string>Horizontal Pincushion Balance</string>
+        <key>40</key>
+        <string>Horizontal Misconvergence</string>
+        <key>42</key>
+        <string>Horizontal Linearity</string>
+        <key>44</key>
+        <string>Horizontal Linearity Balance</string>
+        <key>48</key>
+        <string>Vertical Position</string>
+        <key>50</key>
+        <string>Vertical Size</string>
+        <key>52</key>
+        <string>Vertical Pincushion</string>
+        <key>54</key>
+        <string>Vertical Pincushion Balance</string>
+        <key>56</key>
+        <string>Vertical Misconvergence</string>
+        <key>58</key>
+        <string>Vertical Linearity</string>
+        <key>60</key>
+        <string>Vertical Linearity Balance</string>
+        <key>64</key>
+        <string>Parallelogram Distortion</string>
+        <key>66</key>
+        <string>Trapezoidal Distortion</string>
+        <key>68</key>
+        <string>Tilt</string>
+        <key>70</key>
+        <string>Top Corner Distortion Control</string>
+        <key>72</key>
+        <string>Top Corner Distortion Balance</string>
+        <key>74</key>
+        <string>Bottom Corner Distortion Control</string>
+        <key>76</key>
+        <string>Bottom Corner Distortion Balance</string>
+        <key>86</key>
+        <string>MoirHorizontal</string>
+        <key>88</key>
+        <string>MoirVertical</string>
+        <key>94</key>
+        <string>Input Level Select</string>
+        <key>96</key>
+        <string>Input Source Select</string>
+        <key>98</key>
+        <string>Stereo Mode</string>
+        <key>108</key>
+        <string>Video Black Level Red</string>
+        <key>110</key>
+        <string>Video Black Level Green</string>
+        <key>112</key>
+        <string>Video Black Level Blue</string>
+      </dict>
+    </dict>
+    <key>131</key>
+    <dict>
+      <key>description</key>
+      <string>VESA Command</string>
+      <key>ranges</key>
+      <dict>
+      </dict>
+      <key>usages</key>
+      <dict>
+        <key>0</key>
+        <string>Undefined</string>
+        <key>1</key>
+        <string>Settings</string>
+        <key>2</key>
+        <string>Degauss</string>
+      </dict>
+    </dict>
+    <key>132</key>
+    <dict>
+      <key>description</key>
+      <string>Power Device</string>
+      <key>ranges</key>
+      <dict>
+      </dict>
+      <key>usages</key>
+      <dict>
+        <key>0</key>
+        <string>Undefined</string>
+        <key>1</key>
+        <string>iName</string>
+        <key>2</key>
+        <string>PresentStatus</string>
+        <key>3</key>
+        <string>ChangedStatus</string>
+        <key>4</key>
+        <string>UPS</string>
+        <key>5</key>
+        <string>PowerSupply</string>
+        <key>16</key>
+        <string>BatterySystem</string>
+        <key>17</key>
+        <string>BatterySystemID</string>
+        <key>18</key>
+        <string>Battery</string>
+        <key>19</key>
+        <string>BatteryID</string>
+        <key>20</key>
+        <string>Charger</string>
+        <key>21</key>
+        <string>ChargerID</string>
+        <key>22</key>
+        <string>PowerConverter</string>
+        <key>23</key>
+        <string>PowerConverterID</string>
+        <key>24</key>
+        <string>OutletSystem</string>
+        <key>25</key>
+        <string>OutletSystemID</string>
+        <key>26</key>
+        <string>Input</string>
+        <key>27</key>
+        <string>InputID</string>
+        <key>28</key>
+        <string>Output</string>
+        <key>29</key>
+        <string>OutputID</string>
+        <key>30</key>
+        <string>Flow</string>
+        <key>31</key>
+        <string>FlowID</string>
+        <key>32</key>
+        <string>Outlet</string>
+        <key>33</key>
+        <string>OutletID</string>
+        <key>34</key>
+        <string>Gang</string>
+        <key>35</key>
+        <string>GangID</string>
+        <key>36</key>
+        <string>Sink</string>
+        <key>37</key>
+        <string>SinkID</string>
+        <key>48</key>
+        <string>Voltage</string>
+        <key>49</key>
+        <string>Current</string>
+        <key>50</key>
+        <string>Frequency</string>
+        <key>51</key>
+        <string>ApparentPower</string>
+        <key>52</key>
+        <string>ActivePower</string>
+        <key>53</key>
+        <string>PercentLoad</string>
+        <key>54</key>
+        <string>Temperature</string>
+        <key>55</key>
+        <string>Humidity</string>
+        <key>64</key>
+        <string>ConfigVoltage</string>
+        <key>65</key>
+        <string>ConfigCurrent</string>
+        <key>66</key>
+        <string>ConfigFrequency</string>
+        <key>67</key>
+        <string>ConfigApparentPower</string>
+        <key>68</key>
+        <string>ConfigActivePower</string>
+        <key>69</key>
+        <string>ConfigPercentLoad</string>
+        <key>70</key>
+        <string>ConfigTemperature</string>
+        <key>71</key>
+        <string>ConfigHumidity</string>
+        <key>80</key>
+        <string>SwitchOnControl</string>
+        <key>81</key>
+        <string>SwitchOffControl</string>
+        <key>82</key>
+        <string>ToggleControl</string>
+        <key>83</key>
+        <string>LowVoltageTransfer</string>
+        <key>84</key>
+        <string>HighVoltageTransfer</string>
+        <key>85</key>
+        <string>DelayBeforeReboot</string>
+        <key>86</key>
+        <string>DelayBeforeStartup</string>
+        <key>87</key>
+        <string>DelayBeforeShutdown</string>
+        <key>88</key>
+        <string>Test</string>
+        <key>89</key>
+        <string>Vendorspecificcommand</string>
+        <key>96</key>
+        <string>Present</string>
+        <key>97</key>
+        <string>Good</string>
+        <key>98</key>
+        <string>InternalFailure</string>
+        <key>99</key>
+        <string>VoltageOutOfRange</string>
+        <key>100</key>
+        <string>FrequencyOutOfRange</string>
+        <key>101</key>
+        <string>Overload</string>
+        <key>102</key>
+        <string>OverCharged</string>
+        <key>103</key>
+        <string>OverTemperature</string>
+        <key>104</key>
+        <string>ShutdownRequested</string>
+        <key>105</key>
+        <string>ShutdownImminent</string>
+        <key>106</key>
+        <string>VendorSpecificAnswerValid</string>
+        <key>107</key>
+        <string>SwitchOn/Off</string>
+        <key>108</key>
+        <string>Switcheble</string>
+        <key>109</key>
+        <string>Used</string>
+        <key>110</key>
+        <string>Boost</string>
+        <key>111</key>
+        <string>Buck</string>
+        <key>112</key>
+        <string>Initialized</string>
+        <key>113</key>
+        <string>Tested</string>
+      </dict>
+    </dict>
+    <key>133</key>
+    <dict>
+      <key>description</key>
+      <string>Battery System</string>
+      <key>ranges</key>
+      <dict>
+      </dict>
+      <key>usages</key>
+      <dict>
+        <key>0</key>
+        <string>Undefined</string>
+        <key>1</key>
+        <string>SMBBatteryMode</string>
+        <key>2</key>
+        <string>SMBBatteryStatus</string>
+        <key>3</key>
+        <string>SMBAlarmWarning</string>
+        <key>4</key>
+        <string>SMBChargerMode</string>
+        <key>5</key>
+        <string>SMBChargerStatus</string>
+        <key>6</key>
+        <string>SMBChargerSpecInfo</string>
+        <key>7</key>
+        <string>SMBSelectorState</string>
+        <key>8</key>
+        <string>SMBSelectorPreset</string>
+        <key>9</key>
+        <string>SMBSelectorInfo</string>
+        <key>16</key>
+        <string>OptionalMfgFunction1</string>
+        <key>17</key>
+        <string>OptionalMfgFunction2</string>
+        <key>18</key>
+        <string>OptionalMfgFunction3</string>
+        <key>19</key>
+        <string>OptionalMfgFunction4</string>
+        <key>20</key>
+        <string>OptionalMfgFunction5</string>
+        <key>21</key>
+        <string>ConnectionToSMBus</string>
+        <key>22</key>
+        <string>OutputConnection</string>
+        <key>23</key>
+        <string>ChargerConnection</string>
+        <key>24</key>
+        <string>BatteryInsertion</string>
+        <key>25</key>
+        <string>Usenext</string>
+        <key>26</key>
+        <string>OKToUse</string>
+        <key>40</key>
+        <string>ManufacturerAccess</string>
+        <key>41</key>
+        <string>RemainingCapacityLimit</string>
+        <key>42</key>
+        <string>RemainingTimeLimit</string>
+        <key>43</key>
+        <string>AtRate</string>
+        <key>44</key>
+        <string>CapacityMode</string>
+        <key>45</key>
+        <string>BroadcastToCharger</string>
+        <key>46</key>
+        <string>PrimaryBattery</string>
+        <key>47</key>
+        <string>ChargeController</string>
+        <key>64</key>
+        <string>TerminateCharge</string>
+        <key>65</key>
+        <string>TermminateDischarge</string>
+        <key>66</key>
+        <string>BelowRemainingCapacityLimit</string>
+        <key>67</key>
+        <string>RemainingTimeLimitExpired</string>
+        <key>68</key>
+        <string>Charging</string>
+        <key>69</key>
+        <string>Discharging</string>
+        <key>70</key>
+        <string>FullyCharged</string>
+        <key>71</key>
+        <string>FullyDischarged</string>
+        <key>72</key>
+        <string>ConditionningFlag</string>
+        <key>73</key>
+        <string>AtRateOK</string>
+        <key>74</key>
+        <string>SMBErrorCode</string>
+        <key>75</key>
+        <string>NeedReplacement</string>
+        <key>96</key>
+        <string>AtRateTimeToFull</string>
+        <key>97</key>
+        <string>AtRateTimeToEmpty</string>
+        <key>98</key>
+        <string>AverageCurrent</string>
+        <key>99</key>
+        <string>Maxerror</string>
+        <key>100</key>
+        <string>RelativeStateOfCharge</string>
+        <key>101</key>
+        <string>AbsoluteStateOfCharge</string>
+        <key>102</key>
+        <string>RemainingCapacity</string>
+        <key>103</key>
+        <string>FullChargeCapacity</string>
+        <key>104</key>
+        <string>RunTimeToEmpty</string>
+        <key>105</key>
+        <string>AverageTimeToEmpty</string>
+        <key>106</key>
+        <string>AverageTimeToFull</string>
+        <key>107</key>
+        <string>CycleCount</string>
+        <key>128</key>
+        <string>BattPackModelLevel</string>
+        <key>129</key>
+        <string>InternalChargeController</string>
+        <key>130</key>
+        <string>PrimaryBatterySupport</string>
+        <key>131</key>
+        <string>DesignCapacity</string>
+        <key>132</key>
+        <string>SpecificationInfo</string>
+        <key>133</key>
+        <string>ManufacturerDate</string>
+        <key>134</key>
+        <string>SerialNumber</string>
+        <key>135</key>
+        <string>iManufacturerName</string>
+        <key>136</key>
+        <string>iDevicename</string>
+        <key>137</key>
+        <string>iDeviceChemistery</string>
+        <key>138</key>
+        <string>iManufacturerData</string>
+        <key>139</key>
+        <string>Rechargeable</string>
+        <key>140</key>
+        <string>WarningCapacityLimit</string>
+        <key>141</key>
+        <string>CapacityGranularity1</string>
+        <key>142</key>
+        <string>CapacityGranularity2</string>
+        <key>192</key>
+        <string>InhibitCharge</string>
+        <key>193</key>
+        <string>EnablePolling</string>
+        <key>194</key>
+        <string>ResetToZero</string>
+        <key>208</key>
+        <string>ACPresent</string>
+        <key>209</key>
+        <string>BatteryPresent</string>
+        <key>210</key>
+        <string>PowerFail</string>
+        <key>211</key>
+        <string>AlarmInhibited</string>
+        <key>212</key>
+        <string>ThermistorUnderRange</string>
+        <key>213</key>
+        <string>ThermistorHot</string>
+        <key>214</key>
+        <string>ThermistorCold</string>
+        <key>215</key>
+        <string>ThermistorOverRange</string>
+        <key>216</key>
+        <string>VoltageOutOfRange</string>
+        <key>217</key>
+        <string>CurrentOutOfRange</string>
+        <key>218</key>
+        <string>CurrentNotRegulated</string>
+        <key>219</key>
+        <string>VoltageNotRegulated</string>
+        <key>220</key>
+        <string>MasterMode</string>
+        <key>221</key>
+        <string>ChargerBattery/HostControlled</string>
+        <key>240</key>
+        <string>ChargerSpecInfo</string>
+        <key>241</key>
+        <string>ChargerSpecRef</string>
+        <key>242</key>
+        <string>Level2</string>
+        <key>243</key>
+        <string>Level3</string>
+      </dict>
+    </dict>
+    <key>140</key>
+    <dict>
+      <key>description</key>
+      <string>Bar Code Scanner</string>
+      <key>ranges</key>
+      <dict>
+      </dict>
+      <key>usages</key>
+      <dict>
+      </dict>
+    </dict>
+    <key>141</key>
+    <dict>
+      <key>description</key>
+      <string>Scale Device</string>
+      <key>ranges</key>
+      <dict>
+      </dict>
+      <key>usages</key>
+      <dict>
+      </dict>
+    </dict>
+    <key>144</key>
+    <dict>
+      <key>description</key>
+      <string>Camera Control</string>
+      <key>ranges</key>
+      <dict>
+      </dict>
+      <key>usages</key>
+      <dict>
+      </dict>
+    </dict>
+    <key>145</key>
+    <dict>
+      <key>description</key>
+      <string>Arcade Device</string>
+      <key>ranges</key>
+      <dict>
+      </dict>
+      <key>usages</key>
+      <dict>
+        <key>233</key>
+        <string>Base Up</string>
+        <key>234</key>
+        <string>Base Down</string>
+      </dict>
+    </dict>
+  </dict>
+</plist>

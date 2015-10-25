@@ -33,6 +33,8 @@
 #import "LastFmPopover.h"
 #import "Support/TitleBarTextView.h"
 
+#import <DDHidLib/DDHidLib.h>
+
 @class PopupViewDelegate;
 @class PopupStatusView;
 @class PopupPanel;
@@ -44,6 +46,8 @@
     
     NSMutableDictionary *_styles;
     BOOL _isTall;
+    
+    NSArray *mikeys;
     
     WebView *dummyWebView;
     DummyWebViewPolicyDelegate *dummyWebViewDelegate;

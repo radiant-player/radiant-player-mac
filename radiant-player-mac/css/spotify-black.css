@@ -391,7 +391,7 @@ a, .simple-dialog a {
     background-color: transparent;
 }
 
-#player.material .now-playing-actions sj-icon-button {
+#player.material .now-playing-actions paper-icon-button {
     color: white;
 }
 
@@ -511,7 +511,7 @@ div.simple-dialog-bg {
     background-color: #2a2a2a !important;
 }
 
-.material .goog-menu .goog-menuitem .rating-container sj-icon-button {
+.material .goog-menu .goog-menuitem .rating-container paper-icon-button {
     color: white;
 }
 
@@ -535,7 +535,7 @@ div.simple-dialog-bg {
 .material .song-row:hover .column-content {
     background-color: #27282b !important;
 }
-.material-card .details sj-icon-button.menu-anchor {
+.material-card .details paper-icon-button.menu-anchor {
     color: #fff;
 }
 

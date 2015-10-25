@@ -79,6 +79,9 @@
 		D3F14A4918F357AA007D4536 /* AdvancedPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F14A4818F357AA007D4536 /* AdvancedPreferencesViewController.m */; };
 		D3FAC6D418BA81EC00D9F461 /* PopupStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FAC6D318BA81EC00D9F461 /* PopupStatusView.m */; };
 		D3FAC6D718BA942500D9F461 /* PopupViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FAC6D618BA942500D9F461 /* PopupViewDelegate.m */; };
+		F33C34831BDD1033006B4D2E /* DDHidLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F33C34821BDD1033006B4D2E /* DDHidLib.framework */; };
+		F33C34841BDD24F6006B4D2E /* DDHidLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F33C34821BDD1033006B4D2E /* DDHidLib.framework */; };
+		F33C34851BDD24F6006B4D2E /* DDHidLib.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = F33C34821BDD1033006B4D2E /* DDHidLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -89,6 +92,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D31ACE8D193BE39E00AC7CB4 /* Growl.framework in Copy Frameworks */,
+				F33C34851BDD24F6006B4D2E /* DDHidLib.framework in Copy Frameworks */,
 				D30F578B1BDB7BD300929904 /* Sparkle.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
@@ -233,6 +237,7 @@
 		D3FAC6D318BA81EC00D9F461 /* PopupStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupStatusView.m; sourceTree = "<group>"; };
 		D3FAC6D518BA942500D9F461 /* PopupViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupViewDelegate.h; sourceTree = "<group>"; };
 		D3FAC6D618BA942500D9F461 /* PopupViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupViewDelegate.m; sourceTree = "<group>"; };
+		F33C34821BDD1033006B4D2E /* DDHidLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DDHidLib.framework; path = "radiant-player-mac/Frameworks/DDHidLib.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,7 +246,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D31ACE86193BCD3E00AC7CB4 /* Growl.framework in Frameworks */,
+				F33C34841BDD24F6006B4D2E /* DDHidLib.framework in Frameworks */,
 				D370E8E018E21ABC007B5450 /* QuartzCore.framework in Frameworks */,
+				F33C34831BDD1033006B4D2E /* DDHidLib.framework in Frameworks */,
 				D3B4C0C318DAB4740069AB18 /* JavaScriptCore.framework in Frameworks */,
 				D30F57891BDB7B2200929904 /* Sparkle.framework in Frameworks */,
 				1A7B687417453E4C001E509E /* WebKit.framework in Frameworks */,
@@ -276,6 +283,7 @@
 		1A7B683E17453E40001E509E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F33C34821BDD1033006B4D2E /* DDHidLib.framework */,
 				D30F57881BDB7B2200929904 /* Sparkle.framework */,
 				D31ACE85193BCD3E00AC7CB4 /* Growl.framework */,
 				D370E8DF18E21ABC007B5450 /* QuartzCore.framework */,
@@ -765,7 +773,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "radiant-player-mac/prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/radiant-player-mac/info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sajidanwar.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "Radiant Player";
 				WRAPPER_EXTENSION = app;
@@ -784,7 +792,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "radiant-player-mac/prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/radiant-player-mac/info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sajidanwar.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "Radiant Player";
 				WRAPPER_EXTENSION = app;

@@ -154,7 +154,7 @@ if (typeof window.MusicAPI === 'undefined') {
 
         // Get current rating.
         R.getRating = function() {
-            var els = document.querySelectorAll('.player-rating-container sj-icon-button[data-rating]');
+            var els = document.querySelectorAll('.player-rating-container paper-icon-button[data-rating]');
 
             for (var i = 0; i < els.length; i++) {
                 var el = els[i];
@@ -168,7 +168,7 @@ if (typeof window.MusicAPI === 'undefined') {
 
         // Thumbs up.
         R.toggleThumbsUp = function() {
-            var el = document.querySelector('.player-rating-container sj-icon-button[data-rating="5"]');
+            var el = document.querySelector('.player-rating-container paper-icon-button[data-rating="5"]');
 
             if (el)
                 el.click();
@@ -176,7 +176,7 @@ if (typeof window.MusicAPI === 'undefined') {
 
         // Thumbs down.
         R.toggleThumbsDown = function() {
-            var el = document.querySelector('.player-rating-container sj-icon-button[data-rating="1"]');
+            var el = document.querySelector('.player-rating-container paper-icon-button[data-rating="1"]');
 
             if (el)
                 el.click();
@@ -184,7 +184,7 @@ if (typeof window.MusicAPI === 'undefined') {
 
         // Set a star rating.
         R.setStarRating = function(rating) {
-            var el = document.querySelector('.player-rating-container sj-icon-button[data-rating="' + rating + '"]');
+            var el = document.querySelector('.player-rating-container paper-icon-button[data-rating="' + rating + '"]');
 
             if (el && !R.isRatingSelected(el))
                 el.click();
@@ -245,7 +245,7 @@ if (typeof window.MusicAPI === 'undefined') {
                 if (name == 'now-playing-info-wrapper')  {
                     
                     // Fire the rating observer if the thumbs exist (no harm if already observing)
-                    var ratingEls = document.querySelectorAll('.player-rating-container sj-icon-button[data-rating]');
+                    var ratingEls = document.querySelectorAll('.player-rating-container paper-icon-button[data-rating]');
                     for (var j = 0; j < ratingEls.length; j++) {
                         var ratingEl = ratingEls[j];
                         
@@ -354,8 +354,8 @@ if (typeof window.MusicAPI === 'undefined') {
     });
 
     addObserver.observe(document.querySelector('#player #playerSongInfo'), { childList: true, subtree: true });
-    shuffleObserver.observe(document.querySelector('#player sj-icon-button[data-id="shuffle"]'), { attributes: true });
-    repeatObserver.observe(document.querySelector('#player sj-icon-button[data-id="repeat"]'), { attributes: true });
-    playbackObserver.observe(document.querySelector('#player sj-icon-button[data-id="play-pause"]'), { attributes: true });
+    shuffleObserver.observe(document.querySelector('#player paper-icon-button[data-id="shuffle"]'), { attributes: true });
+    repeatObserver.observe(document.querySelector('#player paper-icon-button[data-id="repeat"]'), { attributes: true });
+    playbackObserver.observe(document.querySelector('#player paper-icon-button[data-id="play-pause"]'), { attributes: true });
     playbackTimeObserver.observe(document.querySelector('#player #material-player-progress'), { attributes: true });
 }
