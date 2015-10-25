@@ -23,14 +23,14 @@ if (typeof window.GMNavigation === 'undefined') {
     if (buttonsEnabled)
     {
         // Create back and forward buttons.
-        var backButton = document.createElement('sj-icon-button');
+        var backButton = document.createElement('paper-icon-button');
         backButton.className = 'gm-nav-button';
         backButton.setAttribute('icon', 'arrow-back');
         backButton.setAttribute('aria-label', 'Back');
         backButton.setAttribute('role', 'button');
         backButton.addEventListener('click', function() { window.history.back(); });
         
-        var forwardButton = document.createElement('sj-icon-button');
+        var forwardButton = document.createElement('paper-icon-button');
         forwardButton.className = 'gm-nav-button';
         forwardButton.setAttribute('icon', 'arrow-forward');
         forwardButton.setAttribute('aria-label', 'Forward');

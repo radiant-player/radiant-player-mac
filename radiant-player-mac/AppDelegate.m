@@ -11,6 +11,8 @@
 #import "LastFmService.h"
 
 #import <Sparkle/Sparkle.h>
+#import <DDHidLib/DDHidLib.h>
+
 
 @implementation AppDelegate
 
@@ -192,12 +194,17 @@
                         ? kCGEventMaskForAllEvents
                         : NX_SYSDEFINEDMASK;
     
+    
+    
     eventTap = CGEventTapCreate(kCGSessionEventTap,
                                 kCGHeadInsertEventTap,
                                 kCGEventTapOptionDefault,
                                 mask,
                                 event_tap_callback,
                                 (__bridge void *)(self));
+    
+    [self refreshMikeys];
+    
 	if (!eventTap) {
 		fprintf(stderr, "failed to create event tap\n");
 		exit(1);
@@ -506,6 +513,76 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
             return NULL;
     }
     return event;
+}
+
+
+- (void)pressKey:(NSUInteger)keytype {
+    [self keyEvent:keytype state:0xA];  // key down
+    [self keyEvent:keytype state:0xB];  // key up
+}
+
+- (void)keyEvent:(NSUInteger)keytype state:(NSUInteger)state {
+    NSEvent *event = [NSEvent otherEventWithType:NSSystemDefined
+                                        location:NSZeroPoint
+                                   modifierFlags:(state << 2)
+                                       timestamp:0
+                                    windowNumber:0
+                                         context:nil
+                                         subtype:0x8
+                                           data1:(keytype << 16) | (state << 8)
+                                           data2:-1];
+    
+    CGEventPost(0, [event CGEvent]);
+}
+
+- (void)refreshAllControllers:(NSNotification *)note
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self refreshMikeys];
+    });
+}
+
+- (void)refreshMikeys
+{
+    NSLog(@"Reset Mikeys");
+    
+    if (mikeys != nil) {
+        [mikeys makeObjectsPerformSelector:@selector(stopListening) withObject:nil];
+    }
+    mikeys = [DDHidAppleMikey allMikeys];
+    // we want to be the delegate of the mikeys
+    [mikeys makeObjectsPerformSelector:@selector(setDelegate:) withObject:self];
+    // start listening to all mikey events
+    [mikeys makeObjectsPerformSelector:@selector(setListenInExclusiveMode:) withObject:(id)kCFBooleanFalse];
+    [mikeys makeObjectsPerformSelector:@selector(startListening) withObject:nil];
+}
+
+- (void) ddhidAppleMikey:(DDHidAppleMikey *)mikey press:(unsigned)usageId upOrDown:(BOOL)upOrDown
+{
+    if (upOrDown == TRUE) {
+        switch (usageId) {
+            case kHIDUsage_GD_SystemMenu:
+                [self performSelectorOnMainThread:@selector(playPause:)
+                                       withObject:nil waitUntilDone:NO];
+                break;
+            case kHIDUsage_GD_SystemMenuRight:
+                [self performSelectorOnMainThread:@selector(forwardAction:)
+                                       withObject:nil waitUntilDone:NO];
+                break;
+            case kHIDUsage_GD_SystemMenuLeft:
+                [self performSelectorOnMainThread:@selector(backAction:)
+                                       withObject:nil waitUntilDone:NO];
+                break;
+            case kHIDUsage_GD_SystemMenuUp:
+                [self pressKey:NX_KEYTYPE_SOUND_UP];
+                break;
+            case kHIDUsage_GD_SystemMenuDown:
+                [self pressKey:NX_KEYTYPE_SOUND_DOWN];
+                break;
+            default:
+                NSLog(@"Unknown key press seen %d", usageId);
+        }
+    }
 }
 
 #pragma mark - Web Browser Actions
