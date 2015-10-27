@@ -535,7 +535,7 @@ div.simple-dialog-bg {
 .material .song-row:hover .column-content {
     background-color: #27282b !important;
 }
-.material-card .details paper-icon-button.menu-anchor {
+.material-card .details .menu-anchor {
     color: #fff;
 }
 
