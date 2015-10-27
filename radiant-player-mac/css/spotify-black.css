@@ -10,14 +10,14 @@
  */
 
 body.material,
-core-toolbar#material-app-bar,
-core-header-panel #music-content.material .material-cover
+#material-app-bar,
+c#music-content.material .material-cover
 {
     background-color: #121314;
     color: #bbb;
 }
 
-core-toolbar#material-app-bar {
+#material-app-bar {
     color: white;
 }
 
@@ -251,8 +251,8 @@ a, .simple-dialog a {
     border-color: #333;
 }
 
-#nav, core-header-panel#nav-container, .material .nav-toolbar {
-    background-color: #222326;
+#nav, #nav-container, .material .nav-toolbar {
+    background-color: #222326 !important;
     border-right: 1px solid #292929;
 }
 
@@ -391,7 +391,7 @@ a, .simple-dialog a {
     background-color: transparent;
 }
 
-#player.material .now-playing-actions sj-icon-button {
+#player.material .now-playing-actions paper-icon-button {
     color: white;
 }
 
@@ -511,7 +511,7 @@ div.simple-dialog-bg {
     background-color: #2a2a2a !important;
 }
 
-.material .goog-menu .goog-menuitem .rating-container sj-icon-button {
+.material .goog-menu .goog-menuitem .rating-container paper-icon-button {
     color: white;
 }
 
@@ -535,7 +535,7 @@ div.simple-dialog-bg {
 .material .song-row:hover .column-content {
     background-color: #27282b !important;
 }
-.material-card .details sj-icon-button.menu-anchor {
+.material-card .details paper-icon-button.menu-anchor {
     color: #fff;
 }
 
