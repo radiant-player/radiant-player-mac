@@ -25,7 +25,7 @@
 		D3091F6918C40FBD007C8DCD /* SwipeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D3091F6818C40FBD007C8DCD /* SwipeAnimation.m */; };
 		D30CA00519383160007B05B2 /* NSApplication+ScriptingProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D30CA00419383160007B05B2 /* NSApplication+ScriptingProperties.m */; };
 		D30CA0081938722F007B05B2 /* NSImage+ScriptingDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = D30CA0071938722F007B05B2 /* NSImage+ScriptingDescriptor.m */; };
-		D30F57891BDB7B2200929904 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D30F57881BDB7B2200929904 /* Sparkle.framework */; settings = {ASSET_TAGS = (); }; };
+		D30F57891BDB7B2200929904 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D30F57881BDB7B2200929904 /* Sparkle.framework */; };
 		D30F578B1BDB7BD300929904 /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D30F57881BDB7B2200929904 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D318341718CFBC7400E8F9B1 /* AppearancePreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D318341618CFBC7400E8F9B1 /* AppearancePreferencesViewController.m */; };
 		D318341B18CFC7C500E8F9B1 /* ApplicationStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D318341A18CFC7C500E8F9B1 /* ApplicationStyle.m */; };
@@ -55,7 +55,7 @@
 		D370E8E318E2BFE1007B5450 /* ExpandHoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = D370E8E218E2BFE1007B5450 /* ExpandHoverView.m */; };
 		D377DB5B1B0A6F5900026312 /* JSURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D377DB5A1B0A6F5900026312 /* JSURLProtocol.m */; };
 		D377DB5E1B0AADB700026312 /* WebComponentsURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D377DB5D1B0AADB700026312 /* WebComponentsURLProtocol.m */; };
-		D37A5FCB1BDBEA6A0027FBD4 /* radiant-player-mac-dsa-pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = D37A5FCA1BDBEA6A0027FBD4 /* radiant-player-mac-dsa-pub.pem */; settings = {ASSET_TAGS = (); }; };
+		D37A5FCB1BDBEA6A0027FBD4 /* radiant-player-mac-dsa-pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = D37A5FCA1BDBEA6A0027FBD4 /* radiant-player-mac-dsa-pub.pem */; };
 		D37A5FCD1BDBEAFB0027FBD4 /* radiant-player-mac-dsa-pub.pem in Copy DSA Public Key */ = {isa = PBXBuildFile; fileRef = D37A5FCA1BDBEA6A0027FBD4 /* radiant-player-mac-dsa-pub.pem */; };
 		D37B638418ED315B0098F9DC /* LastFm+TrackInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D37B638318ED315B0098F9DC /* LastFm+TrackInfo.m */; };
 		D37B638718F1E7680098F9DC /* SpriteDownloadURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D37B638618F1E7680098F9DC /* SpriteDownloadURLProtocol.m */; };
@@ -108,6 +108,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		15AEC3E84A30603FA534D4B1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		1A68DAD61803B588004CBA25 /* CustomWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomWebView.h; sourceTree = "<group>"; };
 		1A68DAD71803B588004CBA25 /* CustomWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomWebView.m; sourceTree = "<group>"; };
 		1A7B683C17453E40001E509E /* Radiant Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Radiant Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,7 +128,6 @@
 		2B8FC1BF18C9CB0E006D04FF /* radiant-player-mac.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "radiant-player-mac.sdef"; sourceTree = "<group>"; };
 		2B8FC1C118C9CB16006D04FF /* RadiantPlayerScriptCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadiantPlayerScriptCommand.h; sourceTree = "<group>"; };
 		2B8FC1C218C9CB16006D04FF /* RadiantPlayerScriptCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadiantPlayerScriptCommand.m; sourceTree = "<group>"; };
-		A32790DC482A48E18B516D0B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		B0BB948719F76CF80081C97D /* LightStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightStyle.h; sourceTree = "<group>"; };
 		B0BB948819F76CFD0081C97D /* LightStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightStyle.m; sourceTree = "<group>"; };
 		BABD1B4DDCC34CB291C66033 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,6 +233,7 @@
 		D3FAC6D318BA81EC00D9F461 /* PopupStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupStatusView.m; sourceTree = "<group>"; };
 		D3FAC6D518BA942500D9F461 /* PopupViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupViewDelegate.h; sourceTree = "<group>"; };
 		D3FAC6D618BA942500D9F461 /* PopupViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupViewDelegate.m; sourceTree = "<group>"; };
+		D6128869946CA432C040B896 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,7 +262,7 @@
 				1A7B683E17453E40001E509E /* Frameworks */,
 				D37A5FC91BDBEA2C0027FBD4 /* Resources */,
 				1A7B683D17453E40001E509E /* Products */,
-				A32790DC482A48E18B516D0B /* Pods.xcconfig */,
+				BE916DD858AEB35506F96BE7 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -355,6 +356,15 @@
 				D30CA0071938722F007B05B2 /* NSImage+ScriptingDescriptor.m */,
 			);
 			path = AppleScript;
+			sourceTree = "<group>";
+		};
+		BE916DD858AEB35506F96BE7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D6128869946CA432C040B896 /* Pods.debug.xcconfig */,
+				15AEC3E84A30603FA534D4B1 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		D318341818CFC73500E8F9B1 /* Styles */ = {
@@ -511,6 +521,7 @@
 				D0B126C78BE34593B5FE493C /* Copy Pods Resources */,
 				D31ACE8C193BE38900AC7CB4 /* Copy Frameworks */,
 				D37A5FCC1BDBEAE90027FBD4 /* Copy DSA Public Key */,
+				6EBC9CC272952B8A28700D64 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -575,6 +586,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6EBC9CC272952B8A28700D64 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7A2071DB33B24D5B85C39505 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -602,7 +628,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -754,7 +780,7 @@
 		};
 		1A7B686E17453E40001E509E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A32790DC482A48E18B516D0B /* Pods.xcconfig */;
+			baseConfigurationReference = D6128869946CA432C040B896 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -772,7 +798,7 @@
 		};
 		1A7B686F17453E40001E509E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A32790DC482A48E18B516D0B /* Pods.xcconfig */;
+			baseConfigurationReference = 15AEC3E84A30603FA534D4B1 /* Pods.release.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
