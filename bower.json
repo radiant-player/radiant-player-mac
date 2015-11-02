@@ -1,0 +1,17 @@
+{
+  "name": "radiant-player-mac",
+  "homepage": "https://github.com/radiant-player/radiant-player-mac",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "radiant-player-mac/js/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "google-music": "~3.2.0"
+  }
+}
