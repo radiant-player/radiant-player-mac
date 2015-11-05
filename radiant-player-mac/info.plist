@@ -20,12 +20,12 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
-	<key>CFBundleVersion</key>
-	<string>1.5.0</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.5.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1.5.0</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.music</string>
 	<key>LSMinimumSystemVersion</key>
@@ -36,6 +36,24 @@
 		<dict>
 			<key>ws.audioscrobbler.com</key>
 			<dict>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
+			<key>last.fm</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
+			<key>lst.fm</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
 				<key>NSExceptionRequiresForwardSecrecy</key>
 				<false/>
 			</dict>
@@ -51,10 +69,10 @@
 	<true/>
 	<key>OSAScriptingDefinition</key>
 	<string>radiant-player-mac.sdef</string>
-	<key>SUPublicDSAKeyFile</key>
-	<string>radiant-player-mac-dsa-pub.pem</string>
 	<key>SUFeedURL</key>
 	<string>https://radiant-player.github.io/radiant-player-mac/appcast/appcast.xml</string>
+	<key>SUPublicDSAKeyFile</key>
+	<string>radiant-player-mac-dsa-pub.pem</string>
 	<key>SUScheduledCheckInterval</key>
 	<integer>3600</integer>
 </dict>
