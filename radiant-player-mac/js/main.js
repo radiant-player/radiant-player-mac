@@ -245,18 +245,6 @@ if (typeof window.MusicAPI === 'undefined') {
                 if (name == 'now-playing-info-wrapper')  {
                     
                     // Fire the rating observer if the thumbs exist (no harm if already observing)
-                    var ratingEls = document.querySelectorAll('.player-rating-container [data-rating]');
-                    for (var j = 0; j < ratingEls.length; j++) {
-                        var ratingEl = ratingEls[j];
-                        
-                        if (ratingEl.observe.icon != 'iconChanged_') {
-                            ratingEl.observe.icon = 'iconChanged_';
-                            ratingEl.iconChanged_ = function(oldIcon) {
-                                this.iconChanged(oldIcon);
-                                GoogleMusicApp.ratingChanged(MusicAPI.Rating.getRating());
-                            };
-                        }
-                    }
                     GoogleMusicApp.ratingChanged(MusicAPI.Rating.getRating());
                     
                     var now = new Date();
