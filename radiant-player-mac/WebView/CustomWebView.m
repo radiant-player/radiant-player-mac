@@ -117,14 +117,8 @@
     {
         [self handleCookiesForRequest:req redirectResponse:redirectResponse];
         
-        // The WebComponents library that was buggy!
-        NSString *fileName = [url lastPathComponent];
-        if ([fileName isEqualToString:@"webcomponents.js"] || [fileName isEqualToString:@"webcomponents.min.js"])
-        {
-            [NSURLProtocol setProperty:self forKey:@"WebComponentsCustomWebView" inRequest:req];
-        }
         // Original sprites.
-        else if ([[url pathExtension] isEqualToString:@"png"] &&
+        if ([[url pathExtension] isEqualToString:@"png"] &&
             [[url lastPathComponent] rangeOfString:@"sprites"].location == 0)
         {
             [NSURLProtocol setProperty:self forKey:@"OriginalCustomWebView" inRequest:req];

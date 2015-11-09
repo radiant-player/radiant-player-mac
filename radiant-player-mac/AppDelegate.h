@@ -20,7 +20,6 @@
 #import "SpriteDownloadURLProtocol.h"
 #import "ImageURLProtocol.h"
 #import "JSURLProtocol.h"
-#import "WebComponentsURLProtocol.h"
 
 #import "PopupStatusView.h"
 #import "PopupViewDelegate.h"
