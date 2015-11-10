@@ -151,7 +151,7 @@
 - (void)openRecentTracksPage:(id)sender
 {
     NSString *username = [[[LastFm sharedInstance] username] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString *page = [NSString stringWithFormat:@"http://www.last.fm/user/%@", username];
+    NSString *page = [NSString stringWithFormat:@"https://www.last.fm/user/%@", username];
     NSURL *url = [NSURL URLWithString:page];
     
     [[NSWorkspace sharedWorkspace] openURL:url];

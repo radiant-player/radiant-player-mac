@@ -185,7 +185,6 @@
     [NSURLProtocol registerClass:[InvertedSpriteURLProtocol class]];
     [NSURLProtocol registerClass:[ImageURLProtocol class]];
     [NSURLProtocol registerClass:[JSURLProtocol class]];
-    [NSURLProtocol registerClass:[WebComponentsURLProtocol class]];
 
 	// Add an event tap to intercept the system defined media key events
     CGEventMask mask = ([defaults boolForKey:@"eventtap.alternative-method"])
