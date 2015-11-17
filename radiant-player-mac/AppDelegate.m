@@ -689,7 +689,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
  */
 - (IBAction) focusSearch:(id)sender
 {
-    [webView stringByEvaluatingJavaScriptFromString:@"document.querySelector('.material-search').select()"];
+    [webView stringByEvaluatingJavaScriptFromString:@"document.querySelector('#material-one-middle input.sj-search-box').select()"];
 }
 
 /**
