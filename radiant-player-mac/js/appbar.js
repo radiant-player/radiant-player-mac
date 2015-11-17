@@ -21,7 +21,7 @@ if (typeof window.GMAppBar === 'undefined') {
         // Handle dragging of the application bar.
         var exclude = []
             .concat([].slice.call(document.querySelectorAll('.gm-nav-button')))
-            .concat(document.querySelector('#material-one-middle input.material-search').parentNode)
+            .concat(document.querySelector('#material-one-middle input.sj-search-box').parentNode)
                     .concat([].slice.call(document.querySelectorAll('#material-one-right > div:first-child > div:first-child > div:first-child > *')));
         
         var appBar = document.querySelector('#material-app-bar');
