@@ -1,11 +1,11 @@
-[Radiant Player for Google Play Music™][1]
+[Radiant Player for Google Play Music™][1] [![Build Status](https://travis-ci.org/radiant-player/radiant-player-mac.svg)](https://travis-ci.org/radiant-player/radiant-player-mac)
 =========================
 
 ![](https://raw.github.com/kbhomes/radiant-player-mac/gh-pages/images/application.png)
 
 Turn Google Play Music into a separate, beautiful application that integrates with your Mac.
 
-Developed by [Sajid Anwar][2]. Originally created by [James Fator][3] at [JamesFator/GoogleMusicMac][4]. 
+Developed by [Sajid Anwar][2]. Originally created by [James Fator][3] at [JamesFator/GoogleMusicMac][4].
 
 No affiliation with Google. Google Play is a trademark of Google Inc.
 
@@ -25,9 +25,9 @@ Requirements
 Development
 -----------
 
-This project uses [CocoaPods][6] to handle its dependencies, though it may be cloned 
-and developed without having CocoaPods installed. Just be sure to open 
-`radiant-player-mac.xcworkspace` instead of `radiant-player-mac.xcodeproj` in order to 
+This project uses [CocoaPods][6] to handle its dependencies, though it may be cloned
+and developed without having CocoaPods installed. Just be sure to open
+`radiant-player-mac.xcworkspace` instead of `radiant-player-mac.xcodeproj` in order to
 correctly pull in the dependencies into Xcode.
 
 [6]: http://cocoapods.org/
