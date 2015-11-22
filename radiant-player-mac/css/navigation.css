@@ -28,12 +28,12 @@
 
 /* When the navigation drawer is open, or Radiant Player is full screen */
 body.full-screen #rp-padding-left,
-core-drawer-panel:not([narrow]) #rp-padding-left {
+paper-drawer-panel:not([narrow]) #rp-padding-left {
     min-width: 0px;
 }
 
 body.full-screen #sliding_action_bar_container.material,
-core-drawer-panel:not([narrow]) #sliding_action_bar_container.material {
+paper-drawer-panel:not([narrow]) #sliding_action_bar_container.material {
     padding-left: 16px;
 }
 
