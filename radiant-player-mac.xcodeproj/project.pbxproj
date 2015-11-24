@@ -25,7 +25,7 @@
 		D3091F6918C40FBD007C8DCD /* SwipeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D3091F6818C40FBD007C8DCD /* SwipeAnimation.m */; };
 		D30CA00519383160007B05B2 /* NSApplication+ScriptingProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D30CA00419383160007B05B2 /* NSApplication+ScriptingProperties.m */; };
 		D30CA0081938722F007B05B2 /* NSImage+ScriptingDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = D30CA0071938722F007B05B2 /* NSImage+ScriptingDescriptor.m */; };
-		D30F57891BDB7B2200929904 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D30F57881BDB7B2200929904 /* Sparkle.framework */; settings = {ASSET_TAGS = (); }; };
+		D30F57891BDB7B2200929904 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D30F57881BDB7B2200929904 /* Sparkle.framework */; };
 		D30F578B1BDB7BD300929904 /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D30F57881BDB7B2200929904 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D318341718CFBC7400E8F9B1 /* AppearancePreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D318341618CFBC7400E8F9B1 /* AppearancePreferencesViewController.m */; };
 		D318341B18CFC7C500E8F9B1 /* ApplicationStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D318341A18CFC7C500E8F9B1 /* ApplicationStyle.m */; };
@@ -54,7 +54,7 @@
 		D370E8E018E21ABC007B5450 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D370E8DF18E21ABC007B5450 /* QuartzCore.framework */; };
 		D370E8E318E2BFE1007B5450 /* ExpandHoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = D370E8E218E2BFE1007B5450 /* ExpandHoverView.m */; };
 		D377DB5B1B0A6F5900026312 /* JSURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D377DB5A1B0A6F5900026312 /* JSURLProtocol.m */; };
-		D37A5FCB1BDBEA6A0027FBD4 /* radiant-player-mac-dsa-pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = D37A5FCA1BDBEA6A0027FBD4 /* radiant-player-mac-dsa-pub.pem */; settings = {ASSET_TAGS = (); }; };
+		D37A5FCB1BDBEA6A0027FBD4 /* radiant-player-mac-dsa-pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = D37A5FCA1BDBEA6A0027FBD4 /* radiant-player-mac-dsa-pub.pem */; };
 		D37A5FCD1BDBEAFB0027FBD4 /* radiant-player-mac-dsa-pub.pem in Copy DSA Public Key */ = {isa = PBXBuildFile; fileRef = D37A5FCA1BDBEA6A0027FBD4 /* radiant-player-mac-dsa-pub.pem */; };
 		D37B638418ED315B0098F9DC /* LastFm+TrackInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D37B638318ED315B0098F9DC /* LastFm+TrackInfo.m */; };
 		D37B638718F1E7680098F9DC /* SpriteDownloadURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D37B638618F1E7680098F9DC /* SpriteDownloadURLProtocol.m */; };
@@ -78,6 +78,7 @@
 		D3F14A4918F357AA007D4536 /* AdvancedPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F14A4818F357AA007D4536 /* AdvancedPreferencesViewController.m */; };
 		D3FAC6D418BA81EC00D9F461 /* PopupStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FAC6D318BA81EC00D9F461 /* PopupStatusView.m */; };
 		D3FAC6D718BA942500D9F461 /* PopupViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FAC6D618BA942500D9F461 /* PopupViewDelegate.m */; };
+		FF76BDFF1C05083D0004D31A /* DarkCyanStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = FF76BDFE1C05083D0004D31A /* DarkCyanStyle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -230,6 +231,8 @@
 		D3FAC6D318BA81EC00D9F461 /* PopupStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupStatusView.m; sourceTree = "<group>"; };
 		D3FAC6D518BA942500D9F461 /* PopupViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupViewDelegate.h; sourceTree = "<group>"; };
 		D3FAC6D618BA942500D9F461 /* PopupViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupViewDelegate.m; sourceTree = "<group>"; };
+		FF76BDFD1C05083D0004D31A /* DarkCyanStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DarkCyanStyle.h; sourceTree = "<group>"; };
+		FF76BDFE1C05083D0004D31A /* DarkCyanStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DarkCyanStyle.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -357,6 +360,8 @@
 		D318341818CFC73500E8F9B1 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
+				FF76BDFD1C05083D0004D31A /* DarkCyanStyle.h */,
+				FF76BDFE1C05083D0004D31A /* DarkCyanStyle.m */,
 				D318341918CFC7C500E8F9B1 /* ApplicationStyle.h */,
 				D318341A18CFC7C500E8F9B1 /* ApplicationStyle.m */,
 				B0BB948719F76CF80081C97D /* LightStyle.h */,
@@ -647,6 +652,7 @@
 				D31ACE8A193BDD0F00AC7CB4 /* NotificationCenter.m in Sources */,
 				D362D5421924D17B00FC0C56 /* PrivacyPreferencesViewController.m in Sources */,
 				D37C928C195E3B3F0035709A /* SpotifyBlackStyle.m in Sources */,
+				FF76BDFF1C05083D0004D31A /* DarkCyanStyle.m in Sources */,
 				D343CDF518C69DF4002F9DB3 /* NavigationPreferencesViewController.m in Sources */,
 				D3F14A4918F357AA007D4536 /* AdvancedPreferencesViewController.m in Sources */,
 				D3D4C3E818E76674007238B3 /* LastFmPopover.m in Sources */,
