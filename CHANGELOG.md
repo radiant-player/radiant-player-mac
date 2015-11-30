@@ -5,14 +5,18 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
 ### Added
+* Added Dark Cyan theme ([#424](https://github.com/radiant-player/radiant-player-mac/pull/424))
 * Added [contribution guidelines](https://github.com/radiant-player/radiant-player-mac/blob/master/CONTRIBUTING.md) for anyone wanting to contribute code to Radiant ([#401](https://github.com/radiant-player/radiant-player-mac/pull/401))
 
 ### Changed
 * Updated to work with Google's latest updates ([#397](https://github.com/radiant-player/radiant-player-mac/pull/397))
 
 ### Fixed
+* Fixed tracks being "randomly" loved/unloved on last.fm ([#426](https://github.com/radiant-player/radiant-player-mac/pull/426))
+* Fixed Spotify layout ([#424](https://github.com/radiant-player/radiant-player-mac/pull/424))
+* Fixed header element names ([#418](https://github.com/radiant-player/radiant-player-mac/pull/418)) (Thanks [@jcurtis](https://github.com/jcurtis))
 * Fixed broken notifications and mini-player updates ([#400](https://github.com/radiant-player/radiant-player-mac/pull/400))
-* Fixed crash when opening Last.fm history by allowing communication with Last.fm API servers ([#389](https://github.com/radiant-player/radiant-player-mac/pull/389), ([#400](https://github.com/radiant-player/radiant-player-mac/pull/400)))
+* Fixed crash when opening Last.fm history by allowing communication with Last.fm API servers ([#389](https://github.com/radiant-player/radiant-player-mac/pull/389), [#400](https://github.com/radiant-player/radiant-player-mac/pull/400))
 * Restored the ability to move the window by the title bar ([#413](https://github.com/radiant-player/radiant-player-mac/pull/413))
 * Fixed broken keyboard shortcut for search ([#413](https://github.com/radiant-player/radiant-player-mac/pull/413))
 

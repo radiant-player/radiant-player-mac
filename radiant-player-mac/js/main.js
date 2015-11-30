@@ -242,11 +242,7 @@ if (typeof window.MusicAPI === 'undefined') {
                 var target = m.addedNodes[i];
                 var name = target.id || target.className;
 
-                if (name == 'now-playing-info-wrapper')  {
-                    
-                    // Fire the rating observer if the thumbs exist (no harm if already observing)
-                    GoogleMusicApp.ratingChanged(MusicAPI.Rating.getRating());
-                    
+                if (name == 'now-playing-info-wrapper')  {                    
                     var now = new Date();
 
                     var title = document.querySelector('#player #player-song-title');
@@ -274,6 +270,10 @@ if (typeof window.MusicAPI === 'undefined') {
                         lastArtist = artist;
                         lastAlbum = album;
                     }
+
+                    // Fire the rating observer if the thumbs exist (no harm if already observing)
+                    // Ensure this is below notifySong, otherwise it'll apply the loved status of the current song to the previous song (#390)
+                    GoogleMusicApp.ratingChanged(MusicAPI.Rating.getRating());
                 }
             }
         });
