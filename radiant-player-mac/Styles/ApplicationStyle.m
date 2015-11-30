@@ -9,6 +9,7 @@
 
 #import "ApplicationStyle.h"
 #import "SpotifyBlackStyle.h"
+#import "DarkCyanStyle.h"
 #import "SpotifyBlackVibrantStyle.h"
 #import "YosemiteStyle.h"
 #import "LightStyle.h"
@@ -66,6 +67,9 @@
     
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
     [dictionary setObject:spotifyBlack forKey:[spotifyBlack name]];
+
+    DarkCyanStyle *darkCyan = [[DarkCyanStyle alloc] init];
+    [dictionary setObject:darkCyan forKey:[darkCyan name]];
     
 //    if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9)
 //    {

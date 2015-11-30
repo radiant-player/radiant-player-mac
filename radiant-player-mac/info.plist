@@ -34,26 +34,26 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>ws.audioscrobbler.com</key>
-			<dict>
-				<key>NSExceptionRequiresForwardSecrecy</key>
-				<false/>
-			</dict>
 			<key>last.fm</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
-				<key>NSIncludesSubdomains</key>
-				<true/>
 				<key>NSExceptionRequiresForwardSecrecy</key>
 				<false/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
 			</dict>
 			<key>lst.fm</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<false/>
 				<key>NSIncludesSubdomains</key>
 				<true/>
+			</dict>
+			<key>ws.audioscrobbler.com</key>
+			<dict>
 				<key>NSExceptionRequiresForwardSecrecy</key>
 				<false/>
 			</dict>

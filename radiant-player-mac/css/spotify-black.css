@@ -117,8 +117,11 @@ a, .simple-dialog a {
     border-color: transparent transparent rgba(18, 19, 20, 0.98) rgba(18, 19, 20, 0.98);
 }
 
-.material-detail-view .artist-details {
-    background-color: rgba(18, 19, 20, 0.9);
+.material-album-container.material-container, 
+.material-detail-view .artist-details, 
+.material-container-details, 
+.material-container-details .info {
+    background-color: rgba(18, 19, 20, 0.8)!important;
     color: white;
 }
 

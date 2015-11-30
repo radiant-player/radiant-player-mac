@@ -1,0 +1,71 @@
+/*
+ * css/dark-cyan.css
+ *
+ * Created by Chris Chrisostomou (https://github.com/chrismou), inspired by an original design by Daniel Stuart (https://github.com/danielstuart14)
+ *
+ * Subject to terms and conditions in LICENSE.md.
+ *
+ */
+
+music-content .info-card sj-paper-button, #music-content .info-card paper-button,
+.top-charts-view .song-row [data-col="index"] .column-content, .material-card .details .left-items .index,
+.more-songs-container,
+paper-toast [data-action="button"],
+paper-toast paper-button[data-action="button"],
+.cluster .lane-button core-icon, .cluster .lane-button iron-icon,
+.material a.primary,
+paper-toggle-button [checked] .toggle-ink,
+paper-input-decorator[focused] .floated-label .label-text,
+paper-checkbox #ink[checked],
+.material-detail-view .material-container-details .read-more-button,
+.material .goog-menu .goog-menuitem.selected .goog-menuitem-content,
+.material .goog-menu .goog-menuitem.selected .goog-menuitem-content:hover,
+paper-input-decorator .floatedLabelText,
+paper-action-dialog sj-paper-button, paper-dialog .buttons paper-button,
+#signup-full .new-user-quiz h1,
+#player.material .material-player-middle sj-icon-button[data-id="play-pause"]:not([disabled]), #player.material .material-player-middle paper-icon-button[data-id="play-pause"]:not([disabled]),
+#player.material .material-player-middle sj-icon-button[data-id="repeat"][value="LIST_REPEAT"], #player.material .material-player-middle sj-icon-button[data-id="repeat"][value="SINGLE_REPEAT"], #player.material .material-player-middle sj-icon-button[data-id="shuffle"][value="ALL_SHUFFLE"], #player.material #material-player-right-wrapper sj-icon-button[data-id="queue"].opened, #player.material .material-player-middle paper-icon-button[data-id="repeat"][value="LIST_REPEAT"], #player.material .material-player-middle paper-icon-button[data-id="repeat"][value="SINGLE_REPEAT"], #player.material .material-player-middle paper-icon-button[data-id="shuffle"][value="ALL_SHUFFLE"], #player.material #material-player-right-wrapper paper-icon-button[data-id="queue"].opened,
+.material .nav-item-container.selected,
+.nav-item-container.selected core-icon, .nav-item-container.selected iron-icon,
+.material .song-row [data-col="radio"],
+.ups.light core-icon, .ups.light iron-icon,
+paper-slider#sliderBar paper-ripple.paper-slider,
+.material .song-table .song-row.currently-playing td
+{
+    color: #039cac!important;
+}
+
+.music-source-list::-webkit-scrollbar-thumb,
+sj-paper-button.material-primary, paper-button.material-primary,
+button.primary,
+paper-button.material-primary[no-focus],
+paper-toggle-button [checked] .toggle,
+paper-input-decorator #underline .focused-underline,
+paper-checkbox #checkbox.checked,
+#material-app-bar,
+paper-slider #sliderBar #activeProgress,
+paper-slider#material-player-progress #sliderContainer.disabled #sliderBar #activeProgress,
+paper-slider.paper-slider-0 #sliderKnobInner.paper-slider,
+paper-progress.paper-slider #primaryProgress.paper-progress,
+.material-drag .song-drag-label,
+.material-transfer-radial-upload-overlay, .material-transfer-radial-download-overlay, .material-transfer-radial-processing-overlay,
+#current-loading-progress {
+    background-color: #039cac!important;
+}
+
+paper-checkbox #checkbox.checked,
+#loading-overlay.material paper-spinner .circle,
+paper-action-dialog.get-link .content paper-spinner .circle,
+.delete-library-dialog .delete-in-progress paper-spinner .circle, .delete-recommendations-dialog .delete-in-progress paper-spinner .circle,
+.nav-section .selected
+{
+    border-color: #039cac!important;
+}
+
+.material-container-details sj-fab, .material-container-details paper-fab {
+    background: #039cac!important;
+}
+
+paper-header-panel#content-container.transparent #material-app-bar {
+    background-color: rgba(3, 166, 181, 0.4)!important;
+}
