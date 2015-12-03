@@ -13,7 +13,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 * Fixed tracks being "randomly" loved/unloved on last.fm ([#426](https://github.com/radiant-player/radiant-player-mac/pull/426))
-* Fixed Spotify layout ([#424](https://github.com/radiant-player/radiant-player-mac/pull/424))
+* Fixed Spotify layout ([#424](https://github.com/radiant-player/radiant-player-mac/pull/424), [#431](https://github.com/radiant-player/radiant-player-mac/pull/431))
 * Fixed header element names ([#418](https://github.com/radiant-player/radiant-player-mac/pull/418)) (Thanks [@jcurtis](https://github.com/jcurtis))
 * Fixed broken notifications and mini-player updates ([#400](https://github.com/radiant-player/radiant-player-mac/pull/400))
 * Fixed crash when opening Last.fm history by allowing communication with Last.fm API servers ([#389](https://github.com/radiant-player/radiant-player-mac/pull/389), [#400](https://github.com/radiant-player/radiant-player-mac/pull/400))
