@@ -1,3 +1,6 @@
+---
+layout: null
+---
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
     <channel>
@@ -5,21 +8,23 @@
         <link>https://radiant-player.github.io/radiant-player-mac/appcast/appcast.xml</link>
         <description>Most recent changes with links to updates.</description>
         <language>en</language>
-        
-        <item>
-            <title>v1.5.0</title>
+
+        {% for release in site.categories.release %}
+          <item>
+            <title>{{ release.title | xml_escape }}</title>
             <sparkle:releaseNotesLink>
-                https://radiant-player.github.io/radiant-player-mac/release-notes/v1.5.0.html
+                {{ site.url }}{{ site.baseurl }}{{ release.url }}
             </sparkle:releaseNotesLink>
-            <pubDate>Sat, 31 Oct 2015 22:18:33 +0000</pubDate>
-            <enclosure 
-                url="https://github.com/radiant-player/radiant-player-mac/releases/download/v1.5.0/Radiant.Player.zip" 
-                sparkle:version="1.5.0" 
-                length="2673676" 
-                type="application/octet-stream" 
-                sparkle:dsaSignature="MC4CFQCa2vrEpUVtAXjK2wWUwP460GjuVgIVALTsPhYGM7mMn0HC2e7bGXYKq2jC" 
+            <pubDate>{{ release.date | date_to_rfc822 }}</pubDate>
+            <enclosure
+                url="https://github.com/radiant-player/radiant-player-mac/releases/download/v{{ release.version }}/Radiant.Player.zip"
+                sparkle:version="{{ release.version }}"
+                length="{{ release.download_length }}"
+                type="application/octet-stream"
+                sparkle:dsaSignature="{{ release.download_signature }}"
             />
-            <sparkle:minimumSystemVersion>10.9</sparkle:minimumSystemVersion>
-        </item>
+            <sparkle:minimumSystemVersion>{{ release.minimum_system_version | default: '10.9' }}</sparkle:minimumSystemVersion>
+          </item>
+        {% endfor %}
     </channel>
 </rss>

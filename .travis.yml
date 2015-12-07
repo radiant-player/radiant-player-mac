@@ -8,10 +8,12 @@ cache:
   - cocoapods
 
 after_success:
+  - ./scripts/build-website.sh
   - ./scripts/deploy-website.sh
 
 env:
   global:
+    - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speedup for html-proofer
     - GH_USER=radiant-bot
     - GH_EMAIL=jacobwgillespie+radiant-bot@gmail.com
     - GH_REF=github.com/radiant-player/radiant-player-mac.git

@@ -1,159 +1,103 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta content="width=device-width; initial-scale=1.0" />
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-    <link rel="stylesheet" type="text/css" href="slick/slick.css" media="screen" />
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <title>Radiant Player for Google Play Music - Beautifully integrate Google Play Music with your Mac</title>
-  </head>
+---
+layout: default
+---
 
-  <body>
-    <div id="container">
-      <div class="inner">
+{% assign latest_release = site.categories.release.first %}
 
-        <header>
-          <h1><strong>Radiant Player</strong></h1>
-          <h2>for Google Play Music™</h2>
-          <div id="styles">
-            <div><a href="images/styles/google.png"><img src="images/styles/google.png"></a></div>
-            <div><a href="images/styles/black.png"><img src="images/styles/black.png"></a></div>
-          </div>
-          <h2>Turn Google Play Music into a separate, beautiful application that integrates with your Mac.</h2>
-        </header>
+<header>
+  <h1><strong>Radiant Player</strong></h1>
+  <h2>for Google Play Music&trade;</h2>
+  <div id="styles">
+    <div><a href="images/styles/google.png"><img src="images/styles/google.png" alt="Screenshot of Radiant Player"></a></div>
+    <div><a href="images/styles/black.png"><img src="images/styles/black.png" alt="Screenshot of black theme"></a></div>
+  </div>
+  <h2>Turn Google Play Music into a separate, beautiful application that integrates with your Mac.</h2>
+</header>
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/radiant-player/radiant-player-mac" id="view-on-github" class="button"><span>View on GitHub</span></a>
-          <a href="https://github.com/radiant-player/radiant-player-mac/releases/download/v1.5.0/Radiant.Player.zip" id="download-zip" class="button"><span>Download v1.5.0</span></a>
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-            <input type="hidden" name="cmd" value="_donations">
-            <input type="hidden" name="business" value="sajidanwar94@gmail.com">
-            <input type="hidden" name="lc" value="US">
-            <input type="hidden" name="item_name" value="Radiant Player">
-            <input type="hidden" name="no_note" value="0">
-            <input type="hidden" name="currency_code" value="USD">
-            <input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_SM.gif:NonHostedGuest">
-            
-            <button type="submit" id="donate-button" class="button" name="submit" alt="PayPal - The safer, easier way to pay online!">
-              <img src="images/heart.png"> <strong>Donate via</strong> <em>PayPal</em>
-            </button>
-            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-          </form>
-        </section>
-        
-        <span id="requirements">
-          Donations go to the project maintainer.
-          <br>
-          <strong>No affiliation with Google.</strong> Requires Mac OS X 10.9 or above, and Adobe Flash Player.
-          <div id="release-notes">
-            <a id="release-notes-link" href="https://github.com/radiant-player/radiant-player-mac/releases/tag/v1.5.0">Release notes for Radiant Player v1.5.0:</a>
-            <div>
-                <p>Changes:</p>
-                <ul>
-                    <li>Use the Sparkle update framework for more intuitive and user-friendly update process</li>
-                    <li>Fix broken styling in Black theme (thanks <a href="https://github.com/shawn-mitch" class="user-mention">@shawn-mitch</a>)</li>
-                    <li>Fix broken media keys by catching up to Google update</li>
-                    <li>Fix broken Last.fm scrobbling in OS X 10.11 El Capitan (thanks <a href="https://github.com/chrismou" class="user-mention">@chrismou</a>)</li>
-                </ul>
-            	<p>This release is largely to fix issues affecting the usability of Radiant Player. However, 
-            		the largest piece of news is that development of Radiant Player has been moved into an 
-            		organization on GitHub, and a few collaborators have been brought on board in order to 
-            		help develop Radiant Player and fix outstanding issues.</p>
-                <p>Thank you to everyone who pushed 
-            		for this! I'm sorry for the incredible delay between versions and addressing major issues, 
-            		but hopefully this will be less of concern going forward with the new organization.</p>
-            </div>
-          </div>
-        </span>
+<section id="downloads" class="clearfix">
+  <a href="https://github.com/radiant-player/radiant-player-mac" id="view-on-github" class="button"><span>View on GitHub</span></a>
+  <a href="https://github.com/radiant-player/radiant-player-mac/releases/download/v{{ latest_release.version }}/Radiant.Player.zip" id="download-zip" class="button"><span>Download v{{ latest_release.version }}</span></a>
+  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+    <input type="hidden" name="cmd" value="_donations">
+    <input type="hidden" name="business" value="sajidanwar94@gmail.com">
+    <input type="hidden" name="lc" value="US">
+    <input type="hidden" name="item_name" value="Radiant Player">
+    <input type="hidden" name="no_note" value="0">
+    <input type="hidden" name="currency_code" value="USD">
+    <input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_SM.gif:NonHostedGuest">
 
-        <hr>
+    <button type="submit" id="donate-button" class="button" name="submit" alt="PayPal - The safer, easier way to pay online!">
+      <img src="images/heart.png" alt="Heart"> <strong>Donate via</strong> <em>PayPal</em>
+    </button>
+    <img alt="PayPal" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+  </form>
+</section>
 
-        <section id="features" class="clearfix">
-          <section class="feature clearfix">
-            <span class="title">Media keys</span>
-            <p class="description">
-              Control your music without having to switch applications. <strong>Radiant Player</strong>
-              responds to the media keys built into your Mac, allowing you to easily control the playback
-              of your music no matter what you're doing.
-            </p>
-            <img src="images/media-keys.png">
-          </section>
-
-          <hr>
-
-          <section class="feature clearfix">
-            <span class="title">Notifications</span>
-            <p class="description">
-              Get notifications whenever the currently playing song changes.
-            </p>
-            <img src="images/notification.png">
-          </section>
-
-          <hr>
-
-          <section class="feature clearfix" id="mini-player">
-            <span class="title">Mini player</span>
-            <p class="description">
-              Use the mini player in the system menu bar to control your music without interrupting you.<br>
-              Alternate between mini player sizes by clicking on the album art.
-            </p>
-            <img src="images/mini-player.png">
-            <img src="images/mini-player-alternate.png">
-          </section>
-
-          <hr>
-
-          <section class="feature clearfix">
-            <span class="title">Last.fm Integration</span>
-            <p class="description">
-              Update your Now Playing status and scrobble tracks to Last.fm.
-            </p>
-            <!-- <a href="http://last.fm"><img src="images/lastfm.png" width="250"></a> -->
-            <a href="images/lastfm-button.png"><img src="images/lastfm-button.png"></a>
-          </section>
-
-          <hr>
-
-          <section class="feature clearfix">
-            <span class="title">Adjustable appearance</span>
-            <p class="description">
-              Use custom styles built into <strong>Radiant Player</strong> to make it look 
-              beautiful and integrated into your system, or stick with Google's original theme.
-            </p>
-            
-          </section>
-        </section>
-
-        <footer>
-          Radiant Player is maintained by <a href="https://github.com/kbhomes">Sajid Anwar</a>. <br>
-          No affiliation with Google. Google Play is a trademark of Google Inc.<br>
-          Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
-
-        
-      </div>
+<span id="requirements">
+  Donations go to the project maintainer.
+  <br>
+  <strong>No affiliation with Google.</strong> Requires Mac OS X 10.9 or above, and Adobe Flash Player.
+  <div id="release-notes">
+    <a id="release-notes-link" href="https://github.com/radiant-player/radiant-player-mac/releases/tag/v{{ latest_release.version }}">Release notes for Radiant Player v{{ latest_release.version }}:</a>
+    <div>
+      {{ latest_release.content }}
     </div>
+  </div>
+</span>
 
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="slick/slick.min.js"></script>
+<hr>
 
-    <script type="text/javascript">
-        $('#styles').slick({
-          infinite: true,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          autoplay: true,
-          autoplaySpeed: 3500,
-          speed: 1000
-        });
-    </script>
-  </body>
-</html>
+<section id="features" class="clearfix">
+  <section class="feature clearfix">
+    <span class="title">Media keys</span>
+    <p class="description">
+      Control your music without having to switch applications. <strong>Radiant Player</strong>
+      responds to the media keys built into your Mac, allowing you to easily control the playback
+      of your music no matter what you're doing.
+    </p>
+    <img src="images/media-keys.png" alt="Screenshot of media keys">
+  </section>
+
+  <hr>
+
+  <section class="feature clearfix">
+    <span class="title">Notifications</span>
+    <p class="description">
+      Get notifications whenever the currently playing song changes.
+    </p>
+    <img src="images/notification.png" alt="Screenshot of notification">
+  </section>
+
+  <hr>
+
+  <section class="feature clearfix" id="mini-player">
+    <span class="title">Mini player</span>
+    <p class="description">
+      Use the mini player in the system menu bar to control your music without interrupting you.<br>
+      Alternate between mini player sizes by clicking on the album art.
+    </p>
+    <img src="images/mini-player.png" alt="Screenshot of mini player">
+    <img src="images/mini-player-alternate.png" alt="Screenshot of alternative mini player">
+  </section>
+
+  <hr>
+
+  <section class="feature clearfix">
+    <span class="title">Last.fm Integration</span>
+    <p class="description">
+      Update your Now Playing status and scrobble tracks to Last.fm.
+    </p>
+    <a href="images/lastfm-button.png"><img src="images/lastfm-button.png" alt="Screenshot of LastFM integration"></a>
+  </section>
+
+  <hr>
+
+  <section class="feature clearfix">
+    <span class="title">Adjustable appearance</span>
+    <p class="description">
+      Use custom styles built into <strong>Radiant Player</strong> to make it look
+      beautiful and integrated into your system, or stick with Google's original theme.
+    </p>
+
+  </section>
+</section>

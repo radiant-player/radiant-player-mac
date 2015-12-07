@@ -1,7 +1,7 @@
 [Radiant Player for Google Play Music™][1] [![Build Status](https://travis-ci.org/radiant-player/radiant-player-mac.svg)](https://travis-ci.org/radiant-player/radiant-player-mac)
 =========================
 
-![](https://raw.github.com/kbhomes/radiant-player-mac/gh-pages/images/application.png)
+![](https://raw.github.com/radiant-player/radiant-player-mac/gh-pages/images/application.png)
 
 Turn Google Play Music into a separate, beautiful application that integrates with your Mac.
 
