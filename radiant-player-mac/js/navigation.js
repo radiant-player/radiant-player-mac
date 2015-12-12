@@ -38,6 +38,7 @@ if (typeof window.GMNavigation === 'undefined') {
         forwardButton.addEventListener('click', function() { window.history.forward(); });
         
         // Add the back and forward buttons.
+        openNavButton.parentNode.classList.add("with-nav");
         openNavButton.parentNode.insertBefore(forwardButton, openNavButton.nextSibling);
         openNavButton.parentNode.insertBefore(backButton, openNavButton.nextSibling);
     }
