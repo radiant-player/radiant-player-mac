@@ -19,6 +19,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 * Fixed crash when opening Last.fm history by allowing communication with Last.fm API servers ([#389](https://github.com/radiant-player/radiant-player-mac/pull/389), [#400](https://github.com/radiant-player/radiant-player-mac/pull/400))
 * Restored the ability to move the window by the title bar ([#413](https://github.com/radiant-player/radiant-player-mac/pull/413))
 * Fixed broken keyboard shortcut for search ([#413](https://github.com/radiant-player/radiant-player-mac/pull/413))
+* Fixed shrinking nav/menu buttons at narrow widths ([#443](https://github.com/radiant-player/radiant-player-mac/pull/443)) (Thanks [@davepagurek](https://github.com/davepagurek))
 
 ## [1.5.0] - 2015-10-31
 This release is largely to fix issues affecting the usability of Radiant Player. However, the largest piece of news is that development of Radiant Player has been moved into an organization on GitHub, and a few collaborators have been brought on board in order to help develop Radiant Player and fix outstanding issues. Thank you to everyone who pushed for this! I'm sorry for the incredible delay between versions and addressing major issues, but hopefully this will be less of concern going forward with the new organization.
