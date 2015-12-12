@@ -9,12 +9,15 @@
  *
  */
 
-.gm-nav-button {
+.gm-nav-button, #material-one-left #left-nav-open-button {
     -webkit-align-self: center;
     -ms-flex-item-align: center;
     align-self: center;
-    min-width: 24px;
+    min-width: 40px;
+}
 
+#material-one-left.with-nav {
+  min-width: 300px;
 }
 
 #rp-padding-left {
