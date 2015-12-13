@@ -245,7 +245,7 @@ if (typeof window.MusicAPI === 'undefined') {
                 if (name == 'now-playing-info-wrapper')  {                    
                     var now = new Date();
 
-                    var title = document.querySelector('#player #player-song-title');
+                    var title = document.querySelector('#player #currently-playing-title');
                     var artist = document.querySelector('#player #player-artist');
                     var album = document.querySelector('#player .player-album');
                     var art = document.querySelector('#player #playingAlbumArt');
