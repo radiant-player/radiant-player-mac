@@ -558,3 +558,25 @@ div.simple-dialog-bg {
     background-color: #000;
     border: 0.25em solid #222326;
 }
+
+/* Fill to highlight thumbed up/down track in status bar */
+paper-icon-button[aria-label="Undo thumb-up"] iron-icon {
+    background: url('https://radiant-player-mac/images/sprites.png') no-repeat -310px -315px;
+    background-size: 763px 360px;
+}
+
+paper-icon-button[aria-label="Undo thumb-down"] iron-icon {
+    background: url('https://radiant-player-mac/images/sprites.png') no-repeat -344px -209px;
+    background-size: 763px 360px;
+}
+
+/* Hidden SVG & replaced icon */
+/*
+paper-icon-button[aria-label="Undo thumb-up"] iron-icon {
+    background: url('https://radiant-player-mac/sprites-inverted.png') no-repeat -334px -348px;
+    background-size: 820px 395px;
+}
+paper-icon-button[aria-label="Thumb-up"] iron-icon svg {
+    display: none!important;
+}
+*/
