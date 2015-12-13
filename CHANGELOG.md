@@ -10,6 +10,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 * Updated to work with Google's latest updates ([#397](https://github.com/radiant-player/radiant-player-mac/pull/397))
+* Updated referenced selectors to reflect Google's changes ([#446](https://github.com/radiant-player/radiant-player-mac/pull/446))
 
 ### Fixed
 * Fixed tracks being "randomly" loved/unloved on last.fm ([#426](https://github.com/radiant-player/radiant-player-mac/pull/426))
