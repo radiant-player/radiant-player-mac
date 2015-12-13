@@ -19,6 +19,7 @@ if (typeof window.googleMusic === 'undefined') {
   });
 
   googleMusic.on('change:song', function(song) {
+                 console.info('change:song', song.title, song.artist, song.album, song.art, song.duration);
     GoogleMusicApp.notifySong(
       song.title, song.artist, song.album, song.art, song.duration
     );

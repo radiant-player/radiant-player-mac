@@ -1,6 +1,6 @@
 {
   "name": "google-music",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "homepage": "https://github.com/twolfson/google-music.js",
   "authors": [
     "Todd Wolfson <todd@twolfson.com>"
@@ -22,14 +22,13 @@
     "test",
     "tests"
   ],
-  "_release": "3.2.0",
+  "_release": "3.3.0",
   "_resolution": {
     "type": "version",
-    "tag": "3.2.0",
-    "commit": "cb2e3f29243913d4240381fcb982471cff74c398"
+    "tag": "3.3.0",
+    "commit": "ab999eed3cb512c9cd0a844f10c68888f77a4220"
   },
   "_source": "git://github.com/twolfson/google-music.js.git",
-  "_target": "~3.2.0",
-  "_originalSource": "google-music",
-  "_direct": true
+  "_target": "~3.3.0",
+  "_originalSource": "google-music"
 }

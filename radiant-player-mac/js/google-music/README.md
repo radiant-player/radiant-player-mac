@@ -327,10 +327,10 @@ Unchecked
 Once your Google account is registered and the music is uploaded, extract the cookies for our test suite via:
 
 ```
-# Enter into the node CLI
+# Enter into the node REPL
 node
 
-# Inside of the CLI, dump our cookies
+# Inside of the REPL, dump our cookies
 var browser = require('wd').remote();
 browser.init({browserName: 'chrome'}, console.log);
 // Wait for browser window to open
@@ -349,6 +349,29 @@ npm run webdriver-manager-start &
 
 # Run our tests
 npm test
+```
+
+#### Debugging
+Finnicky tests can be debugged by a few methods
+
+- Use `describe.only` and `it.only` to limit test suite to only run 1 at a time
+    -
+- Use the following script to control
+
+```
+# Enter into the node REPL
+node
+
+// Prevent node from exiting via anything but an interrupt
+process.exit = function () {};
+
+// Emulate mocha being invoked normally
+process.argv = ['node', '_mocha', '--timeout', '10000'];
+require('mocha/bin/_mocha');
+
+// Our test suite has written `global.browser` as the last Selenium session
+global.browser;
+browser;
 ```
 
 ## Donating

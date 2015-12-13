@@ -12,6 +12,6 @@
     "tests"
   ],
   "dependencies": {
-    "google-music": "~3.2.0"
+    "google-music": "~3.3.0"
   }
 }

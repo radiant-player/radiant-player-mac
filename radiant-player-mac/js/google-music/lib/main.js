@@ -224,15 +224,14 @@ proto.playback = {
 proto.rating = {
   // Determine if a thumb is selected or not
   _isElSelected: function (el) {
-    // If the target is not outlined in its shadow DOM, then it's selected
+    // If the target is "Undo"-able, then it's selected
     // jscs:disable maximumLineLength
-    // DEV: Access shadow DOM via `$`
-    //   Selected thumbs up:
-    //   <core-icon relative="" id="icon" src="{{src}}" icon="{{icon}}" aria-label="thumb-up" role="img"></core-icon>
-    //   Unselected thumbs down:
-    //   <core-icon relative="" id="icon" src="{{src}}" icon="{{icon}}" aria-label="thumb-down-outline" role="img"></core-icon>
+    // Unselected thumbs down:
+    // <paper-icon-button icon="sj:thumb-up-outline" data-rating="5" role="button" tabindex="0" aria-disabled="false" class="x-scope paper-icon-button-0" title="Thumb-up" aria-label="Thumb-up"></paper-icon-button>
+    // Selected thumbs up:
+    // <paper-icon-button icon="sj:thumb-up-outline" data-rating="5" role="button" tabindex="0" aria-disabled="false" class="x-scope paper-icon-button-0" title="Undo thumb-up" aria-label="Undo thumb-up"></paper-icon-button>
     // jscs:enable maximumLineLength
-    return el.$.icon.getAttribute('aria-label').indexOf('-outline') === -1;
+    return el.getAttribute('aria-label').indexOf('Undo') !== -1;
   },
   // Get current rating
   getRating: function () {
@@ -324,8 +323,9 @@ proto.hooks = {
     var addObserver = new MutationObserver(function (mutations) {
       mutations.forEach(function (m) {
         for (var i = 0; i < m.addedNodes.length; i++) {
+          // DEV: We can encounter a text node, verify we have a `classList` to assert against
           var target = m.addedNodes[i];
-          if (target.classList.contains(SELECTORS.info.infoWrapperClass)) {
+          if (target.classList && target.classList.contains(SELECTORS.info.infoWrapperClass)) {
             var title = that.doc.getElementById(SELECTORS.info.titleId);
             var artist = that.doc.getElementById(SELECTORS.info.artistId);
             var album = that.doc.querySelector(SELECTORS.info.albumSelector);
@@ -439,8 +439,16 @@ proto.hooks = {
       mutations.forEach(function (m) {
         var target = m.target;
         // If we are looking at a rating button and it's selected, emit a notification
-        // DEV: We can receive the container easily
-        if (target.dataset.rating !== undefined && that.rating._isElSelected(target)) {
+        // DEV: Prevent selection of container and "remove-circle-outline" button
+        // jscs:disable maximumLineLength
+        // Good:
+        //   <paper-icon-button icon="sj:thumb-up-outline" data-rating="5" role="button" tabindex="0" aria-disabled="false" class="x-scope paper-icon-button-0" title="Thumb-up" aria-label="Thumb-up"></paper-icon-button>
+        // Bad:
+        //   <div id="playerSongInfo" style=""></div>
+        //   <paper-icon-button icon="remove-circle-outline" data-rating="0" role="button" tabindex="0" aria-disabled="false" class="x-scope paper-icon-button-0"></paper-icon-button>
+        // jscs:enable maximumLineLength
+        if (target.dataset.rating !== undefined && target.hasAttribute('aria-label') &&
+            that.rating._isElSelected(target)) {
           that.emit('change:rating', target.dataset.rating);
         }
       });
