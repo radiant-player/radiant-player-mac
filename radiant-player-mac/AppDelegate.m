@@ -706,7 +706,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     
     if ([defaults boolForKey:@"lastfm.enabled"])
     {
-        [LastFmService scrobbleSong:currentTitle withArtist:currentArtist album:currentAlbum duration:currentDuration timestamp:currentTimestamp];
+        [LastFmService scrobbleSong:currentTitle withArtist:currentArtist album:currentAlbum duration:currentDuration timestamp:currentTimestamp percentage:[defaults stringForKey:@"lastfm.percentage"]];
         [LastFmService sendNowPlaying:title withArtist:artist album:album duration:duration timestamp:timestamp];
     }
     

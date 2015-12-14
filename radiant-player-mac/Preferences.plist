@@ -10,6 +10,8 @@
 	<string>ad07b22035670943a1f958159f7c19da</string>
 	<key>lastfm.enabled</key>
 	<false/>
+	<key>lastfm.percentage</key>
+	<string>50</string>
 	<key>lastfm.button.enabled</key>
 	<false/>
 	<key>lastfm.thumbsup.enabled</key>

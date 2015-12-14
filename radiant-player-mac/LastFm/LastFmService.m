@@ -207,11 +207,14 @@
     return nil;
 }
 
-+ (void)scrobbleSong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album duration:(NSTimeInterval)duration timestamp:(NSTimeInterval)timestamp
++ (void)scrobbleSong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album duration:(NSTimeInterval)duration timestamp:(NSTimeInterval)timestamp percentage:(NSString *)percentage
 {
     NSTimeInterval curTimestamp = [[NSDate date] timeIntervalSince1970];
+
+    long percent = [percentage integerValue];
+    long scrobbleAt = (duration / 100) * percent;
     
-    if ([title length] && curTimestamp - timestamp >= duration / 2) {
+    if ([title length] && curTimestamp - timestamp >= scrobbleAt) {
         [[LastFm sharedInstance] sendScrobbledTrack:title
                                            byArtist:artist
                                             onAlbum:album
@@ -225,8 +228,6 @@
                                      }
          ];
     }
-    
-    
 }
 
 + (void)sendNowPlaying:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album duration:(NSTimeInterval)duration timestamp:(NSTimeInterval)timestamp

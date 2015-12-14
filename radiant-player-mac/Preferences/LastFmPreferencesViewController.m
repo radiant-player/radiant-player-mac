@@ -14,6 +14,7 @@
 @synthesize authorizeButton;
 @synthesize usernameField;
 @synthesize passwordField;
+@synthesize scrobblingPercentLabel;
 @synthesize logo;
 
 @synthesize defaults;
@@ -27,6 +28,8 @@
     
     // Synchronize the settings.
     [self sync];
+
+    [scrobblingPercentLabel setStringValue: self.scrobblingPercentageString];
 }
 
 - (void) sync
@@ -111,6 +114,17 @@
 - (NSString *)toolbarItemLabel
 {
     return @"Last.fm";
+}
+
+- (NSString *)scrobblingPercentageString
+{
+    long percent = [self.scrobblingPercent integerValue];
+    NSString *val=[NSString stringWithFormat:@"%lu%%", percent];
+    return val;
+}
+
+- (IBAction)percentageChanged:(id)sender {
+    [scrobblingPercentLabel setStringValue: self.scrobblingPercentageString];
 }
 
 @end
