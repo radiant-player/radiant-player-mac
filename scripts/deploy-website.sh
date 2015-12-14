@@ -13,6 +13,6 @@ git config user.name "${GH_USER}"
 git config user.email "${GH_EMAIL}"
 
 git add .
-git commit -m "Deploy to GitHub Pages"
+git commit -m "Deploy to GitHub Pages - $(date -u +%FT%TZ)"
 
 git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages > /dev/null 2>&1

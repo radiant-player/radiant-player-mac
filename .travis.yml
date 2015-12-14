@@ -8,7 +8,7 @@ cache:
   - cocoapods
 
 after_success:
-  - ./script/deploy-website.sh
+  - ./scripts/deploy-website.sh
 
 env:
   global:
