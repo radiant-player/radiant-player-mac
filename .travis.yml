@@ -2,3 +2,18 @@ language: objective-c
 xcode_workspace: radiant-player-mac.xcworkspace
 xcode_scheme: Radiant Player
 osx_image: xcode7.1
+
+cache:
+  - bundler
+  - cocoapods
+
+after_success:
+  - ./script/deploy-website.sh
+
+env:
+  global:
+    - GH_USER=radiant-bot
+    - GH_EMAIL=jacobwgillespie+radiant-bot@gmail.com
+    - GH_REF=github.com/radiant-player/radiant-player-mac.git
+    # GH_TOKEN=encrypted
+    - secure: "UWsfTVZLoJi2QmvhvzYYhzhkuM5KaZqNKPFAgz2UOQWDAAd5yQ1ekOhhR+lZdGA4aLqab1LOLSIoEKkfhy2W0XI9dN4R+bKNl3A0Q7RRopQpYnvLkWbglNommBeg7BDz1KHESfx0ku9PwicpiwMXSc9NBRd7XByfUreX0aBjXMiC+xq+EADiQDbd/LJ6GFxYEa0QxcQfM2ut+PFCuugitTBgmaUsHRL9GeNGquiMpW4kweSeq3O5afWd842S8FSdd2SFibdqMB5REcgFXWYEL1VDCn+vn8n7rhGdCmBb5hD/BoK8dWqzxj01GH/cBcjlNsVcHsHlfFfrpLGg4MP5j9mrJy4baq79Cw/aU7IiCagT3rpoQ84KORqpHl6kBIRMZaS0E7DjMexLhTZ9Mab40L2X3VQj6VyKIxKHOsfM0SFzAS6Z5vMm99BUydnHZSIgL39qkg6YKEFAy5eaIskeavpWw6w+N0gayBReH5K0UmSbGLv8so3eIohvOswZ742Yj8/T528fOwRZQXKBthQpBJF7H9L2gsm9nEvv9puY26ueSm16eyAbRVzIf7tdUgeQyLDtjoHudghTyVZVV0GWbQD0ap7yQjD61/rjQMibiGe3ZlN8AjtCfoWK+DqzP6g2HKxGb3MpOeT6Pq3BDh1QKndqr37vom/H7iRZOe1b/NM="
