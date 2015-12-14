@@ -13,6 +13,7 @@
 #import "SpotifyBlackVibrantStyle.h"
 #import "YosemiteStyle.h"
 #import "LightStyle.h"
+#import "RdiantStyle.h"
 #import "../AppDelegate.h"
 
 @implementation ApplicationStyle
@@ -70,6 +71,9 @@
 
     DarkCyanStyle *darkCyan = [[DarkCyanStyle alloc] init];
     [dictionary setObject:darkCyan forKey:[darkCyan name]];
+    
+    RdiantStyle *rdiant = [[RdiantStyle alloc] init];
+    [dictionary setObject:rdiant forKey:[rdiant name]];
     
 //    if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9)
 //    {
