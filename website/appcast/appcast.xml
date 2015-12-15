@@ -9,21 +9,22 @@ layout: null
         <description>Most recent changes with links to updates.</description>
         <language>en</language>
 
-        {% for release in site.categories.release %}
+        {% for release in site.data.releases %}
           <item>
-            <title>{{ release.title | xml_escape }}</title>
-            <sparkle:releaseNotesLink>
-                {{ site.url }}{{ site.baseurl }}{{ release.url }}
-            </sparkle:releaseNotesLink>
+            <title>{{ release.name | xml_escape }}</title>
+            <description><![CDATA[
+              {{ release.notes | mentionify | markdownify }}
+            ]]>
+            </description>
             <pubDate>{{ release.date | date_to_rfc822 }}</pubDate>
             <enclosure
-                url="https://github.com/radiant-player/radiant-player-mac/releases/download/v{{ release.version }}/Radiant.Player.zip"
+                url="{{ release.asset.url }}"
                 sparkle:version="{{ release.version }}"
-                length="{{ release.download_length }}"
+                length="{{ release.asset.size }}"
                 type="application/octet-stream"
-                sparkle:dsaSignature="{{ release.download_signature }}"
+                sparkle:dsaSignature="{{ release.sparkle.signature }}"
             />
-            <sparkle:minimumSystemVersion>{{ release.minimum_system_version | default: '10.9' }}</sparkle:minimumSystemVersion>
+            <sparkle:minimumSystemVersion>{{ release.sparkle.minimum_version }}</sparkle:minimumSystemVersion>
           </item>
         {% endfor %}
     </channel>

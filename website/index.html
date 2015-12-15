@@ -2,7 +2,7 @@
 layout: default
 ---
 
-{% assign latest_release = site.categories.release.first %}
+{% assign latest_release = site.data.releases.first %}
 
 <header>
   <h1><strong>Radiant Player</strong></h1>
@@ -16,7 +16,7 @@ layout: default
 
 <section id="downloads" class="clearfix">
   <a href="https://github.com/radiant-player/radiant-player-mac" id="view-on-github" class="button"><span>View on GitHub</span></a>
-  <a href="https://github.com/radiant-player/radiant-player-mac/releases/download/v{{ latest_release.version }}/Radiant.Player.zip" id="download-zip" class="button"><span>Download v{{ latest_release.version }}</span></a>
+  <a href="{{ latest_release.asset.url }}" id="download-zip" class="button"><span>Download v{{ latest_release.version }}</span></a>
   <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
     <input type="hidden" name="cmd" value="_donations">
     <input type="hidden" name="business" value="sajidanwar94@gmail.com">
@@ -40,7 +40,7 @@ layout: default
   <div id="release-notes">
     <a id="release-notes-link" href="https://github.com/radiant-player/radiant-player-mac/releases/tag/v{{ latest_release.version }}">Release notes for Radiant Player v{{ latest_release.version }}:</a>
     <div>
-      {{ latest_release.content }}
+      {{ latest_release.notes | markdownify }}
     </div>
   </div>
 </span>

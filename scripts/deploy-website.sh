@@ -9,10 +9,10 @@ cd website/_site
 
 git init
 
-git config user.name "${GH_USER}"
-git config user.email "${GH_EMAIL}"
+git config user.name "${GITHUB_BOT_USER}"
+git config user.email "${GITHUB_BOT_EMAIL}"
 
 git add .
 git commit -m "Deploy to GitHub Pages - $(date -u +%FT%TZ)"
 
-git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages > /dev/null 2>&1
+git push --force --quiet "https://${GITHUB_TOKEN}@github.com/$GITHUB_USER/$GITHUB_REPO" master:gh-pages > /dev/null 2>&1
