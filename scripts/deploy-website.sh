@@ -5,7 +5,7 @@ if [[ "$TRAVIS_PULL_REQUEST" != "false"  && "$TRAVIS_BRANCH" != "master" ]]; the
   exit 0
 fi
 
-cd website
+cd website/_site
 
 git init
 
