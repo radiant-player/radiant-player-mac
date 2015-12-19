@@ -94,7 +94,7 @@ defaults write $PWD/radiant-player-mac/info.plist CFBundleShortVersionString $ne
 plutil -convert xml1 $PWD/radiant-player-mac/info.plist
 
 # Update the CHANGELOG
-sed -i'' "s/## \[unreleased\]/## [unreleased]\n\n## [$new_version]/" CHANGELOG.md
+perl -i -pe "s/## \[unreleased\]/## [unreleased]\n\n## [$new_version]/" CHANGELOG.md
 
 # Update git and show changes
 git add -A
