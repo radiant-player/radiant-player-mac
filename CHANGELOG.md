@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [unreleased]
 ### Added
 * Added Dark Cyan theme ([#424](https://github.com/radiant-player/radiant-player-mac/pull/424))
+* Added Rdiant theme ([#444](https://github.com/radiant-player/radiant-player-mac/pull/444), [@andrewnorell](https://github.com/andrewnorell))
 * Added [contribution guidelines](https://github.com/radiant-player/radiant-player-mac/blob/master/CONTRIBUTING.md) for anyone wanting to contribute code to Radiant ([#401](https://github.com/radiant-player/radiant-player-mac/pull/401))
 * Added abilty to specify how much of a song has to be listened to before it's scrobbled, between 50-100% (in line with the official last.fm scrobbler) ([#428](https://github.com/radiant-player/radiant-player-mac/pull/428))
 * Added support for headphone hardware controls, like EarPods ([#450](https://github.com/radiant-player/radiant-player-mac/pull/450), [@megalithic](https://github.com/megalithic))
@@ -13,6 +14,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 * Updated to work with Google's latest updates ([#397](https://github.com/radiant-player/radiant-player-mac/pull/397))
 * Updated referenced selectors to reflect Google's changes ([#446](https://github.com/radiant-player/radiant-player-mac/pull/446), [#452](https://github.com/radiant-player/radiant-player-mac/pull/452))
+* Revamped website and application deployment ([#433](https://github.com/radiant-player/radiant-player-mac/pull/433), [#435](https://github.com/radiant-player/radiant-player-mac/pull/435),
+[#449](https://github.com/radiant-player/radiant-player-mac/pull/449))
+* Website made mobile-friendly ([#453](https://github.com/radiant-player/radiant-player-mac/pull/453), [@PythonProdigy](https://github.com/PythonProdigy))
+* Added new website favicon ([#456](https://github.com/radiant-player/radiant-player-mac/pull/456), [@andrewnorell](https://github.com/andrewnorell))
 
 ### Fixed
 * Fixed tracks being "randomly" loved/unloved on last.fm ([#426](https://github.com/radiant-player/radiant-player-mac/pull/426))
@@ -24,6 +29,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 * Fixed broken keyboard shortcut for search ([#413](https://github.com/radiant-player/radiant-player-mac/pull/413))
 * Fixed track ratings not being reflected in the now playing bar ([#436](https://github.com/radiant-player/radiant-player-mac/pull/436))
 * Fixed shrinking nav/menu buttons at narrow widths ([#443](https://github.com/radiant-player/radiant-player-mac/pull/443)) (Thanks [@davepagurek](https://github.com/davepagurek))
+* Fixed AppleScript scripting ([#432](https://github.com/radiant-player/radiant-player-mac/pull/432))
+* Many other small bugfixes
 
 ## [1.5.0] - 2015-10-31
 This release is largely to fix issues affecting the usability of Radiant Player. However, the largest piece of news is that development of Radiant Player has been moved into an organization on GitHub, and a few collaborators have been brought on board in order to help develop Radiant Player and fix outstanding issues. Thank you to everyone who pushed for this! I'm sorry for the incredible delay between versions and addressing major issues, but hopefully this will be less of concern going forward with the new organization.
