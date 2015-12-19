@@ -4,6 +4,8 @@ This file should follow the standards specified on [keepachangelog.com](http://k
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
+
+## [1.6.0] - 2015-12-19
 ### Added
 * Added Dark Cyan theme ([#424](https://github.com/radiant-player/radiant-player-mac/pull/424))
 * Added Rdiant theme ([#444](https://github.com/radiant-player/radiant-player-mac/pull/444), [@andrewnorell](https://github.com/andrewnorell))
