@@ -6,7 +6,6 @@ changes="$(cat CHANGELOG.md | sed -n "/^## \[$version\]/,/^## \[/p" | sed '$d' |
 
 if [ -z "$changes" ]; then
   echo "No entry found" 1>&2
-  exit 1
 else
   echo "$changes"
 fi
