@@ -8,10 +8,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 * Added Dark Cyan theme ([#424](https://github.com/radiant-player/radiant-player-mac/pull/424))
 * Added [contribution guidelines](https://github.com/radiant-player/radiant-player-mac/blob/master/CONTRIBUTING.md) for anyone wanting to contribute code to Radiant ([#401](https://github.com/radiant-player/radiant-player-mac/pull/401))
 * Added abilty to specify how much of a song has to be listened to before it's scrobbled, between 50-100% (in line with the official last.fm scrobbler) ([#428](https://github.com/radiant-player/radiant-player-mac/pull/428))
+* Added support for headphone hardware controls, like EarPods ([#450](https://github.com/radiant-player/radiant-player-mac/pull/450), [@megalithic](https://github.com/megalithic))
 
 ### Changed
 * Updated to work with Google's latest updates ([#397](https://github.com/radiant-player/radiant-player-mac/pull/397))
-* Updated referenced selectors to reflect Google's changes ([#446](https://github.com/radiant-player/radiant-player-mac/pull/446), [#452](https://github.com/radiant-player/radiant-player-mac/pull/452)) 
+* Updated referenced selectors to reflect Google's changes ([#446](https://github.com/radiant-player/radiant-player-mac/pull/446), [#452](https://github.com/radiant-player/radiant-player-mac/pull/452))
 
 ### Fixed
 * Fixed tracks being "randomly" loved/unloved on last.fm ([#426](https://github.com/radiant-player/radiant-player-mac/pull/426))
