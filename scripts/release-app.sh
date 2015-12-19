@@ -16,6 +16,11 @@ if [[ "$TRAVIS_BRANCH" != "master" ]]; then
   exit 0
 fi
 
+if [[ -z "$TRAVIS_TAG" ]]; then
+  echo "This is not a tagged commit. No deployment will be done."
+  exit 0
+fi
+
 # Set up variables
 
 ROOT_PATH="$PWD"
@@ -30,9 +35,13 @@ APP_ARCHIVE_PATH="$OUTPUTDIR/radiant-player-v$CURRENT_VERSION.zip"
 
 # Check for existing release
 
-github-release info -u $GITHUB_USER -r $GITHUB_REPO -t v$CURRENT_VERSION > /dev/null &&
-  echo "ERROR: v$CURRENT_VERSION has already been released - aborting" 1>&2 # &&
+set +e
+github-release info -u $GITHUB_USER -r $GITHUB_REPO -t v$CURRENT_VERSION > /dev/null
+if [ $? -eq 0 ]; then
+  echo "ERROR: v$CURRENT_VERSION has already been released - aborting" 1>&2
   exit 1
+fi
+set -e
 
 # Check for changelog entries
 
@@ -55,6 +64,7 @@ cd $ROOT_PATH
 
 SIGNATURE="$(./scripts/sign-app.sh $APP_ARCHIVE_PATH)"
 echo "Archive signature: $SIGNATURE" 1>&2
+echo "" >> $OUTPUTDIR/changelog.md
 echo "<!-- SPARKLESIG $SIGNATURE -->" >> $OUTPUTDIR/changelog.md
 
 # Create the release

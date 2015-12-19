@@ -16,6 +16,7 @@ before_script:
   - go get github.com/aktau/github-release
 
 after_success:
+  - ./scripts/release-app.sh
   - ./scripts/build-website.sh
   - ./scripts/deploy-website.sh
 
