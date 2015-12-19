@@ -11,10 +11,10 @@ if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
   exit 0
 fi
 
-if [[ "$TRAVIS_BRANCH" != "master" ]]; then
-  echo "Testing on a branch other than master. No deployment will be done."
-  exit 0
-fi
+# if [[ "$TRAVIS_BRANCH" != "master" ]]; then
+#   echo "Testing on a branch other than master. No deployment will be done."
+#   exit 0
+# fi
 
 if [[ -z "$TRAVIS_TAG" ]]; then
   echo "This is not a tagged commit. No deployment will be done."
