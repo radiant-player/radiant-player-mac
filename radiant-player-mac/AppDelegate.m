@@ -9,9 +9,10 @@
 
 #import "AppDelegate.h"
 #import "LastFmService.h"
+#import "DDHidAppleRemote.h"
+#import "DDHidAppleMikey.h"
 
 #import <Sparkle/Sparkle.h>
-#import <DDHidLib/DDHidLib.h>
 
 @implementation AppDelegate
 
@@ -512,8 +513,8 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 - (void) pressKey:(NSUInteger)keytype
 {
-    [self keyEvent:keytype state:0xA];  // key down
-    [self keyEvent:keytype state: 0xB]; // key up
+    [self keyEvent:keytype state:0xA]; // key down
+    [self keyEvent:keytype state:0xB]; // key up
 }
 
 - (void) keyEvent:(NSUInteger)keytype state:(NSUInteger)state
@@ -541,15 +542,32 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 {
     NSLog(@"Reset Mikeys");
     
-    if (mikeys != nil) {
-        [mikeys makeObjectsPerformSelector:@selector(stopListening) withObject:nil];
+    if (_mikeys != nil) {
+        @try {
+            [_mikeys makeObjectsPerformSelector:@selector(stopListening)];
+        }
+        @catch (NSException *exception) {
+            NSLog(@"Error when stopListening on device: %@", exception);
+        }
     }
-    mikeys = [DDHidAppleMikey allMikeys];
-    // we want to be the delegate of the mikeys
-    [mikeys makeObjectsPerformSelector:@selector(setDelegate:) withObject:self];
-    // start listening to all mikey events
-    [mikeys makeObjectsPerformSelector:@selector(setListenInExclusiveMode:) withObject:(id)kCFBooleanFalse];
-    [mikeys makeObjectsPerformSelector:@selector(startListening) withObject:nil];
+    @try {
+        NSArray *mikeys = [DDHidAppleMikey allMikeys];
+        _mikeys = [NSMutableArray arrayWithCapacity:mikeys.count];
+        for (DDHidAppleMikey *item in mikeys) {
+            @try {
+                [item setDelegate:self];
+                [item setListenInExclusiveMode:NO];
+                [item startListening];
+                [_mikeys addObject:item];
+            }
+            @catch (NSException *exception) {
+                NSLog(@"Error when startListning on device: %@, exception %@", item, exception);
+            }
+        }
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Error obtaining HID devices: %@", [exception description]);
+    }
 }
 
 - (void) ddhidAppleMikey:(DDHidAppleMikey *)mikey press:(unsigned)usageId upOrDown:(BOOL)upOrDown
@@ -569,10 +587,10 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
                                        withObject:nil waitUntilDone:NO];
                 break;
             case kHIDUsage_GD_SystemMenuUp:
-                [self pressKey:NX_KEYTYPE_SOUND_UP];
+                // [self pressKey:NX_KEYTYPE_SOUND_UP];
                 break;
             case kHIDUsage_GD_SystemMenuDown:
-                [self pressKey:NX_KEYTYPE_SOUND_DOWN];
+                // [self pressKey:NX_KEYTYPE_SOUND_DOWN];
                 break;
             default:
                 NSLog(@"Unknown key press seen %d", usageId);

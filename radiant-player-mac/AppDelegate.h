@@ -11,7 +11,6 @@
 #import <IOKit/hidsystem/ev_keymap.h>
 #import <WebKit/WebKit.h>
 #import <EDStarRating/EDStarRating.h>
-#import <DDHidLib/DDHidLib.h>
 
 #import "Notifications/NotificationCenter.h"
 
@@ -45,7 +44,8 @@
     NSMutableDictionary *_styles;
     BOOL _isTall;
     
-    NSArray *mikeys;
+    NSMutableArray *_mikeys;
+    NSMutableArray *_appleRemotes;
     
     WebView *dummyWebView;
     DummyWebViewPolicyDelegate *dummyWebViewDelegate;

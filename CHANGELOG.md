@@ -4,6 +4,8 @@ This file should follow the standards specified on [keepachangelog.com](http://k
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
+### Fixed
+* Fixed a bug introduced in 1.6.0 where Radiant would hang when external HID devices were connected ([#463](https://github.com/radiant-player/radiant-player-mac/pull/463)).  Note that there is still an outstanding bug where the headphone play/pause buttons open iTunes in addition to controlling Radiant.  That is still being investigated.
 
 ## [1.6.1] - 2015-12-20
 ### Fixed
