@@ -37,11 +37,9 @@
 @synthesize playPauseButton;
 @synthesize forwardButton;
 @synthesize shuffleButton;
-    
+
 @synthesize thumbsdownButton;
 @synthesize thumbsupButton;
-@synthesize starBadgeButton;
-@synthesize starRatingView;
 
 @synthesize playbackSlider;
 
@@ -52,36 +50,14 @@
     [playPauseButton setImage:[self playImage]];
     [forwardButton   setImage:[self forwardImage]];
     [shuffleButton   setImage:[self shuffleOffImage]];
-    
+
     [thumbsupButton   setImage:[self thumbsUpOffImage]];
     [thumbsdownButton setImage:[self thumbsUpOnImage]];
-    
-    [[starBadgeButton cell] setImageDimsWhenDisabled:NO];
-    [starBadgeButton setImage:[self starBadgeImage:0]];
-    [self setupStarRatingView];
-    
+
     [artExpandView          setImage:[self expandContractImage]];
     [actionButton           setImage:[self actionButtonImage]];
-    
+
     [popup.popupView setIsLargePlayer:NO];
-}
-
-- (void)setupStarRatingView
-{
-    [starRatingView setStarImage:[self starRatingImage]];
-    [starRatingView setStarHighlightedImage:[self starRatingHighlightedImage]];
-    [starRatingView setMaxRating:5];
-    [starRatingView setHalfStarThreshold:1];
-    [starRatingView setEditable:YES];
-    [starRatingView setHorizontalMargin:35];
-    [starRatingView setDisplayMode:EDStarRatingDisplayFull];
-    [starRatingView setDelegate:self];
-    [starRatingView setAlphaValue:0.0];
-}
-
-- (void)starsSelectionChanged:(id)sender rating:(float)rating
-{
-    [appDelegate setStarRating:rating];
 }
 
 - (void)updateSong:(NSString *)title artist:(NSString *)artist album:(NSString *)album art:(NSString *)art
@@ -89,23 +65,14 @@
     if (![noSongLabel isHidden])
     {
         [noSongLabel setHidden:YES];
-        
-        if ([appDelegate isStarsRatingSystem])
-        {
-            [starBadgeButton setHidden:NO];
-            [starRatingView setHidden:NO];
-        }
-        else
-        {
-            [thumbsupButton setHidden:NO];
-            [thumbsdownButton setHidden:NO];
-        }
+        [thumbsupButton setHidden:NO];
+        [thumbsdownButton setHidden:NO];
     }
-    
+
     [titleLabel setStringValue:title];
     [artistLabel setStringValue:artist];
     [albumLabel setStringValue:album];
-    
+
     if (art != nil) {
         [artView setImage:nil];
         [artProgress startAnimation:self];
@@ -117,12 +84,12 @@
 {
     // Download the 500px size image.
     art = [art stringByReplacingOccurrencesOfString:@"=s90-" withString:@"=s500-"];
-    
+
     NSURL *url = [NSURL URLWithString:art];
     NSImage *image = [[NSImage alloc] initWithContentsOfURL:url];
     [artView setImage:image];
     [artProgress stopAnimation:self];
-    
+
     // Update the large mini player if necessary.
     if ([popup.popupView useWhiteIcons])
     {
@@ -134,7 +101,7 @@
 - (void)playbackChanged:(NSInteger)mode
 {
     playbackMode = mode;
-    
+
     if (mode == MUSIC_PLAYING)
         [playPauseButton setImage:[self pauseImage]];
     else
@@ -150,7 +117,7 @@
 - (void)repeatChanged:(NSString *)mode
 {
     repeatMode = mode;
-    
+
     if ([MUSIC_LIST_REPEAT isEqualToString:mode])
         [repeatButton setImage:[self repeatAllImage]];
     else if ([MUSIC_SINGLE_REPEAT isEqualToString:mode])
@@ -162,39 +129,31 @@
 - (void)shuffleChanged:(NSString *)mode
 {
     shuffleMode = mode;
-    
+
     if ([MUSIC_ALL_SHUFFLE isEqualToString:mode])
         [shuffleButton setImage:[self shuffleOnImage]];
     else
         [shuffleButton setImage:[self shuffleOffImage]];
 }
-    
+
 - (void)ratingChanged:(NSInteger)rating
 {
     songRating = rating;
-    
-    if ([appDelegate isStarsRatingSystem])
+
+    if (rating == MUSIC_RATING_THUMBSUP)
     {
-        [starBadgeButton setImage:[self starBadgeImage:rating]];
-        [starRatingView setRating:rating];
+        [thumbsupButton setImage:[self thumbsUpOnImage]];
+        [thumbsdownButton setImage:[self thumbsDownOffImage]];
+    }
+    else if (rating == MUSIC_RATING_THUMBSDOWN)
+    {
+        [thumbsupButton setImage:[self thumbsUpOffImage]];
+        [thumbsdownButton setImage:[self thumbsDownOnImage]];
     }
     else
     {
-        if (rating == MUSIC_RATING_THUMBSUP)
-        {
-            [thumbsupButton setImage:[self thumbsUpOnImage]];
-            [thumbsdownButton setImage:[self thumbsDownOffImage]];
-        }
-        else if (rating == MUSIC_RATING_THUMBSDOWN)
-        {
-            [thumbsupButton setImage:[self thumbsUpOffImage]];
-            [thumbsdownButton setImage:[self thumbsDownOnImage]];
-        }
-        else
-        {
-            [thumbsupButton setImage:[self thumbsUpOffImage]];
-            [thumbsdownButton setImage:[self thumbsDownOffImage]];
-        }
+        [thumbsupButton setImage:[self thumbsUpOffImage]];
+        [thumbsdownButton setImage:[self thumbsDownOffImage]];
     }
 }
 
@@ -210,7 +169,7 @@
         [[appDelegate defaults] setBool:NO forKey:@"miniplayer.large"];
     else
         [[appDelegate defaults] setBool:YES forKey:@"miniplayer.large"];
-    
+
     [popup.popupView togglePlayerSize];
 }
 
@@ -218,7 +177,7 @@
 {
     [NSApp activateIgnoringOtherApps:YES];
     [[appDelegate window] makeKeyAndOrderFront:self];
-    
+
     if ([popup docked])
         [popup close];
 }
@@ -366,35 +325,6 @@
         else
             return [[Utilities templateImage:NSImageNameActionTemplate withColor:[NSColor colorWithDeviceWhite:0.4 alpha:1.0]] resizeImage:NSMakeSize(12, 12)];
     }
-}
-
-- (NSImage *)starBadgeImage:(NSInteger)rating
-{
-    if (rating == 0)
-    {
-        if ([popup.popupView useWhiteIcons])
-            return [Utilities imageFromName:@"stars/star_outline_white"];
-        else
-            return [Utilities imageFromName:@"stars/star_outline_black"];
-    }
-    else
-    {
-        NSString *name = [NSString stringWithFormat:@"stars/star_badge_%ld", (long)rating];
-        return [Utilities imageFromName:name];
-    }
-}
-
-- (NSImage *)starRatingImage
-{
-    if ([popup.popupView useWhiteIcons])
-        return [Utilities imageFromName:@"stars/star_outline_white_small"];
-    else
-        return [Utilities imageFromName:@"stars/star_outline_black_small"];
-}
-
-- (NSImage *)starRatingHighlightedImage
-{
-    return [Utilities imageFromName:@"stars/star_filled_small"];
 }
 
 @end

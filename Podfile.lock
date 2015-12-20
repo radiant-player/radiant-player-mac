@@ -1,5 +1,4 @@
 PODS:
-  - EDStarRating (1.1)
   - KissXML (5.0)
   - LastFm (1.15.0):
     - KissXML (~> 5.0)
@@ -7,16 +6,14 @@ PODS:
   - NSDate+TimeAgo (1.0.3)
 
 DEPENDENCIES:
-  - EDStarRating
   - LastFm
   - MASPreferences (~> 1.1)
   - NSDate+TimeAgo
 
 SPEC CHECKSUMS:
-  EDStarRating: c7b87f9866be0ea29bb054964023b8eb3f18286c
-  KissXML: e537c38b18ede903ee6de45953a9bd86c131ebe9
-  LastFm: 26cffa0ee5b39a4ad8c9451e882d75ce27036d3e
-  MASPreferences: 971d03da4b3818f8ea0d0ef10b86b02b2c052d17
-  NSDate+TimeAgo: f3533e0198fab05b716368b19f8c2185d53d6f3b
+  KissXML: ce643413d618ad69886d0d43c3792b7dedfe476e
+  LastFm: 28c752f8e8646531524a123ce7f6722bbfc9d3c5
+  MASPreferences: fd8927826876acb095c78ca3f858818463ffdc30
+  NSDate+TimeAgo: 416f55d2696d3744c313091c5a9280d47f8238fe
 
-COCOAPODS: 0.33.1
+COCOAPODS: 0.39.0

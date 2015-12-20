@@ -130,10 +130,6 @@ body {
     margin-top: 8px;
 }
 
-.song-row .rating-container.stars {
-    height: 100% !important;
-}
-
 .song-row .rating-container.thumbs [data-rating] {
     margin-top: 0px;
 }
@@ -394,7 +390,7 @@ div.simple-dialog-bg {
 
 @-webkit-keyframes slidedown {
    from {
-      max-height: 0%; 
+      max-height: 0%;
    }
 
    to {
@@ -410,7 +406,7 @@ div.simple-dialog-bg {
     top: 0;
 }
 
-.song-table [data-col="index"] .content, 
+.song-table [data-col="index"] .content,
 .song-table [data-col="track"] .content {
     color: inherit;
 }

@@ -19,7 +19,7 @@
 		2B8FC1C318C9CB16006D04FF /* RadiantPlayerScriptCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8FC1C218C9CB16006D04FF /* RadiantPlayerScriptCommand.m */; };
 		38D0C36DAD0F40F5A7254224 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BABD1B4DDCC34CB291C66033 /* libPods.a */; };
 		42C12CDD1C1A73C100E5029B /* RdiantStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C12CDC1C1A73C100E5029B /* RdiantStyle.m */; };
-		693BAD221C2702A90022B557 /* DDHidLib in Resources */ = {isa = PBXBuildFile; fileRef = 693BAD211C2702A90022B557 /* DDHidLib */; };
+		693BAD221C2702A90022B557 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		693BAD4D1C2705200022B557 /* DDHidAppleMikey.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BAD3A1C2705200022B557 /* DDHidAppleMikey.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		693BAD4E1C2705200022B557 /* DDHidAppleRemote.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BAD3C1C2705200022B557 /* DDHidAppleRemote.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		693BAD4F1C2705200022B557 /* DDHidDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BAD3E1C2705200022B557 /* DDHidDevice.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -42,7 +42,6 @@
 		D318341718CFBC7400E8F9B1 /* AppearancePreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D318341618CFBC7400E8F9B1 /* AppearancePreferencesViewController.m */; };
 		D318341B18CFC7C500E8F9B1 /* ApplicationStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D318341A18CFC7C500E8F9B1 /* ApplicationStyle.m */; };
 		D318342118D0513D00E8F9B1 /* CookieStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = D318342018D0513D00E8F9B1 /* CookieStorage.m */; };
-		D31ACE84193ACDC300AC7CB4 /* RatingBadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D31ACE83193ACDC300AC7CB4 /* RatingBadgeButton.m */; };
 		D31ACE86193BCD3E00AC7CB4 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D31ACE85193BCD3E00AC7CB4 /* Growl.framework */; };
 		D31ACE8A193BDD0F00AC7CB4 /* NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D31ACE89193BDD0F00AC7CB4 /* NotificationCenter.m */; };
 		D31ACE8D193BE39E00AC7CB4 /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D31ACE85193BCD3E00AC7CB4 /* Growl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -139,6 +138,8 @@
 		2B8FC1BF18C9CB0E006D04FF /* radiant-player-mac.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "radiant-player-mac.sdef"; sourceTree = "<group>"; };
 		2B8FC1C118C9CB16006D04FF /* RadiantPlayerScriptCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadiantPlayerScriptCommand.h; sourceTree = "<group>"; };
 		2B8FC1C218C9CB16006D04FF /* RadiantPlayerScriptCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadiantPlayerScriptCommand.m; sourceTree = "<group>"; };
+		39ABCDF77BF211E80C80FA4D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		3C4E58611BB0DA2250F24AC6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		42C12CDB1C1A73AB00E5029B /* RdiantStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RdiantStyle.h; sourceTree = "<group>"; };
 		42C12CDC1C1A73C100E5029B /* RdiantStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RdiantStyle.m; sourceTree = "<group>"; };
 		693BAD391C2705200022B557 /* DDHidAppleMikey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDHidAppleMikey.h; path = DDHidLib/DDHidAppleMikey.h; sourceTree = "<group>"; };
@@ -161,7 +162,6 @@
 		693BAD4A1C2705200022B557 /* NSDictionary+DDHidExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+DDHidExtras.m"; path = "DDHidLib/NSDictionary+DDHidExtras.m"; sourceTree = "<group>"; };
 		693BAD4B1C2705200022B557 /* NSXReturnThrowError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSXReturnThrowError.h; path = DDHidLib/NSXReturnThrowError.h; sourceTree = "<group>"; };
 		693BAD4C1C2705200022B557 /* NSXReturnThrowError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSXReturnThrowError.m; path = DDHidLib/NSXReturnThrowError.m; sourceTree = "<group>"; };
-		A32790DC482A48E18B516D0B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		B0BB948719F76CF80081C97D /* LightStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightStyle.h; sourceTree = "<group>"; };
 		B0BB948819F76CFD0081C97D /* LightStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightStyle.m; sourceTree = "<group>"; };
 		BABD1B4DDCC34CB291C66033 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,8 +183,6 @@
 		D318341A18CFC7C500E8F9B1 /* ApplicationStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationStyle.m; sourceTree = "<group>"; };
 		D318341F18D0513D00E8F9B1 /* CookieStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CookieStorage.h; sourceTree = "<group>"; };
 		D318342018D0513D00E8F9B1 /* CookieStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookieStorage.m; sourceTree = "<group>"; };
-		D31ACE82193ACDC300AC7CB4 /* RatingBadgeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingBadgeButton.h; sourceTree = "<group>"; };
-		D31ACE83193ACDC300AC7CB4 /* RatingBadgeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingBadgeButton.m; sourceTree = "<group>"; };
 		D31ACE85193BCD3E00AC7CB4 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = "radiant-player-mac/Frameworks/Growl.framework"; sourceTree = "<group>"; };
 		D31ACE88193BDD0F00AC7CB4 /* NotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationCenter.h; sourceTree = "<group>"; };
 		D31ACE89193BDD0F00AC7CB4 /* NotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationCenter.m; sourceTree = "<group>"; };
@@ -295,7 +293,7 @@
 				1A7B683E17453E40001E509E /* Frameworks */,
 				D37A5FC91BDBEA2C0027FBD4 /* Resources */,
 				1A7B683D17453E40001E509E /* Products */,
-				A32790DC482A48E18B516D0B /* Pods.xcconfig */,
+				AF432C2EC36B63C6736042F4 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -419,6 +417,15 @@
 			name = DDHidLib;
 			sourceTree = "<group>";
 		};
+		AF432C2EC36B63C6736042F4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				39ABCDF77BF211E80C80FA4D /* Pods.debug.xcconfig */,
+				3C4E58611BB0DA2250F24AC6 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D318341818CFC73500E8F9B1 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
@@ -466,8 +473,6 @@
 				D32CCEF918BE039E00BDD484 /* PopupPanel.m */,
 				D32CCEFB18BE9BF800BDD484 /* PopupView.h */,
 				D32CCEFC18BE9BF800BDD484 /* PopupView.m */,
-				D31ACE82193ACDC300AC7CB4 /* RatingBadgeButton.h */,
-				D31ACE83193ACDC300AC7CB4 /* RatingBadgeButton.m */,
 			);
 			path = Popup;
 			sourceTree = "<group>";
@@ -575,6 +580,7 @@
 				D0B126C78BE34593B5FE493C /* Copy Pods Resources */,
 				D31ACE8C193BE38900AC7CB4 /* Copy Frameworks */,
 				D37A5FCC1BDBEAE90027FBD4 /* Copy DSA Public Key */,
+				6EA0989A3DBD95F8AE5279E8 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -623,7 +629,7 @@
 			files = (
 				D326EA6418B2D7E500BEC02F /* css in Resources */,
 				D3D4C3E518E76063007238B3 /* LastFmPopover.xib in Resources */,
-				693BAD221C2702A90022B557 /* DDHidLib in Resources */,
+				693BAD221C2702A90022B557 /* (null) in Resources */,
 				D326EA6518B2D7E500BEC02F /* js in Resources */,
 				2B8FC1C018C9CB0E006D04FF /* radiant-player-mac.sdef in Resources */,
 				D302E13418B561E100CCD18E /* Preferences.plist in Resources */,
@@ -640,6 +646,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6EA0989A3DBD95F8AE5279E8 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7A2071DB33B24D5B85C39505 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -667,7 +688,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -709,7 +730,6 @@
 				D37C9289195E19BD0035709A /* NSImage+Data.m in Sources */,
 				D377DB5B1B0A6F5900026312 /* JSURLProtocol.m in Sources */,
 				D32CCEFA18BE039E00BDD484 /* PopupPanel.m in Sources */,
-				D31ACE84193ACDC300AC7CB4 /* RatingBadgeButton.m in Sources */,
 				D346173519D907F300017023 /* SpotifyBlackVibrantStyle.m in Sources */,
 				D37B638718F1E7680098F9DC /* SpriteDownloadURLProtocol.m in Sources */,
 				D3B71C2818C2D5240041358B /* PreferencesWindowController.m in Sources */,
@@ -830,7 +850,7 @@
 		};
 		1A7B686E17453E40001E509E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A32790DC482A48E18B516D0B /* Pods.xcconfig */;
+			baseConfigurationReference = 39ABCDF77BF211E80C80FA4D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -849,7 +869,7 @@
 		};
 		1A7B686F17453E40001E509E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A32790DC482A48E18B516D0B /* Pods.xcconfig */;
+			baseConfigurationReference = 3C4E58611BB0DA2250F24AC6 /* Pods.release.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
