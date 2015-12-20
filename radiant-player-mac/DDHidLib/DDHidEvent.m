@@ -22,15 +22,60 @@
  * SOFTWARE.
  */
 
-#import "DDHidDevice.h"
-#import "DDHidElement.h"
-#import "DDHidUsage.h"
-#import "DDHidQueue.h"
 #import "DDHidEvent.h"
-#import "DDHidUsageTables.h"
-#import "DDHidMouse.h"
-#import "DDHidJoystick.h"
-#import "DDHidKeyboard.h"
-#import "DDHidAppleRemote.h"
-#import "DDHidAppleMikey.h"
-#import "DDHidKeyboardBarcodeScanner.h"
+
+
+@implementation DDHidEvent
+
++ (DDHidEvent *) eventWithIOHIDEvent: (IOHIDEventStruct *) event;
+{
+    return [[[self alloc] initWithIOHIDEvent: event] autorelease];
+}
+
+- (id) initWithIOHIDEvent: (IOHIDEventStruct *) event;
+{
+    self = [super init];
+    if (self == nil)
+        return nil;
+    
+    mEvent = *event;
+    
+    return self;
+}
+
+- (IOHIDElementType) type;
+{
+    return mEvent.type;
+}
+
+- (IOHIDElementCookie) elementCookie;
+{
+    return mEvent.elementCookie;
+}
+
+- (unsigned) elementCookieAsUnsigned;
+{
+    return (unsigned) mEvent.elementCookie;
+}
+
+- (SInt32) value;
+{
+    return mEvent.value;
+}
+
+- (AbsoluteTime) timestamp;
+{
+    return mEvent.timestamp;
+}
+
+- (UInt32) longValueSize;
+{
+    return mEvent.longValueSize;
+}
+
+- (void *) longValue;
+{
+    return mEvent.longValue;
+}
+
+@end

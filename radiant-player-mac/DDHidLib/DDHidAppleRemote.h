@@ -23,48 +23,63 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#include <IOKit/hid/IOHIDLib.h>
+
+#import "DDHidDevice.h"
 
 @class DDHidElement;
-@class DDHidEvent;
 
-@interface DDHidQueue : NSObject
+enum DDHidAppleRemoteEventIdentifier
 {
-    IOHIDQueueInterface ** mQueue;
-    NSRunLoop * mRunLoop;
-    BOOL mStarted;
-    
+	kDDHidRemoteButtonVolume_Plus=0,
+	kDDHidRemoteButtonVolume_Minus,
+	kDDHidRemoteButtonMenu,
+	kDDHidRemoteButtonPlay,
+	kDDHidRemoteButtonRight,	
+	kDDHidRemoteButtonLeft,	
+	kDDHidRemoteButtonRight_Hold,	
+	kDDHidRemoteButtonLeft_Hold,
+	kDDHidRemoteButtonMenu_Hold,
+	kDDHidRemoteButtonPlay_Sleep,
+	kDDHidRemoteControl_Switched,
+    kDDHidRemoteControl_Paired,
+    kDDHidRemoteButtonPlayPause
+};
+typedef enum DDHidAppleRemoteEventIdentifier DDHidAppleRemoteEventIdentifier;
+
+@interface DDHidAppleRemote : DDHidDevice
+{
+    NSMutableDictionary * mCookieToButtonMapping;
+    NSArray * mButtonElements;
+    DDHidElement * mIdElement;
+    int mRemoteId;
+
     id mDelegate;
-    CFRunLoopSourceRef mEventSource;
 }
 
-- (id) initWithHIDQueue: (IOHIDQueueInterface **) queue
-                   size: (unsigned) size;
++ (NSArray *) allRemotes;
 
-- (void) addElement: (DDHidElement *) element;
++ (DDHidAppleRemote *) firstRemote;
 
-- (void) addElements: (NSArray *) elements;
+- (id) initWithDevice: (io_object_t) device error: (NSError **) error_;
 
-- (void) addElements: (NSArray *) elements recursively: (BOOL) recursively;
+#pragma mark -
+#pragma mark Asynchronous Notification
 
 - (void) setDelegate: (id) delegate;
 
-- (void) startOnCurrentRunLoop;
+- (void) addElementsToDefaultQueue;
 
-- (void) startOnRunLoop: (NSRunLoop *) runLoop;
+#pragma mark -
+#pragma mark Properties
 
-- (void) stop;
-
-- (BOOL) isStarted;
-
-- (BOOL) getNextEvent: (IOHIDEventStruct *) event;
-
-- (DDHidEvent *) nextEvent;
+- (int) remoteId;
+- (void) setRemoteId: (int) theRemoteId;
 
 @end
 
-@interface NSObject (DDHidQueueDelegate)
+@interface NSObject (DDHidAppleRemoteDelegate)
 
-- (void) ddhidQueueHasEvents: (DDHidQueue *) hidQueue;
+- (void) ddhidAppleRemoteButton: (DDHidAppleRemoteEventIdentifier) buttonIdentifier
+                    pressedDown: (BOOL) pressedDown;
 
 @end

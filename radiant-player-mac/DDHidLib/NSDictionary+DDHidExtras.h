@@ -23,23 +23,24 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#include <IOKit/hid/IOHIDLib.h>
 
-@interface DDHidEvent : NSObject
-{
-    IOHIDEventStruct mEvent;
-}
 
-+ (DDHidEvent *) eventWithIOHIDEvent: (IOHIDEventStruct *) event;
+@interface NSDictionary (DDHidExtras)
 
-- (id) initWithIOHIDEvent: (IOHIDEventStruct *) event;
+- (unsigned) ddhid_unsignedForKey: (NSString *) key;
 
-- (IOHIDElementType) type;
-- (IOHIDElementCookie) elementCookie;
-- (unsigned) elementCookieAsUnsigned;
-- (SInt32) value;
-- (AbsoluteTime) timestamp;
-- (UInt32) longValueSize;
-- (void *) longValue;
+- (id) ddhid_objectForString: (const char *) key;
+
+- (NSString *) ddhid_stringForString: (const char *) key;
+- (long) ddhid_longForString: (const char *) key;
+- (unsigned int) ddhid_unsignedIntForString: (const char *) key;
+- (BOOL) ddhid_boolForString: (const char *) key;
+
+@end
+
+@interface NSMutableDictionary (DDHidExtras)
+
+- (void) ddhid_setObject: (id) object forString: (const char *) key;
+- (void) ddhid_setInt: (int) i forKey: (id) key;
 
 @end
