@@ -4,6 +4,8 @@ This file should follow the standards specified on [keepachangelog.com](http://k
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
+### Fixed
+* Applied ratings button fill fix ([#436](https://github.com/radiant-player/radiant-player-mac/pull/436)) to Rdiant theme ([#462](https://github.com/radiant-player/radiant-player-mac/pull/462))
 
 ## [1.6.0] - 2015-12-19
 ### Added
