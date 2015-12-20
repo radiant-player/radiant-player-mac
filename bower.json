@@ -12,6 +12,6 @@
     "tests"
   ],
   "dependencies": {
-    "google-music": "~3.3.0"
+    "gmusic.js": "~4.0.0"
   }
 }

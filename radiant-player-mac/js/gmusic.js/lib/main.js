@@ -6,12 +6,12 @@ var inherits = require('inherits');
 // Define selector constants
 var SELECTORS = {
   info: {
-    albumArtId: 'playingAlbumArt',
+    albumArtId: 'playerBarArt',
     albumSelector: '.player-album',
     artistId: 'player-artist',
     containerId: 'playerSongInfo',
     infoWrapperClass: 'now-playing-info-wrapper',
-    titleId: 'player-song-title'
+    titleId: 'currently-playing-title'
   },
   forward: {
     buttonSelector: '[data-id="forward"]'
@@ -56,10 +56,10 @@ function bind(context, fn) {
 }
 
 // Define our constructor
-function GoogleMusic(win) {
+function GMusic(win) {
   // If win was not provided, complain
   if (!win) {
-    throw new Error('`win` was not provided to the `GoogleMusic` constructor');
+    throw new Error('`win` was not provided to the `GMusic` constructor');
   }
 
   // Inherit from EventEmitter
@@ -70,7 +70,7 @@ function GoogleMusic(win) {
   this.doc = win.document;
 
   // For each of the prototype sections
-  var proto = GoogleMusic._protoObj;
+  var proto = GMusic._protoObj;
   for (var protoKey in proto) {
     if (proto.hasOwnProperty(protoKey)) {
       // Define a key on our object
@@ -92,10 +92,10 @@ function GoogleMusic(win) {
   }
 }
 // Inherit from EventEmitter normally
-inherits(GoogleMusic, EventEmitter);
+inherits(GMusic, EventEmitter);
 
 // Define a "prototype" that will have magical invocation
-var proto = GoogleMusic._protoObj = {};
+var proto = GMusic._protoObj = {};
 
 // Create a volume API
 proto.volume = {
@@ -145,7 +145,7 @@ proto.volume = {
 };
 
 // Create a playback API and constants
-GoogleMusic.Playback = {
+GMusic.Playback = {
   // Playback states
   STOPPED: 0,
   PAUSED: 1,
@@ -400,16 +400,16 @@ proto.hooks = {
               return;
             // Otherwise, we are stopped
             } else {
-              mode = GoogleMusic.Playback.STOPPED;
+              mode = GMusic.Playback.STOPPED;
             }
           // Otherwise (the play/pause button is enabled)
           } else {
             var playing = target.classList.contains(SELECTORS.playPause.playingClass);
             if (playing) {
-              mode = GoogleMusic.Playback.PLAYING;
+              mode = GMusic.Playback.PLAYING;
             // DEV: If this fails to catch stopped cases, then maybe move "no song info" check to top level
             } else {
-              mode = GoogleMusic.Playback.PAUSED;
+              mode = GMusic.Playback.PAUSED;
             }
           }
 
@@ -497,7 +497,7 @@ proto.hooks = {
 };
 
 // Expose selectors as a class property
-GoogleMusic.SELECTORS = SELECTORS;
+GMusic.SELECTORS = SELECTORS;
 
 // Export our constructor
-module.exports = GoogleMusic;
+module.exports = GMusic;

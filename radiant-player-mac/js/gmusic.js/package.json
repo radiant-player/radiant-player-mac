@@ -1,8 +1,8 @@
 {
-  "name": "google-music",
+  "name": "gmusic.js",
   "description": "Browser-side JS library for controlling Google Music",
-  "version": "3.3.0",
-  "homepage": "https://github.com/twolfson/google-music.js",
+  "version": "4.0.0",
+  "homepage": "https://github.com/gmusic-utils/gmusic.js",
   "author": {
     "name": "Todd Wolfson",
     "email": "todd@twolfson.com",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/twolfson/google-music.js.git"
+    "url": "git://github.com/gmusic-utils/gmusic.js.git"
   },
   "bugs": {
-    "url": "https://github.com/twolfson/google-music.js/issues"
+    "url": "https://github.com/gmusic-utils/gmusic.js/issues"
   },
   "licenses": [
     {
       "type": "UNLICENSE",
-      "url": "https://github.com/twolfson/google-music.js/blob/master/UNLICENSE"
+      "url": "https://github.com/gmusic-utils/gmusic.js/blob/master/UNLICENSE"
     }
   ],
   "main": "lib/main",
@@ -26,15 +26,17 @@
     "node": ">= 0.8.0"
   },
   "scripts": {
-    "build-browserify": "browserify lib/google-music.js > dist/google-music.js",
-    "build-uglify": "uglifyjs dist/google-music.js > dist/google-music.min.js",
+    "build-browserify": "browserify lib/gmusic.js > dist/gmusic.js",
+    "build-uglify": "uglifyjs dist/gmusic.js > dist/gmusic.min.js",
     "build": "npm run build-browserify && npm run build-uglify",
     "precheck": "twolfson-style precheck lib/ test/",
     "lint": "twolfson-style lint lib/ test/",
     "pretest": "npm run build",
     "test": "npm run verify-webdriver && mocha --timeout 10000 --reporter dot && npm run lint",
+    "test-windows": "npm run pretest && mocha --timeout 10000 --reporter dot && npm run lint",
     "verify-webdriver": "curl --silent http://localhost:4444/ > /dev/null || (echo \"Selenium server wasn't started. Please start it via \\`npm run webdriver-manager-start\\`.\" 1>&2 && exit 1)",
-    "webdriver-manager-start": "webdriver-manager start"
+    "webdriver-manager-start": "webdriver-manager start",
+    "webdriver-manager-update": "webdriver-manager update --standalone"
   },
   "dependencies": {
     "inherits": "~2.0.1"

@@ -1,16 +1,15 @@
 {
-  "name": "google-music",
-  "version": "3.3.0",
-  "homepage": "https://github.com/twolfson/google-music.js",
+  "name": "gmusic.js",
+  "version": "4.0.0",
+  "homepage": "https://github.com/gmusic-utils/gmusic.js",
   "authors": [
     "Todd Wolfson <todd@twolfson.com>"
   ],
   "description": "Browser-side JS library for controlling Google Music",
-  "main": "dist/google-music.min.js",
+  "main": "dist/gmusic.min.js",
   "keywords": [
     "google",
     "music",
-    "google",
     "play",
     "browser"
   ],
@@ -22,13 +21,13 @@
     "test",
     "tests"
   ],
-  "_release": "3.3.0",
+  "_release": "4.0.0",
   "_resolution": {
     "type": "version",
-    "tag": "3.3.0",
-    "commit": "ab999eed3cb512c9cd0a844f10c68888f77a4220"
+    "tag": "4.0.0",
+    "commit": "cf7ac9bc4c0b3fc565d3643d9ac161cfba24801b"
   },
-  "_source": "git://github.com/twolfson/google-music.js.git",
-  "_target": "~3.3.0",
-  "_originalSource": "google-music"
+  "_source": "git://github.com/gmusic-utils/gmusic.js.git",
+  "_target": "~4.0.0",
+  "_originalSource": "gmusic.js"
 }

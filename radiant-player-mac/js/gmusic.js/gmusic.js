@@ -1,0 +1,1 @@
+./gmusic.js/dist/gmusic.js
