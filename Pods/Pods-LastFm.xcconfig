@@ -1,1 +1,0 @@
-PODS_LASTFM_HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2"

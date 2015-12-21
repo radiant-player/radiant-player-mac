@@ -13,7 +13,7 @@
 // This check ensures that, even though this script is run multiple times, our code is only attached once.
 if (typeof window.MusicAPI === 'undefined') {
     window.MusicAPI = {};
-    
+
     /* Set up for Safari versions less than 7. */
     if (typeof window.MutationObserver === 'undefined') {
         window.MutationObserver = WebKitMutationObserver;
@@ -22,11 +22,11 @@ if (typeof window.MusicAPI === 'undefined') {
     /* Create a volume API. */
     MusicAPI.Volume = (function() {
         var V = {};
-        
+
         // A reference to the volume slider element.
         var slider = document.querySelector('#material-vslider');
         slider.step = 1;
-            
+
         // Get the current volume level.
         V.getVolume = function() {
             return parseInt(slider.value);
@@ -46,7 +46,7 @@ if (typeof window.MusicAPI === 'undefined') {
 
         // Increase the volume by an amount (default of 1).
         V.increaseVolume = function(amount) {
-            if (typeof amount === 'undefined') 
+            if (typeof amount === 'undefined')
                 amount = 1;
 
             for (var i = 0; i < amount; i++) {
@@ -56,21 +56,21 @@ if (typeof window.MusicAPI === 'undefined') {
 
         // Decrease the volume by an amount (default of 1).
         V.decreaseVolume = function(amount) {
-            if (typeof amount === 'undefined') 
+            if (typeof amount === 'undefined')
                 amount = 1;
 
             for (var i = 0; i < amount; i++) {
                 slider.decrement();
             }
         };
-        
+
         return V;
     })();
-    
+
     /* Create a playback API. */
     MusicAPI.Playback = (function() {
         var P = {};
-        
+
         // References to the media playback elements.
         var _eplayPause =  document.querySelector('#player [data-id="play-pause"]');
         var _eforward =    document.querySelector('#player [data-id="forward"]');
@@ -78,7 +78,7 @@ if (typeof window.MusicAPI === 'undefined') {
         var _eshuffle =    document.querySelector('#player [data-id="shuffle"]');
         var _erepeat =     document.querySelector('#player [data-id="repeat"]');
         var _eplayback =   document.querySelector('#player #material-player-progress');
-        
+
         // Playback modes.
         P.STOPPED = 0;
         P.PAUSED = 1;
@@ -92,16 +92,16 @@ if (typeof window.MusicAPI === 'undefined') {
         // Shuffle modes.
         P.ALL_SHUFFLE =    'ALL_SHUFFLE';
         P.NO_SHUFFLE =     'NO_SHUFFLE';
-        
+
         P.getPlaybackTime = function() {
             return parseInt(_eplayback.value);
         };
-        
+
         P.setPlaybackTime = function(milliseconds) {
             _eplayback.value = milliseconds;
             _eplayback.fire('change');
         };
-        
+
         // Playback functions.
         P.playPause =      function() { _eplayPause.click(); };
         P.forward =        function() { _eforward.click(); };
@@ -114,10 +114,10 @@ if (typeof window.MusicAPI === 'undefined') {
             return _erepeat.value;
         };
 
-        P.changeRepeat = function(mode) { 
+        P.changeRepeat = function(mode) {
             if (!mode) {
                 // Toggle between repeat modes once.
-                _erepeat.click(); 
+                _erepeat.click();
             }
             else {
                 // Toggle between repeat modes until the desired mode is activated.
@@ -130,7 +130,7 @@ if (typeof window.MusicAPI === 'undefined') {
         // Taken from the Google Play Music page.
         P.toggleVisualization = function() {
             var el = document.querySelector('#hover-icon');
-            
+
             if (el)
                 el.click();
         };
@@ -141,7 +141,7 @@ if (typeof window.MusicAPI === 'undefined') {
     /* Create a rating API. */
     MusicAPI.Rating = (function() {
         var R = {};
-        
+
         // Determine whether the rating element is selected.
         R.isRatingSelected = function(el) {
             return el.icon.indexOf('-outline') == -1;
@@ -149,7 +149,7 @@ if (typeof window.MusicAPI === 'undefined') {
 
         // Determine whether the rating system is thumbs or stars.
         R.isStarsRatingSystem = function() {
-            return document.querySelector('.rating-container.stars') !== null;
+            return false;
         };
 
         // Get current rating.
@@ -158,11 +158,11 @@ if (typeof window.MusicAPI === 'undefined') {
 
             for (var i = 0; i < els.length; i++) {
                 var el = els[i];
-                
+
                 if (R.isRatingSelected(el))
                     return parseInt(el.dataset.rating);
             }
-            
+
             return 0;
         };
 
@@ -189,7 +189,7 @@ if (typeof window.MusicAPI === 'undefined') {
             if (el && !R.isRatingSelected(el))
                 el.click();
         }
-        
+
         return R;
     })();
 
@@ -208,7 +208,7 @@ if (typeof window.MusicAPI === 'undefined') {
                 return id.substring(0, id.indexOf('/'));
             };
 
-            if (albumEl === null && aristEl === null) 
+            if (albumEl === null && aristEl === null)
                 return null;
 
             var albumId = parseID(albumEl.dataset.id);
@@ -216,7 +216,7 @@ if (typeof window.MusicAPI === 'undefined') {
 
             if (albumId) {
                 url = urlTemplate + albumId;
-            } 
+            }
             else if (artistId) {
                 url = urlTemplate + artistId;
             }
@@ -228,21 +228,21 @@ if (typeof window.MusicAPI === 'undefined') {
     var lastTitle = "";
     var lastArtist = "";
     var lastAlbum = "";
-    
-    var addObserver, 
+
+    var addObserver,
         shuffleObserver,
         repeatObserver,
         playbackObserver,
         playbackTimeObserver,
         ratingObserver;
-    
+
     addObserver = new MutationObserver(function(mutations) {
         mutations.forEach(function(m) {
             for (var i = 0; i < m.addedNodes.length; i++) {
                 var target = m.addedNodes[i];
                 var name = target.id || target.className;
 
-                if (name == 'now-playing-info-wrapper')  {                    
+                if (name == 'now-playing-info-wrapper')  {
                     var now = new Date();
 
                     var title = document.querySelector('#player #currently-playing-title');

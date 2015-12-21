@@ -10,8 +10,6 @@
 #import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>
 
-#import <EDStarRating/EDStarRating.h>
-
 #import "AppDelegate.h"
 #import "PopupPanel.h"
 #import "Utilities.h"
@@ -20,7 +18,7 @@
 @class AppDelegate;
 @class PopupPanel;
 
-@interface PopupViewDelegate : NSObject<EDStarRatingProtocol>
+@interface PopupViewDelegate : NSObject
 
 @property (assign) IBOutlet AppDelegate *appDelegate;
 @property (assign) IBOutlet PopupPanel *popup;
@@ -48,26 +46,20 @@
 @property (assign) IBOutlet NSButton *playPauseButton;
 @property (assign) IBOutlet NSButton *forwardButton;
 @property (assign) IBOutlet NSButton *shuffleButton;
-    
+
 @property (assign) IBOutlet NSButton *thumbsupButton;
 @property (assign) IBOutlet NSButton *thumbsdownButton;
-
-@property (assign) IBOutlet NSButton *starBadgeButton;
-@property (assign) IBOutlet EDStarRating *starRatingView;
 
 @property (assign) IBOutlet NSSlider *playbackSlider;
 
 - (void) updateSong:(NSString *)title artist:(NSString *)artist album:(NSString *)album art:(NSString *)art;
 - (void) downloadAlbumArt:(NSString *)art;
-    
+
 - (void) shuffleChanged:(NSString *)mode;
 - (void) repeatChanged:(NSString *)mode;
 - (void) playbackChanged:(NSInteger)mode;
 - (void) playbackTimeChanged:(NSInteger)currentTime totalTime:(NSInteger)totalTime;
 - (void) ratingChanged:(NSInteger)rating;
-
-- (void) setupStarRatingView;
-- (void) starsSelectionChanged:(id)sender rating:(float)rating;
 
 - (IBAction) setPlaybackTime:(id)sender;
 - (IBAction) togglePlayerSize:(id)sender;
@@ -92,8 +84,5 @@
 - (NSImage *) thumbsDownOnImage;
 - (NSImage *) expandContractImage;
 - (NSImage *) actionButtonImage;
-- (NSImage *) starBadgeImage:(NSInteger)rating;
-- (NSImage *) starRatingImage;
-- (NSImage *) starRatingHighlightedImage;
 
 @end

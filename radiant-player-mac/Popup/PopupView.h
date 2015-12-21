@@ -9,7 +9,6 @@
 
 #import <Cocoa/Cocoa.h>
 #import <QuartzCore/QuartzCore.h>
-#import <EDStarRating/EDStarRating.h>
 #import "PopupViewDelegate.h"
 #import "../Support/VisualEffectView.h"
 

@@ -1,5 +1,0 @@
-#include "Pods-LastFm.xcconfig"
-GCC_PREPROCESSOR_DEFINITIONS = COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/LastFm" "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/EDStarRating" "${PODS_ROOT}/Headers/KissXML" "${PODS_ROOT}/Headers/LastFm" "${PODS_ROOT}/Headers/MASPreferences" "${PODS_ROOT}/Headers/NSDate+TimeAgo" ${PODS_LASTFM_HEADER_SEARCH_PATHS}
-OTHER_LDFLAGS = -ObjC
-PODS_ROOT = ${SRCROOT}
