@@ -296,7 +296,7 @@
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="942" height="702"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" id="372">
                 <rect key="frame" x="0.0" y="0.0" width="942" height="702"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -392,7 +392,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="131" y="159" width="297" height="293"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <value key="minSize" type="size" width="297" height="325"/>
             <value key="maxSize" type="size" width="297" height="325"/>
             <view key="contentView" id="bh6-VI-WVo">
@@ -474,7 +474,7 @@
             <windowCollectionBehavior key="collectionBehavior" moveToActiveSpace="YES" ignoresCycle="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="139" y="81" width="356" height="152"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" id="4yq-G3-W3B" customClass="PopupView">
                 <rect key="frame" x="0.0" y="0.0" width="356" height="152"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -540,7 +540,7 @@
                             <constraint firstItem="ngI-Gb-8Jw" firstAttribute="leading" secondItem="QTZ-Jw-ZpH" secondAttribute="leading" id="sYT-Br-7Fg"/>
                         </constraints>
                     </customView>
-                    <button focusRingType="none" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ftM-je-Ymy">
+                    <button focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="ftM-je-Ymy">
                         <rect key="frame" x="162" y="37" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="32" id="2E3-Ii-byb"/>
@@ -554,7 +554,7 @@
                             <action selector="playPause:" target="494" id="mxx-1f-URL"/>
                         </connections>
                     </button>
-                    <button focusRingType="none" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VkG-Lf-5uN">
+                    <button focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="VkG-Lf-5uN">
                         <rect key="frame" x="220" y="37" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="32" id="Hiz-6f-8e3"/>
@@ -568,7 +568,7 @@
                             <action selector="forwardAction:" target="494" id="eRO-HX-njM"/>
                         </connections>
                     </button>
-                    <button focusRingType="none" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AmR-41-4AD">
+                    <button focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="AmR-41-4AD">
                         <rect key="frame" x="104" y="37" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="32" id="10T-YX-xLO"/>
@@ -582,7 +582,7 @@
                             <action selector="backAction:" target="494" id="s6P-wr-rlo"/>
                         </connections>
                     </button>
-                    <button focusRingType="none" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DvI-Lo-u1q">
+                    <button focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="DvI-Lo-u1q">
                         <rect key="frame" x="46" y="37" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="32" id="BV3-kr-ePN"/>
@@ -596,7 +596,7 @@
                             <action selector="toggleRepeatMode:" target="494" id="Kl8-wt-uOK"/>
                         </connections>
                     </button>
-                    <button focusRingType="none" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Xb-8Y-y5L">
+                    <button focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="0Xb-8Y-y5L">
                         <rect key="frame" x="278" y="37" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="32" id="bo5-az-Gwr"/>
@@ -645,7 +645,7 @@
                         </textFieldCell>
                     </textField>
                     <slider focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8u2-Nn-ZZf">
-                        <rect key="frame" x="18" y="9" width="320" height="20"/>
+                        <rect key="frame" x="18" y="9" width="320" height="21"/>
                         <sliderCell key="cell" refusesFirstResponder="YES" state="on" focusRingType="none" alignment="left" tickMarkPosition="above" sliderType="linear" id="yOD-fm-imH" customClass="PlaybackSliderCell"/>
                         <connections>
                             <action selector="setPlaybackTime:" target="vhZ-72-AYY" id="844-7Z-MTH"/>
@@ -750,7 +750,7 @@
                     </textFieldCell>
                 </textField>
                 <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dNn-V0-8Tw">
-                    <rect key="frame" x="146" y="6" width="96" height="20"/>
+                    <rect key="frame" x="146" y="6" width="96" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="92" id="qn0-2S-Sba"/>
                     </constraints>
