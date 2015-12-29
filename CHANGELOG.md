@@ -4,9 +4,6 @@ This file should follow the standards specified on [keepachangelog.com](http://k
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
-### Added
-* Added a preference option to show notifications even if the player is focused, defaulting to false ([#469](https://github.com/radiant-player/radiant-player-mac/pull/469), [@jscheel](https://github.com/jscheel))
-
 ### Changed
 * Various legacy code cleanup / removal ([#465](https://github.com/radiant-player/radiant-player-mac/pull/465))
 

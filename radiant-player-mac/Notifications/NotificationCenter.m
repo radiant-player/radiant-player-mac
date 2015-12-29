@@ -146,12 +146,7 @@ NSString *const SONG_NOTIFICATION_NAME = @"SongNotification";
 
 - (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center shouldPresentNotification:(NSUserNotification *)notification
 {
-    AppDelegate *appDelegate = (AppDelegate *)[[NSApplication sharedApplication] delegate];
-
-    if ([appDelegate.defaults boolForKey:@"notifications.always-show"]) {
-        return YES;
-    }
-    return NO;
+    return YES;
 }
 
 /*

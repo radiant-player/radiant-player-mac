@@ -34,8 +34,6 @@
 	<true/>
 	<key>notifications.enabled</key>
 	<true/>
-	<key>notifications.always-show</key>
-	<false/>
 	<key>notifications.use-growl</key>
 	<false/>
 	<key>notifications.itunes-style</key>
