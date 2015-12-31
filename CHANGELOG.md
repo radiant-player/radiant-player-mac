@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
 ### Changed
+* Updated mini player to use Play Music orange consistently ([#476](https://github.com/radiant-player/radiant-player-mac/pull/476)
 * Always show notifications, even if window is in focus ([#472](https://github.com/radiant-player/radiant-player-mac/pull/472), [@jscheel](https://github.com/jscheel))
 * Various legacy code cleanup / removal ([#465](https://github.com/radiant-player/radiant-player-mac/pull/465))
 
