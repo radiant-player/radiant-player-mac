@@ -17,8 +17,8 @@
         [self setName:@"Google"];
         [self setAuthor:@"Google"];
         [self setDescription:@"The default Google style"];
-        [self setWindowColor:[NSColor colorWithSRGBRed:0.898f green:0.898f blue:0.898f alpha:1.0f]];
-        [self setTitleColor:nil];
+        //[self setWindowColor:[NSColor colorWithDeviceRed:(239/255.0f) green:(108/255.0f) blue:(0/255.0f) alpha:1.0]];
+        [self setWindowColor:[NSColor colorWithDeviceRed:(245/255.0f) green:(245/255.0f) blue:(245/255.0f) alpha:1.0]];
         [self setCss:[ApplicationStyle cssNamed:@"google"]];
         [self setJs:[ApplicationStyle jsNamed:@"google"]];
     }

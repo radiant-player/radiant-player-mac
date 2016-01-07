@@ -17,10 +17,14 @@
 }
 
 #material-one-left.with-nav {
-  min-width: 300px;
+  min-width: 300px; 
 }
 
 #rp-padding-left {
+    min-width: 10px;
+}
+
+.custom-titlebar #rp-padding-left {
     min-width: 77px;
 }
 

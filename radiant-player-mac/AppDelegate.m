@@ -78,30 +78,48 @@
 {
     [window setDelegate:self];
 
+    // Load the user preferences.
+    defaults = [NSUserDefaults standardUserDefaults];
+
     if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9)
     {
-        [self useTallTitleBar];
+        BOOL customTitlebarEnabled = [defaults boolForKey:@"titlebar.enabled"];
+        BOOL stylesEnabled = [defaults boolForKey:@"styles.enabled"];
+
+        if (customTitlebarEnabled)
+        {
+            [self useTallTitleBar];
+        }
+        else
+        {
+            [self useNormalTitleBar];
+        }
+
         [ApplicationStyle applyYosemiteVisualEffects:webView window:window appearance:NSAppearanceNameVibrantLight];
 
-        [[NSNotificationCenter defaultCenter]
-             addObserverForName:NSWindowWillEnterFullScreenNotification
-             object:window
-             queue:nil
-             usingBlock:^(NSNotification *note) {
-                 [webView stringByEvaluatingJavaScriptFromString:@"window.Styles.Callbacks.onEnterFullScreen();"];
-                 [self useNormalTitleBar];
-             }
-         ];
+        // If the custom titlebar is enabled, register an observer to switch views on maximize/minimize
+        if (customTitlebarEnabled)
+        {
+            [[NSNotificationCenter defaultCenter]
+                addObserverForName:NSWindowWillEnterFullScreenNotification
+                object:window
+                queue:nil
+                usingBlock:^(NSNotification *note) {
+                    [webView stringByEvaluatingJavaScriptFromString:@"window.Styles.Callbacks.onEnterFullScreen();"];
+                    [self useNormalTitleBar];
+                }
+            ];
 
-        [[NSNotificationCenter defaultCenter]
-             addObserverForName:NSWindowWillExitFullScreenNotification
-             object:window
-             queue:nil
-         usingBlock:^(NSNotification *note) {
-             [webView stringByEvaluatingJavaScriptFromString:@"window.Styles.Callbacks.onExitFullScreen();"];
-                 [self useTallTitleBar];
-             }
-         ];
+            [[NSNotificationCenter defaultCenter]
+                addObserverForName:NSWindowWillExitFullScreenNotification
+                object:window
+                queue:nil
+                usingBlock:^(NSNotification *note) {
+                    [webView stringByEvaluatingJavaScriptFromString:@"window.Styles.Callbacks.onExitFullScreen();"];
+                    [self useTallTitleBar];
+                }
+            ];
+        }
     }
     else
     {
@@ -135,10 +153,7 @@
          usingBlock:^(NSNotification *note) {
              [webView stringByEvaluatingJavaScriptFromString:@"window.Styles.Callbacks.onWindowDidBecomeInactive();"];
          }
-     ];
-
-    // Load the user preferences.
-    defaults = [NSUserDefaults standardUserDefaults];
+    ];
 
     // Check if we should be a dock icon or not.
     if (([defaults boolForKey:@"miniplayer.enabled"] && [defaults boolForKey:@"miniplayer.hide-dock-icon"]))
@@ -329,12 +344,15 @@ float _defaultTitleBarHeight() {
         [window standardWindowButton:NSWindowZoomButton]
     ];
 
-    [buttons enumerateObjectsUsingBlock:^(NSButton *button, NSUInteger i, BOOL *stop) {
-        NSRect frame = [button frame];
-        frame.origin.x += 10;
-        frame.origin.y = NSHeight(button.superview.frame)/2 - NSHeight(button.frame)/2;
-        [button setFrame:frame];
-    }];
+    if (_isTall)
+    {
+        [buttons enumerateObjectsUsingBlock:^(NSButton *button, NSUInteger i, BOOL *stop) {
+            NSRect frame = [button frame];
+            frame.origin.x += 10;
+            frame.origin.y = NSHeight(button.superview.frame)/2 - NSHeight(button.frame)/2;
+            [button setFrame:frame];
+        }];
+    }
 }
 
 - (void)useTallTitleBar
@@ -357,7 +375,7 @@ float _defaultTitleBarHeight() {
     NSRect frame = [[self window] frame];
     [window setStyleMask:(window.styleMask & ~NSFullSizeContentViewWindowMask)];
     [window setTitlebarAppearsTransparent:NO];
-    [window setTitleVisibility:NSWindowTitleVisible];
+    [window setTitleVisibility:NSWindowTitleHidden];
     [[self window] setFrame:frame display:NO];
 }
 
