@@ -7,6 +7,7 @@
  *
  */
 
+#import "AppDelegate.h"
 #import "NotificationCenter.h"
 
 NSString *const SONG_NOTIFICATION_NAME = @"SongNotification";
@@ -140,6 +141,12 @@ NSString *const SONG_NOTIFICATION_NAME = @"SongNotification";
     }
     
     [delegate notificationWasActivated:type];
+}
+
+
+- (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center shouldPresentNotification:(NSUserNotification *)notification
+{
+    return YES;
 }
 
 /*

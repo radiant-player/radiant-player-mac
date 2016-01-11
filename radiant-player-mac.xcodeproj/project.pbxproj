@@ -19,8 +19,17 @@
 		2B8FC1C318C9CB16006D04FF /* RadiantPlayerScriptCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8FC1C218C9CB16006D04FF /* RadiantPlayerScriptCommand.m */; };
 		38D0C36DAD0F40F5A7254224 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BABD1B4DDCC34CB291C66033 /* libPods.a */; };
 		42C12CDD1C1A73C100E5029B /* RdiantStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C12CDC1C1A73C100E5029B /* RdiantStyle.m */; };
-		691954C11C1F305E00FAC602 /* DDHidLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 691954C01C1F305E00FAC602 /* DDHidLib.framework */; };
-		69DDF0611C1F334D006493B1 /* DDHidLib.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 691954C01C1F305E00FAC602 /* DDHidLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		693BAD221C2702A90022B557 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		693BAD4D1C2705200022B557 /* DDHidAppleMikey.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BAD3A1C2705200022B557 /* DDHidAppleMikey.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		693BAD4E1C2705200022B557 /* DDHidAppleRemote.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BAD3C1C2705200022B557 /* DDHidAppleRemote.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		693BAD4F1C2705200022B557 /* DDHidDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BAD3E1C2705200022B557 /* DDHidDevice.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		693BAD501C2705200022B557 /* DDHidElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BAD401C2705200022B557 /* DDHidElement.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		693BAD511C2705200022B557 /* DDHidEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BAD421C2705200022B557 /* DDHidEvent.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		693BAD521C2705200022B557 /* DDHidQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BAD441C2705200022B557 /* DDHidQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		693BAD531C2705200022B557 /* DDHidUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BAD461C2705200022B557 /* DDHidUsage.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		693BAD541C2705200022B557 /* DDHidUsageTables.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BAD481C2705200022B557 /* DDHidUsageTables.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		693BAD551C2705200022B557 /* NSDictionary+DDHidExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BAD4A1C2705200022B557 /* NSDictionary+DDHidExtras.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		693BAD561C2705200022B557 /* NSXReturnThrowError.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BAD4C1C2705200022B557 /* NSXReturnThrowError.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B06FB3D219F7723500351943 /* LightStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BB948819F76CFD0081C97D /* LightStyle.m */; };
 		D302E13418B561E100CCD18E /* Preferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = D302E13318B561E100CCD18E /* Preferences.plist */; };
 		D3091F6318C32961007C8DCD /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D3091F6218C32961007C8DCD /* Utilities.m */; };
@@ -33,7 +42,6 @@
 		D318341718CFBC7400E8F9B1 /* AppearancePreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D318341618CFBC7400E8F9B1 /* AppearancePreferencesViewController.m */; };
 		D318341B18CFC7C500E8F9B1 /* ApplicationStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D318341A18CFC7C500E8F9B1 /* ApplicationStyle.m */; };
 		D318342118D0513D00E8F9B1 /* CookieStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = D318342018D0513D00E8F9B1 /* CookieStorage.m */; };
-		D31ACE84193ACDC300AC7CB4 /* RatingBadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D31ACE83193ACDC300AC7CB4 /* RatingBadgeButton.m */; };
 		D31ACE86193BCD3E00AC7CB4 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D31ACE85193BCD3E00AC7CB4 /* Growl.framework */; };
 		D31ACE8A193BDD0F00AC7CB4 /* NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D31ACE89193BDD0F00AC7CB4 /* NotificationCenter.m */; };
 		D31ACE8D193BE39E00AC7CB4 /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D31ACE85193BCD3E00AC7CB4 /* Growl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -91,7 +99,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				69DDF0611C1F334D006493B1 /* DDHidLib.framework in Copy Frameworks */,
 				D31ACE8D193BE39E00AC7CB4 /* Growl.framework in Copy Frameworks */,
 				D30F578B1BDB7BD300929904 /* Sparkle.framework in Copy Frameworks */,
 			);
@@ -131,10 +138,30 @@
 		2B8FC1BF18C9CB0E006D04FF /* radiant-player-mac.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "radiant-player-mac.sdef"; sourceTree = "<group>"; };
 		2B8FC1C118C9CB16006D04FF /* RadiantPlayerScriptCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadiantPlayerScriptCommand.h; sourceTree = "<group>"; };
 		2B8FC1C218C9CB16006D04FF /* RadiantPlayerScriptCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadiantPlayerScriptCommand.m; sourceTree = "<group>"; };
+		39ABCDF77BF211E80C80FA4D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		3C4E58611BB0DA2250F24AC6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		42C12CDB1C1A73AB00E5029B /* RdiantStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RdiantStyle.h; sourceTree = "<group>"; };
 		42C12CDC1C1A73C100E5029B /* RdiantStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RdiantStyle.m; sourceTree = "<group>"; };
-		691954C01C1F305E00FAC602 /* DDHidLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DDHidLib.framework; path = "radiant-player-mac/Frameworks/DDHidLib.framework"; sourceTree = "<group>"; };
-		A32790DC482A48E18B516D0B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		693BAD391C2705200022B557 /* DDHidAppleMikey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDHidAppleMikey.h; path = DDHidLib/DDHidAppleMikey.h; sourceTree = "<group>"; };
+		693BAD3A1C2705200022B557 /* DDHidAppleMikey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDHidAppleMikey.m; path = DDHidLib/DDHidAppleMikey.m; sourceTree = "<group>"; };
+		693BAD3B1C2705200022B557 /* DDHidAppleRemote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDHidAppleRemote.h; path = DDHidLib/DDHidAppleRemote.h; sourceTree = "<group>"; };
+		693BAD3C1C2705200022B557 /* DDHidAppleRemote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDHidAppleRemote.m; path = DDHidLib/DDHidAppleRemote.m; sourceTree = "<group>"; };
+		693BAD3D1C2705200022B557 /* DDHidDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDHidDevice.h; path = DDHidLib/DDHidDevice.h; sourceTree = "<group>"; };
+		693BAD3E1C2705200022B557 /* DDHidDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDHidDevice.m; path = DDHidLib/DDHidDevice.m; sourceTree = "<group>"; };
+		693BAD3F1C2705200022B557 /* DDHidElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDHidElement.h; path = DDHidLib/DDHidElement.h; sourceTree = "<group>"; };
+		693BAD401C2705200022B557 /* DDHidElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDHidElement.m; path = DDHidLib/DDHidElement.m; sourceTree = "<group>"; };
+		693BAD411C2705200022B557 /* DDHidEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDHidEvent.h; path = DDHidLib/DDHidEvent.h; sourceTree = "<group>"; };
+		693BAD421C2705200022B557 /* DDHidEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDHidEvent.m; path = DDHidLib/DDHidEvent.m; sourceTree = "<group>"; };
+		693BAD431C2705200022B557 /* DDHidQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDHidQueue.h; path = DDHidLib/DDHidQueue.h; sourceTree = "<group>"; };
+		693BAD441C2705200022B557 /* DDHidQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDHidQueue.m; path = DDHidLib/DDHidQueue.m; sourceTree = "<group>"; };
+		693BAD451C2705200022B557 /* DDHidUsage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDHidUsage.h; path = DDHidLib/DDHidUsage.h; sourceTree = "<group>"; };
+		693BAD461C2705200022B557 /* DDHidUsage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDHidUsage.m; path = DDHidLib/DDHidUsage.m; sourceTree = "<group>"; };
+		693BAD471C2705200022B557 /* DDHidUsageTables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDHidUsageTables.h; path = DDHidLib/DDHidUsageTables.h; sourceTree = "<group>"; };
+		693BAD481C2705200022B557 /* DDHidUsageTables.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDHidUsageTables.m; path = DDHidLib/DDHidUsageTables.m; sourceTree = "<group>"; };
+		693BAD491C2705200022B557 /* NSDictionary+DDHidExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+DDHidExtras.h"; path = "DDHidLib/NSDictionary+DDHidExtras.h"; sourceTree = "<group>"; };
+		693BAD4A1C2705200022B557 /* NSDictionary+DDHidExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+DDHidExtras.m"; path = "DDHidLib/NSDictionary+DDHidExtras.m"; sourceTree = "<group>"; };
+		693BAD4B1C2705200022B557 /* NSXReturnThrowError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSXReturnThrowError.h; path = DDHidLib/NSXReturnThrowError.h; sourceTree = "<group>"; };
+		693BAD4C1C2705200022B557 /* NSXReturnThrowError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSXReturnThrowError.m; path = DDHidLib/NSXReturnThrowError.m; sourceTree = "<group>"; };
 		B0BB948719F76CF80081C97D /* LightStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightStyle.h; sourceTree = "<group>"; };
 		B0BB948819F76CFD0081C97D /* LightStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightStyle.m; sourceTree = "<group>"; };
 		BABD1B4DDCC34CB291C66033 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,8 +183,6 @@
 		D318341A18CFC7C500E8F9B1 /* ApplicationStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationStyle.m; sourceTree = "<group>"; };
 		D318341F18D0513D00E8F9B1 /* CookieStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CookieStorage.h; sourceTree = "<group>"; };
 		D318342018D0513D00E8F9B1 /* CookieStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookieStorage.m; sourceTree = "<group>"; };
-		D31ACE82193ACDC300AC7CB4 /* RatingBadgeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingBadgeButton.h; sourceTree = "<group>"; };
-		D31ACE83193ACDC300AC7CB4 /* RatingBadgeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingBadgeButton.m; sourceTree = "<group>"; };
 		D31ACE85193BCD3E00AC7CB4 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = "radiant-player-mac/Frameworks/Growl.framework"; sourceTree = "<group>"; };
 		D31ACE88193BDD0F00AC7CB4 /* NotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationCenter.h; sourceTree = "<group>"; };
 		D31ACE89193BDD0F00AC7CB4 /* NotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationCenter.m; sourceTree = "<group>"; };
@@ -249,7 +274,6 @@
 			files = (
 				D31ACE86193BCD3E00AC7CB4 /* Growl.framework in Frameworks */,
 				D370E8E018E21ABC007B5450 /* QuartzCore.framework in Frameworks */,
-				691954C11C1F305E00FAC602 /* DDHidLib.framework in Frameworks */,
 				D3B4C0C318DAB4740069AB18 /* JavaScriptCore.framework in Frameworks */,
 				D30F57891BDB7B2200929904 /* Sparkle.framework in Frameworks */,
 				1A7B687417453E4C001E509E /* WebKit.framework in Frameworks */,
@@ -269,7 +293,7 @@
 				1A7B683E17453E40001E509E /* Frameworks */,
 				D37A5FC91BDBEA2C0027FBD4 /* Resources */,
 				1A7B683D17453E40001E509E /* Products */,
-				A32790DC482A48E18B516D0B /* Pods.xcconfig */,
+				AF432C2EC36B63C6736042F4 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -284,7 +308,6 @@
 		1A7B683E17453E40001E509E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				691954C01C1F305E00FAC602 /* DDHidLib.framework */,
 				D30F57881BDB7B2200929904 /* Sparkle.framework */,
 				D31ACE85193BCD3E00AC7CB4 /* Growl.framework */,
 				D370E8DF18E21ABC007B5450 /* QuartzCore.framework */,
@@ -310,6 +333,7 @@
 		1A7B684517453E40001E509E /* radiant-player-mac */ = {
 			isa = PBXGroup;
 			children = (
+				693BAD381C27050B0022B557 /* DDHidLib */,
 				D36F50621A3D871D000541C9 /* Support */,
 				D31ACE87193BDC9700AC7CB4 /* Notifications */,
 				D3D4C3E318E75C79007238B3 /* LastFm */,
@@ -366,6 +390,42 @@
 			path = AppleScript;
 			sourceTree = "<group>";
 		};
+		693BAD381C27050B0022B557 /* DDHidLib */ = {
+			isa = PBXGroup;
+			children = (
+				693BAD391C2705200022B557 /* DDHidAppleMikey.h */,
+				693BAD3A1C2705200022B557 /* DDHidAppleMikey.m */,
+				693BAD3B1C2705200022B557 /* DDHidAppleRemote.h */,
+				693BAD3C1C2705200022B557 /* DDHidAppleRemote.m */,
+				693BAD3D1C2705200022B557 /* DDHidDevice.h */,
+				693BAD3E1C2705200022B557 /* DDHidDevice.m */,
+				693BAD3F1C2705200022B557 /* DDHidElement.h */,
+				693BAD401C2705200022B557 /* DDHidElement.m */,
+				693BAD411C2705200022B557 /* DDHidEvent.h */,
+				693BAD421C2705200022B557 /* DDHidEvent.m */,
+				693BAD431C2705200022B557 /* DDHidQueue.h */,
+				693BAD441C2705200022B557 /* DDHidQueue.m */,
+				693BAD451C2705200022B557 /* DDHidUsage.h */,
+				693BAD461C2705200022B557 /* DDHidUsage.m */,
+				693BAD471C2705200022B557 /* DDHidUsageTables.h */,
+				693BAD481C2705200022B557 /* DDHidUsageTables.m */,
+				693BAD491C2705200022B557 /* NSDictionary+DDHidExtras.h */,
+				693BAD4A1C2705200022B557 /* NSDictionary+DDHidExtras.m */,
+				693BAD4B1C2705200022B557 /* NSXReturnThrowError.h */,
+				693BAD4C1C2705200022B557 /* NSXReturnThrowError.m */,
+			);
+			name = DDHidLib;
+			sourceTree = "<group>";
+		};
+		AF432C2EC36B63C6736042F4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				39ABCDF77BF211E80C80FA4D /* Pods.debug.xcconfig */,
+				3C4E58611BB0DA2250F24AC6 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D318341818CFC73500E8F9B1 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
@@ -413,8 +473,6 @@
 				D32CCEF918BE039E00BDD484 /* PopupPanel.m */,
 				D32CCEFB18BE9BF800BDD484 /* PopupView.h */,
 				D32CCEFC18BE9BF800BDD484 /* PopupView.m */,
-				D31ACE82193ACDC300AC7CB4 /* RatingBadgeButton.h */,
-				D31ACE83193ACDC300AC7CB4 /* RatingBadgeButton.m */,
 			);
 			path = Popup;
 			sourceTree = "<group>";
@@ -522,6 +580,7 @@
 				D0B126C78BE34593B5FE493C /* Copy Pods Resources */,
 				D31ACE8C193BE38900AC7CB4 /* Copy Frameworks */,
 				D37A5FCC1BDBEAE90027FBD4 /* Copy DSA Public Key */,
+				6EA0989A3DBD95F8AE5279E8 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -570,6 +629,7 @@
 			files = (
 				D326EA6418B2D7E500BEC02F /* css in Resources */,
 				D3D4C3E518E76063007238B3 /* LastFmPopover.xib in Resources */,
+				693BAD221C2702A90022B557 /* (null) in Resources */,
 				D326EA6518B2D7E500BEC02F /* js in Resources */,
 				2B8FC1C018C9CB0E006D04FF /* radiant-player-mac.sdef in Resources */,
 				D302E13418B561E100CCD18E /* Preferences.plist in Resources */,
@@ -586,6 +646,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6EA0989A3DBD95F8AE5279E8 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7A2071DB33B24D5B85C39505 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -613,7 +688,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -628,18 +703,22 @@
 				D3CD9C3C18F25E0E002FBEE9 /* ImageURLProtocol.m in Sources */,
 				1A68DAD81803B588004CBA25 /* CustomWebView.m in Sources */,
 				D318342118D0513D00E8F9B1 /* CookieStorage.m in Sources */,
+				693BAD4F1C2705200022B557 /* DDHidDevice.m in Sources */,
 				D318341B18CFC7C500E8F9B1 /* ApplicationStyle.m in Sources */,
 				2B8FC1C318C9CB16006D04FF /* RadiantPlayerScriptCommand.m in Sources */,
 				D3B71C2F18C2D5770041358B /* LastFmPreferencesViewController.m in Sources */,
 				D30CA00519383160007B05B2 /* NSApplication+ScriptingProperties.m in Sources */,
 				1A7B684C17453E40001E509E /* main.m in Sources */,
 				D37B638A18F1EFD30098F9DC /* InvertedSpriteURLProtocol.m in Sources */,
+				693BAD561C2705200022B557 /* NSXReturnThrowError.m in Sources */,
 				D35F2E8C1A3D9D130072E461 /* Swizzle.c in Sources */,
 				D3DB8FF518BD2AEC00ABE93B /* PlaybackConstants.m in Sources */,
 				D32861701924744200395FEA /* NSHTTPCookieStorage+Swizzle.m in Sources */,
+				693BAD4D1C2705200022B557 /* DDHidAppleMikey.m in Sources */,
 				D3DF18181A99A581002AEE64 /* GoogleStyle.m in Sources */,
 				D3D4C3EB18E77AA0007238B3 /* LastFmTrackTableCellView.m in Sources */,
 				1A7B685317453E40001E509E /* AppDelegate.m in Sources */,
+				693BAD551C2705200022B557 /* NSDictionary+DDHidExtras.m in Sources */,
 				D3DB8FF818BD6A6400ABE93B /* PlaybackSliderCell.m in Sources */,
 				D3FAC6D718BA942500D9F461 /* PopupViewDelegate.m in Sources */,
 				42C12CDD1C1A73C100E5029B /* RdiantStyle.m in Sources */,
@@ -651,14 +730,16 @@
 				D37C9289195E19BD0035709A /* NSImage+Data.m in Sources */,
 				D377DB5B1B0A6F5900026312 /* JSURLProtocol.m in Sources */,
 				D32CCEFA18BE039E00BDD484 /* PopupPanel.m in Sources */,
-				D31ACE84193ACDC300AC7CB4 /* RatingBadgeButton.m in Sources */,
 				D346173519D907F300017023 /* SpotifyBlackVibrantStyle.m in Sources */,
 				D37B638718F1E7680098F9DC /* SpriteDownloadURLProtocol.m in Sources */,
 				D3B71C2818C2D5240041358B /* PreferencesWindowController.m in Sources */,
 				D328616519234D7900395FEA /* TitleBarTextView.m in Sources */,
 				D318341718CFBC7400E8F9B1 /* AppearancePreferencesViewController.m in Sources */,
+				693BAD501C2705200022B557 /* DDHidElement.m in Sources */,
 				D37B638418ED315B0098F9DC /* LastFm+TrackInfo.m in Sources */,
+				693BAD511C2705200022B557 /* DDHidEvent.m in Sources */,
 				D30CA0081938722F007B05B2 /* NSImage+ScriptingDescriptor.m in Sources */,
+				693BAD541C2705200022B557 /* DDHidUsageTables.m in Sources */,
 				D35788BD18C2F820006AF859 /* GeneralPreferencesViewController.m in Sources */,
 				D3FAC6D418BA81EC00D9F461 /* PopupStatusView.m in Sources */,
 				D31ACE8A193BDD0F00AC7CB4 /* NotificationCenter.m in Sources */,
@@ -666,10 +747,13 @@
 				D37C928C195E3B3F0035709A /* SpotifyBlackStyle.m in Sources */,
 				FF76BDFF1C05083D0004D31A /* DarkCyanStyle.m in Sources */,
 				D343CDF518C69DF4002F9DB3 /* NavigationPreferencesViewController.m in Sources */,
+				693BAD531C2705200022B557 /* DDHidUsage.m in Sources */,
+				693BAD4E1C2705200022B557 /* DDHidAppleRemote.m in Sources */,
 				D3F14A4918F357AA007D4536 /* AdvancedPreferencesViewController.m in Sources */,
 				D3D4C3E818E76674007238B3 /* LastFmPopover.m in Sources */,
 				D3091F6318C32961007C8DCD /* Utilities.m in Sources */,
 				D370E8E318E2BFE1007B5450 /* ExpandHoverView.m in Sources */,
+				693BAD521C2705200022B557 /* DDHidQueue.m in Sources */,
 				D32861681924000800395FEA /* NSDate+UTCString.m in Sources */,
 				D32CCEFD18BE9BF800BDD484 /* PopupView.m in Sources */,
 				D36F50651A3D874E000541C9 /* VisualEffectView.m in Sources */,
@@ -766,17 +850,18 @@
 		};
 		1A7B686E17453E40001E509E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A32790DC482A48E18B516D0B /* Pods.xcconfig */;
+			baseConfigurationReference = 39ABCDF77BF211E80C80FA4D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/radiant-player-mac/Frameworks",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "radiant-player-mac/prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/radiant-player-mac/info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
 				PRODUCT_NAME = "Radiant Player";
 				WRAPPER_EXTENSION = app;
 			};
@@ -784,17 +869,18 @@
 		};
 		1A7B686F17453E40001E509E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A32790DC482A48E18B516D0B /* Pods.xcconfig */;
+			baseConfigurationReference = 3C4E58611BB0DA2250F24AC6 /* Pods.release.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/radiant-player-mac/Frameworks",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "radiant-player-mac/prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/radiant-player-mac/info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
 				PRODUCT_NAME = "Radiant Player";
 				WRAPPER_EXTENSION = app;
 			};

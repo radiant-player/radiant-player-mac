@@ -10,8 +10,6 @@
 #import <Cocoa/Cocoa.h>
 #import <IOKit/hidsystem/ev_keymap.h>
 #import <WebKit/WebKit.h>
-#import <EDStarRating/EDStarRating.h>
-#import <DDHidLib/DDHidLib.h>
 
 #import "Notifications/NotificationCenter.h"
 
@@ -37,16 +35,17 @@
 @class PopupStatusView;
 @class PopupPanel;
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate, CustomWebViewDelegate, EDStarRatingProtocol, NotificationCenterDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate, CustomWebViewDelegate, NotificationCenterDelegate>
 {
 	CFMachPortRef eventTap;
     CFRunLoopSourceRef eventPortSource;
-    
+
     NSMutableDictionary *_styles;
     BOOL _isTall;
-    
-    NSArray *mikeys;
-    
+
+    NSMutableArray *_mikeys;
+    NSMutableArray *_appleRemotes;
+
     WebView *dummyWebView;
     DummyWebViewPolicyDelegate *dummyWebViewDelegate;
 }
@@ -69,9 +68,6 @@
 
 @property (assign) IBOutlet NSMenuItem *thumbsUpMenuItem;
 @property (assign) IBOutlet NSMenuItem *thumbsDownMenuItem;
-@property (assign) IBOutlet NSMenuItem *starRatingMenuItem;
-@property (assign) IBOutlet EDStarRating *starRatingView;
-@property (assign) IBOutlet NSTextField *starRatingLabel;
 @property (assign) IBOutlet NSMenuItem *ratingsSeparatorMenuItem;
 
 @property (nonatomic, retain) IBOutlet LastFmPopover *lastfmPopover;
@@ -87,12 +83,10 @@
 @property (assign) NSTimeInterval currentDuration;
 @property (assign) NSTimeInterval currentTimestamp;
 @property (assign) NSInteger currentPlaybackMode;
-@property (assign) BOOL isStarsRatingSystem;
 
 - (void) initializeStatusBar;
 - (NSMutableDictionary *) styles;
 - (void) setupThumbsUpRatingView;
-- (void) setupStarRatingView;
 - (void) setupRatingMenuItems;
 - (void) useTallTitleBar;
 - (void) useNormalTitleBar;
@@ -117,7 +111,6 @@
 
 - (IBAction) toggleThumbsUp:(id)sender;
 - (IBAction) toggleThumbsDown:(id)sender;
-- (void) setStarRating:(NSInteger)rating;
 
 - (IBAction) toggleRepeatMode:(id)sender;
 - (IBAction) repeatNone:(id)sender;
@@ -150,5 +143,5 @@
 - (void) applyCSSFile:(NSString *)name;
 + (NSString *) webScriptNameForSelector:(SEL)sel;
 + (BOOL) isSelectorExcludedFromWebScript:(SEL)sel;
-    
+
 @end

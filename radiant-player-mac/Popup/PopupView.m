@@ -31,21 +31,21 @@
 {
     isLargePlayer = NO;
     _hoverAlphaMultiplier = 0.0;
-    
+
     if (NSVisualEffectViewExists)
     {
         if ([Utilities isSystemInDarkMode])
             [self setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameVibrantDark]];
         else
             [self setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameVibrantLight]];
-        
+
         [self setBlendingMode:VisualEffectBlendingModeBehindWindow];
         [self setMaterial:VisualEffectMaterialAppearanceBased];
         [self setState:VisualEffectStateActive];
     }
-    
+
     [self setAnimations:@{@"hoverAlphaMultiplier": [CABasicAnimation animation]}];
-    
+
     // Update subviews to not be vibrant!
     for (NSView *view in [self subviews])
     {
@@ -56,7 +56,7 @@
 - (void)drawRect:(NSRect)dirtyRect
 {
     NSBezierPath *path = [self _popupDrawingPath];
-    
+
     NSColor *gradientDark = [NSColor colorWithDeviceWhite:0.1 alpha:_hoverAlphaMultiplier*0.7];
     NSColor *gradientLight = [NSColor colorWithDeviceWhite:0.05 alpha:_hoverAlphaMultiplier*0.2];
     NSColor *gradientNone = [NSColor colorWithDeviceWhite:0.0 alpha:_hoverAlphaMultiplier*0.1];
@@ -67,13 +67,13 @@
                                  gradientLight, 0.7,
                                  gradientDark, 1.0,
                                  nil];
-    
-    
+
+
     [NSGraphicsContext saveGraphicsState];
     [path addClip];
     [super drawRect:dirtyRect];
     [NSGraphicsContext restoreGraphicsState];
-    
+
     // Draw the background album art image if possible.
     if (isLargePlayer)
     {
@@ -85,7 +85,7 @@
                               operation:NSCompositeSourceOver
                                fraction:1.0];
         }
-        
+
         [hoverGradient drawInBezierPath:path angle:-90.0];
     }
 }
@@ -94,64 +94,64 @@
 {
     NSRect contentRect = NSInsetRect([self bounds], LINE_THICKNESS, LINE_THICKNESS);
     NSBezierPath *path = [NSBezierPath bezierPath];
-    
+
     if (delegate.popup.docked) {
         [path moveToPoint:NSMakePoint(arrowX, NSMaxY(contentRect))];
         [path lineToPoint:NSMakePoint(arrowX + ARROW_WIDTH / 2, NSMaxY(contentRect) - ARROW_HEIGHT)];
         [path lineToPoint:NSMakePoint(NSMaxX(contentRect) - CORNER_RADIUS, NSMaxY(contentRect) - ARROW_HEIGHT)];
-        
+
         NSPoint topRightCorner = NSMakePoint(NSMaxX(contentRect), NSMaxY(contentRect) - ARROW_HEIGHT);
         [path curveToPoint:NSMakePoint(NSMaxX(contentRect), NSMaxY(contentRect) - ARROW_HEIGHT - CORNER_RADIUS)
              controlPoint1:topRightCorner controlPoint2:topRightCorner];
-        
+
         [path lineToPoint:NSMakePoint(NSMaxX(contentRect), NSMinY(contentRect) + CORNER_RADIUS)];
-        
+
         NSPoint bottomRightCorner = NSMakePoint(NSMaxX(contentRect), NSMinY(contentRect));
         [path curveToPoint:NSMakePoint(NSMaxX(contentRect) - CORNER_RADIUS, NSMinY(contentRect))
              controlPoint1:bottomRightCorner controlPoint2:bottomRightCorner];
-        
+
         [path lineToPoint:NSMakePoint(NSMinX(contentRect) + CORNER_RADIUS, NSMinY(contentRect))];
-        
+
         [path curveToPoint:NSMakePoint(NSMinX(contentRect), NSMinY(contentRect) + CORNER_RADIUS)
              controlPoint1:contentRect.origin controlPoint2:contentRect.origin];
-        
+
         [path lineToPoint:NSMakePoint(NSMinX(contentRect), NSMaxY(contentRect) - ARROW_HEIGHT - CORNER_RADIUS)];
-        
+
         NSPoint topLeftCorner = NSMakePoint(NSMinX(contentRect), NSMaxY(contentRect) - ARROW_HEIGHT);
         [path curveToPoint:NSMakePoint(NSMinX(contentRect) + CORNER_RADIUS, NSMaxY(contentRect) - ARROW_HEIGHT)
              controlPoint1:topLeftCorner controlPoint2:topLeftCorner];
-        
+
         [path lineToPoint:NSMakePoint(arrowX - ARROW_WIDTH / 2, NSMaxY(contentRect) - ARROW_HEIGHT)];
         [path closePath];
     }
     else {
         [path moveToPoint:NSMakePoint(NSMaxX(contentRect) - CORNER_RADIUS, NSMaxY(contentRect))];
-        
+
         NSPoint topRightCorner = NSMakePoint(NSMaxX(contentRect), NSMaxY(contentRect));
         [path curveToPoint:NSMakePoint(NSMaxX(contentRect), NSMaxY(contentRect) - CORNER_RADIUS)
              controlPoint1:topRightCorner controlPoint2:topRightCorner];
-        
+
         [path lineToPoint:NSMakePoint(NSMaxX(contentRect), NSMinY(contentRect) + CORNER_RADIUS)];
-        
+
         NSPoint bottomRightCorner = NSMakePoint(NSMaxX(contentRect), NSMinY(contentRect));
         [path curveToPoint:NSMakePoint(NSMaxX(contentRect) - CORNER_RADIUS, NSMinY(contentRect))
              controlPoint1:bottomRightCorner controlPoint2:bottomRightCorner];
-        
+
         [path lineToPoint:NSMakePoint(NSMinX(contentRect) + CORNER_RADIUS, NSMinY(contentRect))];
-        
+
         [path curveToPoint:NSMakePoint(NSMinX(contentRect), NSMinY(contentRect) + CORNER_RADIUS)
              controlPoint1:contentRect.origin controlPoint2:contentRect.origin];
-        
+
         [path lineToPoint:NSMakePoint(NSMinX(contentRect), NSMaxY(contentRect) - CORNER_RADIUS)];
-        
+
         NSPoint topLeftCorner = NSMakePoint(NSMinX(contentRect), NSMaxY(contentRect));
         [path curveToPoint:NSMakePoint(NSMinX(contentRect) + CORNER_RADIUS, NSMaxY(contentRect))
              controlPoint1:topLeftCorner controlPoint2:topLeftCorner];
-        
+
         [path lineToPoint:NSMakePoint(NSMaxX(contentRect) - CORNER_RADIUS, NSMaxY(contentRect))];
         [path closePath];
     }
-    
+
     return path;
 }
 
@@ -184,7 +184,7 @@
     if (trackingArea != nil) {
         [self removeTrackingArea:trackingArea];
     }
-    
+
     int opts = (NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways);
     trackingArea = [ [NSTrackingArea alloc] initWithRect:[self bounds]
                                                  options:opts
@@ -196,19 +196,18 @@
 - (void)setHoverAlphaMultiplier:(CGFloat)hoverAlphaMultiplier
 {
     _hoverAlphaMultiplier = hoverAlphaMultiplier;
-    
+
     // Update subviews.
     for (NSView *view in [self subviews])
     {
         if ([view tag] != NO_SONGS_PLAYING_TAG &&
-            [view tag] != EXPAND_ART_TAG &&
-            ![view isKindOfClass:[EDStarRating class]]
+            [view tag] != EXPAND_ART_TAG
             )
         {
             [view setAlphaValue:_hoverAlphaMultiplier];
         }
     }
-    
+
     // Redraw.
     [self setNeedsDisplay:YES];
 }
@@ -226,22 +225,22 @@
         frame.origin.y -= (MINI_PLAYER_LARGE_HEIGHT - frame.size.height);
         frame.size.height = MINI_PLAYER_LARGE_HEIGHT;
         isLargePlayer = YES;
-        
+
         // Show the controls.
         [self setHoverAlphaMultiplier:1.0];
-        
+
         // Set the background image.
         [self setBackgroundImage:[delegate.artView image]];
-        
+
         // Reset art's expand/contract image.
         [delegate.artExpandView setImage:[delegate expandContractImage]];
-        
+
         // Begin the animation to resize.
         [NSAnimationContext beginGrouping];
         [[NSAnimationContext currentContext] setDuration:.25];
         [[self.window animator] setFrame:frame display:YES];
         [NSAnimationContext endGrouping];
-        
+
         // Recolor elements.
         [delegate.titleLabel setTextColor:[self _textColor]];
         [delegate.titleLabel setAlignment:NSCenterTextAlignment];
@@ -249,7 +248,7 @@
         [delegate.artistLabel setAlignment:NSCenterTextAlignment];
         [delegate.albumLabel setTextColor:[self _textColor]];
         [delegate.albumLabel setAlignment:NSCenterTextAlignment];
-        
+
         [delegate playbackChanged:delegate.playbackMode];
         [delegate repeatChanged:delegate.repeatMode];
         [delegate shuffleChanged:delegate.shuffleMode];
@@ -257,8 +256,6 @@
         [delegate.backButton setImage:[delegate backImage]];
         [delegate.forwardButton setImage:[delegate forwardImage]];
         [delegate.actionButton setImage:[delegate actionButtonImage]];
-        [delegate.starBadgeButton setImage:[delegate starBadgeImage:[delegate songRating]]];
-        [delegate.starRatingView setStarImage:[delegate starRatingImage]];
     }
     else
     {
@@ -266,22 +263,22 @@
         frame.origin.y += (frame.size.height - MINI_PLAYER_SMALL_HEIGHT);
         frame.size.height = MINI_PLAYER_SMALL_HEIGHT;
         isLargePlayer = NO;
-        
+
         // Show the controls.
         [self setHoverAlphaMultiplier:1.0];
-        
+
         // Remove the background image.
         [self setBackgroundImage:nil];
-        
+
         // Reset art's expand/contract image.
         [delegate.artExpandView setImage:[delegate expandContractImage]];
-        
+
         // Begin the animation to resize.
         [NSAnimationContext beginGrouping];
         [[NSAnimationContext currentContext] setDuration:.25];
         [[self.window animator] setFrame:frame display:YES];
         [NSAnimationContext endGrouping];
-        
+
         // Recolor elements.
         [delegate.titleLabel setTextColor:[self _textColor]];
         [delegate.titleLabel setAlignment:NSLeftTextAlignment];
@@ -289,7 +286,7 @@
         [delegate.artistLabel setAlignment:NSLeftTextAlignment];
         [delegate.albumLabel setTextColor:[self _textColor]];
         [delegate.albumLabel setAlignment:NSLeftTextAlignment];
-        
+
         [delegate playbackChanged:delegate.playbackMode];
         [delegate repeatChanged:delegate.repeatMode];
         [delegate shuffleChanged:delegate.shuffleMode];
@@ -297,8 +294,6 @@
         [delegate.backButton setImage:[delegate backImage]];
         [delegate.forwardButton setImage:[delegate forwardImage]];
         [delegate.actionButton setImage:[delegate actionButtonImage]];
-        [delegate.starBadgeButton setImage:[delegate starBadgeImage:[delegate songRating]]];
-        [delegate.starRatingView setStarImage:[delegate starRatingImage]];
     }
 }
 
@@ -308,7 +303,7 @@
     {
         return [[[self appearance] name] isEqualToString:NSAppearanceNameVibrantDark];
     }
-    
+
     return NO;
 }
 

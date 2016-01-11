@@ -121,3 +121,14 @@ background: #018fd5!important;
 paper-header-panel#content-container.transparent #material-app-bar {
 background-color: rgba(1, 143, 213, 0.4)!important;
 }
+
+/* Fill to highlight thumbed up/down track in status bar */
+paper-icon-button[aria-label="Undo thumb-up"] iron-icon {
+    background: url('https://radiant-player-mac/images/sprites.png') no-repeat -276px -235px;
+    background-size: 763px 360px;
+}
+
+paper-icon-button[aria-label="Undo thumb-down"] iron-icon {
+    background: url('https://radiant-player-mac/images/sprites.png') no-repeat -165px -323px;
+    background-size: 763px 360px;
+}

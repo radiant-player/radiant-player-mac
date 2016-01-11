@@ -9,9 +9,10 @@
 
 #import "AppDelegate.h"
 #import "LastFmService.h"
+#import "DDHidAppleRemote.h"
+#import "DDHidAppleMikey.h"
 
 #import <Sparkle/Sparkle.h>
-#import <DDHidLib/DDHidLib.h>
 
 @implementation AppDelegate
 
@@ -32,9 +33,6 @@
 
 @synthesize thumbsUpMenuItem;
 @synthesize thumbsDownMenuItem;
-@synthesize starRatingMenuItem;
-@synthesize starRatingView;
-@synthesize starRatingLabel;
 @synthesize ratingsSeparatorMenuItem;
 
 @synthesize defaults;
@@ -49,7 +47,6 @@
 @synthesize currentDuration;
 @synthesize currentTimestamp;
 @synthesize currentPlaybackMode;
-@synthesize isStarsRatingSystem;
 
 /**
  * Closing the application, hides the player window but keeps music playing in the background.
@@ -284,21 +281,9 @@
 - (void)setupRatingMenuItems
 {
     // Add the appropriate menu items.
-    if (isStarsRatingSystem)
-    {
-        [self setupStarRatingView];
-        [thumbsUpMenuItem setHidden:YES];
-        [thumbsDownMenuItem setHidden:YES];
-        [starRatingMenuItem setHidden:NO];
-    }
-    else
-    {
-        [self setupThumbsUpRatingView];
-        [thumbsUpMenuItem setHidden:NO];
-        [thumbsDownMenuItem setHidden:NO];
-        [starRatingMenuItem setHidden:YES];
-    }
-
+    [self setupThumbsUpRatingView];
+    [thumbsUpMenuItem setHidden:NO];
+    [thumbsDownMenuItem setHidden:NO];
     [ratingsSeparatorMenuItem setHidden:NO];
 }
 
@@ -306,22 +291,6 @@
 {
     [thumbsUpMenuItem setHidden:NO];
     [thumbsDownMenuItem setHidden:NO];
-    [starRatingMenuItem setHidden:YES];
-}
-
-- (void)setupStarRatingView
-{
-    [thumbsUpMenuItem setHidden:YES];
-    [thumbsDownMenuItem setHidden:YES];
-    [starRatingMenuItem setHidden:NO];
-
-    [starRatingView setStarImage:[Utilities imageFromName:@"stars/star_outline_black_small"]];
-    [starRatingView setStarHighlightedImage:[Utilities imageFromName:@"stars/star_filled_small"]];
-    [starRatingView setMaxRating:5];
-    [starRatingView setHalfStarThreshold:1];
-    [starRatingView setEditable:NO];
-    [starRatingView setDisplayMode:EDStarRatingDisplayFull];
-    [starRatingView setDelegate:self];
 }
 
 /*
@@ -406,11 +375,6 @@ float _defaultTitleBarHeight() {
 - (void) windowDidResize:(NSNotification *)notification
 {
     [self _adjustTitleBar];
-}
-
-- (void)starsSelectionChanged:(EDStarRating *)control rating:(float)rating
-{
-    [self setStarRating:rating];
 }
 
 - (void)showLastFmPopover:(id)sender
@@ -512,8 +476,8 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 - (void) pressKey:(NSUInteger)keytype
 {
-    [self keyEvent:keytype state:0xA];  // key down
-    [self keyEvent:keytype state: 0xB]; // key up
+    [self keyEvent:keytype state:0xA]; // key down
+    [self keyEvent:keytype state:0xB]; // key up
 }
 
 - (void) keyEvent:(NSUInteger)keytype state:(NSUInteger)state
@@ -541,15 +505,32 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 {
     NSLog(@"Reset Mikeys");
 
-    if (mikeys != nil) {
-        [mikeys makeObjectsPerformSelector:@selector(stopListening) withObject:nil];
+    if (_mikeys != nil) {
+        @try {
+            [_mikeys makeObjectsPerformSelector:@selector(stopListening)];
+        }
+        @catch (NSException *exception) {
+            NSLog(@"Error when stopListening on device: %@", exception);
+        }
     }
-    mikeys = [DDHidAppleMikey allMikeys];
-    // we want to be the delegate of the mikeys
-    [mikeys makeObjectsPerformSelector:@selector(setDelegate:) withObject:self];
-    // start listening to all mikey events
-    [mikeys makeObjectsPerformSelector:@selector(setListenInExclusiveMode:) withObject:(id)kCFBooleanFalse];
-    [mikeys makeObjectsPerformSelector:@selector(startListening) withObject:nil];
+    @try {
+        NSArray *mikeys = [DDHidAppleMikey allMikeys];
+        _mikeys = [NSMutableArray arrayWithCapacity:mikeys.count];
+        for (DDHidAppleMikey *item in mikeys) {
+            @try {
+                [item setDelegate:self];
+                [item setListenInExclusiveMode:NO];
+                [item startListening];
+                [_mikeys addObject:item];
+            }
+            @catch (NSException *exception) {
+                NSLog(@"Error when startListning on device: %@, exception %@", item, exception);
+            }
+        }
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Error obtaining HID devices: %@", [exception description]);
+    }
 }
 
 - (void) ddhidAppleMikey:(DDHidAppleMikey *)mikey press:(unsigned)usageId upOrDown:(BOOL)upOrDown
@@ -569,10 +550,10 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
                                        withObject:nil waitUntilDone:NO];
                 break;
             case kHIDUsage_GD_SystemMenuUp:
-                [self pressKey:NX_KEYTYPE_SOUND_UP];
+                // [self pressKey:NX_KEYTYPE_SOUND_UP];
                 break;
             case kHIDUsage_GD_SystemMenuDown:
-                [self pressKey:NX_KEYTYPE_SOUND_DOWN];
+                // [self pressKey:NX_KEYTYPE_SOUND_DOWN];
                 break;
             default:
                 NSLog(@"Unknown key press seen %d", usageId);
@@ -701,15 +682,6 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 }
 
 /**
- * Set the star rating (between 0 and 5) for the song.
- */
-- (IBAction) setStarRating:(NSInteger)rating
-{
-    NSString *js = [NSString stringWithFormat:@"gmusic.rating.setStarRating(%ld)", (long)rating];
-    [webView stringByEvaluatingJavaScriptFromString:js];
-}
-
-/**
  * Cycle between the repeat modes.
  */
 - (IBAction) toggleRepeatMode:(id)sender
@@ -783,9 +755,6 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         [LastFmService sendNowPlaying:title withArtist:artist album:album duration:duration timestamp:timestamp];
     }
 
-    // Determine whether the player is using thumbs or stars.
-    NSNumber *value = [[webView windowScriptObject] evaluateWebScript:@"window.MusicAPI.Rating.isStarsRatingSystem()"];
-    isStarsRatingSystem = NO;
     [self setupRatingMenuItems];
 
     // Update our current data.
@@ -846,21 +815,6 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     [statusView setPlaybackMode:mode];
     [statusView setNeedsDisplay:YES];
 
-    if (isStarsRatingSystem)
-    {
-        if (mode == MUSIC_STOPPED)
-        {
-            [starRatingView setEditable:NO];
-            [starRatingView setRating:0];
-            [starRatingLabel setTextColor:[NSColor disabledControlTextColor]];
-        }
-        else
-        {
-            [starRatingView setEditable:YES];
-            [starRatingLabel setTextColor:[NSColor controlTextColor]];
-        }
-    }
-
     if (mode == MUSIC_STOPPED) {
         [NSApp setApplicationIconImage: nil];
         currentArt = nil;
@@ -897,9 +851,6 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
             [LastFmService unloveTrack:currentTitle artist:currentArtist successHandler:nil failureHandler:failureHandler];
         }
     }
-
-    if (isStarsRatingSystem)
-        [starRatingView setRating:rating];
 
     [popupDelegate ratingChanged:rating];
 }
@@ -989,9 +940,6 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         style = [_styles objectForKey:@"Google"];
 
     [style applyToWebView:webView window:window];
-
-    // Determine whether the player is using thumbs or stars.
-    isStarsRatingSystem = NO; // (int)[[webView windowScriptObject] evaluateWebScript:@"window.MusicAPI.Rating.isStarsRatingSystem()"] == YES;
 
     [self setupRatingMenuItems];
 

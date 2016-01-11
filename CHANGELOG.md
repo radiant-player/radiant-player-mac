@@ -4,6 +4,18 @@ This file should follow the standards specified on [keepachangelog.com](http://k
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
+### Changed
+* Updated mini player to use Play Music orange consistently ([#476](https://github.com/radiant-player/radiant-player-mac/pull/476)
+* Always show notifications, even if window is in focus ([#472](https://github.com/radiant-player/radiant-player-mac/pull/472), [@jscheel](https://github.com/jscheel))
+* Various legacy code cleanup / removal ([#465](https://github.com/radiant-player/radiant-player-mac/pull/465))
+
+## [1.6.2] - 2015-12-20
+### Fixed
+* Fixed a bug introduced in 1.6.0 where Radiant would hang when external HID devices were connected ([#463](https://github.com/radiant-player/radiant-player-mac/pull/463)).  Note that there is still an outstanding bug where the headphone play/pause buttons open iTunes in addition to controlling Radiant.  That is still being investigated.
+
+## [1.6.1] - 2015-12-20
+### Fixed
+* Applied ratings button fill fix ([#436](https://github.com/radiant-player/radiant-player-mac/pull/436)) to Rdiant theme ([#462](https://github.com/radiant-player/radiant-player-mac/pull/462))
 
 ## [1.6.0] - 2015-12-19
 ### Added

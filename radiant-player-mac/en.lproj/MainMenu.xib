@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="8191"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="9531"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -26,9 +26,6 @@
                 <outlet property="prefsController" destination="Lzb-Be-DHP" id="G8R-fX-IHV"/>
                 <outlet property="ratingsSeparatorMenuItem" destination="VD8-yV-cM6" id="w7l-Y2-Ivt"/>
                 <outlet property="reloadButton" destination="pVF-no-ka9" id="Y2l-vC-tPP"/>
-                <outlet property="starRatingLabel" destination="F5F-yr-hWN" id="YZC-dp-bEp"/>
-                <outlet property="starRatingMenuItem" destination="AU3-72-l3d" id="gH3-3w-nwg"/>
-                <outlet property="starRatingView" destination="XCB-1i-pOq" id="JBG-we-TAC"/>
                 <outlet property="thumbsDownMenuItem" destination="V0w-yV-z7x" id="yOr-PC-H25"/>
                 <outlet property="thumbsUpMenuItem" destination="v1A-Za-ChF" id="fcc-2L-b1c"/>
                 <outlet property="toolbar" destination="c7x-mm-euH" id="elP-CG-s9k"/>
@@ -205,18 +202,6 @@
                                     <action selector="toggleThumbsDown:" target="494" id="4Y5-bB-SVp"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Rating" hidden="YES" id="AU3-72-l3d">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <binding destination="494" name="enabled" keyPath="self.isStopped" id="qo7-8V-Ui7">
-                                        <dictionary key="options">
-                                            <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
-                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                        </dictionary>
-                                    </binding>
-                                    <outlet property="view" destination="Hd4-lS-MgE" id="v7m-w3-YIY"/>
-                                </connections>
-                            </menuItem>
                             <menuItem isSeparatorItem="YES" hidden="YES" id="VD8-yV-cM6"/>
                             <menuItem title="Repeat Mode" id="yzV-K5-YkR">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -311,7 +296,7 @@
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="942" height="702"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" id="372">
                 <rect key="frame" x="0.0" y="0.0" width="942" height="702"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -328,7 +313,7 @@
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="mf9-a3-xaf">
                         <rect key="frame" x="0.0" y="0.0" width="942" height="702"/>
                         <subviews>
-                            <button hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pVF-no-ka9">
+                            <button hidden="YES" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pVF-no-ka9">
                                 <rect key="frame" x="429" y="306" width="84" height="32"/>
                                 <buttonCell key="cell" type="push" title="Reload" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Cam-gA-HFn">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -398,8 +383,6 @@
                 <outlet property="popup" destination="sr1-Je-yff" id="rGd-1u-1st"/>
                 <outlet property="repeatButton" destination="DvI-Lo-u1q" id="xDw-Gh-EXt"/>
                 <outlet property="shuffleButton" destination="0Xb-8Y-y5L" id="zxu-qb-yUd"/>
-                <outlet property="starBadgeButton" destination="vVf-7Y-Grl" id="rO0-Fo-ZuO"/>
-                <outlet property="starRatingView" destination="mx1-ph-Wrj" id="3xw-wT-dsC"/>
                 <outlet property="thumbsdownButton" destination="3Nx-UI-e4n" id="Snn-b8-pC4"/>
                 <outlet property="thumbsupButton" destination="EGc-cr-jAa" id="xfp-sj-yxk"/>
                 <outlet property="titleLabel" destination="QTZ-Jw-ZpH" id="wvi-BJ-aw7"/>
@@ -409,7 +392,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="131" y="159" width="297" height="293"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <value key="minSize" type="size" width="297" height="325"/>
             <value key="maxSize" type="size" width="297" height="325"/>
             <view key="contentView" id="bh6-VI-WVo">
@@ -491,22 +474,11 @@
             <windowCollectionBehavior key="collectionBehavior" moveToActiveSpace="YES" ignoresCycle="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="139" y="81" width="356" height="152"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" id="4yq-G3-W3B" customClass="PopupView">
                 <rect key="frame" x="0.0" y="0.0" width="356" height="152"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <button hidden="YES" focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="vVf-7Y-Grl" userLabel="Star Badge Button" customClass="RatingBadgeButton">
-                        <rect key="frame" x="303" y="90" width="33" height="33"/>
-                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="star_outline_black" imagePosition="only" alignment="center" enabled="NO" refusesFirstResponder="YES" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="WFK-ij-bYc">
-                            <behavior key="behavior" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <outlet property="infoView" destination="arE-Wm-iTc" id="kmF-2p-2iY"/>
-                            <outlet property="starRatingView" destination="mx1-ph-Wrj" id="3Bf-co-V4w"/>
-                        </connections>
-                    </button>
                     <button focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="dQ2-sg-PYy">
                         <rect key="frame" x="20" y="82" width="50" height="50"/>
                         <constraints>
@@ -568,7 +540,7 @@
                             <constraint firstItem="ngI-Gb-8Jw" firstAttribute="leading" secondItem="QTZ-Jw-ZpH" secondAttribute="leading" id="sYT-Br-7Fg"/>
                         </constraints>
                     </customView>
-                    <button focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="ftM-je-Ymy">
+                    <button focusRingType="none" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ftM-je-Ymy">
                         <rect key="frame" x="162" y="37" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="32" id="2E3-Ii-byb"/>
@@ -582,7 +554,7 @@
                             <action selector="playPause:" target="494" id="mxx-1f-URL"/>
                         </connections>
                     </button>
-                    <button focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="VkG-Lf-5uN">
+                    <button focusRingType="none" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VkG-Lf-5uN">
                         <rect key="frame" x="220" y="37" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="32" id="Hiz-6f-8e3"/>
@@ -596,7 +568,7 @@
                             <action selector="forwardAction:" target="494" id="eRO-HX-njM"/>
                         </connections>
                     </button>
-                    <button focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="AmR-41-4AD">
+                    <button focusRingType="none" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AmR-41-4AD">
                         <rect key="frame" x="104" y="37" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="32" id="10T-YX-xLO"/>
@@ -610,7 +582,7 @@
                             <action selector="backAction:" target="494" id="s6P-wr-rlo"/>
                         </connections>
                     </button>
-                    <button focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="DvI-Lo-u1q">
+                    <button focusRingType="none" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DvI-Lo-u1q">
                         <rect key="frame" x="46" y="37" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="32" id="BV3-kr-ePN"/>
@@ -624,7 +596,7 @@
                             <action selector="toggleRepeatMode:" target="494" id="Kl8-wt-uOK"/>
                         </connections>
                     </button>
-                    <button focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="0Xb-8Y-y5L">
+                    <button focusRingType="none" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Xb-8Y-y5L">
                         <rect key="frame" x="278" y="37" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="32" id="bo5-az-Gwr"/>
@@ -673,7 +645,7 @@
                         </textFieldCell>
                     </textField>
                     <slider focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8u2-Nn-ZZf">
-                        <rect key="frame" x="18" y="9" width="320" height="21"/>
+                        <rect key="frame" x="18" y="9" width="320" height="20"/>
                         <sliderCell key="cell" refusesFirstResponder="YES" state="on" focusRingType="none" alignment="left" tickMarkPosition="above" sliderType="linear" id="yOD-fm-imH" customClass="PlaybackSliderCell"/>
                         <connections>
                             <action selector="setPlaybackTime:" target="vhZ-72-AYY" id="844-7Z-MTH"/>
@@ -692,9 +664,6 @@
                             <action selector="actionButtonSelector:" target="vhZ-72-AYY" id="2yG-qr-l9f"/>
                         </connections>
                     </button>
-                    <customView hidden="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mx1-ph-Wrj" customClass="EDStarRating">
-                        <rect key="frame" x="78" y="81" width="202" height="51"/>
-                    </customView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="37s-Je-fFn" firstAttribute="top" secondItem="4yq-G3-W3B" secondAttribute="top" constant="36" id="2US-yg-BP3"/>
@@ -704,10 +673,8 @@
                     <constraint firstItem="DvI-Lo-u1q" firstAttribute="top" secondItem="0Xb-8Y-y5L" secondAttribute="top" id="5l2-BM-nFW"/>
                     <constraint firstItem="ftM-je-Ymy" firstAttribute="leading" secondItem="AmR-41-4AD" secondAttribute="trailing" constant="26" id="5o8-F0-kxV"/>
                     <constraint firstItem="AmR-41-4AD" firstAttribute="leading" secondItem="DvI-Lo-u1q" secondAttribute="trailing" constant="26" id="A53-Ix-evv"/>
-                    <constraint firstItem="vVf-7Y-Grl" firstAttribute="trailing" secondItem="37s-Je-fFn" secondAttribute="trailing" id="AeD-AN-bma"/>
                     <constraint firstItem="dQ2-sg-PYy" firstAttribute="leading" secondItem="4yq-G3-W3B" secondAttribute="leading" constant="20" id="B48-i2-bFZ"/>
                     <constraint firstItem="8u2-Nn-ZZf" firstAttribute="top" secondItem="DvI-Lo-u1q" secondAttribute="bottom" constant="9" id="DPT-am-YEF"/>
-                    <constraint firstItem="vVf-7Y-Grl" firstAttribute="top" secondItem="4yq-G3-W3B" secondAttribute="top" constant="29" id="Fgz-lQ-Bls"/>
                     <constraint firstItem="3Nx-UI-e4n" firstAttribute="top" secondItem="EGc-cr-jAa" secondAttribute="bottom" constant="2" id="HFn-BG-cYh"/>
                     <constraint firstItem="EGc-cr-jAa" firstAttribute="top" secondItem="4yq-G3-W3B" secondAttribute="top" constant="23" id="I70-Vy-rba"/>
                     <constraint firstAttribute="trailing" secondItem="arE-Wm-iTc" secondAttribute="trailing" constant="70" id="LPJ-T0-vSq"/>
@@ -716,11 +683,9 @@
                     <constraint firstItem="ftM-je-Ymy" firstAttribute="leading" secondItem="AmR-41-4AD" secondAttribute="trailing" constant="26" id="MWD-XQ-5Ga"/>
                     <constraint firstItem="3Nx-UI-e4n" firstAttribute="leading" secondItem="arE-Wm-iTc" secondAttribute="trailing" constant="22" id="NT6-0P-Wnd"/>
                     <constraint firstItem="DvI-Lo-u1q" firstAttribute="top" secondItem="ftM-je-Ymy" secondAttribute="top" id="Ogi-je-5a7"/>
-                    <constraint firstItem="vVf-7Y-Grl" firstAttribute="centerY" secondItem="arE-Wm-iTc" secondAttribute="centerY" id="PFY-jH-8B4"/>
                     <constraint firstItem="37s-Je-fFn" firstAttribute="leading" secondItem="4yq-G3-W3B" secondAttribute="leading" constant="20" id="PkE-GG-5eL"/>
                     <constraint firstItem="DvI-Lo-u1q" firstAttribute="top" secondItem="AmR-41-4AD" secondAttribute="top" id="RA0-xR-scn"/>
                     <constraint firstItem="DvI-Lo-u1q" firstAttribute="top" secondItem="VkG-Lf-5uN" secondAttribute="top" id="URx-kt-z7n"/>
-                    <constraint firstItem="vVf-7Y-Grl" firstAttribute="leading" secondItem="arE-Wm-iTc" secondAttribute="trailing" constant="17" id="W5H-CN-7R2"/>
                     <constraint firstAttribute="trailing" secondItem="37s-Je-fFn" secondAttribute="trailing" constant="20" id="YOd-XU-A9s"/>
                     <constraint firstAttribute="trailing" secondItem="v8E-fH-1nK" secondAttribute="trailing" constant="4" id="YX0-cj-Y19"/>
                     <constraint firstItem="arE-Wm-iTc" firstAttribute="top" secondItem="9xX-aB-17c" secondAttribute="top" id="Zut-1f-d3R"/>
@@ -748,34 +713,6 @@
             </connections>
         </window>
         <customObject id="leS-Oa-AB4" userLabel="Last.fm Popover" customClass="LastFmPopover"/>
-        <customView id="Hd4-lS-MgE">
-            <rect key="frame" x="0.0" y="0.0" width="252" height="33"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F5F-yr-hWN">
-                    <rect key="frame" x="18" y="7" width="55" height="18"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" sendsActionOnEndEditing="YES" title="Rating" id="LC6-i5-r79">
-                        <font key="font" metaFont="system" size="14"/>
-                        <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="XCB-1i-pOq" customClass="EDStarRating">
-                    <rect key="frame" x="127" y="3" width="113" height="26"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="113" id="2gq-A3-jof"/>
-                    </constraints>
-                </customView>
-            </subviews>
-            <constraints>
-                <constraint firstItem="F5F-yr-hWN" firstAttribute="top" secondItem="Hd4-lS-MgE" secondAttribute="top" constant="8" id="5em-lU-BCL"/>
-                <constraint firstItem="F5F-yr-hWN" firstAttribute="leading" secondItem="Hd4-lS-MgE" secondAttribute="leading" constant="20" id="Ic6-d1-Ty6"/>
-                <constraint firstItem="XCB-1i-pOq" firstAttribute="top" secondItem="Hd4-lS-MgE" secondAttribute="top" constant="4" id="Lau-vx-Auv"/>
-                <constraint firstAttribute="bottom" secondItem="XCB-1i-pOq" secondAttribute="bottom" constant="3" id="c3P-vS-I8W"/>
-                <constraint firstAttribute="trailing" secondItem="XCB-1i-pOq" secondAttribute="trailing" constant="12" id="dCn-I5-ErK"/>
-                <constraint firstAttribute="bottom" secondItem="F5F-yr-hWN" secondAttribute="bottom" constant="7" id="uzr-x9-grM"/>
-            </constraints>
-        </customView>
         <toolbar implicitIdentifier="68A24D56-BCA3-4F88-AA87-3F70F6021A18" autosavesConfiguration="NO" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconAndLabel" sizeMode="regular" id="c7x-mm-euH">
             <allowedToolbarItems>
                 <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="qC3-6V-NJM"/>
@@ -791,7 +728,7 @@
                     <size key="minSize" width="2" height="32"/>
                     <size key="maxSize" width="2" height="32"/>
                     <customView key="view" id="cnx-JR-34W">
-                        <rect key="frame" x="0.0" y="14" width="2" height="32"/>
+                        <rect key="frame" x="3" y="14" width="2" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </customView>
                 </toolbarItem>
@@ -813,7 +750,7 @@
                     </textFieldCell>
                 </textField>
                 <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dNn-V0-8Tw">
-                    <rect key="frame" x="146" y="6" width="96" height="21"/>
+                    <rect key="frame" x="146" y="6" width="96" height="20"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="92" id="qn0-2S-Sba"/>
                     </constraints>
@@ -866,7 +803,6 @@
         <image name="previous" width="512" height="512"/>
         <image name="repeat_none" width="30" height="30"/>
         <image name="shuffle_off" width="512" height="512"/>
-        <image name="star_outline_black" width="512" height="512"/>
         <image name="thumbsdown_outline" width="512" height="512"/>
         <image name="thumbsup_outline" width="512" height="512"/>
     </resources>

@@ -62,7 +62,8 @@
     
     NSRect left = aRect;
     left.size.width = knobRect.origin.x + knobRect.size.width - 5;
-    [[NSColor orangeColor] set];
+    NSColor *c = self.accentColor;
+    [c set];
     NSRectFill(left);
     
     NSRect right = aRect;
@@ -77,8 +78,10 @@
 - (void)drawKnob:(NSRect)knobRect
 {
     knobRect = NSInsetRect(knobRect, 5, 5);
+    NSColor *c = self.accentColor;
     
-    [[NSColor orangeColor] set];
+    [c set];
+
     NSBezierPath *path = [NSBezierPath bezierPathWithOvalInRect:knobRect];
     [path fill];
     
@@ -96,8 +99,8 @@
     NSInteger curSeconds = ((self.integerValue / 1000) % 60);
     NSAttributedString *curTime = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%ld:%02ld", (long)curMinutes, (long)curSeconds]
                                                                   attributes:attributes];
-    
-    [[NSColor orangeColor] set];
+    [c set];
+
     NSBezierPath *curTimePath = [NSBezierPath bezierPathWithRoundedRect:NSMakeRect(curPoint.x, curPoint.y, curTime.size.width + 6, curTime.size.height + 2)
                                                                 xRadius:3
                                                                 yRadius:3];
@@ -126,6 +129,12 @@
     NSRect barFrame = [self barRectFlipped:[controlView isFlipped]];
     [self drawBarInside:barFrame flipped:[controlView isFlipped]];
     [self drawKnob];
+}
+
+- (NSColor *)accentColor
+{
+    // Play music orange RGB: 237/108/31
+    return [NSColor colorWithDeviceRed:(237/255.0f) green:(108/255.0f) blue:(31/255.0f) alpha:1.0];
 }
 
 @end
