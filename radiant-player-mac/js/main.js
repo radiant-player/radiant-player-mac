@@ -13,6 +13,9 @@
 // This check ensures that, even though this script is run multiple times, our code is only attached once.
 if (typeof window.gmusic === 'undefined') {
   var gmusic = window.gmusic = new window.GMusic(window);
+  var lastTitle = "";
+  var lastArtist = "";
+  var lastAlbum = "";
 
   gmusic.on('change:rating', function(rating) {
     GoogleMusicApp.ratingChanged(rating);
@@ -21,14 +24,15 @@ if (typeof window.gmusic === 'undefined') {
   gmusic.on('change:song', function(song) {
     console.info('change:song', song.title, song.artist, song.album, song.art, song.duration);
 
-    GoogleMusicApp.notifySong(
-      song.title, song.artist, song.album, song.art, song.duration
-    );
+    // GoogleMusicApp.notifySong(
+    //   song.title, song.artist, song.album, song.art, song.duration
+    // );
 
-    var title = (song.title) ? title.innerText : 'Unknown';
-    var artist = (song.artist) ? artist.innerText : 'Unknown';
-    var album = (song.album) ? album.innerText : 'Unknown';
+    var title = (song.title) ? song.title : 'Unknown';
+    var artist = (song.artist) ? song.artist : 'Unknown';
+    var album = (song.album) ? song.album : 'Unknown';
     var art = (song.art) ? song.art : null;
+    var duration = (song.duration) ? song.duration : null;
 
     // The art may be a protocol-relative URL, so normalize it to HTTPS.
     if (art && art.slice(0, 2) === '//') {

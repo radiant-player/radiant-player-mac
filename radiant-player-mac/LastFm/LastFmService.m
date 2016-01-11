@@ -213,6 +213,13 @@
 
     long percent = [percentage integerValue];
     long scrobbleAt = (duration / 100) * percent;
+
+    NSLog(@"Percent: %d", percent);
+    NSLog(@"Title: %@", title);
+    NSLog(@"curTimestamp: %d", curTimestamp);
+    NSLog(@"timestamp: %d", timestamp);
+    NSLog(@"curTimestamp - timestamp: %d", curTimestamp - timestamp);
+    NSLog(@"scrobbleAt: %d", scrobbleAt);
     
     if ([title length] && curTimestamp - timestamp >= scrobbleAt) {
         [[LastFm sharedInstance] sendScrobbledTrack:title
