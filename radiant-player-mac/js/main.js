@@ -39,7 +39,6 @@ if (typeof window.gmusic === 'undefined') {
     // insertion of the song information elements.
     if (lastTitle != title || lastArtist != artist || lastAlbum != album) {
         GoogleMusicApp.notifySong(title, artist, album, art, duration);
-        
         lastTitle = title;
         lastArtist = artist;
         lastAlbum = album;

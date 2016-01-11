@@ -884,6 +884,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 - (void)ratingChanged:(NSInteger)rating
 {
+    NSLog(@"%d", rating);
     if ([defaults boolForKey:@"lastfm.thumbsup.enabled"])
     {
         // Notify Last.fm of the rating change.
