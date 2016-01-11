@@ -20,9 +20,30 @@ if (typeof window.gmusic === 'undefined') {
 
   gmusic.on('change:song', function(song) {
     console.info('change:song', song.title, song.artist, song.album, song.art, song.duration);
+
     GoogleMusicApp.notifySong(
       song.title, song.artist, song.album, song.art, song.duration
     );
+
+    var title = (song.title) ? title.innerText : 'Unknown';
+    var artist = (song.artist) ? artist.innerText : 'Unknown';
+    var album = (song.album) ? album.innerText : 'Unknown';
+    var art = (song.art) ? song.art : null;
+
+    // The art may be a protocol-relative URL, so normalize it to HTTPS.
+    if (art && art.slice(0, 2) === '//') {
+        art = 'https:' + art;
+    }
+
+    // Make sure that this is the first of the notifications for the
+    // insertion of the song information elements.
+    if (lastTitle != title || lastArtist != artist || lastAlbum != album) {
+        GoogleMusicApp.notifySong(title, artist, album, art, duration);
+
+        lastTitle = title;
+        lastArtist = artist;
+        lastAlbum = album;
+    }
   });
 
   gmusic.on('change:shuffle', function(mode) {
