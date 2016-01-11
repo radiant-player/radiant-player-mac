@@ -22,11 +22,7 @@ if (typeof window.gmusic === 'undefined') {
   });
 
   gmusic.on('change:song', function(song) {
-    console.info('change:song', song.title, song.artist, song.album, song.art, song.duration);
-
-    // GoogleMusicApp.notifySong(
-    //   song.title, song.artist, song.album, song.art, song.duration
-    // );
+    //console.info('change:song', song.title, song.artist, song.album, song.art, song.duration);
 
     var title = (song.title) ? song.title : 'Unknown';
     var artist = (song.artist) ? song.artist : 'Unknown';
@@ -43,7 +39,7 @@ if (typeof window.gmusic === 'undefined') {
     // insertion of the song information elements.
     if (lastTitle != title || lastArtist != artist || lastAlbum != album) {
         GoogleMusicApp.notifySong(title, artist, album, art, duration);
-
+        
         lastTitle = title;
         lastArtist = artist;
         lastAlbum = album;
