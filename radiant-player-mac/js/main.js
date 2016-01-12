@@ -22,8 +22,6 @@ if (typeof window.gmusic === 'undefined') {
   });
 
   gmusic.on('change:song', function(song) {
-    //console.info('change:song', song.title, song.artist, song.album, song.art, song.duration);
-
     var title = (song.title) ? song.title : 'Unknown';
     var artist = (song.artist) ? song.artist : 'Unknown';
     var album = (song.album) ? song.album : 'Unknown';
