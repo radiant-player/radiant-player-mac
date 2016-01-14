@@ -61,7 +61,6 @@
 - (BOOL)windowShouldClose:(NSNotification *)notification
 {
     [window orderOut:self];
-    [NSApp hide:self];
     return NO;
 }
 
