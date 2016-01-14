@@ -25,7 +25,6 @@
     if (self) {
         [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([PreferencesWindowController class]) owner:self topLevelObjects:nil];
         [self loadControllers];
-        [self.window setStyleMask:([self.window styleMask])];
     }
     
     return self;
@@ -39,7 +38,6 @@
     [self addViewController:privacyController];
     [self addViewController:lastFmController];
     [self addViewController:advancedController];
-    [self selectControllerAtIndex:0];
 }
 
 - (void)showWindow:(id)sender
