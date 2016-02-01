@@ -21,7 +21,7 @@ Community patches, bug reports and contributions are always welcome and are cruc
 
 ## Submit Changes
 
-* Push your your newly created feature branch to your fork of the repository.
+* Push your newly created feature branch to your fork of the repository.
 * **SQUASH COMMITS INTO A SINGLE COMMIT** - a good example of how to do this is [here](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html).
 * Open a pull request ensuring the requesting a merge **from** your fork's feature branch, **to** radiant-player's `master` branch.
 * If possible, update your original issue ticket with a link to the pull request so others know it's been looked at.
