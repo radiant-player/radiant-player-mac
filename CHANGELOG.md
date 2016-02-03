@@ -4,10 +4,17 @@ This file should follow the standards specified on [keepachangelog.com](http://k
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
+### Added
+* Option to switch between standard and custom title bar. This is set to standard by default to fix a UI freeze issue in El Capitan - to switch back, go to preferences > appearance > use custom title bar ([#480](https://github.com/radiant-player/radiant-player-mac/pull/480)
+
 ### Changed
 * Updated mini player to use Play Music orange consistently ([#476](https://github.com/radiant-player/radiant-player-mac/pull/476)
 * Always show notifications, even if window is in focus ([#472](https://github.com/radiant-player/radiant-player-mac/pull/472), [@jscheel](https://github.com/jscheel))
 * Various legacy code cleanup / removal ([#465](https://github.com/radiant-player/radiant-player-mac/pull/465))
+
+### Fixed
+* Fixed player randomly freezing after minimizing ([#480](https://github.com/radiant-player/radiant-player-mac/pull/480)
+* Fixed choppiness/lag when dragging the player ([#480](https://github.com/radiant-player/radiant-player-mac/pull/480)
 
 ## [1.6.2] - 2015-12-20
 ### Fixed

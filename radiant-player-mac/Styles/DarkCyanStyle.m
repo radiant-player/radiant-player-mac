@@ -17,8 +17,9 @@
         [self setName:@"Dark Cyan"];
         [self setAuthor:@"Chris Chrisostomou & Daniel Stuart"];
         [self setDescription:@"A deep black & cyan style."];
-        [self setWindowColor:[NSColor colorWithSRGBRed:0.133f green:0.137f blue:0.149f alpha:1.0f]];
-        [self setTitleColor:[NSColor colorWithDeviceWhite:0.7f alpha:1.0f]];
+        //[self setWindowColor:[NSColor colorWithDeviceRed:(3/255.0f) green:(156/255.0f) blue:(172/255.0f) alpha:1.0]];
+        [self setWindowColor:[NSColor colorWithDeviceRed:(18/255.0f) green:(19/255.0f) blue:(20/255.0f) alpha:1.0]];
+        [self setTitleColor:[NSColor colorWithDeviceWhite:0.2f alpha:1.0f]];
         [self setCss:[ApplicationStyle cssNamed:@"dark-cyan"]];
         [self setJs:[ApplicationStyle jsNamed:@"dark-cyan"]];
     }

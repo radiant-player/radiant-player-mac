@@ -17,8 +17,8 @@
         [self setName:@"Black"];
         [self setAuthor:@"Anthony Barone"];
         [self setDescription:@"A deep black style."];
-        [self setWindowColor:[NSColor colorWithSRGBRed:0.133f green:0.137f blue:0.149f alpha:1.0f]];
-        [self setTitleColor:[NSColor colorWithDeviceWhite:0.7f alpha:1.0f]];
+        [self setWindowColor:[NSColor colorWithDeviceRed:(18/255.0f) green:(19/255.0f) blue:(20/255.0f) alpha:1.0]];
+        [self setTitleColor:[NSColor colorWithDeviceWhite:0.2f alpha:1.0f]];
         [self setCss:[ApplicationStyle cssNamed:@"spotify-black"]];
         [self setJs:[ApplicationStyle jsNamed:@"spotify-black"]];
     }

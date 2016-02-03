@@ -19,7 +19,14 @@ if (typeof window.GMNavigation === 'undefined') {
     
     var buttonsEnabled = window.GoogleMusicApp.preferenceForKey("navigation.buttons.enabled");
     var keepLinks = window.GoogleMusicApp.preferenceForKey("navigation.buttons.keep-links");
+
+    var customTitlebar = window.GoogleMusicApp.preferenceForKey("titlebar.enabled");
     
+    if (customTitlebar) {
+        buttonsContainer.parentNode.classList.add("custom-titlebar");
+        //navpadding.className = custom-titlebar;
+    }
+
     if (buttonsEnabled)
     {
         // Create back and forward buttons.

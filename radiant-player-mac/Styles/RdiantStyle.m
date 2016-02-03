@@ -17,8 +17,8 @@
         [self setName:@"Rdiant"];
         [self setAuthor:@"Andrew Norell & Carl Schultze"];
         [self setDescription:@"An homage to the late, great streaming service."];
-        [self setWindowColor:[NSColor colorWithSRGBRed:0.133f green:0.137f blue:0.149f alpha:1.0f]];
-        [self setTitleColor:[NSColor colorWithDeviceWhite:0.7f alpha:1.0f]];
+        //[self setWindowColor:[NSColor colorWithDeviceRed:(1/255.0f) green:(143/255.0f) blue:(213/255.0f) alpha:1.0]];
+        [self setWindowColor:[NSColor colorWithDeviceRed:(245/255.0f) green:(245/255.0f) blue:(245/255.0f) alpha:1.0]];
         [self setCss:[ApplicationStyle cssNamed:@"rdiant"]];
         [self setJs:[ApplicationStyle jsNamed:@"rdiant"]];
     }

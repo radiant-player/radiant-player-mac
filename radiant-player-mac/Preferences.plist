@@ -44,6 +44,8 @@
 	<string>Cocoa</string>
 	<key>styles.enabled</key>
 	<true/>
+	<key>titlebar.enabled</key>
+	<false/>
 	<key>eventtap.alternative-method</key>
 	<false/>
 	<key>cookies.use-safari</key>
