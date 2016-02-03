@@ -5,7 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
 ### Added
-* Option to switch between standard and custom title bar. This is set to standard by default to fix a UI freeze issue in El Capitan - to switch back, go to preferences > appearance > use custom title bar ([#480](https://github.com/radiant-player/radiant-player-mac/pull/480)
+* Option to switch between native and custom title bar. This is set to native by default while we investigate a UI freeze and window dragging issue in El Capitan - to switch back, go to Preferences > Appearance > Use custom title bar ([#480](https://github.com/radiant-player/radiant-player-mac/pull/480)
 
 ### Changed
 * Updated mini player to use Play Music orange consistently ([#476](https://github.com/radiant-player/radiant-player-mac/pull/476)
