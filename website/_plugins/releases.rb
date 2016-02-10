@@ -43,14 +43,18 @@ module Releases
                     {}
                   end
 
-          {
+          s = {
             'name' => release['name'],
-            'version' => release['tag_name'].try(:gsub, /^v/, ''),
+            'version' => release['tag_name'],
             'date' => release['published_at'] || release['created_at'],
             'notes' => format_notes(release['body']),
             'sparkle' => extract_sparkle(release['body']),
             'asset' => asset
           }
+
+          s['version'] = s['version'].gsub(/^v/, '') if s['version']
+
+          s
         end
 
         source = source.select { |r| r['sparkle']['signature'] }

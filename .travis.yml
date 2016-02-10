@@ -17,8 +17,7 @@ before_script:
 
 after_success:
   - PATH=$GOPATH/bin:$PATH ./scripts/release-app.sh
-  - ./scripts/build-website.sh
-  - ./scripts/deploy-website.sh
+  - ./scripts/build-website.sh && ./scripts/deploy-website.sh
 
 env:
   global:
