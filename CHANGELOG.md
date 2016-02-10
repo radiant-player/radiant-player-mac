@@ -5,6 +5,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
 
+## [1.6.3] - 2016-02-10
+This is a transitional release that allows upgrading to 1.7.0.  **After this update installs, please choose Radiant Player > Check for updates in the menu to update to 1.7.0.**
+
 ## [1.6.2] - 2015-12-20
 ### Fixed
 * Fixed a bug introduced in 1.6.0 where Radiant would hang when external HID devices were connected ([#463](https://github.com/radiant-player/radiant-player-mac/pull/463)).  Note that there is still an outstanding bug where the headphone play/pause buttons open iTunes in addition to controlling Radiant.  That is still being investigated.
