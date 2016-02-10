@@ -5,16 +5,16 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
 ### Added
-* Option to switch between native and custom title bar. This is set to native by default while we investigate a UI freeze and window dragging issue in El Capitan - to switch back, go to Preferences > Appearance > Use custom title bar ([#480](https://github.com/radiant-player/radiant-player-mac/pull/480)
+* Option to switch between native and custom title bar. This is set to native by default while we investigate a UI freeze and window dragging issue in El Capitan - to switch back, go to Preferences > Appearance > Use custom title bar ([#480](https://github.com/radiant-player/radiant-player-mac/pull/480))
 
 ### Changed
-* Updated mini player to use Play Music orange consistently ([#476](https://github.com/radiant-player/radiant-player-mac/pull/476)
+* Updated mini player to use Play Music orange consistently ([#476](https://github.com/radiant-player/radiant-player-mac/pull/476))
 * Always show notifications, even if window is in focus ([#472](https://github.com/radiant-player/radiant-player-mac/pull/472), [@jscheel](https://github.com/jscheel))
 * Various legacy code cleanup / removal ([#465](https://github.com/radiant-player/radiant-player-mac/pull/465))
 
 ### Fixed
-* Fixed player randomly freezing after minimizing ([#480](https://github.com/radiant-player/radiant-player-mac/pull/480)
-* Fixed choppiness/lag when dragging the player ([#480](https://github.com/radiant-player/radiant-player-mac/pull/480)
+* Fixed player randomly freezing after minimizing ([#480](https://github.com/radiant-player/radiant-player-mac/pull/480))
+* Fixed choppiness/lag when dragging the player ([#480](https://github.com/radiant-player/radiant-player-mac/pull/480))
 * Fixed main window hiding on close ([#481](https://github.com/radiant-player/radiant-player-mac/pull/481), [@Sidnicious](https://github.com/Sidnicious))
 * Fixed the preferences window always showing the first tab ([#483](https://github.com/radiant-player/radiant-player-mac/pull/483), [@Sidnicious](https://github.com/Sidnicious))
 
