@@ -4,6 +4,8 @@ This file should follow the standards specified on [keepachangelog.com](http://k
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
+### Fixed
+* Fixed a couple of small color inconsistencies in the dark themes ([#499](https://github.com/radiant-player/radiant-player-mac/pull/499))
 
 ## [1.7.0] - 2016-02-10
 ### Added
