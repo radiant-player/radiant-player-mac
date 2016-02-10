@@ -15,6 +15,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 * Fixed player randomly freezing after minimizing ([#480](https://github.com/radiant-player/radiant-player-mac/pull/480)
 * Fixed choppiness/lag when dragging the player ([#480](https://github.com/radiant-player/radiant-player-mac/pull/480)
+* Fixed main window hiding on close ([#481](https://github.com/radiant-player/radiant-player-mac/pull/481), [@Sidnicious](https://github.com/Sidnicious))
+* Fixed the preferences window always showing the first tab ([#483](https://github.com/radiant-player/radiant-player-mac/pull/483), [@Sidnicious](https://github.com/Sidnicious))
 
 ## [1.6.2] - 2015-12-20
 ### Fixed
