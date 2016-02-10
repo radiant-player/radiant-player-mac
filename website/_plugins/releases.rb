@@ -77,7 +77,7 @@ module Releases
     end
 
     def extract_sparkle(body)
-      signature = body.match(%r{<!-- SPARKLESIG ([\w=\/]+) -->})
+      signature = body.match(%r{<!-- SPARKLESIG2 ([\w=\/]+) -->})
       signature = signature ? signature[1] : nil
 
       minimum_version = body.match(/<!-- SPARKLEMINVER (\w+) -->/)

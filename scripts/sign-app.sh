@@ -18,8 +18,11 @@ if [ -z "$KEY_PASSWORD" ]; then
   fi
 fi
 
+# Note: to encrypt the original key, use the following:
+# $ openssl aes-256-cbc -a -salt -in keys/private.pem -out keys/private-encrypted.pem
+
 if [ ! -f keys/private.pem ]; then
-  $openssl aes-256-cbc -d -salt -pass env:KEY_PASSWORD -in keys/private-encrypted.pem -out keys/private.pem
+  $openssl aes-256-cbc -d -salt -a -pass env:KEY_PASSWORD -in keys/private-encrypted.pem -out keys/private.pem
 fi
 
 $openssl dgst -sha1 -binary < "$1" | $openssl dgst -dss1 -sign "keys/private.pem" | $openssl enc -base64
