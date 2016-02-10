@@ -45,7 +45,7 @@ module Releases
 
           {
             'name' => release['name'],
-            'version' => release['tag_name'].gsub(/^v/, ''),
+            'version' => release['tag_name'].try(:gsub, /^v/, ''),
             'date' => release['published_at'] || release['created_at'],
             'notes' => format_notes(release['body']),
             'sparkle' => extract_sparkle(release['body']),
