@@ -13,6 +13,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 * Various legacy code cleanup / removal ([#465](https://github.com/radiant-player/radiant-player-mac/pull/465))
 
 ### Fixed
+* Fixed a [vulnerability](https://vulnsec.com/2016/osx-apps-vulnerabilities/) in the updater framework ([#497](https://github.com/radiant-player/radiant-player-mac/pull/497))
 * Fixed player randomly freezing after minimizing ([#480](https://github.com/radiant-player/radiant-player-mac/pull/480))
 * Fixed choppiness/lag when dragging the player ([#480](https://github.com/radiant-player/radiant-player-mac/pull/480))
 * Fixed main window hiding on close ([#481](https://github.com/radiant-player/radiant-player-mac/pull/481), [@Sidnicious](https://github.com/Sidnicious))
