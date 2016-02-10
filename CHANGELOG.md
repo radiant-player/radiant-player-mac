@@ -4,6 +4,8 @@ This file should follow the standards specified on [keepachangelog.com](http://k
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
+
+## [1.7.0] - 2016-02-10
 ### Added
 * Option to switch between native and custom title bar. This is set to native by default while we investigate a UI freeze and window dragging issue in El Capitan - to switch back, go to Preferences > Appearance > Use custom title bar ([#480](https://github.com/radiant-player/radiant-player-mac/pull/480))
 
