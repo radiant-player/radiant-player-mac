@@ -65,7 +65,7 @@ cd $ROOT_PATH
 SIGNATURE="$(./scripts/sign-app.sh $APP_ARCHIVE_PATH)"
 echo "Archive signature: $SIGNATURE" 1>&2
 echo "" >> $OUTPUTDIR/changelog.md
-echo "<!-- SPARKLESIG $SIGNATURE -->" >> $OUTPUTDIR/changelog.md
+echo "<!-- SPARKLESIG2 $SIGNATURE -->" >> $OUTPUTDIR/changelog.md
 
 # Create the release
 

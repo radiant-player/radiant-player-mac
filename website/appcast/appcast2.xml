@@ -1,0 +1,31 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>Radiant Player Changelog</title>
+        <link>https://radiant-player.github.io/radiant-player-mac/appcast/appcast2.xml</link>
+        <description>Most recent changes with links to updates.</description>
+        <language>en</language>
+
+        {% for release in site.data.releases %}
+          <item>
+            <title>{{ release.name | xml_escape }}</title>
+            <description><![CDATA[
+              {{ release.notes | mentionify | markdownify }}
+            ]]>
+            </description>
+            <pubDate>{{ release.date | date_to_rfc822 }}</pubDate>
+            <enclosure
+                url="{{ release.asset.url }}"
+                sparkle:version="{{ release.version }}"
+                length="{{ release.asset.size }}"
+                type="application/octet-stream"
+                sparkle:dsaSignature="{{ release.sparkle.signature }}"
+            />
+            <sparkle:minimumSystemVersion>{{ release.sparkle.minimum_version }}</sparkle:minimumSystemVersion>
+          </item>
+        {% endfor %}
+    </channel>
+</rss>
