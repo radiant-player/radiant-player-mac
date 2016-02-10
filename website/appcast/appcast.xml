@@ -13,6 +13,12 @@ layout: null
           <item>
             <title>v1.7.0</title>
             <description><![CDATA[
+              <p><strong>NOTE: users are experiencing errors automatically updating to v1.7.0 - if you experience any errors, please:</strong></p>
+
+              <h1><a href="http://radiant-player.github.io/radiant-player-mac/">Download the update manually</a></h1>
+
+              <hr />
+
               <h3 id="added">Added</h3>
 <ul>
   <li>Option to switch between native and custom title bar. This is set to native by default while we investigate a UI freeze and window dragging issue in El Capitan - to switch back, go to Preferences &gt; Appearance &gt; Use custom title bar (<a href="https://github.com/radiant-player/radiant-player-mac/pull/480">#480</a>)</li>
