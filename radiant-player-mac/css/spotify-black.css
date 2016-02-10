@@ -83,7 +83,8 @@ a, .simple-dialog a {
 .settings-cluster.material-cluster .header h2.title,
 .section-header,
 .material .section-header,
-.material .recommended-header {
+.material .recommended-header,
+.material .cluster .cluster-title {
     color: #ddd;
 }
 
@@ -249,13 +250,13 @@ a, .simple-dialog a {
     display: none;
 }
 
-.subcategories-list .subcategory:hover,
-.subcategories-list .subcategory:focus {
+.subcategories-list li:hover a,
+.subcategories-list li:focus a {
     background-color: #222;
 }
 
-.subcategories-list .subcategory:not(:last-child) {
-    border-color: #333;
+.subcategories-list li .li-content {
+    border-color: #222 !important;
 }
 
 #nav, #nav-container, .material .nav-toolbar {
