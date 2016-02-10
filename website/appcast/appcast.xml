@@ -11,48 +11,258 @@ layout: null
 
 
           <item>
-            <title>v1.7.0</title>
+            <title>v1.6.2</title>
             <description><![CDATA[
-              <p><strong>NOTE: users are experiencing errors automatically updating to v1.7.0 - if you experience any errors, please:</strong></p>
+              <h3 id="fixed">Fixed</h3>
+<ul>
+  <li>Fixed a bug introduced in 1.6.0 where Radiant would hang when external HID devices were connected (<a href="https://github.com/radiant-player/radiant-player-mac/pull/463">#463</a>).  Note that there is still an outstanding bug where the headphone play/pause buttons open iTunes in addition to controlling Radiant.  That is still being investigated.</li>
+</ul>
 
-              <h1><a href="http://radiant-player.github.io/radiant-player-mac/">Download the update manually</a></h1>
+<!-- SPARKLESIG MC4CFQDI/ACiiInu4Tkd5wVdvNMmbx1OdQIVAJzkAp8WKPLl/oQgD3nLjZ45f7uw -->
 
-              <hr />
+            ]]>
+            </description>
+            <pubDate>Sun, 20 Dec 2015 17:10:25 +0000</pubDate>
+            <enclosure
+                url="https://github.com/radiant-player/radiant-player-mac/releases/download/v1.6.2/radiant-player-v1.6.2.zip"
+                sparkle:version="1.6.2"
+                length="5561980"
+                type="application/octet-stream"
+                sparkle:dsaSignature="MC4CFQDI/ACiiInu4Tkd5wVdvNMmbx1OdQIVAJzkAp8WKPLl/oQgD3nLjZ45f7uw"
+            />
+            <sparkle:minimumSystemVersion>10.9</sparkle:minimumSystemVersion>
+          </item>
 
+          <item>
+            <title>v1.6.0</title>
+            <description><![CDATA[
               <h3 id="added">Added</h3>
 <ul>
-  <li>Option to switch between native and custom title bar. This is set to native by default while we investigate a UI freeze and window dragging issue in El Capitan - to switch back, go to Preferences &gt; Appearance &gt; Use custom title bar (<a href="https://github.com/radiant-player/radiant-player-mac/pull/480">#480</a>)</li>
+  <li>Added Dark Cyan theme (<a href="https://github.com/radiant-player/radiant-player-mac/pull/424">#424</a>)</li>
+  <li>Added Rdiant theme (<a href="https://github.com/radiant-player/radiant-player-mac/pull/444">#444</a>, <a href="https://github.com/andrewnorell"><a href="https://github.com/andrewnorell" class="user-mention">@andrewnorell</a></a>)</li>
+  <li>Added <a href="https://github.com/radiant-player/radiant-player-mac/blob/master/CONTRIBUTING.md">contribution guidelines</a> for anyone wanting to contribute code to Radiant (<a href="https://github.com/radiant-player/radiant-player-mac/pull/401">#401</a>)</li>
+  <li>Added abilty to specify how much of a song has to be listened to before it’s scrobbled, between 50-100% (in line with the official last.fm scrobbler) (<a href="https://github.com/radiant-player/radiant-player-mac/pull/428">#428</a>)</li>
+  <li>Added support for headphone hardware controls, like EarPods (<a href="https://github.com/radiant-player/radiant-player-mac/pull/450">#450</a>, <a href="https://github.com/megalithic"><a href="https://github.com/megalithic" class="user-mention">@megalithic</a></a>)</li>
 </ul>
 
 <h3 id="changed">Changed</h3>
 <ul>
-  <li>Updated mini player to use Play Music orange consistently (<a href="https://github.com/radiant-player/radiant-player-mac/pull/476">#476</a>)</li>
-  <li>Always show notifications, even if window is in focus (<a href="https://github.com/radiant-player/radiant-player-mac/pull/472">#472</a>, <a href="https://github.com/jscheel"><a href="https://github.com/jscheel" class="user-mention">@jscheel</a></a>)</li>
-  <li>Various legacy code cleanup / removal (<a href="https://github.com/radiant-player/radiant-player-mac/pull/465">#465</a>)</li>
+  <li>Updated to work with Google’s latest updates (<a href="https://github.com/radiant-player/radiant-player-mac/pull/397">#397</a>)</li>
+  <li>Updated referenced selectors to reflect Google’s changes (<a href="https://github.com/radiant-player/radiant-player-mac/pull/446">#446</a>, <a href="https://github.com/radiant-player/radiant-player-mac/pull/452">#452</a>)</li>
+  <li>Revamped website and application deployment (<a href="https://github.com/radiant-player/radiant-player-mac/pull/433">#433</a>, <a href="https://github.com/radiant-player/radiant-player-mac/pull/435">#435</a>,<br />
+<a href="https://github.com/radiant-player/radiant-player-mac/pull/449">#449</a>)</li>
+  <li>Website made mobile-friendly (<a href="https://github.com/radiant-player/radiant-player-mac/pull/453">#453</a>, <a href="https://github.com/PythonProdigy">@PythonProdigy</a>)</li>
+  <li>Added new website favicon (<a href="https://github.com/radiant-player/radiant-player-mac/pull/456">#456</a>, <a href="https://github.com/andrewnorell"><a href="https://github.com/andrewnorell" class="user-mention">@andrewnorell</a></a>)</li>
 </ul>
 
 <h3 id="fixed">Fixed</h3>
 <ul>
-  <li>Fixed a <a href="https://vulnsec.com/2016/osx-apps-vulnerabilities/">vulnerability</a> in the updater framework (<a href="https://github.com/radiant-player/radiant-player-mac/pull/497">#497</a>)</li>
-  <li>Fixed player randomly freezing after minimizing (<a href="https://github.com/radiant-player/radiant-player-mac/pull/480">#480</a>)</li>
-  <li>Fixed choppiness/lag when dragging the player (<a href="https://github.com/radiant-player/radiant-player-mac/pull/480">#480</a>)</li>
-  <li>Fixed main window hiding on close (<a href="https://github.com/radiant-player/radiant-player-mac/pull/481">#481</a>, <a href="https://github.com/Sidnicious">@Sidnicious</a>)</li>
-  <li>Fixed the preferences window always showing the first tab (<a href="https://github.com/radiant-player/radiant-player-mac/pull/483">#483</a>, <a href="https://github.com/Sidnicious">@Sidnicious</a>)</li>
+  <li>Fixed tracks being “randomly” loved/unloved on last.fm (<a href="https://github.com/radiant-player/radiant-player-mac/pull/426">#426</a>)</li>
+  <li>Fixed Spotify layout (<a href="https://github.com/radiant-player/radiant-player-mac/pull/424">#424</a>, <a href="https://github.com/radiant-player/radiant-player-mac/pull/431">#431</a>)</li>
+  <li>Fixed header element names (<a href="https://github.com/radiant-player/radiant-player-mac/pull/418">#418</a>) (Thanks <a href="https://github.com/jcurtis"><a href="https://github.com/jcurtis" class="user-mention">@jcurtis</a></a>)</li>
+  <li>Fixed broken notifications and mini-player updates (<a href="https://github.com/radiant-player/radiant-player-mac/pull/400">#400</a>)</li>
+  <li>Fixed crash when opening Last.fm history by allowing communication with Last.fm API servers (<a href="https://github.com/radiant-player/radiant-player-mac/pull/389">#389</a>, <a href="https://github.com/radiant-player/radiant-player-mac/pull/400">#400</a>)</li>
+  <li>Restored the ability to move the window by the title bar (<a href="https://github.com/radiant-player/radiant-player-mac/pull/413">#413</a>)</li>
+  <li>Fixed broken keyboard shortcut for search (<a href="https://github.com/radiant-player/radiant-player-mac/pull/413">#413</a>)</li>
+  <li>Fixed track ratings not being reflected in the now playing bar (<a href="https://github.com/radiant-player/radiant-player-mac/pull/436">#436</a>)</li>
+  <li>Fixed shrinking nav/menu buttons at narrow widths (<a href="https://github.com/radiant-player/radiant-player-mac/pull/443">#443</a>) (Thanks <a href="https://github.com/davepagurek"><a href="https://github.com/davepagurek" class="user-mention">@davepagurek</a></a>)</li>
+  <li>Fixed AppleScript scripting (<a href="https://github.com/radiant-player/radiant-player-mac/pull/432">#432</a>)</li>
+  <li>Many other small bugfixes</li>
 </ul>
 
-<!-- SPARKLESIG2 MC0CFHsWDh/QjbLVOJkT5PKgNZYvuCcZAhUAhaEj3VD10jhtVibK2AreiuQZHTA= -->
+<!-- SPARKLESIG MC0CFHZC/BMCwJpeksvHLwpAYMJ2FoZFAhUAlpRtMAe0W2/E6IXA1TfMilPVU3M= -->
 
             ]]>
             </description>
-            <pubDate>Wed, 10 Feb 2016 18:52:35 +0000</pubDate>
-
-            <!-- This is signed with the old key -->
+            <pubDate>Sat, 19 Dec 2015 23:08:17 +0000</pubDate>
             <enclosure
-                url="https://github.com/radiant-player/radiant-player-mac/releases/download/v1.7.0/radiant-player-v1.7.0.zip"
-                sparkle:version="1.7.0"
-                length="5741101"
+                url="https://github.com/radiant-player/radiant-player-mac/releases/download/v1.6.0/radiant-player-v1.6.0.zip"
+                sparkle:version="1.6.0"
+                length="5668409"
                 type="application/octet-stream"
-                sparkle:dsaSignature="MC4CFQC6FiD5GJhXf3AYNk14Et4al9o8TwIVAO7zYgy0LpRooIjMOTHIQ26TiO2j"
+                sparkle:dsaSignature="MC0CFHZC/BMCwJpeksvHLwpAYMJ2FoZFAhUAlpRtMAe0W2/E6IXA1TfMilPVU3M="
+            />
+            <sparkle:minimumSystemVersion>10.9</sparkle:minimumSystemVersion>
+          </item>
+
+          <item>
+            <title>v1.5.0</title>
+            <description><![CDATA[
+              <p>This release is largely to fix issues affecting the usability of Radiant Player. However, the largest piece of news is that development of Radiant Player has been moved into an organization on GitHub, and a few collaborators have been brought on board in order to help develop Radiant Player and fix outstanding issues. Thank you to everyone who pushed for this! I’m sorry for the incredible delay between versions and addressing major issues, but hopefully this will be less of concern going forward with the new organization.</p>
+
+<h3 id="changed">Changed</h3>
+<ul>
+  <li>Use the Sparkle update framework for more intuitive and user-friendly update process</li>
+</ul>
+
+<h3 id="fixed">Fixed</h3>
+<ul>
+  <li>Fix broken styling in Black theme (thanks <a href="https://github.com/shawn-mitch"><a href="https://github.com/shawn-mitch" class="user-mention">@shawn-mitch</a></a>)</li>
+  <li>Fix broken media keys by catching up to Google update</li>
+  <li>Fix broken Last.fm scrobbling in OS X 10.11 El Capitan (thanks <a href="https://github.com/chrismou"><a href="https://github.com/chrismou" class="user-mention">@chrismou</a></a>)</li>
+</ul>
+
+<!-- SPARKLESIG MC4CFQCa2vrEpUVtAXjK2wWUwP460GjuVgIVALTsPhYGM7mMn0HC2e7bGXYKq2jC -->
+
+            ]]>
+            </description>
+            <pubDate>Sat, 31 Oct 2015 22:16:36 +0000</pubDate>
+            <enclosure
+                url="https://github.com/radiant-player/radiant-player-mac/releases/download/v1.5.0/Radiant.Player.zip"
+                sparkle:version="1.5.0"
+                length="2673676"
+                type="application/octet-stream"
+                sparkle:dsaSignature="MC4CFQCa2vrEpUVtAXjK2wWUwP460GjuVgIVALTsPhYGM7mMn0HC2e7bGXYKq2jC"
+            />
+            <sparkle:minimumSystemVersion>10.9</sparkle:minimumSystemVersion>
+          </item>
+
+          <item>
+            <title>v1.3.3</title>
+            <description><![CDATA[
+              <p>My apologies! In a major oversight, I managed to include the usage of a OS X 10.10 only method which appears to be causing crashes on OS X 10.9 and below. This new version contains that fix!</p>
+
+<p>It also contains a new feature, which is a preference that allows you to show the current song’s album art as the dock icon! Many thanks to <a href="https://github.com/matthewlloyd" class="user-mention">@matthewlloyd</a> for that one.</p>
+
+<!-- SPARKLESIG MC0CFQCnHPWNR29DzfqtophBYgGRtNGlcQIUFZwnpmRkzzNRUMdPQvpJmwWiEoM= -->
+
+            ]]>
+            </description>
+            <pubDate>Mon, 06 Apr 2015 00:06:08 +0000</pubDate>
+            <enclosure
+                url="https://github.com/radiant-player/radiant-player-mac/releases/download/v1.3.3/Radiant.Player.zip"
+                sparkle:version="1.3.3"
+                length="1537712"
+                type="application/octet-stream"
+                sparkle:dsaSignature="MC0CFQCnHPWNR29DzfqtophBYgGRtNGlcQIUFZwnpmRkzzNRUMdPQvpJmwWiEoM="
+            />
+            <sparkle:minimumSystemVersion>10.9</sparkle:minimumSystemVersion>
+          </item>
+
+          <item>
+            <title>v1.3.2</title>
+            <description><![CDATA[
+              <p>This release took a ridiculous amount of time, my apologies!</p>
+
+<p>Many thanks to all of the contributors and users! With the creation of the beta release channel, it should be easier to get new features out to users to test without harming the experience of users who want the stable product.</p>
+
+<h3 id="added">Added</h3>
+<ul>
+  <li>Introduce release channels <code class="highlighter-rouge">stable</code> and <code class="highlighter-rouge">beta</code>, which can be changed in the Preferences menu</li>
+  <li>New style, Light (thanks <a href="https://github.com/stevenla"><a href="https://github.com/stevenla" class="user-mention">@stevenla</a></a>)</li>
+  <li>Warn user when Flash plug-in is out-of-date and blocked</li>
+  <li>Mini player can be undocked by dragging it away from the menu</li>
+</ul>
+
+<h3 id="fixed">Fixed</h3>
+<ul>
+  <li>Dramatically improved CPU performance</li>
+  <li>Use high-quality album art for mini-player (fixes <a href="https://github.com/radiant-player/radiant-player-mac/issues/270">#270</a>)</li>
+  <li>Fix thumbs and star ratings (fixes <a href="https://github.com/radiant-player/radiant-player-mac/issues/245">#245</a>, <a href="https://github.com/radiant-player/radiant-player-mac/issues/250">#250</a>, <a href="https://github.com/radiant-player/radiant-player-mac/issues/254">#254</a>)</li>
+  <li>Asynchronously load album art for notifications (fixes <a href="https://github.com/radiant-player/radiant-player-mac/issues/262">#262</a>)</li>
+  <li>Many, many others!</li>
+</ul>
+
+<!-- SPARKLESIG MC0CFDcwXk6Meb/94MRqIVjtaz5WHlhDAhUA2PdWB9s7m78dh4jGyKzxSV6sdF4= -->
+
+            ]]>
+            </description>
+            <pubDate>Sun, 05 Apr 2015 08:09:08 +0000</pubDate>
+            <enclosure
+                url="https://github.com/radiant-player/radiant-player-mac/releases/download/v1.3.2/Radiant.Player.zip"
+                sparkle:version="1.3.2"
+                length="1536952"
+                type="application/octet-stream"
+                sparkle:dsaSignature="MC0CFDcwXk6Meb/94MRqIVjtaz5WHlhDAhUA2PdWB9s7m78dh4jGyKzxSV6sdF4="
+            />
+            <sparkle:minimumSystemVersion>10.9</sparkle:minimumSystemVersion>
+          </item>
+
+          <item>
+            <title>v1.3.1</title>
+            <description><![CDATA[
+              <h3 id="fixed">Fixed</h3>
+<ul>
+  <li>The option to “Use Safari cookies” was broken in the recently released 1.3.0, so this is a quick release that fixes that bug.</li>
+</ul>
+
+<!-- SPARKLESIG MC0CFQDIsNLOwX4/hnmvVSakt4gm/xV3LwIUUj6v96Ad2DPhneX/PAqiJsP8KAo= -->
+
+            ]]>
+            </description>
+            <pubDate>Thu, 16 Oct 2014 16:46:05 +0000</pubDate>
+            <enclosure
+                url="https://github.com/radiant-player/radiant-player-mac/releases/download/v1.3.1/Radiant.Player.zip"
+                sparkle:version="1.3.1"
+                length="1510657"
+                type="application/octet-stream"
+                sparkle:dsaSignature="MC0CFQDIsNLOwX4/hnmvVSakt4gm/xV3LwIUUj6v96Ad2DPhneX/PAqiJsP8KAo="
+            />
+            <sparkle:minimumSystemVersion>10.9</sparkle:minimumSystemVersion>
+          </item>
+
+          <item>
+            <title>v1.1.1</title>
+            <description><![CDATA[
+              <h3 id="fixed">Fixed</h3>
+<ul>
+  <li>Seems that the uploaded version v1.1.0 build had a problem with the preferences window not properly opening. This v1.1.1 should be working correctly.</li>
+</ul>
+
+<!-- SPARKLESIG MC0CFHqFwRIDlpFfhjlf58xlbGmMoJQyAhUA4af0pC2AdxNbpxS5GRQFH9GLsnY= -->
+
+            ]]>
+            </description>
+            <pubDate>Sun, 09 Mar 2014 20:06:01 +0000</pubDate>
+            <enclosure
+                url="https://github.com/radiant-player/radiant-player-mac/releases/download/v1.1.1/Google.Music.zip"
+                sparkle:version="1.1.1"
+                length="834504"
+                type="application/octet-stream"
+                sparkle:dsaSignature="MC0CFHqFwRIDlpFfhjlf58xlbGmMoJQyAhUA4af0pC2AdxNbpxS5GRQFH9GLsnY="
+            />
+            <sparkle:minimumSystemVersion>10.9</sparkle:minimumSystemVersion>
+          </item>
+
+          <item>
+            <title>v1.0.2 - Flash Player un-bundled</title>
+            <description><![CDATA[
+              <h3 id="changed">Changed</h3>
+<ul>
+  <li>Unbundled Flash player for smaller download and easier updating</li>
+</ul>
+
+<!-- SPARKLESIG MC0CFQCuhNXisV0BKip6l7rm9lZJ6jUiFwIUeo53QIomir2XRRt6otCpX0PwBTQ= -->
+
+            ]]>
+            </description>
+            <pubDate>Fri, 21 Feb 2014 05:43:38 +0000</pubDate>
+            <enclosure
+                url="https://github.com/radiant-player/radiant-player-mac/releases/download/v1.0.2/Google.Music.zip"
+                sparkle:version="1.0.2"
+                length="370435"
+                type="application/octet-stream"
+                sparkle:dsaSignature="MC0CFQCuhNXisV0BKip6l7rm9lZJ6jUiFwIUeo53QIomir2XRRt6otCpX0PwBTQ="
+            />
+            <sparkle:minimumSystemVersion>10.9</sparkle:minimumSystemVersion>
+          </item>
+
+          <item>
+            <title>v1.0 - Initial release</title>
+            <description><![CDATA[
+              <p>Initial release of <a href="http://kbhomes.github.io/google-music-mac/">Google Music for Mac</a>.</p>
+
+<!-- SPARKLESIG MC0CFQC1pCTyGrM2XSeVcEf8iuZEZgKw/gIULTYYLm8rmiOpPxq/G53bimm0kkE= -->
+
+            ]]>
+            </description>
+            <pubDate>Thu, 20 Feb 2014 06:39:26 +0000</pubDate>
+            <enclosure
+                url="https://github.com/radiant-player/radiant-player-mac/releases/download/v1.0/Google.Music.zip"
+                sparkle:version="1.0"
+                length="25009097"
+                type="application/octet-stream"
+                sparkle:dsaSignature="MC0CFQC1pCTyGrM2XSeVcEf8iuZEZgKw/gIULTYYLm8rmiOpPxq/G53bimm0kkE="
             />
             <sparkle:minimumSystemVersion>10.9</sparkle:minimumSystemVersion>
           </item>
