@@ -70,7 +70,7 @@
 	<key>OSAScriptingDefinition</key>
 	<string>radiant-player-mac.sdef</string>
 	<key>SUFeedURL</key>
-	<string>https://radiant-player.github.io/radiant-player-mac/appcast/appcast.xml</string>
+	<string>https://radiant-player.github.io/radiant-player-mac/appcast/appcast2.xml</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>radiant-player-mac-dsa-pub.pem</string>
 	<key>SUScheduledCheckInterval</key>
