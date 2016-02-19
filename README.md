@@ -1,7 +1,7 @@
 [Radiant Player for Google Play Music™][1] [![Build Status](https://travis-ci.org/radiant-player/radiant-player-mac.svg)](https://travis-ci.org/radiant-player/radiant-player-mac)
 =========================
 
-![](https://raw.github.com/radiant-player/radiant-player-mac/gh-pages/images/application.png)
+![](https://raw.githubusercontent.com/radiant-player/radiant-player-mac/master/website/images/styles/google.png)
 
 Turn Google Play Music into a separate, beautiful application that integrates with your Mac.
 
@@ -37,7 +37,7 @@ License
 
 The MIT License (MIT)
 
-Copyright (c) 2014 Sajid Anwar
+Copyright (c) 2016 Sajid Anwar
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
