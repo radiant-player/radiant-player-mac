@@ -4,6 +4,7 @@ This file should follow the standards specified on [keepachangelog.com](http://k
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
+* More custom theme styling fixes as a result of Google's latest update ([#514](https://github.com/radiant-player/radiant-player-mac/pull/514))
 
 ## [1.7.2] - 2016-03-07
 * Custom CSS fixes for Google's latest update ([#509](https://github.com/radiant-player/radiant-player-mac/pull/509))
