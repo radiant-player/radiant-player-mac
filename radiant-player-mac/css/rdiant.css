@@ -121,7 +121,10 @@ border-color: #018fd5!important;
 background: #018fd5!important;
 }
 
-paper-header-panel#content-container.transparent #material-app-bar {
+paper-header-panel#content-container.transparent #material-app-bar,
+.explicit,
+paper-toggle-button[checked]:not([disabled]) .toggle-button.paper-toggle-button,
+paper-toggle-button[checked]:not([disabled]) .toggle-bar.paper-toggle-button {
 background-color: rgba(1, 143, 213, 0.4)!important;
 }
 

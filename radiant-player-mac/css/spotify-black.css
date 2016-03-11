@@ -17,8 +17,31 @@ body.material,
     color: #bbb;
 }
 
-#material-app-bar {
-    color: white;
+#material-app-bar,
+paper-button#unsubscribe-playlist-button .playlist-subscribed,
+paper-button#unsubscribe-playlist-button:hover .playlist-unsubscribe {
+    color: white!important;
+}
+
+paper-button#unsubscribe-playlist-button iron-icon[icon="sj:unsubscribe"] path:last-child
+{
+    fill: white;
+}
+
+paper-button#unsubscribe-playlist-button iron-icon[icon="sj:subscribed"] path
+{
+    fill: white;
+}
+
+paper-button#unsubscribe-playlist-button iron-icon[icon="sj:subscribed"] path:last-child
+{
+    stroke: white;
+}
+
+paper-button#unsubscribe-playlist-button iron-icon[icon="sj:subscribed"] path:first-child,
+paper-button#unsubscribe-playlist-button iron-icon[icon="sj:subscribed"] path:last-child
+{
+    fill: transparent;
 }
 
 .material .cluster-text-protection,
