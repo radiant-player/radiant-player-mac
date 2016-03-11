@@ -37,6 +37,7 @@ paper-slider#sliderBar paper-ripple.paper-slider,
     color: #039cac!important;
 }
 
+.explicit,
 .music-source-list::-webkit-scrollbar-thumb,
 sj-paper-button.material-primary, paper-button.material-primary,
 button.primary,
