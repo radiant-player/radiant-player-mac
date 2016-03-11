@@ -52,7 +52,9 @@ paper-slider#material-player-progress #sliderContainer.disabled #sliderBar #acti
 paper-progress.paper-slider #primaryProgress.paper-progress,
 .material-drag .song-drag-label,
 .material-transfer-radial-upload-overlay, .material-transfer-radial-download-overlay, .material-transfer-radial-processing-overlay,
-#current-loading-progress {
+#current-loading-progress,
+paper-toggle-button[checked]:not([disabled]) .toggle-button.paper-toggle-button,
+paper-toggle-button[checked]:not([disabled]) .toggle-bar.paper-toggle-button {
     background-color: #039cac!important;
 }
 
