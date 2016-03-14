@@ -267,6 +267,7 @@ a, .simple-dialog a {
 
 .hover-button[data-id="play"], .material .song-row .rating-container.thumbs [data-rating] {
     cursor:pointer;
+    color:white;
 }
 
 .music-banner {
@@ -546,15 +547,14 @@ div.simple-dialog-bg {
     color: white;
 }
 
-[data-account-type="all-access"] .actions sj-paper-button[data-id="radio"] .icon,
-.header-row [data-col="duration"] .icon,
-.header-row [data-col="play-count"] .icon,
-.material .song-row .rating-container.thumbs [data-rating],
-.material .song-row .rating-container.thumbs [data-rating],
-.material .song-row [data-col="index"] .hover-button[data-id=play],
-.material .song-row [data-col="track"] .hover-button[data-id=play]
-{
-    background-image: url(https://radiant-player-mac/sprites-inverted.png) !important;
+.material .song-row [data-col="index"] .hover-button[data-id="play"],
+.material .song-row [data-col="track"] .hover-button[data-id="play"] {
+    border-radius:30px;
+    background-color:#d3d3d3;
+}
+
+.material .song-row .rating-container.thumbs [data-rating] {
+    -webkit-filter:invert(100%);
 }
 
 .material .song-row .column-content {
