@@ -212,7 +212,7 @@
     NSTimeInterval curTimestamp = [[NSDate date] timeIntervalSince1970];
 
     long percent = [percentage integerValue];
-    long scrobbleAt = (duration / 100) * percent;
+    long scrobbleAt = ((duration / 100) * percent)/1000;
     
     if ([title length] && curTimestamp - timestamp >= scrobbleAt) {
         [[LastFm sharedInstance] sendScrobbledTrack:title
