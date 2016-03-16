@@ -549,8 +549,9 @@ div.simple-dialog-bg {
 
 .material .song-row [data-col="index"] .hover-button[data-id="play"],
 .material .song-row [data-col="track"] .hover-button[data-id="play"] {
-    border-radius:30px;
-    background-color:#d3d3d3;
+    /*border-radius:30px;
+    background-color:#d3d3d3;*/
+    background-image: url(https://radiant-player-mac/sprites-inverted.png) !important;
 }
 
 .material .song-row .rating-container.thumbs [data-rating] {

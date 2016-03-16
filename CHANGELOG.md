@@ -4,6 +4,8 @@ This file should follow the standards specified on [keepachangelog.com](http://k
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
+##### If you're a last.fm user, you may need to reauthorize Radiant after some [API issues last week](https://getsatisfaction.com/lastfm/topics/and-scrobbling-stopped-working-again). Do this by going to Preferences > Last.fm > Deauthorize, then log back in.
+
 * More custom theme styling fixes ([#515](https://github.com/radiant-player/radiant-player-mac/pull/515), [#516](https://github.com/radiant-player/radiant-player-mac/pull/516))
 
 ## [1.7.2] - 2016-03-07
