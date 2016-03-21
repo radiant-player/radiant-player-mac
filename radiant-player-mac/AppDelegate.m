@@ -625,7 +625,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
  */
 - (IBAction) setPlaybackTime:(NSInteger)milliseconds
 {
-    NSString *js = [NSString stringWithFormat:@"MusicAPI.Playback.setPlaybackTime(%ld)", (long)milliseconds];
+    NSString *js = [NSString stringWithFormat:@"gmusic.playback.setPlaybackTime(%ld)", (long)milliseconds];
     [webView stringByEvaluatingJavaScriptFromString:js];
 }
 
@@ -634,7 +634,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
  */
 - (IBAction) playPause:(id)sender
 {
-    [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Playback.playPause()"];
+    [webView stringByEvaluatingJavaScriptFromString:@"gmusic.playback.playPause()"];
 }
 
 /**
@@ -642,7 +642,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
  */
 - (IBAction) forwardAction:(id)sender
 {
-    [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Playback.forward()"];
+    [webView stringByEvaluatingJavaScriptFromString:@"gmusic.playback.forward()"];
 }
 
 /**
@@ -650,7 +650,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
  */
 - (IBAction) backAction:(id)sender
 {
-    [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Playback.rewind()"];
+    [webView stringByEvaluatingJavaScriptFromString:@"gmusic.playback.rewind()"];
 }
 
 /**
@@ -658,7 +658,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
  */
 - (IBAction) volumeUp:(id)sender
 {
-    [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Volume.increaseVolume(10)"];
+    [webView stringByEvaluatingJavaScriptFromString:@"gmusic.volume.increaseVolume(10)"];
 }
 
 /**
@@ -666,7 +666,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
  */
 - (IBAction) volumeDown:(id)sender
 {
-    [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Volume.decreaseVolume(10)"];
+    [webView stringByEvaluatingJavaScriptFromString:@"gmusic.volume.decreaseVolume(10)"];
 }
 
 /**
@@ -674,7 +674,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
  */
 - (void) setVolume:(int)volume
 {
-    [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"MusicAPI.Volume.setVolume(%d)", volume]];
+    [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"gmusic.volume.setVolume(%d)", volume]];
 }
 
 - (IBAction) volumeSliderChanged:(id)sender
@@ -687,7 +687,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
  */
 - (IBAction) toggleThumbsUp:(id)sender
 {
-    [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Rating.toggleThumbsUp()"];
+    [webView stringByEvaluatingJavaScriptFromString:@"gmusic.rating.toggleThumbsUp()"];
 }
 
 /**
@@ -695,7 +695,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
  */
 - (IBAction) toggleThumbsDown:(id)sender
 {
-    [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Rating.toggleThumbsDown()"];
+    [webView stringByEvaluatingJavaScriptFromString:@"gmusic.rating.toggleThumbsDown()"];
 }
 
 /**
@@ -703,7 +703,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
  */
 - (IBAction) toggleRepeatMode:(id)sender
 {
-    [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Playback.changeRepeat()"];
+    [webView stringByEvaluatingJavaScriptFromString:@"gmusic.playback.toggleRepeat()"];
 }
 
 /**
@@ -711,7 +711,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
  */
 - (IBAction) repeatNone:(id)sender
 {
-    [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Playback.changeRepeat(MusicAPI.Playback.NO_REPEAT)"];
+    [webView stringByEvaluatingJavaScriptFromString:@"gmusic.playback.changeRepeat(GMusic.Playback.NO_REPEAT)"];
 }
 
 /**
@@ -719,7 +719,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
  */
 - (IBAction) repeatSingle:(id)sender
 {
-    [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Playback.changeRepeat(MusicAPI.Playback.SINGLE_REPEAT)"];
+    [webView stringByEvaluatingJavaScriptFromString:@"gmusic.playback.changeRepeat(GMusic.Playback.SINGLE_REPEAT)"];
 }
 
 /**
@@ -727,7 +727,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
  */
 - (IBAction) repeatList:(id)sender
 {
-    [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Playback.changeRepeat(MusicAPI.Playback.LIST_REPEAT)"];
+    [webView stringByEvaluatingJavaScriptFromString:@"gmusic.playback.changeRepeat(GMusic.Playback.LIST_REPEAT)"];
 }
 
 /**
@@ -735,7 +735,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
  */
 - (IBAction) toggleShuffle:(id)sender
 {
-    [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Playback.toggleShuffle()"];
+    [webView stringByEvaluatingJavaScriptFromString:@"gmusic.playback.toggleShuffle()"];
 }
 
 /**
@@ -743,7 +743,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
  */
 - (IBAction) toggleVisualization:(id)sender
 {
-    [webView stringByEvaluatingJavaScriptFromString:@"MusicAPI.Playback.toggleVisualization()"];
+    [webView stringByEvaluatingJavaScriptFromString:@"gmusic.playback.toggleVisualization()"];
 }
 
 /**
@@ -821,7 +821,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 - (NSString *)currentSongURL
 {
     // Get the shareable URL of the current song.
-    return [webView stringByEvaluatingJavaScriptFromString:@"window.MusicAPI.Extras.getSongURL()"];
+    return [webView stringByEvaluatingJavaScriptFromString:@"window.gmusic.extras.getSongURL()"];
 }
 
 #pragma mark - Playback Notifications
@@ -921,6 +921,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 {
     // Only apply the main script file when the player is ready.
     if ([[webView mainFrameDocument] querySelector:@"#playerSongInfo"]) {
+        [self evaluateJavaScriptFile:@"gmusic"];
         [self evaluateJavaScriptFile:@"main"];
     }
 
