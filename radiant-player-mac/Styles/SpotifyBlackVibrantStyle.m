@@ -19,10 +19,8 @@
         [self setDescription:@"Vibrancy additions to the Spotify Black style."];
         [self setWindowColor:[NSColor colorWithSRGBRed:0.133f green:0.137f blue:0.149f alpha:1.0f]];
         [self setTitleColor:[NSColor colorWithDeviceWhite:0.7f alpha:1.0f]];
-        [self setCss:[ApplicationStyle cssNamed:@"spotify-black"]];
-        [self setJs:[ApplicationStyle jsNamed:@"spotify-black"]];
     }
-    
+
     return self;
 }
 

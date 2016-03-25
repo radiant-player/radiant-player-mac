@@ -21,9 +21,8 @@
         [self setWindowColor:[NSColor colorWithDeviceRed:(18/255.0f) green:(19/255.0f) blue:(20/255.0f) alpha:1.0]];
         [self setTitleColor:[NSColor colorWithDeviceWhite:0.2f alpha:1.0f]];
         [self setCss:[ApplicationStyle cssNamed:@"dark-cyan"]];
-        [self setJs:[ApplicationStyle jsNamed:@"dark-cyan"]];
     }
-    
+
     return self;
 }
 

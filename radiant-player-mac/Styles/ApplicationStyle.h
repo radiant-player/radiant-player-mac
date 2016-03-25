@@ -25,7 +25,6 @@
 - (void)applyToWebView:(WebView *)webView window:(NSWindow *)window;
 
 + (NSString *)cssNamed:(NSString *)name;
-+ (NSString *)jsNamed:(NSString *)name;
 + (NSMutableDictionary *)styles;
 
 + (void)applyYosemiteVisualEffects:(WebView *)webView window:(NSWindow *)window appearance:(NSString *)appearanceName;

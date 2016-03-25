@@ -54,5 +54,7 @@
 	<false/>
 	<key>window.full-screen</key>
 	<false/>
+	<key>WebKitDeveloperExtras</key>
+	<true/>
 </dict>
 </plist>

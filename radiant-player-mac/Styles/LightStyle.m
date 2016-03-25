@@ -18,9 +18,8 @@
         [self setAuthor:@"Steven La"];
         [self setDescription:@"A lightweight theme that integrates the header."];
         [self setCss:[ApplicationStyle cssNamed:@"light"]];
-        [self setJs:[ApplicationStyle jsNamed:@"light"]];
     }
-    
+
     return self;
 }
 

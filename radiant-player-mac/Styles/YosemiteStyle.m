@@ -18,9 +18,8 @@
         [self setAuthor:@"Sajid Anwar"];
         [self setDescription:@"A style that integrates Radiant Player with the Mac OS X Yosemite appearance."];
         [self setCss:[ApplicationStyle cssNamed:@"yosemite"]];
-        [self setJs:[ApplicationStyle jsNamed:@"yosemite"]];
     }
-    
+
     return self;
 }
 
