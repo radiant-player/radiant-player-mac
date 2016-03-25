@@ -16,9 +16,9 @@
     display: inline-block;
     vertical-align: middle;
     background-size: cover;
-    background-image: url(http://radiant-player-mac/images/lastfm-icon.png);
+    background-image: url(https://radiant-player-mac/images/lastfm-icon.png);
 }
 
 #lastfmButton:hover {
-    background-image: url(http://radiant-player-mac/images/lastfm-icon-hover.png);
+    background-image: url(https://radiant-player-mac/images/lastfm-icon-hover.png);
 }
