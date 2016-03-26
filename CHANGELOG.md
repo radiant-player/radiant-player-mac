@@ -4,6 +4,8 @@ This file should follow the standards specified on [keepachangelog.com](http://k
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
+
+## [1.7.4] - 2016-03-26
 ### Fixed
 * Fixed various JavaScript errors from Radiant's scripts ([#526](https://github.com/radiant-player/radiant-player-mac/pull/526))
 
