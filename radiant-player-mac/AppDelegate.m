@@ -104,7 +104,7 @@
                 object:window
                 queue:nil
                 usingBlock:^(NSNotification *note) {
-                    [webView stringByEvaluatingJavaScriptFromString:@"window.Styles.Callbacks.onEnterFullScreen();"];
+                    [webView stringByEvaluatingJavaScriptFromString:@"try{window.RadiantStyle.Callbacks.onEnterFullScreen();}catch(e){}"];
                     [self useNormalTitleBar];
                 }
             ];
@@ -114,7 +114,7 @@
                 object:window
                 queue:nil
                 usingBlock:^(NSNotification *note) {
-                    [webView stringByEvaluatingJavaScriptFromString:@"window.Styles.Callbacks.onExitFullScreen();"];
+                    [webView stringByEvaluatingJavaScriptFromString:@"try{window.RadiantStyle.Callbacks.onExitFullScreen();}catch(e){}"];
                     [self useTallTitleBar];
                 }
             ];
@@ -141,7 +141,7 @@
          object:window
          queue:nil
          usingBlock:^(NSNotification *note) {
-             [webView stringByEvaluatingJavaScriptFromString:@"window.Styles.Callbacks.onWindowDidBecomeActive();"];
+             [webView stringByEvaluatingJavaScriptFromString:@"try{window.RadiantStyle.Callbacks.onWindowDidBecomeActive();}catch(e){}"];
          }
      ];
 
@@ -150,7 +150,7 @@
          object:window
          queue:nil
          usingBlock:^(NSNotification *note) {
-             [webView stringByEvaluatingJavaScriptFromString:@"window.Styles.Callbacks.onWindowDidBecomeInactive();"];
+             [webView stringByEvaluatingJavaScriptFromString:@"try{window.RadiantStyle.Callbacks.onWindowDidBecomeInactive();}catch(e){}"];
          }
     ];
 
@@ -1000,7 +1000,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     css = [css stringByReplacingOccurrencesOfString:@"\n" withString:@"\\n"];
     css = [css stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
 
-    NSString *bootstrap = @"Styles.applyStyle(\"%@\", \"%@\");";
+    NSString *bootstrap = @"try{window.RadiantStyle.applyStyle(\"%@\", \"%@\");}catch(e){}";
     NSString *final = [NSString stringWithFormat:bootstrap, name, css];
 
     [webView stringByEvaluatingJavaScriptFromString:final];

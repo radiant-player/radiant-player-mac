@@ -20,9 +20,8 @@
         //[self setWindowColor:[NSColor colorWithDeviceRed:(1/255.0f) green:(143/255.0f) blue:(213/255.0f) alpha:1.0]];
         [self setWindowColor:[NSColor colorWithDeviceRed:(245/255.0f) green:(245/255.0f) blue:(245/255.0f) alpha:1.0]];
         [self setCss:[ApplicationStyle cssNamed:@"rdiant"]];
-        [self setJs:[ApplicationStyle jsNamed:@"rdiant"]];
     }
-    
+
     return self;
 }
 
