@@ -928,6 +928,10 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
     // Apply common styles.
     [self applyCSSFile:@"common"];
+    
+    if ([self isYosemite]) {
+        [self applyCSSFile:@"flexfix"];
+    }
 
     // Apply the navigation styles.
     [self applyCSSFile:@"navigation"];
