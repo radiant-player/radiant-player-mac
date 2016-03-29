@@ -4,6 +4,8 @@ This file should follow the standards specified on [keepachangelog.com](http://k
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
+
+## [1.7.5] - 2016-03-29
 ### Fixed
 * Fixed UI issues for Yosemite users ([#529](https://github.com/radiant-player/radiant-player-mac/pull/529), [@BarakaAka1Only](https://github.com/BarakaAka1Only))
 
