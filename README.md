@@ -30,6 +30,8 @@ and developed without having CocoaPods installed. Just be sure to open
 `radiant-player-mac.xcworkspace` instead of `radiant-player-mac.xcodeproj` in order to
 correctly pull in the dependencies into Xcode.
 
+A few JavaScript dependencies are installed via `npm` - to update these dependences, ensure that `package.json` specifies the target version and run `./scripts/update-javascript-dependencies.sh`.
+
 [6]: http://cocoapods.org/
 
 License

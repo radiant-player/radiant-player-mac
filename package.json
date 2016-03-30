@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "dependencies": {
+    "gmusic.js": "^4.2.0"
+  }
+}
