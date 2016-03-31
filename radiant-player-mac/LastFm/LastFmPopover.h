@@ -8,7 +8,7 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#import <LastFM/LastFm.h>
+#import <LastFm/LastFm.h>
 
 #import "LastFmService.h"
 
