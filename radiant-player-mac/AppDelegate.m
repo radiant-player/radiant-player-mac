@@ -929,8 +929,8 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
     // Apply common styles.
     [self applyCSSFile:@"common"];
-    
-    if ([self isYosemite]) {
+
+    if ([self isYosemite] || [self isMavericks]) {
         [self applyCSSFile:@"flexfix"];
     }
 
@@ -982,6 +982,11 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 - (BOOL)isYosemite
 {
     return floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9;
+}
+
+- (BOOL)isMavericks
+{
+    return floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_8;
 }
 
 - (void) evaluateJavaScriptFile:(NSString *)name

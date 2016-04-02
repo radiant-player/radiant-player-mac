@@ -353,3 +353,13 @@ paper-dialog.episode-dialog .buttons {
 .ups.light span {
     -webkit-flex: initial;
 }
+/* Mavericks */
+#volume:hover #material-volume-low,
+#volume:hover #material-volume-high,
+#volume:hover #material-vslider,
+#volume.simulated-hover #material-volume-low,
+#volume.simulated-hover #material-volume-high,
+#volume.simulated-hover #material-vslider,
+#material-vslider:focus {
+    opacity: 1
+}
