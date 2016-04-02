@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
 
+## [1.8.1] - 2016-04-02
+
 * Fixed UI issues for Mavericks users ([#534](https://github.com/radiant-player/radiant-player-mac/pull/534), [@BarakaAka1Only](https://github.com/BarakaAka1Only))
 
 ## [1.8.0] - 2016-03-30
