@@ -138,6 +138,7 @@
 
 - (id) preferenceForKey:(NSString *)key;
 - (BOOL) isYosemite;
+- (BOOL) isMavericks;
 
 - (void) evaluateJavaScriptFile:(NSString *)name;
 - (void) applyCSSFile:(NSString *)name;
