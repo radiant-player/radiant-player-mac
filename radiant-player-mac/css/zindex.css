@@ -1,0 +1,5 @@
+/* z-index fix for El Capitan */
+
+#material-one-middle {
+  z-index: 1;
+}

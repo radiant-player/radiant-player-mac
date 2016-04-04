@@ -930,8 +930,14 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     // Apply common styles.
     [self applyCSSFile:@"common"];
 
+    // Apply flexbox fix for Yosemite and Mavericks
     if ([self isYosemite] || [self isMavericks]) {
         [self applyCSSFile:@"flexfix"];
+    }
+
+    // Apply zindex fix for El Capitan
+    if ([self isElCapitan]) {
+        [self applyCSSFile:@"zindex"];
     }
 
     // Apply the navigation styles.
@@ -977,6 +983,11 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         return [defaults valueForKey:key];
     else
         return nil;
+}
+
+- (BOOL)isElCapitan
+{
+    return floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_10_Max;
 }
 
 - (BOOL)isYosemite
