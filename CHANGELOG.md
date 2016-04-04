@@ -4,6 +4,8 @@ This file should follow the standards specified on [keepachangelog.com](http://k
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
+
+## [1.8.2] - 2016-04-04
 ### Fixed
 * Fixed search box UI issues for El Capitan users ([#537](https://github.com/radiant-player/radiant-player-mac/pull/537), [@BarakaAka1Only](https://github.com/BarakaAka1Only))
 
