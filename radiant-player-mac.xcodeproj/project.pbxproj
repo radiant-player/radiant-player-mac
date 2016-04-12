@@ -89,6 +89,15 @@
 		D3F14A4918F357AA007D4536 /* AdvancedPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F14A4818F357AA007D4536 /* AdvancedPreferencesViewController.m */; };
 		D3FAC6D418BA81EC00D9F461 /* PopupStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FAC6D318BA81EC00D9F461 /* PopupStatusView.m */; };
 		D3FAC6D718BA942500D9F461 /* PopupViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FAC6D618BA942500D9F461 /* PopupViewDelegate.m */; };
+		E51F17EE1CBD8B4B009B0373 /* BarakaLyrics.m in Sources */ = {isa = PBXBuildFile; fileRef = E51F17DC1CBD8B4B009B0373 /* BarakaLyrics.m */; };
+		E51F17EF1CBD8B4B009B0373 /* BarakaLyricAZ.m in Sources */ = {isa = PBXBuildFile; fileRef = E51F17DE1CBD8B4B009B0373 /* BarakaLyricAZ.m */; };
+		E51F17F01CBD8B4B009B0373 /* BarakaLyricGenius.m in Sources */ = {isa = PBXBuildFile; fileRef = E51F17DF1CBD8B4B009B0373 /* BarakaLyricGenius.m */; };
+		E51F17F11CBD8B4B009B0373 /* BarakaLyricMusix.m in Sources */ = {isa = PBXBuildFile; fileRef = E51F17E01CBD8B4B009B0373 /* BarakaLyricMusix.m */; };
+		E51F17F21CBD8B4B009B0373 /* BarakaLyricWikia.m in Sources */ = {isa = PBXBuildFile; fileRef = E51F17E11CBD8B4B009B0373 /* BarakaLyricWikia.m */; };
+		E51F17F31CBD8B4B009B0373 /* BarakaLyricMetro.m in Sources */ = {isa = PBXBuildFile; fileRef = E51F17E21CBD8B4B009B0373 /* BarakaLyricMetro.m */; };
+		E51F17F41CBD8B4B009B0373 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = E51F17E81CBD8B4B009B0373 /* XPathQuery.m */; };
+		E51F17F51CBD8B4B009B0373 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = E51F17EA1CBD8B4B009B0373 /* TFHppleElement.m */; };
+		E51F17F61CBD8B4B009B0373 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = E51F17EC1CBD8B4B009B0373 /* TFHpple.m */; };
 		FF76BDFF1C05083D0004D31A /* DarkCyanStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = FF76BDFE1C05083D0004D31A /* DarkCyanStyle.m */; };
 /* End PBXBuildFile section */
 
@@ -263,6 +272,24 @@
 		D3FAC6D318BA81EC00D9F461 /* PopupStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupStatusView.m; sourceTree = "<group>"; };
 		D3FAC6D518BA942500D9F461 /* PopupViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupViewDelegate.h; sourceTree = "<group>"; };
 		D3FAC6D618BA942500D9F461 /* PopupViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupViewDelegate.m; sourceTree = "<group>"; };
+		E51F17DC1CBD8B4B009B0373 /* BarakaLyrics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarakaLyrics.m; path = BarakaLyrics/BarakaLyrics.m; sourceTree = "<group>"; };
+		E51F17DD1CBD8B4B009B0373 /* BarakaLyrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarakaLyrics.h; path = BarakaLyrics/BarakaLyrics.h; sourceTree = "<group>"; };
+		E51F17DE1CBD8B4B009B0373 /* BarakaLyricAZ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarakaLyricAZ.m; path = BarakaLyrics/BarakaLyricAZ.m; sourceTree = "<group>"; };
+		E51F17DF1CBD8B4B009B0373 /* BarakaLyricGenius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarakaLyricGenius.m; path = BarakaLyrics/BarakaLyricGenius.m; sourceTree = "<group>"; };
+		E51F17E01CBD8B4B009B0373 /* BarakaLyricMusix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarakaLyricMusix.m; path = BarakaLyrics/BarakaLyricMusix.m; sourceTree = "<group>"; };
+		E51F17E11CBD8B4B009B0373 /* BarakaLyricWikia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarakaLyricWikia.m; path = BarakaLyrics/BarakaLyricWikia.m; sourceTree = "<group>"; };
+		E51F17E21CBD8B4B009B0373 /* BarakaLyricMetro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarakaLyricMetro.m; path = BarakaLyrics/BarakaLyricMetro.m; sourceTree = "<group>"; };
+		E51F17E31CBD8B4B009B0373 /* BarakaLyricGenius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarakaLyricGenius.h; path = BarakaLyrics/BarakaLyricGenius.h; sourceTree = "<group>"; };
+		E51F17E41CBD8B4B009B0373 /* BarakaLyricAZ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarakaLyricAZ.h; path = BarakaLyrics/BarakaLyricAZ.h; sourceTree = "<group>"; };
+		E51F17E51CBD8B4B009B0373 /* BarakaLyricMusix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarakaLyricMusix.h; path = BarakaLyrics/BarakaLyricMusix.h; sourceTree = "<group>"; };
+		E51F17E61CBD8B4B009B0373 /* BarakaLyricWikia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarakaLyricWikia.h; path = BarakaLyrics/BarakaLyricWikia.h; sourceTree = "<group>"; };
+		E51F17E71CBD8B4B009B0373 /* BarakaLyricMetro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarakaLyricMetro.h; path = BarakaLyrics/BarakaLyricMetro.h; sourceTree = "<group>"; };
+		E51F17E81CBD8B4B009B0373 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XPathQuery.m; path = BarakaLyrics/XPathQuery.m; sourceTree = "<group>"; };
+		E51F17E91CBD8B4B009B0373 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XPathQuery.h; path = BarakaLyrics/XPathQuery.h; sourceTree = "<group>"; };
+		E51F17EA1CBD8B4B009B0373 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHppleElement.m; path = BarakaLyrics/TFHppleElement.m; sourceTree = "<group>"; };
+		E51F17EB1CBD8B4B009B0373 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHppleElement.h; path = BarakaLyrics/TFHppleElement.h; sourceTree = "<group>"; };
+		E51F17EC1CBD8B4B009B0373 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHpple.m; path = BarakaLyrics/TFHpple.m; sourceTree = "<group>"; };
+		E51F17ED1CBD8B4B009B0373 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHpple.h; path = BarakaLyrics/TFHpple.h; sourceTree = "<group>"; };
 		FF76BDFD1C05083D0004D31A /* DarkCyanStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DarkCyanStyle.h; sourceTree = "<group>"; };
 		FF76BDFE1C05083D0004D31A /* DarkCyanStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DarkCyanStyle.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -333,6 +360,7 @@
 		1A7B684517453E40001E509E /* radiant-player-mac */ = {
 			isa = PBXGroup;
 			children = (
+				E51F17DB1CBD8B25009B0373 /* BarakaLyrics */,
 				693BAD381C27050B0022B557 /* DDHidLib */,
 				D36F50621A3D871D000541C9 /* Support */,
 				D31ACE87193BDC9700AC7CB4 /* Notifications */,
@@ -566,6 +594,31 @@
 			path = LastFm;
 			sourceTree = "<group>";
 		};
+		E51F17DB1CBD8B25009B0373 /* BarakaLyrics */ = {
+			isa = PBXGroup;
+			children = (
+				E51F17DC1CBD8B4B009B0373 /* BarakaLyrics.m */,
+				E51F17DD1CBD8B4B009B0373 /* BarakaLyrics.h */,
+				E51F17DE1CBD8B4B009B0373 /* BarakaLyricAZ.m */,
+				E51F17DF1CBD8B4B009B0373 /* BarakaLyricGenius.m */,
+				E51F17E01CBD8B4B009B0373 /* BarakaLyricMusix.m */,
+				E51F17E11CBD8B4B009B0373 /* BarakaLyricWikia.m */,
+				E51F17E21CBD8B4B009B0373 /* BarakaLyricMetro.m */,
+				E51F17E31CBD8B4B009B0373 /* BarakaLyricGenius.h */,
+				E51F17E41CBD8B4B009B0373 /* BarakaLyricAZ.h */,
+				E51F17E51CBD8B4B009B0373 /* BarakaLyricMusix.h */,
+				E51F17E61CBD8B4B009B0373 /* BarakaLyricWikia.h */,
+				E51F17E71CBD8B4B009B0373 /* BarakaLyricMetro.h */,
+				E51F17E81CBD8B4B009B0373 /* XPathQuery.m */,
+				E51F17E91CBD8B4B009B0373 /* XPathQuery.h */,
+				E51F17EA1CBD8B4B009B0373 /* TFHppleElement.m */,
+				E51F17EB1CBD8B4B009B0373 /* TFHppleElement.h */,
+				E51F17EC1CBD8B4B009B0373 /* TFHpple.m */,
+				E51F17ED1CBD8B4B009B0373 /* TFHpple.h */,
+			);
+			name = BarakaLyrics;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -698,6 +751,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E51F17F51CBD8B4B009B0373 /* TFHppleElement.m in Sources */,
 				D34DC2BC18C295A700C27596 /* LastFmService.m in Sources */,
 				D3B1668318BB0E43003FCE6B /* DummyWebViewPolicyDelegate.m in Sources */,
 				D3CD9C3C18F25E0E002FBEE9 /* ImageURLProtocol.m in Sources */,
@@ -706,6 +760,7 @@
 				693BAD4F1C2705200022B557 /* DDHidDevice.m in Sources */,
 				D318341B18CFC7C500E8F9B1 /* ApplicationStyle.m in Sources */,
 				2B8FC1C318C9CB16006D04FF /* RadiantPlayerScriptCommand.m in Sources */,
+				E51F17F11CBD8B4B009B0373 /* BarakaLyricMusix.m in Sources */,
 				D3B71C2F18C2D5770041358B /* LastFmPreferencesViewController.m in Sources */,
 				D30CA00519383160007B05B2 /* NSApplication+ScriptingProperties.m in Sources */,
 				1A7B684C17453E40001E509E /* main.m in Sources */,
@@ -716,6 +771,7 @@
 				D32861701924744200395FEA /* NSHTTPCookieStorage+Swizzle.m in Sources */,
 				693BAD4D1C2705200022B557 /* DDHidAppleMikey.m in Sources */,
 				D3DF18181A99A581002AEE64 /* GoogleStyle.m in Sources */,
+				E51F17F31CBD8B4B009B0373 /* BarakaLyricMetro.m in Sources */,
 				D3D4C3EB18E77AA0007238B3 /* LastFmTrackTableCellView.m in Sources */,
 				1A7B685317453E40001E509E /* AppDelegate.m in Sources */,
 				693BAD551C2705200022B557 /* NSDictionary+DDHidExtras.m in Sources */,
@@ -736,6 +792,7 @@
 				D328616519234D7900395FEA /* TitleBarTextView.m in Sources */,
 				D318341718CFBC7400E8F9B1 /* AppearancePreferencesViewController.m in Sources */,
 				693BAD501C2705200022B557 /* DDHidElement.m in Sources */,
+				E51F17EF1CBD8B4B009B0373 /* BarakaLyricAZ.m in Sources */,
 				D37B638418ED315B0098F9DC /* LastFm+TrackInfo.m in Sources */,
 				693BAD511C2705200022B557 /* DDHidEvent.m in Sources */,
 				D30CA0081938722F007B05B2 /* NSImage+ScriptingDescriptor.m in Sources */,
@@ -749,12 +806,17 @@
 				D343CDF518C69DF4002F9DB3 /* NavigationPreferencesViewController.m in Sources */,
 				693BAD531C2705200022B557 /* DDHidUsage.m in Sources */,
 				693BAD4E1C2705200022B557 /* DDHidAppleRemote.m in Sources */,
+				E51F17F01CBD8B4B009B0373 /* BarakaLyricGenius.m in Sources */,
 				D3F14A4918F357AA007D4536 /* AdvancedPreferencesViewController.m in Sources */,
+				E51F17F41CBD8B4B009B0373 /* XPathQuery.m in Sources */,
 				D3D4C3E818E76674007238B3 /* LastFmPopover.m in Sources */,
 				D3091F6318C32961007C8DCD /* Utilities.m in Sources */,
+				E51F17EE1CBD8B4B009B0373 /* BarakaLyrics.m in Sources */,
 				D370E8E318E2BFE1007B5450 /* ExpandHoverView.m in Sources */,
 				693BAD521C2705200022B557 /* DDHidQueue.m in Sources */,
 				D32861681924000800395FEA /* NSDate+UTCString.m in Sources */,
+				E51F17F61CBD8B4B009B0373 /* TFHpple.m in Sources */,
+				E51F17F21CBD8B4B009B0373 /* BarakaLyricWikia.m in Sources */,
 				D32CCEFD18BE9BF800BDD484 /* PopupView.m in Sources */,
 				D36F50651A3D874E000541C9 /* VisualEffectView.m in Sources */,
 				B06FB3D219F7723500351943 /* LightStyle.m in Sources */,
