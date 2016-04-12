@@ -146,4 +146,8 @@
 + (NSString *) webScriptNameForSelector:(SEL)sel;
 + (BOOL) isSelectorExcludedFromWebScript:(SEL)sel;
 
+- (void) fetchBarakaLyrics:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album;
+- (void) BarakaInject:(NSString *)name;
+- (void) BarakaInjectLyrics:(NSString *)name content:(NSString *)content;
+
 @end
