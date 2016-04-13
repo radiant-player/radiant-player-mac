@@ -37,7 +37,7 @@ paper-slider#sliderBar paper-ripple.paper-slider,
     color: #039cac!important;
 }
 
-explicit,
+.explicit,
 .music-source-list::-webkit-scrollbar-thumb,
 sj-paper-button.material-primary, paper-button.material-primary,
 button.primary,
@@ -49,7 +49,7 @@ paper-checkbox #checkbox.checked,
 paper-slider #sliderBar #activeProgress,
 paper-slider#material-player-progress #sliderContainer.disabled #sliderBar #activeProgress,
 #sliderKnobInner.paper-slider,
-paper-progress.paper-slider #primaryProgress.paper-progress,
+#primaryProgress.paper-progress,
 .material-drag .song-drag-label,
 .material-transfer-radial-upload-overlay, .material-transfer-radial-download-overlay, .material-transfer-radial-processing-overlay,
 #current-loading-progress,

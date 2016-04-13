@@ -133,8 +133,8 @@
 
 - (NSColor *)accentColor
 {
-    // Play music orange RGB: 237/108/31
-    return [NSColor colorWithDeviceRed:(237/255.0f) green:(108/255.0f) blue:(31/255.0f) alpha:1.0];
+    // Play music orange RGB: 255/76/29
+    return [NSColor colorWithDeviceRed:(255/255.0f) green:(76/255.0f) blue:(29/255.0f) alpha:1.0];
 }
 
 @end

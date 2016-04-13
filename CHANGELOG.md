@@ -4,6 +4,8 @@ This file should follow the standards specified on [keepachangelog.com](http://k
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
+### Fixed
+* Styling fixes for Google's latest update ([#543](https://github.com/radiant-player/radiant-player-mac/pull/543))
 
 ## [1.8.2] - 2016-04-04
 ### Fixed
