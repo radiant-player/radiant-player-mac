@@ -11,8 +11,16 @@
 #import "LastFmService.h"
 #import "DDHidAppleRemote.h"
 #import "DDHidAppleMikey.h"
+#import "BarakaLyricGenius.h"
+#import "BarakaLyricWikia.h"
+#import "BarakaLyricMetro.h"
+#import "BarakaLyricAZ.h"
 
 #import <Sparkle/Sparkle.h>
+
+@interface AppDelegate ()
+@property (strong, nonatomic) NSMutableArray *BarakaGetLyrics;
+@end
 
 @implementation AppDelegate
 
@@ -788,6 +796,9 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     {
         [popupDelegate updateSong:title artist:artist album:album art:art];
 
+        /* Start BarakaLyrics */
+        [self fetchBarakaLyrics:currentTitle withArtist:currentArtist album:currentAlbum];
+        
         // Don't show the notification if the popup is visible.
         if ([popup isVisible])
             return;
@@ -975,6 +986,15 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     BOOL canGoForward = [webView canGoForward];
     NSString *call = [NSString stringWithFormat:@"window.GMNavigation.Callbacks.onHistoryChange(%@, %@)", canGoBack ? @"true" : @"false", canGoForward ? @"true" : @"false"];
     [[webView windowScriptObject] evaluateWebScript:call];
+    
+    // BarakaLyrics Stuff
+    [self evaluateJavaScriptFile:@"BarakaLyricsMain"];
+    /* Lets Load BarakaLyrics so sj can do it thing */
+    NSString *format =@"%@";
+    NSString *var =@"BarakaRadiant.load();BarakaRadiant.check();BarakaRadiant.RadiantStyles();";
+    NSString *insert = [NSString stringWithFormat:format,var];
+    [webView stringByEvaluatingJavaScriptFromString:insert];
+
 }
 
 - (id)preferenceForKey:(NSString *)key
@@ -1115,6 +1135,107 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         [NSApp activateIgnoringOtherApps:YES];
         [window makeKeyAndOrderFront:self];
     }
+}
+
+- (void) fetchBarakaLyrics:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album {
+    
+    if (![defaults boolForKey:@"BarakaLyrics"]) {
+        return;
+    }
+    
+    [self.BarakaGetLyrics Jumble];
+    self.BarakaGetLyrics = [NSMutableArray arrayWithArray:@[[BarakaLyricGenius new],[BarakaLyricWikia new],[BarakaLyricMetro new],[BarakaLyricAZ new]]];
+
+    @try {
+        NSString *lyrics = nil;
+        NSString *Title = title;
+        NSString *Artist = artist;
+        NSString *Album = album;
+        NSString *className = nil;
+        NSError *writeError = nil;
+        
+        for (BarakaLyrics *obtain in self.BarakaGetLyrics) {
+            //[self BarakaInject:className]; // not needed as this was a test for <className: hexvaule>
+            lyrics = [obtain findBarakaLyrics:Artist
+                                        album:Album
+                                        title:Title];
+            
+            NSArray* Json = [NSArray arrayWithObjects:lyrics, nil];
+            //NSData *jsonData = [NSJSONSerialization dataWithJSONObject:Json options:NSJSONWritingPrettyPrinted error:&writeError];
+            NSData *jsonData = [NSJSONSerialization dataWithJSONObject:Json options:0 error:&writeError];
+            NSString *Final = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+            Final = [Final stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            Final = [Final stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            
+            className = [obtain whatClass]; // get our classes we are using
+            
+            //NSLog(@"className: %@ Lyrics: %@",className,lyrics); // debug?
+            if (lyrics) {
+                [self BarakaInjectLyrics:className content:Final];
+                
+                //For some dumb reason some items with LyricsWikia have lyrics but only shows up as <div class=\"lyricbox\"><script><![CDATA[(function() {var opts = {artist: *...... therefore it doesn't obtain the actual lyrics even if its there, i'll remove it as nothing found =\
+                
+                if ([className rangeOfString:@"BarakaLyricWikia"].location != NSNotFound) {
+                    if ([Final containsString:@"<script><![CDATA[(function() {var opts = {artist:"]) {
+                        [self BarakaInjectLyrics:@"BarakaLyricWikia" content:@"['none']"];
+                    } else {
+                        [self BarakaInjectLyrics:@"BarakaLyricWikia" content:Final];
+                    }
+                }
+                // Damn you Metro with the unbearing empty string with no lyrics ? blah i'll remove it
+                if ([className rangeOfString:@"BarakaLyricMetro"].location != NSNotFound) {
+                    NSString *findme =
+                    @"<div id=\"lyrics-body-text\" class=\"js-lyric-text\">\n"
+                    "<p class=\"verse\"/>	</div>";
+                    if ([lyrics containsString:findme]) {
+                        [self BarakaInjectLyrics:@"BarakaLyricMetro" content:@"['none']"];
+                    } else {
+                        [self BarakaInjectLyrics:@"BarakaLyricMetro" content:Final];
+                    }
+                }
+                
+            } else {
+                [self BarakaInjectLyrics:className content:@"['none']"];
+            }
+            
+        }
+        
+        /* This is only for testing/debuging? in the Browser
+         NSString *Baraka =@"console.log(BarakaLyrics);";
+         NSString *insert = [NSString stringWithFormat:Baraka];
+         [webView stringByEvaluatingJavaScriptFromString:insert];*/
+        
+    } @catch (NSException * e) {
+        NSRunAlertPanel(@"Error", @"Sorry looks like BarakaLyrics couldn't get any lyrics :S Reach @BarakaAka1Only.", @"OK", nil, nil);
+    } @finally {
+        NSLog(@"BarakaLyrics");
+    }
+}
+
+- (void) BarakaInject:(NSString *)name
+{
+    /*ONLY FOR <className: hexvaule> when whatClass is removed / not in use*/
+    /*NSString *template =
+     @"var BarakaLyrics = {};"
+     "var what = '%1$@';"
+     "var bd, re, final;"
+     "bd = what.replace(/[^A-Za-z;]/g, '_');"
+     "re = bd.substring(1);"
+     "final = re.substring(0, re.indexOf('_'));"
+     "BarakaLyrics[final] = final;";*/
+    
+    NSString *template =
+    @"var BarakaLyrics = {};"
+    "BarakaLyrics['%1$@'] = ''";
+    
+    NSString *insert = [NSString stringWithFormat:template, name];
+    [webView stringByEvaluatingJavaScriptFromString:insert];
+}
+
+- (void) BarakaInjectLyrics:(NSString *)name content:(NSString *)content {
+    NSString *template = [NSString stringWithFormat:@"BarakaLyrics['%@'] = %@", name, content];
+    NSString *insert = [NSString stringWithFormat:template, name];
+    [webView stringByEvaluatingJavaScriptFromString:insert];
 }
 
 @end

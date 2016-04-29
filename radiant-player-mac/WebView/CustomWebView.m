@@ -80,6 +80,7 @@
 
 - (NSURLRequest *)webView:(WebView *)sender resource:(id)identifier willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse fromDataSource:(WebDataSource *)dataSource
 {
+    [WebView registerURLSchemeAsLocal:@"https"]; // Allow http:// urls to be treated like a https:// Baraka
     NSURL *url = [request URL];
     NSMutableURLRequest *req = [request mutableCopy];
 
