@@ -4,6 +4,8 @@ This file should follow the standards specified on [keepachangelog.com](http://k
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
+### Changed
+* Updated the internal Google Music API ([#558](https://github.com/radiant-player/radiant-player-mac/pull/558))
 
 ## [1.8.3] - 2016-04-13
 ### Fixed
