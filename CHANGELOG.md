@@ -4,6 +4,8 @@ This file should follow the standards specified on [keepachangelog.com](http://k
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
+### Fixed
+* Fixed "explicit" icon colouring in custom themes ([#543](https://github.com/radiant-player/radiant-player-mac/pull/570))
 
 ## [1.8.4] - 2016-06-02
 ### Changed
