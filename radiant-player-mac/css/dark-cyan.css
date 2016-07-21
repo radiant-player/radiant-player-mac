@@ -7,6 +7,7 @@
  *
  */
 
+iron-icon[icon="av:explicit"],
 music-content .info-card sj-paper-button, #music-content .info-card paper-button,
 .top-charts-view .song-row [data-col="index"] .column-content, .material-card .details .left-items .index,
 .more-songs-container,
@@ -37,7 +38,6 @@ paper-slider#sliderBar paper-ripple.paper-slider,
     color: #039cac!important;
 }
 
-.explicit,
 .music-source-list::-webkit-scrollbar-thumb,
 sj-paper-button.material-primary, paper-button.material-primary,
 button.primary,
