@@ -59,6 +59,7 @@ box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.07);
 -o-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.07);
 }
 
+iron-icon[icon="av:explicit"],
 music-content .info-card sj-paper-button, #music-content .info-card paper-button,
 .top-charts-view .song-row [data-col="index"] .column-content, .material-card .details .left-items .index,
 .more-songs-container,
@@ -122,7 +123,6 @@ background: #018fd5!important;
 }
 
 paper-header-panel#content-container.transparent #material-app-bar,
-.explicit,
 paper-toggle-button[checked]:not([disabled]) .toggle-button.paper-toggle-button,
 paper-toggle-button[checked]:not([disabled]) .toggle-bar.paper-toggle-button {
 background-color: rgba(1, 143, 213, 0.4)!important;

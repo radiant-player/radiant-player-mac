@@ -126,7 +126,7 @@ body {
     margin-top: 1px;
 }
 
-.song-row .explicit {
+.song-row iron-icon[icon="av:explicit"] {
     margin-top: 8px;
 }
 
