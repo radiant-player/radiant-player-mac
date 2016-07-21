@@ -137,7 +137,7 @@ proto.volume = {
     }
   },
 
-  // Decrease the volume by an amount (default of 1)
+  // Decrease the volume by an amount (default of 5)
   decreaseVolume: function (amount) {
     if (amount === undefined) {
       amount = 5;
@@ -201,8 +201,7 @@ proto.playback = {
   rewind: function () { this.playback._rewindEl.click(); },
 
   getShuffle: function () {
-    var title = this.playback._shuffleEl.getAttribute('title').toLowerCase();
-    if (title.indexOf('off') !== -1) {
+    if (this.playback._shuffleEl.classList.contains('active')) {
       return GMusic.Playback.ALL_SHUFFLE;
     } else {
       return GMusic.Playback.NO_SHUFFLE;
@@ -211,13 +210,16 @@ proto.playback = {
   toggleShuffle: function () { this.playback._shuffleEl.click(); },
 
   getRepeat: function () {
-    var title = this.playback._repeatEl.getAttribute('title').toLowerCase();
-    if (title.indexOf('repeat off') !== -1) {
-      return GMusic.Playback.NO_REPEAT;
-    } else if (title.indexOf('repeating all') !== -1) {
+    // Repeat element states:
+    //   SINGLE_REPEAT: {classList: ['active'], __data__: {icon: 'av:repeat-one'}}
+    //   LIST_REPEAT: {classList: ['active'], __data__: {icon: 'av:repeat'}}
+    //   NO_REPEAT: {classList: [], __data__: {icon: 'av:repeat'}}
+    if (this.playback._repeatEl.__data__.icon === 'av:repeat-one') {
+      return GMusic.Playback.SINGLE_REPEAT;
+    } else if (this.playback._repeatEl.classList.contains('active')) {
       return GMusic.Playback.LIST_REPEAT;
     } else {
-      return GMusic.Playback.SINGLE_REPEAT;
+      return GMusic.Playback.NO_REPEAT;
     }
   },
 
@@ -243,14 +245,16 @@ proto.playback = {
 proto.rating = {
   // Determine if a thumb is selected or not
   _isElSelected: function (el) {
-    // If the target is "Undo"-able, then it's selected
     // jscs:disable maximumLineLength
     // Unselected thumbs down:
     // <paper-icon-button icon="sj:thumb-up-outline" data-rating="5" role="button" tabindex="0" aria-disabled="false" class="x-scope paper-icon-button-0" title="Thumb-up" aria-label="Thumb-up"></paper-icon-button>
+    //   el.__data__.icon = 'sj:thumb-down-outline';
     // Selected thumbs up:
     // <paper-icon-button icon="sj:thumb-up-outline" data-rating="5" role="button" tabindex="0" aria-disabled="false" class="x-scope paper-icon-button-0" title="Undo thumb-up" aria-label="Undo thumb-up"></paper-icon-button>
+    //   el.__data__.icon = 'thumb-up';
     // jscs:enable maximumLineLength
-    return el.getAttribute('aria-label').indexOf('Undo') !== -1;
+    // DEV: We don't use English only strings (e.g. "Undo") to support i18n
+    return el.__data__.icon === 'thumb-up' || el.__data__.icon === 'thumb-down';
   },
   // Get current rating
   getRating: function () {
@@ -554,7 +558,7 @@ GMusic.SELECTORS = SELECTORS;
 // Export our constructor
 module.exports = GMusic;
 
-},{"assert":3,"events":4,"inherits":5}],3:[function(require,module,exports){
+},{"assert":3,"events":4,"inherits":9}],3:[function(require,module,exports){
 // http://wiki.commonjs.org/wiki/Unit_Testing/1.0
 //
 // THIS IS NOT TESTED NOR LIKELY TO WORK OUTSIDE V8!
@@ -1280,7 +1284,6 @@ process.browser = true;
 process.env = {};
 process.argv = [];
 process.version = ''; // empty string to avoid regexp issues
-process.versions = {};
 
 function noop() {}
 
@@ -1900,4 +1903,6 @@ function hasOwnProperty(obj, prop) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":7,"_process":6,"inherits":5}]},{},[1]);
+},{"./support/isBuffer":7,"_process":6,"inherits":5}],9:[function(require,module,exports){
+arguments[4][5][0].apply(exports,arguments)
+},{"dup":5}]},{},[1]);
