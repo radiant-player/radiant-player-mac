@@ -4,6 +4,8 @@ This file should follow the standards specified on [keepachangelog.com](http://k
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
+
+## [1.8.5] - 2016-07-26
 ### Fixed
 * Fixed an issue causing Radiant not to load ([#573](https://github.com/radiant-player/radiant-player-mac/pull/573))
 * Fixed "explicit" icon colouring in custom themes ([#543](https://github.com/radiant-player/radiant-player-mac/pull/543))
