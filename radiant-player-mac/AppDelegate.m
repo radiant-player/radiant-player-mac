@@ -1003,12 +1003,12 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 - (void) evaluateJavaScriptFile:(NSString *)name
 {
     NSString *template =
-        @"if (document.querySelector('#rp-script-%1$@') == null) {"
+        @"(function() { if (document.querySelector('#rp-script-%1$@') == null) {"
         "    var js = document.createElement('script');"
         "    js.id = 'rp-script-%1$@';"
         "    js.src = 'https://radiant-player-mac/js/%1$@.js';"
         "    document.head.appendChild(js);"
-        "}";
+        "}})();";
     NSString *insert = [NSString stringWithFormat:template, name];
     [webView stringByEvaluatingJavaScriptFromString:insert];
 }
