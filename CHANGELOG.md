@@ -5,7 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
 ### Fixed
-* Fixed "explicit" icon colouring in custom themes ([#543](https://github.com/radiant-player/radiant-player-mac/pull/570))
+* Fixed an issue causing Radiant not to load ([#573](https://github.com/radiant-player/radiant-player-mac/pull/573))
+* Fixed "explicit" icon colouring in custom themes ([#543](https://github.com/radiant-player/radiant-player-mac/pull/543))
 
 ## [1.8.4] - 2016-06-02
 ### Changed
