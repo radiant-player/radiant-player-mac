@@ -43,6 +43,8 @@
 
 @synthesize playbackSlider;
 
+@synthesize luckyButton;
+
 - (void)awakeFromNib
 {
     [repeatButton    setImage:[self repeatNoneImage]];
@@ -56,6 +58,8 @@
 
     [artExpandView          setImage:[self expandContractImage]];
     [actionButton           setImage:[self actionButtonImage]];
+    
+    [luckyButton   setImage:[self diceImage]];
 
     [popup.popupView setIsLargePlayer:NO];
 }
@@ -325,6 +329,14 @@
         else
             return [[Utilities templateImage:NSImageNameActionTemplate withColor:[NSColor colorWithDeviceWhite:0.4 alpha:1.0]] resizeImage:NSMakeSize(12, 12)];
     }
+}
+
+- (NSImage *)diceImage
+{
+    if ([popup.popupView useWhiteIcons])
+        return [Utilities imageFromName:@"dice_white"];
+    else
+        return [Utilities imageFromName:@"dice"];
 }
 
 @end

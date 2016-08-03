@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1909" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
@@ -296,7 +296,7 @@
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="942" height="702"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" id="372">
                 <rect key="frame" x="0.0" y="0.0" width="942" height="702"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -313,7 +313,7 @@
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="mf9-a3-xaf">
                         <rect key="frame" x="0.0" y="0.0" width="942" height="702"/>
                         <subviews>
-                            <button hidden="YES" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pVF-no-ka9">
+                            <button hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pVF-no-ka9">
                                 <rect key="frame" x="429" y="306" width="84" height="32"/>
                                 <buttonCell key="cell" type="push" title="Reload" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Cam-gA-HFn">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -377,6 +377,7 @@
                 <outlet property="backButton" destination="AmR-41-4AD" id="1m4-Lf-NlO"/>
                 <outlet property="forwardButton" destination="VkG-Lf-5uN" id="pRm-NM-rfe"/>
                 <outlet property="infoView" destination="arE-Wm-iTc" id="sIv-nj-Per"/>
+                <outlet property="luckyButton" destination="1PY-iH-7XA" id="CcN-EP-cXb"/>
                 <outlet property="noSongLabel" destination="37s-Je-fFn" id="2cQ-Pr-VlE"/>
                 <outlet property="playPauseButton" destination="ftM-je-Ymy" id="Xi3-U3-ewc"/>
                 <outlet property="playbackSlider" destination="8u2-Nn-ZZf" id="ww6-rb-TBx"/>
@@ -392,7 +393,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="131" y="159" width="297" height="293"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <value key="minSize" type="size" width="297" height="325"/>
             <value key="maxSize" type="size" width="297" height="325"/>
             <view key="contentView" id="bh6-VI-WVo">
@@ -473,14 +474,14 @@
             <windowStyleMask key="styleMask" utility="YES" nonactivatingPanel="YES"/>
             <windowCollectionBehavior key="collectionBehavior" moveToActiveSpace="YES" ignoresCycle="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="139" y="81" width="356" height="152"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+            <rect key="contentRect" x="139" y="81" width="356" height="171"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" id="4yq-G3-W3B" customClass="PopupView">
-                <rect key="frame" x="0.0" y="0.0" width="356" height="152"/>
+                <rect key="frame" x="0.0" y="0.0" width="356" height="171"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <button focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="dQ2-sg-PYy">
-                        <rect key="frame" x="20" y="82" width="50" height="50"/>
+                        <rect key="frame" x="20" y="101" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="FPB-vf-hwp"/>
                             <constraint firstAttribute="height" constant="50" id="UYO-Il-wYi"/>
@@ -494,14 +495,14 @@
                         </connections>
                     </button>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="9xX-aB-17c" customClass="ExpandHoverView">
-                        <rect key="frame" x="20" y="82" width="50" height="50"/>
+                        <rect key="frame" x="20" y="101" width="50" height="50"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="arrow_expand_art" id="dtZ-U9-2g6"/>
                     </imageView>
                     <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="BxE-sk-mNE">
-                        <rect key="frame" x="37" y="100" width="16" height="16"/>
+                        <rect key="frame" x="37" y="119" width="16" height="16"/>
                     </progressIndicator>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="arE-Wm-iTc">
-                        <rect key="frame" x="78" y="81" width="208" height="51"/>
+                        <rect key="frame" x="78" y="100" width="208" height="51"/>
                         <subviews>
                             <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QTZ-Jw-ZpH">
                                 <rect key="frame" x="-2" y="34" width="212" height="17"/>
@@ -541,7 +542,7 @@
                         </constraints>
                     </customView>
                     <button focusRingType="none" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ftM-je-Ymy">
-                        <rect key="frame" x="162" y="37" width="32" height="32"/>
+                        <rect key="frame" x="162" y="26" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="32" id="2E3-Ii-byb"/>
                             <constraint firstAttribute="height" constant="32" id="gaH-gP-i3X"/>
@@ -554,8 +555,22 @@
                             <action selector="playPause:" target="494" id="mxx-1f-URL"/>
                         </connections>
                     </button>
+                    <button focusRingType="none" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1PY-iH-7XA">
+                        <rect key="frame" x="162" y="61" width="32" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="32" id="6kH-1O-Jyk"/>
+                            <constraint firstAttribute="width" constant="32" id="V6N-dM-a06"/>
+                        </constraints>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="dice" imagePosition="overlaps" alignment="center" refusesFirstResponder="YES" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="fTq-1y-xCP">
+                            <behavior key="behavior" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="luckyAction:" target="494" id="4A6-hQ-BE6"/>
+                        </connections>
+                    </button>
                     <button focusRingType="none" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VkG-Lf-5uN">
-                        <rect key="frame" x="220" y="37" width="32" height="32"/>
+                        <rect key="frame" x="220" y="26" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="32" id="Hiz-6f-8e3"/>
                             <constraint firstAttribute="width" constant="32" id="MxO-Qh-9gU"/>
@@ -569,7 +584,7 @@
                         </connections>
                     </button>
                     <button focusRingType="none" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AmR-41-4AD">
-                        <rect key="frame" x="104" y="37" width="32" height="32"/>
+                        <rect key="frame" x="104" y="26" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="32" id="10T-YX-xLO"/>
                             <constraint firstAttribute="height" constant="32" id="dQ5-X6-1k5"/>
@@ -583,7 +598,7 @@
                         </connections>
                     </button>
                     <button focusRingType="none" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DvI-Lo-u1q">
-                        <rect key="frame" x="46" y="37" width="32" height="32"/>
+                        <rect key="frame" x="46" y="26" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="32" id="BV3-kr-ePN"/>
                             <constraint firstAttribute="height" constant="32" id="o83-Qw-VVn"/>
@@ -597,7 +612,7 @@
                         </connections>
                     </button>
                     <button focusRingType="none" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Xb-8Y-y5L">
-                        <rect key="frame" x="278" y="37" width="32" height="32"/>
+                        <rect key="frame" x="278" y="26" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="32" id="bo5-az-Gwr"/>
                             <constraint firstAttribute="height" constant="32" id="tkr-TJ-Sdn"/>
@@ -611,7 +626,7 @@
                         </connections>
                     </button>
                     <button hidden="YES" focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="EGc-cr-jAa">
-                        <rect key="frame" x="308" y="105" width="24" height="24"/>
+                        <rect key="frame" x="308" y="124" width="24" height="24"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="mqe-Xz-KuL"/>
                         </constraints>
@@ -624,7 +639,7 @@
                         </connections>
                     </button>
                     <button hidden="YES" focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="3Nx-UI-e4n">
-                        <rect key="frame" x="308" y="79" width="24" height="24"/>
+                        <rect key="frame" x="308" y="98" width="24" height="24"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="iee-nQ-Nto"/>
                         </constraints>
@@ -637,22 +652,22 @@
                         </connections>
                     </button>
                     <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="37s-Je-fFn">
-                        <rect key="frame" x="18" y="99" width="320" height="17"/>
+                        <rect key="frame" x="18" y="118" width="320" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" focusRingType="none" alignment="center" title="No song currently playing" id="xHL-lO-Uva">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <slider focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8u2-Nn-ZZf">
-                        <rect key="frame" x="18" y="9" width="320" height="20"/>
+                    <slider focusRingType="none" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8u2-Nn-ZZf">
+                        <rect key="frame" x="18" y="-2" width="320" height="21"/>
                         <sliderCell key="cell" refusesFirstResponder="YES" state="on" focusRingType="none" alignment="left" tickMarkPosition="above" sliderType="linear" id="yOD-fm-imH" customClass="PlaybackSliderCell"/>
                         <connections>
                             <action selector="setPlaybackTime:" target="vhZ-72-AYY" id="844-7Z-MTH"/>
                         </connections>
                     </slider>
                     <button focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="v8E-fH-1nK">
-                        <rect key="frame" x="337" y="127" width="15" height="15"/>
+                        <rect key="frame" x="337" y="146" width="15" height="15"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="15" id="5pn-5N-a0N"/>
                         </constraints>
@@ -685,7 +700,10 @@
                     <constraint firstItem="DvI-Lo-u1q" firstAttribute="top" secondItem="ftM-je-Ymy" secondAttribute="top" id="Ogi-je-5a7"/>
                     <constraint firstItem="37s-Je-fFn" firstAttribute="leading" secondItem="4yq-G3-W3B" secondAttribute="leading" constant="20" id="PkE-GG-5eL"/>
                     <constraint firstItem="DvI-Lo-u1q" firstAttribute="top" secondItem="AmR-41-4AD" secondAttribute="top" id="RA0-xR-scn"/>
+                    <constraint firstAttribute="trailing" secondItem="1PY-iH-7XA" secondAttribute="trailing" constant="26" id="T3B-2k-yMo"/>
                     <constraint firstItem="DvI-Lo-u1q" firstAttribute="top" secondItem="VkG-Lf-5uN" secondAttribute="top" id="URx-kt-z7n"/>
+                    <constraint firstItem="ftM-je-Ymy" firstAttribute="top" secondItem="1PY-iH-7XA" secondAttribute="bottom" constant="9" id="XpG-5K-CHp"/>
+                    <constraint firstItem="1PY-iH-7XA" firstAttribute="leading" secondItem="4yq-G3-W3B" secondAttribute="leading" constant="26" id="Xxz-FL-7KO"/>
                     <constraint firstAttribute="trailing" secondItem="37s-Je-fFn" secondAttribute="trailing" constant="20" id="YOd-XU-A9s"/>
                     <constraint firstAttribute="trailing" secondItem="v8E-fH-1nK" secondAttribute="trailing" constant="4" id="YX0-cj-Y19"/>
                     <constraint firstItem="arE-Wm-iTc" firstAttribute="top" secondItem="9xX-aB-17c" secondAttribute="top" id="Zut-1f-d3R"/>
@@ -711,6 +729,7 @@
             <connections>
                 <outlet property="popupView" destination="4yq-G3-W3B" id="VcF-fy-kbk"/>
             </connections>
+            <point key="canvasLocation" x="413" y="467.5"/>
         </window>
         <customObject id="leS-Oa-AB4" userLabel="Last.fm Popover" customClass="LastFmPopover"/>
         <toolbar implicitIdentifier="68A24D56-BCA3-4F88-AA87-3F70F6021A18" autosavesConfiguration="NO" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconAndLabel" sizeMode="regular" id="c7x-mm-euH">
@@ -750,7 +769,7 @@
                     </textFieldCell>
                 </textField>
                 <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dNn-V0-8Tw">
-                    <rect key="frame" x="146" y="6" width="96" height="20"/>
+                    <rect key="frame" x="146" y="6" width="96" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="92" id="qn0-2S-Sba"/>
                     </constraints>
@@ -797,6 +816,7 @@
     <resources>
         <image name="NSEnterFullScreenTemplate" width="15" height="15"/>
         <image name="arrow_expand_art" width="50" height="50"/>
+        <image name="dice" width="512" height="512"/>
         <image name="icon" width="512" height="512"/>
         <image name="next" width="512" height="512"/>
         <image name="play" width="512" height="512"/>

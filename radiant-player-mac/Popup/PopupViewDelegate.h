@@ -52,6 +52,8 @@
 
 @property (assign) IBOutlet NSSlider *playbackSlider;
 
+@property (assign) IBOutlet NSButton *luckyButton;
+
 - (void) updateSong:(NSString *)title artist:(NSString *)artist album:(NSString *)album art:(NSString *)art;
 - (void) downloadAlbumArt:(NSString *)art;
 
@@ -84,5 +86,6 @@
 - (NSImage *) thumbsDownOnImage;
 - (NSImage *) expandContractImage;
 - (NSImage *) actionButtonImage;
+- (NSImage *) diceImage;
 
 @end
