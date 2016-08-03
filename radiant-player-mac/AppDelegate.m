@@ -877,6 +877,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 - (void)webView:(WebView *)webView didClearWindowObject:(WebScriptObject *)windowObject forFrame:(WebFrame *)frame
 {
     [windowObject setValue:self forKey:@"GoogleMusicApp"];
+    [windowObject evaluateWebScript:@"window.performance.getEntriesByType = window.performance.getEntriesByType || function() { return []; };"];
 }
 
 - (void)webView:(WebView *)sender didFailLoadWithError:(NSError *)error forFrame:(WebFrame *)frame
@@ -907,6 +908,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 
 - (void)webView:(WebView *)sender didCommitLoadForFrame:(WebFrame *)frame
 {
+    [sender stringByEvaluatingJavaScriptFromString:@"window.performance.getEntriesByType = window.performance.getEntriesByType || function() { return []; };"];
     NSString *url = [[[[frame dataSource] request] URL] absoluteString];
 
     if ([url isEqualToString:@"https://play.google.com/music/listen"]) {
