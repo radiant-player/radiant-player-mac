@@ -4,6 +4,8 @@ This file should follow the standards specified on [keepachangelog.com](http://k
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
+### Fixed
+* Fixed an issue causing Radiant not to load ([#578](https://github.com/radiant-player/radiant-player-mac/pull/578), [@davepagurek](https://github.com/davepagurek))
 
 ## [1.8.5] - 2016-07-26
 ### Fixed
