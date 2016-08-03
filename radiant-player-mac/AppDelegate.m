@@ -762,6 +762,14 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     [webView selectAll:sender];
 }
 
+/**
+ * luckyAction I'm feeling lucky button, let's roll the dice ;)
+ */
+- (IBAction) luckyAction:(id)sender
+{
+    [webView stringByEvaluatingJavaScriptFromString:@"document.querySelector('[data-type=\"imfl\"]').click()"];
+}
+
 - (void)notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art duration:(NSTimeInterval)duration
 {
     NSTimeInterval timestamp = [[NSDate date] timeIntervalSince1970];
