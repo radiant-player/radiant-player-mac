@@ -123,6 +123,8 @@
 
 - (IBAction) selectAll:(id)sender;
 
+- (IBAction) luckyAction:(id)sender;
+
 - (NSString *) currentSongURL;
 
 - (void) moveWindowWithDeltaX:(CGFloat)deltaX andDeltaY:(CGFloat)deltaY;
