@@ -504,7 +504,7 @@
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="arE-Wm-iTc">
                         <rect key="frame" x="78" y="120" width="208" height="51"/>
                         <subviews>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QTZ-Jw-ZpH">
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QTZ-Jw-ZpH">
                                 <rect key="frame" x="-2" y="34" width="212" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" focusRingType="none" placeholderString="" id="0Tp-am-ga6">
                                     <font key="font" metaFont="systemBold"/>
@@ -512,7 +512,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ngI-Gb-8Jw">
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ngI-Gb-8Jw">
                                 <rect key="frame" x="-2" y="16" width="212" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" focusRingType="none" id="fHI-wa-NfF">
                                     <font key="font" metaFont="system"/>
@@ -520,7 +520,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yJg-I1-edx">
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yJg-I1-edx">
                                 <rect key="frame" x="-2" y="-2" width="212" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" focusRingType="none" id="rV5-qT-OvQ">
                                     <font key="font" metaFont="system"/>
@@ -555,7 +555,7 @@
                             <action selector="playPause:" target="494" id="mxx-1f-URL"/>
                         </connections>
                     </button>
-                    <button focusRingType="none" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1PY-iH-7XA">
+                    <button focusRingType="none" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1PY-iH-7XA">
                         <rect key="frame" x="162" y="61" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="32" id="6kH-1O-Jyk"/>
@@ -700,10 +700,8 @@
                     <constraint firstItem="DvI-Lo-u1q" firstAttribute="top" secondItem="ftM-je-Ymy" secondAttribute="top" id="Ogi-je-5a7"/>
                     <constraint firstItem="37s-Je-fFn" firstAttribute="leading" secondItem="4yq-G3-W3B" secondAttribute="leading" constant="20" id="PkE-GG-5eL"/>
                     <constraint firstItem="DvI-Lo-u1q" firstAttribute="top" secondItem="AmR-41-4AD" secondAttribute="top" id="RA0-xR-scn"/>
-                    <constraint firstAttribute="trailing" secondItem="1PY-iH-7XA" secondAttribute="trailing" constant="26" id="T3B-2k-yMo"/>
                     <constraint firstItem="DvI-Lo-u1q" firstAttribute="top" secondItem="VkG-Lf-5uN" secondAttribute="top" id="URx-kt-z7n"/>
                     <constraint firstItem="ftM-je-Ymy" firstAttribute="top" secondItem="1PY-iH-7XA" secondAttribute="bottom" constant="9" id="XpG-5K-CHp"/>
-                    <constraint firstItem="1PY-iH-7XA" firstAttribute="leading" secondItem="4yq-G3-W3B" secondAttribute="leading" constant="26" id="Xxz-FL-7KO"/>
                     <constraint firstAttribute="trailing" secondItem="37s-Je-fFn" secondAttribute="trailing" constant="20" id="YOd-XU-A9s"/>
                     <constraint firstAttribute="trailing" secondItem="v8E-fH-1nK" secondAttribute="trailing" constant="4" id="YX0-cj-Y19"/>
                     <constraint firstItem="arE-Wm-iTc" firstAttribute="top" secondItem="9xX-aB-17c" secondAttribute="top" id="Zut-1f-d3R"/>
