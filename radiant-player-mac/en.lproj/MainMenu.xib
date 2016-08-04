@@ -474,14 +474,14 @@
             <windowStyleMask key="styleMask" utility="YES" nonactivatingPanel="YES"/>
             <windowCollectionBehavior key="collectionBehavior" moveToActiveSpace="YES" ignoresCycle="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="139" y="81" width="356" height="171"/>
+            <rect key="contentRect" x="139" y="81" width="356" height="191"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" id="4yq-G3-W3B" customClass="PopupView">
-                <rect key="frame" x="0.0" y="0.0" width="356" height="171"/>
+                <rect key="frame" x="0.0" y="0.0" width="356" height="191"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <button focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="dQ2-sg-PYy">
-                        <rect key="frame" x="20" y="101" width="50" height="50"/>
+                        <rect key="frame" x="20" y="121" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="FPB-vf-hwp"/>
                             <constraint firstAttribute="height" constant="50" id="UYO-Il-wYi"/>
@@ -495,16 +495,16 @@
                         </connections>
                     </button>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="9xX-aB-17c" customClass="ExpandHoverView">
-                        <rect key="frame" x="20" y="101" width="50" height="50"/>
+                        <rect key="frame" x="20" y="121" width="50" height="50"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="arrow_expand_art" id="dtZ-U9-2g6"/>
                     </imageView>
                     <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="BxE-sk-mNE">
-                        <rect key="frame" x="37" y="119" width="16" height="16"/>
+                        <rect key="frame" x="37" y="139" width="16" height="16"/>
                     </progressIndicator>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="arE-Wm-iTc">
-                        <rect key="frame" x="78" y="100" width="208" height="51"/>
+                        <rect key="frame" x="78" y="120" width="208" height="51"/>
                         <subviews>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QTZ-Jw-ZpH">
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QTZ-Jw-ZpH">
                                 <rect key="frame" x="-2" y="34" width="212" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" focusRingType="none" placeholderString="" id="0Tp-am-ga6">
                                     <font key="font" metaFont="systemBold"/>
@@ -512,7 +512,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ngI-Gb-8Jw">
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ngI-Gb-8Jw">
                                 <rect key="frame" x="-2" y="16" width="212" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" focusRingType="none" id="fHI-wa-NfF">
                                     <font key="font" metaFont="system"/>
@@ -520,7 +520,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yJg-I1-edx">
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yJg-I1-edx">
                                 <rect key="frame" x="-2" y="-2" width="212" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" focusRingType="none" id="rV5-qT-OvQ">
                                     <font key="font" metaFont="system"/>
@@ -626,7 +626,7 @@
                         </connections>
                     </button>
                     <button hidden="YES" focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="EGc-cr-jAa">
-                        <rect key="frame" x="308" y="124" width="24" height="24"/>
+                        <rect key="frame" x="308" y="144" width="24" height="24"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="mqe-Xz-KuL"/>
                         </constraints>
@@ -639,7 +639,7 @@
                         </connections>
                     </button>
                     <button hidden="YES" focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="3Nx-UI-e4n">
-                        <rect key="frame" x="308" y="98" width="24" height="24"/>
+                        <rect key="frame" x="308" y="118" width="24" height="24"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="iee-nQ-Nto"/>
                         </constraints>
@@ -652,7 +652,7 @@
                         </connections>
                     </button>
                     <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="37s-Je-fFn">
-                        <rect key="frame" x="18" y="118" width="320" height="17"/>
+                        <rect key="frame" x="18" y="138" width="320" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" focusRingType="none" alignment="center" title="No song currently playing" id="xHL-lO-Uva">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -667,7 +667,7 @@
                         </connections>
                     </slider>
                     <button focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="v8E-fH-1nK">
-                        <rect key="frame" x="337" y="146" width="15" height="15"/>
+                        <rect key="frame" x="337" y="166" width="15" height="15"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="15" id="5pn-5N-a0N"/>
                         </constraints>
@@ -729,7 +729,7 @@
             <connections>
                 <outlet property="popupView" destination="4yq-G3-W3B" id="VcF-fy-kbk"/>
             </connections>
-            <point key="canvasLocation" x="413" y="467.5"/>
+            <point key="canvasLocation" x="413" y="477.5"/>
         </window>
         <customObject id="leS-Oa-AB4" userLabel="Last.fm Popover" customClass="LastFmPopover"/>
         <toolbar implicitIdentifier="68A24D56-BCA3-4F88-AA87-3F70F6021A18" autosavesConfiguration="NO" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconAndLabel" sizeMode="regular" id="c7x-mm-euH">
