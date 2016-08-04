@@ -19,7 +19,7 @@ Radiant = {
         Radiant.Lucky();
     },
     Lucky: function() {
-        var lucky = Radiant.create('<div class="material-card material-shadow-z1" data-size="small" data-type="imfl" data-id="" data-log-position="0"><div class="image-wrapper"><div class="image-inner-wrapper"><img class="image" src="https://play-music.gstatic.com/fe/75c74ef2930c12f49710ccf42c5fb3bb/ifl_card_art.png" alt="" draggable="false"></div></div><div class="details"><div class="details-inner"><a class="title tooltip fade-out" href="">I\'m feeling lucky radio</a><div class="sub-title tooltip fade-out">Based on your music taste</div></div></div></div>');
+        var lucky = Radiant.create('<div class="material-card" data-type="imfl" style="display:none"></div>');
 
         var readyStateChecker = setInterval(function() {
             if(document.readyState == "complete"){
