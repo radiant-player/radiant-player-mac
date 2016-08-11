@@ -105,7 +105,7 @@ paper-slider#material-player-progress #sliderContainer.disabled #sliderBar #acti
 .material-drag .song-drag-label,
 .material-transfer-radial-upload-overlay, .material-transfer-radial-download-overlay, .material-transfer-radial-processing-overlay,
 #current-loading-progress {
-background-color: #018fd5!important;
+	background-color: #018fd5!important;
 }
 
 paper-checkbox #checkbox.checked,
@@ -113,9 +113,10 @@ paper-checkbox #checkbox.checked,
 #loading-overlay.material paper-spinner-lite .circle,
 paper-action-dialog.get-link .content paper-spinner .circle,
 .delete-library-dialog .delete-in-progress paper-spinner .circle, .delete-recommendations-dialog .delete-in-progress paper-spinner .circle,
-.nav-section .selected
+.nav-section .selected,
+#sliderKnobInner.paper-slider
 {
-border-color: #018fd5!important;
+	border-color: #018fd5!important;
 }
 
 .material-container-details sj-fab, .material-container-details paper-fab {

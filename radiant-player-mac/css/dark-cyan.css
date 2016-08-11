@@ -64,7 +64,8 @@ paper-action-dialog.get-link .content paper-spinner .circle,
 .delete-library-dialog .delete-in-progress paper-spinner .circle, .delete-recommendations-dialog .delete-in-progress paper-spinner .circle,
 .nav-section .selected,
 #loading-overlay.material paper-spinner .circle,
-#loading-overlay.material paper-spinner-lite .circle
+#loading-overlay.material paper-spinner-lite .circle,
+#sliderKnobInner.paper-slider
 {
     border-color: #039cac!important;
 }
