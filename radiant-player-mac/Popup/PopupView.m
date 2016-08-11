@@ -256,6 +256,7 @@
         [delegate.backButton setImage:[delegate backImage]];
         [delegate.forwardButton setImage:[delegate forwardImage]];
         [delegate.actionButton setImage:[delegate actionButtonImage]];
+        [delegate.luckyButton setImage:[delegate diceImage]];
     }
     else
     {
@@ -294,6 +295,7 @@
         [delegate.backButton setImage:[delegate backImage]];
         [delegate.forwardButton setImage:[delegate forwardImage]];
         [delegate.actionButton setImage:[delegate actionButtonImage]];
+        [delegate.luckyButton setImage:[delegate diceImage]];
     }
 }
 

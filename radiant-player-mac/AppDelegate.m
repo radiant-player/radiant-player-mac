@@ -762,6 +762,14 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     [webView selectAll:sender];
 }
 
+/**
+ * luckyAction I'm feeling lucky button, let's roll the dice ;)
+ */
+- (IBAction) luckyAction:(id)sender
+{
+    [webView stringByEvaluatingJavaScriptFromString:@"document.querySelector('[data-type=\"imfl\"]').click()"];
+}
+
 - (void)notifySong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album art:(NSString *)art duration:(NSTimeInterval)duration
 {
     NSTimeInterval timestamp = [[NSDate date] timeIntervalSince1970];
@@ -977,6 +985,15 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     BOOL canGoForward = [webView canGoForward];
     NSString *call = [NSString stringWithFormat:@"window.GMNavigation.Callbacks.onHistoryChange(%@, %@)", canGoBack ? @"true" : @"false", canGoForward ? @"true" : @"false"];
     [[webView windowScriptObject] evaluateWebScript:call];
+    
+    // Rolling dice on all pages
+    [self evaluateJavaScriptFile:@"lucky"];
+    
+    /* Lets Load Lucky so rolling the dice can roll */
+    NSString *format =@"%@";
+    NSString *Radiant =@"window.Radiant = window.Radiant || {};";
+    NSString *insert = [NSString stringWithFormat:format,Radiant];
+    [webView stringByEvaluatingJavaScriptFromString:insert];
 }
 
 - (id)preferenceForKey:(NSString *)key
