@@ -13,7 +13,7 @@
 #import "../Support/VisualEffectView.h"
 
 #define MINI_PLAYER_LARGE_HEIGHT 356.0
-#define MINI_PLAYER_SMALL_HEIGHT 190.0
+#define MINI_PLAYER_SMALL_HEIGHT 152.0
 
 #define NO_SONGS_PLAYING_TAG 1
 #define EXPAND_ART_TAG 2
