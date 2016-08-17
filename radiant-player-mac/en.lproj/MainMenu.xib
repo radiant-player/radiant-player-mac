@@ -474,14 +474,14 @@
             <windowStyleMask key="styleMask" utility="YES" nonactivatingPanel="YES"/>
             <windowCollectionBehavior key="collectionBehavior" moveToActiveSpace="YES" ignoresCycle="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="139" y="81" width="356" height="191"/>
+            <rect key="contentRect" x="139" y="81" width="356" height="152"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" id="4yq-G3-W3B" customClass="PopupView">
-                <rect key="frame" x="0.0" y="0.0" width="356" height="191"/>
+                <rect key="frame" x="0.0" y="0.0" width="356" height="152"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <button focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="dQ2-sg-PYy">
-                        <rect key="frame" x="20" y="121" width="50" height="50"/>
+                        <rect key="frame" x="20" y="82" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="FPB-vf-hwp"/>
                             <constraint firstAttribute="height" constant="50" id="UYO-Il-wYi"/>
@@ -495,14 +495,14 @@
                         </connections>
                     </button>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="9xX-aB-17c" customClass="ExpandHoverView">
-                        <rect key="frame" x="20" y="121" width="50" height="50"/>
+                        <rect key="frame" x="20" y="82" width="50" height="50"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="arrow_expand_art" id="dtZ-U9-2g6"/>
                     </imageView>
                     <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="BxE-sk-mNE">
-                        <rect key="frame" x="37" y="139" width="16" height="16"/>
+                        <rect key="frame" x="37" y="100" width="16" height="16"/>
                     </progressIndicator>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="arE-Wm-iTc">
-                        <rect key="frame" x="78" y="120" width="208" height="51"/>
+                        <rect key="frame" x="78" y="81" width="208" height="51"/>
                         <subviews>
                             <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QTZ-Jw-ZpH">
                                 <rect key="frame" x="-2" y="34" width="212" height="17"/>
@@ -542,7 +542,7 @@
                         </constraints>
                     </customView>
                     <button focusRingType="none" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ftM-je-Ymy">
-                        <rect key="frame" x="162" y="26" width="32" height="32"/>
+                        <rect key="frame" x="135" y="33" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="32" id="2E3-Ii-byb"/>
                             <constraint firstAttribute="height" constant="32" id="gaH-gP-i3X"/>
@@ -555,22 +555,8 @@
                             <action selector="playPause:" target="494" id="mxx-1f-URL"/>
                         </connections>
                     </button>
-                    <button focusRingType="none" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1PY-iH-7XA">
-                        <rect key="frame" x="162" y="61" width="32" height="32"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="32" id="6kH-1O-Jyk"/>
-                            <constraint firstAttribute="width" constant="32" id="V6N-dM-a06"/>
-                        </constraints>
-                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="dice" imagePosition="overlaps" alignment="center" refusesFirstResponder="YES" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="fTq-1y-xCP">
-                            <behavior key="behavior" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="luckyAction:" target="494" id="4A6-hQ-BE6"/>
-                        </connections>
-                    </button>
                     <button focusRingType="none" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VkG-Lf-5uN">
-                        <rect key="frame" x="220" y="26" width="32" height="32"/>
+                        <rect key="frame" x="193" y="33" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="32" id="Hiz-6f-8e3"/>
                             <constraint firstAttribute="width" constant="32" id="MxO-Qh-9gU"/>
@@ -584,7 +570,7 @@
                         </connections>
                     </button>
                     <button focusRingType="none" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AmR-41-4AD">
-                        <rect key="frame" x="104" y="26" width="32" height="32"/>
+                        <rect key="frame" x="77" y="33" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="32" id="10T-YX-xLO"/>
                             <constraint firstAttribute="height" constant="32" id="dQ5-X6-1k5"/>
@@ -598,7 +584,7 @@
                         </connections>
                     </button>
                     <button focusRingType="none" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DvI-Lo-u1q">
-                        <rect key="frame" x="46" y="26" width="32" height="32"/>
+                        <rect key="frame" x="19" y="33" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="32" id="BV3-kr-ePN"/>
                             <constraint firstAttribute="height" constant="32" id="o83-Qw-VVn"/>
@@ -612,7 +598,7 @@
                         </connections>
                     </button>
                     <button focusRingType="none" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Xb-8Y-y5L">
-                        <rect key="frame" x="278" y="26" width="32" height="32"/>
+                        <rect key="frame" x="251" y="33" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="32" id="bo5-az-Gwr"/>
                             <constraint firstAttribute="height" constant="32" id="tkr-TJ-Sdn"/>
@@ -626,7 +612,7 @@
                         </connections>
                     </button>
                     <button hidden="YES" focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="EGc-cr-jAa">
-                        <rect key="frame" x="308" y="144" width="24" height="24"/>
+                        <rect key="frame" x="308" y="105" width="24" height="24"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="mqe-Xz-KuL"/>
                         </constraints>
@@ -639,7 +625,7 @@
                         </connections>
                     </button>
                     <button hidden="YES" focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="3Nx-UI-e4n">
-                        <rect key="frame" x="308" y="118" width="24" height="24"/>
+                        <rect key="frame" x="308" y="79" width="24" height="24"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="iee-nQ-Nto"/>
                         </constraints>
@@ -652,7 +638,7 @@
                         </connections>
                     </button>
                     <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="37s-Je-fFn">
-                        <rect key="frame" x="18" y="138" width="320" height="17"/>
+                        <rect key="frame" x="18" y="99" width="320" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" focusRingType="none" alignment="center" title="No song currently playing" id="xHL-lO-Uva">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -660,14 +646,14 @@
                         </textFieldCell>
                     </textField>
                     <slider focusRingType="none" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8u2-Nn-ZZf">
-                        <rect key="frame" x="18" y="-2" width="320" height="21"/>
+                        <rect key="frame" x="18" y="5" width="320" height="21"/>
                         <sliderCell key="cell" refusesFirstResponder="YES" state="on" focusRingType="none" alignment="left" tickMarkPosition="above" sliderType="linear" id="yOD-fm-imH" customClass="PlaybackSliderCell"/>
                         <connections>
                             <action selector="setPlaybackTime:" target="vhZ-72-AYY" id="844-7Z-MTH"/>
                         </connections>
                     </slider>
                     <button focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="v8E-fH-1nK">
-                        <rect key="frame" x="337" y="166" width="15" height="15"/>
+                        <rect key="frame" x="337" y="127" width="15" height="15"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="15" id="5pn-5N-a0N"/>
                         </constraints>
@@ -677,6 +663,20 @@
                         </buttonCell>
                         <connections>
                             <action selector="actionButtonSelector:" target="vhZ-72-AYY" id="2yG-qr-l9f"/>
+                        </connections>
+                    </button>
+                    <button focusRingType="none" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1PY-iH-7XA">
+                        <rect key="frame" x="306" y="33" width="32" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="32" id="6kH-1O-Jyk"/>
+                            <constraint firstAttribute="width" constant="32" id="V6N-dM-a06"/>
+                        </constraints>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="dice" imagePosition="overlaps" alignment="center" refusesFirstResponder="YES" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="fTq-1y-xCP">
+                            <behavior key="behavior" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="luckyAction:" target="494" id="4A6-hQ-BE6"/>
                         </connections>
                     </button>
                 </subviews>
@@ -701,14 +701,14 @@
                     <constraint firstItem="37s-Je-fFn" firstAttribute="leading" secondItem="4yq-G3-W3B" secondAttribute="leading" constant="20" id="PkE-GG-5eL"/>
                     <constraint firstItem="DvI-Lo-u1q" firstAttribute="top" secondItem="AmR-41-4AD" secondAttribute="top" id="RA0-xR-scn"/>
                     <constraint firstItem="DvI-Lo-u1q" firstAttribute="top" secondItem="VkG-Lf-5uN" secondAttribute="top" id="URx-kt-z7n"/>
-                    <constraint firstItem="ftM-je-Ymy" firstAttribute="top" secondItem="1PY-iH-7XA" secondAttribute="bottom" constant="9" id="XpG-5K-CHp"/>
+                    <constraint firstItem="1PY-iH-7XA" firstAttribute="leading" secondItem="0Xb-8Y-y5L" secondAttribute="trailing" constant="23" id="Upd-YA-KKi"/>
                     <constraint firstAttribute="trailing" secondItem="37s-Je-fFn" secondAttribute="trailing" constant="20" id="YOd-XU-A9s"/>
                     <constraint firstAttribute="trailing" secondItem="v8E-fH-1nK" secondAttribute="trailing" constant="4" id="YX0-cj-Y19"/>
                     <constraint firstItem="arE-Wm-iTc" firstAttribute="top" secondItem="9xX-aB-17c" secondAttribute="top" id="Zut-1f-d3R"/>
                     <constraint firstItem="0Xb-8Y-y5L" firstAttribute="leading" secondItem="VkG-Lf-5uN" secondAttribute="trailing" constant="26" id="cNz-LY-bmu"/>
-                    <constraint firstItem="DvI-Lo-u1q" firstAttribute="leading" secondItem="4yq-G3-W3B" secondAttribute="leading" constant="46" id="gYr-OX-dt1"/>
+                    <constraint firstItem="DvI-Lo-u1q" firstAttribute="leading" secondItem="4yq-G3-W3B" secondAttribute="leading" constant="19" id="gYr-OX-dt1"/>
                     <constraint firstItem="8u2-Nn-ZZf" firstAttribute="leading" secondItem="4yq-G3-W3B" secondAttribute="leading" constant="20" id="ghg-Zp-en8"/>
-                    <constraint firstAttribute="trailing" secondItem="0Xb-8Y-y5L" secondAttribute="trailing" constant="46" id="gpL-zp-w4e"/>
+                    <constraint firstAttribute="trailing" secondItem="0Xb-8Y-y5L" secondAttribute="trailing" constant="73" id="gpL-zp-w4e"/>
                     <constraint firstItem="arE-Wm-iTc" firstAttribute="leading" secondItem="9xX-aB-17c" secondAttribute="trailing" constant="8" symbolic="YES" id="gsK-Q4-vCd"/>
                     <constraint firstItem="arE-Wm-iTc" firstAttribute="top" secondItem="dQ2-sg-PYy" secondAttribute="top" id="jmL-Ur-R5R"/>
                     <constraint firstItem="BxE-sk-mNE" firstAttribute="top" secondItem="37s-Je-fFn" secondAttribute="top" id="kP6-5D-FE8"/>
@@ -717,6 +717,7 @@
                     <constraint firstItem="arE-Wm-iTc" firstAttribute="bottom" secondItem="3Nx-UI-e4n" secondAttribute="bottom" constant="-2" id="nwv-tD-PbZ"/>
                     <constraint firstItem="arE-Wm-iTc" firstAttribute="leading" secondItem="dQ2-sg-PYy" secondAttribute="trailing" constant="8" symbolic="YES" id="o8Y-a6-ctn"/>
                     <constraint firstItem="v8E-fH-1nK" firstAttribute="top" secondItem="4yq-G3-W3B" secondAttribute="top" constant="10" id="rKs-eC-YiY"/>
+                    <constraint firstItem="1PY-iH-7XA" firstAttribute="top" secondItem="DvI-Lo-u1q" secondAttribute="top" id="tBc-eS-MQE"/>
                     <constraint firstItem="3Nx-UI-e4n" firstAttribute="trailing" secondItem="EGc-cr-jAa" secondAttribute="trailing" id="vLN-vM-xFg"/>
                     <constraint firstAttribute="bottom" secondItem="8u2-Nn-ZZf" secondAttribute="bottom" constant="11" id="xd4-IP-uZX"/>
                 </constraints>
@@ -727,7 +728,7 @@
             <connections>
                 <outlet property="popupView" destination="4yq-G3-W3B" id="VcF-fy-kbk"/>
             </connections>
-            <point key="canvasLocation" x="413" y="477.5"/>
+            <point key="canvasLocation" x="413" y="501"/>
         </window>
         <customObject id="leS-Oa-AB4" userLabel="Last.fm Popover" customClass="LastFmPopover"/>
         <toolbar implicitIdentifier="68A24D56-BCA3-4F88-AA87-3F70F6021A18" autosavesConfiguration="NO" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconAndLabel" sizeMode="regular" id="c7x-mm-euH">
