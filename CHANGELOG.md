@@ -4,6 +4,8 @@ This file should follow the standards specified on [keepachangelog.com](http://k
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
+### Fixed
+* Fixed visual issue with Google's recent UI update ([#590](https://github.com/radiant-player/radiant-player-mac/pull/590), [@BarakaAka1Only](https://github.com/BarakaAka1Only))
 
 ## [1.10.1] - 2016-08-17
 ### Changed
