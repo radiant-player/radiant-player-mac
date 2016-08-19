@@ -5,9 +5,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
 
+## [1.10.1] - 2016-08-17
+### Changed
+* Visual tweaks to mini player "I'm Feeling Lucky" button ([#588](https://github.com/radiant-player/radiant-player-mac/pull/588), [@BarakaAka1Only](https://github.com/BarakaAka1Only))
+
 ## [1.10.0] - 2016-08-11
 ### Added
-
 * Added "I'm Feeling Lucky" button to mini player ([#581](https://github.com/radiant-player/radiant-player-mac/pull/581), [@BarakaAka1Only](https://github.com/BarakaAka1Only))
 
 ### Fixed
