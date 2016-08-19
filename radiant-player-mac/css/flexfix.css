@@ -4,355 +4,571 @@
     display: -webkit-flex;
     -webkit-align-items: center
 }
+
 .music-source-container .music-source-list-item .music-source-list-item-name {
     -webkit-flex: 1;
 }
+
 #action-bar-container {
     display: -webkit-inline-flex;
-    -webkit-align-items: center;
+    -webkit-align-items: center
 }
+
 .station-container-content-wrapper .material-container {
     display: -webkit-flex;
 }
+
 .material-detail-view .station-container-content-wrapper .material-container-details {
     -webkit-flex: 1
 }
+
 #music-content .info-card {
     display: -webkit-flex;
     -webkit-align-items: center
 }
-#music-content .info-card .info-card-content,
-#music-content .info-card .info-card-content .info-card-main-content {
+
+#music-content .info-card .info-card-content, #music-content .info-card .info-card-content .info-card-main-content {
     display: -webkit-flex;
     -webkit-flex: 1;
     -webkit-flex-direction: column
 }
+
 #music-content .info-card .info-card-content .info-card-main-content {
     -webkit-justify-content: center;
 }
+
 #music-content .info-card .buttons {
     display: -webkit-flex;
     -webkit-justify-content: flex-end
 }
+
 .subcategories-list {
     -webkit-flex: 1
 }
+
 .browse-stations-content-wrapper {
     display: -webkit-flex
 }
+
 .more-songs-container {
     display: -webkit-flex;
     -webkit-align-items: center;
     -webkit-justify-content: center;
 }
+
 paper-toast {
     display: -webkit-inline-flex;
-    -webkit-justify-content: space-between;
+    -webkit-justify-content: space-between
 }
+
 .column .material-card[data-size="small"][data-type="imfl"] .details {
     display: -webkit-flex;
     -webkit-align-items: center
 }
+
 .column .material-card[data-size="small"][data-type="imfl"] .details-inner {
     -webkit-flex: 1
 }
+
 .cards-container {
     display: -webkit-flex
 }
+
 .column {
     -webkit-flex: 1;
 }
+
 .new-listen-now .cards {
     display: -webkit-flex
 }
+
 .material-card-grid[data-is-featured="true"] .material-card {
     -webkit-flex: 1
 }
+
 .material-card .details .left-items {
     display: -webkit-flex;
     -webkit-align-items: center
 }
+
 .material-card .details-inner {
     -webkit-flex: 1;
 }
+
 .entity-card .image-wrapper .letter-art span {
     -webkit-align-self: center;
 }
+
 .entity-card .image-wrapper .letter-art {
     -webkit-justify-content: center
 }
+
 .entity-card .image-wrapper .letter-art img {
     -webkit-align-self: center;
-    -ms-flex-item-align: center;
-    -webkit-align-self: center
 }
+
 .entity-card.material-card .letter-art {
     display: -webkit-inline-flex
 }
+
 .material-card[data-type="wst"][data-is-listen-now="true"] .details {
     display: -webkit-flex
 }
+
 .material-card[data-type="wst"][data-is-listen-now="true"] .details-inner {
     display: -webkit-flex;
     -webkit-align-items: center;
 }
+
 .material-card[data-type="wst"][data-is-listen-now="true"] .details a.title {
     -webkit-flex: 1
 }
+
 .cluster .header {
     display: -webkit-flex;
     -webkit-align-items: center;
 }
+
 .cluster .header-inner {
     -webkit-flex: 1;
 }
-.concert-list .header-row,
-.concert-list .concert-row {
+
+.concert-list .header-row, .concert-list .concert-row {
     display: -webkit-flex
 }
-.concert-list [data-col="date"],
-.concert-list [data-col="location"],
+
+.concert-list [data-col="date"], .concert-list [data-col="location"],
 .concert-list [data-col="venue"] {
     -webkit-flex: 1
 }
+
 .concert-list-container paper-button#concert-expander {
     -webkit-justify-content: center;
 }
+
+.material-detail-view .material-container-details .info .title {
+    display: -webkit-flex;
+    -webkit-align-items: center;
+}
+
 .sub-details.centered {
     display: -webkit-flex;
     -webkit-align-items: center
 }
+
+paper-dialog.dogfood-feedback-dialog paper-radio-group {
+    display: -webkit-flex;
+    -webkit-flex-direction: column
+}
+
 .upload-music-page .features li {
     display: -webkit-flex
 }
+
 .material-empty {
     display: -webkit-flex;
     -webkit-align-content: center;
     -webkit-justify-content: center;
     -webkit-flex-direction: column
 }
+
 .upload-music-page.material .features li {
     display: -webkit-flex;
     -webkit-align-items: center;
 }
+
 #nav-container .nav-toolbar .menu-logo {
     -webkit-flex: 1 1 100%;
 }
+
+.new-playlist-drawer #nav-container .nav-toolbar .menu-logo {
+    -webkit-flex: none
+}
+
 #material-app-bar #material-one-left .music-logo {
     -webkit-align-self: center;
 }
-#material-app-bar .material-one-google,
-#material-app-bar .material-header-bar {
+
+#material-app-bar .material-one-google, #material-app-bar .material-header-bar {
     display: -webkit-flex;
 }
-#material-one-left,
-#material-one-right {
+
+#material-one-left, #material-one-right {
     -webkit-flex: 1;
     display: -webkit-flex;
     z-index: 1;
 }
+
 #material-one-right {
     -webkit-align-items: center;
-    -webkit-justify-content: flex-end;
+    -webkit-justify-content: flex-end
 }
+
 #material-one-left #left-nav-open-button {
     -webkit-align-self: center;
 }
+
 #left-nav-close-button {
     -webkit-align-self: center;
 }
+
 #material-one-middle {
     -webkit-flex: 2;
 }
+
 #material-one-right>div {
     -webkit-flex: 0 1 auto;
 }
+
 #material-app-bar #header-tabs-container {
     -webkit-flex: 10;
-    display: inline-flex
+    display: -webkit-inline-flex
 }
+
 #material-app-bar .material-header-bar.visible {
     display: -webkit-flex
 }
+
 #material-app-bar .material-header-bar .spacer {
     -webkit-flex: 1
 }
+
 .material-share-options {
     display: -webkit-flex;
     -webkit-align-items: center;
 }
+
 .material-share-options .left-container {
     -webkit-flex: 1
 }
+
 .share-buttons {
     display: -webkit-flex;
     -webkit-justify-content: center
 }
+
 .share-buttons .share-button .button-content {
     display: -webkit-flex;
     -webkit-flex-direction: column;
     -webkit-justify-content: center;
     -webkit-align-items: center
 }
+
 .my-devices-card .device-list-item {
     display: -webkit-flex;
     -webkit-align-items: center;
 }
+
 .my-devices-card .device-list-item .device-info-container {
     -webkit-flex: 1
 }
+
 .labs-card .lab-list-item {
     display: -webkit-flex;
 }
+
 .labs-card .lab-list-item .lab-info {
     -webkit-flex: 1;
 }
-.delete-library-dialog .delete-in-progress,
-.delete-recommendations-dialog .delete-in-progress {
+
+.delete-library-dialog .delete-in-progress, .delete-recommendations-dialog .delete-in-progress {
     display: -webkit-flex;
     -webkit-align-items: center;
     -webkit-justify-content: center;
     -webkit-flex-direction: column
 }
+
 .button-bar {
     display: -webkit-flex;
     -webkit-align-items: center;
     -webkit-justify-content: center;
 }
+
 #player {
     display: -webkit-flex;
 }
+
+
 #material-player-left-wrapper {
     -webkit-flex: 1;
 }
+
 #material-player-right-wrapper {
     -webkit-flex: 1;
     -webkit-align-items: center;
     display: -webkit-flex;
     -webkit-justify-content: flex-end;
 }
+
 .material-player-middle {
     display: -webkit-flex;
     -webkit-align-items: center;
 }
+
 #player .now-playing-menu-wrapper {
     display: -webkit-flex;
     -webkit-align-items: center
 }
+
 #material-player-right-wrapper #material-vslider {
     display: -webkit-inline-flex
 }
+
 #material-player-right-wrapper .player-top-right-items {
     display: -webkit-flex;
     -webkit-align-items: center;
     -webkit-justify-content: flex-end
 }
+
 #playerSongInfo .now-playing-info-wrapper {
     display: -webkit-flex;
     -webkit-align-items: center;
 }
+
 #playerSongInfo .now-playing-info-wrapper .now-playing-info-content {
     -webkit-flex: 1;
 }
+
 #playerSongInfo .now-playing-info-wrapper .now-playing-actions {
     display: -webkit-flex;
     -webkit-align-items: center;
 }
+
 #player .player-rating-container {
     display: -webkit-inline-flex;
     -webkit-align-items: center
 }
+
+#material-player-left-side-wrapper, #material-player-right-side-wrapper {
+    -webkit-align-items: center;
+    display: -webkit-inline-flex;
+}
+
+#material-player-right-side-wrapper {
+    -webkit-justify-content: flex-end
+}
+
+@media (max-width:1007px) {
+    #player #exp-menu-queue, #player #exp-menu-volume-container, #exp-menu-volume-container #exp-menu-vslider {
+        display: -webkit-inline-flex
+    }
+    
+    #player #exp-menu-volume-container {
+        -webkit-flex-wrap: nowrap;
+        -webkit-align-items: center
+    }
+}
+
+#material-player-right-side-wrapper, #material-player-left-side-wrapper {
+    -webkit-flex: 1
+}
+
+.material-player-middle-wrapper, .player-rating-thumbs-container,
+#material-player-right-side-wrapper .volume-container {
+    -webkit-align-items: center;
+    display: -webkit-inline-flex;
+    -webkit-flex-wrap: nowrap
+}
+
+.material-player-main-wrapper {
+    display: -webkit-inline-flex
+}
+
+.new-playlist-drawer .nav-item-container {
+    display: -webkit-flex;
+    -webkit-align-items: center;
+}
+
+.new-playlist-drawer paper-button.nav-item-container.sub {
+    -webkit-justify-content: center;
+}
+
+#playlist-drawer #playlist-drawer-header {
+    -webkit-flex: 1;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: space-between;
+}
+
+#playlist-drawer .playlist-drawer-item .playlist-wrapper {
+    display: -webkit-flex;
+    -webkit-flex-direction: column;
+    -webkit-justify-content: center;
+}
+
+#loading-progress {
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: center
+}
+
+#loading-progress-content {
+    display: -webkit-flex;
+    -webkit-flex-direction: column;
+    -webkit-align-items: center
+}
+
 #mini-queue-details .info {
     display: -webkit-flex;
     -webkit-flex-direction: column;
     -webkit-justify-content: flex-end
 }
+
 #mini-queue-details .playing-from {
     display: -webkit-flex
 }
+
 #mini-queue-details .playing-from [data-id="playing-from-text"] {
     -webkit-flex: 1
 }
+
 #mini-queue-details .playing-from .queue-buttons {
     display: -webkit-inline-flex;
     -webkit-align-items: center;
 }
+
 #queueContainer.empty {
     display: -webkit-flex;
     -webkit-align-items: center;
 }
+
 #queue-overlay .queue-empty .material-empty {
     -webkit-justify-content: center
 }
-div.image-enticement,
-div.video-panel-content {
+
+#mainContainer.paper-header-panel {
+    -webkit-flex: 1;
+    -webkit-flex-basis: 0.000000001px;
+}
+
+#queueContainer.sj-mini-queue {
+    max-height: calc(100vh - 110px - 64px - 24px - 40px) !important;
+    min-height: initial !important;
+}
+
+div.image-enticement, div.video-panel-content {
     display: -webkit-flex;
     -webkit-align-items: center;
     -webkit-justify-content: center
 }
-div.image-enticement.bgimage-albums.full-enticement {
+
+div.image-enticement.bgcolor-white.full-enticement {
     -webkit-align-items: flex-start;
 }
-div.image-enticement.full-enticement div.button-holder>div,
-div.video-panel-content.full-enticement div.button-holder>div {
+
+div.image-enticement.full-enticement div.button-holder>div, div.video-panel-content.full-enticement div.button-holder>div {
     display: -webkit-inline-flex;
     -webkit-flex-direction: column
 }
-div.image-enticement div.button-holder,
-div.video-panel-content div.button-holder {
+
+div.image-enticement .family-features, div.video-panel-content .family-features {
+    display: -webkit-flex
+}
+
+div.image-enticement div.button-holder, div.video-panel-content div.button-holder {
     display: -webkit-flex;
     -webkit-justify-content: center
 }
+
+div.image-enticement div.button-holder p, div.video-panel-content div.button-holder p {
+    -webkit-flex: 1
+}
+
 div.table-enticement ul.table-enticement-imagebar {
     display: -webkit-flex;
     -webkit-justify-content: space-around;
 }
+
+div.table-enticement li.table-enticement-image-ad {
+    -webkit-flex: 1;
+}
+
 .situations-content {
     display: -webkit-flex;
 }
+
 .situations-view .radio-selection-content .material-card {
-    -webkit-flex: 1
+    -webkit-flex: 1;
 }
+
 .situations-filter {
     -webkit-flex: 1;
 }
+
 .situations-content.material .situations-filter .material-list .li-content {
     display: -webkit-flex;
     -webkit-align-items: center;
     -webkit-justify-content: space-between
 }
+
 .situations-content.material .situations-filter .material-list .li-content .subsituation-title {
     -webkit-flex: 1;
 }
+
 .situations-content.radio-selection.material .radio-selection-content {
     display: -webkit-flex
 }
+
 .situations-content.radio-selection.material .radio-selection-content .cards-container {
     -webkit-flex: 1;
 }
+
 #sliding-action-bar-container {
     display: -webkit-flex;
     -webkit-align-items: center;
 }
+
+.edit-dialog .row {
+    display: -webkit-flex;
+}
+
+.edit-dialog .row .max-wide {
+    -webkit-flex-grow: 1
+}
+
+.edit-dialog .edit-section {
+    -webkit-flex-grow: 1
+}
+
+.edit-dialog .edit-section-group .sections {
+    display: -webkit-flex
+}
+
+.edit-dialog .edit-album-art-button-container {
+    display: -webkit-flex;
+    -webkit-justify-content: space-between
+}
+
+.suggested-art-box {
+    display: -webkit-flex;
+    -webkit-align-items: center;
+}
+
 paper-dialog.episode-dialog .episode-details {
     display: -webkit-flex;
 }
+
 paper-dialog.episode-dialog .buttons {
     -webkit-justify-content: space-between
 }
+
 .ups {
     display: -webkit-flex;
     -webkit-align-items: center;
 }
+
 .ups span {
     -webkit-flex: 1;
 }
+
 .ups.light {
     -webkit-justify-content: center
 }
+
 .ups.light span {
     -webkit-flex: initial;
 }
+
 /* Mavericks */
 #volume:hover #material-volume-low,
 #volume:hover #material-volume-high,
