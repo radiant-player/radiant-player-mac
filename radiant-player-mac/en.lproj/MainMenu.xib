@@ -172,6 +172,12 @@
                                     <action selector="forwardAction:" target="494" id="PeZ-B7-4Lc"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="I’m Feeling Lucky!" keyEquivalent="l" id="we1-8F-Jwk">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                                <connections>
+                                    <action selector="luckyAction:" target="494" id="Qce-mS-jlr"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="UoN-kB-9nv"/>
                             <menuItem title="Volume" id="ylU-oy-rjV">
                                 <modifierMask key="keyEquivalentModifierMask"/>
