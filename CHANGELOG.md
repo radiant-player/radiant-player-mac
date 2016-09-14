@@ -4,6 +4,8 @@ This file should follow the standards specified on [keepachangelog.com](http://k
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
+
+## [1.10.3] - 2016-09-14
 ### Fixed
 * Hotfixed navigation bar issue causing crashes ([#604](https://github.com/radiant-player/radiant-player-mac/pull/604))
 
