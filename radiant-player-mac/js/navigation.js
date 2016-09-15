@@ -67,6 +67,11 @@ if (typeof window.GMNavigation === 'undefined') {
     buttonsContainer.parentNode.insertBefore(paddingElement, buttonsContainer);
 
     // Adjust the drawer navigation scrolling mode to accomodate the traffic light buttons.
-    var el = document.querySelector('#drawer #nav-container');
-    if (el) el.setAttribute('mode', '');
+    var navContainer = document.querySelector('#drawer #nav-container');
+    if (navContainer) {
+      navContainer.removeAttribute('mode');
+      var mode = document.createAttribute('mode');
+      mode.value = '';
+      navContainer.setAttributeNode(mode);
+    }
 }

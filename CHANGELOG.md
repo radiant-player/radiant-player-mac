@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
 
+## [1.10.3] - 2016-09-14
+### Fixed
+* Hotfixed navigation bar issue causing crashes ([#604](https://github.com/radiant-player/radiant-player-mac/pull/604))
+
 ## [1.10.2] - 2016-08-19
 ### Fixed
 * Fixed visual issue with Google's recent UI update ([#590](https://github.com/radiant-player/radiant-player-mac/pull/590), [@BarakaAka1Only](https://github.com/BarakaAka1Only))
