@@ -4,6 +4,8 @@ This file should follow the standards specified on [keepachangelog.com](http://k
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
+### Added
+* Added "I'm Feeling Lucky" to the menu ([#592](https://github.com/radiant-player/radiant-player-mac/pull/592), [@tjanson](https://github.com/tjanson))
 
 ## [1.10.3] - 2016-09-14
 ### Fixed
