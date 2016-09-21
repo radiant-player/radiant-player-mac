@@ -15,11 +15,13 @@
 
 /* Fill to highlight thumbed up/down track in status bar */
 paper-icon-button[aria-label="Undo thumb-up"] iron-icon {
-    background: url('https://radiant-player-mac/images/sprites.png') no-repeat -276px -235px;
-    background-size: 763px 360px;
+    /*background: url('https://radiant-player-mac/images/sprites.png') no-repeat -265px -222px;
+     background-size: 725px 335px;*/
+    display: inline-block;
 }
 
 paper-icon-button[aria-label="Undo thumb-down"] iron-icon {
-    background: url('https://radiant-player-mac/images/sprites.png') no-repeat -165px -323px;
-    background-size: 763px 360px;
+    /*background: url('https://radiant-player-mac/images/sprites.png') no-repeat -165px -333px;
+     background-size: 753px 368px;*/
+    display: inline-block;
 }

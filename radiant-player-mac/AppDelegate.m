@@ -1004,6 +1004,11 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
         return nil;
 }
 
+- (BOOL)isSierra
+{
+    return floor(NSAppKitVersionNumber) >= 1485;
+}
+
 - (BOOL)isElCapitan
 {
     return floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_10_Max;

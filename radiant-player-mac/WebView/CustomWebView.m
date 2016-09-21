@@ -179,7 +179,10 @@
         [[CookieStorage instance] handleCookiesInResponse:(NSHTTPURLResponse *)redirectResponse];
     }
     
-    [request setHTTPShouldHandleCookies:NO];
+    if(![[CookieStorage instance] isSierra]){
+        [request setHTTPShouldHandleCookies:NO];
+    }
+    
     [[CookieStorage instance] handleCookiesInRequest:request];
 }
 
