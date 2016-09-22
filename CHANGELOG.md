@@ -6,6 +6,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [unreleased]
 ### Added
 * Added "I'm Feeling Lucky" to the menu ([#592](https://github.com/radiant-player/radiant-player-mac/pull/592), [@tjanson](https://github.com/tjanson))
+* Added option to pause music on screen lock ([#607](https://github.com/radiant-player/radiant-player-mac/pull/607), [@BarakaAka1Only](https://github.com/BarakaAka1Only))
+
+### Fixed
+* Various compatibility issues with macOS Sierra ([#607](https://github.com/radiant-player/radiant-player-mac/pull/607), [@BarakaAka1Only](https://github.com/BarakaAka1Only))
 
 ## [1.10.3] - 2016-09-14
 ### Fixed
