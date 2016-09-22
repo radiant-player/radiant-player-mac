@@ -70,6 +70,27 @@
         [self playPause:self];
 }
 
+#pragma mark - screen locked/unlocked events
+
+- (void)RadiantScreenLocked {
+    
+    if ([defaults boolForKey:@"toggleMusicOnScreenLock"])
+    {
+        if (currentPlaybackMode == MUSIC_PLAYING) {
+            [self playPause:self];
+        }
+    }
+}
+
+- (void)RadiantScreenUnlocked {
+    if ([defaults boolForKey:@"toggleMusicOnScreenLock"])
+    {
+        if (currentPlaybackMode == MUSIC_PAUSED) {
+            [self playPause:self];
+        }
+    }
+}
+
 /**
  * Application finished launching, we will register the event tap callback.
  */
@@ -254,6 +275,26 @@
 
     // Register for machine sleep notifications
     [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self selector:@selector(receiveSleepNotification:) name:NSWorkspaceWillSleepNotification object:nil];
+    
+    // Register screen locked/unlocked events
+    [[NSDistributedNotificationCenter defaultCenter] addObserver:self
+                                                        selector:@selector(RadiantScreenLocked)
+                                                            name:@"com.apple.screenIsLocked"
+                                                          object:nil];
+    
+    [[NSDistributedNotificationCenter defaultCenter] addObserver:self
+                                                        selector:@selector(RadiantScreenUnlocked)
+                                                            name:@"com.apple.screenIsUnlocked"
+                                                          object:nil];
+    
+    [[NSDistributedNotificationCenter defaultCenter] addObserver: self
+                                                        selector: @selector(RadiantScreenLocked)
+                                                            name: @"com.apple.sessionDidMoveOffConsole"
+                                                          object: nil];
+    [[NSDistributedNotificationCenter defaultCenter] addObserver: self
+                                                        selector: @selector(RadiantScreenUnlocked)
+                                                            name: @"com.apple.sessionDidMoveOnConsole"
+                                                          object: nil];
 }
 
 - (NSMutableDictionary *)styles
