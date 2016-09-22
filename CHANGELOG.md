@@ -4,6 +4,8 @@ This file should follow the standards specified on [keepachangelog.com](http://k
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
+
+## [1.11.1] - 2016-09-22
 ### Added
 * Added option to pause music on screen lock ([#611](https://github.com/radiant-player/radiant-player-mac/pull/611), [@BarakaAka1Only](https://github.com/BarakaAka1Only))
 
