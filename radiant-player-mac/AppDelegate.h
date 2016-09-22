@@ -139,6 +139,7 @@
 - (void) ratingChanged:(NSInteger)rating;
 
 - (id) preferenceForKey:(NSString *)key;
+- (BOOL) isSierra;
 - (BOOL) isElCapitan;
 - (BOOL) isYosemite;
 - (BOOL) isMavericks;

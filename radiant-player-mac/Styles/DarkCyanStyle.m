@@ -28,7 +28,7 @@
 
 - (void)applyToWebView:(WebView *)webView window:(NSWindow *)window
 {
-    [self setCss:[NSString stringWithFormat:@"%@%@", [self css], [ApplicationStyle cssNamed:@"spotify-black"]]];
+    [self setCss:[NSString stringWithFormat:@"%@%@", [ApplicationStyle cssNamed:@"spotify-black"] , [self css]]];
     [super applyToWebView:webView window:window];
 }
 

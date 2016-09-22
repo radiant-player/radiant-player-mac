@@ -77,7 +77,7 @@ a, .simple-dialog a {
 }
 
 .card-group {
-	height: 520px !important;
+    height: 520px !important;
 }
 
 .material-card,
@@ -95,7 +95,7 @@ a, .simple-dialog a {
 }
 
 .material-card .reason {
-	border-top-color: transparent;
+    border-top-color: transparent;
 }
 
 .material-card.entity-card, .material-card.entity-card .details {
@@ -141,9 +141,9 @@ a, .simple-dialog a {
     border-color: transparent transparent rgba(18, 19, 20, 0.98) rgba(18, 19, 20, 0.98);
 }
 
-.material-album-container.material-container, 
-.material-detail-view .artist-details, 
-.material-container-details, 
+.material-album-container.material-container,
+.material-detail-view .artist-details,
+.material-container-details,
 .material-container-details .info {
     background-color: rgba(18, 19, 20, 0.8)!important;
     color: white;
@@ -177,8 +177,8 @@ a, .simple-dialog a {
 
 .material .song-row.hover .song-indicator,
 .material .song-row.selected-song-row .song-indicator {
-	/*background-color: #222326 !important;
-    -webkit-filter: none;*/
+    /*background-color: #222326 !important;
+     -webkit-filter: none;*/
 }
 
 .material .song-row td {
@@ -283,7 +283,7 @@ a, .simple-dialog a {
     border-color: #222 !important;
 }
 
-#nav, #nav-container, .material .nav-toolbar {
+#nav, #nav-container, .material .nav-toolbar{
     background-color: #222326 !important;
     border-right: 1px solid #292929;
 }
@@ -385,8 +385,17 @@ a, .simple-dialog a {
     background: #121314;
 }
 
+.material-card .details {
+    padding: 16px;
+    position: relative;
+}
+
 .fade-out:after {
-    background: none !important;
+    background: linear-gradient(to right,rgba(34, 35, 38,0),rgba(34, 35, 38,1))!important;
+}
+
+.material-card .details paper-icon-button.menu-anchor {
+    color: #fff !important
 }
 
 #player, .player-middle {
@@ -485,13 +494,13 @@ div.simple-dialog-bg {
 }
 
 @-webkit-keyframes slidedown {
-   from {
-      max-height: 0%;
-   }
-
-   to {
-      max-height: 100%;
-   }
+    from {
+        max-height: 0%;
+    }
+    
+    to {
+        max-height: 100%;
+    }
 }
 
 .simple-dialog-title, .simple-dialog-content {
@@ -550,7 +559,7 @@ div.simple-dialog-bg {
 .material .song-row [data-col="index"] .hover-button[data-id="play"],
 .material .song-row [data-col="track"] .hover-button[data-id="play"] {
     /*border-radius:30px;
-    background-color:#d3d3d3;*/
+     background-color:#d3d3d3;*/
     background-image: url(https://radiant-player-mac/sprites-inverted.png) !important;
 }
 
@@ -559,7 +568,7 @@ div.simple-dialog-bg {
 }
 
 .material .song-row .column-content {
-  background-color: transparent !important;
+    background-color: transparent !important;
 }
 
 .material .song-row:hover,
@@ -586,22 +595,146 @@ div.simple-dialog-bg {
 
 /* Fill to highlight thumbed up/down track in status bar */
 paper-icon-button[aria-label="Undo thumb-up"] iron-icon {
-    background: url('https://radiant-player-mac/images/sprites.png') no-repeat -310px -315px;
-    background-size: 763px 360px;
+    /*background: url('https://radiant-player-mac/images/sprites.png') no-repeat -265px -222px;
+     background-size: 725px 335px;*/
+    display: inline-block;
 }
 
 paper-icon-button[aria-label="Undo thumb-down"] iron-icon {
-    background: url('https://radiant-player-mac/images/sprites.png') no-repeat -344px -209px;
-    background-size: 763px 360px;
+    /*background: url('https://radiant-player-mac/images/sprites.png') no-repeat -165px -333px;
+     background-size: 753px 368px;*/
+    display: inline-block;
 }
+
 
 /* Hidden SVG & replaced icon */
 /*
-paper-icon-button[aria-label="Undo thumb-up"] iron-icon {
-    background: url('https://radiant-player-mac/sprites-inverted.png') no-repeat -334px -348px;
-    background-size: 820px 395px;
+ paper-icon-button[aria-label="Undo thumb-up"] iron-icon {
+ background: url('https://radiant-player-mac/sprites-inverted.png') no-repeat -334px -348px;
+ background-size: 820px 395px;
+ }
+ paper-icon-button[aria-label="Thumb-up"] iron-icon svg {
+ display: none!important;
+ }
+ */
+
+/* New drawer / other additions */
+[class*="sj-play-button"] #pulse {
+    background-color: rgba(255, 87, 34, 0.4)!important;
 }
-paper-icon-button[aria-label="Thumb-up"] iron-icon svg {
-    display: none!important;
+
+[class*="sj-play-button"] #buttonContent {
+    background: #ff5722!important;
 }
-*/
+
+.primary:not([style-scope]):not(.style-scope) {
+    color: #ff5722!important;
+}
+
+#music-content .info-card,
+#playlist-drawer .sj-right-drawer,
+#playlist-drawer .sj-right-drawer #topBar {
+    background: #222326 !important;
+}
+
+
+#music-content .info-card * {
+    color: rgb(193, 193, 193) !important
+}
+
+.share-buttons .button-label,
+#checkboxLabel,
+#playlist-drawer .sj-right-drawer #topBar {
+    color: white !important
+}
+
+.column .material-card[data-size="small"][data-type="imfl"] .title {
+    color: #c2c2c2 !important;
+}
+
+[class*="paper-dialog"] {
+    color: white !important;
+    background: #222326 !important;
+}
+
+[class*="paper-dialog"] [class*="paper-input-container"] .input-content.paper-input-container input,
+[class*="paper-dialog"] [class*="paper-input-container"] .input-content.paper-input-container textarea,
+[class*="paper-dialog"] [class*="paper-input-container"] .input-content:not(.label-is-highlighted).paper-input-container label,
+[class*="paper-dialog"] [class*="paper-input-container"] .input-content:not(.label-is-highlighted).paper-input-container .paper-input-label
+[class*="paper-dialog"] [class*="paper-input-container"] .input-content.paper-input-container iron-autogrow-textarea,
+[class*="paper-dialog"] [class*="paper-input-container"] .input-content.paper-input-container .paper-input-input {
+    color: white !important
+}
+
+#playlist-drawer .sj-right-drawer #dropShadow {
+    display: none;
+}
+
+paper-dialog input::selection,
+paper-dialog textarea::selection {
+    background-color: rgba(255, 87, 34, 0.25) !important
+}
+
+[class*="paper-button"][disabled],
+[class*="paper-dialog-scrollable"].is-scrolled:not(:first-child)::before,
+paper-dialog-scrollable.can-scroll:not([style-scope]):not(.style-scope):not(.scrolled-to-bottom)::after {
+    background-color: #333439 !important
+}
+
+.share-buttons,
+gpm-action-buttons,
+.my-devices-card .device-list-item:not(:last-child),
+.labs-card .lab-list-item:not(:last-child),
+#playlist-drawer .autoplaylist-section, #playlist-drawer #recent-playlists-container,
+#playlist-drawer paper-header-panel[at-top] paper-toolbar:not([style-scope]):not(.style-scope) {
+    border-color: #333439 !important
+}
+
+#playlist-drawer .playlist-drawer-item .playlist-wrapper:hover,
+#playlist-drawer .playlist-drawer-item .playlist-wrapper:focus,
+#playlist-drawer .playlist-drawer-item sj-play-button:hover~.playlist-wrapper,
+#playlist-drawer .playlist-drawer-item iron-icon:hover~.playlist-wrapper,
+#playlist-drawer .playlist-drawer-item.playlist-drop-target:not(.subscribed) .playlist-wrapper {
+    background-color: #2E2F33 !important;
+    color: white !important
+}
+
+
+.label-is-highlighted [id*="paper-input-label"],
+[class*="paper-input-container"] .add-on-content.is-highlighted.paper-input-container * {
+    color: #ff5722!important;
+}
+
+.ups,
+.focused-line {
+    background: #ff5722!important;
+}
+
+.ups.light {
+    background: transparent!important;
+}
+
+paper-button.nav-item-container.sub {
+    padding:6px !important
+}
+
+.ups paper-button,
+.ad-preroll-message-link paper-button,
+paper-button.nav-item-container.sub {
+    background-color: #2E2F33!important;
+}
+
+.ups paper-button:focus,
+.ad-preroll-message-link paper-button:focus,
+paper-button.nav-item-container.sub:focus {
+    background-color: #202023!important;
+    border: 1px solid #2E2F33!important
+}
+
+.share-buttons .share-button iron-icon {
+    z-index: 0 !important;
+}
+
+.material .song-row.selected-song-row td, .material .song-row.currently-playing td {
+    background-color:#222326!important;
+}

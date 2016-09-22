@@ -36,6 +36,8 @@
 - (void)unarchive;
 - (void)clearCookies;
 
+- (BOOL) isSierra;
+
 + (NSString *)defaultCookieStoragePath;
 
 @end

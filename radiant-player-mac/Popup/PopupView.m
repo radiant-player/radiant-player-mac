@@ -181,16 +181,28 @@
 
 - (void)updateTrackingAreas
 {
+    
     if (trackingArea != nil) {
-        [self removeTrackingArea:trackingArea];
+        if(!delegate.appDelegate.isSierra) {
+            [self removeTrackingArea:trackingArea];
+        }
     }
-
-    int opts = (NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways);
-    trackingArea = [ [NSTrackingArea alloc] initWithRect:[self bounds]
-                                                 options:opts
-                                                   owner:self
-                                                userInfo:nil];
-    [self addTrackingArea:trackingArea];
+    
+    if(!delegate.appDelegate.isSierra) {
+        int opts = (NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways);
+        trackingArea = [ [NSTrackingArea alloc] initWithRect:[self bounds]
+                                                     options:opts
+                                                       owner:self
+                                                    userInfo:nil];
+        [self addTrackingArea:trackingArea];
+    } else {
+        NSTrackingArea* trackingArea = [[NSTrackingArea alloc]
+                                        initWithRect:[self bounds]
+                                        options: (NSTrackingMouseEnteredAndExited |  NSTrackingActiveAlways)
+                                        owner:self
+                                        userInfo:nil];
+        [self addTrackingArea:trackingArea];
+    }
 }
 
 - (void)setHoverAlphaMultiplier:(CGFloat)hoverAlphaMultiplier

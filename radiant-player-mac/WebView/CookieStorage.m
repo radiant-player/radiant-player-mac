@@ -213,6 +213,11 @@
 
 #pragma mark - Miscellaneous
 
+- (BOOL)isSierra
+{
+    return floor(NSAppKitVersionNumber) >= 1485;
+}
+
 + (BOOL)hostMatchesDomainWithURL:(NSURL *)url domain:(NSString *)domain
 {
     // The domain must either match the host exactly, or it must

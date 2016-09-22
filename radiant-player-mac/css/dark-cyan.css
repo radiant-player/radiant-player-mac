@@ -77,3 +77,31 @@ paper-action-dialog.get-link .content paper-spinner .circle,
 paper-header-panel#content-container.transparent #material-app-bar {
     background-color: rgba(3, 166, 181, 0.4)!important;
 }
+
+/* New drawer / other additions */
+[class*="sj-play-button"] #pulse {
+    background-color: rgba(3, 156, 172, 0.4)!important;
+}
+
+[class*="sj-play-button"] #buttonContent {
+    background: #039cac!important;
+}
+
+.primary:not([style-scope]):not(.style-scope) {
+    color: #039cac!important;
+}
+
+paper-dialog input::selection,
+paper-dialog textarea::selection {
+    background-color: rgba(3, 156, 172, 0.25) !important
+}
+
+.label-is-highlighted [id*="paper-input-label"],
+[class*="paper-input-container"] .add-on-content.is-highlighted.paper-input-container * {
+    color: #039cac!important;
+}
+
+.ups,
+.focused-line {
+    background: #039cac!important;
+}

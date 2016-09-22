@@ -14,7 +14,7 @@ textarea, .top-charts-view .song-row [data-col="index"] .column-content,
 .material-card .details .left-items .index, .button,
 .simple-dialog-buttons button, .download-submit, .goog-menuheader, .now-playing-menu .goog-menuitem .goog-menuitem-content,
 .goog-menuitem-content, #loading-progress-message, .screensaver .collage .text.time, .visualizercard .label, .bar-button .text {
-	font-family: 'Whitney', 'Open Sans', Helvetica, arial, sans-serif;
+    font-family: 'Whitney', 'Open Sans', Helvetica, arial, sans-serif;
 }
 .cluster .header .title, .cluster .header .subtitle,
 .material-detail-view .material-container-details .info .title,
@@ -47,16 +47,16 @@ paper-button, .material .recommended-header,
 #time_container_current, #time_container_duration,
 #mini-queue-details .playing-from-title, #mini-queue-details .playing-from .album, #mini-queue-details .playing-from
 {
-font-weight: 300;
+    font-weight: 300;
 }
 body.material {
-background-color:#FFF;
+    background-color:#FFF;
 }
 #material-app-bar {
-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.07);
--webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.07);
--moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.07);
--o-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.07);
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.07);
+    -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.07);
+    -moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.07);
+    -o-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.07);
 }
 
 iron-icon[icon="av:explicit"],
@@ -87,7 +87,7 @@ paper-action-dialog sj-paper-button, paper-dialog .buttons paper-button,
 paper-slider#sliderBar paper-ripple.paper-slider,
 .material .song-table .song-row.currently-playing td
 {
-color: #018fd5!important;
+    color: #018fd5!important;
 }
 
 .music-source-list::-webkit-scrollbar-thumb,
@@ -105,7 +105,7 @@ paper-slider#material-player-progress #sliderContainer.disabled #sliderBar #acti
 .material-drag .song-drag-label,
 .material-transfer-radial-upload-overlay, .material-transfer-radial-download-overlay, .material-transfer-radial-processing-overlay,
 #current-loading-progress {
-	background-color: #018fd5!important;
+    background-color: #018fd5!important;
 }
 
 paper-checkbox #checkbox.checked,
@@ -116,26 +116,77 @@ paper-action-dialog.get-link .content paper-spinner .circle,
 .nav-section .selected,
 #sliderKnobInner.paper-slider
 {
-	border-color: #018fd5!important;
+    border-color: #018fd5!important;
 }
 
 .material-container-details sj-fab, .material-container-details paper-fab {
-background: #018fd5!important;
+    background: #018fd5!important;
 }
 
 paper-header-panel#content-container.transparent #material-app-bar,
 paper-toggle-button[checked]:not([disabled]) .toggle-button.paper-toggle-button,
 paper-toggle-button[checked]:not([disabled]) .toggle-bar.paper-toggle-button {
-background-color: rgba(1, 143, 213, 0.4)!important;
+    background-color: rgba(1, 143, 213, 0.4)!important;
 }
 
 /* Fill to highlight thumbed up/down track in status bar */
 paper-icon-button[aria-label="Undo thumb-up"] iron-icon {
-    background: url('https://radiant-player-mac/images/sprites.png') no-repeat -276px -235px;
-    background-size: 763px 360px;
+    /*background: url('https://radiant-player-mac/images/sprites.png') no-repeat -265px -222px;
+     background-size: 725px 335px;*/
+    display: inline-block;
 }
 
 paper-icon-button[aria-label="Undo thumb-down"] iron-icon {
-    background: url('https://radiant-player-mac/images/sprites.png') no-repeat -165px -323px;
-    background-size: 763px 360px;
+    /*background: url('https://radiant-player-mac/images/sprites.png') no-repeat -165px -333px;
+     background-size: 753px 368px;*/
+    display: inline-block;
+}
+
+
+/* New drawer / other additions */
+[class*="sj-play-button"] #pulse {
+    background-color: rgba(1, 143, 213, 0.4)!important;
+}
+
+[class*="sj-play-button"] #buttonContent {
+    background: #018fd5!important;
+}
+.primary:not([style-scope]):not(.style-scope) {
+    color: #018fd5!important;
+}
+
+paper-dialog input::selection,
+paper-dialog textarea::selection {
+    background-color: rgba(1, 143, 213, 0.25) !important
+}
+
+.label-is-highlighted [id*="paper-input-label"],
+[class*="paper-input-container"] .add-on-content.is-highlighted.paper-input-container * {
+    color: #018fd5!important;
+}
+
+.ups,
+.focused-line {
+    background: #018fd5!important;
+}
+
+.ups.light {
+    background: transparent!important;
+}
+
+.ups paper-button,
+.ad-preroll-message-link paper-button,
+paper-button.nav-item-container.sub {
+    background-color: #0170a7!important;
+}
+
+.ups paper-button:focus,
+.ad-preroll-message-link paper-button:focus,
+paper-button.nav-item-container.sub:focus {
+    background-color: #018fd5!important;
+    border: 1px solid #0170a7!important
+}
+
+.share-buttons .share-button iron-icon {
+    z-index: 0 !important;
 }
