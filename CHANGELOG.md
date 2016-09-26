@@ -5,6 +5,14 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
 
+## [1.11.2] - 2016-09-25
+### Fixed
+* Only resume playback after sleep if the audio was previously playing ([#612](https://github.com/radiant-player/radiant-player-mac/pull/612), [@atopuzov](https://github.com/atopuzov))
+
+## [1.11.1] - 2016-09-22
+### Added
+* Added option to pause music on screen lock ([#611](https://github.com/radiant-player/radiant-player-mac/pull/611), [@BarakaAka1Only](https://github.com/BarakaAka1Only))
+
 ## [1.11.0] - 2016-09-22
 ### Added
 * Added "I'm Feeling Lucky" to the menu ([#592](https://github.com/radiant-player/radiant-player-mac/pull/592), [@tjanson](https://github.com/tjanson))
