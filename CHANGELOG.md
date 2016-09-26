@@ -4,6 +4,8 @@ This file should follow the standards specified on [keepachangelog.com](http://k
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
+### Fixed
+* Only resume playback after sleep if the audio was previously playing ([#612](https://github.com/radiant-player/radiant-player-mac/pull/612), [@atopuzov](https://github.com/atopuzov))
 
 ## [1.11.1] - 2016-09-22
 ### Added
