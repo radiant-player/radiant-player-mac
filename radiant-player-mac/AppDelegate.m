@@ -47,6 +47,7 @@
 @synthesize currentDuration;
 @synthesize currentTimestamp;
 @synthesize currentPlaybackMode;
+@synthesize previousPlaybackMode;
 
 /**
  * Closing the application, hides the player window but keeps music playing in the background.
@@ -66,6 +67,7 @@
 
 - (void)receiveSleepNotification:(NSNotification*)notification
 {
+    previousPlaybackMode = currentPlaybackMode;
     if (currentPlaybackMode == MUSIC_PLAYING)
         [self playPause:self];
 }
@@ -76,6 +78,7 @@
     
     if ([defaults boolForKey:@"toggleMusicOnScreenLock"])
     {
+        previousPlaybackMode = currentPlaybackMode;
         if (currentPlaybackMode == MUSIC_PLAYING) {
             [self playPause:self];
         }
@@ -85,7 +88,7 @@
 - (void)RadiantScreenUnlocked {
     if ([defaults boolForKey:@"toggleMusicOnScreenLock"])
     {
-        if (currentPlaybackMode == MUSIC_PAUSED) {
+        if (previousPlaybackMode == MUSIC_PLAYING && currentPlaybackMode == MUSIC_PAUSED) {
             [self playPause:self];
         }
     }

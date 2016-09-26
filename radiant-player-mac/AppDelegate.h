@@ -83,6 +83,7 @@
 @property (assign) NSTimeInterval currentDuration;
 @property (assign) NSTimeInterval currentTimestamp;
 @property (assign) NSInteger currentPlaybackMode;
+@property (assign) NSInteger previousPlaybackMode;
 
 - (void) initializeStatusBar;
 - (NSMutableDictionary *) styles;
