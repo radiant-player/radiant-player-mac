@@ -18,21 +18,25 @@ Requirements
 ------------
 
 * Mac OS X 10.8 or later
-* [Adobe Flash Player for Mac OS X][5]
+* [Adobe Flash Player for Mac OS X, _NPAPI version_][5]
 
-[5]: http://get.adobe.com/flashplayer/
+[5]: https://get.adobe.com/flashplayer/
+
+_Adobe recently changed their install to try to auto-detect your browser. If you are using Google Chrome it will automatically select the incorrect (PPAPI) version needed for Radiant Player. [Select a version manually][6] and choose the NPAPI version when prompeted_
+
+[6]: https://get.adobe.com/flashplayer/otherversions/
 
 Development
 -----------
 
-This project uses [CocoaPods][6] to handle its dependencies, though it may be cloned
+This project uses [CocoaPods][7] to handle its dependencies, though it may be cloned
 and developed without having CocoaPods installed. Just be sure to open
 `radiant-player-mac.xcworkspace` instead of `radiant-player-mac.xcodeproj` in order to
 correctly pull in the dependencies into Xcode.
 
 A few JavaScript dependencies are installed via `npm` - to update these dependences, ensure that `package.json` specifies the target version and run `./scripts/update-javascript-dependencies.sh`.
 
-[6]: http://cocoapods.org/
+[7]: http://cocoapods.org/
 
 License
 -------
