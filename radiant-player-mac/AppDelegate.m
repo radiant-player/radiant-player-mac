@@ -669,7 +669,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
  */
 - (IBAction) setPlaybackTime:(NSInteger)milliseconds
 {
-    NSString *js = [NSString stringWithFormat:@"gmusic.playback.setPlaybackTime(%ld)", (long)milliseconds];
+    NSString *js = [NSString stringWithFormat:@"gmusic.playback.setCurrentTime(%ld)", (long)milliseconds];
     [webView stringByEvaluatingJavaScriptFromString:js];
 }
 
@@ -873,7 +873,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 - (NSString *)currentSongURL
 {
     // Get the shareable URL of the current song.
-    return [webView stringByEvaluatingJavaScriptFromString:@"window.gmusic.extras.getSongURL()"];
+    return [webView stringByEvaluatingJavaScriptFromString:@"window.gmusic.extras.getTrackURL()"];
 }
 
 #pragma mark - Playback Notifications
