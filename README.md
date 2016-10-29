@@ -22,7 +22,7 @@ Requirements
 
 [5]: https://get.adobe.com/flashplayer/
 
-_Adobe recently changed their install to try to auto-detect your browser. If you are using Google Chrome it will automatically select the incorrect (PPAPI) version needed for Radiant Player. [Select a version manually][6] and choose the NPAPI version when prompeted_
+_Adobe recently changed their install to try to auto-detect your browser. If you are using Google Chrome it will automatically select the incorrect (PPAPI) version needed for Radiant Player. [Select a version manually][6] and choose the NPAPI version when prompted, or install Flash via Safari rather than Chrome or Firefox._
 
 [6]: https://get.adobe.com/flashplayer/otherversions/
 
