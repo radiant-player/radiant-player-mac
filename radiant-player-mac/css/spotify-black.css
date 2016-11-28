@@ -315,7 +315,7 @@ a,
   font-size: 13px !important;
   font-weight: 400 !important;
   color: #949599 !important;
-  padding: 5px 0 5px 32px;
+  padding: 0;
   border-left: 3px solid transparent;
 }
 
@@ -664,6 +664,11 @@ paper-icon-button[aria-label="Undo thumb-down"] iron-icon {
 
 .primary:not([style-scope]):not(.style-scope) {
   color: #ff5722 !important;
+}
+
+/* Make drawer slimmer */
+#drawer {
+  width: 240px !important;
 }
 
 #music-content .info-card,
