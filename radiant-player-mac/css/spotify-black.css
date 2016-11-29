@@ -678,6 +678,10 @@ paper-icon-button[aria-label="Undo thumb-down"] iron-icon {
   background-size: 90% auto;
 }
 
+body.qp #material-app-bar #material-one-left .music-logo {
+  background-image: url('https://dl.dropboxusercontent.com/u/18447700/play_music.svg');
+}
+
 #music-content .info-card,
 #playlist-drawer .sj-right-drawer,
 #playlist-drawer .sj-right-drawer #topBar {
