@@ -39,8 +39,10 @@ paper-button#unsubscribe-playlist-button iron-icon[icon="sj:subscribed"] path:la
 }
 
 .material .cluster-text-protection,
-.material .cluster-text-protection::before {
-  background-color: #121314;
+.material .cluster-text-protection::before,
+body.qp .material .cluster-text-protection,
+body.qp .material .cluster-text-protection::before {
+  background-color: #121314 !important;
 }
 
 #loading-progress {
@@ -412,6 +414,7 @@ a,
 
 .fade-out:after {
   background: linear-gradient(to right, rgba(34, 35, 38, 0), rgba(34, 35, 38, 1)) !important;
+  display: none !important;
 }
 
 .material-card .details paper-icon-button.menu-anchor {
