@@ -475,6 +475,10 @@ a,
   color: #aaa !important;
 }
 
+body .recent-view h2#gridTitle {
+  color: #555;
+}
+
 #player.active:hover .playing-progress-background {
   background: #555;
 }
