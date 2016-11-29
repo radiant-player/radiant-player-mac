@@ -692,6 +692,10 @@ body.qp #material-app-bar #material-one-left .music-logo {
   background-image: url('https://dl.dropboxusercontent.com/u/18447700/play_music.svg');
 }
 
+body paper-header-panel#content-container paper-toolbar#material-app-bar {
+  border-bottom: 0 !important;
+}
+
 #music-content .info-card,
 #playlist-drawer .sj-right-drawer,
 #playlist-drawer .sj-right-drawer #topBar {
