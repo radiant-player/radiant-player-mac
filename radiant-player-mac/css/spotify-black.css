@@ -468,8 +468,11 @@ a,
 
 #player-artist,
 .player-album,
-.player-dash {
-  color: #aaa;
+.player-dash,
+.sj-card-0 .card-title,
+.sj-card .card-title,
+.card-title {
+  color: #aaa !important;
 }
 
 #player.active:hover .playing-progress-background {
