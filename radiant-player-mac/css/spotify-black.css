@@ -494,9 +494,13 @@ body .recent-view h2#gridTitle {
   background: #333;
 }
 
+#material-player-left-wrapper {
+  height: 90px;
+  margin-top: 0;
+}
+
 #time_container_duration {
   color: #ccc;
-  background-color: #555;
 }
 
 #volume:hover,
