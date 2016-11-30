@@ -45,6 +45,12 @@ body.qp .material .cluster-text-protection::before {
   background-color: #121314 !important;
 }
 
+.material .cluster-text-protection,
+.material .cluster-text-protection::before {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
 #loading-progress {
   background: #222326;
 }
