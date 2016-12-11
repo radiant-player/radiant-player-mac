@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D868759BF847E5D5BE42284 /* libPods-Radiant Player.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DBDA5D519F133C00771F93A9 /* libPods-Radiant Player.a */; };
 		1A68DAD81803B588004CBA25 /* CustomWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A68DAD71803B588004CBA25 /* CustomWebView.m */; };
 		1A7B684017453E40001E509E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7B683F17453E40001E509E /* Cocoa.framework */; };
 		1A7B684A17453E40001E509E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A7B684817453E40001E509E /* InfoPlist.strings */; };
@@ -17,9 +18,8 @@
 		1A7B687417453E4C001E509E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7B687317453E4C001E509E /* WebKit.framework */; };
 		2B8FC1C018C9CB0E006D04FF /* radiant-player-mac.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 2B8FC1BF18C9CB0E006D04FF /* radiant-player-mac.sdef */; };
 		2B8FC1C318C9CB16006D04FF /* RadiantPlayerScriptCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8FC1C218C9CB16006D04FF /* RadiantPlayerScriptCommand.m */; };
-		38D0C36DAD0F40F5A7254224 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BABD1B4DDCC34CB291C66033 /* libPods.a */; };
 		42C12CDD1C1A73C100E5029B /* RdiantStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C12CDC1C1A73C100E5029B /* RdiantStyle.m */; };
-		693BAD221C2702A90022B557 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		693BAD221C2702A90022B557 /* BuildFile in Resources */ = {isa = PBXBuildFile; };
 		693BAD4D1C2705200022B557 /* DDHidAppleMikey.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BAD3A1C2705200022B557 /* DDHidAppleMikey.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		693BAD4E1C2705200022B557 /* DDHidAppleRemote.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BAD3C1C2705200022B557 /* DDHidAppleRemote.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		693BAD4F1C2705200022B557 /* DDHidDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BAD3E1C2705200022B557 /* DDHidDevice.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -119,6 +119,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		179D23572A7826EFE31F3566 /* Pods-Radiant Player.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Radiant Player.release.xcconfig"; path = "Pods/Target Support Files/Pods-Radiant Player/Pods-Radiant Player.release.xcconfig"; sourceTree = "<group>"; };
 		1A68DAD61803B588004CBA25 /* CustomWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomWebView.h; sourceTree = "<group>"; };
 		1A68DAD71803B588004CBA25 /* CustomWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomWebView.m; sourceTree = "<group>"; };
 		1A7B683C17453E40001E509E /* Radiant Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Radiant Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,8 +139,6 @@
 		2B8FC1BF18C9CB0E006D04FF /* radiant-player-mac.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "radiant-player-mac.sdef"; sourceTree = "<group>"; };
 		2B8FC1C118C9CB16006D04FF /* RadiantPlayerScriptCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadiantPlayerScriptCommand.h; sourceTree = "<group>"; };
 		2B8FC1C218C9CB16006D04FF /* RadiantPlayerScriptCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadiantPlayerScriptCommand.m; sourceTree = "<group>"; };
-		39ABCDF77BF211E80C80FA4D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		3C4E58611BB0DA2250F24AC6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		42C12CDB1C1A73AB00E5029B /* RdiantStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RdiantStyle.h; sourceTree = "<group>"; };
 		42C12CDC1C1A73C100E5029B /* RdiantStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RdiantStyle.m; sourceTree = "<group>"; };
 		693BAD391C2705200022B557 /* DDHidAppleMikey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDHidAppleMikey.h; path = DDHidLib/DDHidAppleMikey.h; sourceTree = "<group>"; };
@@ -164,7 +163,7 @@
 		693BAD4C1C2705200022B557 /* NSXReturnThrowError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSXReturnThrowError.m; path = DDHidLib/NSXReturnThrowError.m; sourceTree = "<group>"; };
 		B0BB948719F76CF80081C97D /* LightStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightStyle.h; sourceTree = "<group>"; };
 		B0BB948819F76CFD0081C97D /* LightStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightStyle.m; sourceTree = "<group>"; };
-		BABD1B4DDCC34CB291C66033 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB36850654F16BC002AF3505 /* Pods-Radiant Player.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Radiant Player.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Radiant Player/Pods-Radiant Player.debug.xcconfig"; sourceTree = "<group>"; };
 		D302E13318B561E100CCD18E /* Preferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Preferences.plist; sourceTree = "<group>"; };
 		D3091F6118C32961007C8DCD /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		D3091F6218C32961007C8DCD /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
@@ -263,6 +262,7 @@
 		D3FAC6D318BA81EC00D9F461 /* PopupStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupStatusView.m; sourceTree = "<group>"; };
 		D3FAC6D518BA942500D9F461 /* PopupViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupViewDelegate.h; sourceTree = "<group>"; };
 		D3FAC6D618BA942500D9F461 /* PopupViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupViewDelegate.m; sourceTree = "<group>"; };
+		DBDA5D519F133C00771F93A9 /* libPods-Radiant Player.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Radiant Player.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF76BDFD1C05083D0004D31A /* DarkCyanStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DarkCyanStyle.h; sourceTree = "<group>"; };
 		FF76BDFE1C05083D0004D31A /* DarkCyanStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DarkCyanStyle.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -278,7 +278,7 @@
 				D30F57891BDB7B2200929904 /* Sparkle.framework in Frameworks */,
 				1A7B687417453E4C001E509E /* WebKit.framework in Frameworks */,
 				1A7B684017453E40001E509E /* Cocoa.framework in Frameworks */,
-				38D0C36DAD0F40F5A7254224 /* libPods.a in Frameworks */,
+				0D868759BF847E5D5BE42284 /* libPods-Radiant Player.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,7 +293,7 @@
 				1A7B683E17453E40001E509E /* Frameworks */,
 				D37A5FC91BDBEA2C0027FBD4 /* Resources */,
 				1A7B683D17453E40001E509E /* Products */,
-				AF432C2EC36B63C6736042F4 /* Pods */,
+				F704A7BAF771823352D584FE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -315,7 +315,7 @@
 				1A7B687317453E4C001E509E /* WebKit.framework */,
 				1A7B683F17453E40001E509E /* Cocoa.framework */,
 				1A7B684117453E40001E509E /* Other Frameworks */,
-				BABD1B4DDCC34CB291C66033 /* libPods.a */,
+				DBDA5D519F133C00771F93A9 /* libPods-Radiant Player.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -415,15 +415,6 @@
 				693BAD4C1C2705200022B557 /* NSXReturnThrowError.m */,
 			);
 			name = DDHidLib;
-			sourceTree = "<group>";
-		};
-		AF432C2EC36B63C6736042F4 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				39ABCDF77BF211E80C80FA4D /* Pods.debug.xcconfig */,
-				3C4E58611BB0DA2250F24AC6 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		D318341818CFC73500E8F9B1 /* Styles */ = {
@@ -566,6 +557,15 @@
 			path = LastFm;
 			sourceTree = "<group>";
 		};
+		F704A7BAF771823352D584FE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BB36850654F16BC002AF3505 /* Pods-Radiant Player.debug.xcconfig */,
+				179D23572A7826EFE31F3566 /* Pods-Radiant Player.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -573,14 +573,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1A7B686D17453E40001E509E /* Build configuration list for PBXNativeTarget "Radiant Player" */;
 			buildPhases = (
-				7A2071DB33B24D5B85C39505 /* Check Pods Manifest.lock */,
+				3CE7B7E4FCE48023FDF52D9D /* [CP] Check Pods Manifest.lock */,
 				1A7B683817453E40001E509E /* Sources */,
 				1A7B683917453E40001E509E /* Frameworks */,
 				1A7B683A17453E40001E509E /* Resources */,
-				D0B126C78BE34593B5FE493C /* Copy Pods Resources */,
 				D31ACE8C193BE38900AC7CB4 /* Copy Frameworks */,
 				D37A5FCC1BDBEAE90027FBD4 /* Copy DSA Public Key */,
-				6EA0989A3DBD95F8AE5279E8 /* Embed Pods Frameworks */,
+				3C26A1B598CC8B49D8D23987 /* [CP] Embed Pods Frameworks */,
+				5248671F3F95D7D042DCEFC4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -629,7 +629,7 @@
 			files = (
 				D326EA6418B2D7E500BEC02F /* css in Resources */,
 				D3D4C3E518E76063007238B3 /* LastFmPopover.xib in Resources */,
-				693BAD221C2702A90022B557 /* (null) in Resources */,
+				693BAD221C2702A90022B557 /* BuildFile in Resources */,
 				D326EA6518B2D7E500BEC02F /* js in Resources */,
 				2B8FC1C018C9CB0E006D04FF /* radiant-player-mac.sdef in Resources */,
 				D302E13418B561E100CCD18E /* Preferences.plist in Resources */,
@@ -646,49 +646,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6EA0989A3DBD95F8AE5279E8 /* Embed Pods Frameworks */ = {
+		3C26A1B598CC8B49D8D23987 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Radiant Player/Pods-Radiant Player-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7A2071DB33B24D5B85C39505 /* Check Pods Manifest.lock */ = {
+		3CE7B7E4FCE48023FDF52D9D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		D0B126C78BE34593B5FE493C /* Copy Pods Resources */ = {
+		5248671F3F95D7D042DCEFC4 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Radiant Player/Pods-Radiant Player-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -850,7 +850,7 @@
 		};
 		1A7B686E17453E40001E509E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 39ABCDF77BF211E80C80FA4D /* Pods.debug.xcconfig */;
+			baseConfigurationReference = BB36850654F16BC002AF3505 /* Pods-Radiant Player.debug.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -869,7 +869,7 @@
 		};
 		1A7B686F17453E40001E509E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3C4E58611BB0DA2250F24AC6 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 179D23572A7826EFE31F3566 /* Pods-Radiant Player.release.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
