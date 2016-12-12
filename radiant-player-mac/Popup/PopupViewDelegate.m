@@ -86,9 +86,15 @@
 
 - (void)downloadAlbumArt:(NSString *)art
 {
-    // Download the 500px size image.
-    art = [art stringByReplacingOccurrencesOfString:@"=s90-" withString:@"=s500-"];
-
+    // Change url string to download album art image of the proper size
+    NSInteger imageSize_px = floorf(popup.popupView.bounds.size.width * [NSScreen mainScreen].backingScaleFactor);
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"(?<=s)[0-9]{1,3}(?=-)" options:NSRegularExpressionCaseInsensitive error:nil];
+    NSString *replacementString = [NSString stringWithFormat:@"%ld", (long)imageSize_px];
+    art = [regex stringByReplacingMatchesInString:art
+                                          options:0
+                                            range:NSMakeRange(0, [art length])
+                                     withTemplate:replacementString];
+    
     NSURL *url = [NSURL URLWithString:art];
     NSImage *image = [[NSImage alloc] initWithContentsOfURL:url];
     [artView setImage:image];
