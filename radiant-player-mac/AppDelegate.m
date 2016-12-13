@@ -75,7 +75,7 @@
 #pragma mark - screen locked/unlocked events
 
 - (void)RadiantScreenLocked {
-    
+
     if ([defaults boolForKey:@"toggleMusicOnScreenLock"])
     {
         previousPlaybackMode = currentPlaybackMode;
@@ -278,18 +278,18 @@
 
     // Register for machine sleep notifications
     [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self selector:@selector(receiveSleepNotification:) name:NSWorkspaceWillSleepNotification object:nil];
-    
+
     // Register screen locked/unlocked events
     [[NSDistributedNotificationCenter defaultCenter] addObserver:self
                                                         selector:@selector(RadiantScreenLocked)
                                                             name:@"com.apple.screenIsLocked"
                                                           object:nil];
-    
+
     [[NSDistributedNotificationCenter defaultCenter] addObserver:self
                                                         selector:@selector(RadiantScreenUnlocked)
                                                             name:@"com.apple.screenIsUnlocked"
                                                           object:nil];
-    
+
     [[NSDistributedNotificationCenter defaultCenter] addObserver: self
                                                         selector: @selector(RadiantScreenLocked)
                                                             name: @"com.apple.sessionDidMoveOffConsole"
@@ -669,7 +669,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
  */
 - (IBAction) setPlaybackTime:(NSInteger)milliseconds
 {
-    NSString *js = [NSString stringWithFormat:@"gmusic.playback.setPlaybackTime(%ld)", (long)milliseconds];
+    NSString *js = [NSString stringWithFormat:@"gmusic.playback.setCurrentTime(%ld)", (long)milliseconds];
     [webView stringByEvaluatingJavaScriptFromString:js];
 }
 
@@ -755,7 +755,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
  */
 - (IBAction) repeatNone:(id)sender
 {
-    [webView stringByEvaluatingJavaScriptFromString:@"gmusic.playback.changeRepeat(GMusic.Playback.NO_REPEAT)"];
+    [webView stringByEvaluatingJavaScriptFromString:@"gmusic.playback.changeRepeat(GMusic.RepeatStatus.NO_REPEAT)"];
 }
 
 /**
@@ -763,7 +763,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
  */
 - (IBAction) repeatSingle:(id)sender
 {
-    [webView stringByEvaluatingJavaScriptFromString:@"gmusic.playback.changeRepeat(GMusic.Playback.SINGLE_REPEAT)"];
+    [webView stringByEvaluatingJavaScriptFromString:@"gmusic.playback.changeRepeat(GMusic.RepeatStatus.SINGLE_REPEAT)"];
 }
 
 /**
@@ -771,7 +771,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
  */
 - (IBAction) repeatList:(id)sender
 {
-    [webView stringByEvaluatingJavaScriptFromString:@"gmusic.playback.changeRepeat(GMusic.Playback.LIST_REPEAT)"];
+    [webView stringByEvaluatingJavaScriptFromString:@"gmusic.playback.changeRepeat(GMusic.RepeatStatus.LIST_REPEAT)"];
 }
 
 /**
@@ -873,7 +873,7 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 - (NSString *)currentSongURL
 {
     // Get the shareable URL of the current song.
-    return [webView stringByEvaluatingJavaScriptFromString:@"window.gmusic.extras.getSongURL()"];
+    return [webView stringByEvaluatingJavaScriptFromString:@"window.gmusic.extras.getTrackURL()"];
 }
 
 #pragma mark - Playback Notifications
@@ -1029,10 +1029,10 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     BOOL canGoForward = [webView canGoForward];
     NSString *call = [NSString stringWithFormat:@"window.GMNavigation.Callbacks.onHistoryChange(%@, %@)", canGoBack ? @"true" : @"false", canGoForward ? @"true" : @"false"];
     [[webView windowScriptObject] evaluateWebScript:call];
-    
+
     // Rolling dice on all pages
     [self evaluateJavaScriptFile:@"lucky"];
-    
+
     /* Lets Load Lucky so rolling the dice can roll */
     NSString *format =@"%@";
     NSString *Radiant =@"window.Radiant = window.Radiant || {};";
