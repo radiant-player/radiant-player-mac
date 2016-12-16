@@ -4,6 +4,13 @@ This file should follow the standards specified on [keepachangelog.com](http://k
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
+### Fixed
+* Miniplayer now displays retina album art ([#629](https://github.com/radiant-player/radiant-player-mac/pull/629), [@eligat](https://github.com/eligat))
+* Repeat icon in miniplayer is now retina ([#631](https://github.com/radiant-player/radiant-player-mac/pull/631))
+
+### Changed
+* Black theme design tweaked for better display ([#624](https://github.com/radiant-player/radiant-player-mac/pull/624), [@ronilaukkarinen](https://github.com/ronilaukkarinen))
+* Updated to the latest version of the gmusic.js client library ([#617](https://github.com/radiant-player/radiant-player-mac/pull/617))
 
 ## [1.11.2] - 2016-09-25
 ### Fixed
