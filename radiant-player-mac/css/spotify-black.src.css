@@ -693,13 +693,13 @@ paper-icon-button[aria-label="Undo thumb-down"] iron-icon {
 
 #drawer .music-logo-link {
   visibility: visible;
-  background-image: url('https://dl.dropboxusercontent.com/u/18447700/play_music.svg');
+  background-image: url('https://radiant-player-mac/images/play_music_inverted.svg');
   background-position: center 4px;
   background-size: 90% auto;
 }
 
 body.qp #material-app-bar #material-one-left .music-logo {
-  background-image: url('https://dl.dropboxusercontent.com/u/18447700/play_music.svg');
+  background-image: url('https://radiant-player-mac/images/play_music_inverted.svg');
 }
 
 body paper-header-panel#content-container paper-toolbar#material-app-bar {

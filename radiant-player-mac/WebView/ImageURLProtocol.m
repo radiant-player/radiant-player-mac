@@ -82,6 +82,9 @@
     
     if ([extension isEqualToString:@"gif"])
         return @"image/gif";
+    
+    if ([extension isEqualToString:@"svg"])
+        return @"image/svg+xml";
 }
 
 @end
