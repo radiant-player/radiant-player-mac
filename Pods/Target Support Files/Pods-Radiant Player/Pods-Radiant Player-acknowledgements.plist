@@ -60,16 +60,6 @@ THE SOFTWARE.</string>
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>MASPreferences is licensed under the BSD license.</string>
-			<key>License</key>
-			<string>BSD</string>
-			<key>Title</key>
-			<string>MASPreferences</string>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-		</dict>
-		<dict>
-			<key>FooterText</key>
 			<string>Copyright (c) 2011-2013, Kevin Lawler
 
 Permission to use, copy, modify, and/or distribute this software for any purpose

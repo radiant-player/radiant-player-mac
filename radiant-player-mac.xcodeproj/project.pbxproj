@@ -19,7 +19,7 @@
 		2B8FC1C018C9CB0E006D04FF /* radiant-player-mac.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 2B8FC1BF18C9CB0E006D04FF /* radiant-player-mac.sdef */; };
 		2B8FC1C318C9CB16006D04FF /* RadiantPlayerScriptCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8FC1C218C9CB16006D04FF /* RadiantPlayerScriptCommand.m */; };
 		42C12CDD1C1A73C100E5029B /* RdiantStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C12CDC1C1A73C100E5029B /* RdiantStyle.m */; };
-		693BAD221C2702A90022B557 /* BuildFile in Resources */ = {isa = PBXBuildFile; };
+		693BAD221C2702A90022B557 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		693BAD4D1C2705200022B557 /* DDHidAppleMikey.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BAD3A1C2705200022B557 /* DDHidAppleMikey.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		693BAD4E1C2705200022B557 /* DDHidAppleRemote.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BAD3C1C2705200022B557 /* DDHidAppleRemote.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		693BAD4F1C2705200022B557 /* DDHidDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BAD3E1C2705200022B557 /* DDHidDevice.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -30,6 +30,8 @@
 		693BAD541C2705200022B557 /* DDHidUsageTables.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BAD481C2705200022B557 /* DDHidUsageTables.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		693BAD551C2705200022B557 /* NSDictionary+DDHidExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BAD4A1C2705200022B557 /* NSDictionary+DDHidExtras.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		693BAD561C2705200022B557 /* NSXReturnThrowError.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BAD4C1C2705200022B557 /* NSXReturnThrowError.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		69E36B361E03AA2D0079BB60 /* MASPreferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E36B351E03AA2D0079BB60 /* MASPreferences.framework */; };
+		69E36B371E03AA2D0079BB60 /* MASPreferences.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 69E36B351E03AA2D0079BB60 /* MASPreferences.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B06FB3D219F7723500351943 /* LightStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BB948819F76CFD0081C97D /* LightStyle.m */; };
 		D302E13418B561E100CCD18E /* Preferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = D302E13318B561E100CCD18E /* Preferences.plist */; };
 		D3091F6318C32961007C8DCD /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D3091F6218C32961007C8DCD /* Utilities.m */; };
@@ -99,6 +101,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				69E36B371E03AA2D0079BB60 /* MASPreferences.framework in Copy Frameworks */,
 				D31ACE8D193BE39E00AC7CB4 /* Growl.framework in Copy Frameworks */,
 				D30F578B1BDB7BD300929904 /* Sparkle.framework in Copy Frameworks */,
 			);
@@ -161,6 +164,8 @@
 		693BAD4A1C2705200022B557 /* NSDictionary+DDHidExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+DDHidExtras.m"; path = "DDHidLib/NSDictionary+DDHidExtras.m"; sourceTree = "<group>"; };
 		693BAD4B1C2705200022B557 /* NSXReturnThrowError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSXReturnThrowError.h; path = DDHidLib/NSXReturnThrowError.h; sourceTree = "<group>"; };
 		693BAD4C1C2705200022B557 /* NSXReturnThrowError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSXReturnThrowError.m; path = DDHidLib/NSXReturnThrowError.m; sourceTree = "<group>"; };
+		69E36B351E03AA2D0079BB60 /* MASPreferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MASPreferences.framework; path = Carthage/Build/Mac/MASPreferences.framework; sourceTree = "<group>"; };
+		69E36B381E03AA3D0079BB60 /* DateTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DateTools.framework; path = Carthage/Build/iOS/DateTools.framework; sourceTree = "<group>"; };
 		B0BB948719F76CF80081C97D /* LightStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightStyle.h; sourceTree = "<group>"; };
 		B0BB948819F76CFD0081C97D /* LightStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightStyle.m; sourceTree = "<group>"; };
 		BB36850654F16BC002AF3505 /* Pods-Radiant Player.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Radiant Player.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Radiant Player/Pods-Radiant Player.debug.xcconfig"; sourceTree = "<group>"; };
@@ -279,6 +284,7 @@
 				1A7B687417453E4C001E509E /* WebKit.framework in Frameworks */,
 				1A7B684017453E40001E509E /* Cocoa.framework in Frameworks */,
 				0D868759BF847E5D5BE42284 /* libPods-Radiant Player.a in Frameworks */,
+				69E36B361E03AA2D0079BB60 /* MASPreferences.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +294,8 @@
 		1A7B683317453E40001E509E = {
 			isa = PBXGroup;
 			children = (
+				69E36B381E03AA3D0079BB60 /* DateTools.framework */,
+				69E36B351E03AA2D0079BB60 /* MASPreferences.framework */,
 				D369FEFD18E3FB6B004CB1C6 /* icon.icns */,
 				1A7B684517453E40001E509E /* radiant-player-mac */,
 				1A7B683E17453E40001E509E /* Frameworks */,
@@ -629,7 +637,7 @@
 			files = (
 				D326EA6418B2D7E500BEC02F /* css in Resources */,
 				D3D4C3E518E76063007238B3 /* LastFmPopover.xib in Resources */,
-				693BAD221C2702A90022B557 /* BuildFile in Resources */,
+				693BAD221C2702A90022B557 /* (null) in Resources */,
 				D326EA6518B2D7E500BEC02F /* js in Resources */,
 				2B8FC1C018C9CB0E006D04FF /* radiant-player-mac.sdef in Resources */,
 				D302E13418B561E100CCD18E /* Preferences.plist in Resources */,
@@ -857,6 +865,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/radiant-player-mac/Frameworks",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "radiant-player-mac/prefix.pch";
@@ -876,6 +886,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/radiant-player-mac/Frameworks",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "radiant-player-mac/prefix.pch";

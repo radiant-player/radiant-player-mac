@@ -1,11 +1,12 @@
 #import "MASPreferencesWindowController.h"
+#import "MASPreferencesViewController.h"
 
 NSString *const kMASPreferencesWindowControllerDidChangeViewNotification = @"MASPreferencesWindowControllerDidChangeViewNotification";
 
 static NSString *const kMASPreferencesFrameTopLeftKey = @"MASPreferences Frame Top Left";
 static NSString *const kMASPreferencesSelectedViewKey = @"MASPreferences Selected Identifier View";
 
-static NSString *const PreferencesKeyForViewBounds (NSString *identifier)
+static NSString * PreferencesKeyForViewBounds (NSString *identifier)
 {
     return [NSString stringWithFormat:@"MASPreferences %@ Frame", identifier];
 }
@@ -27,21 +28,21 @@ static NSString *const PreferencesKeyForViewBounds (NSString *identifier)
 @synthesize selectedViewController = _selectedViewController;
 @synthesize title = _title;
 @synthesize toolbar = _toolbar;
+
 #pragma mark -
 
-- (id)initWithViewControllers:(NSArray *)viewControllers
+- (instancetype)initWithViewControllers:(NSArray *)viewControllers
 {
     return [self initWithViewControllers:viewControllers title:nil];
 }
 
-- (id)initWithViewControllers:(NSArray *)viewControllers title:(NSString *)title
+- (instancetype)initWithViewControllers:(NSArray *)viewControllers title:(NSString *)title
 {
-    if ((self = [super initWithWindowNibName:@"MASPreferencesWindow"]))
+	NSParameterAssert(viewControllers.count > 0);
+    NSString *nibPath = [[NSBundle bundleForClass:MASPreferencesWindowController.class] pathForResource:@"MASPreferencesWindow" ofType:@"nib"];
+    if ((self = [super initWithWindowNibPath:nibPath owner:self]))
     {
-		_viewControllers = [NSMutableArray arrayWithArray: viewControllers];
-#if !__has_feature(objc_arc)
-        _viewControllers = [_viewControllers retain];
-#endif
+		_viewControllers = [viewControllers mutableCopy];
         _minimumViewRects = [[NSMutableDictionary alloc] init];
         _title = [title copy];
     }
@@ -52,17 +53,16 @@ static NSString *const PreferencesKeyForViewBounds (NSString *identifier)
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [[self window] setDelegate:nil];
-#if !__has_feature(objc_arc)
-    [_viewControllers release];
-    [_selectedViewController release];
-    [_minimumViewRects release];
-    [_title release];
-    [super dealloc];
-#endif
+    for (NSToolbarItem *item in [self.toolbar items]) {
+        item.target = nil;
+        item.action = nil;
+    }
+    self.toolbar.delegate = nil;
 }
 
-- (void)addViewController: (NSViewController <MASPreferencesViewController> *) viewController
+- (void)addViewController:(NSViewController <MASPreferencesViewController> *)viewController
 {
+	NSParameterAssert(viewController);
 	[_viewControllers addObject: viewController];
 	[_toolbar insertItemWithItemIdentifier: [viewController identifier] atIndex: ([_viewControllers count] - 1)];
 	[_toolbar validateVisibleItems];
@@ -97,17 +97,17 @@ static NSString *const PreferencesKeyForViewBounds (NSString *identifier)
 #pragma mark -
 #pragma mark NSWindowDelegate
 
-- (BOOL)windowShouldClose:(id)sender
+- (BOOL)windowShouldClose:(id __unused)sender
 {
     return !self.selectedViewController || [self.selectedViewController commitEditing];
 }
 
-- (void)windowDidMove:(NSNotification*)aNotification
+- (void)windowDidMove:(NSNotification* __unused)aNotification
 {
     [[NSUserDefaults standardUserDefaults] setObject:NSStringFromPoint(NSMakePoint(NSMinX([self.window frame]), NSMaxY([self.window frame]))) forKey:kMASPreferencesFrameTopLeftKey];
 }
 
-- (void)windowDidResize:(NSNotification*)aNotification
+- (void)windowDidResize:(NSNotification* __unused)aNotification
 {
     NSViewController <MASPreferencesViewController> *viewController = self.selectedViewController;
     if (viewController)
@@ -139,25 +139,25 @@ static NSString *const PreferencesKeyForViewBounds (NSString *identifier)
 #pragma mark -
 #pragma mark NSToolbarDelegate
 
-- (NSArray *)toolbarAllowedItemIdentifiers:(NSToolbar *)toolbar
+- (NSArray *)toolbarAllowedItemIdentifiers:(NSToolbar * __unused)toolbar
 {
     NSArray *identifiers = self.toolbarItemIdentifiers;
     return identifiers;
 }                   
                    
-- (NSArray *)toolbarDefaultItemIdentifiers:(NSToolbar *)toolbar
+- (NSArray *)toolbarDefaultItemIdentifiers:(NSToolbar * __unused)toolbar
 {
     NSArray *identifiers = self.toolbarItemIdentifiers;
     return identifiers;
 }
 
-- (NSArray *)toolbarSelectableItemIdentifiers:(NSToolbar *)toolbar
+- (NSArray *)toolbarSelectableItemIdentifiers:(NSToolbar * __unused)toolbar
 {
     NSArray *identifiers = self.toolbarItemIdentifiers;
     return identifiers;
 }
 
-- (NSToolbarItem *)toolbar:(NSToolbar *)toolbar itemForItemIdentifier:(NSString *)itemIdentifier willBeInsertedIntoToolbar:(BOOL)flag
+- (NSToolbarItem *)toolbar:(NSToolbar * __unused)toolbar itemForItemIdentifier:(NSString *)itemIdentifier willBeInsertedIntoToolbar:(BOOL __unused)flag
 {
     NSToolbarItem *toolbarItem = [[NSToolbarItem alloc] initWithItemIdentifier:itemIdentifier];
     NSArray *identifiers = self.toolbarItemIdentifiers;
@@ -170,38 +170,11 @@ static NSString *const PreferencesKeyForViewBounds (NSString *identifier)
         toolbarItem.target = self;
         toolbarItem.action = @selector(toolbarItemDidClick:);
     }
-#if !__has_feature(objc_arc)
-    [toolbarItem autorelease];
-#endif
     return toolbarItem;
 }
 
 #pragma mark -
 #pragma mark Private methods
-
-- (void)clearResponderChain
-{
-    // Remove view controller from the responder chain
-    NSResponder *chainedController = self.window.nextResponder;
-    if ([self.viewControllers indexOfObject:chainedController] == NSNotFound)
-        return;
-    self.window.nextResponder = chainedController.nextResponder;
-    chainedController.nextResponder = nil;
-}
-
-- (void)patchResponderChain
-{
-    [self clearResponderChain];
-    
-    NSViewController *selectedController = self.selectedViewController;
-    if (!selectedController)
-        return;
-    
-    // Add current controller to the responder chain
-    NSResponder *nextResponder = self.window.nextResponder;
-    self.window.nextResponder = selectedController;
-    selectedController.nextResponder = nextResponder;
-}
 
 - (NSViewController <MASPreferencesViewController> *)viewControllerForIdentifier:(NSString *)identifier
 {
@@ -228,18 +201,12 @@ static NSString *const PreferencesKeyForViewBounds (NSString *identifier)
             [[self.window toolbar] setSelectedItemIdentifier:_selectedViewController.identifier];
             return;
         }
-
-#if __has_feature(objc_arc)
         [self.window setContentView:[[NSView alloc] init]];
-#else
-        [self.window setContentView:[[[NSView alloc] init] autorelease]];
-#endif
-        if ([_selectedViewController respondsToSelector:@selector(viewDidDisappear)])
-            [_selectedViewController viewDidDisappear];
-
-#if !__has_feature(objc_arc)
-        [_selectedViewController release];
-#endif
+        [_selectedViewController setNextResponder:nil];
+        // With 10.10 and later AppKit will invoke viewDidDisappear so we need to prevent it from being called twice.
+        if (![NSViewController instancesRespondToSelector:@selector(viewDidDisappear)])
+            if ([_selectedViewController respondsToSelector:@selector(viewDidDisappear)])
+                [_selectedViewController viewDidDisappear];
         _selectedViewController = nil;
     }
 
@@ -293,13 +260,14 @@ static NSString *const PreferencesKeyForViewBounds (NSString *identifier)
 
     [self.window setFrame:newFrame display:YES animate:[self.window isVisible]];
     
-#if __has_feature(objc_arc)
     _selectedViewController = controller;
-#else
-    _selectedViewController = [controller retain];
-#endif
-    if ([controller respondsToSelector:@selector(viewWillAppear)])
-        [controller viewWillAppear];
+
+    // In OSX 10.10, setContentView below calls viewWillAppear.  We still want to call viewWillAppear on < 10.10,
+    // so the check below avoids calling viewWillAppear twice on 10.10.
+    // See https://github.com/shpakovski/MASPreferences/issues/32 for more info.
+    if (![NSViewController instancesRespondToSelector:@selector(viewWillAppear)])
+        if ([controller respondsToSelector:@selector(viewWillAppear)])
+            [controller viewWillAppear];
     
     [self.window setContentView:controllerView];
     [self.window recalculateKeyViewLoop];
@@ -310,8 +278,11 @@ static NSString *const PreferencesKeyForViewBounds (NSString *identifier)
             [self.window selectKeyViewFollowingView:controllerView];
     }
     
-    // Insert view controller into responder chain
-    [self patchResponderChain];
+    // Insert view controller into responder chain on 10.9 and earlier
+    if (controllerView.nextResponder != controller) {
+      controller.nextResponder = controllerView.nextResponder;
+      controllerView.nextResponder = controller;
+    }
 
     [[NSNotificationCenter defaultCenter] postNotificationName:kMASPreferencesWindowControllerDidChangeViewNotification object:self];
 }
@@ -331,10 +302,16 @@ static NSString *const PreferencesKeyForViewBounds (NSString *identifier)
         self.selectedViewController = [self.viewControllers objectAtIndex:controllerIndex];
 }
 
+- (void)selectControllerWithIdentifier:(NSString *)identifier 
+{
+	NSParameterAssert(identifier.length > 0);
+    self.selectedViewController = [self viewControllerForIdentifier:identifier];
+}
+
 #pragma mark -
 #pragma mark Actions
 
-- (IBAction)goNextTab:(id)sender
+- (IBAction)goNextTab:(id __unused)sender
 {
     NSUInteger selectedIndex = self.indexOfSelectedController;
     NSUInteger numberOfControllers = [_viewControllers count];
@@ -345,7 +322,7 @@ static NSString *const PreferencesKeyForViewBounds (NSString *identifier)
     [self selectControllerAtIndex:selectedIndex];
 }
 
-- (IBAction)goPreviousTab:(id)sender
+- (IBAction)goPreviousTab:(id __unused)sender
 {
     NSUInteger selectedIndex = self.indexOfSelectedController;
     NSUInteger numberOfControllers = [_viewControllers count];

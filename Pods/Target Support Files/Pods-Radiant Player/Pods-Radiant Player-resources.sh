@@ -74,11 +74,9 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_resource "MASPreferences/MASPreferencesWindow.xib"
   install_resource "NSDate+TimeAgo/NSDateTimeAgo.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_resource "MASPreferences/MASPreferencesWindow.xib"
   install_resource "NSDate+TimeAgo/NSDateTimeAgo.bundle"
 fi
 
