@@ -12,7 +12,7 @@ before_script:
   - mkdir -p ~/bin
   - curl -sL -o ~/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme
   - chmod +x ~/bin/gimme
-  - eval "$(~/bin/gimme 1.5.2)"
+  - eval "$(~/bin/gimme 1.7.4)"
   - go get github.com/aktau/github-release
 
 after_success:
