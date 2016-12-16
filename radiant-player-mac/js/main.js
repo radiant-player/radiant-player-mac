@@ -16,10 +16,10 @@ if (typeof window.gmusic === 'undefined') {
   var DEBUG = false;
   var VERBOSE = false;
 
-  gmusic.on('change:song', function(song) {
-    if (DEBUG) console.info('change:song', arguments);
+  gmusic.on('change:track', function(track) {
+    if (DEBUG) console.info('change:track', arguments);
     GoogleMusicApp.notifySong(
-      song.title, song.artist, song.album, song.art, song.duration
+      track.title, track.artist, track.album, track.albumArt, track.duration
     );
   });
 

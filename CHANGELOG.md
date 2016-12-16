@@ -5,6 +5,15 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
 
+## [1.11.3] - 2016-12-15
+### Fixed
+* Miniplayer now displays retina album art ([#629](https://github.com/radiant-player/radiant-player-mac/pull/629), [@eligat](https://github.com/eligat))
+* Repeat icon in miniplayer is now retina ([#631](https://github.com/radiant-player/radiant-player-mac/pull/631))
+
+### Changed
+* Black theme design tweaked for better display ([#624](https://github.com/radiant-player/radiant-player-mac/pull/624), [@ronilaukkarinen](https://github.com/ronilaukkarinen))
+* Updated to the latest version of the gmusic.js client library ([#617](https://github.com/radiant-player/radiant-player-mac/pull/617))
+
 ## [1.11.2] - 2016-09-25
 ### Fixed
 * Only resume playback after sleep if the audio was previously playing ([#612](https://github.com/radiant-player/radiant-player-mac/pull/612), [@atopuzov](https://github.com/atopuzov))

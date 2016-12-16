@@ -1,564 +1,892 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-// Expose our constructor to the world
-window.GMusic = require('./main');
+!function(e){if("object"==typeof exports)module.exports=e();else if("function"==typeof define&&define.amd)define(e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.GMusic=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
+'use strict';
 
-},{"./main":2}],2:[function(require,module,exports){
-// Load in dependencies
-var assert = require('assert');
-var EventEmitter = require('events').EventEmitter;
-var inherits = require('inherits');
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-// Define selector constants
-var SELECTORS = {
-  info: {
-    albumArtId: 'playerBarArt',
-    albumSelector: '.player-album',
-    artistId: 'player-artist',
-    containerId: 'playerSongInfo',
-    infoWrapperClass: 'now-playing-info-wrapper',
-    titleId: 'currently-playing-title'
-  },
-  forward: {
-    buttonSelector: '[data-id="forward"]'
-  },
-  playPause: {
-    buttonSelector: '[data-id="play-pause"]',
-    dataId: 'play-pause',
-    playingClass: 'playing'
-  },
-  rating: {
-    // DEV: `.player-rating-container` doesn't exist until a song is playing
-    containerSelector: '#playerSongInfo',
-    thumbsSelector: '#player .player-rating-container [icon^="sj:thumb-"][data-rating]',
-    thumbsUpSelector: '#player .player-rating-container [icon^="sj:thumb-"][data-rating="5"]',
-    thumbsDownSelector: '#player .player-rating-container [icon^="sj:thumb-"][data-rating="1"]',
-    thumbSelectorFormat: '#player .player-rating-container [icon^="sj:thumb-"][data-rating="{rating}"]'
-  },
-  repeat: {
-    dataId: 'repeat',
-    buttonSelector: '[data-id="repeat"]'
-  },
-  rewind: {
-    buttonSelector: '[data-id="rewind"]'
-  },
-  shuffle: {
-    dataId: 'shuffle',
-    buttonSelector: '[data-id="shuffle"]'
-  },
-  playback: {
-    sliderId: 'material-player-progress'
-  },
-  volume: {
-    sliderId: 'material-vslider'
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _assert = _dereq_('assert');
+
+var _assert2 = _interopRequireDefault(_assert);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var GMusicNamespace = function () {
+  function GMusicNamespace(emit, on) {
+    _classCallCheck(this, GMusicNamespace);
+
+    this.emit = emit;
+    this.on = on;
+    this.prototype = {};
   }
+
+  _createClass(GMusicNamespace, [{
+    key: '_mapSelectors',
+    value: function _mapSelectors(selectors) {
+      var _this = this;
+
+      Object.keys(selectors).forEach(function (selectorKey) {
+        Object.defineProperty(_this, '_' + selectorKey + 'El', {
+          get: function get() {
+            var elem = document.querySelector(selectors[selectorKey]);
+            (0, _assert2.default)(elem, 'Failed to find ' + selectorKey + ' element for ' + _this.constructor + ': "' + selectors[selectorKey] + '"');
+            return elem;
+          }
+        });
+      });
+    }
+  }, {
+    key: 'addMethod',
+    value: function addMethod(methodName) {
+      this.prototype[methodName] = this[methodName].bind(this);
+    }
+  }, {
+    key: 'addMethods',
+    value: function addMethods(methodNames) {
+      var _this2 = this;
+
+      methodNames.forEach(function (methodName) {
+        return _this2.addMethod(methodName);
+      });
+    }
+  }, {
+    key: 'getPrototype',
+    value: function getPrototype() {
+      return this.prototype;
+    }
+  }]);
+
+  return GMusicNamespace;
+}();
+
+exports.default = GMusicNamespace;
+},{"assert":10}],2:[function(_dereq_,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var volumeSelectors = exports.volumeSelectors = {
+  volumeSlider: '#material-vslider'
 };
 
-// Define bind method
-function bind(context, fn) {
-  return function bindFn () {
-    return fn.apply(context, arguments);
-  };
-}
-
-// Define our constructor
-function GMusic(win) {
-  // If win was not provided, complain
-  if (!win) {
-    throw new Error('`win` was not provided to the `GMusic` constructor');
-  }
-
-  // Inherit from EventEmitter
-  EventEmitter.call(this);
-
-  // Localize reference to window and document
-  this.win = win;
-  this.doc = win.document;
-
-  // For each of the prototype sections
-  var proto = GMusic._protoObj;
-  for (var protoKey in proto) {
-    if (proto.hasOwnProperty(protoKey)) {
-      // Define a key on our object
-      this[protoKey] = {};
-
-      // For each of the keys on the section, define a function that invokes on this original context
-      var section = proto[protoKey];
-      for (var sectionKey in section) {
-        if (section.hasOwnProperty(sectionKey)) {
-          this[protoKey][sectionKey] = bind(this, section[sectionKey]);
-        }
-      }
-
-      // If there was an `init` method, run it
-      if (this[protoKey].init) {
-        this[protoKey].init();
-      }
-    }
-  }
-}
-// Inherit from EventEmitter normally
-inherits(GMusic, EventEmitter);
-
-// Define a "prototype" that will have magical invocation
-var proto = GMusic._protoObj = {};
-
-// Create a volume API
-proto.volume = {
-  // Query required elements
-  init: function () {
-    this.volume._sliderEl = this.doc.getElementById(SELECTORS.volume.sliderId);
-    assert(this.volume._sliderEl, 'Failed to find slider element for volume "#' + SELECTORS.volume.sliderId + '"');
-  },
-
-  // Get the current volume level.
-  getVolume: function () {
-    return parseInt(this.volume._sliderEl.getAttribute('aria-valuenow'), 10);
-  },
-
-  // Set the volume level (0 - 100).
-  setVolume: function (vol) {
-    var current = this.volume.getVolume();
-
-    if (vol > current) {
-      this.volume.increaseVolume(vol - current);
-    } else if (vol < current) {
-      this.volume.decreaseVolume(current - vol);
-    }
-  },
-
-  // Increase the volume by an amount (default of 5)
-  increaseVolume: function (amount) {
-    if (amount === undefined) {
-      amount = 5;
-    }
-
-    for (var i = 0; i < amount; i += 5) {
-      this.volume._sliderEl.increment();
-    }
-  },
-
-  // Decrease the volume by an amount (default of 5)
-  decreaseVolume: function (amount) {
-    if (amount === undefined) {
-      amount = 5;
-    }
-
-    for (var i = 0; i < amount; i += 5) {
-      this.volume._sliderEl.decrement();
-    }
-  }
+var playbackSelectors = exports.playbackSelectors = {
+  progress: '#material-player-progress'
 };
 
-// Create a playback API and constants
-GMusic.Playback = {
-  // Playback states
-  STOPPED: 0,
-  PAUSED: 1,
-  PLAYING: 2,
-
-  // Repeat modes
-  LIST_REPEAT: 'LIST_REPEAT',
-  SINGLE_REPEAT: 'SINGLE_REPEAT',
-  NO_REPEAT: 'NO_REPEAT',
-
-  // Shuffle modes
-  ALL_SHUFFLE: 'ALL_SHUFFLE',
-  NO_SHUFFLE: 'NO_SHUFFLE'
+var nowPlayingSelectors = exports.nowPlayingSelectors = {
+  albumArt: '#playerBarArt',
+  albumName: '.player-album',
+  artistName: '#player-artist',
+  nowPlayingContainer: '#playerSongInfo',
+  infoWrapper: '.now-playing-info-wrapper',
+  title: '#currently-playing-title'
 };
-proto.playback = {
-  // Query references to the media playback elements
-  init: function () {
-    var _sliderEl = this.playback._sliderEl = this.doc.getElementById(SELECTORS.playback.sliderId);
-    var _playPauseEl = this.playback._playPauseEl = this.doc.querySelector(SELECTORS.playPause.buttonSelector);
-    var _forwardEl = this.playback._forwardEl = this.doc.querySelector(SELECTORS.forward.buttonSelector);
-    var _rewindEl = this.playback._rewindEl = this.doc.querySelector(SELECTORS.rewind.buttonSelector);
-    var _shuffleEl = this.playback._shuffleEl = this.doc.querySelector(SELECTORS.shuffle.buttonSelector);
-    var _repeatEl = this.playback._repeatEl = this.doc.querySelector(SELECTORS.repeat.buttonSelector);
 
-    assert(_sliderEl, 'Failed to find slider element for playback "#' + SELECTORS.playback.sliderId + '"');
-    assert(_playPauseEl, 'Failed to find playPause element for playback "' + SELECTORS.playPause.buttonSelector + '"');
-    assert(_forwardEl, 'Failed to find forward element for playback "' + SELECTORS.forward.buttonSelector + '"');
-    assert(_rewindEl, 'Failed to find rewind element for playback "' + SELECTORS.rewind.buttonSelector + '"');
-    assert(_shuffleEl, 'Failed to find shuffle element for playback "' + SELECTORS.shuffle.buttonSelector + '"');
-    assert(_repeatEl, 'Failed to find repeat element for playback "' + SELECTORS.repeat.buttonSelector + '"');
-  },
+var controlsSelectors = exports.controlsSelectors = {
+  forward: '[data-id="forward"]',
+  playPause: '[data-id="play-pause"]',
+  repeat: '[data-id="repeat"]',
+  rewind: '[data-id="rewind"]',
+  shuffle: '[data-id="shuffle"]',
+  progress: '#material-player-progress'
+};
 
-  // Time functions
-  getPlaybackTime: function () {
-    return parseInt(this.playback._sliderEl.getAttribute('aria-valuenow'), 10);
-  },
+var ratingSelectors = exports.ratingSelectors = {
+  ratingContainer: '#playerSongInfo',
+  thumbs: '#player .player-rating-container [icon^="sj:thumb-"][data-rating]',
+  thumbsUp: '#player .player-rating-container [icon^="sj:thumb-"][data-rating="5"]',
+  thumbsDown: '#player .player-rating-container [icon^="sj:thumb-"][data-rating="1"]',
+  thumbsFormat: '#player .player-rating-container [icon^="sj:thumb-"][data-rating="{rating}"]'
+};
+},{}],3:[function(_dereq_,module,exports){
+'use strict';
 
-  setPlaybackTime: function (milliseconds) {
-    // Set playback value on the element and trigger a change event
-    this.playback._sliderEl.value = milliseconds;
-    var evt = new this.win.UIEvent('change');
-    this.playback._sliderEl.dispatchEvent(evt);
-  },
+var _gmusic = _dereq_('./gmusic');
 
-  // Playback functions
-  playPause: function () { this.playback._playPauseEl.click(); },
-  forward: function () { this.playback._forwardEl.click(); },
-  rewind: function () { this.playback._rewindEl.click(); },
+var _gmusic2 = _interopRequireDefault(_gmusic);
 
-  getShuffle: function () {
-    if (this.playback._shuffleEl.classList.contains('active')) {
-      return GMusic.Playback.ALL_SHUFFLE;
-    } else {
-      return GMusic.Playback.NO_SHUFFLE;
-    }
-  },
-  toggleShuffle: function () { this.playback._shuffleEl.click(); },
+var _GMusicNamespace = _dereq_('./GMusicNamespace');
 
-  getRepeat: function () {
-    // Repeat element states:
-    //   SINGLE_REPEAT: {classList: ['active'], __data__: {icon: 'av:repeat-one'}}
-    //   LIST_REPEAT: {classList: ['active'], __data__: {icon: 'av:repeat'}}
-    //   NO_REPEAT: {classList: [], __data__: {icon: 'av:repeat'}}
-    if (this.playback._repeatEl.__data__.icon === 'av:repeat-one') {
-      return GMusic.Playback.SINGLE_REPEAT;
-    } else if (this.playback._repeatEl.classList.contains('active')) {
-      return GMusic.Playback.LIST_REPEAT;
-    } else {
-      return GMusic.Playback.NO_REPEAT;
-    }
-  },
+var _GMusicNamespace2 = _interopRequireDefault(_GMusicNamespace);
 
-  toggleRepeat: function (mode) {
-    if (!mode) {
-      // Toggle between repeat modes once
-      this.playback._repeatEl.click();
-    } else {
-      // Toggle between repeat modes until the desired mode is activated
-      while (this.playback.getRepeat() !== mode) {
-        this.playback._repeatEl.click();
-      }
-    }
-  },
+var _Track = _dereq_('./structs/Track');
 
-  // Taken from the Google Play Music page
-  toggleVisualization: function () {
-    this.win.SJBpost('toggleVisualization');
+var _Track2 = _interopRequireDefault(_Track);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_gmusic2.default.GMusicNamespace = _GMusicNamespace2.default;
+_gmusic2.default.Track = _Track2.default;
+
+module.exports = _gmusic2.default;
+},{"./GMusicNamespace":1,"./gmusic":4,"./structs/Track":9}],4:[function(_dereq_,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _events = _dereq_('events');
+
+var _events2 = _interopRequireDefault(_events);
+
+var _selectors = _dereq_('./constants/selectors');
+
+var _ExtrasNamespace = _dereq_('./namespaces/ExtrasNamespace');
+
+var _ExtrasNamespace2 = _interopRequireDefault(_ExtrasNamespace);
+
+var _PlaybackNamespace = _dereq_('./namespaces/PlaybackNamespace');
+
+var _PlaybackNamespace2 = _interopRequireDefault(_PlaybackNamespace);
+
+var _RatingNamespace = _dereq_('./namespaces/RatingNamespace');
+
+var _RatingNamespace2 = _interopRequireDefault(_RatingNamespace);
+
+var _VolumeNamespace = _dereq_('./namespaces/VolumeNamespace');
+
+var _VolumeNamespace2 = _interopRequireDefault(_VolumeNamespace);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var namespaces = {};
+
+var GMusic = function (_Emitter) {
+  _inherits(GMusic, _Emitter);
+
+  function GMusic() {
+    _classCallCheck(this, GMusic);
+
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(GMusic).call(this));
+
+    Object.keys(namespaces).forEach(function (namespaceName) {
+      var namespaceClasses = namespaces[namespaceName];
+      namespaceClasses.forEach(function (NamespaceClass) {
+        var namespace = new NamespaceClass(_this.emit.bind(_this), _this.on.bind(_this));
+        _this[namespaceName] = Object.assign(_this[namespaceName] || {}, namespace.getPrototype());
+      });
+    });
+    return _this;
   }
-};
 
-// Create a rating API
-proto.rating = {
-  // Determine if a thumb is selected or not
-  _isElSelected: function (el) {
-    // jscs:disable maximumLineLength
-    // Unselected thumbs down:
-    // <paper-icon-button icon="sj:thumb-up-outline" data-rating="5" role="button" tabindex="0" aria-disabled="false" class="x-scope paper-icon-button-0" title="Thumb-up" aria-label="Thumb-up"></paper-icon-button>
-    //   el.__data__.icon = 'sj:thumb-down-outline';
-    // Selected thumbs up:
-    // <paper-icon-button icon="sj:thumb-up-outline" data-rating="5" role="button" tabindex="0" aria-disabled="false" class="x-scope paper-icon-button-0" title="Undo thumb-up" aria-label="Undo thumb-up"></paper-icon-button>
-    //   el.__data__.icon = 'thumb-up';
-    // jscs:enable maximumLineLength
-    // DEV: We don't use English only strings (e.g. "Undo") to support i18n
-    return el.__data__.icon === 'thumb-up' || el.__data__.icon === 'thumb-down';
-  },
-  // Get current rating
-  getRating: function () {
-    var thumbEls = this.doc.querySelectorAll(SELECTORS.rating.thumbsSelector);
-    assert(thumbEls.length, 'Failed to find thumb elements for rating "' + SELECTORS.rating.thumbsSelector + '"');
-    var i = 0;
-    var len = thumbEls.length;
-    for (; i < len; i++) {
-      var el = thumbEls[i];
-      if (this.rating._isElSelected(el)) {
-        return el.dataset.rating;
-      }
+  _createClass(GMusic, null, [{
+    key: 'addNamespace',
+    value: function addNamespace(namespaceName, namespaceClass) {
+      namespaces[namespaceName] = namespaces[namespaceName] || [];
+      namespaces[namespaceName].push(namespaceClass);
+      Object.assign(GMusic, namespaceClass.ENUMS || {});
     }
-    return '0';
-  },
+  }]);
 
-  // Thumbs up
-  toggleThumbsUp: function () {
-    var el = this.doc.querySelector(SELECTORS.rating.thumbsUpSelector);
+  return GMusic;
+}(_events2.default);
 
-    if (el) {
-      el.click();
+GMusic.SELECTORS = { volumeSelectors: _selectors.volumeSelectors, playbackSelectors: _selectors.playbackSelectors, nowPlayingSelectors: _selectors.nowPlayingSelectors, controlsSelectors: _selectors.controlsSelectors, ratingSelectors: _selectors.ratingSelectors };
+
+
+GMusic.addNamespace('extras', _ExtrasNamespace2.default);
+GMusic.addNamespace('playback', _PlaybackNamespace2.default);
+GMusic.addNamespace('rating', _RatingNamespace2.default);
+GMusic.addNamespace('volume', _VolumeNamespace2.default);
+
+exports.default = GMusic;
+},{"./constants/selectors":2,"./namespaces/ExtrasNamespace":5,"./namespaces/PlaybackNamespace":6,"./namespaces/RatingNamespace":7,"./namespaces/VolumeNamespace":8,"events":11}],5:[function(_dereq_,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _GMusicNamespace2 = _dereq_('../GMusicNamespace');
+
+var _GMusicNamespace3 = _interopRequireDefault(_GMusicNamespace2);
+
+var _selectors = _dereq_('../constants/selectors');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ExtrasNamespace = function (_GMusicNamespace) {
+  _inherits(ExtrasNamespace, _GMusicNamespace);
+
+  function ExtrasNamespace() {
+    var _Object$getPrototypeO;
+
+    _classCallCheck(this, ExtrasNamespace);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
     }
-  },
 
-  // Thumbs down
-  toggleThumbsDown: function () {
-    var el = this.doc.querySelector(SELECTORS.rating.thumbsDownSelector);
+    var _this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(ExtrasNamespace)).call.apply(_Object$getPrototypeO, [this].concat(args)));
 
-    if (el) {
-      el.click();
-    }
-  },
-
-  // Set a rating
-  setRating: function (rating) {
-    var selector = SELECTORS.rating.thumbSelectorFormat.replace('{rating}', rating);
-    var el = this.doc.querySelector(selector);
-
-    if (el && !this.rating._isElSelected(el)) {
-      el.click();
-    }
-  },
-
-  // Reset the rating
-  resetRating: function () {
-    var selector = SELECTORS.rating.thumbSelectorFormat.replace('{rating}', this.rating.getRating());
-    var el = this.doc.querySelector(selector);
-
-    if (el && this.rating._isElSelected(el)) {
-      el.click();
-    }
+    _this.addMethods(['getTrackURL']);
+    return _this;
   }
-};
 
-// Miscellaneous functions
-proto.extras = {
-  // Get a shareable URL of the song on Google Play Music
-  getSongURL: function () {
-    var albumEl = this.doc.querySelector('.player-album');
-    var artistEl = this.doc.querySelector('.player-artist');
-
-    var urlTemplate = 'https://play.google.com/music/m/';
-    var url = null;
-
-    var parseID = function (id) {
+  _createClass(ExtrasNamespace, [{
+    key: '_parseID',
+    value: function _parseID(id) {
       return id.substring(0, id.indexOf('/'));
-    };
+    }
+  }, {
+    key: 'getTrackURL',
+    value: function getTrackURL() {
+      var albumEl = document.querySelector(_selectors.nowPlayingSelectors.albumName);
+      var artistEl = document.querySelector(_selectors.nowPlayingSelectors.artistName);
 
-    if (albumEl === null && artistEl === null) {
-      return null;
+      var urlTemplate = 'https://play.google.com/music/m/';
+      var url = void 0;
+
+      if (albumEl === null && artistEl === null) {
+        return null;
+      }
+
+      var albumId = this._parseID(albumEl.dataset.id);
+      var artistId = this._parseID(artistEl.dataset.id);
+
+      if (albumId) {
+        url = urlTemplate + albumId;
+      } else if (artistId) {
+        url = urlTemplate + artistId;
+      }
+
+      return url;
+    }
+  }]);
+
+  return ExtrasNamespace;
+}(_GMusicNamespace3.default);
+
+exports.default = ExtrasNamespace;
+},{"../GMusicNamespace":1,"../constants/selectors":2}],6:[function(_dereq_,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _assert = _dereq_('assert');
+
+var _assert2 = _interopRequireDefault(_assert);
+
+var _GMusicNamespace2 = _dereq_('../GMusicNamespace');
+
+var _GMusicNamespace3 = _interopRequireDefault(_GMusicNamespace2);
+
+var _Track = _dereq_('../structs/Track');
+
+var _Track2 = _interopRequireDefault(_Track);
+
+var _selectors = _dereq_('../constants/selectors');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var PlaybackNamespace = function (_GMusicNamespace) {
+  _inherits(PlaybackNamespace, _GMusicNamespace);
+
+  function PlaybackNamespace() {
+    var _Object$getPrototypeO;
+
+    _classCallCheck(this, PlaybackNamespace);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
     }
 
-    var albumId = parseID(albumEl.dataset.id);
-    var artistId = parseID(artistEl.dataset.id);
+    var _this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(PlaybackNamespace)).call.apply(_Object$getPrototypeO, [this].concat(args)));
 
-    if (albumId) {
-      url = urlTemplate + albumId;
-    } else if (artistId) {
-      url = urlTemplate + artistId;
+    _this._mapSelectors(_selectors.playbackSelectors);
+    _this._hookEvents();
+
+    _this.addMethods(['getCurrentTime', 'setCurrentTime', 'getTotalTime', 'getCurrentTrack', 'isPlaying', 'getPlaybackState', 'playPause', 'rewind', 'forward', 'getShuffle', 'setShuffle', 'toggleShuffle', 'getRepeat', 'setRepeat', 'toggleRepeat', 'toggleVisualization']);
+    return _this;
+  }
+
+  _createClass(PlaybackNamespace, [{
+    key: '_textContent',
+    value: function _textContent(el, defaultText) {
+      return el ? el.textContent || defaultText : defaultText;
+    }
+  }, {
+    key: 'getCurrentTime',
+    value: function getCurrentTime() {
+      return this._progressEl.value;
+    }
+  }, {
+    key: 'setCurrentTime',
+    value: function setCurrentTime(milliseconds) {
+      this._progressEl.value = milliseconds;
+      // DEV: Dispatch a new change event to simulate user interaction
+      this._progressEl.dispatchEvent(new window.UIEvent('change'));
+    }
+  }, {
+    key: 'getTotalTime',
+    value: function getTotalTime() {
+      return this._progressEl.max;
+    }
+  }, {
+    key: 'getCurrentTrack',
+    value: function getCurrentTrack() {
+      var nowPlayingContainer = document.querySelector(_selectors.nowPlayingSelectors.nowPlayingContainer);
+      var track = new _Track2.default({
+        id: null,
+        title: this._textContent(nowPlayingContainer.querySelector(_selectors.nowPlayingSelectors.title), 'Unknown Title'),
+        artist: this._textContent(nowPlayingContainer.querySelector(_selectors.nowPlayingSelectors.artistName), 'Unknown Artist'),
+        album: this._textContent(nowPlayingContainer.querySelector(_selectors.nowPlayingSelectors.albumName), 'Unknown Album'),
+        albumArt: (document.querySelector(_selectors.nowPlayingSelectors.albumArt) || { src: null }).src,
+        duration: this.getTotalTime()
+      });
+
+      // DEV: The art may be a protocol-relative URL, so normalize it to HTTPS
+      if (track.albumArt && track.albumArt.slice(0, 2) === '//') {
+        track.albumArt = 'https:' + track.albumArt;
+      }
+      return track;
+    }
+  }, {
+    key: 'isPlaying',
+    value: function isPlaying() {
+      return document.querySelector(_selectors.controlsSelectors.playPause).classList.contains('playing');
+    }
+  }, {
+    key: 'getPlaybackState',
+    value: function getPlaybackState() {
+      var playButton = document.querySelector(_selectors.controlsSelectors.playPause);
+
+      if (playButton.classList.contains('playing')) {
+        return PlaybackNamespace.ENUMS.PlaybackStatus.PLAYING;
+      }
+      // Play/Pause element states:
+      //   PLAYING: {__data__: {icon: 'av:pause-circle-filled'}, disabled: false}
+      //   PAUSED: {__data__: {icon: 'av:sj:pause-circle-fill'}, disabled: false}
+      //   STOPPED: {__data__: {icon: 'av:sj:play-circle-fill'}, disabled: true}
+      if (!playButton.disabled) {
+        if (playButton.__data__.icon === 'av:pause-circle-filled') {
+          return PlaybackNamespace.ENUMS.PlaybackStatus.PLAYING;
+        }
+        return PlaybackNamespace.ENUMS.PlaybackStatus.PAUSED;
+      }
+      return PlaybackNamespace.ENUMS.PlaybackStatus.STOPPED;
+    }
+  }, {
+    key: 'playPause',
+    value: function playPause() {
+      document.querySelector(_selectors.controlsSelectors.playPause).click();
+    }
+  }, {
+    key: 'forward',
+    value: function forward() {
+      document.querySelector(_selectors.controlsSelectors.forward).click();
+    }
+  }, {
+    key: 'rewind',
+    value: function rewind() {
+      document.querySelector(_selectors.controlsSelectors.rewind).click();
+    }
+  }, {
+    key: 'getShuffle',
+    value: function getShuffle() {
+      if (document.querySelector(_selectors.controlsSelectors.shuffle).classList.contains('active')) {
+        return PlaybackNamespace.ENUMS.ShuffleStatus.ALL_SHUFFLE;
+      }
+      return PlaybackNamespace.ENUMS.ShuffleStatus.NO_SHUFFLE;
+    }
+  }, {
+    key: 'setShuffle',
+    value: function setShuffle(mode) {
+      (0, _assert2.default)(Object.keys(PlaybackNamespace.ENUMS.ShuffleStatus).indexOf(mode) !== -1, 'Expected shuffle mode "' + mode + '" to be inside ' + JSON.stringify(Object.keys(PlaybackNamespace.ENUMS.ShuffleStatus)) + ' but it wasn\'t');
+      while (this.getShuffle() !== mode) {
+        this.toggleShuffle();
+      }
+    }
+  }, {
+    key: 'toggleShuffle',
+    value: function toggleShuffle() {
+      document.querySelector(_selectors.controlsSelectors.shuffle).click();
+    }
+  }, {
+    key: 'getRepeat',
+    value: function getRepeat() {
+      var repeatEl = document.querySelector(_selectors.controlsSelectors.repeat);
+      // Repeat element states:
+      //   SINGLE_REPEAT: {classList: ['active'], __data__: {icon: 'av:repeat-one'}}
+      //   LIST_REPEAT: {classList: ['active'], __data__: {icon: 'av:repeat'}}
+      //   NO_REPEAT: {classList: [], __data__: {icon: 'av:repeat'}}
+      if (repeatEl.__data__.icon === 'av:repeat-one') {
+        return PlaybackNamespace.ENUMS.RepeatStatus.SINGLE_REPEAT;
+      } else if (repeatEl.classList.contains('active')) {
+        return PlaybackNamespace.ENUMS.RepeatStatus.LIST_REPEAT;
+      }
+      return PlaybackNamespace.ENUMS.RepeatStatus.NO_REPEAT;
+    }
+  }, {
+    key: 'setRepeat',
+    value: function setRepeat(mode) {
+      (0, _assert2.default)(Object.keys(PlaybackNamespace.ENUMS.RepeatStatus).indexOf(mode) !== -1, 'Expected repeat mode "' + mode + '" to be inside ' + JSON.stringify(Object.keys(PlaybackNamespace.ENUMS.RepeatStatus)) + ' but it wasn\'t');
+      while (this.getRepeat() !== mode) {
+        this.toggleRepeat();
+      }
+    }
+  }, {
+    key: 'toggleRepeat',
+    value: function toggleRepeat() {
+      document.querySelector(_selectors.controlsSelectors.repeat).click();
     }
 
-    return url;
+    // Taken from the Google Play Music page
+
+  }, {
+    key: 'toggleVisualization',
+    value: function toggleVisualization() {
+      window.SJBpost('toggleVisualization'); // eslint-disable-line
+    }
+  }, {
+    key: '_hookEvents',
+    value: function _hookEvents() {
+      var _this2 = this;
+
+      // Playback Time Event
+      this._progressEl.addEventListener('value-change', function () {
+        _this2.emit('change:playback-time', {
+          current: _this2.getCurrentTime(),
+          total: _this2.getTotalTime()
+        });
+      });
+
+      // Change Track Event
+      var lastTrack = void 0;
+      new MutationObserver(function (mutations) {
+        mutations.forEach(function (m) {
+          for (var i = 0; i < m.addedNodes.length; i++) {
+            // DEV: We can encounter a text node, verify we have a `classList` to assert against
+            var target = m.addedNodes[i];
+            if (target.classList && target.classList.contains('now-playing-info-wrapper')) {
+              var currentTrack = _this2.getCurrentTrack();
+              // Make sure that this is the first of the notifications for the
+              // insertion of the song information elements.
+              if (!currentTrack.equals(lastTrack)) {
+                _this2.emit('change:track', currentTrack);
+
+                lastTrack = currentTrack;
+              }
+            }
+          }
+        });
+      }).observe(document.querySelector(_selectors.nowPlayingSelectors.nowPlayingContainer), {
+        childList: true,
+        subtree: true
+      });
+
+      // Change Shuffle Event
+      var lastShuffle = void 0;
+      new MutationObserver(function (mutations) {
+        var shuffleTouched = mutations.some(function (m) {
+          return m.target.dataset.id === 'shuffle';
+        });
+
+        if (!shuffleTouched) return;
+
+        var newShuffle = _this2.getShuffle();
+        if (lastShuffle !== newShuffle) {
+          lastShuffle = newShuffle;
+          _this2.emit('change:shuffle', newShuffle);
+        }
+      }).observe(document.querySelector(_selectors.controlsSelectors.shuffle), {
+        attributes: true
+      });
+
+      // Change Repeat Event
+      var lastRepeat = void 0;
+      new MutationObserver(function (mutations) {
+        var repeatTouched = mutations.some(function (m) {
+          return m.target.dataset.id === 'repeat';
+        });
+
+        if (!repeatTouched) return;
+
+        var newRepeat = _this2.getRepeat();
+        if (lastRepeat !== newRepeat) {
+          lastRepeat = newRepeat;
+          _this2.emit('change:repeat', newRepeat);
+        }
+      }).observe(document.querySelector(_selectors.controlsSelectors.repeat), {
+        attributes: true
+      });
+
+      var lastMode = void 0;
+      new MutationObserver(function (mutations) {
+        mutations.forEach(function (m) {
+          if (m.target.dataset.id === 'play-pause') {
+            var currentMode = _this2.getPlaybackState();
+
+            // If the mode has changed, then update it
+            if (currentMode !== lastMode) {
+              _this2.emit('change:playback', currentMode);
+              lastMode = currentMode;
+            }
+          }
+        });
+      }).observe(document.querySelector(_selectors.controlsSelectors.playPause), {
+        attributes: true
+      });
+    }
+  }]);
+
+  return PlaybackNamespace;
+}(_GMusicNamespace3.default);
+
+PlaybackNamespace.ENUMS = {
+  PlaybackStatus: {
+    STOPPED: 0,
+    PAUSED: 1,
+    PLAYING: 2
+  },
+  ShuffleStatus: {
+    ALL_SHUFFLE: 'ALL_SHUFFLE',
+    NO_SHUFFLE: 'NO_SHUFFLE'
+  },
+  RepeatStatus: {
+    LIST_REPEAT: 'LIST_REPEAT',
+    NO_REPEAT: 'NO_REPEAT',
+    SINGLE_REPEAT: 'SINGLE_REPEAT'
   }
 };
+exports.default = PlaybackNamespace;
+},{"../GMusicNamespace":1,"../constants/selectors":2,"../structs/Track":9,"assert":10}],7:[function(_dereq_,module,exports){
+'use strict';
 
-proto.hooks = {
-  init: function () {
-    // Save context for bindings
-    var that = this;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-    // Define mutation observer for reuse
-    var MutationObserver = this.win.MutationObserver || this.win.WebKitMutationObserver;
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-    var lastTitle = '';
-    var lastArtist = '';
-    var lastAlbum = '';
+var _assert = _dereq_('assert');
 
-    var addObserver = new MutationObserver(function (mutations) {
-      mutations.forEach(function (m) {
-        for (var i = 0; i < m.addedNodes.length; i++) {
-          // DEV: We can encounter a text node, verify we have a `classList` to assert against
-          var target = m.addedNodes[i];
-          if (target.classList && target.classList.contains(SELECTORS.info.infoWrapperClass)) {
-            var title = that.doc.getElementById(SELECTORS.info.titleId);
-            var artist = that.doc.getElementById(SELECTORS.info.artistId);
-            var album = that.doc.querySelector(SELECTORS.info.albumSelector);
-            var art = that.doc.getElementById(SELECTORS.info.albumArtId);
-            var durationStr = that.doc.getElementById(SELECTORS.playback.sliderId).getAttribute('aria-valuemax');
-            var duration = parseInt(durationStr, 10);
+var _assert2 = _interopRequireDefault(_assert);
 
-            title = (title) ? title.textContent : 'Unknown';
-            artist = (artist) ? artist.textContent : 'Unknown';
-            album = (album) ? album.textContent : 'Unknown';
-            art = (art) ? art.src : null;
+var _GMusicNamespace2 = _dereq_('../GMusicNamespace');
 
-            // The art may be a protocol-relative URL, so normalize it to HTTPS
-            if (art && art.slice(0, 2) === '//') {
-              art = 'https:' + art;
-            }
+var _GMusicNamespace3 = _interopRequireDefault(_GMusicNamespace2);
 
-            // Make sure that this is the first of the notifications for the
-            // insertion of the song information elements.
-            if (lastTitle !== title || lastArtist !== artist || lastAlbum !== album) {
-              that.emit('change:song', {
-                title: title,
-                artist: artist,
-                album: album,
-                art: art,
-                duration: duration
-              });
+var _selectors = _dereq_('../constants/selectors');
 
-              lastTitle = title;
-              lastArtist = artist;
-              lastAlbum = album;
-            }
-          }
-        }
-      });
-    });
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-    var lastShuffle;
-    var shuffleObserver = new MutationObserver(function (mutations) {
-      var shuffleTouched = mutations.some(function (m) {
-        var target = m.target;
-        return target.dataset.id === SELECTORS.shuffle.dataId;
-      });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-      if (!shuffleTouched) {
-        return;
-      }
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-      var newShuffle = that.playback.getShuffle();
-      if (lastShuffle !== newShuffle) {
-        lastShuffle = newShuffle;
-        that.emit('change:shuffle', newShuffle);
-      }
-    });
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-    var lastRepeat;
-    var repeatObserver = new MutationObserver(function (mutations) {
-      var repeatTouched = mutations.some(function (m) {
-        var target = m.target;
-        return target.dataset.id === SELECTORS.repeat.dataId;
-      });
+var RatingNamespace = function (_GMusicNamespace) {
+  _inherits(RatingNamespace, _GMusicNamespace);
 
-      if (!repeatTouched) {
-        return;
-      }
+  function RatingNamespace() {
+    var _Object$getPrototypeO;
 
-      var newRepeat = that.playback.getRepeat();
-      if (lastRepeat !== newRepeat) {
-        lastRepeat = newRepeat;
-        that.emit('change:repeat', newRepeat);
-      }
-    });
+    _classCallCheck(this, RatingNamespace);
 
-    var lastMode;
-    var playbackObserver = new MutationObserver(function (mutations) {
-      mutations.forEach(function (m) {
-        var target = m.target;
-        var id = target.dataset.id;
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
 
-        if (id === SELECTORS.playPause.dataId) {
-          // If the play/pause button is disabled
-          var mode;
-          if (target.disabled === true) {
-            // If there is song info, then we are transitioning songs and do nothing
-            if (that.doc.getElementById(SELECTORS.info.containerId).style.display !== 'none') {
-              return;
-            // Otherwise, we are stopped
-            } else {
-              mode = GMusic.Playback.STOPPED;
-            }
-          // Otherwise (the play/pause button is enabled)
-          } else {
-            var playing = target.classList.contains(SELECTORS.playPause.playingClass);
-            if (playing) {
-              mode = GMusic.Playback.PLAYING;
-            // DEV: If this fails to catch stopped cases, then maybe move "no song info" check to top level
-            } else {
-              mode = GMusic.Playback.PAUSED;
-            }
-          }
+    var _this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(RatingNamespace)).call.apply(_Object$getPrototypeO, [this].concat(args)));
 
-          // If the mode has changed, then update it
-          if (mode !== lastMode) {
-            that.emit('change:playback', mode);
-            lastMode = mode;
-          }
-        }
-      });
-    });
+    _this._mapSelectors(_selectors.ratingSelectors);
+    _this._hookEvents();
 
-    var playbackTimeObserver = new MutationObserver(function (mutations) {
-      mutations.forEach(function (m) {
-        var target = m.target;
-        var id = target.id;
-
-        if (id === SELECTORS.playback.sliderId) {
-          var currentTime = parseInt(target.getAttribute('aria-valuenow'), 10);
-          var totalTime = parseInt(target.getAttribute('aria-valuemax'), 10);
-          that.emit('change:playback-time', {current: currentTime, total: totalTime});
-        }
-      });
-    });
-
-    var lastRating;
-    var ratingObserver = new MutationObserver(function (mutations) {
-      // If we are looking at a rating button and it's selected, emit a notification
-      // DEV: Prevent selection of container and "remove-circle-outline" button
-      // jscs:disable maximumLineLength
-      // Good:
-      //   <paper-icon-button icon="sj:thumb-up-outline" data-rating="5" role="button" tabindex="0" aria-disabled="false" class="x-scope paper-icon-button-0" title="Thumb-up" aria-label="Thumb-up"></paper-icon-button>
-      // Bad:
-      //   <div id="playerSongInfo" style=""></div>
-      //   <paper-icon-button icon="remove-circle-outline" data-rating="0" role="button" tabindex="0" aria-disabled="false" class="x-scope paper-icon-button-0"></paper-icon-button>
-      // jscs:enable maximumLineLength
-      var ratingsTouched = mutations.some(function (m) {
-        // Determine if our ratings were touched
-        var target = m.target;
-        return target.dataset && target.dataset.rating && target.hasAttribute('aria-label');
-      });
-
-      if (!ratingsTouched) {
-        return;
-      }
-
-      var newRating = that.rating.getRating();
-      if (lastRating !== newRating) {
-        lastRating = newRating;
-        that.emit('change:rating', newRating);
-      }
-    });
-
-    // Find our target elements
-    var addObserverEl = this.doc.getElementById(SELECTORS.info.containerId);
-    var shuffleObserverEl = this.doc.querySelector(SELECTORS.shuffle.buttonSelector);
-    var repeatObserverEl = this.doc.querySelector(SELECTORS.repeat.buttonSelector);
-    var playbackObserverEl = this.doc.querySelector(SELECTORS.playPause.buttonSelector);
-    var playbackTimeObserverEl = this.doc.getElementById(SELECTORS.playback.sliderId);
-    var ratingObserverEl = this.doc.querySelector(SELECTORS.rating.containerSelector);
-
-    // Verify they exist
-    // jscs:disable maximumLineLength
-    assert(addObserverEl, 'Failed to find addObserver element for hooks "#' + SELECTORS.info.containerId + '"');
-    assert(shuffleObserverEl, 'Failed to find shuffleObserver element for hooks "' + SELECTORS.shuffle.buttonSelector + '"');
-    assert(repeatObserverEl, 'Failed to find repeatObserver element for hooks "' + SELECTORS.repeat.buttonSelector + '"');
-    assert(playbackObserverEl, 'Failed to find playbackObserver element for hooks "' + SELECTORS.playPause.buttonSelector + '"');
-    assert(playbackTimeObserverEl, 'Failed to find playbackTimeObserver element for hooks "#' + SELECTORS.playback.sliderId + '"');
-    assert(ratingObserverEl, 'Failed to find ratingObserver element for hooks "' + SELECTORS.rating.containerSelector + '"');
-    // jscs:enable maximumLineLength
-
-    // Bind our elements
-    addObserver.observe(addObserverEl, {
-      childList: true,
-      subtree: true
-    });
-    shuffleObserver.observe(shuffleObserverEl, {
-      attributes: true
-    });
-    repeatObserver.observe(repeatObserverEl, {
-      attributes: true
-    });
-    playbackObserver.observe(playbackObserverEl, {
-      attributes: true
-    });
-    playbackTimeObserver.observe(playbackTimeObserverEl, {
-      attributes: true
-    });
-    ratingObserver.observe(ratingObserverEl, {
-      attributes: true,
-      subtree: true
-    });
+    _this.addMethods(['getRating', 'toggleThumbsUp', 'toggleThumbsDown', 'setRating', 'resetRating']);
+    return _this;
   }
+
+  _createClass(RatingNamespace, [{
+    key: '_isElSelected',
+    value: function _isElSelected(el) {
+      // DEV: We don't use English only strings (e.g. "Undo") to support i18n
+      return el.__data__.icon === 'thumb-up' || el.__data__.icon === 'thumb-down';
+    }
+  }, {
+    key: 'getRating',
+    value: function getRating() {
+      var thumbEls = document.querySelectorAll(_selectors.ratingSelectors.thumbs);
+      (0, _assert2.default)(thumbEls.length, 'Failed to find thumb elements for rating "' + _selectors.ratingSelectors.thumbs + '"');
+
+      for (var i = 0; i < thumbEls.length; i++) {
+        if (this._isElSelected(thumbEls[i])) {
+          return thumbEls[i].dataset.rating;
+        }
+      }
+      return '0';
+    }
+  }, {
+    key: 'toggleThumbsUp',
+    value: function toggleThumbsUp() {
+      if (this._thumbsUpEl) {
+        this._thumbsUpEl.click();
+      }
+    }
+  }, {
+    key: 'toggleThumbsDown',
+    value: function toggleThumbsDown() {
+      if (this._thumbsDownEl) {
+        this._thumbsDownEl.click();
+      }
+    }
+  }, {
+    key: 'setRating',
+    value: function setRating(rating) {
+      var ratingEl = document.querySelector(_selectors.ratingSelectors.thumbsFormat.replace('{rating}', rating));
+
+      if (ratingEl && !this._isElSelected(ratingEl)) {
+        ratingEl.click();
+      }
+    }
+  }, {
+    key: 'resetRating',
+    value: function resetRating() {
+      var ratingEl = document.querySelector(_selectors.ratingSelectors.thumbsFormat.replace('{rating}', this.getRating()));
+
+      if (ratingEl && this._isElSelected(ratingEl)) {
+        ratingEl.click();
+      }
+    }
+  }, {
+    key: '_hookEvents',
+    value: function _hookEvents() {
+      var _this2 = this;
+
+      var lastRating = void 0;
+
+      // Change Rating Event
+      new MutationObserver(function (mutations) {
+        var ratingsTouched = mutations.some(function (m) {
+          return (
+            // Determine if our ratings were touched
+            m.target.dataset && m.target.dataset.rating && m.target.hasAttribute('aria-label')
+          );
+        });
+
+        if (!ratingsTouched) return;
+
+        var newRating = _this2.getRating();
+        if (lastRating !== newRating) {
+          _this2.emit('change:rating', newRating);
+          lastRating = newRating;
+        }
+      }).observe(document.querySelector(_selectors.ratingSelectors.ratingContainer), {
+        attributes: true,
+        subtree: true
+      });
+    }
+  }]);
+
+  return RatingNamespace;
+}(_GMusicNamespace3.default);
+
+exports.default = RatingNamespace;
+},{"../GMusicNamespace":1,"../constants/selectors":2,"assert":10}],8:[function(_dereq_,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _assert = _dereq_('assert');
+
+var _assert2 = _interopRequireDefault(_assert);
+
+var _GMusicNamespace2 = _dereq_('../GMusicNamespace');
+
+var _GMusicNamespace3 = _interopRequireDefault(_GMusicNamespace2);
+
+var _selectors = _dereq_('../constants/selectors');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var VolumeNamespace = function (_GMusicNamespace) {
+  _inherits(VolumeNamespace, _GMusicNamespace);
+
+  function VolumeNamespace() {
+    var _Object$getPrototypeO;
+
+    _classCallCheck(this, VolumeNamespace);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    var _this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(VolumeNamespace)).call.apply(_Object$getPrototypeO, [this].concat(args)));
+
+    _this._mapSelectors(_selectors.volumeSelectors);
+    _this._hookEvents();
+
+    _this.addMethods(['getVolume', 'setVolume', 'increaseVolume', 'decreaseVolume']);
+    return _this;
+  }
+
+  _createClass(VolumeNamespace, [{
+    key: '_assertVolume',
+    value: function _assertVolume(vol) {
+      (0, _assert2.default)(vol >= 0, 'Expected target volume (' + vol + ') to be >= 0');
+      (0, _assert2.default)(vol <= 100, 'Expected target volume (' + vol + ') to be <= 100');
+    }
+  }, {
+    key: 'getVolume',
+    value: function getVolume() {
+      return this._volumeSliderEl.value;
+    }
+  }, {
+    key: 'setVolume',
+    value: function setVolume(vol) {
+      this._assertVolume(vol);
+      this._volumeSliderEl.value = vol;
+    }
+  }, {
+    key: 'increaseVolume',
+    value: function increaseVolume() {
+      var amount = arguments.length <= 0 || arguments[0] === undefined ? 5 : arguments[0];
+
+      this._assertVolume(this._volumeSliderEl.value + amount);
+      this._volumeSliderEl.value += amount;
+    }
+  }, {
+    key: 'decreaseVolume',
+    value: function decreaseVolume() {
+      var amount = arguments.length <= 0 || arguments[0] === undefined ? 5 : arguments[0];
+
+      this._assertVolume(this._volumeSliderEl.value - amount);
+      this._volumeSliderEl.value -= amount;
+    }
+  }, {
+    key: '_hookEvents',
+    value: function _hookEvents() {
+      var _this2 = this;
+
+      this._volumeSliderEl.addEventListener('value-change', function () {
+        _this2.emit('change:volume', _this2.getVolume());
+      });
+    }
+  }]);
+
+  return VolumeNamespace;
+}(_GMusicNamespace3.default);
+
+exports.default = VolumeNamespace;
+},{"../GMusicNamespace":1,"../constants/selectors":2,"assert":10}],9:[function(_dereq_,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Track = function () {
+  function Track(_ref) {
+    var id = _ref.id;
+    var title = _ref.title;
+    var albumArt = _ref.albumArt;
+    var artist = _ref.artist;
+    var album = _ref.album;
+    var _ref$index = _ref.index;
+    var index = _ref$index === undefined ? 1 : _ref$index;
+    var duration = _ref.duration;
+    var _ref$playCount = _ref.playCount;
+    var playCount = _ref$playCount === undefined ? 0 : _ref$playCount;
+    var artistId = _ref.artistId;
+    var artistImage = _ref.artistImage;
+    var albumArtist = _ref.albumArtist;
+    var albumId = _ref.albumId;
+
+    _classCallCheck(this, Track);
+
+    this.id = id;
+    this.title = title;
+    this.albumArt = albumArt;
+    this.artist = artist;
+    this.album = album;
+    this.index = index;
+
+    this.artistId = artistId;
+    this.artistImage = artistImage;
+    this.albumArtist = albumArtist || '';
+    this.albumId = albumId;
+
+    this.duration = duration;
+    this.playCount = playCount;
+  }
+
+  _createClass(Track, [{
+    key: 'equals',
+    value: function equals(other) {
+      if (!other) return false;
+      return this.id === other.id && this.title === other.title && this.albumArt === other.albumArt && this.artist === other.artist && this.album === other.album && this.index === other.index && this.duration === other.duration && this.playCount === other.playCount;
+    }
+  }]);
+
+  return Track;
+}();
+
+Track.fromTrackArray = function (trackArr, index) {
+  return new Track({
+    id: trackArr[0],
+    title: trackArr[1],
+    albumArt: trackArr[2],
+    artist: trackArr[3],
+    album: trackArr[4],
+    albumArtist: trackArr[5],
+    index: index || trackArr[14],
+    duration: trackArr[13],
+    playCount: trackArr[22],
+    albumId: trackArr[32],
+    artistId: trackArr[33],
+    artistImage: trackArr[36]
+  });
 };
 
-// Expose selectors as a class property
-GMusic.SELECTORS = SELECTORS;
-
-// Export our constructor
-module.exports = GMusic;
-
-},{"assert":3,"events":4,"inherits":9}],3:[function(require,module,exports){
+exports.default = Track;
+},{}],10:[function(_dereq_,module,exports){
 // http://wiki.commonjs.org/wiki/Unit_Testing/1.0
 //
 // THIS IS NOT TESTED NOR LIKELY TO WORK OUTSIDE V8!
@@ -586,7 +914,7 @@ module.exports = GMusic;
 // when used in node, this will actually load the util module we depend on
 // versus loading the builtin util module as happens otherwise
 // this is a bug in node module loading as far as I am concerned
-var util = require('util/');
+var util = _dereq_('util/');
 
 var pSlice = Array.prototype.slice;
 var hasOwn = Object.prototype.hasOwnProperty;
@@ -647,7 +975,7 @@ function replacer(key, value) {
   if (util.isUndefined(value)) {
     return '' + value;
   }
-  if (util.isNumber(value) && !isFinite(value)) {
+  if (util.isNumber(value) && (isNaN(value) || !isFinite(value))) {
     return value.toString();
   }
   if (util.isFunction(value) || util.isRegExp(value)) {
@@ -786,22 +1114,23 @@ function objEquiv(a, b) {
     return false;
   // an identical 'prototype' property.
   if (a.prototype !== b.prototype) return false;
-  // if one is a primitive, the other must be same
-  if (util.isPrimitive(a) || util.isPrimitive(b)) {
-    return a === b;
-  }
-  var aIsArgs = isArguments(a),
-      bIsArgs = isArguments(b);
-  if ((aIsArgs && !bIsArgs) || (!aIsArgs && bIsArgs))
-    return false;
-  if (aIsArgs) {
+  //~~~I've managed to break Object.keys through screwy arguments passing.
+  //   Converting to array solves the problem.
+  if (isArguments(a)) {
+    if (!isArguments(b)) {
+      return false;
+    }
     a = pSlice.call(a);
     b = pSlice.call(b);
     return _deepEqual(a, b);
   }
-  var ka = objectKeys(a),
-      kb = objectKeys(b),
-      key, i;
+  try {
+    var ka = objectKeys(a),
+        kb = objectKeys(b),
+        key, i;
+  } catch (e) {//happens when one is a string literal and the other isn't
+    return false;
+  }
   // having the same number of owned properties (keys incorporates
   // hasOwnProperty)
   if (ka.length != kb.length)
@@ -919,7 +1248,7 @@ var objectKeys = Object.keys || function (obj) {
   return keys;
 };
 
-},{"util/":8}],4:[function(require,module,exports){
+},{"util/":15}],11:[function(_dereq_,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -1222,7 +1551,7 @@ function isUndefined(arg) {
   return arg === void 0;
 }
 
-},{}],5:[function(require,module,exports){
+},{}],12:[function(_dereq_,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -1247,43 +1576,50 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],6:[function(require,module,exports){
+},{}],13:[function(_dereq_,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
-var queue = [];
-var draining = false;
 
-function drainQueue() {
-    if (draining) {
-        return;
+process.nextTick = (function () {
+    var canSetImmediate = typeof window !== 'undefined'
+    && window.setImmediate;
+    var canPost = typeof window !== 'undefined'
+    && window.postMessage && window.addEventListener
+    ;
+
+    if (canSetImmediate) {
+        return function (f) { return window.setImmediate(f) };
     }
-    draining = true;
-    var currentQueue;
-    var len = queue.length;
-    while(len) {
-        currentQueue = queue;
-        queue = [];
-        var i = -1;
-        while (++i < len) {
-            currentQueue[i]();
-        }
-        len = queue.length;
+
+    if (canPost) {
+        var queue = [];
+        window.addEventListener('message', function (ev) {
+            var source = ev.source;
+            if ((source === window || source === null) && ev.data === 'process-tick') {
+                ev.stopPropagation();
+                if (queue.length > 0) {
+                    var fn = queue.shift();
+                    fn();
+                }
+            }
+        }, true);
+
+        return function nextTick(fn) {
+            queue.push(fn);
+            window.postMessage('process-tick', '*');
+        };
     }
-    draining = false;
-}
-process.nextTick = function (fun) {
-    queue.push(fun);
-    if (!draining) {
-        setTimeout(drainQueue, 0);
-    }
-};
+
+    return function nextTick(fn) {
+        setTimeout(fn, 0);
+    };
+})();
 
 process.title = 'browser';
 process.browser = true;
 process.env = {};
 process.argv = [];
-process.version = ''; // empty string to avoid regexp issues
 
 function noop() {}
 
@@ -1297,23 +1633,22 @@ process.emit = noop;
 
 process.binding = function (name) {
     throw new Error('process.binding is not supported');
-};
+}
 
 // TODO(shtylman)
 process.cwd = function () { return '/' };
 process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
-process.umask = function() { return 0; };
 
-},{}],7:[function(require,module,exports){
+},{}],14:[function(_dereq_,module,exports){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
     && typeof arg.fill === 'function'
     && typeof arg.readUInt8 === 'function';
 }
-},{}],8:[function(require,module,exports){
+},{}],15:[function(_dereq_,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -1840,7 +2175,7 @@ function isPrimitive(arg) {
 }
 exports.isPrimitive = isPrimitive;
 
-exports.isBuffer = require('./support/isBuffer');
+exports.isBuffer = _dereq_('./support/isBuffer');
 
 function objectToString(o) {
   return Object.prototype.toString.call(o);
@@ -1884,7 +2219,7 @@ exports.log = function() {
  *     prototype.
  * @param {function} superCtor Constructor function to inherit prototype from.
  */
-exports.inherits = require('inherits');
+exports.inherits = _dereq_('inherits');
 
 exports._extend = function(origin, add) {
   // Don't do anything if add isn't an object
@@ -1902,7 +2237,7 @@ function hasOwnProperty(obj, prop) {
   return Object.prototype.hasOwnProperty.call(obj, prop);
 }
 
-}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":7,"_process":6,"inherits":5}],9:[function(require,module,exports){
-arguments[4][5][0].apply(exports,arguments)
-},{"dup":5}]},{},[1]);
+}).call(this,_dereq_("qC859L"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"./support/isBuffer":14,"inherits":12,"qC859L":13}]},{},[3])
+(3)
+});
