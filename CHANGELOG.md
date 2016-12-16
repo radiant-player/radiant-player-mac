@@ -4,6 +4,8 @@ This file should follow the standards specified on [keepachangelog.com](http://k
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
+
+## [1.11.3] - 2016-12-15
 ### Fixed
 * Miniplayer now displays retina album art ([#629](https://github.com/radiant-player/radiant-player-mac/pull/629), [@eligat](https://github.com/eligat))
 * Repeat icon in miniplayer is now retina ([#631](https://github.com/radiant-player/radiant-player-mac/pull/631))
