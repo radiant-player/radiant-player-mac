@@ -975,6 +975,8 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
 {
     // Only apply the main script file when the player is ready.
     if ([[webView mainFrameDocument] querySelector:@"#playerSongInfo"]) {
+        /* Recent update Object.assign() returns undefined making a lot of the functionality broken adding a Polyfill should fix this */
+        [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"if(Object.assign == undefined){Object.defineProperty(Object,\"assign\",{enumerable:!1,configurable:!0,writable:!0,value:function(a){\"use strict\";if(void 0===a||null===a)throw new TypeError(\"Cannot convert first argument to object\");for(var b=Object(a),c=1;c<arguments.length;c++){var d=arguments[c];if(void 0!==d&&null!==d){d=Object(d);for(var e=Object.keys(Object(d)),f=0,g=e.length;f<g;f++){var h=e[f],i=Object.getOwnPropertyDescriptor(d,h);void 0!==i&&i.enumerable&&(b[h]=d[h])}}}return b}})};"]];
         [self evaluateJavaScriptFile:@"gmusic"];
         [self evaluateJavaScriptFile:@"main"];
     }
