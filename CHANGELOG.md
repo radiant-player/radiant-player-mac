@@ -4,6 +4,8 @@ This file should follow the standards specified on [keepachangelog.com](http://k
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
+
+## [1.11.4] - 2016-12-19
 ### Fixed
 * Fixed an issue causing notifications to not trigger on song change ([#632](https://github.com/radiant-player/radiant-player-mac/pull/632), [@BarakaAka1Only](https://github.com/BarakaAka1Only))
 
