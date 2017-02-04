@@ -1,4 +1,4 @@
-[Radiant Player for Google Play Music™][1] [![Build Status](https://travis-ci.org/radiant-player/radiant-player-mac.svg)](https://travis-ci.org/radiant-player/radiant-player-mac) [![OpenCollective](https://opencollective.com/radiant-player-mac/backers/badge.svg)](#backers) [![OpenCollective](https://opencollective.com/radiant-player-mac/sponsors/badge.svg)](#sponsors)
+[Radiant Player for Google Play Music™][1] [![Build Status](https://travis-ci.org/radiant-player/radiant-player-mac.svg)](https://travis-ci.org/radiant-player/radiant-player-mac) [![OpenCollective](https://opencollective.com/radiant-player/backers/badge.svg)](#backers) [![OpenCollective](https://opencollective.com/radiant-player/sponsors/badge.svg)](#sponsors)
 =========================
 
 ![](https://raw.githubusercontent.com/radiant-player/radiant-player-mac/master/website/images/styles/google.png)
@@ -41,73 +41,73 @@ A few JavaScript dependencies are installed via `npm` - to update these dependen
 Support 
 -------
 ### Backers
-Support us with a monthly donation and help us continue our activities. [[Become a backer](https://opencollective.com/radiant-player-mac#backer)]
+Support us with a monthly donation and help us continue our activities. [[Become a backer](https://opencollective.com/radiant-player#backer)]
 
-<a href="https://opencollective.com/radiant-player-mac/backer/0/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/0/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/backer/1/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/1/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/backer/2/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/2/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/backer/3/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/3/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/backer/4/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/4/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/backer/5/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/5/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/backer/6/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/6/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/backer/7/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/7/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/backer/8/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/8/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/backer/9/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/9/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/backer/10/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/10/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/backer/11/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/11/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/backer/12/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/12/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/backer/13/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/13/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/backer/14/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/14/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/backer/15/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/15/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/backer/16/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/16/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/backer/17/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/17/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/backer/18/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/18/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/backer/19/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/19/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/backer/20/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/20/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/backer/21/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/21/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/backer/22/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/22/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/backer/23/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/23/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/backer/24/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/24/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/backer/25/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/25/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/backer/26/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/26/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/backer/27/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/27/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/backer/28/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/28/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/backer/29/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/backer/29/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/0/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/0/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/1/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/1/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/2/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/2/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/3/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/3/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/4/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/4/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/5/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/5/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/6/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/6/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/7/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/7/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/8/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/8/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/9/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/9/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/10/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/10/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/11/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/11/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/12/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/12/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/13/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/13/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/14/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/14/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/15/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/15/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/16/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/16/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/17/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/17/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/18/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/18/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/19/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/19/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/20/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/20/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/21/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/21/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/22/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/22/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/23/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/23/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/24/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/24/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/25/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/25/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/26/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/26/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/27/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/27/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/28/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/28/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/backer/29/website" target="_blank"><img src="https://opencollective.com/radiant-player/backer/29/avatar.svg"></a>
 
 
 ### Sponsors
-Become a sponsor and get your logo on our README on Github with a link to your site. [[Become a sponsor](https://opencollective.com/radiant-player-mac#sponsor)]
+Become a sponsor and get your logo on our README on Github with a link to your site. [[Become a sponsor](https://opencollective.com/radiant-player#sponsor)]
 
-<a href="https://opencollective.com/radiant-player-mac/sponsor/0/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/0/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/sponsor/1/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/1/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/sponsor/2/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/2/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/sponsor/3/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/3/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/sponsor/4/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/4/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/sponsor/5/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/5/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/sponsor/6/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/6/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/sponsor/7/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/7/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/sponsor/8/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/8/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/sponsor/9/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/9/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/sponsor/10/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/10/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/sponsor/11/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/11/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/sponsor/12/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/12/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/sponsor/13/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/13/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/sponsor/14/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/14/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/sponsor/15/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/15/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/sponsor/16/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/16/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/sponsor/17/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/17/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/sponsor/18/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/18/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/sponsor/19/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/19/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/sponsor/20/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/20/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/sponsor/21/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/21/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/sponsor/22/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/22/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/sponsor/23/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/23/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/sponsor/24/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/24/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/sponsor/25/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/25/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/sponsor/26/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/26/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/sponsor/27/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/27/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/sponsor/28/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/28/avatar.svg"></a>
-<a href="https://opencollective.com/radiant-player-mac/sponsor/29/website" target="_blank"><img src="https://opencollective.com/radiant-player-mac/sponsor/29/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/0/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/0/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/1/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/1/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/2/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/2/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/3/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/3/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/4/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/4/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/5/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/5/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/6/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/6/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/7/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/7/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/8/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/8/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/9/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/9/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/10/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/10/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/11/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/11/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/12/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/12/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/13/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/13/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/14/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/14/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/15/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/15/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/16/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/16/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/17/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/17/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/18/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/18/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/19/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/19/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/20/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/20/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/21/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/21/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/22/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/22/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/23/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/23/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/24/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/24/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/25/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/25/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/26/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/26/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/27/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/27/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/28/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/28/avatar.svg"></a>
+<a href="https://opencollective.com/radiant-player/sponsor/29/website" target="_blank"><img src="https://opencollective.com/radiant-player/sponsor/29/avatar.svg"></a>
 
 License
 -------
