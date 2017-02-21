@@ -2,7 +2,6 @@
 
 NSString *const kMASPreferencesWindowControllerDidChangeViewNotification = @"MASPreferencesWindowControllerDidChangeViewNotification";
 
-static NSString *const kMASPreferencesFrameTopLeftKey = @"MASPreferences Frame Top Left";
 static NSString *const kMASPreferencesSelectedViewKey = @"MASPreferences Selected Identifier View";
 
 static NSString *const PreferencesKeyForViewBounds (NSString *identifier)
@@ -44,6 +43,7 @@ static NSString *const PreferencesKeyForViewBounds (NSString *identifier)
 #endif
         _minimumViewRects = [[NSMutableDictionary alloc] init];
         _title = [title copy];
+        self.windowFrameAutosaveName = @"Preferences";
     }
     return self;
 }
@@ -77,13 +77,6 @@ static NSString *const PreferencesKeyForViewBounds (NSString *identifier)
 
     if ([self.viewControllers count])
         self.selectedViewController = [self viewControllerForIdentifier:[[NSUserDefaults standardUserDefaults] stringForKey:kMASPreferencesSelectedViewKey]] ?: [self firstViewController];
-
-    NSString *origin = [[NSUserDefaults standardUserDefaults] stringForKey:kMASPreferencesFrameTopLeftKey];
-    if (origin)
-        [self.window setFrameTopLeftPoint:NSPointFromString(origin)];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowDidMove:)   name:NSWindowDidMoveNotification object:self.window];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowDidResize:) name:NSWindowDidResizeNotification object:self.window];
 }
 
 - (NSViewController <MASPreferencesViewController> *)firstViewController {
@@ -100,18 +93,6 @@ static NSString *const PreferencesKeyForViewBounds (NSString *identifier)
 - (BOOL)windowShouldClose:(id)sender
 {
     return !self.selectedViewController || [self.selectedViewController commitEditing];
-}
-
-- (void)windowDidMove:(NSNotification*)aNotification
-{
-    [[NSUserDefaults standardUserDefaults] setObject:NSStringFromPoint(NSMakePoint(NSMinX([self.window frame]), NSMaxY([self.window frame]))) forKey:kMASPreferencesFrameTopLeftKey];
-}
-
-- (void)windowDidResize:(NSNotification*)aNotification
-{
-    NSViewController <MASPreferencesViewController> *viewController = self.selectedViewController;
-    if (viewController)
-        [[NSUserDefaults standardUserDefaults] setObject:NSStringFromRect([viewController.view bounds]) forKey:PreferencesKeyForViewBounds(viewController.identifier)];
 }
 
 #pragma mark -
