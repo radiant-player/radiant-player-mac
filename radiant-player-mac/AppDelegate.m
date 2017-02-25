@@ -849,6 +849,11 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     {
         [[NotificationCenter center] scheduleNotificationWithTitle:title artist:artist album:album imageURL:art];
     }
+    
+    if (![defaults boolForKey:@"disableDistributednotifications"])
+    {
+        [[NotificationCenter center] postDistributedNotificationWithTitle:title artist:artist album:album imageURL:art];
+    }
 
     if ([defaults boolForKey:@"dock.show-art"])
     {

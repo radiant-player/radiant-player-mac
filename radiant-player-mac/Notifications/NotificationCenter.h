@@ -32,5 +32,5 @@ typedef NS_ENUM(NSInteger, NotificationActivationType) {
 
 + (NotificationCenter *) center;
 - (void) scheduleNotificationWithTitle:(NSString *)title artist:(NSString *)artist album:(NSString *)album imageURL:(NSString *)imageURL;
-
+- (void) postDistributedNotificationWithTitle:(NSString *)title artist:(NSString *)artist album:(NSString *)album imageURL:(NSString *)imageURL;
 @end
