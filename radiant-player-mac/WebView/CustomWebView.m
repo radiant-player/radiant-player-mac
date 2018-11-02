@@ -30,6 +30,22 @@
     [self setAcceptsTouchEvents:YES];
     [self addSubview:swipeView];
     
+    // Check if we are macOS Sierra or higher
+    if (floor(NSAppKitVersionNumber) >= NSAppKitVersionNumber10_12) {
+        
+        // Since we are doing a customer user-agent, lets show the app version of Radiant
+        NSString * RadiantVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleShortVersionString"];
+        
+        // Push and set our custom strings
+        NSString* RadiantBarakaAgent = [NSString stringWithFormat: @"Safari Radiant Player/%@", RadiantVersion];
+        
+        //Use our default user-agent and push our custom string
+        [self setApplicationNameForUserAgent:RadiantBarakaAgent];
+        
+        //Testing is needed right?
+        //NSLog(@"navigator.userAgent = %@", RadiantBarakaAgent);
+    }
+    
     [self setResourceLoadDelegate:self];
     [self setUIDelegate:self];
     [self setFrameLoadDelegate:self];
