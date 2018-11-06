@@ -3,4 +3,4 @@ set -e
 
 cd website
 bundle exec jekyll build
-bundle exec htmlproof ./_site --href-ignore '#'
+bundle exec htmlproofer ./_site --allow-hash-href
