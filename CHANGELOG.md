@@ -4,6 +4,9 @@ This file should follow the standards specified on [keepachangelog.com](http://k
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
+### Fixed
+* Fixed an issue causing crashes on Mac OS Mojave  ([#670](https://github.com/radiant-player/radiant-player-mac/pull/670), [@xrubioj](https://github.com/xrubioj))
+* Fixed Travis CI build ([#672](https://github.com/radiant-player/radiant-player-mac/pull/672)
 
 ## [1.11.4] - 2016-12-19
 ### Fixed
