@@ -54,7 +54,7 @@ fi
 # Package the app and changelog
 
 mkdir -p $OUTPUTDIR
-xctool -workspace radiant-player-mac.xcworkspace -scheme Radiant\ Player archive -archivePath $ARCHIVE_PATH
+xcodebuild -workspace radiant-player-mac.xcworkspace -scheme Radiant\ Player -archivePath "$ARCHIVE_PATH" archive
 cd $PRODUCT_PATH
 zip -r "$APP_ARCHIVE_PATH" "Radiant Player.app" > /dev/null
 cd $ROOT_PATH
