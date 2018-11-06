@@ -15,6 +15,9 @@ before_script:
   - eval "$(~/bin/gimme 1.11.2)"
   - go get github.com/aktau/github-release
 
+script:
+  - set -o pipefail && xcodebuild -workspace radiant-player-mac.xcworkspace -scheme Radiant\ Player build | xcpretty
+
 after_success:
   - PATH=$GOPATH/bin:$PATH ./scripts/release-app.sh
   - ./scripts/build-website.sh && ./scripts/deploy-website.sh
