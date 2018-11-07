@@ -38,7 +38,7 @@
     // Check if we are macOS Sierra or higher
     if (floor(NSAppKitVersionNumber) >= NSAppKitVersionNumber10_12) {
         
-        // Since we are doing a customer user-agent, lets show the app version of Radiant
+        // Since we are doing a custom user-agent, lets show the app version of Radiant
         NSString * RadiantVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleShortVersionString"];
         
         // Push and set our custom strings
