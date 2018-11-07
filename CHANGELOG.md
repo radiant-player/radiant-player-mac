@@ -5,6 +5,15 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
 
+## [1.11.6] - 2018-11-06
+### Fixed
+- Fixed issues with Travis CI deployments ([#673](https://github.com/radiant-player/radiant-player-mac/pull/673))
+
+## [1.11.5] - 2018-11-06
+### Fixed
+* Fixed an issue causing crashes on Mac OS Mojave  ([#670](https://github.com/radiant-player/radiant-player-mac/pull/670), [@xrubioj](https://github.com/xrubioj))
+* Fixed Travis CI build ([#672](https://github.com/radiant-player/radiant-player-mac/pull/672))
+
 ## [1.11.4] - 2016-12-19
 ### Fixed
 * Fixed an issue causing notifications to not trigger on song change ([#632](https://github.com/radiant-player/radiant-player-mac/pull/632), [@BarakaAka1Only](https://github.com/BarakaAka1Only))

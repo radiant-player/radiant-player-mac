@@ -21,15 +21,16 @@ module Releases
       repo = config['repository']
       return unless repo
 
+      headers = {}
       if ENV['GITHUB_TOKEN']
-        Unirest.default_header(
-          'Authorization', "token #{ENV['GITHUB_TOKEN']}"
-        )
+        headers = {
+          'Authorization' => "token #{ENV['GITHUB_TOKEN']}"
+        }
       end
 
       begin
         uri = "https://api.github.com/repos/#{repo}/releases?per_page=100'"
-        source = Unirest.get(uri)
+        source = Unirest.get(uri, headers: headers)
         source = source.body
 
         source = source.map do |release|

@@ -29,6 +29,11 @@
     [self setAutoresizesSubviews:YES];
     [self setAcceptsTouchEvents:YES];
     [self addSubview:swipeView];
+
+    // Workaround for issue #668 Crashes upon open in Mac OS Mojave
+    // https://github.com/radiant-player/radiant-player-mac/issues/668
+    // Sets UserAgent to Safari Version 12.0 (14606.1.36.1.9) running in macOS Mojave 10.14
+    [self setApplicationNameForUserAgent:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Safari/605.1.15"];
     
     // Check if we are macOS Sierra or higher
     if (floor(NSAppKitVersionNumber) >= NSAppKitVersionNumber10_12) {

@@ -3,17 +3,26 @@ PODS:
   - LastFm (1.15.0):
     - KissXML (~> 5.0)
   - MASPreferences (1.1)
-  - NSDate+TimeAgo (1.0.3)
+  - "NSDate+TimeAgo (1.0.3)"
 
 DEPENDENCIES:
   - LastFm
   - MASPreferences (~> 1.1)
-  - NSDate+TimeAgo
+  - "NSDate+TimeAgo"
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - KissXML
+    - LastFm
+    - MASPreferences
+    - "NSDate+TimeAgo"
 
 SPEC CHECKSUMS:
   KissXML: ce643413d618ad69886d0d43c3792b7dedfe476e
   LastFm: 28c752f8e8646531524a123ce7f6722bbfc9d3c5
   MASPreferences: fd8927826876acb095c78ca3f858818463ffdc30
-  NSDate+TimeAgo: 416f55d2696d3744c313091c5a9280d47f8238fe
+  "NSDate+TimeAgo": 416f55d2696d3744c313091c5a9280d47f8238fe
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 3481fac5cd3f3a400858d3005a2bb2afa7feac04
+
+COCOAPODS: 1.5.3
