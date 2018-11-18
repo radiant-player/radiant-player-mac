@@ -4,6 +4,8 @@ This file should follow the standards specified on [keepachangelog.com](http://k
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
+### Fixed
+- Fixed issue where Radiant crashes without Accessibility permissions ([#676](https://github.com/radiant-player/radiant-player-mac/pull/676), [@xrubioj](https://github.com/xrubioj))
 
 ## [1.11.6] - 2018-11-06
 ### Fixed
