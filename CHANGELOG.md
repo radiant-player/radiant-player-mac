@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
 
+## [1.11.7] - 2018-11-18
+### Fixed
+- Fixed issue where Radiant crashes without Accessibility permissions ([#676](https://github.com/radiant-player/radiant-player-mac/pull/676), [@xrubioj](https://github.com/xrubioj))
+
 ## [1.11.6] - 2018-11-06
 ### Fixed
 - Fixed issues with Travis CI deployments ([#673](https://github.com/radiant-player/radiant-player-mac/pull/673))

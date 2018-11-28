@@ -99,6 +99,9 @@
  */
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+
+    [self verifyAccessibility];
+
     [window setDelegate:self];
 
     // Load the user preferences.
@@ -620,6 +623,30 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
                 NSLog(@"Unknown key press seen %d", usageId);
         }
     }
+}
+
+#pragma mark - Accessibility
+
+- (void) verifyAccessibility
+{
+    Boolean trusted = AXIsProcessTrusted();
+    NSLog(@"Accessibility: process is trusted check: %s", (trusted ? "YES" : "NO"));
+    if (trusted) {
+        return;
+    }
+
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert setMessageText:@"Media keys"];
+    [alert setInformativeText:@"Radiant Player needs Accessibility permission to be able to listen for media keys. You will need to enable it from System Preferences.\n\nIf you\'ve updated Radiant Player and you\'re seeing this message, you will have to disable and reenable the permission in order for Radiant Player to work properly.\n\nRadiant Player will now close, and you will have to restart it after enabling the permission."];
+    [alert addButtonWithTitle:@"Close"];
+    [alert runModal];
+
+    const void *tkeys[1] = { kAXTrustedCheckOptionPrompt };
+    const void *tvalues[1] = { kCFBooleanTrue };
+    CFDictionaryRef options = CFDictionaryCreate(NULL, tkeys, tvalues, 1, &kCFTypeDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks);
+    NSLog(@"Accessibility: process is trusted check with prompt: %s", (AXIsProcessTrustedWithOptions(options) ? "YES" : "NO"));
+
+    exit(1);
 }
 
 #pragma mark - Web Browser Actions
