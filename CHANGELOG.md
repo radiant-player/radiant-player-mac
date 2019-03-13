@@ -6,6 +6,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
 
+## [1.12.0] - 2019-03-13
+
 ### Fixed
 
 - Fixed an issue causing Radiant to crash ([#671](https://github.com/radiant-player/radiant-player-mac/pull/671), [@BarakaAka1Only](https://github.com/BarakaAka1Only))
