@@ -35,6 +35,22 @@
     // Sets UserAgent to Safari Version 12.0 (14606.1.36.1.9) running in macOS Mojave 10.14
     [self setApplicationNameForUserAgent:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Safari/605.1.15"];
     
+    // Check if we are macOS Sierra or higher
+    if (floor(NSAppKitVersionNumber) >= NSAppKitVersionNumber10_12) {
+        
+        // Since we are doing a custom user-agent, lets show the app version of Radiant
+        NSString * RadiantVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleShortVersionString"];
+        
+        // Push and set our custom strings
+        NSString* RadiantBarakaAgent = [NSString stringWithFormat: @"Safari Radiant Player/%@", RadiantVersion];
+        
+        //Use our default user-agent and push our custom string
+        [self setApplicationNameForUserAgent:RadiantBarakaAgent];
+        
+        //Testing is needed right?
+        //NSLog(@"navigator.userAgent = %@", RadiantBarakaAgent);
+    }
+    
     [self setResourceLoadDelegate:self];
     [self setUIDelegate:self];
     [self setFrameLoadDelegate:self];
