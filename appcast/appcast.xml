@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>Radiant Player Changelog</title>
+        <link>https://radiant-player.github.io/radiant-player-mac/appcast/appcast.xml</link>
+        <description>Most recent changes with links to updates.</description>
+        <language>en</language>
+
+          <item>
+            <title>v1.6.3</title>
+            <description><![CDATA[
+              <p>This is a transitional release that allows upgrading to 1.7.0.  <strong>After this update installs, please choose Radiant Player &gt; Check for updates in the menu to update to 1.7.0.</strong></p>
+
+<!-- SPARKLESIG MCwCFDrvpMQp75YU/rG8nYTQdlxw13ubAhRF5DtYgs0feV+fWc7hRy72y7+lJA== -->
+            ]]>
+            </description>
+            <pubDate>Sun, 9 Feb 2016 11:10:25 -0600</pubDate>
+            <enclosure
+                url="https://github.com/radiant-player/radiant-player-mac/releases/download/v1.6.3/radiant-player-v1.6.3.zip"
+                sparkle:version="1.6.3"
+                length="5567481"
+                type="application/octet-stream"
+                sparkle:dsaSignature="MCwCFDrvpMQp75YU/rG8nYTQdlxw13ubAhRF5DtYgs0feV+fWc7hRy72y7+lJA=="
+            />
+            <sparkle:minimumSystemVersion>10.9</sparkle:minimumSystemVersion>
+          </item>
+    </channel>
+</rss>
