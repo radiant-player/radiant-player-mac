@@ -1,3 +1,11 @@
+<h1 align="center">Project Deprecated</h1>
+
+As Google Play Music [has shut down](https://support.google.com/googleplaymusic/answer/9973710), this repo will be archived as Radiant Player no longer functions. For alternatives that support YouTube Music, consider projects like [GPMDP](https://github.com/MarshallOfSound/Google-Play-Music-Desktop-Player-UNOFFICIAL-).
+
+If anyone is interested in developing Radiant Player further, please contact [@jacobwgillespie](https://github.com/jacobwgillespie) or any previous mantainer.
+
+---
+
 [Radiant Player for Google Play Music™][1] [![Build Status](https://travis-ci.org/radiant-player/radiant-player-mac.svg)](https://travis-ci.org/radiant-player/radiant-player-mac) [![OpenCollective](https://opencollective.com/radiant-player/backers/badge.svg)](#backers) [![OpenCollective](https://opencollective.com/radiant-player/sponsors/badge.svg)](#sponsors)
 =========================
 
