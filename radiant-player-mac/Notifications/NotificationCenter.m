@@ -99,6 +99,14 @@ NSString *const SONG_NOTIFICATION_NAME = @"SongNotification";
     [[NSUserNotificationCenter defaultUserNotificationCenter] scheduleNotification:notif];
 }
 
+- (void) postDistributedNotificationWithTitle:(NSString *)title artist:(NSString *)artist album:(NSString *)album imageURL:(NSString *)imageURL
+{
+    NSDistributedNotificationCenter *center = [NSDistributedNotificationCenter defaultCenter];
+    NSDictionary *userInfo = @{@"title" : title, @"artist" : artist, @"album" : album, @"albumArtURL" : imageURL};
+    
+    [center postNotificationName:@"com.sajidanwar.Radiant-Player.PlaybackStateChange" object:nil userInfo:userInfo options:NSDistributedNotificationDeliverImmediately];
+}
+
 - (void)_scheduleGrowlNotificationWithTitle:(NSString *)title artist:(NSString *)artist album:(NSString *)album image:(NSImage *)image
 {
     NSData *imageData = [NSData data];
